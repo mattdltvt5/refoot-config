@@ -192,6 +192,9 @@
             white-space: nowrap; text-transform: uppercase; letter-spacing: 0.2px;
         }
         .yt-btn:hover { color: #cc0000; border-color: #cc0000; }
+        .yt-btn.disabled, .yt-btn-dark.disabled {
+            opacity: 0.35; pointer-events: none; cursor: default;
+        }
 
         /* Error + empty notes */
         .comp-error {
@@ -727,17 +730,24 @@ function makeTeamRow(teamName, ch, pl, hasComp, compName) {
 
     const ytA = document.createElement('a');
     ytA.className = 'yt-btn';
-    ytA.href = ch && validCh(ch)
-        ? 'https://www.youtube.com/channel/' + ch
-        : 'https://www.youtube.com/results?search_query=' + encodeURIComponent(teamName + ' official youtube');
     ytA.target = '_blank';
     ytA.innerHTML = '<i class="fi-br-play"></i>';
-    chInp.addEventListener('input', () => {
-        const v = chInp.value.trim();
-        ytA.href = v && validCh(v)
-            ? 'https://www.youtube.com/channel/' + v
-            : 'https://www.youtube.com/results?search_query=' + encodeURIComponent(teamName + ' official youtube');
-    });
+    function updateTeamYtBtn() {
+        const cv = chInp.value.trim(), pv = plInp.value.trim();
+        if (cv && validCh(cv)) {
+            ytA.href = 'https://www.youtube.com/channel/' + cv;
+            ytA.classList.remove('disabled');
+        } else if (pv && validPl(pv)) {
+            ytA.href = 'https://www.youtube.com/playlist?list=' + pv;
+            ytA.classList.remove('disabled');
+        } else {
+            ytA.href = '#';
+            ytA.classList.add('disabled');
+        }
+    }
+    updateTeamYtBtn();
+    chInp.addEventListener('input', updateTeamYtBtn);
+    plInp.addEventListener('input', updateTeamYtBtn);
 
     row.appendChild(statusDot);
     row.appendChild(nameEl);
@@ -814,12 +824,10 @@ function buildUI() {
             ci.style.display = 'none';
 
             const searchA = document.createElement('a');
-            searchA.className = 'yt-btn-dark';
-            searchA.href = compCh && validCh(compCh)
-                ? 'https://www.youtube.com/channel/' + compCh
-                : 'https://www.youtube.com/results?search_query=' + encodeURIComponent(comp.name + ' official');
+            searchA.className = 'yt-btn-dark' + (compCh && validCh(compCh) ? '' : ' disabled');
+            searchA.href = compCh && validCh(compCh) ? 'https://www.youtube.com/channel/' + compCh : '#';
             searchA.target = '_blank';
-            searchA.innerHTML = '<i class="fi-br-play"></i> ' + (compCh && validCh(compCh) ? 'Open' : 'Search');
+            searchA.innerHTML = '<i class="fi-br-play"></i> Open';
 
             chipWrap.appendChild(cchip);
             chipWrap.appendChild(ci);
@@ -839,10 +847,13 @@ function buildUI() {
                 styleInp(ci);
                 const v = ci.value.trim();
                 cdotEl.className = 'dot ' + (v&&validCh(v)?'dot-green':'dot-red');
-                searchA.href = v && validCh(v)
-                    ? 'https://www.youtube.com/channel/' + v
-                    : 'https://www.youtube.com/results?search_query=' + encodeURIComponent(comp.name + ' official');
-                searchA.innerHTML = '<i class="fi-br-play"></i> ' + (v && validCh(v) ? 'Open' : 'Search');
+                if (v && validCh(v)) {
+                    searchA.href = 'https://www.youtube.com/channel/' + v;
+                    searchA.classList.remove('disabled');
+                } else {
+                    searchA.href = '#';
+                    searchA.classList.add('disabled');
+                }
                 markUnsaved();
             });
             ci.addEventListener('blur', () => {
@@ -911,6 +922,13 @@ function appendBcastRow(section, compName, bcastName, plValue) {
     const bLbl = bchip.querySelectorAll('span')[1];
     viewEl.appendChild(bchip);
 
+    const bPlayA = document.createElement('a');
+    bPlayA.className = 'yt-btn' + (plValue && validPl(plValue) ? '' : ' disabled');
+    bPlayA.href = plValue && validPl(plValue) ? 'https://www.youtube.com/playlist?list=' + plValue : '#';
+    bPlayA.target = '_blank';
+    bPlayA.innerHTML = '<i class="fi-br-play"></i>';
+    viewEl.appendChild(bPlayA);
+
     // Edit mode
     const editEl = document.createElement('div');
     editEl.className = 'bcast-edit';
@@ -955,6 +973,9 @@ function appendBcastRow(section, compName, bcastName, plValue) {
                 bLbl.textContent = nameInp.value.trim() || 'New broadcaster';
                 const v = plInp.value.trim();
                 bDot.className = 'dot ' + (v && validPl(v) ? 'dot-green' : 'dot-red');
+                bPlayA.href = v && validPl(v) ? 'https://www.youtube.com/playlist?list=' + v : '#';
+                if (v && validPl(v)) bPlayA.classList.remove('disabled');
+                else bPlayA.classList.add('disabled');
             }
         }, 150);
     }
@@ -964,7 +985,14 @@ function appendBcastRow(section, compName, bcastName, plValue) {
     plInp.addEventListener('focus', () => clearTimeout(bcastBlurTimer));
 
     nameInp.addEventListener('input', markUnsaved);
-    plInp.addEventListener('input', () => { stylePl(plInp); markUnsaved(); });
+    plInp.addEventListener('input', () => {
+        stylePl(plInp);
+        markUnsaved();
+        const v = plInp.value.trim();
+        bPlayA.href = v && validPl(v) ? 'https://www.youtube.com/playlist?list=' + v : '#';
+        if (v && validPl(v)) bPlayA.classList.remove('disabled');
+        else bPlayA.classList.add('disabled');
+    });
     nameInp.addEventListener('keydown', e => { if(e.key==='Enter') nameInp.blur(); });
     plInp.addEventListener('keydown', e => { if(e.key==='Enter') plInp.blur(); });
     delBtn.addEventListener('click', () => { row.remove(); markUnsaved(); });
