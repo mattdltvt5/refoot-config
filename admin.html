@@ -108,12 +108,16 @@
         }
         .comp-header {
             background: var(--black); color: #fff;
-            padding: 0 16px; height: 50px;
-            display: flex; align-items: center; gap: 10px;
-            cursor: pointer; user-select: none;
-            transition: background 0.15s;
+            padding: 4px 16px 10px;
+            display: flex; flex-direction: column; gap: 2px;
+            user-select: none;
         }
-        .comp-header:hover { background: #1a1a1a; }
+        .comp-header-top {
+            display: flex; align-items: center; gap: 10px;
+            cursor: pointer; height: 44px;
+        }
+        .comp-header-top:hover { opacity: 0.9; }
+        .comp-header-ch { display: flex; align-items: center; gap: 8px; padding-bottom: 4px; }
         .comp-flag { width: 22px; height: 22px; object-fit: contain; flex-shrink: 0; }
         .comp-name { font-size: 14px; font-weight: 500; flex: 1; letter-spacing: 0.4px; }
         .comp-badge {
@@ -122,14 +126,24 @@
         }
         .chevron { color: rgba(255,255,255,0.5); font-size: 10px; transition: transform 0.2s; }
         .chevron.open { transform: rotate(90deg); }
-
-        /* Official channel row */
-        .comp-ch-row {
-            display: flex; align-items: center; gap: 10px;
-            padding: 10px 16px; background: var(--blue-bg);
-            border-bottom: 1px solid var(--border);
+        .ch-input-dark {
+            background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.25);
+            border-radius: 4px; color: #fff; font-family: inherit; font-size: 12px;
+            padding: 6px 8px; width: 220px; outline: none; transition: border-color 0.15s;
         }
-        .comp-ch-label { font-size: 12px; color: var(--blue-dark); font-weight: 500; width: 130px; flex-shrink: 0; }
+        .ch-input-dark:focus { border-color: rgba(255,255,255,0.6); box-shadow: 0 0 0 2px rgba(255,255,255,0.12); }
+        .ch-input-dark::placeholder { color: rgba(255,255,255,0.35); }
+        .ch-input-dark.valid { border-color: var(--green); }
+        .ch-input-dark.bad   { border-color: var(--red); }
+        .yt-btn-dark {
+            display: inline-flex; align-items: center; gap: 4px;
+            text-decoration: none; font-size: 11px; font-weight: 500;
+            color: rgba(255,255,255,0.55); background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.2); border-radius: 4px;
+            padding: 5px 8px; transition: color 0.15s, border-color 0.15s, background 0.15s;
+            white-space: nowrap; text-transform: uppercase; letter-spacing: 0.2px;
+        }
+        .yt-btn-dark:hover { color: #fff; border-color: rgba(255,255,255,0.5); background: rgba(255,255,255,0.15); }
 
         /* Team list / rows */
         .team-list { display: none; }
@@ -148,7 +162,6 @@
         .ch-input {
             background: #fff; border: 1px solid #BDBDBD; border-radius: 4px;
             color: var(--text); font-size: 12px;
-            font-family: 'Courier New', monospace;
             padding: 6px 8px; width: 210px; outline: none;
             transition: border-color 0.15s, box-shadow 0.15s;
         }
@@ -220,7 +233,6 @@
             border: 1px solid #BDBDBD; border-bottom: 2px solid #BDBDBD;
             border-radius: 4px 4px 0 0; color: var(--text);
             font-size: 14px; padding: 10px 12px; outline: none;
-            font-family: 'Courier New', monospace;
             transition: border-bottom-color 0.15s;
         }
         .form-input:focus { border-bottom-color: var(--blue); }
@@ -250,10 +262,11 @@
         .btn-ghost [class*=" fi-br-"]::before { font-size: 14px; vertical-align: middle; }
         .chevron { font-size: 12px; }
         .debug-header [class^="fi-br-"]::before { font-size: 13px; margin-right: 4px; }
-        .comp-ch-label [class^="fi-br-"]::before,
-        .comp-pl-label [class^="fi-br-"]::before { font-size: 13px; margin-right: 4px; }
-        .add-team-btn [class^="fi-br-"]::before { font-size: 14px; }
-        .yt-btn [class^="fi-br-"]::before { font-size: 11px; }
+        .add-team-btn [class^="fi-br-"]::before,
+        .add-bcast-btn [class^="fi-br-"]::before { font-size: 14px; }
+        .yt-btn [class^="fi-br-"]::before,
+        .yt-btn-dark [class^="fi-br-"]::before { font-size: 11px; }
+        .bcast-del-btn [class^="fi-br-"]::before { font-size: 12px; }
 
         /* ── Loading ─────────────────────────────────────── */
         #loading-state { text-align: center; padding: 60px 20px; color: var(--muted); }
@@ -278,19 +291,39 @@
         #toast.success { background: #388E3C; }
         #toast.error   { background: #D32F2F; }
 
-        /* ── Playlist row — Tier-4 fallback ──────────────── */
-        .comp-pl-row {
-            display: flex; align-items: center; gap: 10px;
-            padding: 10px 16px; background: #FAFAFA;
+        /* ── Broadcaster playlist rows ───────────────────── */
+        .bcast-section { border-bottom: 1px solid var(--border); }
+        .bcast-row {
+            display: flex; align-items: center; gap: 8px;
+            padding: 8px 16px; background: #FAFAFA;
             border-bottom: 1px solid var(--border);
         }
-        .comp-pl-label { font-size: 12px; color: var(--muted); font-weight: 500; width: 130px; flex-shrink: 0; }
+        .bcast-name-input {
+            background: #fff; border: 1px solid #BDBDBD; border-radius: 4px;
+            color: var(--text); font-size: 12px; font-family: inherit;
+            padding: 6px 8px; width: 120px; outline: none; transition: border-color 0.15s; flex-shrink: 0;
+        }
+        .bcast-name-input:focus { border-color: var(--muted); }
+        .bcast-name-input::placeholder { color: #BDBDBD; }
+        .bcast-row .pl-input { flex: 1; min-width: 0; width: auto; }
+        .bcast-del-btn {
+            background: none; border: none; cursor: pointer; color: var(--muted);
+            font-size: 14px; padding: 4px 6px; border-radius: 4px; flex-shrink: 0;
+            display: flex; align-items: center; transition: color 0.15s, background 0.15s;
+        }
+        .bcast-del-btn:hover { color: var(--red); background: #FFF8F8; }
+        .add-bcast-btn {
+            display: flex; align-items: center; gap: 6px;
+            padding: 7px 16px; color: var(--muted); font-size: 12px;
+            cursor: pointer; background: #FAFAFA; border: none;
+            width: 100%; text-align: left; font-family: inherit;
+        }
+        .add-bcast-btn:hover { background: var(--bg); color: var(--text); }
 
         /* Playlist ID input (PLxxxx / UUxxxx) */
         .pl-input {
             background: #fff; border: 1px solid #BDBDBD; border-radius: 4px;
             color: var(--text); font-size: 12px;
-            font-family: 'Courier New', monospace;
             padding: 6px 8px; width: 256px; outline: none;
             transition: border-color 0.15s, box-shadow 0.15s;
         }
@@ -537,8 +570,8 @@ function buildUI() {
 
     COMPETITIONS.forEach(comp => {
         const compCh  = (sourcesData.competitions||{})[comp.name] || '';
-        const compPl  = (sourcesData.playlists||{})[comp.name]    || '';
-        const hasComp = compCh.length > 0 || compPl.length > 0;
+        const compPls = (sourcesData.playlists||{})[comp.name] || {};
+        const hasComp = compCh.length > 0 || Object.values(compPls).some(v => v.length > 0);
         const teamMap = (sourcesData.teamPlaylists||{})[comp.name] || {};
         const teams   = Object.keys(teamMap).sort();
 
@@ -550,28 +583,31 @@ function buildUI() {
         const block = document.createElement('div');
         block.className = 'comp-block';
 
-        // Section header
+        // Header — top row (toggle) + channel input row (inline)
         const hdr = document.createElement('div');
         hdr.className = 'comp-header';
-        hdr.innerHTML = '<span class="chevron" id="chev-' + comp.slug + '"><i class="fi-br-angle-right"></i></span>'
+
+        const hdrTop = document.createElement('div');
+        hdrTop.className = 'comp-header-top';
+        hdrTop.innerHTML = '<span class="chevron" id="chev-' + comp.slug + '"><i class="fi-br-angle-right"></i></span>'
             + '<img class="comp-flag" src="' + FLAGS[comp.name] + '" alt="">'
             + '<span class="comp-name">' + comp.name.toUpperCase() + '</span>'
             + '<span class="comp-badge">' + teams.length + ' teams</span>'
             + '<div class="dot ' + (compCh?'dot-green':'dot-red') + '" id="cdot-' + comp.slug + '" title="Official channel ' + (compCh?'configured':'not set') + '"></div>';
-        hdr.addEventListener('click', () => {
+        hdrTop.addEventListener('click', () => {
             document.getElementById('list-'+comp.slug).classList.toggle('open');
             document.getElementById('chev-'+comp.slug).classList.toggle('open');
         });
+        hdr.appendChild(hdrTop);
+
+        const hdrCh = document.createElement('div');
+        hdrCh.className = 'comp-header-ch';
+        hdrCh.innerHTML = '<input class="ch-input-dark' + (compCh&&validCh(compCh)?' valid':compCh?' bad':'') + '" id="cinp-'+comp.slug+'" data-comp="'+comp.name+'" value="'+compCh+'" placeholder="Official channel (UCxxxxxxxxx)">'
+            + '<a class="yt-btn-dark" href="https://www.youtube.com/results?search_query='+encodeURIComponent(comp.name+' official')+'" target="_blank"><i class="fi-br-play"></i> Search</a>';
+        hdr.appendChild(hdrCh);
         block.appendChild(hdr);
 
-        // Official channel row (Tier 2)
-        const cr = document.createElement('div');
-        cr.className = 'comp-ch-row';
-        cr.innerHTML = '<span class="comp-ch-label"><i class="fi-br-trophy"></i> Official channel</span>'
-            + '<input class="ch-input' + (compCh&&validCh(compCh)?' valid':compCh?' bad':'') + '" id="cinp-'+comp.slug+'" data-comp="'+comp.name+'" value="'+compCh+'" placeholder="UCxxxxxxxxxxxxxxxxxxxxxxxx">'
-            + '<a class="yt-btn" href="https://www.youtube.com/results?search_query='+encodeURIComponent(comp.name+' official')+'" target="_blank"><i class="fi-br-play"></i> Search</a>';
-        block.appendChild(cr);
-        const ci = cr.querySelector('.ch-input');
+        const ci = hdrCh.querySelector('.ch-input-dark');
         ci.addEventListener('input', () => {
             styleInp(ci);
             const dot = document.getElementById('cdot-'+comp.slug);
@@ -579,16 +615,20 @@ function buildUI() {
             if (dot) dot.className = 'dot ' + (v&&validCh(v)?'dot-green':'dot-red');
             markUnsaved();
         });
+        ci.addEventListener('click', e => e.stopPropagation());
 
-        // Fallback playlist row (Tier 4 competition-level)
-        const pr = document.createElement('div');
-        pr.className = 'comp-pl-row';
-        pr.innerHTML = '<span class="comp-pl-label"><i class="fi-br-film"></i> Fallback playlist</span>'
-            + '<input class="pl-input' + (compPl&&validPl(compPl)?' valid':compPl?' bad':'') + '" data-comp-pl="'+comp.name+'" value="'+compPl+'" placeholder="PLxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx">';
-        block.appendChild(pr);
-        const pi = pr.querySelector('.pl-input');
-        pi.addEventListener('input', () => { stylePl(pi); markUnsaved(); });
+        // Broadcaster playlist rows (Tier 4 competition-level)
+        const bcastSection = document.createElement('div');
+        bcastSection.className = 'bcast-section';
+        Object.entries(compPls).forEach(([name, val]) => appendBcastRow(bcastSection, comp.name, name, val));
+        const addBcastBtn = document.createElement('button');
+        addBcastBtn.className = 'add-bcast-btn';
+        addBcastBtn.innerHTML = '<i class="fi-br-plus"></i> Add broadcaster';
+        addBcastBtn.addEventListener('click', () => { appendBcastRow(bcastSection, comp.name, '', ''); markUnsaved(); });
+        bcastSection.appendChild(addBcastBtn);
+        block.appendChild(bcastSection);
 
+        // Team list
         const list = document.createElement('div');
         list.className = 'team-list'; list.id = 'list-'+comp.slug;
 
@@ -604,11 +644,11 @@ function buildUI() {
                 const dotC = ch?'dot-green':hasComp?'dot-yellow':'dot-red';
                 const row = document.createElement('div');
                 row.className = 'team-row';
-                row.innerHTML = '<div class="dot '+dotC+'" id="dot-'+sid(teamName)+'" title="'+(ch?'Tier 1':hasComp?'Tier 2/4':'No coverage')+'"></div>'
+                row.innerHTML = '<div class="dot '+dotC+'" id="dot-'+sid(teamName)+'" title="'+(ch?'Has team channel':hasComp?'Competition only':'No coverage')+'"></div>'
                     + '<div class="team-name">'+teamName+'</div>'
                     + '<div class="team-inputs">'
-                    + '<input class="ch-input sm'+(ch&&validCh(ch)?' valid':'')+'" id="inp-'+sid(teamName)+'" data-team="'+teamName.replace(/"/g,'&quot;')+'" value="'+ch+'" placeholder="UCxxxx (Tier 1)">'
-                    + '<input class="pl-input sm'+(pl&&validPl(pl)?' valid':'')+'" data-team-pl="'+teamName.replace(/"/g,'&quot;')+'" data-comp-ctx="'+comp.name.replace(/"/g,'&quot;')+'" value="'+pl+'" placeholder="PLxxxx (Tier 4)">'
+                    + '<input class="ch-input sm'+(ch&&validCh(ch)?' valid':'')+'" id="inp-'+sid(teamName)+'" data-team="'+teamName.replace(/"/g,'&quot;')+'" value="'+ch+'" placeholder="Team\'s channel (UCxxxx)">'
+                    + '<input class="pl-input sm'+(pl&&validPl(pl)?' valid':'')+'" data-team-pl="'+teamName.replace(/"/g,'&quot;')+'" data-comp-ctx="'+comp.name.replace(/"/g,'&quot;')+'" value="'+pl+'" placeholder="Team\'s playlist (PLxxxx)">'
                     + '</div>'
                     + '<a class="yt-btn" href="https://www.youtube.com/results?search_query='+encodeURIComponent(teamName+' official youtube')+'" target="_blank"><i class="fi-br-play"></i></a>';
                 list.appendChild(row);
@@ -624,7 +664,6 @@ function buildUI() {
             });
         }
 
-        // "Add team" button
         const addBtn = document.createElement('button');
         addBtn.className = 'add-team-btn';
         addBtn.innerHTML = '<i class="fi-br-plus"></i> Add team';
@@ -635,9 +674,22 @@ function buildUI() {
         container.appendChild(block);
     });
 
-    document.getElementById('cnt-t1').textContent   = t1+' Tier 1';
-    document.getElementById('cnt-t2').textContent   = t2+' Tier 2/4 only';
-    document.getElementById('cnt-none').textContent = none+' No coverage';
+    document.getElementById('cnt-t1').textContent   = t1+' with team channel';
+    document.getElementById('cnt-t2').textContent   = t2+' competition only';
+    document.getElementById('cnt-none').textContent = none+' no coverage';
+}
+
+function appendBcastRow(section, compName, bcastName, plValue) {
+    const addBtn = section.querySelector('.add-bcast-btn');
+    const row = document.createElement('div');
+    row.className = 'bcast-row';
+    row.innerHTML = '<input class="bcast-name-input" placeholder="Broadcaster name" value="'+bcastName.replace(/"/g,'&quot;')+'">'
+        + '<input class="pl-input'+(plValue&&validPl(plValue)?' valid':plValue?' bad':'')+'" data-comp-pl="'+compName.replace(/"/g,'&quot;')+'" value="'+plValue+'" placeholder="PLxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx">'
+        + '<button class="bcast-del-btn" title="Remove"><i class="fi-br-cross"></i></button>';
+    const pli = row.querySelector('.pl-input');
+    pli.addEventListener('input', () => { stylePl(pli); markUnsaved(); });
+    row.querySelector('.bcast-del-btn').addEventListener('click', () => { row.remove(); markUnsaved(); });
+    section.insertBefore(row, addBtn);
 }
 
 function addTeam(slug, compName, list, addBtn) {
@@ -659,8 +711,8 @@ function addTeam(slug, compName, list, addBtn) {
     row.innerHTML = '<div class="dot dot-red" id="dot-'+sid(teamName)+'" title="No coverage"></div>'
         + '<div class="team-name">'+teamName+'</div>'
         + '<div class="team-inputs">'
-        + '<input class="ch-input sm" data-team="'+teamName.replace(/"/g,'&quot;')+'" value="" placeholder="UCxxxx (Tier 1)">'
-        + '<input class="pl-input sm" data-team-pl="'+teamName.replace(/"/g,'&quot;')+'" data-comp-ctx="'+compName.replace(/"/g,'&quot;')+'" value="" placeholder="PLxxxx (Tier 4)">'
+        + '<input class="ch-input sm" data-team="'+teamName.replace(/"/g,'&quot;')+'" value="" placeholder="Team\'s channel (UCxxxx)">'
+        + '<input class="pl-input sm" data-team-pl="'+teamName.replace(/"/g,'&quot;')+'" data-comp-ctx="'+compName.replace(/"/g,'&quot;')+'" value="" placeholder="Team\'s playlist (PLxxxx)">'
         + '</div>'
         + '<a class="yt-btn" href="https://www.youtube.com/results?search_query='+encodeURIComponent(teamName+' official youtube')+'" target="_blank"><i class="fi-br-play"></i></a>';
 
@@ -685,12 +737,20 @@ function addTeam(slug, compName, list, addBtn) {
 // ── Collect ──────────────────────────────────────────────
 function collectData() {
     const data = { competitions:{}, teams:{}, playlists:{}, teamPlaylists:{} };
-    document.querySelectorAll('.ch-input[data-comp]').forEach(inp => {
+    document.querySelectorAll('.ch-input-dark[data-comp]').forEach(inp => {
         data.competitions[inp.dataset.comp] = inp.value.trim();
     });
-    document.querySelectorAll('.pl-input[data-comp-pl]').forEach(inp => {
-        const v = inp.value.trim();
-        if (v) data.playlists[inp.dataset.compPl] = v;
+    document.querySelectorAll('.bcast-section').forEach(section => {
+        section.querySelectorAll('.bcast-row').forEach(row => {
+            const pl      = row.querySelector('.pl-input');
+            const nameInp = row.querySelector('.bcast-name-input');
+            if (!pl || !nameInp) return;
+            const compName  = pl.dataset.compPl;
+            if (!compName) return;
+            if (!data.playlists[compName]) data.playlists[compName] = {};
+            const bcastName = nameInp.value.trim() || 'Playlist';
+            data.playlists[compName][bcastName] = pl.value.trim();
+        });
     });
     document.querySelectorAll('.ch-input[data-team]').forEach(inp => {
         const v = inp.value.trim();
@@ -701,7 +761,6 @@ function collectData() {
         const name = inp.dataset.teamPl;
         if (!ctx || !name) return;
         if (!data.teamPlaylists[ctx]) data.teamPlaylists[ctx] = {};
-        // Preserve entry even if playlist is empty (keeps team-competition association)
         const v = inp.value.trim();
         if (v || !(data.teamPlaylists[ctx][name])) {
             data.teamPlaylists[ctx][name] = v;
@@ -723,6 +782,13 @@ async function loadAll() {
         if (!sourcesData.teams)         sourcesData.teams         = {};
         if (!sourcesData.playlists)     sourcesData.playlists     = {};
         if (!sourcesData.teamPlaylists) sourcesData.teamPlaylists = {};
+        // Backward compat: convert old string-format playlists to {broadcaster: id} objects
+        Object.keys(sourcesData.playlists).forEach(comp => {
+            if (typeof sourcesData.playlists[comp] === 'string') {
+                const v = sourcesData.playlists[comp];
+                sourcesData.playlists[comp] = v ? { 'Playlist': v } : {};
+            }
+        });
 
         const saved = sourcesData._updated;
         document.getElementById('last-saved').textContent = saved ? 'Last saved: '+saved : 'Never saved';
