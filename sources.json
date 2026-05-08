@@ -1,7 +1,7 @@
 {
   "_updated": "2026-05-08",
 
-  "_note": "competitions = Tier-2 channel IDs (UCxxxx). teams = Tier-1 club channel IDs (UCxxxx). playlists = Tier-4 competition playlists (PLxxxx). teamPlaylists = Tier-4 team-specific playlists per competition.",
+  "_note": "competitions = Tier-2 channel IDs (UCxxxx). teams = Tier-1 club channel IDs (UCxxxx). playlists = Tier-4 broadcaster playlists per competition: { CompetitionName: { BroadcasterName: [PLxxxx, ...] } }. teamPlaylists = Tier-4 team-specific playlists per competition.",
 
   "competitions": {
     "Premier League":   "",
@@ -16,14 +16,14 @@
   "teams": {},
 
   "playlists": {
-    "Premier League":   "PLXEMPXZ3PY1hMzinDc1TvSm8U2NUyz-0E",
-    "Serie A":          "PLkwBiY2Dq-oZc2BYatzkvjPA6AKkz0Nhd",
-    "Bundesliga":       "PL3uJGozO1imdjz1dqUwBXABVn31cOKbiE",
-    "Champions League": "PLkwBiY2Dq-oaG6vHAhmcCOc3Q_-To2dlA",
-    "Europa League":    "PLkwBiY2Dq-oYudAQQWU3ene4op723wpxg",
-    "Euro Cup":         "PLKHdj0BT9oN7qBYlsW9zhH4PDRfLqPR6b",
-    "Copa America":     "PLKHdj0BT9oN6AiWrcZt7t61-_3vs5Ud-n",
-    "World Cup":        "PLtmNAhKNyKpjpLiS-Bg2RDIvbtHN1qzZc"
+    "Premier League":   { "Official": ["PLXEMPXZ3PY1hMzinDc1TvSm8U2NUyz-0E"] },
+    "Serie A":          { "Official": ["PLkwBiY2Dq-oZc2BYatzkvjPA6AKkz0Nhd"] },
+    "Bundesliga":       { "Official": ["PL3uJGozO1imdjz1dqUwBXABVn31cOKbiE"] },
+    "Champions League": { "Official": ["PLkwBiY2Dq-oaG6vHAhmcCOc3Q_-To2dlA"] },
+    "Europa League":    { "Official": ["PLkwBiY2Dq-oYudAQQWU3ene4op723wpxg"] },
+    "Euro Cup":         { "Official": ["PLKHdj0BT9oN7qBYlsW9zhH4PDRfLqPR6b"] },
+    "Copa America":     { "Official": ["PLKHdj0BT9oN6AiWrcZt7t61-_3vs5Ud-n"] },
+    "World Cup":        { "Official": ["PLtmNAhKNyKpjpLiS-Bg2RDIvbtHN1qzZc"] }
   },
 
   "teamPlaylists": {

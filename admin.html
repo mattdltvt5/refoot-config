@@ -295,7 +295,9 @@
         .add-bcast-btn [class^="fi-br-"]::before { font-size: 14px; }
         .yt-btn [class^="fi-br-"]::before,
         .yt-btn-dark [class^="fi-br-"]::before { font-size: 11px; }
-        .bcast-del-btn [class^="fi-br-"]::before { font-size: 12px; }
+        .bcast-del-btn [class^="fi-br-"]::before,
+        .bcast-pl-del [class^="fi-br-"]::before  { font-size: 11px; }
+        .bcast-pl-add [class^="fi-br-"]::before  { font-size: 10px; }
 
         /* ── Loading ─────────────────────────────────────── */
         #loading-state { text-align: center; padding: 60px 20px; color: var(--muted); }
@@ -327,6 +329,7 @@
             padding: 8px 16px; background: #FAFAFA;
             border-bottom: 1px solid var(--border);
         }
+        .bcast-row.editing { align-items: flex-start; padding-top: 10px; padding-bottom: 10px; }
         .bcast-name-input {
             background: #fff; border: 1px solid #BDBDBD; border-radius: 4px;
             color: var(--text); font-size: 12px; font-family: inherit;
@@ -334,7 +337,6 @@
         }
         .bcast-name-input:focus { border-color: var(--muted); }
         .bcast-name-input::placeholder { color: #BDBDBD; }
-        .bcast-row .pl-input { flex: 1; min-width: 0; width: auto; }
         .bcast-del-btn {
             background: none; border: none; cursor: pointer; color: var(--muted);
             font-size: 14px; padding: 4px 6px; border-radius: 4px; flex-shrink: 0;
@@ -392,7 +394,24 @@
 
         /* Broadcaster row view/edit panels */
         .bcast-view { display: flex; align-items: center; flex: 1; min-width: 0; }
-        .bcast-edit { display: flex; align-items: center; gap: 8px; flex: 1; min-width: 0; }
+        .bcast-edit { display: flex; flex-direction: column; gap: 6px; flex: 1; min-width: 0; }
+        .bcast-edit-header { display: flex; align-items: center; gap: 8px; }
+        .bcast-pl-list { display: flex; flex-direction: column; gap: 4px; }
+        .bcast-pl-entry { display: flex; align-items: center; gap: 6px; }
+        .bcast-pl-entry .pl-input { flex: 1; min-width: 0; width: auto; }
+        .bcast-pl-del {
+            background: none; border: none; cursor: pointer; color: var(--muted);
+            padding: 3px 5px; border-radius: 3px; flex-shrink: 0; display: flex; align-items: center;
+            transition: color 0.15s;
+        }
+        .bcast-pl-del:hover { color: var(--red); }
+        .bcast-pl-add {
+            background: none; border: 1px dashed var(--border); border-radius: 4px;
+            cursor: pointer; color: var(--muted); font-size: 11px; font-weight: 500;
+            padding: 3px 8px; display: inline-flex; align-items: center; gap: 4px;
+            font-family: inherit; transition: color 0.15s, border-color 0.15s; align-self: flex-start;
+        }
+        .bcast-pl-add:hover { color: var(--blue); border-color: var(--blue); }
 
         /* Add-team button */
         .add-team-btn {
@@ -624,6 +643,11 @@ async function writeSources(data) {
 
 // ── Helpers ──────────────────────────────────────────────
 function today() { return new Date().toISOString().split('T')[0]; }
+// Normalise a broadcaster playlist value (string or array) to a clean string[]
+function toPlArray(v) {
+    if (Array.isArray(v)) return v.map(s => String(s)).filter(s => s.length > 0);
+    return (typeof v === 'string' && v.length > 0) ? [v] : [];
+}
 function sid(name) { return name.replace(/[^a-zA-Z0-9]/g,'_'); }
 function validCh(v) { return v.length===0 || (v.startsWith('UC') && v.length===24); }
 function validPl(v) { return v.length===0 || (v.length>=10 && (v.startsWith('PL') || v.startsWith('UU'))); }
@@ -771,7 +795,7 @@ function buildUI() {
         group.comps.forEach(comp => {
             const compCh  = (sourcesData.competitions||{})[comp.name] || '';
             const compPls = (sourcesData.playlists||{})[comp.name] || {};
-            const hasComp = compCh.length > 0 || Object.values(compPls).some(v => v.length > 0);
+            const hasComp = compCh.length > 0 || Object.values(compPls).some(v => toPlArray(v).length > 0);
             const teamMap = (sourcesData.teamPlaylists||{})[comp.name] || {};
             const teams   = Object.keys(teamMap).sort();
 
@@ -868,7 +892,7 @@ function buildUI() {
             // ── Broadcaster playlist rows ─────────────────────
             const bcastSection = document.createElement('div');
             bcastSection.className = 'bcast-section';
-            Object.entries(compPls).forEach(([name, val]) => appendBcastRow(bcastSection, comp.name, name, val));
+            Object.entries(compPls).forEach(([name, val]) => appendBcastRow(bcastSection, comp.name, name, toPlArray(val)));
             const addBcastBtn = document.createElement('button');
             addBcastBtn.className = 'add-bcast-btn';
             addBcastBtn.innerHTML = '<i class="fi-br-plus"></i> Add broadcaster';
@@ -909,27 +933,30 @@ function buildUI() {
     document.getElementById('cnt-none').textContent = totalNone;
 }
 
-function appendBcastRow(section, compName, bcastName, plValue) {
+function appendBcastRow(section, compName, bcastName, plValues) {
+    // plValues is always string[] — toPlArray() at call site guarantees this
     const addBtn = section.querySelector('.add-bcast-btn');
     const row = document.createElement('div');
     row.className = 'bcast-row';
 
-    // View mode
+    // ── View mode ──────────────────────────────────────────
     const viewEl = document.createElement('div');
     viewEl.className = 'bcast-view';
-    const bchip = makeChip(bcastName || 'New broadcaster', plValue && validPl(plValue), false);
+    const anyValid = plValues.some(v => validPl(v));
+    const bchip = makeChip(bcastName || 'New broadcaster', anyValid, false);
     const bDot = bchip.querySelector('.dot');
     const bLbl = bchip.querySelectorAll('span')[1];
     viewEl.appendChild(bchip);
 
+    const lastValid = [...plValues].reverse().find(v => validPl(v)) || '';
     const bPlayA = document.createElement('a');
-    bPlayA.className = 'yt-btn' + (plValue && validPl(plValue) ? '' : ' disabled');
-    bPlayA.href = plValue && validPl(plValue) ? 'https://www.youtube.com/playlist?list=' + plValue : '#';
+    bPlayA.className = 'yt-btn' + (lastValid ? '' : ' disabled');
+    bPlayA.href = lastValid ? 'https://www.youtube.com/playlist?list=' + lastValid : '#';
     bPlayA.target = '_blank';
     bPlayA.innerHTML = '<i class="fi-br-play"></i>';
     viewEl.appendChild(bPlayA);
 
-    // Edit mode
+    // ── Edit mode ──────────────────────────────────────────
     const editEl = document.createElement('div');
     editEl.className = 'bcast-edit';
     editEl.style.display = 'none';
@@ -938,19 +965,24 @@ function appendBcastRow(section, compName, bcastName, plValue) {
     nameInp.className = 'bcast-name-input';
     nameInp.placeholder = 'Broadcaster name';
     nameInp.value = bcastName;
+    const editHeader = document.createElement('div');
+    editHeader.className = 'bcast-edit-header';
+    editHeader.appendChild(nameInp);
+    editEl.appendChild(editHeader);
 
-    const plInp = document.createElement('input');
-    plInp.className = 'pl-input' + (plValue&&validPl(plValue)?' valid':plValue?' bad':'');
-    plInp.dataset.compPl = compName;
-    plInp.value = plValue;
-    plInp.placeholder = 'PLxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx';
+    const plList = document.createElement('div');
+    plList.className = 'bcast-pl-list';
+    editEl.appendChild(plList);
 
-    editEl.appendChild(nameInp);
-    editEl.appendChild(plInp);
+    const addPlBtn = document.createElement('button');
+    addPlBtn.type = 'button';
+    addPlBtn.className = 'bcast-pl-add';
+    addPlBtn.innerHTML = '<i class="fi-br-plus"></i> Add playlist';
+    editEl.appendChild(addPlBtn);
 
     const delBtn = document.createElement('button');
     delBtn.className = 'bcast-del-btn';
-    delBtn.title = 'Remove';
+    delBtn.title = 'Remove broadcaster';
     delBtn.innerHTML = '<i class="fi-br-cross"></i>';
 
     row.appendChild(viewEl);
@@ -958,43 +990,80 @@ function appendBcastRow(section, compName, bcastName, plValue) {
     row.appendChild(delBtn);
     section.insertBefore(row, addBtn);
 
-    bchip.addEventListener('click', () => {
-        viewEl.style.display = 'none';
-        editEl.style.display = '';
-        nameInp.focus(); nameInp.select();
-    });
+    // ── Sync view chip + play button from current edit state
+    function syncView() {
+        const vals = [...plList.querySelectorAll('.pl-input')].map(i => i.value.trim()).filter(v => v);
+        const latest = [...vals].reverse().find(v => validPl(v)) || '';
+        bLbl.textContent = nameInp.value.trim() || 'New broadcaster';
+        bDot.className = 'dot ' + (vals.some(v => validPl(v)) ? 'dot-green' : 'dot-red');
+        bPlayA.href = latest ? 'https://www.youtube.com/playlist?list=' + latest : '#';
+        if (latest) bPlayA.classList.remove('disabled');
+        else bPlayA.classList.add('disabled');
+    }
 
-    let bcastBlurTimer;
-    function scheduleBcastCollapse() {
-        bcastBlurTimer = setTimeout(() => {
+    // ── Blur / collapse ────────────────────────────────────
+    let blurTimer;
+    function scheduleCollapse() {
+        blurTimer = setTimeout(() => {
             if (!editEl.contains(document.activeElement)) {
                 editEl.style.display = 'none';
                 viewEl.style.display = '';
-                bLbl.textContent = nameInp.value.trim() || 'New broadcaster';
-                const v = plInp.value.trim();
-                bDot.className = 'dot ' + (v && validPl(v) ? 'dot-green' : 'dot-red');
-                bPlayA.href = v && validPl(v) ? 'https://www.youtube.com/playlist?list=' + v : '#';
-                if (v && validPl(v)) bPlayA.classList.remove('disabled');
-                else bPlayA.classList.add('disabled');
+                row.classList.remove('editing');
+                syncView();
             }
         }, 150);
     }
-    nameInp.addEventListener('blur', scheduleBcastCollapse);
-    plInp.addEventListener('blur', scheduleBcastCollapse);
-    nameInp.addEventListener('focus', () => clearTimeout(bcastBlurTimer));
-    plInp.addEventListener('focus', () => clearTimeout(bcastBlurTimer));
+    function cancelCollapse() { clearTimeout(blurTimer); }
 
-    nameInp.addEventListener('input', markUnsaved);
-    plInp.addEventListener('input', () => {
-        stylePl(plInp);
-        markUnsaved();
-        const v = plInp.value.trim();
-        bPlayA.href = v && validPl(v) ? 'https://www.youtube.com/playlist?list=' + v : '#';
-        if (v && validPl(v)) bPlayA.classList.remove('disabled');
-        else bPlayA.classList.add('disabled');
+    // ── Per-entry helper ───────────────────────────────────
+    function addPlEntry(val) {
+        const entry = document.createElement('div');
+        entry.className = 'bcast-pl-entry';
+
+        const inp = document.createElement('input');
+        inp.className = 'pl-input' + (val && validPl(val) ? ' valid' : val ? ' bad' : '');
+        inp.dataset.compPl = compName;
+        inp.value = val;
+        inp.placeholder = 'PLxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx';
+
+        const delPlBtn = document.createElement('button');
+        delPlBtn.type = 'button';
+        delPlBtn.className = 'bcast-pl-del';
+        delPlBtn.title = 'Remove playlist';
+        delPlBtn.innerHTML = '<i class="fi-br-cross"></i>';
+        delPlBtn.addEventListener('click', () => { entry.remove(); markUnsaved(); });
+
+        entry.appendChild(inp);
+        entry.appendChild(delPlBtn);
+        plList.appendChild(entry);
+
+        inp.addEventListener('input', () => { stylePl(inp); markUnsaved(); });
+        inp.addEventListener('blur', scheduleCollapse);
+        inp.addEventListener('focus', cancelCollapse);
+        inp.addEventListener('keydown', e => { if (e.key === 'Enter') inp.blur(); });
+        return inp;
+    }
+
+    // Render initial entries (at least one empty slot)
+    if (plValues.length > 0) plValues.forEach(v => addPlEntry(v));
+    else addPlEntry('');
+
+    // ── Event wiring ───────────────────────────────────────
+    addPlBtn.addEventListener('click', () => { addPlEntry(''); markUnsaved(); });
+    addPlBtn.addEventListener('blur', scheduleCollapse);
+    addPlBtn.addEventListener('focus', cancelCollapse);
+
+    bchip.addEventListener('click', () => {
+        viewEl.style.display = 'none';
+        editEl.style.display = '';
+        row.classList.add('editing');
+        nameInp.focus(); nameInp.select();
     });
-    nameInp.addEventListener('keydown', e => { if(e.key==='Enter') nameInp.blur(); });
-    plInp.addEventListener('keydown', e => { if(e.key==='Enter') plInp.blur(); });
+
+    nameInp.addEventListener('blur', scheduleCollapse);
+    nameInp.addEventListener('focus', cancelCollapse);
+    nameInp.addEventListener('input', markUnsaved);
+    nameInp.addEventListener('keydown', e => { if (e.key === 'Enter') nameInp.blur(); });
     delBtn.addEventListener('click', () => { row.remove(); markUnsaved(); });
 }
 
@@ -1009,7 +1078,7 @@ function addTeam(slug, compName, list, addBtn) {
 
     const compCh  = (sourcesData.competitions||{})[compName] || '';
     const compPls = (sourcesData.playlists||{})[compName] || {};
-    const hasComp = compCh.length > 0 || Object.values(compPls).some(v => v.length > 0);
+    const hasComp = compCh.length > 0 || Object.values(compPls).some(v => toPlArray(v).length > 0);
 
     const note = list.querySelector('.empty-note');
     if (note) note.remove();
@@ -1026,14 +1095,14 @@ function collectData() {
     });
     document.querySelectorAll('.bcast-section').forEach(section => {
         section.querySelectorAll('.bcast-row').forEach(row => {
-            const pl      = row.querySelector('.pl-input');
             const nameInp = row.querySelector('.bcast-name-input');
-            if (!pl || !nameInp) return;
-            const compName  = pl.dataset.compPl;
+            const plInps  = [...row.querySelectorAll('.pl-input[data-comp-pl]')];
+            if (!nameInp || !plInps.length) return;
+            const compName = plInps[0].dataset.compPl;
             if (!compName) return;
             if (!data.playlists[compName]) data.playlists[compName] = {};
             const bcastName = nameInp.value.trim() || 'Playlist';
-            data.playlists[compName][bcastName] = pl.value.trim();
+            data.playlists[compName][bcastName] = plInps.map(i => i.value.trim()).filter(v => v.length > 0);
         });
     });
     document.querySelectorAll('.ch-input[data-team]').forEach(inp => {
