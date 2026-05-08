@@ -1,13 +1,73 @@
 {
   "_updated": "2026-05-08",
+
+  "_note": "competitions = Tier-2 channel IDs (UCxxxx). teams = Tier-1 club channel IDs (UCxxxx). playlists = Tier-4 competition playlists (PLxxxx). teamPlaylists = Tier-4 team-specific playlists per competition.",
+
   "competitions": {
-    "Ligue 1":          "UCQsH5XtIc9hONE1BQjucM0g",
+    "Premier League":   "",
     "LaLiga":           "UCTv-XvfzLX3i4IGWAm4sbmA",
     "Serie A":          "UCBJeMCIeLQos7wacox4hmLQ",
     "Bundesliga":       "UC0rEAajsPgT63c5BTHemzog",
-    "Premier League":   "",
+    "Ligue 1":          "UCQsH5XtIc9hONE1BQjucM0g",
     "Champions League": "UCZKXMw7S_p47GMQ3Dq6xqeQ",
     "Europa League":    "UCZKXMw7S_p47GMQ3Dq6xqeQ"
   },
-  "teams": {}
+
+  "teams": {},
+
+  "playlists": {
+    "Premier League":   "PLXEMPXZ3PY1hMzinDc1TvSm8U2NUyz-0E",
+    "Serie A":          "PLkwBiY2Dq-oZc2BYatzkvjPA6AKkz0Nhd",
+    "Bundesliga":       "PL3uJGozO1imdjz1dqUwBXABVn31cOKbiE",
+    "Champions League": "PLkwBiY2Dq-oaG6vHAhmcCOc3Q_-To2dlA",
+    "Europa League":    "PLkwBiY2Dq-oYudAQQWU3ene4op723wpxg",
+    "Euro Cup":         "PLKHdj0BT9oN7qBYlsW9zhH4PDRfLqPR6b",
+    "Copa America":     "PLKHdj0BT9oN6AiWrcZt7t61-_3vs5Ud-n",
+    "World Cup":        "PLtmNAhKNyKpjpLiS-Bg2RDIvbtHN1qzZc"
+  },
+
+  "teamPlaylists": {
+    "LaLiga": {
+      "Athletic Club":             "PL46SDgeYMX-xEuC7nXR_bHJ-Puj1pZ9J7",
+      "Club Atlético de Madrid":   "PLem6BBedbLfKM0e7sGS-iBisJor-t9smo",
+      "CA Osasuna":                "PLC8yIePN5xJ46Hg1h8nMAwSqzwDIWZeuZ",
+      "RCD Espanyol de Barcelona": "PLNZ45G3l3xdh1thytZK8UhPbbKlLzG4Ed",
+      "FC Barcelona":              "PLVWqRc88TLrByvcK1YStLlGViyFTqilCy",
+      "Getafe CF":                 "PLZAduiL3Fz7bkcUXX7CdJrAQ5oMlg5Olh",
+      "Real Madrid CF":            "PLVWqRc88TLrByvcK1YStLlGViyFTqilCy",
+      "Rayo Vallecano de Madrid":  "PL46SDgeYMX-xEuC7nXR_bHJ-Puj1pZ9J7",
+      "RCD Mallorca":              "PLd1j56_hAcVp443fgtSgk9e1dYYSijh_n",
+      "Real Betis Balompié":       "PLIUkqrTWoxnHctbWGCPUHf8tPxsVDYj6X",
+      "Real Sociedad de Fútbol":   "PLh5SNroL6CMlS8PMORKJAg71qyYAaIzT3",
+      "Villarreal CF":             "PLOYpteA1AIasIIvVyRnQA5mkzoRpNpBk4",
+      "Valencia CF":               "",
+      "Real Valladolid CF":        "PLFqh5sq6y-EuS3ySmlkgXU6vP4OhMVWUp",
+      "Deportivo Alavés":          "PLnZJA8jjiw9tkiLZX-PSLzd2CaFiymS8I",
+      "UD Las Palmas":             "PLgbeq58v1R3f9onNY7VMCKmk7GSj4tuyP",
+      "Girona FC":                 "PLgTeCr3hhjsqulonPeK963V8ylPfNEa9X",
+      "RC Celta de Vigo":          "",
+      "Sevilla FC":                "PLveIlh3v_0OXiLqdHHuuV0INtgTxe5hhj",
+      "CD Leganés":                "PLrKFwgf06GWRpB4MArxCCNwLSEui_Mgo8"
+    },
+    "Ligue 1": {
+      "Toulouse FC":            "PL1jRGSJYMC9728yGzkR-CxPOQ0Dz7AE8g",
+      "Stade Brestois 29":      "PL5dXR9bHuKvkb4p011bLI9R56lMvvP88S",
+      "Olympique de Marseille": "PL5dXR9bHuKvkb4p011bLI9R56lMvvP88S",
+      "Montpellier HSC":        "PL5dXR9bHuKvkb4p011bLI9R56lMvvP88S",
+      "AJ Auxerre":             "PL5dXR9bHuKvkb4p011bLI9R56lMvvP88S",
+      "Lille OSC":              "PLGWJbSB9n2asl_KlkDyEwu4p4PUurHMgx",
+      "OGC Nice":               "PL1jKDEOyvIG3hzmxK-j-9jUfG2ROcCK8E",
+      "Olympique Lyonnais":     "PLy44W8cDzbsbtbfktPZSr0zveqCpQb0OM",
+      "Paris Saint-Germain FC": "PL5dXR9bHuKvkb4p011bLI9R56lMvvP88S",
+      "AS Saint-Étienne":       "PL5dXR9bHuKvkb4p011bLI9R56lMvvP88S",
+      "Stade Rennais FC 1901":  "PLHVmPzdSM8UPTFQGyjHI4mi9fetRwYB7q",
+      "Angers SCO":             "PL5dXR9bHuKvkb4p011bLI9R56lMvvP88S",
+      "Le Havre AC":            "PLH8fu5AKAl6fP-b1yU4-jUinHv78B4Rhw",
+      "FC Nantes":              "PL5dXR9bHuKvkb4p011bLI9R56lMvvP88S",
+      "Racing Club de Lens":    "PL5dXR9bHuKvkb4p011bLI9R56lMvvP88S",
+      "Stade de Reims":         "PL5dXR9bHuKvkb4p011bLI9R56lMvvP88S",
+      "AS Monaco FC":           "PLP0W41ENQfsINJYuFYxJFryqYkluIBvyJ",
+      "RC Strasbourg Alsace":   "PL5dXR9bHuKvkb4p011bLI9R56lMvvP88S"
+    }
+  }
 }
