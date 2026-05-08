@@ -796,20 +796,21 @@ function buildUI() {
             const compCh  = (sourcesData.competitions||{})[comp.name] || '';
             const compPls = (sourcesData.playlists||{})[comp.name] || {};
             const hasComp = compCh.length > 0 || Object.values(compPls).some(v => toPlArray(v).length > 0);
-            const teamMap = (sourcesData.teamPlaylists||{})[comp.name] || {};
-            const teams   = Object.keys(teamMap).sort();
+            const teamMap    = (sourcesData.teamPlaylists||{})[comp.name] || {};
+            const syncedList = (sourcesData.teamLists||{})[comp.name] || [];
+            const allTeams   = [...new Set([...syncedList, ...Object.keys(teamMap)])].sort();
 
             let compT1 = 0, compT2 = 0, compNone = 0;
-            teams.forEach(name => {
+            allTeams.forEach(name => {
                 const ch = (sourcesData.teams||{})[name] || '';
                 if (ch) compT1++; else if (hasComp) compT2++; else compNone++;
             });
             totalT1 += compT1; totalT2 += compT2; totalNone += compNone;
 
             let sem;
-            if (teams.length === 0) { sem = hasComp ? 'yellow' : 'red'; }
+            if (allTeams.length === 0) { sem = hasComp ? 'yellow' : 'red'; }
             else if (compNone === 0) { sem = 'green'; }
-            else if (compNone < teams.length) { sem = 'yellow'; }
+            else if (compNone < allTeams.length) { sem = 'yellow'; }
             else { sem = 'red'; }
 
             const block = document.createElement('div');
@@ -824,7 +825,7 @@ function buildUI() {
             hdrTop.innerHTML = '<span class="chevron" id="chev-' + comp.slug + '"><i class="fi-br-angle-right"></i></span>'
                 + '<img class="comp-flag" src="' + FLAGS[comp.name] + '" alt="">'
                 + '<span class="comp-name">' + comp.name.toUpperCase() + '</span>'
-                + '<span class="comp-badge">' + teams.length + ' teams</span>';
+                + '<span class="comp-badge">' + allTeams.length + ' teams</span>';
             hdrTop.addEventListener('click', () => {
                 document.getElementById('list-'+comp.slug).classList.toggle('open');
                 document.getElementById('chev-'+comp.slug).classList.toggle('open');
@@ -896,7 +897,7 @@ function buildUI() {
             const addBcastBtn = document.createElement('button');
             addBcastBtn.className = 'add-bcast-btn';
             addBcastBtn.innerHTML = '<i class="fi-br-plus"></i> Add broadcaster';
-            addBcastBtn.addEventListener('click', () => { appendBcastRow(bcastSection, comp.name, '', ''); markUnsaved(); });
+            addBcastBtn.addEventListener('click', () => { appendBcastRow(bcastSection, comp.name, '', []); markUnsaved(); });
             bcastSection.appendChild(addBcastBtn);
             block.appendChild(bcastSection);
 
@@ -904,13 +905,13 @@ function buildUI() {
             const list = document.createElement('div');
             list.className = 'team-list'; list.id = 'list-'+comp.slug;
 
-            if (teams.length === 0) {
+            if (allTeams.length === 0) {
                 const note = document.createElement('div');
                 note.className = 'empty-note';
-                note.textContent = 'No teams configured yet.';
+                note.textContent = 'Teams not yet synced — run the sync workflow in GitHub Actions.';
                 list.appendChild(note);
             } else {
-                teams.forEach(teamName => {
+                allTeams.forEach(teamName => {
                     const ch = (sourcesData.teams||{})[teamName] || '';
                     const pl = teamMap[teamName] || '';
                     list.appendChild(makeTeamRow(teamName, ch, pl, hasComp, comp.name));
