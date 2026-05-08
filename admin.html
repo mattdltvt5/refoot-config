@@ -88,13 +88,18 @@
 
         /* ── Status card ─────────────────────────────────── */
         #status-bar {
-            background: #fff; border-radius: 4px; padding: 12px 16px;
+            background: #fff; border-radius: 4px; padding: 12px 20px;
             margin-bottom: 16px; display: flex; align-items: center;
             justify-content: space-between; flex-wrap: wrap; gap: 8px;
             box-shadow: 0 1px 3px rgba(0,0,0,0.12);
         }
-        .status-counts { display: flex; gap: 20px; flex-wrap: wrap; }
-        .status-item { display: flex; align-items: center; gap: 6px; font-size: 12px; color: var(--muted); }
+        .cov-stats { display: flex; gap: 28px; flex-wrap: wrap; align-items: center; }
+        .cov-stat { display: flex; flex-direction: column; align-items: center; gap: 2px; }
+        .cov-num { font-size: 26px; font-weight: 700; line-height: 1; }
+        .cov-num.green { color: var(--green); }
+        .cov-num.yellow { color: var(--yellow); }
+        .cov-num.red { color: var(--red); }
+        .cov-lbl { font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.5px; }
         .dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
         .dot-green { background: var(--green); }
         .dot-yellow { background: var(--yellow); }
@@ -106,18 +111,26 @@
             background: #fff; border-radius: 4px; margin-bottom: 8px;
             box-shadow: 0 1px 3px rgba(0,0,0,0.12); overflow: hidden;
         }
+        .comp-block.status-green  { box-shadow: 0 1px 3px rgba(0,0,0,0.12), inset 4px 0 0 var(--green); }
+        .comp-block.status-yellow { box-shadow: 0 1px 3px rgba(0,0,0,0.12), inset 4px 0 0 var(--yellow); }
+        .comp-block.status-red    { box-shadow: 0 1px 3px rgba(0,0,0,0.12), inset 4px 0 0 var(--red); }
         .comp-header {
             background: var(--black); color: #fff;
-            padding: 4px 16px 10px;
-            display: flex; flex-direction: column; gap: 2px;
-            user-select: none;
+            padding: 0 16px;
+            display: flex; flex-direction: row; align-items: center;
+            height: 54px; user-select: none;
         }
         .comp-header-top {
             display: flex; align-items: center; gap: 10px;
-            cursor: pointer; height: 44px;
+            cursor: pointer; flex: 1; height: 100%;
         }
         .comp-header-top:hover { opacity: 0.9; }
-        .comp-header-ch { display: flex; align-items: center; gap: 8px; padding-bottom: 4px; }
+        .comp-ch-inline { display: flex; align-items: center; gap: 8px; margin-left: 12px; flex-shrink: 0; }
+        .section-header {
+            font-size: 11px; font-weight: 600; color: var(--muted);
+            text-transform: uppercase; letter-spacing: 0.8px;
+            padding: 16px 4px 8px;
+        }
         .comp-flag { width: 22px; height: 22px; object-fit: contain; flex-shrink: 0; }
         .comp-name { font-size: 14px; font-weight: 500; flex: 1; letter-spacing: 0.4px; }
         .comp-badge {
@@ -446,10 +459,19 @@
 
     <!-- Status bar -->
     <div id="status-bar" style="display:none">
-        <div class="status-counts">
-            <div class="status-item"><div class="dot dot-green"></div><span id="cnt-t1">0 Tier 1</span></div>
-            <div class="status-item"><div class="dot dot-yellow"></div><span id="cnt-t2">0 Tier 2 only</span></div>
-            <div class="status-item"><div class="dot dot-red"></div><span id="cnt-none">0 No coverage</span></div>
+        <div class="cov-stats">
+            <div class="cov-stat">
+                <span class="cov-num green" id="cnt-t1">0</span>
+                <span class="cov-lbl">own channel</span>
+            </div>
+            <div class="cov-stat">
+                <span class="cov-num yellow" id="cnt-t2">0</span>
+                <span class="cov-lbl">fallback only</span>
+            </div>
+            <div class="cov-stat">
+                <span class="cov-num red" id="cnt-none">0</span>
+                <span class="cov-lbl">no coverage</span>
+            </div>
         </div>
         <span id="last-saved"></span>
     </div>
@@ -469,6 +491,8 @@ const GH_OWNER = 'mattdltvt5';
 const GH_REPO  = 'refoot-config';
 const GH_FILE  = 'sources.json';
 
+function svgIcon(s) { return 'data:image/svg+xml,' + encodeURIComponent(s); }
+
 const FLAGS = {
     'Premier League':   'data:image/png;base64,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',
     'LaLiga':           'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAACXBIWXMAAAHYAAAB2AH6XKZyAAAAGXRFWHRTb2Z0d2FyZQB3d3cuaW5rc2NhcGUub3Jnm+48GgAABSNJREFUeJzlm1tsFFUYgL//zG5LpFKvUUmqQLedxcYHUYFA1AcTL4kJEuEBIioKxNuD4QESEx70BQOK1xchSlRQQeUSE28PJtpEDAgmRrI73bYQm4BBTFpc1HY78/vQbaHb7WW7O3Pa8iXNZmfmnH7n33NOZs6cXwiZVurrcsTnG4J5irjAjUAdUA3U5i/rArqB34EOQb0AcyxO7nCCto4w/SSMSlMkFwHLBH0ASJZZXVqRL4HP5pI+VL7dYCoWgDbm1OaIPyXoGkUSlaq3gAyww8F/p4HWc5WosOwAnGDWFf8xbaOgzwKXV8BpLJwT9O0YvVvqae8qp6JxB0DBtND4tCIvAleXI1EGZ4FNLt52gWA8FYwrACmSjYK+ByweT/kQaA4wT95MKlNqQVNqgRTJlYIeZeI0HuBOQ3AsRXJFqQXHHAAFk8Z9XdDdQE2p/ygCagT9KEXyVS2hXWMaAieYNa2b6l3Aw+PWi5a9Dv6jDbR2j3bhqAE4TlNVjNznijxYGbfI+MbBXzJaEEbsKgqOQ++eSdh4gPt8nF2jDYcRT6ZJbgEeqqhWtCzzcDePdMGwQ8CjcZUiH1TeyQqPJPF2FztRNAAZEvU+zi9Ed2cXNtkAM6/YfcKQIaBgAswupk7jAWoMwc5i88GQA2mSaxVZGI1XpCz2cFcXHhw0BH7lliur6GkFropMK1rOxsklLn6AGtQDquhZz9RtPMA1vcSev/jAQA/I//ongRlRW0VMV5zcTf29YKAHVNO9mqnfeIDaHPHH+7/EAFSRTK2zlJyeFgcHI444xHDEESMOjvZ9Ghxr2qUQ4GugPr7kP9VXn14C9dXHl7gs0y7eFEEFQFvuXQDBT7a9I0WDBeJ+dzg/BILJ8pRXQcxS6J8DhCVWXWwgfc84ou33XEev/GHbxwoxvd7QKxNpaStafFlogHm2Payh3G4QwnqJMRmoNyhzbFtYZI4BucG2hUVmGtCJuMQdFdMNMN22hUVqSn4zNNUwwHnbEhbJGpCsbQuLnDegp21bWOSUAWmzbWGRNgN6KQeg3aD6s20La4gcMTjOj7Y9LKEQO2Qk8e0ZwLNtY4G0NHz1Z/+N0AGrKjYQOQD9S2Ia7LMqY4Mg2A/5FyN9y+Jzf9Cc1l8iy+JtDV2pu0TQGIAI6uHvU2SbAqBW/SuAk/8riv6rL4v0NXLgYaiKnp1ARbafTnA64+Te7/8yEIDZnOwE3rCiFCGCvjbs2+FqurcBf0VuFR1nY/QO+pEHBWA2JzsVeSFap0jZULi5esgeIQXj4TYDiyLTioZmF+9uKZjhh6wICQQGXcXUmhCzPrEnChsPw+wTbKSlHXgmdK2IUGRdE8dbi50bdk0wv6/uldCsIkLQzXNJfzz8+RHIzwd7mTybpAvZ4+KtHCmZYsRVYYEgS80K4IuKq4XPwSw1q0bLJBnTdvkMiWof50NgeUXUQkaRTwKcx5o43jPatWNOmelLmEhuFXR9eXqhs9XF21hsxi9GyTlDHo1LFdnJhaTHiUJW0DUuLXtKKVTymyGXlv0B5g6gudSyIfK9T+zWUhsPZabNebjrgJeAa8dbT5mcUWRTkvSOsXb5QspOnMyQmOHjbACeI7ph0Qm8BWxN4v1dTkUVS53NkJgRYNYospby84WHIwVsB94tt+H9hJI83ULDAkWWA/cr0lRmdb8BXwv6qUvL4QroDSKUAFxMGnemoPMVuQ1wBa1TpA64jAt7k88B/wjaoUgHkAaOAkeSeKfC9PsfFOKauAcl7gMAAAAASUVORK5CYII=',
@@ -476,10 +500,13 @@ const FLAGS = {
     'Bundesliga':       'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAACXBIWXMAAAHYAAAB2AH6XKZyAAAAGXRFWHRTb2Z0d2FyZQB3d3cuaW5rc2NhcGUub3Jnm+48GgAABFNJREFUeJzlm11oXEUYhp9vNpsWW5JGFLVQwSYnCehVG7pqK15FrCBaJIJKwZ9YRb2Qgg2IQhGkSExVvFNLFfwLtbYiSKWpWG2sbBpvFJJukl5YqNJUTJq0kmx2Py/Ortmsm+xmz54zJ8kD78X52eH9vjMzO2dmjuA/G4AtwCagCbg5c24VUJu5ZxyYAn4HzgNngV+AeOZ4yXEnsB8YANSjBoAu4I5AIyiDWqADGMJ70PMpAbwE1AQUU0msA/YBl/Ev8HyNA68z24SsYIDngUsEF3i+RoFnM14CpRE45cF4pfUD4PgacQ6PAhM+B1SOJoBHfIwbA7wdgkCLqQsfmsRq4IsQBFequnHHGRWhGvg6BEEtVscqkYQIcCQEwZSrQ3hsDl0hCMKr3ig3+J0hMF8pPbbY4OsJdmTntyZYxDjBAKdDYLrSOkWJ/cEzITDrl54qFnwd8FcIjPqlUfJeoPKrxG7g2mJZWsJcB7w438U63NdM20/Jb42RUwtya8AThGyiwSdqgcezBwKgIA7V8Sm0xZarIFmN9CWYjgmoACRwYmnMz7aNBYmgsSYScQOQxjxk21DQpDE7YLYPeMCiFysI+iCA/MptN0RJ/mnbkA2SRG80VcxstW3EFlGStxtBN9k2YpEWAzTYdmELQesNsNG2EVukMRsNcJNtI7YQdL0B1to2YpE1Blhj24VF1ga+phY2DHDFtgmLTBpg0rYLi1wxwB+2XdhCkQtGkRHbRmwh6IgRdMUmADhnBD1j24VF+kyE1E+2XVhCI6ROmwZGLuLuy1tpDDoMj2YHQketWrGAoEchMyUm6Jd27VjhCORMi09/c3dcVsmKmBbXKe2rvu9kTECrAARUneinKCsiAaAfi7tKlLMyVDVzEHdPwHJnjIh8lD34LwFyy/djIO/Y8RQgIm9Jfc949nDu63A0uR93eXy5cgmjcx7ynAS4tYCXA7UULHtynz4U2jLibPsAleU4OvwRp+fD/JP/S4DI3jSiO1leHeIkJvKkiNvz51JwSkwae84h+pz/voJCdknDt8OFrsw7JyjOiU+AN33zFBQi+6Tx+GfzXV54UtTZ1gEcrrSnwBC6adj6ysK3FEHPbI5Ss+4wyP2VcxYAyldM/N0mLf3JhW4rOi0uLf1JpLoNd+PxEkE+Z6bu4WLBQwk1IIvqXsNwbyequ72Z851OnJ6OQj1+IUpOQBY927oD0YNY/mKrAJOotkvTie7F/GjRCQDQkVaHlB4A7irn9z5wEhNpn++vbiHKSgBkmsRQ7y7Q14Dryy3HIxeBV3F63i+1yudTdgKy6ND2GjS5B3iB4JrFGMi7pK92SnPvhJeCPCcgiw5tryE93Y7I00BzpcrNYwDhPVL/HPAaeJaKJSAXTdwTQ1JtqLkX9FaPxf0GHEPTh6Tpu3gl/OXiSwJy0cHW9Uh6CyKbcT+f35DRNczuTb4MXMX9VP48yCCi/aSkT5qPX/DT37/2aL/l3ky+4QAAAABJRU5ErkJggg==',
     'Ligue 1':          'data:image/png;base64,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',
     'Champions League': 'data:image/png;base64,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',
-    'Europa League':    'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAB2AAAAdgB+lymcgAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAATESURBVHic7ZtLbFZVEMd/fEUwSJUSF9BSYowaoQtIkIR8TQkvN+5McOHOxL1xYeKWsJWF6V7DjgUkwlLk/UgAHwujwEKN4SFiVChtIwilLs45OfNd7rOdOfm+yj+5+ebOnTP33OnMnDmPwlP8v7FISU8fsAt4XklfFe4Bx4CZRO+rxB5gNvG1R6PjLQ0lwICSnuTvXKyhBDgNfODpA8AX4tk+YC3wu5CpwjiwCrgGfCT4bwPvind2DVbi4nEWOJx5dtTzpxrom/Rtvszwj3j+DPDinHpqiO9wnbuLS4oBnxPjdkUNPQNC/jPB7wPueP63Cv0F9HIAwHH/+wKwSfCvC3q4hh4pI9u+QTTgcZSgaYCTgt4h6BuCXlNDj5SRbaVO+a55QdMAZ4CHni4yQFMPyDPAI+Bc494VQNMAU8AlT48CSz0t3bipB4S2S4C2py/gkqQKNA0AcML/LgO2eFojBNpep3yHCqwMANFl7xL/Yk0MMAlMZHRl39F1WAJM44aqs4J/2fOu1NBx1cv+KHjnPG+aGFpdi69wnX0I9Htek2IoWwQtB/71vKOqPUU/BCC66GJcMoQYy89RXgwN4D5YthkDnsnoVoOlASDGbt1iKK8IMo1/CwN8g0t8ADv9b92RIG8ECDomUCyBAywMMIMrigA24iYtdYuhbBG0Etjg709hsABiYQCIrtoCtlK/GMoWQduJfTQZ/qwNAC6G5xoCPTP+Z7EItwAyi6sBwK3jVQ1lYQi95++v+Pvb6K1fdsDKA2ZxMQuwDhgCbvr7OjngBrAaeN3fn/A61WFlAOh02W3EPFBmgCH/e52Y/bO6VJHKADIPFBVD2SIoSfxbGuAn4FdP76J6KMwWQds9fQ34WbtzAZYGgLhys5ZYzkL+SCB5S4GXPH1Mv1sR1gaQrvuaoKs8QMqaDn/WBpCLl/KjqjxAyp7S7FAW1ga4hZvfA7wi+HkGGBJ0kL1KHD5NYG0AiC78rODlGUCGQJBVW/4uQkoDSFTlgLK2PQe5bRauvJWhyYxMV25/zRVh20xeshgayHmuPvfPQ4oQgPxYHi6gy9qoI5UB8ray1hTQZW3UkcoActssoMwDVLe/yqB1QKIKYdtsVPB24La7Idb9ARdR3P7qFuyl/vmfvak6lSoEoNmZnjoHKVRgssyUgxZuijsI/AZ8WCD3qZAZBh4n6V0CjBHdexy3ZfYycdk8YFzIjSXuoynkh/1DZ7xPE9f+soZaEGjhZnRlSW9njuxNEuSoFMPgKC6uwdX33wM/4KbKE7jlrlD1PQYO4c4TDvq2cpu9JyHdf1uBzCDwJvAJ8AsLKAykS9/iSZd+lbgZknfltekplCW1t4AHPPnRfxJ3hMxHA+scsFvQBzPPluPmCFPAH7iP/hp3CqxN3GHejWEesCyEZPFzH3iP+oVNC9iPWxrr2aKojd7/BrQxgmWC2dylujpgmQPWC/p9mk9v+4mnxdeXCXYrwtm+O1WCJfjb60iyOKKNv5h/588zfyOWwioHDOKWw6HzxGdThLYrcAcm1GFlgBFBXy6UqoZsO1IoNQ9YJUGZtFYD78xRzypBj2CwVW5lgHWC/thApxqsQuB2j+g0K4X7cNPb/irBmui6f5V9ioWC/wAiLWYom27B1QAAAABJRU5ErkJggg=='
+    'Europa League':    'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAB2AAAAdgB+lymcgAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAATESURBVHic7ZtLbFZVEMd/fEUwSJUSF9BSYowaoQtIkIR8TQkvN+5McOHOxL1xYeKWsJWF6V7DjgUkwlLk/UgAHwujwEKN4SFiVChtIwilLs45OfNd7rOdOfm+yj+5+ebOnTP33OnMnDmPwlP8v7FISU8fsAt4XklfFe4Bx4CZRO+rxB5gNvG1R6PjLQ0lwICSnuTvXKyhBDgNfODpA8AX4tk+YC3wu5CpwjiwCrgGfCT4bwPvind2DVbi4nEWOJx5dtTzpxrom/Rtvszwj3j+DPDinHpqiO9wnbuLS4oBnxPjdkUNPQNC/jPB7wPueP63Cv0F9HIAwHH/+wKwSfCvC3q4hh4pI9u+QTTgcZSgaYCTgt4h6BuCXlNDj5SRbaVO+a55QdMAZ4CHni4yQFMPyDPAI+Bc494VQNMAU8AlT48CSz0t3bipB4S2S4C2py/gkqQKNA0AcML/LgO2eFojBNpep3yHCqwMANFl7xL/Yk0MMAlMZHRl39F1WAJM44aqs4J/2fOu1NBx1cv+KHjnPG+aGFpdi69wnX0I9Htek2IoWwQtB/71vKOqPUU/BCC66GJcMoQYy89RXgwN4D5YthkDnsnoVoOlASDGbt1iKK8IMo1/CwN8g0t8ADv9b92RIG8ECDomUCyBAywMMIMrigA24iYtdYuhbBG0Etjg709hsABiYQCIrtoCtlK/GMoWQduJfTQZ/qwNAC6G5xoCPTP+Z7EItwAyi6sBwK3jVQ1lYQi95++v+Pvb6K1fdsDKA2ZxMQuwDhgCbvr7OjngBrAaeN3fn/A61WFlAOh02W3EPFBmgCH/e52Y/bO6VJHKADIPFBVD2SIoSfxbGuAn4FdP76J6KMwWQds9fQ34WbtzAZYGgLhys5ZYzkL+SCB5S4GXPH1Mv1sR1gaQrvuaoKs8QMqaDn/WBpCLl/KjqjxAyp7S7FAW1ga4hZvfA7wi+HkGGBJ0kL1KHD5NYG0AiC78rODlGUCGQJBVW/4uQkoDSFTlgLK2PQe5bRauvJWhyYxMV25/zRVh20xeshgayHmuPvfPQ4oQgPxYHi6gy9qoI5UB8ray1hTQZW3UkcoActssoMwDVLe/yqB1QKIKYdtsVPB24La7Idb9ARdR3P7qFuyl/vmfvak6lSoEoNmZnjoHKVRgssyUgxZuijsI/AZ8WCD3qZAZBh4n6V0CjBHdexy3ZfYycdk8YFzIjSXuoynkh/1DZ7xPE9f+soZaEGjhZnRlSW9njuxNEuSoFMPgKC6uwdX33wM/4KbKE7jlrlD1PQYO4c4TDvq2cpu9JyHdf1uBzCDwJvAJ8AsLKAykS9/iSZd+lbgZknfltekplCW1t4AHPPnRfxJ3hMxHA+scsFvQBzPPluPmCFPAH7iP/hp3CqxN3GHejWEesCyEZPFzH3iP+oVNC9iPWxrr2aKojd7/BrQxgmWC2dylujpgmQPWC/p9mk9v+4mnxdeXCXYrwtm+O1WCJfjb60iyOKKNv5h/588zfyOWwioHDOKWw6HzxGdThLYrcAcm1GFlgBFBXy6UqoZsO1IoNQ9YJUGZtFYD78xRzypBj2CwVW5lgHWC/thApxqsQuB2j+g0K4X7cNPb/irBmui6f5V9ioWC/wAiLWYom27B1QAAAABJRU5ErkJggg==',
+    'Euro Cup':         svgIcon('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><circle cx="32" cy="32" r="32" fill="#003299"/><path fill="#FFD700" d="M21 15h22l-2 17c-1 5-5 9-9 10-4-1-8-5-9-10z"/><path fill="#FFD700" d="M14 15h8v10c0 3-2 5-4 5s-4-2-4-5z"/><path fill="#FFD700" d="M42 15h8v10c0 3-2 5-4 5s-4-2-4-5z"/><rect fill="#FFD700" x="29" y="42" width="6" height="7"/><rect fill="#FFD700" x="22" y="49" width="20" height="5" rx="2"/><circle fill="#FFD700" cx="22" cy="9" r="2.5"/><circle fill="#FFD700" cx="29" cy="6" r="2.5"/><circle fill="#FFD700" cx="35" cy="6" r="2.5"/><circle fill="#FFD700" cx="42" cy="9" r="2.5"/><circle fill="#FFD700" cx="45" cy="16" r="2.5"/><circle fill="#FFD700" cx="19" cy="16" r="2.5"/></svg>'),
+    'Copa America':     svgIcon('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><circle cx="32" cy="32" r="32" fill="#1A237E"/><path fill="#FFD700" d="M22 13h20l-2 20c-1 5-5 9-8 10-3-1-7-5-8-10z"/><path fill="#FFD700" d="M15 13h8v11c0 3-2 5-4 5s-4-2-4-5z"/><path fill="#FFD700" d="M41 13h8v11c0 3-2 5-4 5s-4-2-4-5z"/><rect fill="#FFD700" x="29" y="43" width="6" height="7"/><rect fill="#FFD700" x="22" y="50" width="20" height="5" rx="2"/><path fill="#C8A800" d="M28 22c-1 3 0 7 2 10 1-2 3-4 2-7s-2-5-4-3z"/><path fill="#C8A800" d="M36 22c1 3 0 7-2 10-1-2-3-4-2-7s2-5 4-3z"/></svg>'),
+    'World Cup':        svgIcon('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><circle cx="32" cy="32" r="32" fill="#005921"/><path fill="#FFD700" d="M20 12h24l-2 20c-1 5-5 9-10 10-5-1-9-5-10-10z"/><path fill="#FFD700" d="M13 12h8v12c0 3-2 5-4 5s-4-2-4-5z"/><path fill="#FFD700" d="M43 12h8v12c0 3-2 5-4 5s-4-2-4-5z"/><rect fill="#FFD700" x="29" y="42" width="6" height="7"/><rect fill="#FFD700" x="21" y="49" width="22" height="5" rx="2"/><path stroke="#B8860B" stroke-width="1.5" fill="none" d="M24 23q8-5 16 0"/><path stroke="#B8860B" stroke-width="1.5" fill="none" d="M22 30q10-5 20 0"/></svg>')
 };
 
-const COMPETITIONS = [
+const LEAGUES = [
     { name: 'Premier League',   slug: 'pl'  },
     { name: 'LaLiga',           slug: 'lla' },
     { name: 'Serie A',          slug: 'sa'  },
@@ -488,6 +515,16 @@ const COMPETITIONS = [
     { name: 'Champions League', slug: 'ucl' },
     { name: 'Europa League',    slug: 'uel' },
 ];
+const INTERNATIONAL = [
+    { name: 'Euro Cup',     slug: 'ec' },
+    { name: 'Copa America', slug: 'ca' },
+    { name: 'World Cup',    slug: 'wc' },
+];
+const COMP_GROUPS = [
+    { label: 'Leagues',       comps: LEAGUES       },
+    { label: 'International', comps: INTERNATIONAL },
+];
+const COMPETITIONS = [...LEAGUES, ...INTERNATIONAL];
 
 let ghPat = '', fileSha = null;
 let sourcesData = { competitions: {}, teams: {}, playlists: {}, teamPlaylists: {} };
@@ -705,132 +742,146 @@ function makeTeamRow(teamName, ch, pl, hasComp, compName) {
 function buildUI() {
     const container = document.getElementById('competitions-container');
     container.innerHTML = '';
-    let t1=0, t2=0, none=0;
+    let totalT1 = 0, totalT2 = 0, totalNone = 0;
 
-    COMPETITIONS.forEach(comp => {
-        const compCh  = (sourcesData.competitions||{})[comp.name] || '';
-        const compPls = (sourcesData.playlists||{})[comp.name] || {};
-        const hasComp = compCh.length > 0 || Object.values(compPls).some(v => v.length > 0);
-        const teamMap = (sourcesData.teamPlaylists||{})[comp.name] || {};
-        const teams   = Object.keys(teamMap).sort();
+    COMP_GROUPS.forEach(group => {
+        const secHdr = document.createElement('div');
+        secHdr.className = 'section-header';
+        secHdr.textContent = group.label;
+        container.appendChild(secHdr);
 
-        teams.forEach(name => {
-            const ch = (sourcesData.teams||{})[name] || '';
-            if (ch) t1++; else if (hasComp) t2++; else none++;
-        });
+        group.comps.forEach(comp => {
+            const compCh  = (sourcesData.competitions||{})[comp.name] || '';
+            const compPls = (sourcesData.playlists||{})[comp.name] || {};
+            const hasComp = compCh.length > 0 || Object.values(compPls).some(v => v.length > 0);
+            const teamMap = (sourcesData.teamPlaylists||{})[comp.name] || {};
+            const teams   = Object.keys(teamMap).sort();
 
-        const block = document.createElement('div');
-        block.className = 'comp-block';
-
-        // ── Header top row (toggle) ──────────────────────────
-        const hdr = document.createElement('div');
-        hdr.className = 'comp-header';
-
-        const hdrTop = document.createElement('div');
-        hdrTop.className = 'comp-header-top';
-        hdrTop.innerHTML = '<span class="chevron" id="chev-' + comp.slug + '"><i class="fi-br-angle-right"></i></span>'
-            + '<img class="comp-flag" src="' + FLAGS[comp.name] + '" alt="">'
-            + '<span class="comp-name">' + comp.name.toUpperCase() + '</span>'
-            + '<span class="comp-badge">' + teams.length + ' teams</span>'
-            + '<div class="dot ' + (compCh?'dot-green':'dot-red') + '" id="cdot-' + comp.slug + '" title="Official channel ' + (compCh?'configured':'not set') + '"></div>';
-        hdrTop.addEventListener('click', () => {
-            document.getElementById('list-'+comp.slug).classList.toggle('open');
-            document.getElementById('chev-'+comp.slug).classList.toggle('open');
-        });
-        hdr.appendChild(hdrTop);
-
-        // ── Channel row — chip (view) / input (edit) ─────────
-        const hdrCh = document.createElement('div');
-        hdrCh.className = 'comp-header-ch';
-
-        const cchip = makeChip('Official Channel', compCh && validCh(compCh), true);
-        cchip.id = 'cchip-' + comp.slug;
-        const cdotEl = cchip.querySelector('.dot');
-
-        const ci = document.createElement('input');
-        ci.className = 'ch-input-dark' + (compCh&&validCh(compCh)?' valid':compCh?' bad':'');
-        ci.id = 'cinp-' + comp.slug;
-        ci.dataset.comp = comp.name;
-        ci.value = compCh;
-        ci.placeholder = 'Official channel (UCxxxxxxxxx)';
-        ci.style.display = 'none';
-
-        const searchA = document.createElement('a');
-        searchA.className = 'yt-btn-dark';
-        searchA.href = 'https://www.youtube.com/results?search_query='+encodeURIComponent(comp.name+' official');
-        searchA.target = '_blank';
-        searchA.innerHTML = '<i class="fi-br-play"></i> Search';
-
-        hdrCh.appendChild(cchip);
-        hdrCh.appendChild(ci);
-        hdrCh.appendChild(searchA);
-        hdr.appendChild(hdrCh);
-        block.appendChild(hdr);
-
-        cchip.addEventListener('click', (e) => {
-            e.stopPropagation();
-            cchip.style.display = 'none';
-            ci.style.display = '';
-            ci.focus(); ci.select();
-        });
-        ci.addEventListener('input', () => {
-            styleInp(ci);
-            const dot = document.getElementById('cdot-'+comp.slug);
-            const v = ci.value.trim();
-            if (dot) dot.className = 'dot ' + (v&&validCh(v)?'dot-green':'dot-red');
-            cdotEl.className = 'dot ' + (v&&validCh(v)?'dot-green':'dot-red');
-            markUnsaved();
-        });
-        ci.addEventListener('blur', () => {
-            ci.style.display = 'none';
-            cchip.style.display = '';
-            const v = ci.value.trim();
-            cdotEl.className = 'dot ' + (v&&validCh(v)?'dot-green':'dot-red');
-        });
-        ci.addEventListener('keydown', e => { if(e.key==='Enter'||e.key==='Escape') ci.blur(); });
-        ci.addEventListener('click', e => e.stopPropagation());
-
-        // ── Broadcaster playlist rows ─────────────────────────
-        const bcastSection = document.createElement('div');
-        bcastSection.className = 'bcast-section';
-        Object.entries(compPls).forEach(([name, val]) => appendBcastRow(bcastSection, comp.name, name, val));
-        const addBcastBtn = document.createElement('button');
-        addBcastBtn.className = 'add-bcast-btn';
-        addBcastBtn.innerHTML = '<i class="fi-br-plus"></i> Add broadcaster';
-        addBcastBtn.addEventListener('click', () => { appendBcastRow(bcastSection, comp.name, '', ''); markUnsaved(); });
-        bcastSection.appendChild(addBcastBtn);
-        block.appendChild(bcastSection);
-
-        // ── Team list ─────────────────────────────────────────
-        const list = document.createElement('div');
-        list.className = 'team-list'; list.id = 'list-'+comp.slug;
-
-        if (teams.length === 0) {
-            const note = document.createElement('div');
-            note.className = 'empty-note';
-            note.textContent = 'No teams configured yet.';
-            list.appendChild(note);
-        } else {
-            teams.forEach(teamName => {
-                const ch = (sourcesData.teams||{})[teamName] || '';
-                const pl = teamMap[teamName] || '';
-                list.appendChild(makeTeamRow(teamName, ch, pl, hasComp, comp.name));
+            let compT1 = 0, compT2 = 0, compNone = 0;
+            teams.forEach(name => {
+                const ch = (sourcesData.teams||{})[name] || '';
+                if (ch) compT1++; else if (hasComp) compT2++; else compNone++;
             });
-        }
+            totalT1 += compT1; totalT2 += compT2; totalNone += compNone;
 
-        const addBtn = document.createElement('button');
-        addBtn.className = 'add-team-btn';
-        addBtn.innerHTML = '<i class="fi-br-plus"></i> Add team';
-        addBtn.addEventListener('click', () => addTeam(comp.slug, comp.name, list, addBtn));
-        list.appendChild(addBtn);
+            let sem;
+            if (teams.length === 0) { sem = hasComp ? 'yellow' : 'red'; }
+            else if (compNone === 0) { sem = 'green'; }
+            else if (compNone < teams.length) { sem = 'yellow'; }
+            else { sem = 'red'; }
 
-        block.appendChild(list);
-        container.appendChild(block);
+            const block = document.createElement('div');
+            block.className = 'comp-block status-' + sem;
+
+            // ── Header (single row) ──────────────────────────
+            const hdr = document.createElement('div');
+            hdr.className = 'comp-header';
+
+            const hdrTop = document.createElement('div');
+            hdrTop.className = 'comp-header-top';
+            hdrTop.innerHTML = '<span class="chevron" id="chev-' + comp.slug + '"><i class="fi-br-angle-right"></i></span>'
+                + '<img class="comp-flag" src="' + FLAGS[comp.name] + '" alt="">'
+                + '<span class="comp-name">' + comp.name.toUpperCase() + '</span>'
+                + '<span class="comp-badge">' + teams.length + ' teams</span>';
+            hdrTop.addEventListener('click', () => {
+                document.getElementById('list-'+comp.slug).classList.toggle('open');
+                document.getElementById('chev-'+comp.slug).classList.toggle('open');
+            });
+
+            // ── Official channel chip — inline on the right ──
+            const chipWrap = document.createElement('div');
+            chipWrap.className = 'comp-ch-inline';
+            chipWrap.addEventListener('click', e => e.stopPropagation());
+
+            const cchip = makeChip('Official Channel', compCh && validCh(compCh), true);
+            cchip.id = 'cchip-' + comp.slug;
+            const cdotEl = cchip.querySelector('.dot');
+
+            const ci = document.createElement('input');
+            ci.className = 'ch-input-dark' + (compCh&&validCh(compCh)?' valid':compCh?' bad':'');
+            ci.id = 'cinp-' + comp.slug;
+            ci.dataset.comp = comp.name;
+            ci.value = compCh;
+            ci.placeholder = 'Official channel (UCxxxxxx)';
+            ci.style.display = 'none';
+
+            const searchA = document.createElement('a');
+            searchA.className = 'yt-btn-dark';
+            searchA.href = 'https://www.youtube.com/results?search_query='+encodeURIComponent(comp.name+' official');
+            searchA.target = '_blank';
+            searchA.innerHTML = '<i class="fi-br-play"></i> Search';
+
+            chipWrap.appendChild(cchip);
+            chipWrap.appendChild(ci);
+            chipWrap.appendChild(searchA);
+
+            hdr.appendChild(hdrTop);
+            hdr.appendChild(chipWrap);
+            block.appendChild(hdr);
+
+            cchip.addEventListener('click', (e) => {
+                e.stopPropagation();
+                cchip.style.display = 'none';
+                ci.style.display = '';
+                ci.focus(); ci.select();
+            });
+            ci.addEventListener('input', () => {
+                styleInp(ci);
+                const v = ci.value.trim();
+                cdotEl.className = 'dot ' + (v&&validCh(v)?'dot-green':'dot-red');
+                markUnsaved();
+            });
+            ci.addEventListener('blur', () => {
+                ci.style.display = 'none';
+                cchip.style.display = '';
+                const v = ci.value.trim();
+                cdotEl.className = 'dot ' + (v&&validCh(v)?'dot-green':'dot-red');
+            });
+            ci.addEventListener('keydown', e => { if(e.key==='Enter'||e.key==='Escape') ci.blur(); });
+            ci.addEventListener('click', e => e.stopPropagation());
+
+            // ── Broadcaster playlist rows ─────────────────────
+            const bcastSection = document.createElement('div');
+            bcastSection.className = 'bcast-section';
+            Object.entries(compPls).forEach(([name, val]) => appendBcastRow(bcastSection, comp.name, name, val));
+            const addBcastBtn = document.createElement('button');
+            addBcastBtn.className = 'add-bcast-btn';
+            addBcastBtn.innerHTML = '<i class="fi-br-plus"></i> Add broadcaster';
+            addBcastBtn.addEventListener('click', () => { appendBcastRow(bcastSection, comp.name, '', ''); markUnsaved(); });
+            bcastSection.appendChild(addBcastBtn);
+            block.appendChild(bcastSection);
+
+            // ── Team list ─────────────────────────────────────
+            const list = document.createElement('div');
+            list.className = 'team-list'; list.id = 'list-'+comp.slug;
+
+            if (teams.length === 0) {
+                const note = document.createElement('div');
+                note.className = 'empty-note';
+                note.textContent = 'No teams configured yet.';
+                list.appendChild(note);
+            } else {
+                teams.forEach(teamName => {
+                    const ch = (sourcesData.teams||{})[teamName] || '';
+                    const pl = teamMap[teamName] || '';
+                    list.appendChild(makeTeamRow(teamName, ch, pl, hasComp, comp.name));
+                });
+            }
+
+            const addBtn = document.createElement('button');
+            addBtn.className = 'add-team-btn';
+            addBtn.innerHTML = '<i class="fi-br-plus"></i> Add team';
+            addBtn.addEventListener('click', () => addTeam(comp.slug, comp.name, list, addBtn));
+            list.appendChild(addBtn);
+
+            block.appendChild(list);
+            container.appendChild(block);
+        });
     });
 
-    document.getElementById('cnt-t1').textContent   = t1+' with team channel';
-    document.getElementById('cnt-t2').textContent   = t2+' competition only';
-    document.getElementById('cnt-none').textContent = none+' no coverage';
+    document.getElementById('cnt-t1').textContent   = totalT1;
+    document.getElementById('cnt-t2').textContent   = totalT2;
+    document.getElementById('cnt-none').textContent = totalNone;
 }
 
 function appendBcastRow(section, compName, bcastName, plValue) {
