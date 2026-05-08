@@ -651,6 +651,16 @@ function toPlArray(v) {
 function sid(name) { return name.replace(/[^a-zA-Z0-9]/g,'_'); }
 function validCh(v) { return v.length===0 || (v.startsWith('UC') && v.length===24); }
 function validPl(v) { return v.length===0 || (v.length>=10 && (v.startsWith('PL') || v.startsWith('UU'))); }
+function parseChannelId(v) {
+    if (!v) return v;
+    const m = v.match(/(?:youtube\.com|youtu\.be)\/channel\/(UC[\w-]{22})/);
+    return m ? m[1] : v;
+}
+function parsePlaylistId(v) {
+    if (!v) return v;
+    const m = v.match(/[?&]list=((?:PL|UU)[\w-]+)/);
+    return m ? m[1] : v;
+}
 function styleInp(inp) {
     const v = inp.value.trim();
     inp.classList.remove('valid','bad');
@@ -683,13 +693,17 @@ function makeChip(label, isSet, dark) {
     return chip;
 }
 
-function wireChipInput(chip, input, validFn, onInputFn) {
+function wireChipInput(chip, input, validFn, onInputFn, parseFn) {
     chip.addEventListener('click', () => {
         chip.style.display = 'none';
         input.style.display = '';
         input.focus(); input.select();
     });
     input.addEventListener('input', () => {
+        if (parseFn) {
+            const extracted = parseFn(input.value.trim());
+            if (extracted !== input.value.trim()) input.value = extracted;
+        }
         if (onInputFn) onInputFn();
         const chipDot = chip.querySelector('.dot');
         const v = input.value.trim();
@@ -735,7 +749,7 @@ function makeTeamRow(teamName, ch, pl, hasComp, compName) {
         const dot = document.getElementById('dot-'+sid(teamName));
         if (dot) dot.className = 'dot '+(chInp.value.trim()&&validCh(chInp.value.trim())?'dot-green':hasComp?'dot-yellow':'dot-red');
         markUnsaved();
-    });
+    }, parseChannelId);
 
     const plChip = makeChip('Playlist', pl && validPl(pl), false);
     const plInp = document.createElement('input');
@@ -745,7 +759,7 @@ function makeTeamRow(teamName, ch, pl, hasComp, compName) {
     plInp.value = pl;
     plInp.placeholder = "Team's playlist (PLxxxx)";
     plInp.style.display = 'none';
-    wireChipInput(plChip, plInp, validPl, () => { stylePl(plInp); markUnsaved(); });
+    wireChipInput(plChip, plInp, validPl, () => { stylePl(plInp); markUnsaved(); }, parsePlaylistId);
 
     indsEl.appendChild(chChip);
     indsEl.appendChild(chInp);
@@ -869,6 +883,8 @@ function buildUI() {
                 ci.focus(); ci.select();
             });
             ci.addEventListener('input', () => {
+                const extracted = parseChannelId(ci.value.trim());
+                if (extracted !== ci.value.trim()) ci.value = extracted;
                 styleInp(ci);
                 const v = ci.value.trim();
                 cdotEl.className = 'dot ' + (v&&validCh(v)?'dot-green':'dot-red');
@@ -1038,7 +1054,12 @@ function appendBcastRow(section, compName, bcastName, plValues) {
         entry.appendChild(delPlBtn);
         plList.appendChild(entry);
 
-        inp.addEventListener('input', () => { stylePl(inp); markUnsaved(); });
+        inp.addEventListener('input', () => {
+            const extracted = parsePlaylistId(inp.value.trim());
+            if (extracted !== inp.value.trim()) inp.value = extracted;
+            stylePl(inp);
+            markUnsaved();
+        });
         inp.addEventListener('blur', scheduleCollapse);
         inp.addEventListener('focus', cancelCollapse);
         inp.addEventListener('keydown', e => { if (e.key === 'Enter') inp.blur(); });
