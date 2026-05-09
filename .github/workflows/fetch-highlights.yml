@@ -1,0 +1,47 @@
+name: Fetch highlights cache
+
+on:
+  schedule:
+    - cron: "0 */4 * * *"   # every 4 hours
+  workflow_dispatch:         # manual trigger from Actions tab
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+
+    env:
+      FOOTBALL_DATA_API_KEY: ${{ secrets.FOOTBALL_DATA_API_KEY }}
+      YOUTUBE_API_KEY:       ${{ secrets.YOUTUBE_API_KEY }}
+      # Opt in to Node 24 for any JS-based actions in this workflow
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: true   # needed for the git push step below
+
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install requests
+
+      - name: Fetch and write highlights cache
+        run: python scripts/fetch_highlights.py
+
+      # Only commit when the script changed at least one file.
+      # [skip ci] prevents this commit from re-triggering the workflow.
+      - name: Commit and push if changed
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add highlights/
+          git diff --cached --quiet \
+            && echo "No changes — skipping commit" \
+            || (
+                git commit -m "chore: update highlights cache [skip ci]" \
+                && git push
+               )

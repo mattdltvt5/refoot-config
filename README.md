@@ -9,6 +9,9 @@ Remote channel configuration for the **ReFoot Highlights** Android app.
 | `sources.json` | YouTube channel/playlist IDs for all tiers (read by the app at runtime) |
 | `admin.html` | Browser-based admin panel for managing `sources.json` |
 | `uicons/` | Flaticon UIcons Bold Rounded webfont (used by the admin panel) |
+| `highlights/` | Pre-built video metadata written by the fetch-highlights Action |
+| `scripts/fetch_highlights.py` | Python script that fetches fixtures and searches YouTube playlists |
+| `.github/workflows/fetch-highlights.yml` | GitHub Action that runs the script every 4 hours |
 
 ## Admin Panel
 
@@ -54,6 +57,122 @@ The admin panel uses the [UIcons Bold Rounded](https://www.flaticon.com/uicons) 
 - `playlists` supports multiple playlist IDs per broadcaster (e.g. one per game week); the app queries them all
 - `teamLists` is auto-populated weekly by the `sync-teams.yml` GitHub Action (football-data.org)
 - `teams` channel IDs are auto-populated weekly by the `sync-channels.yml` GitHub Action (Wikidata)
+
+## Highlights Cache
+
+The `fetch-highlights.yml` Action runs every **4 hours** (and can be triggered manually via `workflow_dispatch`). It fetches recently completed fixtures from football-data.org, searches configured YouTube playlists in tier-priority order, and writes pre-built video metadata into the `highlights/` directory. The Android app reads these files instead of calling YouTube directly.
+
+### Directory structure
+
+```
+highlights/
+  premier-league/
+    gameweek-36.json
+    gameweek-37.json
+  laliga/
+    gameweek-36.json
+  serie-a/
+  bundesliga/
+  ligue-1/
+  ucl/
+    matchday-8.json   ← UCL and UEL use "matchday" not "gameweek"
+  uel/
+    matchday-12.json
+```
+
+### Gameweek file schema
+
+```json
+{
+  "competition": "Premier League",
+  "gameweek": 36,
+  "generated_at": "2026-05-07T03:00:00Z",
+  "matches": [
+    {
+      "match_id": 12345,
+      "home_team": "Arsenal FC",
+      "away_team": "Chelsea FC",
+      "date": "2026-05-04",
+      "videos": [
+        {
+          "video_id": "dQw4w9WgXcQ",
+          "title": "Arsenal vs Chelsea | Highlights",
+          "published_at": "2026-05-04",
+          "tier_used": 2
+        }
+      ]
+    }
+  ]
+}
+```
+
+- `video_id` only — never a full URL; reconstruct as `https://www.youtube.com/watch?v={video_id}`
+- `tier_used` indicates which tier produced the video (1, 2, or 4)
+- `generated_at` is always UTC; updated on every write
+
+### Tier priority order
+
+The script tries sources in this order and stops at the **first tier that yields at least one accepted video** for the fixture:
+
+| Priority | Tier | Source |
+|---|---|---|
+| 1st | 1c | `teamPlaylists[competition][home_team]` — competition-scoped team playlist |
+| 2nd | 1d | `teamPlaylists[competition][away_team]` — competition-scoped team playlist |
+| 3rd | 2  | `competitions[competition]` channel → uploads playlist (`UC→UU`) |
+| 4th | 4  | `playlists[competition]` — all broadcaster playlist IDs (flattened) |
+| 5th | 1a | `teams[home_team]` channel → uploads playlist (requires competition keyword in title) |
+| 6th | 1b | `teams[away_team]` channel → uploads playlist (requires competition keyword in title) |
+
+A video is accepted when **all** of the following are true:
+- `publishedAt` is within 5 days of the fixture date
+- If the source is a club channel uploads playlist (Tiers 1a/1b): the title contains a competition keyword
+- The title contains the home team's `shortName` **or** the away team's `shortName` (case-insensitive substring)
+
+### Smart-skip logic
+
+Before making any YouTube API calls for a gameweek, the script loads the existing JSON file. If every fixture from the current run already has at least one video in its `videos` array, the entire gameweek is skipped with:
+
+```
+INFO: gameweek {N} for {competition} is complete, skipping
+```
+
+This makes repeated runs idempotent — no YouTube quota is consumed for complete gameweeks.
+
+### Missing match alerts
+
+After processing all fixtures in a gameweek, any match with zero videos produces a visible warning in the Action log:
+
+```
+WARNING: No highlights found — {competition} GW{N}: {home} vs {away} ({date})
+```
+
+### Merge behaviour
+
+Files are **never overwritten** — new runs always merge:
+- If a `match_id` is new: the full match object is appended
+- If a `match_id` already exists: only new `video_id`s are appended, no duplicates
+- If nothing changed: no file is written and no git commit is made
+
+Writes are atomic (temp file + rename) to avoid corrupted JSON if the Action is interrupted.
+
+### Quota budget
+
+Only `playlistItems.list` is used (**1 unit per page**). `search.list` (100 units/call) is never called.
+
+| Scenario | Units |
+|---|---|
+| Typical run (7 competitions × 10 matches × 2 pages average) | ~140 units |
+| Worst case (all tiers tried, 10 pages each) | ~700 units |
+| Complete gameweeks skipped | 0 units |
+
+YouTube Data API free quota: **10 000 units/day**. A run every 4 hours = 6 runs/day → ~840 units/day under typical load.
+
+### Required secrets
+
+| Secret | Used by |
+|---|---|
+| `FOOTBALL_DATA_API_KEY` | Fixture fetch from football-data.org |
+| `YOUTUBE_API_KEY` | YouTube `playlistItems.list` calls |
 
 ## Admin Panel — coverage counters
 
