@@ -1,0 +1,223 @@
+{
+  "generated_at": "2026-05-09T18:59:09.120231Z",
+  "competitions": [
+    {
+      "competition": "Premier League",
+      "slug": "premier-league",
+      "gameweeks": [
+        {
+          "gameweek": 35,
+          "total": 1,
+          "covered": 1,
+          "matches": [
+            {
+              "match_id": 538130,
+              "home": "Everton FC",
+              "away": "Manchester City FC",
+              "date": "2026-05-04",
+              "covered": true
+            }
+          ]
+        },
+        {
+          "gameweek": 36,
+          "total": 5,
+          "covered": 4,
+          "matches": [
+            {
+              "match_id": 538140,
+              "home": "Liverpool FC",
+              "away": "Chelsea FC",
+              "date": "2026-05-09",
+              "covered": true
+            },
+            {
+              "match_id": 538135,
+              "home": "Sunderland AFC",
+              "away": "Manchester United FC",
+              "date": "2026-05-09",
+              "covered": true
+            },
+            {
+              "match_id": 538136,
+              "home": "Brighton & Hove Albion FC",
+              "away": "Wolverhampton Wanderers FC",
+              "date": "2026-05-09",
+              "covered": false
+            },
+            {
+              "match_id": 538139,
+              "home": "Fulham FC",
+              "away": "AFC Bournemouth",
+              "date": "2026-05-09",
+              "covered": true
+            },
+            {
+              "match_id": 538141,
+              "home": "Manchester City FC",
+              "away": "Brentford FC",
+              "date": "2026-05-09",
+              "covered": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "competition": "LaLiga",
+      "slug": "laliga",
+      "gameweeks": [
+        {
+          "gameweek": 34,
+          "total": 1,
+          "covered": 1,
+          "matches": [
+            {
+              "match_id": 544550,
+              "home": "Sevilla FC",
+              "away": "Real Sociedad de Fútbol",
+              "date": "2026-05-04",
+              "covered": true
+            }
+          ]
+        },
+        {
+          "gameweek": 35,
+          "total": 4,
+          "covered": 4,
+          "matches": [
+            {
+              "match_id": 544554,
+              "home": "Levante UD",
+              "away": "CA Osasuna",
+              "date": "2026-05-08",
+              "covered": true
+            },
+            {
+              "match_id": 544556,
+              "home": "Elche CF",
+              "away": "Deportivo Alavés",
+              "date": "2026-05-09",
+              "covered": true
+            },
+            {
+              "match_id": 544558,
+              "home": "Sevilla FC",
+              "away": "RCD Espanyol de Barcelona",
+              "date": "2026-05-09",
+              "covered": true
+            },
+            {
+              "match_id": 544552,
+              "home": "Club Atlético de Madrid",
+              "away": "RC Celta de Vigo",
+              "date": "2026-05-09",
+              "covered": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "competition": "Serie A",
+      "slug": "serie-a",
+      "gameweeks": [
+        {
+          "gameweek": 36,
+          "total": 3,
+          "covered": 3,
+          "matches": [
+            {
+              "match_id": 537168,
+              "home": "Torino FC",
+              "away": "US Sassuolo Calcio",
+              "date": "2026-05-08",
+              "covered": true
+            },
+            {
+              "match_id": 537167,
+              "home": "Cagliari Calcio",
+              "away": "Udinese Calcio",
+              "date": "2026-05-09",
+              "covered": true
+            },
+            {
+              "match_id": 537170,
+              "home": "SS Lazio",
+              "away": "FC Internazionale Milano",
+              "date": "2026-05-09",
+              "covered": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "competition": "Bundesliga",
+      "slug": "bundesliga",
+      "gameweeks": [
+        {
+          "gameweek": 33,
+          "total": 1,
+          "covered": 1,
+          "matches": [
+            {
+              "match_id": 540696,
+              "home": "Borussia Dortmund",
+              "away": "Eintracht Frankfurt",
+              "date": "2026-05-08",
+              "covered": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "competition": "Ligue 1",
+      "slug": "ligue-1",
+      "gameweeks": [
+        {
+          "gameweek": 33,
+          "total": 1,
+          "covered": 1,
+          "matches": [
+            {
+              "match_id": 542700,
+              "home": "Racing Club de Lens",
+              "away": "FC Nantes",
+              "date": "2026-05-08",
+              "covered": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "competition": "Champions League",
+      "slug": "ucl",
+      "gameweeks": [
+        {
+          "gameweek": 2,
+          "total": 2,
+          "covered": 2,
+          "matches": [
+            {
+              "match_id": 552095,
+              "home": "Arsenal FC",
+              "away": "Club Atlético de Madrid",
+              "date": "2026-05-05",
+              "covered": true
+            },
+            {
+              "match_id": 552094,
+              "home": "FC Bayern München",
+              "away": "Paris Saint-Germain FC",
+              "date": "2026-05-06",
+              "covered": true
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
