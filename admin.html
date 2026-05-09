@@ -818,7 +818,7 @@ function makeTeamRow(teamName, ch, pl, hasComp, compName) {
     indsEl.className = 'team-indicators';
 
     // Build both chips and inputs first so refreshDot can close over both
-    const chChip = makeChip('Channel', hasCh0, false, 'fi-br-channel');
+    const chChip = makeChip('Channel', hasCh0, false, 'fi-br-home');
     const chInp = document.createElement('input');
     chInp.className = 'ch-input sm' + (ch&&validCh(ch)?' valid':ch?' bad':'');
     chInp.id = 'inp-' + sid(teamName);
