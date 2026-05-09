@@ -49,6 +49,7 @@ YT_PLAYLIST    = "https://www.googleapis.com/youtube/v3/playlistItems"
 LOOKBACK_DAYS     = 5   # how many days back to look for completed fixtures
 VIDEO_WINDOW_DAYS = 5   # accept videos published up to N days after fixture date
 MAX_YT_PAGES      = 10  # cap per playlist (50 items/page → max 500 items, 10 quota units)
+MAX_GW_IN_SUMMARY = 2   # most-recent gameweeks per competition included in summary.json
 
 # ── Competition maps ──────────────────────────────────────────────────────────
 
@@ -602,6 +603,105 @@ def merge_into_gw(
     return existing, changed
 
 
+# ── Summary generation ────────────────────────────────────────────────────────
+
+def generate_summary() -> None:
+    """
+    Scan all existing gameweek/matchday files under highlights/ and write
+    highlights/summary.json.
+
+    For each competition the MAX_GW_IN_SUMMARY most-recent files are included
+    so the admin panel only shows actionable, recent coverage gaps.
+
+    Schema:
+        {
+          "generated_at": "...",
+          "competitions": [
+            {
+              "competition": "Premier League",
+              "slug": "premier-league",
+              "gameweeks": [
+                {
+                  "gameweek": 36,
+                  "total": 10,
+                  "covered": 8,
+                  "matches": [
+                    {"match_id": 1, "home": "...", "away": "...",
+                     "date": "...", "covered": true}
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+    """
+    now = datetime.utcnow().isoformat() + "Z"
+    competitions: list[dict] = []
+
+    for comp_name, slug in COMPETITION_SLUG_MAP.items():
+        comp_dir = HIGHLIGHTS_DIR / slug
+        if not comp_dir.exists():
+            continue
+
+        pattern = "matchday-*.json" if comp_name in UCL_UEL else "gameweek-*.json"
+        # Sort by embedded number so "gameweek-9" < "gameweek-10"
+        def _gw_num(p: "Path") -> int:
+            try:
+                return int(p.stem.split("-")[-1])
+            except (ValueError, IndexError):
+                return 0
+
+        files = sorted(comp_dir.glob(pattern), key=_gw_num)
+        files = files[-MAX_GW_IN_SUMMARY:]  # keep most recent N
+
+        gameweeks: list[dict] = []
+        for f in files:
+            data = load_gw_file(f)
+            if not data:
+                continue
+            matches_data = data.get("matches", [])
+            total = len(matches_data)
+            covered = sum(1 for m in matches_data if m.get("videos"))
+
+            try:
+                number = int(f.stem.split("-")[-1])
+            except (ValueError, IndexError):
+                continue
+
+            matches_summary = [
+                {
+                    "match_id": m["match_id"],
+                    "home":     m["home_team"],
+                    "away":     m["away_team"],
+                    "date":     m.get("date", ""),
+                    "covered":  bool(m.get("videos")),
+                }
+                for m in matches_data
+            ]
+
+            gameweeks.append({
+                "gameweek": number,
+                "total":    total,
+                "covered":  covered,
+                "matches":  matches_summary,
+            })
+
+        if gameweeks:
+            competitions.append({
+                "competition": comp_name,
+                "slug":        slug,
+                "gameweeks":   gameweeks,
+            })
+
+    summary = {
+        "generated_at": now,
+        "competitions": competitions,
+    }
+    summary_path = HIGHLIGHTS_DIR / "summary.json"
+    write_gw_file(summary_path, summary)
+    log.info(f"Written summary.json ({len(competitions)} competition(s))")
+
+
 # ── Main ──────────────────────────────────────────────────────────────────────
 
 def main() -> None:
@@ -680,6 +780,9 @@ def main() -> None:
                 log.info(f"  → No changes to {path.relative_to(REPO_ROOT)}")
 
     log.info(f"Done. {total_written} file(s) updated.")
+
+    # ── 4. Always regenerate summary.json ────────────────────────────────────
+    generate_summary()
 
 
 if __name__ == "__main__":

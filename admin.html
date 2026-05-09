@@ -86,25 +86,75 @@
         #cors-banner strong { color: #E65100; }
         #cors-banner a { color: var(--blue-dark); }
 
-        /* ── Status card ─────────────────────────────────── */
+        /* ── Coverage dashboard card ─────────────────────── */
         #status-bar {
-            background: #fff; border-radius: 4px; padding: 12px 20px;
-            margin-bottom: 16px; display: flex; align-items: center;
-            justify-content: space-between; flex-wrap: wrap; gap: 8px;
+            background: #fff; border-radius: 4px;
+            margin-bottom: 16px;
             box-shadow: 0 1px 3px rgba(0,0,0,0.12);
+            overflow: hidden;
         }
-        .cov-stats { display: flex; gap: 28px; flex-wrap: wrap; align-items: center; }
-        .cov-stat { display: flex; flex-direction: column; align-items: center; gap: 2px; }
-        .cov-num { font-size: 26px; font-weight: 700; line-height: 1; }
-        .cov-num.green { color: var(--green); }
-        .cov-num.yellow { color: var(--yellow); }
-        .cov-num.red { color: var(--red); }
-        .cov-lbl { font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.5px; }
+        #cov-topbar {
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 10px 16px; border-bottom: 1px solid var(--border);
+        }
+        #cov-topbar-label {
+            font-size: 11px; font-weight: 600; color: var(--muted);
+            text-transform: uppercase; letter-spacing: 0.5px;
+            display: flex; align-items: center; gap: 5px;
+        }
+        #last-saved { font-size: 11px; color: var(--muted); }
+        #coverage-panel { max-height: 300px; overflow-y: auto; }
+        .cov-empty {
+            padding: 14px 16px; font-size: 13px; color: var(--muted);
+            font-style: italic; text-align: center;
+        }
+        .cov-comp-row {
+            display: flex; align-items: center; gap: 8px;
+            padding: 7px 16px; cursor: pointer; user-select: none;
+            border-bottom: 1px solid var(--border); transition: background 0.1s;
+        }
+        .cov-comp-row:hover { background: var(--bg); }
+        .cov-comp-chevron {
+            font-size: 10px; color: var(--muted);
+            transition: transform 0.2s; width: 12px; flex-shrink: 0;
+        }
+        .cov-comp-chevron.open { transform: rotate(90deg); }
+        .cov-comp-flag { width: 18px; height: 18px; object-fit: contain; flex-shrink: 0; }
+        .cov-comp-name { font-size: 13px; font-weight: 500; flex: 1; }
+        .cov-bar-wrap { width: 72px; height: 5px; background: var(--border); border-radius: 3px; flex-shrink: 0; }
+        .cov-bar { height: 100%; border-radius: 3px; }
+        .cov-ratio { font-size: 12px; font-weight: 600; color: var(--muted); min-width: 32px; text-align: right; flex-shrink: 0; }
+        .cov-gw-tag {
+            font-size: 10px; color: var(--muted);
+            background: var(--bg); border: 1px solid var(--border);
+            border-radius: 4px; padding: 1px 5px; white-space: nowrap; flex-shrink: 0;
+        }
+        .cov-matches { background: #FAFAFA; }
+        .cov-gw-hdr {
+            padding: 4px 16px 3px 36px;
+            font-size: 10px; font-weight: 600; color: var(--muted);
+            text-transform: uppercase; letter-spacing: 0.4px;
+            background: #F2F2F2; border-bottom: 1px solid #E8E8E8;
+        }
+        .cov-match-row {
+            display: flex; align-items: center; gap: 8px;
+            padding: 4px 16px 4px 36px; font-size: 12px;
+            border-bottom: 1px solid #F0F0F0;
+        }
+        .cov-match-row:last-child { border-bottom: none; }
+        .cov-match-icon { flex-shrink: 0; width: 14px; font-size: 11px; }
+        .cov-match-teams { flex: 1; color: var(--text); }
+        .cov-goto-btn {
+            background: none; border: none; cursor: pointer; font-family: inherit;
+            font-size: 11px; font-weight: 500; color: var(--blue);
+            padding: 2px 6px; border-radius: 3px; flex-shrink: 0;
+            transition: background 0.1s;
+        }
+        .cov-goto-btn:hover { background: var(--blue-bg); }
         .dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
         .dot-green { background: var(--green); }
         .dot-yellow { background: var(--yellow); }
         .dot-red { background: var(--red); }
-        #last-saved { font-size: 11px; color: var(--muted); }
 
         /* ── Competition block ───────────────────────────── */
         .comp-block {
@@ -526,23 +576,15 @@
         This file works for saving channel IDs even locally, but teams require HTTPS.
     </div>
 
-    <!-- Status bar -->
+    <!-- Highlights coverage dashboard -->
     <div id="status-bar" style="display:none">
-        <div class="cov-stats">
-            <div class="cov-stat">
-                <span class="cov-num green" id="cnt-t1">0</span>
-                <span class="cov-lbl">own channel</span>
-            </div>
-            <div class="cov-stat">
-                <span class="cov-num yellow" id="cnt-t2">0</span>
-                <span class="cov-lbl">fallback only</span>
-            </div>
-            <div class="cov-stat">
-                <span class="cov-num red" id="cnt-none">0</span>
-                <span class="cov-lbl">no coverage</span>
-            </div>
+        <div id="cov-topbar">
+            <span id="cov-topbar-label"><i class="fi-br-film"></i> Highlights Coverage</span>
+            <span id="last-saved"></span>
         </div>
-        <span id="last-saved"></span>
+        <div id="coverage-panel">
+            <div class="cov-empty">Loading coverage data…</div>
+        </div>
     </div>
 
     <div id="loading-state">
@@ -643,7 +685,7 @@ function setLoadingText(t) { const e = document.getElementById('loading-text'); 
 function showContent() {
     document.getElementById('loading-state').style.display          = 'none';
     document.getElementById('competitions-container').style.display  = 'block';
-    document.getElementById('status-bar').style.display             = 'flex';
+    document.getElementById('status-bar').style.display             = 'block';
 }
 
 // ── CORS detection ───────────────────────────────────────
@@ -764,33 +806,162 @@ function stylePl(inp) {
     if (!v) return;
     inp.classList.add(validPl(v) ? 'valid' : 'bad');
 }
-function recomputeCounters() {
-    let totalComps = 0, filledOfficial = 0, filledBroadcasters = 0, totalBroadcasters = 0, noCoverage = 0;
-    document.querySelectorAll('.ch-input-dark[data-comp]').forEach(ci => {
-        totalComps++;
-        const hasOfficial = ci.value.trim().length > 0;
-        if (hasOfficial) filledOfficial++;
-        const block = ci.closest('.comp-block');
-        let compHasBroadcaster = false;
-        if (block) {
-            block.querySelectorAll('.bcast-row').forEach(row => {
-                totalBroadcasters++;
-                const hasAnyPl = [...row.querySelectorAll('.pl-input')].some(inp => inp.value.trim().length > 0);
-                if (hasAnyPl) { filledBroadcasters++; compHasBroadcaster = true; }
-            });
+// ── Highlights coverage dashboard ────────────────────────
+async function loadHighlightsCoverage() {
+    const panel = document.getElementById('coverage-panel');
+    if (!panel) return;
+    try {
+        const url = 'https://raw.githubusercontent.com/' + GH_OWNER + '/' + GH_REPO
+                  + '/main/highlights/summary.json?_=' + Date.now();
+        const res = await fetch(url);
+        if (!res.ok) {
+            panel.innerHTML = '<div class="cov-empty">No highlights data yet — run the fetch-highlights workflow first.</div>';
+            return;
         }
-        if (!hasOfficial && !compHasBroadcaster) noCoverage++;
+        renderCoverage(await res.json());
+    } catch {
+        panel.innerHTML = '<div class="cov-empty">Could not load coverage data.</div>';
+    }
+}
+
+function renderCoverage(data) {
+    const panel = document.getElementById('coverage-panel');
+    if (!panel) return;
+    panel.innerHTML = '';
+    const comps = (data && data.competitions) || [];
+    if (comps.length === 0) {
+        panel.innerHTML = '<div class="cov-empty">No highlights data yet — run the fetch-highlights workflow first.</div>';
+        return;
+    }
+    comps.forEach(comp => {
+        const allGws     = comp.gameweeks || [];
+        const total      = allGws.reduce((s, gw) => s + gw.total,   0);
+        const covered    = allGws.reduce((s, gw) => s + gw.covered, 0);
+        const lastGw     = allGws.length > 0 ? allGws[allGws.length - 1] : null;
+        const isEuro     = (comp.slug === 'ucl' || comp.slug === 'uel');
+        const prefix     = isEuro ? 'MD' : 'GW';
+        const gwLabel    = lastGw ? prefix + lastGw.gameweek : '';
+        const pct        = total > 0 ? Math.round(covered / total * 100) : 0;
+        const barColor   = pct === 100 ? 'var(--green)' : pct >= 50 ? 'var(--yellow)' : 'var(--red)';
+
+        // ── Competition row ──────────────────────────────────────
+        const compRow = document.createElement('div');
+        compRow.className = 'cov-comp-row';
+
+        const chev = document.createElement('span');
+        chev.className = 'cov-comp-chevron';
+        chev.innerHTML = '<i class="fi-br-angle-right"></i>';
+
+        const flag = document.createElement('img');
+        flag.className = 'cov-comp-flag';
+        flag.src = FLAGS[comp.competition] || '';
+        flag.alt = '';
+
+        const nameEl = document.createElement('span');
+        nameEl.className = 'cov-comp-name';
+        nameEl.textContent = comp.competition;
+
+        const barWrap = document.createElement('div');
+        barWrap.className = 'cov-bar-wrap';
+        const bar = document.createElement('div');
+        bar.className = 'cov-bar';
+        bar.style.width = pct + '%';
+        bar.style.background = barColor;
+        barWrap.appendChild(bar);
+
+        const ratio = document.createElement('span');
+        ratio.className = 'cov-ratio';
+        ratio.textContent = covered + '/' + total;
+        ratio.style.color = barColor;
+
+        const gwTag = document.createElement('span');
+        gwTag.className = 'cov-gw-tag';
+        gwTag.textContent = gwLabel;
+
+        compRow.appendChild(chev);
+        compRow.appendChild(flag);
+        compRow.appendChild(nameEl);
+        compRow.appendChild(barWrap);
+        compRow.appendChild(ratio);
+        compRow.appendChild(gwTag);
+        panel.appendChild(compRow);
+
+        // ── Expanded match rows ──────────────────────────────────
+        const matchesEl = document.createElement('div');
+        matchesEl.className = 'cov-matches';
+        matchesEl.style.display = 'none';
+
+        allGws.forEach(gw => {
+            const hdr = document.createElement('div');
+            hdr.className = 'cov-gw-hdr';
+            hdr.textContent = prefix + gw.gameweek + '  ·  ' + gw.covered + '/' + gw.total + ' covered';
+            matchesEl.appendChild(hdr);
+
+            gw.matches.forEach(m => {
+                const mRow = document.createElement('div');
+                mRow.className = 'cov-match-row';
+
+                const icon = document.createElement('span');
+                icon.className = 'cov-match-icon';
+                icon.textContent = m.covered ? '✓' : '✗';
+                icon.style.color = m.covered ? 'var(--green)' : 'var(--red)';
+
+                const teams = document.createElement('span');
+                teams.className = 'cov-match-teams';
+                teams.textContent = m.home + ' vs ' + m.away;
+
+                mRow.appendChild(icon);
+                mRow.appendChild(teams);
+
+                if (!m.covered) {
+                    const btn = document.createElement('button');
+                    btn.className = 'cov-goto-btn';
+                    btn.textContent = '↗ Open config';
+                    btn.addEventListener('click', e => {
+                        e.stopPropagation();
+                        gotoComp(comp.competition);
+                    });
+                    mRow.appendChild(btn);
+                }
+                matchesEl.appendChild(mRow);
+            });
+        });
+
+        panel.appendChild(matchesEl);
+
+        compRow.addEventListener('click', () => {
+            const isOpen = matchesEl.style.display !== 'none';
+            matchesEl.style.display = isOpen ? 'none' : '';
+            chev.classList.toggle('open', !isOpen);
+        });
     });
-    document.getElementById('cnt-t1').textContent   = filledOfficial   + '/' + totalComps;
-    document.getElementById('cnt-t2').textContent   = filledBroadcasters + '/' + totalBroadcasters;
-    document.getElementById('cnt-none').textContent = noCoverage       + '/' + totalComps;
+}
+
+function gotoComp(compName) {
+    const comp = COMPETITIONS.find(c => c.name === compName);
+    if (!comp) return;
+    const list  = document.getElementById('list-' + comp.slug);
+    const block = list ? list.closest('.comp-block') : null;
+    if (!list) return;
+    // Collapse all open panels
+    document.querySelectorAll('.team-list.open').forEach(l => {
+        const s = l.id.slice('list-'.length);
+        l.classList.remove('open');
+        const chev = document.getElementById('chev-' + s);
+        if (chev) chev.classList.remove('open');
+    });
+    // Open this competition
+    list.classList.add('open');
+    const chev = document.getElementById('chev-' + comp.slug);
+    if (chev) chev.classList.add('open');
+    // Scroll to it
+    (block || list).scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 
 function markUnsaved() {
     unsaved = true;
     const btn = document.getElementById('save-btn');
     if (btn) btn.disabled = false;
-    recomputeCounters();
 }
 
 // ── Chip helpers ─────────────────────────────────────────
@@ -1106,8 +1277,6 @@ function buildUI() {
             container.appendChild(block);
         });
     });
-
-    recomputeCounters();
 }
 
 function appendBcastRow(section, compName, bcastName, plValues) {
@@ -1332,6 +1501,7 @@ async function loadAll() {
         document.getElementById('last-saved').textContent = saved ? 'Last saved: '+saved : 'Never saved';
         buildUI();
         showContent();
+        loadHighlightsCoverage(); // async — does not block the main UI
     } catch(err) {
         dbg('Fatal: ' + err.message, 'err');
         document.getElementById('loading-state').innerHTML =
