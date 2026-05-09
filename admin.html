@@ -132,10 +132,14 @@
             padding: 16px 4px 8px;
         }
         .comp-flag { width: 22px; height: 22px; object-fit: contain; flex-shrink: 0; }
-        .comp-name { font-size: 14px; font-weight: 500; flex: 1; letter-spacing: 0.4px; }
+        .comp-name {
+            font-size: 14px; font-weight: 500; flex: 1; letter-spacing: 0.4px;
+            min-width: 0; overflow: hidden; white-space: nowrap; text-overflow: ellipsis;
+        }
         .comp-badge {
             font-size: 11px; background: rgba(255,255,255,0.14);
             padding: 2px 8px; border-radius: 10px; color: rgba(255,255,255,0.75);
+            min-width: 0; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; flex-shrink: 1;
         }
         .chevron { color: rgba(255,255,255,0.5); font-size: 10px; transition: transform 0.2s; }
         .chevron.open { transform: rotate(90deg); }
@@ -673,10 +677,33 @@ function stylePl(inp) {
     if (!v) return;
     inp.classList.add(validPl(v) ? 'valid' : 'bad');
 }
+function recomputeCounters() {
+    let totalComps = 0, filledOfficial = 0, filledBroadcasters = 0, totalBroadcasters = 0, noCoverage = 0;
+    document.querySelectorAll('.ch-input-dark[data-comp]').forEach(ci => {
+        totalComps++;
+        const hasOfficial = ci.value.trim().length > 0;
+        if (hasOfficial) filledOfficial++;
+        const block = ci.closest('.comp-block');
+        let compHasBroadcaster = false;
+        if (block) {
+            block.querySelectorAll('.bcast-row').forEach(row => {
+                totalBroadcasters++;
+                const hasAnyPl = [...row.querySelectorAll('.pl-input')].some(inp => inp.value.trim().length > 0);
+                if (hasAnyPl) { filledBroadcasters++; compHasBroadcaster = true; }
+            });
+        }
+        if (!hasOfficial && !compHasBroadcaster) noCoverage++;
+    });
+    document.getElementById('cnt-t1').textContent   = filledOfficial   + '/' + totalComps;
+    document.getElementById('cnt-t2').textContent   = filledBroadcasters + '/' + totalBroadcasters;
+    document.getElementById('cnt-none').textContent = noCoverage       + '/' + totalComps;
+}
+
 function markUnsaved() {
     unsaved = true;
     const btn = document.getElementById('save-btn');
     if (btn) btn.disabled = false;
+    recomputeCounters();
 }
 
 // ── Chip helpers ─────────────────────────────────────────
@@ -707,14 +734,14 @@ function wireChipInput(chip, input, validFn, onInputFn, parseFn) {
         if (onInputFn) onInputFn();
         const chipDot = chip.querySelector('.dot');
         const v = input.value.trim();
-        if (chipDot) chipDot.className = 'dot ' + (v && validFn(v) ? 'dot-green' : 'dot-red');
+        if (chipDot) chipDot.className = 'dot ' + (v ? 'dot-green' : 'dot-red');
     });
     input.addEventListener('blur', () => {
         input.style.display = 'none';
         chip.style.display = '';
         const chipDot = chip.querySelector('.dot');
         const v = input.value.trim();
-        if (chipDot) chipDot.className = 'dot ' + (v && validFn(v) ? 'dot-green' : 'dot-red');
+        if (chipDot) chipDot.className = 'dot ' + (v ? 'dot-green' : 'dot-red');
     });
     input.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === 'Escape') input.blur(); });
 }
@@ -736,7 +763,7 @@ function makeTeamRow(teamName, ch, pl, hasComp, compName) {
     const indsEl = document.createElement('div');
     indsEl.className = 'team-indicators';
 
-    const chChip = makeChip('Channel', ch && validCh(ch), false);
+    const chChip = makeChip('Channel', ch.length > 0, false);
     const chInp = document.createElement('input');
     chInp.className = 'ch-input sm' + (ch&&validCh(ch)?' valid':ch?' bad':'');
     chInp.id = 'inp-' + sid(teamName);
@@ -751,7 +778,7 @@ function makeTeamRow(teamName, ch, pl, hasComp, compName) {
         markUnsaved();
     }, parseChannelId);
 
-    const plChip = makeChip('Playlist', pl && validPl(pl), false);
+    const plChip = makeChip('Playlist', pl.length > 0, false);
     const plInp = document.createElement('input');
     plInp.className = 'pl-input sm' + (pl&&validPl(pl)?' valid':pl?' bad':'');
     plInp.dataset.teamPl = teamName;
@@ -798,7 +825,6 @@ function makeTeamRow(teamName, ch, pl, hasComp, compName) {
 function buildUI() {
     const container = document.getElementById('competitions-container');
     container.innerHTML = '';
-    let totalT1 = 0, totalT2 = 0, totalNone = 0;
 
     COMP_GROUPS.forEach(group => {
         const secHdr = document.createElement('div');
@@ -814,12 +840,11 @@ function buildUI() {
             const syncedList = (sourcesData.teamLists||{})[comp.name] || [];
             const allTeams   = [...new Set([...syncedList, ...Object.keys(teamMap)])].sort();
 
-            let compT1 = 0, compT2 = 0, compNone = 0;
+            let compNone = 0;
             allTeams.forEach(name => {
                 const ch = (sourcesData.teams||{})[name] || '';
-                if (ch) compT1++; else if (hasComp) compT2++; else compNone++;
+                if (!ch && !hasComp) compNone++;
             });
-            totalT1 += compT1; totalT2 += compT2; totalNone += compNone;
 
             let sem;
             if (allTeams.length === 0) { sem = hasComp ? 'yellow' : 'red'; }
@@ -850,7 +875,7 @@ function buildUI() {
             chipWrap.className = 'comp-ch-inline';
             chipWrap.addEventListener('click', e => e.stopPropagation());
 
-            const cchip = makeChip('Official Channel', compCh && validCh(compCh), true);
+            const cchip = makeChip('Official Channel', compCh.length > 0, true);
             cchip.id = 'cchip-' + comp.slug;
             const cdotEl = cchip.querySelector('.dot');
 
@@ -887,7 +912,7 @@ function buildUI() {
                 if (extracted !== ci.value.trim()) ci.value = extracted;
                 styleInp(ci);
                 const v = ci.value.trim();
-                cdotEl.className = 'dot ' + (v&&validCh(v)?'dot-green':'dot-red');
+                cdotEl.className = 'dot ' + (v ? 'dot-green' : 'dot-red');
                 if (v && validCh(v)) {
                     searchA.href = 'https://www.youtube.com/channel/' + v;
                     searchA.classList.remove('disabled');
@@ -901,7 +926,7 @@ function buildUI() {
                 ci.style.display = 'none';
                 cchip.style.display = '';
                 const v = ci.value.trim();
-                cdotEl.className = 'dot ' + (v&&validCh(v)?'dot-green':'dot-red');
+                cdotEl.className = 'dot ' + (v ? 'dot-green' : 'dot-red');
             });
             ci.addEventListener('keydown', e => { if(e.key==='Enter'||e.key==='Escape') ci.blur(); });
             ci.addEventListener('click', e => e.stopPropagation());
@@ -945,9 +970,7 @@ function buildUI() {
         });
     });
 
-    document.getElementById('cnt-t1').textContent   = totalT1;
-    document.getElementById('cnt-t2').textContent   = totalT2;
-    document.getElementById('cnt-none').textContent = totalNone;
+    recomputeCounters();
 }
 
 function appendBcastRow(section, compName, bcastName, plValues) {
@@ -959,8 +982,8 @@ function appendBcastRow(section, compName, bcastName, plValues) {
     // ── View mode ──────────────────────────────────────────
     const viewEl = document.createElement('div');
     viewEl.className = 'bcast-view';
-    const anyValid = plValues.some(v => validPl(v));
-    const bchip = makeChip(bcastName || 'New broadcaster', anyValid, false);
+    const anyFilled = plValues.some(v => v.length > 0);
+    const bchip = makeChip(bcastName || 'New broadcaster', anyFilled, false);
     const bDot = bchip.querySelector('.dot');
     const bLbl = bchip.querySelectorAll('span')[1];
     viewEl.appendChild(bchip);
@@ -1012,7 +1035,7 @@ function appendBcastRow(section, compName, bcastName, plValues) {
         const vals = [...plList.querySelectorAll('.pl-input')].map(i => i.value.trim()).filter(v => v);
         const latest = [...vals].reverse().find(v => validPl(v)) || '';
         bLbl.textContent = nameInp.value.trim() || 'New broadcaster';
-        bDot.className = 'dot ' + (vals.some(v => validPl(v)) ? 'dot-green' : 'dot-red');
+        bDot.className = 'dot ' + (vals.length > 0 ? 'dot-green' : 'dot-red');
         bPlayA.href = latest ? 'https://www.youtube.com/playlist?list=' + latest : '#';
         if (latest) bPlayA.classList.remove('disabled');
         else bPlayA.classList.add('disabled');

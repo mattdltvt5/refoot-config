@@ -32,12 +32,17 @@ The admin panel uses the [UIcons Bold Rounded](https://www.flaticon.com/uicons) 
     "Exact Team Name": "UCxxxxxxxx"
   },
   "playlists": {
-    "Competition Name": "PLxxxxxxxx"
+    "Competition Name": {
+      "Broadcaster Name": ["PLxxxxxxxx", "PLyyyyyyyy"]
+    }
   },
   "teamPlaylists": {
     "Competition Name": {
       "Exact Team Name": "PLxxxxxxxx"
     }
+  },
+  "teamLists": {
+    "Competition Name": ["Team A", "Team B"]
   }
 }
 ```
@@ -46,3 +51,24 @@ The admin panel uses the [UIcons Bold Rounded](https://www.flaticon.com/uicons) 
 - Team names must exactly match football-data.org `team.name` values
 - Empty string `""` means "not configured" — the app falls through to the next tier
 - `playlists` and `teamPlaylists` are Tier 4 fallbacks; `competitions` and `teams` are Tier 2 / Tier 1
+- `playlists` supports multiple playlist IDs per broadcaster (e.g. one per game week); the app queries them all
+- `teamLists` is auto-populated weekly by the `sync-teams.yml` GitHub Action (football-data.org)
+- `teams` channel IDs are auto-populated weekly by the `sync-channels.yml` GitHub Action (Wikidata)
+
+## Admin Panel — coverage counters
+
+The three stat cards at the top show **X/Y ratios**:
+
+| Card | Numerator (X) | Denominator (Y) |
+|---|---|---|
+| **Own Channel** | Competitions with an official channel ID filled | Total competitions |
+| **Fallback Only** | Broadcaster rows with at least one playlist filled | Total broadcaster rows |
+| **No Coverage** | Competitions with no official channel AND no broadcaster playlists | Total competitions |
+
+Counters update live as you edit fields or add/remove broadcaster rows.
+
+## Mobile behaviour
+
+On narrow screens (≤ ~375 px) competition name labels and team-count badges truncate with `…`
+rather than pushing the Official Channel chip and action buttons off-screen. The chip and
+play button always remain fully visible.
