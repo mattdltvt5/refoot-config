@@ -431,6 +431,26 @@
             text-align: left; font-family: inherit;
         }
         .add-team-btn:hover { background: var(--blue-bg); }
+
+        /* ── Mobile competition header ───────────────────── */
+        /* Hidden by default on desktop */
+        .team-count-mobile { display: none; }
+
+        @media (max-width: 600px) {
+            /* Hide verbose elements to reclaim space */
+            .comp-name  { display: none; }
+            .comp-badge { display: none; }
+
+            /* Show compact plain number instead */
+            .team-count-mobile {
+                display: inline;
+                font-size: 12px;
+                color: rgba(255,255,255,0.75);
+                padding: 0 4px;
+                flex-shrink: 0;
+                white-space: nowrap;
+            }
+        }
     </style>
 </head>
 <body>
@@ -870,7 +890,8 @@ function buildUI() {
             hdrTop.innerHTML = '<span class="chevron" id="chev-' + comp.slug + '"><i class="fi-br-angle-right"></i></span>'
                 + '<img class="comp-flag" src="' + FLAGS[comp.name] + '" alt="">'
                 + '<span class="comp-name" title="' + comp.name.toUpperCase() + '">' + comp.name.toUpperCase() + '</span>'
-                + '<span class="comp-badge">' + allTeams.length + ' teams</span>';
+                + '<span class="comp-badge">' + allTeams.length + ' teams</span>'
+                + '<span class="team-count-mobile">' + allTeams.length + '</span>';
             hdrTop.addEventListener('click', () => {
                 document.getElementById('list-'+comp.slug).classList.toggle('open');
                 document.getElementById('chev-'+comp.slug).classList.toggle('open');

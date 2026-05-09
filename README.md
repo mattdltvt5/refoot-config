@@ -71,6 +71,7 @@ Counters update live as you edit fields or add/remove broadcaster rows.
 
 On narrow screens (≤ ~380 px):
 
-- **Competition titles** truncate with `…` (e.g. `PREMIER LEA…`) — the flag, team-count badge, Official Channel pill, and play button stay on the same row and are never clipped
+- **Competition header** hides the name label entirely and replaces the badge chip with a plain integer (e.g. `20`) — the flag, count, Official Channel pill, and play button fit cleanly in one row
+- **Competition titles** truncate with `…` on desktop/tablet when space is tight — the flag, team-count badge, Official Channel pill, and play button stay on the same row and are never clipped
 - **Team names** truncate with `…` (e.g. `Club Atlético de Ma…`) — the Channel pill, Playlist pill, and play icon always remain visible
 - Hovering (desktop) or long-pressing (mobile) a truncated name shows the full text via the native browser tooltip (`title` attribute)
