@@ -712,72 +712,74 @@ def main() -> None:
         log.error("FOOTBALL_DATA_API_KEY environment variable is not set")
         sys.exit(1)
     if not yt_key:
-        log.error("YOUTUBE_API_KEY environment variable is not set")
-        sys.exit(1)
+        log.warning(
+            "YOUTUBE_API_KEY is not set — YouTube playlist searches will be skipped. "
+            "summary.json will still be regenerated from existing highlight files."
+        )
 
     # ── 1. Load configuration ─────────────────────────────────────────────────
     config = load_sources()
 
-    # ── 2. Fetch recently completed fixtures ──────────────────────────────────
-    all_fixtures = fetch_recent_fixtures(fd_key)
-
-    if not all_fixtures:
-        log.info("No recently completed fixtures found within the last "
-                 f"{LOOKBACK_DAYS} days — nothing to do.")
-        return
-
     total_written = 0
 
-    # ── 3. Process each competition / matchday ────────────────────────────────
-    for comp_name, by_matchday in sorted(all_fixtures.items()):
-        for matchday, fixtures in sorted(by_matchday.items()):
+    # ── 2. Fetch fixtures and search YouTube (only when API key is available) ──
+    if yt_key:
+        all_fixtures = fetch_recent_fixtures(fd_key)
 
-            path     = gw_path(comp_name, matchday)
-            existing = load_gw_file(path)
+        if not all_fixtures:
+            log.info("No recently completed fixtures found within the last "
+                     f"{LOOKBACK_DAYS} days — nothing to do.")
+        else:
+            # ── 3. Process each competition / matchday ────────────────────────
+            for comp_name, by_matchday in sorted(all_fixtures.items()):
+                for matchday, fixtures in sorted(by_matchday.items()):
 
-            # Smart skip: skip YouTube entirely if every fixture already has videos
-            if is_gameweek_complete(existing, fixtures):
-                log.info(
-                    f"INFO: gameweek {matchday} for {comp_name} is complete, skipping"
-                )
-                continue
+                    path     = gw_path(comp_name, matchday)
+                    existing = load_gw_file(path)
 
-            log.info(
-                f"Processing {comp_name} GW{matchday} "
-                f"({len(fixtures)} fixture(s))…"
-            )
+                    # Smart skip: skip YouTube if every fixture already has videos
+                    if is_gameweek_complete(existing, fixtures):
+                        log.info(
+                            f"INFO: gameweek {matchday} for {comp_name} is complete, skipping"
+                        )
+                        continue
 
-            enriched_fixtures: list[dict] = []
-
-            for fix in fixtures:
-                videos = resolve_videos_for_fixture(fix, comp_name, config, yt_key)
-
-                enriched_fixtures.append({**fix, "videos": videos})
-
-                if not videos:
-                    # ── Missing match alert ───────────────────────────────────
-                    log.warning(
-                        f"No highlights found — {comp_name} GW{matchday}: "
-                        f"{fix['home_team']} vs {fix['away_team']} ({fix['date']})"
-                    )
-                else:
-                    tiers = sorted({v["tier_used"] for v in videos})
                     log.info(
-                        f"  ✓ {fix['home_team']} vs {fix['away_team']}: "
-                        f"{len(videos)} video(s) via tier(s) {tiers}"
+                        f"Processing {comp_name} GW{matchday} "
+                        f"({len(fixtures)} fixture(s))…"
                     )
 
-            # ── Merge and write ───────────────────────────────────────────────
-            gw_data, changed = merge_into_gw(
-                existing, comp_name, matchday, enriched_fixtures
-            )
+                    enriched_fixtures: list[dict] = []
 
-            if changed:
-                write_gw_file(path, gw_data)
-                total_written += 1
-                log.info(f"  → Wrote {path.relative_to(REPO_ROOT)}")
-            else:
-                log.info(f"  → No changes to {path.relative_to(REPO_ROOT)}")
+                    for fix in fixtures:
+                        videos = resolve_videos_for_fixture(fix, comp_name, config, yt_key)
+
+                        enriched_fixtures.append({**fix, "videos": videos})
+
+                        if not videos:
+                            # ── Missing match alert ──────────────────────────
+                            log.warning(
+                                f"No highlights found — {comp_name} GW{matchday}: "
+                                f"{fix['home_team']} vs {fix['away_team']} ({fix['date']})"
+                            )
+                        else:
+                            tiers = sorted({v["tier_used"] for v in videos})
+                            log.info(
+                                f"  ✓ {fix['home_team']} vs {fix['away_team']}: "
+                                f"{len(videos)} video(s) via tier(s) {tiers}"
+                            )
+
+                    # ── Merge and write ──────────────────────────────────────
+                    gw_data, changed = merge_into_gw(
+                        existing, comp_name, matchday, enriched_fixtures
+                    )
+
+                    if changed:
+                        write_gw_file(path, gw_data)
+                        total_written += 1
+                        log.info(f"  → Wrote {path.relative_to(REPO_ROOT)}")
+                    else:
+                        log.info(f"  → No changes to {path.relative_to(REPO_ROOT)}")
 
     log.info(f"Done. {total_written} file(s) updated.")
 
