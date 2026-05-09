@@ -929,15 +929,12 @@ function buildUI() {
 
             const hdrTop = document.createElement('div');
             hdrTop.className = 'comp-header-top';
+            hdrTop.dataset.slug = comp.slug;
             hdrTop.innerHTML = '<span class="chevron" id="chev-' + comp.slug + '"><i class="fi-br-angle-right"></i></span>'
                 + '<img class="comp-flag" src="' + FLAGS[comp.name] + '" alt="">'
                 + '<span class="comp-name" title="' + comp.name.toUpperCase() + '">' + comp.name.toUpperCase() + '</span>'
                 + '<span class="comp-badge">' + allTeams.length + ' teams</span>'
                 + '<span class="team-count-mobile">' + allTeams.length + '</span>';
-            hdrTop.addEventListener('click', () => {
-                document.getElementById('list-'+comp.slug).classList.toggle('open');
-                document.getElementById('chev-'+comp.slug).classList.toggle('open');
-            });
 
             // ── Official channel chip — inline on the right ──
             const chipWrap = document.createElement('div');
@@ -1331,6 +1328,34 @@ document.getElementById('debug-clear-btn').addEventListener('click', () => {
 });
 document.getElementById('reload-btn').addEventListener('click', loadAll);
 document.getElementById('save-btn').addEventListener('click', saveData);
+
+// ── Accordion — one competition open at a time ────────────
+// Single delegated listener on the stable container survives buildUI() re-renders.
+// Clicks on .comp-ch-inline (channel chip/input/play) already call stopPropagation()
+// so they never reach here and never trigger an accordion collapse.
+document.getElementById('competitions-container').addEventListener('click', e => {
+    const hdrTop = e.target.closest('[data-slug]');
+    if (!hdrTop) return;                              // click was inside a team row, bcast row, etc.
+    const slug     = hdrTop.dataset.slug;
+    const thisList = document.getElementById('list-' + slug);
+    if (!thisList) return;
+    const wasOpen  = thisList.classList.contains('open');
+
+    // Collapse every open panel
+    document.querySelectorAll('.team-list.open').forEach(list => {
+        const s = list.id.slice('list-'.length);
+        list.classList.remove('open');
+        const chev = document.getElementById('chev-' + s);
+        if (chev) chev.classList.remove('open');
+    });
+
+    // Re-open the clicked one only if it was previously closed
+    if (!wasOpen) {
+        thisList.classList.add('open');
+        const chev = document.getElementById('chev-' + slug);
+        if (chev) chev.classList.add('open');
+    }
+});
 window.addEventListener('beforeunload', e => { if(unsaved){e.preventDefault();e.returnValue='';} });
 
 // ── Init ─────────────────────────────────────────────────

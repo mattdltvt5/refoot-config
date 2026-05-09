@@ -76,4 +76,5 @@ On narrow screens (≤ ~380 px):
 - **Team names** truncate with `…` (e.g. `Club Atlético de Ma…`) — the Channel pill, Playlist pill, and play icon always remain visible
 - **Team row chips** swap "Channel" / "Playlist" text labels for compact icons (`fi-br-channel` / `fi-br-list`) on mobile to free up horizontal space
 - **Team semaphore dot**: 🟢 green = channel *and* playlist filled; 🟡 orange = exactly one filled; 🔴 red = neither filled. Updates live on every keystroke
+- **Accordion competition list**: only one competition can be expanded at a time — opening a new one automatically collapses the previously open one
 - Hovering (desktop) or long-pressing (mobile) a truncated name shows the full text via the native browser tooltip (`title` attribute)
