@@ -307,6 +307,8 @@
         .bcast-del-btn [class^="fi-br-"]::before,
         .bcast-pl-del [class^="fi-br-"]::before  { font-size: 11px; }
         .bcast-pl-add [class^="fi-br-"]::before  { font-size: 10px; }
+        .label-icon [class^="fi-br-"]::before,
+        .label-icon [class*=" fi-br-"]::before  { font-size: 12px; }
 
         /* ── Loading ─────────────────────────────────────── */
         #loading-state { text-align: center; padding: 60px 20px; color: var(--muted); }
@@ -432,16 +434,14 @@
         }
         .add-team-btn:hover { background: var(--blue-bg); }
 
-        /* ── Mobile competition header ───────────────────── */
-        /* Hidden by default on desktop */
+        /* ── Mobile — defaults (hidden on desktop) ──────── */
         .team-count-mobile { display: none; }
+        .label-icon        { display: none; }
 
         @media (max-width: 600px) {
-            /* Hide verbose elements to reclaim space */
+            /* Competition header: drop name + pill, show plain count */
             .comp-name  { display: none; }
             .comp-badge { display: none; }
-
-            /* Show compact plain number instead */
             .team-count-mobile {
                 display: inline;
                 font-size: 12px;
@@ -449,6 +449,15 @@
                 padding: 0 4px;
                 flex-shrink: 0;
                 white-space: nowrap;
+            }
+
+            /* Team chips: swap text label for icon */
+            .label-text { display: none; }
+            .label-icon {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 12px;
             }
         }
     </style>
@@ -732,16 +741,31 @@ function markUnsaved() {
 }
 
 // ── Chip helpers ─────────────────────────────────────────
-function makeChip(label, isSet, dark) {
+function makeChip(label, isSet, dark, iconClass) {
     const chip = document.createElement('span');
     chip.className = dark ? 'field-chip-dark' : 'field-chip';
     const dot = document.createElement('span');
     dot.className = 'dot ' + (isSet ? 'dot-green' : 'dot-red');
-    const lbl = document.createElement('span');
-    lbl.textContent = label;
+    chip.appendChild(dot);
+    if (iconClass) {
+        const labelText = document.createElement('span');
+        labelText.className = 'label-text';
+        labelText.textContent = label;
+        const labelIcon = document.createElement('span');
+        labelIcon.className = 'label-icon';
+        labelIcon.setAttribute('aria-hidden', 'true');
+        labelIcon.setAttribute('aria-label', label);
+        labelIcon.innerHTML = '<i class="' + iconClass + '"></i>';
+        chip.appendChild(labelText);
+        chip.appendChild(labelIcon);
+    } else {
+        const lbl = document.createElement('span');
+        lbl.textContent = label;
+        chip.appendChild(lbl);
+    }
     const pencil = document.createElement('i');
     pencil.className = 'fi-br-pencil chip-edit-icon';
-    chip.appendChild(dot); chip.appendChild(lbl); chip.appendChild(pencil);
+    chip.appendChild(pencil);
     return chip;
 }
 
@@ -772,14 +796,18 @@ function wireChipInput(chip, input, validFn, onInputFn, parseFn) {
 }
 
 function makeTeamRow(teamName, ch, pl, hasComp, compName) {
-    const dotC = ch ? 'dot-green' : hasComp ? 'dot-yellow' : 'dot-red';
+    const hasCh0 = ch.trim().length > 0;
+    const hasPl0 = pl.trim().length > 0;
+    const dotC = (hasCh0 && hasPl0) ? 'dot-green' : (hasCh0 || hasPl0) ? 'dot-yellow' : 'dot-red';
     const row = document.createElement('div');
     row.className = 'team-row';
 
     const statusDot = document.createElement('div');
     statusDot.className = 'dot ' + dotC;
     statusDot.id = 'dot-' + sid(teamName);
-    statusDot.title = ch ? 'Has team channel' : hasComp ? 'Competition only' : 'No coverage';
+    statusDot.title = (hasCh0 && hasPl0) ? 'Channel and playlist set'
+                    : (hasCh0 || hasPl0) ? 'Partial — channel or playlist missing'
+                    : 'No channel or playlist';
 
     const nameEl = document.createElement('div');
     nameEl.className = 'team-name';
@@ -789,7 +817,8 @@ function makeTeamRow(teamName, ch, pl, hasComp, compName) {
     const indsEl = document.createElement('div');
     indsEl.className = 'team-indicators';
 
-    const chChip = makeChip('Channel', ch.length > 0, false);
+    // Build both chips and inputs first so refreshDot can close over both
+    const chChip = makeChip('Channel', hasCh0, false, 'fi-br-channel');
     const chInp = document.createElement('input');
     chInp.className = 'ch-input sm' + (ch&&validCh(ch)?' valid':ch?' bad':'');
     chInp.id = 'inp-' + sid(teamName);
@@ -797,14 +826,8 @@ function makeTeamRow(teamName, ch, pl, hasComp, compName) {
     chInp.value = ch;
     chInp.placeholder = "Team's channel (UCxxxx)";
     chInp.style.display = 'none';
-    wireChipInput(chChip, chInp, validCh, () => {
-        styleInp(chInp);
-        const dot = document.getElementById('dot-'+sid(teamName));
-        if (dot) dot.className = 'dot '+(chInp.value.trim()&&validCh(chInp.value.trim())?'dot-green':hasComp?'dot-yellow':'dot-red');
-        markUnsaved();
-    }, parseChannelId);
 
-    const plChip = makeChip('Playlist', pl.length > 0, false);
+    const plChip = makeChip('Playlist', hasPl0, false, 'fi-br-list');
     const plInp = document.createElement('input');
     plInp.className = 'pl-input sm' + (pl&&validPl(pl)?' valid':pl?' bad':'');
     plInp.dataset.teamPl = teamName;
@@ -812,7 +835,26 @@ function makeTeamRow(teamName, ch, pl, hasComp, compName) {
     plInp.value = pl;
     plInp.placeholder = "Team's playlist (PLxxxx)";
     plInp.style.display = 'none';
-    wireChipInput(plChip, plInp, validPl, () => { stylePl(plInp); markUnsaved(); }, parsePlaylistId);
+
+    // Semaphore: green=both filled, orange=one filled, red=neither
+    function refreshDot() {
+        const hasCh = chInp.value.trim().length > 0;
+        const hasPl = plInp.value.trim().length > 0;
+        statusDot.className = 'dot '
+            + ((hasCh && hasPl) ? 'dot-green' : (hasCh || hasPl) ? 'dot-yellow' : 'dot-red');
+    }
+
+    wireChipInput(chChip, chInp, validCh, () => {
+        styleInp(chInp);
+        refreshDot();
+        markUnsaved();
+    }, parseChannelId);
+
+    wireChipInput(plChip, plInp, validPl, () => {
+        stylePl(plInp);
+        refreshDot();
+        markUnsaved();
+    }, parsePlaylistId);
 
     indsEl.appendChild(chChip);
     indsEl.appendChild(chInp);
