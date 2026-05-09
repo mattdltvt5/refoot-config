@@ -486,7 +486,16 @@
                     Repository: <strong>refoot-config</strong> &nbsp;·&nbsp; Permission: <strong>Contents → Read &amp; Write</strong>
                 </div>
             </div>
-            <button class="btn-blue" id="setup-confirm-btn" style="width:100%;text-align:center;">Save &amp; Load Data</button>
+            <div class="form-group" style="margin-top:16px">
+                <label class="form-label" for="in-yt-key">YouTube API Key <span style="font-weight:400;color:var(--muted)">(optional)</span></label>
+                <input class="form-input" id="in-yt-key" type="password" placeholder="AIzaSy…">
+                <div class="form-hint">
+                    Required to auto-resolve YouTube @handle URLs to channel IDs when you paste them into channel fields.<br>
+                    <a href="https://console.cloud.google.com/apis/credentials" target="_blank">Google Cloud Console → APIs &amp; Services → Credentials</a><br>
+                    Enable: <strong>YouTube Data API v3</strong>
+                </div>
+            </div>
+            <button class="btn-blue" id="setup-confirm-btn" style="width:100%;text-align:center;margin-top:16px">Save &amp; Load Data</button>
             <div class="modal-error" id="setup-error"></div>
         </div>
         <div class="drawer-pane" id="pane-debug">
@@ -586,17 +595,19 @@ const COMP_GROUPS = [
 ];
 const COMPETITIONS = [...LEAGUES, ...INTERNATIONAL];
 
-let ghPat = '', fileSha = null;
+let ghPat = '', fileSha = null, ytApiKey = '';
 let sourcesData = { competitions: {}, teams: {}, playlists: {}, teamPlaylists: {} };
 let unsaved = false;
 
 // ── Credentials ──────────────────────────────────────────
 function loadCreds() {
-    ghPat = localStorage.getItem('rf_gh_pat') || '';
+    ghPat    = localStorage.getItem('rf_gh_pat') || '';
+    ytApiKey = localStorage.getItem('rf_yt_key')  || '';
     return !!ghPat;
 }
 function saveCreds() {
     localStorage.setItem('rf_gh_pat', ghPat);
+    localStorage.setItem('rf_yt_key',  ytApiKey);
 }
 
 // ── Debug log ────────────────────────────────────────────
@@ -699,6 +710,48 @@ function parsePlaylistId(v) {
     const m = v.match(/[?&]list=((?:PL|UU)[\w-]+)/);
     return m ? m[1] : v;
 }
+
+// ── YouTube @handle resolution ────────────────────────────
+// Extracts a handle/username from URL patterns that can't be resolved
+// synchronously (i.e. anything that isn't /channel/UCxxx).
+function extractYouTubeHandle(v) {
+    if (!v || typeof v !== 'string') return null;
+    // youtube.com/@handle  or  youtu.be/@handle
+    let m = v.match(/youtu(?:be\.com|\.be)\/@([^/?&\s]+)/);
+    if (m) return { type: 'handle', value: m[1] };
+    // youtube.com/c/name
+    m = v.match(/youtube\.com\/c\/([^/?&\s]+)/);
+    if (m) return { type: 'handle', value: m[1] };
+    // youtube.com/user/name
+    m = v.match(/youtube\.com\/user\/([^/?&\s]+)/);
+    if (m) return { type: 'username', value: m[1] };
+    // bare @handle with no domain
+    m = v.match(/^@([^/?&\s]+)$/);
+    if (m) return { type: 'handle', value: m[1] };
+    return null;
+}
+
+// Calls YouTube Data API channels.list to resolve a handle/username → UC… ID.
+// Returns the channel ID string on success, or null on failure / no key set.
+async function resolveChannelUrl(v) {
+    if (!ytApiKey) return null;
+    const info = extractYouTubeHandle(v);
+    if (!info) return null;
+    const param = info.type === 'username'
+        ? 'forUsername=' + encodeURIComponent(info.value)
+        : 'forHandle='   + encodeURIComponent(info.value);
+    try {
+        const res  = await fetch(
+            'https://www.googleapis.com/youtube/v3/channels?part=id&' + param + '&key=' + ytApiKey
+        );
+        if (!res.ok) return null;
+        const data  = await res.json();
+        const items = data.items || [];
+        return items.length ? items[0].id : null;
+    } catch {
+        return null;
+    }
+}
 function styleInp(inp) {
     const v = inp.value.trim();
     inp.classList.remove('valid','bad');
@@ -769,7 +822,7 @@ function makeChip(label, isSet, dark, iconClass) {
     return chip;
 }
 
-function wireChipInput(chip, input, validFn, onInputFn, parseFn) {
+function wireChipInput(chip, input, validFn, onInputFn, parseFn, resolveAsyncFn) {
     chip.addEventListener('click', () => {
         chip.style.display = 'none';
         input.style.display = '';
@@ -785,12 +838,22 @@ function wireChipInput(chip, input, validFn, onInputFn, parseFn) {
         const v = input.value.trim();
         if (chipDot) chipDot.className = 'dot ' + (v ? 'dot-green' : 'dot-red');
     });
-    input.addEventListener('blur', () => {
+    input.addEventListener('blur', async () => {
+        // Attempt async resolution when the sync parse left a non-valid value
+        // (e.g. a YouTube @handle URL that can't be extracted without an API call)
+        const v = input.value.trim();
+        if (resolveAsyncFn && v && !validFn(v)) {
+            const resolved = await resolveAsyncFn(v);
+            if (resolved) {
+                input.value = resolved;
+                if (onInputFn) onInputFn();
+            }
+        }
         input.style.display = 'none';
         chip.style.display = '';
         const chipDot = chip.querySelector('.dot');
-        const v = input.value.trim();
-        if (chipDot) chipDot.className = 'dot ' + (v ? 'dot-green' : 'dot-red');
+        const finalV = input.value.trim();
+        if (chipDot) chipDot.className = 'dot ' + (finalV ? 'dot-green' : 'dot-red');
     });
     input.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === 'Escape') input.blur(); });
 }
@@ -848,7 +911,7 @@ function makeTeamRow(teamName, ch, pl, hasComp, compName) {
         styleInp(chInp);
         refreshDot();
         markUnsaved();
-    }, parseChannelId);
+    }, parseChannelId, resolveChannelUrl);
 
     wireChipInput(plChip, plInp, validPl, () => {
         stylePl(plInp);
@@ -988,11 +1051,19 @@ function buildUI() {
                 }
                 markUnsaved();
             });
-            ci.addEventListener('blur', () => {
+            ci.addEventListener('blur', async () => {
+                const v = ci.value.trim();
+                if (v && !validCh(v)) {
+                    const resolved = await resolveChannelUrl(v);
+                    if (resolved) {
+                        ci.value = resolved;
+                        ci.dispatchEvent(new Event('input')); // re-runs input handler (styleInp, searchA, markUnsaved)
+                    }
+                }
                 ci.style.display = 'none';
                 cchip.style.display = '';
-                const v = ci.value.trim();
-                cdotEl.className = 'dot ' + (v ? 'dot-green' : 'dot-red');
+                const finalV = ci.value.trim();
+                cdotEl.className = 'dot ' + (finalV ? 'dot-green' : 'dot-red');
             });
             ci.addEventListener('keydown', e => { if(e.key==='Enter'||e.key==='Escape') ci.blur(); });
             ci.addEventListener('click', e => e.stopPropagation());
@@ -1291,7 +1362,8 @@ async function saveData() {
 // ── Drawer ───────────────────────────────────────────────
 function openDrawer(tab) {
     tab = tab || 'credentials';
-    document.getElementById('in-pat').value = ghPat;
+    document.getElementById('in-pat').value    = ghPat;
+    document.getElementById('in-yt-key').value = ytApiKey;
     document.querySelectorAll('.drawer-tab').forEach(t => t.classList.toggle('active', t.dataset.tab === tab));
     document.querySelectorAll('.drawer-pane').forEach(p => p.classList.toggle('active', p.id === 'pane-' + tab));
     document.getElementById('settings-overlay').classList.add('open');
@@ -1304,11 +1376,14 @@ function closeDrawer() {
 
 // ── Events ───────────────────────────────────────────────
 document.getElementById('setup-confirm-btn').addEventListener('click', () => {
-    const pat = document.getElementById('in-pat').value.trim();
-    const err = document.getElementById('setup-error');
+    const pat   = document.getElementById('in-pat').value.trim();
+    const ytKey = document.getElementById('in-yt-key').value.trim();
+    const err   = document.getElementById('setup-error');
     if (!pat) { err.textContent='GitHub token is required.'; err.style.display='block'; return; }
     err.style.display='none';
-    ghPat=pat; saveCreds();
+    ghPat    = pat;
+    ytApiKey = ytKey;
+    saveCreds();
     closeDrawer();
     loadAll();
 });
