@@ -202,6 +202,15 @@ When either cap is hit the script saves state, writes any in-progress files, and
 
 If the backfill Action is cancelled mid-run the lock file may be left on disk. The incremental script treats any lock older than 3 hours as stale, removes it, and proceeds normally.
 
+#### Backfill commit cadence
+
+The backfill script commits to git after **every competition completes**, not just at the end. This means:
+- A `chore: backfill {competition} complete [skip ci]` commit appears after each competition
+- If the process is killed mid-run, all completed competitions are already in git
+- Re-triggering always resumes from the correct competition and gameweek
+
+A YouTube HTTP 403 (quota exhaustion detected by YouTube itself) is treated identically to the internal cap — the checkpoint and all written files are committed and the script exits 0 (green run in GitHub Actions).
+
 ### Required secrets
 
 | Secret | Used by |

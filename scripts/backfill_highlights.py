@@ -6,13 +6,13 @@ Manual trigger only (workflow_dispatch via backfill-highlights.yml).
 Fetches all FINISHED fixtures for the current football season from
 football-data.org and searches YouTube playlists in tier-priority order.
 
-Progress is checkpointed after every gameweek so re-triggering resumes
-exactly where it stopped. Exits cleanly at 9,500 YouTube units/day
-(BACKFILL_CAP) with the checkpoint saved for the next run.
+Progress is checkpointed after every gameweek and committed to git after
+every competition, so re-triggering always resumes from the correct position.
 
-If a gameweek was partially processed when quota was hit, the partial
-results are written before exiting so the per-match skip avoids redundant
-API calls on the next run.
+Exits cleanly (exit 0) when:
+  - The 9,500-unit daily YouTube cap is reached (BACKFILL_CAP)
+  - YouTube returns HTTP 403 (its own quota exhaustion)
+  - The entire season is already complete
 
 Environment variables required:
     FOOTBALL_DATA_API_KEY   — football-data.org personal access token
@@ -21,17 +21,21 @@ Environment variables required:
 
 import logging
 import os
+import subprocess
 import sys
 import time
 from datetime import datetime, timezone
+from pathlib import Path
 
 from highlights_common import (
     BACKFILL_CAP,
     BACKFILL_LOCK_PATH,
     BACKFILL_PROGRESS_PATH,
     COMPETITION_CODE_MAP,
+    COMPETITION_SLUG_MAP,
     FD_BASE,
     FD_SLEEP_SECONDS,
+    QUOTA_TRACKER_PATH,
     QuotaCapReached,
     QuotaTracker,
     fd_get,
@@ -46,6 +50,37 @@ from highlights_common import (
 )
 
 log = logging.getLogger(__name__)
+
+
+# ── Git helper ────────────────────────────────────────────────────────────────
+
+
+def run_git_commit(files: list[Path], message: str) -> None:
+    """
+    Stage the given files, commit, and push.
+
+    - backfill.lock is silently excluded (must never be committed)
+    - If nothing is staged after git add, the commit is skipped silently
+    - If git push fails (e.g. remote conflict), the error is logged but the
+      script continues — data is safe on disk and the next commit will include it
+    """
+    to_stage = [str(f) for f in files if f != BACKFILL_LOCK_PATH]
+    if not to_stage:
+        return
+    try:
+        subprocess.run(["git", "add", "--"] + to_stage, check=True)
+        diff = subprocess.run(["git", "diff", "--cached", "--quiet"])
+        if diff.returncode == 0:
+            log.info("Git: nothing new to commit — skipping")
+            return
+        subprocess.run(["git", "commit", "-m", message], check=True)
+        subprocess.run(["git", "push"], check=True)
+        log.info(f"Git: committed and pushed — {message!r}")
+    except subprocess.CalledProcessError as exc:
+        log.error(
+            f"Git operation failed ({exc.cmd}): {exc} — "
+            "data is written locally; next commit will include it"
+        )
 
 
 # ── Season helper ─────────────────────────────────────────────────────────────
@@ -69,7 +104,10 @@ class BackfillProgress:
     def __init__(self, season: int) -> None:
         data = load_json_file(BACKFILL_PROGRESS_PATH) or {}
         if data.get("season") != season:
-            data = {}  # season rollover — start fresh
+            log.info(
+                f"Season changed ({data.get('season')} → {season}) — resetting backfill progress"
+            )
+            data = {}
 
         self.season                     = season
         self.status                     = data.get("status", "in_progress")
@@ -90,6 +128,10 @@ class BackfillProgress:
             "started_at":                 self.started_at,
             "last_resumed_at":            self.last_resumed_at,
         })
+        log.debug(
+            f"Checkpoint saved: competitions_done={self.competitions_done}, "
+            f"last_gw={self.last_completed_gameweek}"
+        )
 
     def mark_gameweek_done(self, comp_name: str, matchday: int) -> None:
         self.last_completed_competition = comp_name
@@ -99,7 +141,8 @@ class BackfillProgress:
     def mark_competition_done(self, comp_name: str) -> None:
         if comp_name not in self.competitions_done:
             self.competitions_done.append(comp_name)
-        self.last_completed_gameweek = 0  # reset per-competition cursor
+        self.last_completed_competition = comp_name
+        self.last_completed_gameweek    = 0   # reset per-competition cursor
         self._save()
 
     def mark_complete(self) -> None:
@@ -180,43 +223,56 @@ def main() -> None:
     season   = current_season()
     progress = BackfillProgress(season)
 
+    # ── Startup log: always reflects the state loaded from disk ───────────────
+    log.info(
+        f"Backfill season {season} | "
+        f"competitions done: {progress.competitions_done or '(none)'} | "
+        f"resuming after GW{progress.last_completed_gameweek} in "
+        f"{progress.last_completed_competition or 'start'}"
+    )
+
     if progress.status == "complete":
         log.info(f"Season {season} backfill is already complete — nothing to do")
         generate_summary()
         return
 
-    log.info(
-        f"Backfill season {season} | "
-        f"competitions done: {progress.competitions_done or '(none)'} | "
-        f"resuming after GW{progress.last_completed_gameweek} in "
-        f"{progress.last_completed_competition or '(start)'}"
-    )
-
     quota  = QuotaTracker()
     config = load_sources()
 
     BACKFILL_LOCK_PATH.write_text(utc_now_iso(), encoding="utf-8")
-    total_written = 0
-    quota_cap_hit = False
+    total_written  = 0
+    quota_cap_hit  = False
+    # These track the current competition's context for the post-loop commit
+    written_this_comp: list[Path] = []
+    current_slug                  = ""
 
     try:
         for code, comp_name in COMPETITION_CODE_MAP.items():
             if quota_cap_hit:
                 break
 
+            slug = COMPETITION_SLUG_MAP[comp_name]
+
+            # ── Step 3: resume check — must happen before any API calls ───────
             if comp_name in progress.competitions_done:
-                log.info(f"{comp_name}: already complete — skipping")
+                log.info(f"INFO: {comp_name} already complete — skipping")
                 continue
 
             log.info(f"── {comp_name} (season {season}) ──")
+            written_this_comp = []
+            current_slug      = slug
             time.sleep(FD_SLEEP_SECONDS)
 
             by_matchday = fetch_season_fixtures(code, comp_name, season, fd_key)
             if not by_matchday:
                 progress.mark_competition_done(comp_name)
+                run_git_commit(
+                    [BACKFILL_PROGRESS_PATH, QUOTA_TRACKER_PATH],
+                    f"chore: backfill {slug} complete [skip ci]",
+                )
                 continue
 
-            # Resume past already-checkpointed gameweeks for this competition
+            # Determine which gameweek to resume from within this competition
             start_after = (
                 progress.last_completed_gameweek
                 if progress.last_completed_competition == comp_name
@@ -235,7 +291,7 @@ def main() -> None:
                 path     = gw_path(comp_name, matchday)
                 existing = load_json_file(path)
 
-                # Per-match skip: build lookup of already-covered matches
+                # Build per-match lookup so already-covered fixtures are skipped
                 existing_by_id: dict[int, dict] = {}
                 if existing:
                     existing_by_id = {
@@ -248,7 +304,7 @@ def main() -> None:
                 for fix in fixtures:
                     prior = existing_by_id.get(fix["match_id"])
                     if prior and prior.get("videos"):
-                        # Already has videos from a previous partial run — preserve them
+                        # Already covered in a previous run — preserve the videos
                         enriched.append({**fix, "videos": prior["videos"]})
                         continue
 
@@ -257,7 +313,8 @@ def main() -> None:
                             fix, comp_name, config, yt_key, quota, BACKFILL_CAP
                         )
                     except QuotaCapReached as exc:
-                        log.info(f"Daily cap reached: {exc}")
+                        # Raised for both internal cap hits AND YouTube 403 responses
+                        log.info(f"  Cap/quota reached: {exc}")
                         quota_cap_hit = True
                         break
 
@@ -275,7 +332,8 @@ def main() -> None:
                             f"{len(videos)} video(s) via tier(s) {tiers}"
                         )
 
-                # Write whatever we have (full gameweek or partial if quota hit)
+                # Write whatever we have for this gameweek
+                # (full set when normal; partial set when quota was hit mid-gameweek)
                 if enriched:
                     gw_data, changed = merge_into_gw(
                         existing, comp_name, matchday, enriched
@@ -283,24 +341,40 @@ def main() -> None:
                     if changed:
                         write_json_atomic(path, gw_data)
                         total_written += 1
+                        written_this_comp.append(path)
                         log.info(f"    → Wrote {path.name}")
 
-                # Only checkpoint as done when all fixtures were processed
+                # Only advance the checkpoint when the full gameweek was processed
                 if not quota_cap_hit:
                     progress.mark_gameweek_done(comp_name, matchday)
 
+            # ── Competition complete ───────────────────────────────────────────
             if not quota_cap_hit:
                 progress.mark_competition_done(comp_name)
+                # Step 2: commit after every competition so the checkpoint is
+                # persisted in git before the next competition starts
+                run_git_commit(
+                    written_this_comp + [BACKFILL_PROGRESS_PATH, QUOTA_TRACKER_PATH],
+                    f"chore: backfill {slug} complete [skip ci]",
+                )
 
-        if not quota_cap_hit:
-            progress.mark_complete()
-            log.info(f"Backfill complete. {total_written} file(s) written.")
-        else:
+        # ── Post-loop: handle quota cap / 403 exit ────────────────────────────
+        if quota_cap_hit:
+            # Commit whatever the cap-hit competition managed to write,
+            # plus the checkpoint so the next run resumes correctly
+            run_git_commit(
+                written_this_comp + [BACKFILL_PROGRESS_PATH, QUOTA_TRACKER_PATH],
+                f"chore: backfill checkpoint — quota cap reached [skip ci]",
+            )
             log.info(
                 f"Backfill paused at daily cap. {total_written} file(s) written. "
-                f"Checkpoint: {progress.last_completed_competition} GW{progress.last_completed_gameweek}. "
+                f"Checkpoint: {progress.last_completed_competition} "
+                f"GW{progress.last_completed_gameweek}. "
                 "Re-trigger this workflow tomorrow to continue."
             )
+        else:
+            progress.mark_complete()
+            log.info(f"Backfill complete. {total_written} file(s) written.")
 
     finally:
         BACKFILL_LOCK_PATH.unlink(missing_ok=True)

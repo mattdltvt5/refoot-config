@@ -356,7 +356,8 @@ def search_playlist(
 
     Pagination capped at MAX_YT_PAGES; stops after the first page with an accepted video.
     Calls quota.increment(cap) per page fetched — raises QuotaCapReached if cap hit.
-    Raises SystemExit(1) on HTTP 403 (YouTube's own quota exhaustion).
+    Raises QuotaCapReached on HTTP 403 (YouTube's own quota exhaustion) so callers can
+    save state and exit cleanly rather than crashing with a non-zero exit code.
     """
     fixture_date = datetime.strptime(fixture["date"], "%Y-%m-%d").replace(tzinfo=timezone.utc)
     window_end   = fixture_date + timedelta(days=VIDEO_WINDOW_DAYS)
@@ -386,11 +387,13 @@ def search_playlist(
             return accepted
 
         if resp.status_code == 403:
-            log.error(
-                f"YouTube API returned 403 on playlist {playlist_id}. "
-                "Aborting — no partial results will be committed."
+            log.warning(
+                f"YouTube API quota exhausted (403) on playlist {playlist_id} "
+                "— saving checkpoint and exiting cleanly"
             )
-            sys.exit(1)
+            raise QuotaCapReached(
+                f"YouTube returned HTTP 403 on playlist {playlist_id} — quota exhausted"
+            )
         if resp.status_code == 404:
             log.warning(f"Playlist {playlist_id} not found (404) — skipping")
             return accepted
