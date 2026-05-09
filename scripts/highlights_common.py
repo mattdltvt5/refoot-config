@@ -1,0 +1,671 @@
+#!/usr/bin/env python3
+"""
+highlights_common.py
+
+Shared utilities for fetch_highlights.py and backfill_highlights.py.
+"""
+
+import json
+import logging
+import os
+import re
+import sys
+import tempfile
+import time
+from datetime import datetime, timedelta, timezone
+from pathlib import Path
+
+import requests
+
+# ── Logging ───────────────────────────────────────────────────────────────────
+
+logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
+log = logging.getLogger(__name__)
+
+# ── Paths ─────────────────────────────────────────────────────────────────────
+
+REPO_ROOT              = Path(__file__).resolve().parent.parent
+SOURCES_JSON           = REPO_ROOT / "sources.json"
+HIGHLIGHTS_DIR         = REPO_ROOT / "highlights"
+QUOTA_TRACKER_PATH     = HIGHLIGHTS_DIR / "quota-tracker.json"
+BACKFILL_PROGRESS_PATH = HIGHLIGHTS_DIR / "backfill-progress.json"
+BACKFILL_LOCK_PATH     = HIGHLIGHTS_DIR / "backfill.lock"
+
+# ── API endpoints ─────────────────────────────────────────────────────────────
+
+FD_BASE     = "https://api.football-data.org/v4"
+YT_PLAYLIST = "https://www.googleapis.com/youtube/v3/playlistItems"
+
+# ── Tuning constants ──────────────────────────────────────────────────────────
+
+VIDEO_WINDOW_DAYS = 5    # accept videos published up to N days after fixture date
+MAX_YT_PAGES      = 10  # cap per playlist (50 items/page → max 500 items, 10 units)
+MAX_GW_IN_SUMMARY = 2   # most-recent gameweeks per competition in summary.json
+FD_SLEEP_SECONDS  = 6   # pause between football-data.org requests (10 req/min free tier)
+INCREMENTAL_CAP   = 8_000  # max YouTube units/day for incremental runs
+BACKFILL_CAP      = 9_500  # max YouTube units/day for backfill runs
+
+# ── Competition maps ──────────────────────────────────────────────────────────
+
+# football-data.org competition code → key used in sources.json
+COMPETITION_CODE_MAP: dict[str, str] = {
+    "PL":  "Premier League",
+    "PD":  "LaLiga",
+    "SA":  "Serie A",
+    "BL1": "Bundesliga",
+    "FL1": "Ligue 1",
+    "CL":  "Champions League",
+    "EL":  "Europa League",
+}
+
+# sources.json competition name → output directory slug
+COMPETITION_SLUG_MAP: dict[str, str] = {
+    "Premier League":   "premier-league",
+    "LaLiga":           "laliga",
+    "Serie A":          "serie-a",
+    "Bundesliga":       "bundesliga",
+    "Ligue 1":          "ligue-1",
+    "Champions League": "ucl",
+    "Europa League":    "uel",
+}
+
+# UCL/UEL use "matchday-N.json"; domestic leagues use "gameweek-N.json"
+UCL_UEL: set[str] = {"Champions League", "Europa League"}
+
+# Keywords confirming a video belongs to the competition (used for club-channel tiers 1a/1b)
+COMPETITION_KEYWORDS: dict[str, list[str]] = {
+    "Premier League":   ["premier league", "epl"],
+    "LaLiga":           ["laliga", "la liga"],
+    "Serie A":          ["serie a"],
+    "Bundesliga":       ["bundesliga"],
+    "Ligue 1":          ["ligue 1"],
+    "Champions League": ["champions league", "ucl"],
+    "Europa League":    ["europa league", "uel"],
+}
+
+# ── Exception ─────────────────────────────────────────────────────────────────
+
+
+class QuotaCapReached(Exception):
+    """Daily YouTube unit cap hit — save state and exit cleanly (exit 0)."""
+
+
+# ── Time helper ───────────────────────────────────────────────────────────────
+
+
+def utc_now_iso() -> str:
+    """Return current UTC time as an ISO-8601 string with 'Z' suffix."""
+    return (
+        datetime.now(timezone.utc)
+        .isoformat(timespec="seconds")
+        .replace("+00:00", "Z")
+    )
+
+
+# ── File I/O helpers ──────────────────────────────────────────────────────────
+
+
+def write_json_atomic(path: Path, data: dict) -> None:
+    """Atomic write: write to a sibling temp file, then os.replace."""
+    path.parent.mkdir(parents=True, exist_ok=True)
+    fd, tmp = tempfile.mkstemp(dir=path.parent, suffix=".tmp.json")
+    try:
+        with os.fdopen(fd, "w", encoding="utf-8") as f:
+            json.dump(data, f, indent=2, ensure_ascii=False)
+            f.write("\n")
+        os.replace(tmp, path)
+    except Exception:
+        try:
+            os.unlink(tmp)
+        except OSError:
+            pass
+        raise
+
+
+# Backward-compat aliases kept for any callers using the old names
+write_gw_file = write_json_atomic
+
+
+def load_json_file(path: Path) -> dict | None:
+    """Load a JSON file; return None on missing file or parse error."""
+    try:
+        with open(path, encoding="utf-8") as f:
+            return json.load(f)
+    except FileNotFoundError:
+        return None
+    except (json.JSONDecodeError, OSError) as exc:
+        log.warning(f"Could not read {path}: {exc}")
+        return None
+
+
+load_gw_file = load_json_file  # backward-compat alias
+
+
+# ── Quota tracker ─────────────────────────────────────────────────────────────
+
+
+class QuotaTracker:
+    """
+    Persists daily YouTube API unit consumption to highlights/quota-tracker.json.
+    Automatically resets when the UTC date changes.
+    Both scripts share the same file so the budget is enforced across both runs.
+    """
+
+    def __init__(self) -> None:
+        today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+        data  = load_json_file(QUOTA_TRACKER_PATH) or {}
+        if data.get("date") != today:
+            self.date       = today
+            self.units_used = 0
+            log.info("Quota day reset — units_used = 0")
+        else:
+            self.date       = data["date"]
+            self.units_used = int(data.get("units_used", 0))
+        self._save()
+
+    def _save(self) -> None:
+        write_json_atomic(QUOTA_TRACKER_PATH, {
+            "date":         self.date,
+            "units_used":   self.units_used,
+            "last_updated": utc_now_iso(),
+        })
+
+    def increment(self, cap: int) -> None:
+        """Increment units_used by 1, persist, and raise QuotaCapReached if cap hit."""
+        self.units_used += 1
+        self._save()
+        if self.units_used >= cap:
+            raise QuotaCapReached(
+                f"{self.units_used}/{cap} units — daily cap reached"
+            )
+
+    @property
+    def over_incremental_cap(self) -> bool:
+        return self.units_used >= INCREMENTAL_CAP
+
+
+# ── football-data.org helper ──────────────────────────────────────────────────
+
+
+def fd_get(url: str, fd_key: str, params: dict | None = None) -> requests.Response:
+    """
+    GET from football-data.org. Backs off 60 s and retries once on 429.
+    Exits non-zero if rate-limited a second time in a row.
+    """
+    headers = {"X-Auth-Token": fd_key}
+    resp = requests.get(url, headers=headers, params=params or {}, timeout=15)
+    if resp.status_code == 429:
+        log.warning("football-data.org rate-limited — backing off 60 s")
+        time.sleep(60)
+        resp = requests.get(url, headers=headers, params=params or {}, timeout=15)
+        if resp.status_code == 429:
+            log.error("football-data.org rate-limited again — aborting")
+            sys.exit(1)
+    return resp
+
+
+# ── ID helpers ────────────────────────────────────────────────────────────────
+
+
+def extract_channel_id(value: str) -> str | None:
+    """
+    Return a clean UC... channel ID, or None if the value is a full YouTube
+    URL, an empty string, or otherwise not a bare channel ID.
+    """
+    if not value or not isinstance(value, str):
+        return None
+    v = value.strip()
+    return v if re.fullmatch(r"UC[A-Za-z0-9_\-]{20,}", v) else None
+
+
+def extract_playlist_id(value: str) -> str | None:
+    """Return a clean PL... playlist ID, or None if invalid."""
+    if not value or not isinstance(value, str):
+        return None
+    v = value.strip()
+    return v if re.fullmatch(r"PL[A-Za-z0-9_\-]{20,}", v) else None
+
+
+def channel_to_uploads(channel_id: str) -> str:
+    """Convert UC... channel ID to its uploads playlist (replace UC prefix with UU)."""
+    return "UU" + channel_id[2:] if channel_id.startswith("UC") else channel_id
+
+
+# ── Config loading ────────────────────────────────────────────────────────────
+
+
+def load_sources() -> dict:
+    """
+    Parse sources.json into four lookup dicts.
+    Silently skips entries containing full URLs instead of bare channel/playlist IDs.
+    """
+    with open(SOURCES_JSON, encoding="utf-8") as f:
+        raw = json.load(f)
+
+    # Tier 2: official competition channel IDs
+    competition_channels: dict[str, str] = {}
+    for comp, val in raw.get("competitions", {}).items():
+        cid = extract_channel_id(val)
+        if cid:
+            competition_channels[comp] = cid
+
+    # Tier 1a/1b: official club channel IDs
+    team_channels: dict[str, str] = {}
+    for team, val in raw.get("teams", {}).items():
+        cid = extract_channel_id(val)
+        if cid:
+            team_channels[team] = cid
+
+    # Tier 4: broadcaster playlists  —  {competition: {broadcaster: [PLxxx, ...]}}
+    competition_playlists: dict[str, dict[str, list[str]]] = {}
+    for comp, broadcasters in raw.get("playlists", {}).items():
+        if not isinstance(broadcasters, dict):
+            continue
+        bmap: dict[str, list[str]] = {}
+        for bcast, ids in broadcasters.items():
+            if isinstance(ids, list):
+                clean = [p for p in (extract_playlist_id(i) for i in ids) if p]
+            elif isinstance(ids, str):
+                p = extract_playlist_id(ids)
+                clean = [p] if p else []
+            else:
+                clean = []
+            if clean:
+                bmap[bcast] = clean
+        if bmap:
+            competition_playlists[comp] = bmap
+
+    # Tier 1c/1d: competition-scoped team playlists  —  {competition: {team: PLxxx}}
+    team_playlists: dict[str, dict[str, str]] = {}
+    for comp, teams in raw.get("teamPlaylists", {}).items():
+        if not isinstance(teams, dict):
+            continue
+        tmap: dict[str, str] = {}
+        for team, pid in teams.items():
+            p = extract_playlist_id(pid)
+            if p:
+                tmap[team] = p
+        if tmap:
+            team_playlists[comp] = tmap
+
+    log.info(
+        f"Config loaded: {len(competition_channels)} competition channels, "
+        f"{len(team_channels)} team channels, "
+        f"{len(competition_playlists)} competitions with broadcaster playlists, "
+        f"{len(team_playlists)} competitions with team playlists"
+    )
+    return {
+        "competition_channels":  competition_channels,
+        "team_channels":         team_channels,
+        "competition_playlists": competition_playlists,
+        "team_playlists":        team_playlists,
+    }
+
+
+# ── Gameweek file helpers ─────────────────────────────────────────────────────
+
+
+def gw_filename(comp_name: str, matchday: int) -> str:
+    prefix = "matchday" if comp_name in UCL_UEL else "gameweek"
+    return f"{prefix}-{matchday}.json"
+
+
+def gw_path(comp_name: str, matchday: int) -> Path:
+    return HIGHLIGHTS_DIR / COMPETITION_SLUG_MAP[comp_name] / gw_filename(comp_name, matchday)
+
+
+def _gw_file_num(p: Path) -> int:
+    """Extract trailing integer from a gameweek-N.json / matchday-N.json filename stem."""
+    try:
+        return int(p.stem.split("-")[-1])
+    except (ValueError, IndexError):
+        return 0
+
+
+def is_gameweek_complete(existing: dict | None, fixtures: list[dict]) -> bool:
+    """Return True if every fixture already has at least one video in the existing file."""
+    if existing is None:
+        return False
+    by_id: dict[int, dict] = {m["match_id"]: m for m in existing.get("matches", [])}
+    for fix in fixtures:
+        match = by_id.get(fix["match_id"])
+        if match is None or not match.get("videos"):
+            return False
+    return True
+
+
+# ── YouTube playlist search ───────────────────────────────────────────────────
+
+
+def search_playlist(
+    playlist_id: str,
+    yt_key: str,
+    fixture: dict,
+    comp_name: str,
+    quota: QuotaTracker,
+    cap: int,
+    requires_competition_filter: bool = False,
+) -> list[dict]:
+    """
+    Search a playlist for videos matching the given fixture.
+
+    Acceptance criteria (ALL must be true):
+      1. published_at is in [fixture_date, fixture_date + VIDEO_WINDOW_DAYS]
+      2. If requires_competition_filter: title contains a competition keyword
+      3. Title (case-insensitive) contains home_short OR away_short
+
+    Pagination capped at MAX_YT_PAGES; stops after the first page with an accepted video.
+    Calls quota.increment(cap) per page fetched — raises QuotaCapReached if cap hit.
+    Raises SystemExit(1) on HTTP 403 (YouTube's own quota exhaustion).
+    """
+    fixture_date = datetime.strptime(fixture["date"], "%Y-%m-%d").replace(tzinfo=timezone.utc)
+    window_end   = fixture_date + timedelta(days=VIDEO_WINDOW_DAYS)
+    home_short   = fixture["home_short"].lower()
+    away_short   = fixture["away_short"].lower()
+    keywords     = COMPETITION_KEYWORDS.get(comp_name, [])
+
+    accepted:      list[dict] = []
+    seen_ids:      set[str]   = set()
+    page_token:    str        = ""
+    pages_fetched: int        = 0
+
+    while pages_fetched < MAX_YT_PAGES:
+        params: dict = {
+            "part":       "snippet",
+            "playlistId": playlist_id,
+            "key":        yt_key,
+            "maxResults": 50,
+        }
+        if page_token:
+            params["pageToken"] = page_token
+
+        try:
+            resp = requests.get(YT_PLAYLIST, params=params, timeout=15)
+        except requests.RequestException as exc:
+            log.warning(f"Network error searching playlist {playlist_id}: {exc}")
+            return accepted
+
+        if resp.status_code == 403:
+            log.error(
+                f"YouTube API returned 403 on playlist {playlist_id}. "
+                "Aborting — no partial results will be committed."
+            )
+            sys.exit(1)
+        if resp.status_code == 404:
+            log.warning(f"Playlist {playlist_id} not found (404) — skipping")
+            return accepted
+        if not resp.ok:
+            log.warning(
+                f"YouTube API HTTP {resp.status_code} on playlist {playlist_id} — skipping"
+            )
+            return accepted
+
+        data = resp.json()
+        quota.increment(cap)  # raises QuotaCapReached if cap hit
+        pages_fetched += 1
+
+        for item in data.get("items", []):
+            snippet  = item.get("snippet", {})
+            title    = snippet.get("title", "")
+            video_id = snippet.get("resourceId", {}).get("videoId", "")
+            pub_str  = snippet.get("publishedAt", "")
+
+            if not video_id or not pub_str or video_id in seen_ids:
+                continue
+
+            pub_str_date = pub_str[:10]
+            try:
+                pub_date = datetime.strptime(pub_str_date, "%Y-%m-%d").replace(
+                    tzinfo=timezone.utc
+                )
+            except ValueError:
+                continue
+
+            if pub_date < fixture_date or pub_date > window_end:
+                continue
+
+            lower_title = title.lower()
+
+            if requires_competition_filter and not any(
+                kw in lower_title for kw in keywords
+            ):
+                continue
+
+            if home_short not in lower_title and away_short not in lower_title:
+                continue
+
+            seen_ids.add(video_id)
+            accepted.append({
+                "video_id":     video_id,
+                "title":        title,
+                "published_at": pub_str_date,
+            })
+
+        if accepted:
+            break
+
+        page_token = data.get("nextPageToken", "")
+        if not page_token:
+            break
+
+    return accepted
+
+
+# ── Tier resolution ───────────────────────────────────────────────────────────
+
+
+def resolve_videos_for_fixture(
+    fixture: dict,
+    comp_name: str,
+    config: dict,
+    yt_key: str,
+    quota: QuotaTracker,
+    cap: int,
+) -> list[dict]:
+    """
+    Try each tier in priority order, stopping at the first that yields ≥1 video.
+    Raises QuotaCapReached (propagated from search_playlist) if cap is hit.
+
+    Tier order: 1c → 1d → 2 → 4 → 1a → 1b
+    """
+    team_pl = config["team_playlists"]
+    comp_ch = config["competition_channels"]
+    comp_pl = config["competition_playlists"]
+    team_ch = config["team_channels"]
+    home    = fixture["home_team"]
+    away    = fixture["away_team"]
+
+    def _try(playlist_id: str, tier: int, comp_filter: bool = False) -> list[dict] | None:
+        if not playlist_id:
+            return None
+        vids = search_playlist(
+            playlist_id, yt_key, fixture, comp_name, quota, cap, comp_filter
+        )
+        return [{**v, "tier_used": tier} for v in vids]
+
+    # Tier 1c — home team competition-scoped playlist
+    result = _try(team_pl.get(comp_name, {}).get(home, ""), tier=1)
+    if result:
+        return result
+
+    # Tier 1d — away team competition-scoped playlist
+    result = _try(team_pl.get(comp_name, {}).get(away, ""), tier=1)
+    if result:
+        return result
+
+    # Tier 2 — official competition channel uploads
+    ch = comp_ch.get(comp_name, "")
+    if ch:
+        result = _try(channel_to_uploads(ch), tier=2)
+        if result:
+            return result
+
+    # Tier 4 — broadcaster playlists (all arrays flattened, try each)
+    for _broadcaster, pl_ids in comp_pl.get(comp_name, {}).items():
+        for pl_id in pl_ids:
+            result = _try(pl_id, tier=4)
+            if result:
+                return result
+
+    # Tier 1a — home team club channel uploads (requires competition keyword in title)
+    ch = team_ch.get(home, "")
+    if ch:
+        result = _try(channel_to_uploads(ch), tier=1, comp_filter=True)
+        if result:
+            return result
+
+    # Tier 1b — away team club channel uploads (requires competition keyword in title)
+    ch = team_ch.get(away, "")
+    if ch:
+        result = _try(channel_to_uploads(ch), tier=1, comp_filter=True)
+        if result:
+            return result
+
+    return []
+
+
+# ── Merge helper ──────────────────────────────────────────────────────────────
+
+
+def merge_into_gw(
+    existing: dict | None,
+    comp_name: str,
+    matchday: int,
+    enriched_fixtures: list[dict],
+) -> tuple[dict, bool]:
+    """
+    Merge enriched_fixtures into existing gameweek data (or create from scratch).
+
+    Rules:
+      - New match_id → append full match object
+      - Existing match_id → append only video_ids not already present
+      - generated_at updated only when something changed
+
+    Returns (merged_data, changed: bool).
+    """
+    if existing is None:
+        existing = {
+            "competition":  comp_name,
+            "gameweek":     matchday,
+            "generated_at": "",
+            "matches":      [],
+        }
+
+    by_id: dict[int, dict] = {m["match_id"]: m for m in existing.get("matches", [])}
+    changed = False
+
+    for fix in enriched_fixtures:
+        mid        = fix["match_id"]
+        new_videos = fix.get("videos", [])
+
+        if mid not in by_id:
+            by_id[mid] = {
+                "match_id":  mid,
+                "home_team": fix["home_team"],
+                "away_team": fix["away_team"],
+                "date":      fix["date"],
+                "videos":    new_videos[:],
+            }
+            changed = True
+        else:
+            existing_match   = by_id[mid]
+            existing_vid_ids = {v["video_id"] for v in existing_match.get("videos", [])}
+            for vid in new_videos:
+                if vid["video_id"] not in existing_vid_ids:
+                    existing_match.setdefault("videos", []).append(vid)
+                    existing_vid_ids.add(vid["video_id"])
+                    changed = True
+
+    existing["matches"] = list(by_id.values())
+    if changed:
+        existing["generated_at"] = utc_now_iso()
+
+    return existing, changed
+
+
+# ── Summary generation ────────────────────────────────────────────────────────
+
+
+def generate_summary() -> None:
+    """
+    Scan all existing gameweek/matchday files and write highlights/summary.json.
+    Includes the MAX_GW_IN_SUMMARY most-recent gameweeks per competition.
+
+    Schema:
+        {
+          "generated_at": "...",
+          "competitions": [
+            {
+              "competition": "Premier League",
+              "slug": "premier-league",
+              "gameweeks": [
+                {
+                  "gameweek": 36,
+                  "total": 10,
+                  "covered": 8,
+                  "matches": [
+                    {"match_id": 1, "home": "...", "away": "...",
+                     "date": "...", "covered": true}
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+    """
+    competitions: list[dict] = []
+
+    for comp_name, slug in COMPETITION_SLUG_MAP.items():
+        comp_dir = HIGHLIGHTS_DIR / slug
+        if not comp_dir.exists():
+            continue
+
+        prefix = "matchday" if comp_name in UCL_UEL else "gameweek"
+
+        # Parse number once per file, sort numerically, keep only the latest N
+        numbered = sorted(
+            (
+                (n, f)
+                for f in comp_dir.glob(f"{prefix}-*.json")
+                if (n := _gw_file_num(f)) > 0
+            ),
+            key=lambda x: x[0],
+        )[-MAX_GW_IN_SUMMARY:]
+
+        gameweeks: list[dict] = []
+        for number, f in numbered:
+            data = load_json_file(f)
+            if not data:
+                continue
+            matches_data = data.get("matches", [])
+            gameweeks.append({
+                "gameweek": number,
+                "total":    len(matches_data),
+                "covered":  sum(1 for m in matches_data if m.get("videos")),
+                "matches": [
+                    {
+                        "match_id": m["match_id"],
+                        "home":     m["home_team"],
+                        "away":     m["away_team"],
+                        "date":     m.get("date", ""),
+                        "covered":  bool(m.get("videos")),
+                    }
+                    for m in matches_data
+                ],
+            })
+
+        if gameweeks:
+            competitions.append({
+                "competition": comp_name,
+                "slug":        slug,
+                "gameweeks":   gameweeks,
+            })
+
+    write_json_atomic(
+        HIGHLIGHTS_DIR / "summary.json",
+        {
+            "generated_at": utc_now_iso(),
+            "competitions": competitions,
+        },
+    )
+    log.info(f"Written summary.json ({len(competitions)} competition(s))")

@@ -10,8 +10,11 @@ Remote channel configuration for the **ReFoot Highlights** Android app.
 | `admin.html` | Browser-based admin panel for managing `sources.json` |
 | `uicons/` | Flaticon UIcons Bold Rounded webfont (used by the admin panel) |
 | `highlights/` | Pre-built video metadata written by the fetch-highlights Action |
-| `scripts/fetch_highlights.py` | Python script that fetches fixtures and searches YouTube playlists |
-| `.github/workflows/fetch-highlights.yml` | GitHub Action that runs the script every 4 hours |
+| `scripts/highlights_common.py` | Shared utilities imported by both highlight scripts |
+| `scripts/fetch_highlights.py` | Incremental update script (runs every 4 hours) |
+| `scripts/backfill_highlights.py` | Full-season backfill script (manual trigger only) |
+| `.github/workflows/fetch-highlights.yml` | GitHub Action that runs the incremental script every 4 hours |
+| `.github/workflows/backfill-highlights.yml` | GitHub Action for the manual backfill (workflow_dispatch only) |
 
 ## Admin Panel
 
@@ -60,7 +63,20 @@ The admin panel uses the [UIcons Bold Rounded](https://www.flaticon.com/uicons) 
 
 ## Highlights Cache
 
-The `fetch-highlights.yml` Action runs every **4 hours** (and can be triggered manually via `workflow_dispatch`). It fetches recently completed fixtures from football-data.org, searches configured YouTube playlists in tier-priority order, and writes pre-built video metadata into the `highlights/` directory. The Android app reads these files instead of calling YouTube directly.
+The highlights pipeline has **two operating modes** that share a single YouTube 10,000 unit/day quota:
+
+| Mode | Script | Trigger | Budget |
+|---|---|---|---|
+| **Incremental** | `fetch_highlights.py` | Every 4 hours (scheduled) | 8,000 units/day |
+| **Backfill** | `backfill_highlights.py` | Manual only (`workflow_dispatch`) | 9,500 units/day |
+
+Both scripts write to the same `highlights/` files and track consumption in `highlights/quota-tracker.json`.
+
+### First-time setup
+
+Before the incremental job can cover the full season, trigger the backfill once manually from the **Actions** tab → **Backfill highlights cache** → **Run workflow**. It will fetch all finished fixtures for the current season. If the daily cap is hit, re-trigger the next day — it resumes exactly where it stopped.
+
+The incremental job runs automatically every 4 hours and keeps new results flowing once the backfill is complete.
 
 ### Directory structure
 
@@ -161,11 +177,30 @@ Only `playlistItems.list` is used (**1 unit per page**). `search.list` (100 unit
 
 | Scenario | Units |
 |---|---|
-| Typical run (7 competitions × 10 matches × 2 pages average) | ~140 units |
-| Worst case (all tiers tried, 10 pages each) | ~700 units |
+| Typical incremental run (7 competitions × 10 matches × 2 pages average) | ~140 units |
+| Worst case per run (all tiers tried, 10 pages each) | ~700 units |
 | Complete gameweeks skipped | 0 units |
 
-YouTube Data API free quota: **10 000 units/day**. A run every 4 hours = 6 runs/day → ~840 units/day under typical load.
+YouTube Data API free quota: **10,000 units/day**.
+
+#### Budget split
+
+| Mode | Hard cap | Headroom |
+|---|---|---|
+| Incremental | 8,000 units | Leaves 2,000 units for a same-day backfill run |
+| Backfill | 9,500 units | 500-unit emergency buffer |
+
+When either cap is hit the script saves state, writes any in-progress files, and exits 0. No data is lost.
+
+#### Runtime state files
+
+| File | Purpose |
+|---|---|
+| `highlights/quota-tracker.json` | Tracks units consumed today; resets automatically at UTC midnight |
+| `highlights/backfill-progress.json` | Checkpoints backfill position (competition + gameweek); resets when the season changes |
+| `highlights/backfill.lock` | Created by backfill at startup, deleted in its `finally` block; signals incremental to defer |
+
+If the backfill Action is cancelled mid-run the lock file may be left on disk. The incremental script treats any lock older than 3 hours as stale, removes it, and proceeds normally.
 
 ### Required secrets
 
