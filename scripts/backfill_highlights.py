@@ -240,6 +240,19 @@ def main() -> None:
     config = load_sources()
 
     BACKFILL_LOCK_PATH.write_text(utc_now_iso(), encoding="utf-8")
+
+    # GitHub Actions runners have no default git identity — configure it now,
+    # before run_git_commit() is called for the first time.
+    subprocess.run(
+        ["git", "config", "user.email", "github-actions[bot]@users.noreply.github.com"],
+        check=True,
+    )
+    subprocess.run(
+        ["git", "config", "user.name", "github-actions[bot]"],
+        check=True,
+    )
+    log.info("Git identity configured")
+
     total_written  = 0
     quota_cap_hit  = False
     # These track the current competition's context for the post-loop commit

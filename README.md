@@ -202,6 +202,8 @@ When either cap is hit the script saves state, writes any in-progress files, and
 
 If the backfill Action is cancelled mid-run the lock file may be left on disk. The incremental script treats any lock older than 3 hours as stale, removes it, and proceeds normally.
 
+The backfill workflow checkout step uses `persist-credentials: true` so the Python script can push commits. Git identity (`github-actions[bot]`) is configured by the script itself at startup — GitHub Actions runners have no default identity and any commit attempted without it would fail with `fatal: empty ident name`.
+
 #### Backfill commit cadence
 
 The backfill script commits to git after **every competition completes**, not just at the end. This means:
