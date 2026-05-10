@@ -218,6 +218,23 @@ A YouTube HTTP 403 (quota exhaustion detected by YouTube itself) is treated iden
 | `FOOTBALL_DATA_API_KEY` | Fixture fetch from football-data.org |
 | `YOUTUBE_API_KEY` | YouTube `playlistItems.list` calls |
 
+## Admin Panel — Highlights Coverage dashboard
+
+The coverage panel at the top of the admin page shows real-time highlights coverage loaded from `highlights/summary.json`. Competitions are displayed in two labelled groups that mirror the section separators in the Leagues panel below:
+
+| Group | Competitions |
+|---|---|
+| **LEAGUES** | Premier League, LaLiga, Serie A, Bundesliga, Ligue 1 |
+| **INTERNATIONAL** | Champions League, Europa League, Euro Cup, Copa America, World Cup |
+
+Each row shows:
+- A competition icon (Champions League uses `filter: invert(1)` via `.coverage-icon` to render its white-on-transparent PNG as dark/black on the light card background — the dark Leagues panel is unaffected)
+- A progress bar: **green** = fully covered, **orange** = partially covered, **grey** = no data yet
+- A covered/total fraction (e.g. `8/10`)
+- A GW or MD badge for the most recent gameweek/matchday in the data
+
+Competitions that have no data in `summary.json` yet (Euro Cup, Copa America, World Cup) render with a grey bar and `0/0` until the backfill workflow writes their files.
+
 ## Admin Panel — coverage counters
 
 The three stat cards at the top show **X/Y ratios**:

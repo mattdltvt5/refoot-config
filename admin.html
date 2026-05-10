@@ -129,6 +129,17 @@
             background: var(--bg); border: 1px solid var(--border);
             border-radius: 4px; padding: 1px 5px; white-space: nowrap; flex-shrink: 0;
         }
+        /* Group separator inside the coverage panel */
+        .cov-section-hdr {
+            font-size: 10px; font-weight: 600; color: var(--muted);
+            text-transform: uppercase; letter-spacing: 0.8px;
+            padding: 8px 16px 4px; background: var(--bg);
+            border-bottom: 1px solid var(--border);
+        }
+        /* White-on-transparent competition icons (UCL etc.) need darkening
+           on the light coverage card background. Scoped so the dark Leagues
+           panel (black background) is never affected. */
+        .cov-comp-flag.coverage-icon { filter: invert(1); }
         .cov-matches { background: #FAFAFA; }
         .cov-gw-hdr {
             padding: 4px 16px 3px 36px;
@@ -637,6 +648,25 @@ const COMP_GROUPS = [
 ];
 const COMPETITIONS = [...LEAGUES, ...INTERNATIONAL];
 
+// ── Highlights Coverage panel config ─────────────────────
+// Grouped independently of the Leagues panel so the ordering and
+// section labels can differ (UCL/UEL sit in INTERNATIONAL here).
+const COV_GROUPS = [
+    {
+        label: 'LEAGUES',
+        names: ['Premier League', 'LaLiga', 'Serie A', 'Bundesliga', 'Ligue 1'],
+    },
+    {
+        label: 'INTERNATIONAL',
+        names: ['Champions League', 'Europa League', 'Euro Cup', 'Copa America', 'World Cup'],
+    },
+];
+// Icons whose PNG is white-on-transparent — must be darkened on the
+// light coverage card background via the .coverage-icon CSS class.
+const COV_WHITE_ICONS = new Set(['Champions League']);
+// Competitions whose fixture files use "matchday" (MD) rather than "gameweek" (GW).
+const COV_MATCHDAY = new Set(['Champions League', 'Europa League']);
+
 let ghPat = '', fileSha = null, ytApiKey = '';
 let sourcesData = { competitions: {}, teams: {}, playlists: {}, teamPlaylists: {} };
 let unsaved = false;
@@ -828,111 +858,134 @@ function renderCoverage(data) {
     const panel = document.getElementById('coverage-panel');
     if (!panel) return;
     panel.innerHTML = '';
-    const comps = (data && data.competitions) || [];
-    if (comps.length === 0) {
+
+    if (!data) {
         panel.innerHTML = '<div class="cov-empty">No highlights data yet — run the fetch-highlights workflow first.</div>';
         return;
     }
-    comps.forEach(comp => {
-        const allGws     = comp.gameweeks || [];
-        const total      = allGws.reduce((s, gw) => s + gw.total,   0);
-        const covered    = allGws.reduce((s, gw) => s + gw.covered, 0);
-        const lastGw     = allGws.length > 0 ? allGws[allGws.length - 1] : null;
-        const isEuro     = (comp.slug === 'ucl' || comp.slug === 'uel');
-        const prefix     = isEuro ? 'MD' : 'GW';
-        const gwLabel    = lastGw ? prefix + lastGw.gameweek : '';
-        const pct        = total > 0 ? Math.round(covered / total * 100) : 0;
-        const barColor   = pct === 100 ? 'var(--green)' : pct >= 50 ? 'var(--yellow)' : 'var(--red)';
 
-        // ── Competition row ──────────────────────────────────────
-        const compRow = document.createElement('div');
-        compRow.className = 'cov-comp-row';
+    // Build a name → comp lookup from whatever summary.json returned
+    const byName = {};
+    (data.competitions || []).forEach(c => { byName[c.competition] = c; });
 
-        const chev = document.createElement('span');
-        chev.className = 'cov-comp-chevron';
-        chev.innerHTML = '<i class="fi-br-angle-right"></i>';
+    // Render LEAGUES and INTERNATIONAL groups with a section-header separator
+    COV_GROUPS.forEach(group => {
+        const sectionHdr = document.createElement('div');
+        sectionHdr.className = 'cov-section-hdr';
+        sectionHdr.textContent = group.label;
+        panel.appendChild(sectionHdr);
 
-        const flag = document.createElement('img');
-        flag.className = 'cov-comp-flag';
-        flag.src = FLAGS[comp.competition] || '';
-        flag.alt = '';
+        group.names.forEach(compName => {
+            const comp    = byName[compName] || null;
+            const allGws  = comp ? (comp.gameweeks || []) : [];
+            const total   = allGws.reduce((s, gw) => s + gw.total,   0);
+            const covered = allGws.reduce((s, gw) => s + gw.covered, 0);
+            const lastGw  = allGws.length > 0 ? allGws[allGws.length - 1] : null;
+            const prefix  = COV_MATCHDAY.has(compName) ? 'MD' : 'GW';
+            const gwLabel = lastGw ? prefix + lastGw.gameweek : '';
+            const pct     = total > 0 ? Math.round(covered / total * 100) : 0;
+            // grey = no data yet, green = complete, yellow = partial, red = low
+            const barColor = total === 0     ? 'var(--border)'
+                           : pct === 100     ? 'var(--green)'
+                           : pct >= 50       ? 'var(--yellow)'
+                           : 'var(--red)';
 
-        const nameEl = document.createElement('span');
-        nameEl.className = 'cov-comp-name';
-        nameEl.textContent = comp.competition;
+            // ── Competition row ──────────────────────────────────
+            const compRow = document.createElement('div');
+            compRow.className = 'cov-comp-row';
 
-        const barWrap = document.createElement('div');
-        barWrap.className = 'cov-bar-wrap';
-        const bar = document.createElement('div');
-        bar.className = 'cov-bar';
-        bar.style.width = pct + '%';
-        bar.style.background = barColor;
-        barWrap.appendChild(bar);
+            const chev = document.createElement('span');
+            chev.className = 'cov-comp-chevron';
+            chev.innerHTML = '<i class="fi-br-angle-right"></i>';
+            // Hide expand arrow when there are no match rows to show
+            if (!comp || allGws.length === 0) chev.style.visibility = 'hidden';
 
-        const ratio = document.createElement('span');
-        ratio.className = 'cov-ratio';
-        ratio.textContent = covered + '/' + total;
-        ratio.style.color = barColor;
+            // White-on-transparent icons need .coverage-icon to appear dark
+            // on the light coverage card. Coloured national flags are unaffected.
+            const flag = document.createElement('img');
+            flag.className = 'cov-comp-flag' + (COV_WHITE_ICONS.has(compName) ? ' coverage-icon' : '');
+            flag.src = FLAGS[compName] || '';
+            flag.alt = '';
 
-        const gwTag = document.createElement('span');
-        gwTag.className = 'cov-gw-tag';
-        gwTag.textContent = gwLabel;
+            const nameEl = document.createElement('span');
+            nameEl.className = 'cov-comp-name';
+            nameEl.textContent = compName;
 
-        compRow.appendChild(chev);
-        compRow.appendChild(flag);
-        compRow.appendChild(nameEl);
-        compRow.appendChild(barWrap);
-        compRow.appendChild(ratio);
-        compRow.appendChild(gwTag);
-        panel.appendChild(compRow);
+            const barWrap = document.createElement('div');
+            barWrap.className = 'cov-bar-wrap';
+            const bar = document.createElement('div');
+            bar.className = 'cov-bar';
+            bar.style.width      = pct + '%';
+            bar.style.background = barColor;
+            barWrap.appendChild(bar);
 
-        // ── Expanded match rows ──────────────────────────────────
-        const matchesEl = document.createElement('div');
-        matchesEl.className = 'cov-matches';
-        matchesEl.style.display = 'none';
+            const ratio = document.createElement('span');
+            ratio.className   = 'cov-ratio';
+            ratio.textContent = covered + '/' + total;
+            ratio.style.color = total === 0 ? 'var(--muted)' : barColor;
 
-        allGws.forEach(gw => {
-            const hdr = document.createElement('div');
-            hdr.className = 'cov-gw-hdr';
-            hdr.textContent = prefix + gw.gameweek + '  ·  ' + gw.covered + '/' + gw.total + ' covered';
-            matchesEl.appendChild(hdr);
+            const gwTag = document.createElement('span');
+            gwTag.className   = 'cov-gw-tag';
+            gwTag.textContent = gwLabel;
 
-            gw.matches.forEach(m => {
-                const mRow = document.createElement('div');
-                mRow.className = 'cov-match-row';
+            compRow.appendChild(chev);
+            compRow.appendChild(flag);
+            compRow.appendChild(nameEl);
+            compRow.appendChild(barWrap);
+            compRow.appendChild(ratio);
+            compRow.appendChild(gwTag);
+            panel.appendChild(compRow);
 
-                const icon = document.createElement('span');
-                icon.className = 'cov-match-icon';
-                icon.textContent = m.covered ? '✓' : '✗';
-                icon.style.color = m.covered ? 'var(--green)' : 'var(--red)';
+            // ── Expanded match rows (only when data exists) ──────
+            if (!comp || allGws.length === 0) return;
 
-                const teams = document.createElement('span');
-                teams.className = 'cov-match-teams';
-                teams.textContent = m.home + ' vs ' + m.away;
+            const matchesEl = document.createElement('div');
+            matchesEl.className    = 'cov-matches';
+            matchesEl.style.display = 'none';
 
-                mRow.appendChild(icon);
-                mRow.appendChild(teams);
+            allGws.forEach(gw => {
+                const hdr = document.createElement('div');
+                hdr.className   = 'cov-gw-hdr';
+                hdr.textContent = prefix + gw.gameweek + '  ·  ' + gw.covered + '/' + gw.total + ' covered';
+                matchesEl.appendChild(hdr);
 
-                if (!m.covered) {
-                    const btn = document.createElement('button');
-                    btn.className = 'cov-goto-btn';
-                    btn.textContent = '↗ Open config';
-                    btn.addEventListener('click', e => {
-                        e.stopPropagation();
-                        gotoComp(comp.competition);
-                    });
-                    mRow.appendChild(btn);
-                }
-                matchesEl.appendChild(mRow);
+                gw.matches.forEach(m => {
+                    const mRow = document.createElement('div');
+                    mRow.className = 'cov-match-row';
+
+                    const icon = document.createElement('span');
+                    icon.className   = 'cov-match-icon';
+                    icon.textContent = m.covered ? '✓' : '✗';
+                    icon.style.color = m.covered ? 'var(--green)' : 'var(--red)';
+
+                    const teams = document.createElement('span');
+                    teams.className   = 'cov-match-teams';
+                    teams.textContent = m.home + ' vs ' + m.away;
+
+                    mRow.appendChild(icon);
+                    mRow.appendChild(teams);
+
+                    if (!m.covered) {
+                        const btn = document.createElement('button');
+                        btn.className   = 'cov-goto-btn';
+                        btn.textContent = '↗ Open config';
+                        btn.addEventListener('click', e => {
+                            e.stopPropagation();
+                            gotoComp(compName);
+                        });
+                        mRow.appendChild(btn);
+                    }
+                    matchesEl.appendChild(mRow);
+                });
             });
-        });
 
-        panel.appendChild(matchesEl);
+            panel.appendChild(matchesEl);
 
-        compRow.addEventListener('click', () => {
-            const isOpen = matchesEl.style.display !== 'none';
-            matchesEl.style.display = isOpen ? 'none' : '';
-            chev.classList.toggle('open', !isOpen);
+            compRow.addEventListener('click', () => {
+                const isOpen = matchesEl.style.display !== 'none';
+                matchesEl.style.display = isOpen ? 'none' : '';
+                chev.classList.toggle('open', !isOpen);
+            });
         });
     });
 }
