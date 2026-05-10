@@ -103,7 +103,7 @@
             display: flex; align-items: center; gap: 5px;
         }
         #last-saved { font-size: 11px; color: var(--muted); }
-        #coverage-panel { max-height: 300px; overflow-y: auto; }
+        #coverage-panel { }
         .cov-empty {
             padding: 14px 16px; font-size: 13px; color: var(--muted);
             font-style: italic; text-align: center;
@@ -634,13 +634,13 @@ const LEAGUES = [
     { name: 'Serie A',          slug: 'sa'  },
     { name: 'Bundesliga',       slug: 'bun' },
     { name: 'Ligue 1',          slug: 'l1'  },
-    { name: 'Champions League', slug: 'ucl' },
-    { name: 'Europa League',    slug: 'uel' },
 ];
 const INTERNATIONAL = [
-    { name: 'Euro Cup',     slug: 'ec' },
-    { name: 'Copa America', slug: 'ca' },
-    { name: 'World Cup',    slug: 'wc' },
+    { name: 'Champions League', slug: 'ucl' },
+    { name: 'Europa League',    slug: 'uel' },
+    { name: 'Euro Cup',         slug: 'ec'  },
+    { name: 'Copa America',     slug: 'ca'  },
+    { name: 'World Cup',        slug: 'wc'  },
 ];
 const COMP_GROUPS = [
     { label: 'Leagues',       comps: LEAGUES       },
@@ -663,7 +663,7 @@ const COV_GROUPS = [
 ];
 // Icons whose PNG is white-on-transparent — must be darkened on the
 // light coverage card background via the .coverage-icon CSS class.
-const COV_WHITE_ICONS = new Set(['Champions League']);
+const COV_WHITE_ICONS = new Set(['Champions League', 'Europa League', 'Euro Cup', 'Copa America', 'World Cup']);
 // Competitions whose fixture files use "matchday" (MD) rather than "gameweek" (GW).
 const COV_MATCHDAY = new Set(['Champions League', 'Europa League']);
 
