@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-10T09:29:44Z",
+  "generated_at": "2026-05-10T13:06:17Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -334,7 +334,7 @@
         },
         {
           "gameweek": 36,
-          "total": 4,
+          "total": 5,
           "covered": 4,
           "matches": [
             {
@@ -364,6 +364,13 @@
               "away": "Juventus FC",
               "date": "2026-05-09",
               "covered": true
+            },
+            {
+              "match_id": 537169,
+              "home": "Hellas Verona FC",
+              "away": "Como 1907",
+              "date": "2026-05-10",
+              "covered": false
             }
           ]
         }

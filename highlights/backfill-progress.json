@@ -1,9 +1,14 @@
 {
   "status": "in_progress",
-  "season": null,
-  "last_completed_competition": null,
-  "last_completed_gameweek": 0,
-  "competitions_done": [],
-  "started_at": null,
-  "last_resumed_at": null
+  "season": 2025,
+  "last_completed_competition": "Ligue 1",
+  "last_completed_gameweek": 16,
+  "competitions_done": [
+    "Premier League",
+    "LaLiga",
+    "Serie A",
+    "Bundesliga"
+  ],
+  "started_at": "2026-05-10T12:31:43Z",
+  "last_resumed_at": "2026-05-10T12:31:43Z"
 }
