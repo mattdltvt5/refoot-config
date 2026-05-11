@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-11T17:55:57Z",
+  "generated_at": "2026-05-11T21:18:56Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -84,7 +84,7 @@
         },
         {
           "gameweek": 36,
-          "total": 9,
+          "total": 10,
           "covered": 8,
           "matches": [
             {
@@ -149,6 +149,13 @@
               "away": "Arsenal FC",
               "date": "2026-05-10",
               "covered": true
+            },
+            {
+              "match_id": 538143,
+              "home": "Tottenham Hotspur FC",
+              "away": "Leeds United FC",
+              "date": "2026-05-11",
+              "covered": false
             }
           ]
         }
@@ -237,8 +244,8 @@
         },
         {
           "gameweek": 35,
-          "total": 9,
-          "covered": 9,
+          "total": 10,
+          "covered": 10,
           "matches": [
             {
               "match_id": 544554,
@@ -301,6 +308,13 @@
               "home": "FC Barcelona",
               "away": "Real Madrid CF",
               "date": "2026-05-10",
+              "covered": true
+            },
+            {
+              "match_id": 544560,
+              "home": "Rayo Vallecano de Madrid",
+              "away": "Girona FC",
+              "date": "2026-05-11",
               "covered": true
             }
           ]
@@ -390,8 +404,8 @@
         },
         {
           "gameweek": 36,
-          "total": 9,
-          "covered": 9,
+          "total": 10,
+          "covered": 10,
           "matches": [
             {
               "match_id": 537168,
@@ -454,6 +468,13 @@
               "home": "AC Milan",
               "away": "Atalanta BC",
               "date": "2026-05-10",
+              "covered": true
+            },
+            {
+              "match_id": 537172,
+              "home": "SSC Napoli",
+              "away": "Bologna FC 1909",
+              "date": "2026-05-11",
               "covered": true
             }
           ]
