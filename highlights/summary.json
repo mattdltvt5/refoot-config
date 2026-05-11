@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-11T11:21:48Z",
+  "generated_at": "2026-05-11T13:39:29Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -757,22 +757,267 @@
       "slug": "ucl",
       "gameweeks": [
         {
-          "gameweek": 2,
-          "total": 2,
-          "covered": 2,
+          "gameweek": 7,
+          "total": 18,
+          "covered": 18,
           "matches": [
             {
-              "match_id": 552095,
-              "home": "Arsenal FC",
-              "away": "Club Atlético de Madrid",
-              "date": "2026-05-05",
+              "match_id": 551996,
+              "home": "FK Kairat",
+              "away": "Club Brugge KV",
+              "date": "2026-01-20",
               "covered": true
             },
             {
-              "match_id": 552094,
-              "home": "FC Bayern München",
+              "match_id": 551966,
+              "home": "FK Bodø/Glimt",
+              "away": "Manchester City FC",
+              "date": "2026-01-20",
+              "covered": true
+            },
+            {
+              "match_id": 551943,
+              "home": "Tottenham Hotspur FC",
+              "away": "Borussia Dortmund",
+              "date": "2026-01-20",
+              "covered": true
+            },
+            {
+              "match_id": 551962,
+              "home": "Sporting Clube de Portugal",
               "away": "Paris Saint-Germain FC",
-              "date": "2026-05-06",
+              "date": "2026-01-20",
+              "covered": true
+            },
+            {
+              "match_id": 551973,
+              "home": "PAE Olympiakos SFP",
+              "away": "Bayer 04 Leverkusen",
+              "date": "2026-01-20",
+              "covered": true
+            },
+            {
+              "match_id": 552011,
+              "home": "Villarreal CF",
+              "away": "AFC Ajax",
+              "date": "2026-01-20",
+              "covered": true
+            },
+            {
+              "match_id": 552038,
+              "home": "FC København",
+              "away": "SSC Napoli",
+              "date": "2026-01-20",
+              "covered": true
+            },
+            {
+              "match_id": 551929,
+              "home": "Real Madrid CF",
+              "away": "AS Monaco FC",
+              "date": "2026-01-20",
+              "covered": true
+            },
+            {
+              "match_id": 551933,
+              "home": "FC Internazionale Milano",
+              "away": "Arsenal FC",
+              "date": "2026-01-20",
+              "covered": true
+            },
+            {
+              "match_id": 552001,
+              "home": "Qarabağ Ağdam FK",
+              "away": "Eintracht Frankfurt",
+              "date": "2026-01-21",
+              "covered": true
+            },
+            {
+              "match_id": 552010,
+              "home": "Galatasaray SK",
+              "away": "Club Atlético de Madrid",
+              "date": "2026-01-21",
+              "covered": true
+            },
+            {
+              "match_id": 551949,
+              "home": "Olympique de Marseille",
+              "away": "Liverpool FC",
+              "date": "2026-01-21",
+              "covered": true
+            },
+            {
+              "match_id": 551956,
+              "home": "SK Slavia Praha",
+              "away": "FC Barcelona",
+              "date": "2026-01-21",
+              "covered": true
+            },
+            {
+              "match_id": 551986,
+              "home": "Atalanta BC",
+              "away": "Athletic Club",
+              "date": "2026-01-21",
+              "covered": true
+            },
+            {
+              "match_id": 551988,
+              "home": "Juventus FC",
+              "away": "Sport Lisboa e Benfica",
+              "date": "2026-01-21",
+              "covered": true
+            },
+            {
+              "match_id": 552036,
+              "home": "Newcastle United FC",
+              "away": "PSV",
+              "date": "2026-01-21",
+              "covered": true
+            },
+            {
+              "match_id": 551914,
+              "home": "FC Bayern München",
+              "away": "Royale Union Saint-Gilloise",
+              "date": "2026-01-21",
+              "covered": true
+            },
+            {
+              "match_id": 551921,
+              "home": "Chelsea FC",
+              "away": "Paphos FC",
+              "date": "2026-01-21",
+              "covered": true
+            }
+          ]
+        },
+        {
+          "gameweek": 8,
+          "total": 18,
+          "covered": 17,
+          "matches": [
+            {
+              "match_id": 551950,
+              "home": "Liverpool FC",
+              "away": "Qarabağ Ağdam FK",
+              "date": "2026-01-28",
+              "covered": true
+            },
+            {
+              "match_id": 551957,
+              "home": "FC Barcelona",
+              "away": "FC København",
+              "date": "2026-01-28",
+              "covered": false
+            },
+            {
+              "match_id": 551967,
+              "home": "Manchester City FC",
+              "away": "Galatasaray SK",
+              "date": "2026-01-28",
+              "covered": true
+            },
+            {
+              "match_id": 551970,
+              "home": "Bayer 04 Leverkusen",
+              "away": "Villarreal CF",
+              "date": "2026-01-28",
+              "covered": true
+            },
+            {
+              "match_id": 551980,
+              "home": "Arsenal FC",
+              "away": "FK Kairat",
+              "date": "2026-01-28",
+              "covered": true
+            },
+            {
+              "match_id": 551987,
+              "home": "Royale Union Saint-Gilloise",
+              "away": "Atalanta BC",
+              "date": "2026-01-28",
+              "covered": true
+            },
+            {
+              "match_id": 551993,
+              "home": "Club Brugge KV",
+              "away": "Olympique de Marseille",
+              "date": "2026-01-28",
+              "covered": true
+            },
+            {
+              "match_id": 551998,
+              "home": "Eintracht Frankfurt",
+              "away": "Tottenham Hotspur FC",
+              "date": "2026-01-28",
+              "covered": true
+            },
+            {
+              "match_id": 552006,
+              "home": "AS Monaco FC",
+              "away": "Juventus FC",
+              "date": "2026-01-28",
+              "covered": true
+            },
+            {
+              "match_id": 552007,
+              "home": "Club Atlético de Madrid",
+              "away": "FK Bodø/Glimt",
+              "date": "2026-01-28",
+              "covered": true
+            },
+            {
+              "match_id": 552028,
+              "home": "Athletic Club",
+              "away": "Sporting Clube de Portugal",
+              "date": "2026-01-28",
+              "covered": true
+            },
+            {
+              "match_id": 552030,
+              "home": "AFC Ajax",
+              "away": "PAE Olympiakos SFP",
+              "date": "2026-01-28",
+              "covered": true
+            },
+            {
+              "match_id": 552050,
+              "home": "Paris Saint-Germain FC",
+              "away": "Newcastle United FC",
+              "date": "2026-01-28",
+              "covered": true
+            },
+            {
+              "match_id": 552051,
+              "home": "Paphos FC",
+              "away": "SK Slavia Praha",
+              "date": "2026-01-28",
+              "covered": true
+            },
+            {
+              "match_id": 551913,
+              "home": "PSV",
+              "away": "FC Bayern München",
+              "date": "2026-01-28",
+              "covered": true
+            },
+            {
+              "match_id": 551920,
+              "home": "SSC Napoli",
+              "away": "Chelsea FC",
+              "date": "2026-01-28",
+              "covered": true
+            },
+            {
+              "match_id": 551926,
+              "home": "Sport Lisboa e Benfica",
+              "away": "Real Madrid CF",
+              "date": "2026-01-28",
+              "covered": true
+            },
+            {
+              "match_id": 551932,
+              "home": "Borussia Dortmund",
+              "away": "FC Internazionale Milano",
+              "date": "2026-01-28",
               "covered": true
             }
           ]
