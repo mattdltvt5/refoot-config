@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-12T21:21:36Z",
+  "generated_at": "2026-05-13T03:26:48Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -244,8 +244,8 @@
         },
         {
           "gameweek": 36,
-          "total": 2,
-          "covered": 2,
+          "total": 3,
+          "covered": 3,
           "matches": [
             {
               "match_id": 544563,
@@ -258,6 +258,13 @@
               "match_id": 544562,
               "home": "Real Betis Balompié",
               "away": "Elche CF",
+              "date": "2026-05-12",
+              "covered": true
+            },
+            {
+              "match_id": 544567,
+              "home": "CA Osasuna",
+              "away": "Club Atlético de Madrid",
               "date": "2026-05-12",
               "covered": true
             }
