@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-14T17:50:31Z",
+  "generated_at": "2026-05-14T21:11:17Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -244,8 +244,8 @@
         },
         {
           "gameweek": 36,
-          "total": 7,
-          "covered": 7,
+          "total": 9,
+          "covered": 9,
           "matches": [
             {
               "match_id": 544563,
@@ -294,6 +294,20 @@
               "home": "Getafe CF",
               "away": "RCD Mallorca",
               "date": "2026-05-13",
+              "covered": true
+            },
+            {
+              "match_id": 544568,
+              "home": "Valencia CF",
+              "away": "Rayo Vallecano de Madrid",
+              "date": "2026-05-14",
+              "covered": true
+            },
+            {
+              "match_id": 544565,
+              "home": "Girona FC",
+              "away": "Real Sociedad de Fútbol",
+              "date": "2026-05-14",
               "covered": true
             }
           ]
