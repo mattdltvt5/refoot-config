@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-14T21:11:17Z",
+  "generated_at": "2026-05-15T03:30:52Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -244,8 +244,8 @@
         },
         {
           "gameweek": 36,
-          "total": 9,
-          "covered": 9,
+          "total": 10,
+          "covered": 10,
           "matches": [
             {
               "match_id": 544563,
@@ -307,6 +307,13 @@
               "match_id": 544565,
               "home": "Girona FC",
               "away": "Real Sociedad de Fútbol",
+              "date": "2026-05-14",
+              "covered": true
+            },
+            {
+              "match_id": 544570,
+              "home": "Real Madrid CF",
+              "away": "Real Oviedo",
               "date": "2026-05-14",
               "covered": true
             }
