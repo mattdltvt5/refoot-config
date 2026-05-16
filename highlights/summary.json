@@ -1,87 +1,10 @@
 {
-  "generated_at": "2026-05-15T21:01:40Z",
+  "generated_at": "2026-05-16T02:53:41Z",
   "competitions": [
     {
       "competition": "Premier League",
       "slug": "premier-league",
       "gameweeks": [
-        {
-          "gameweek": 35,
-          "total": 10,
-          "covered": 10,
-          "matches": [
-            {
-              "match_id": 538130,
-              "home": "Everton FC",
-              "away": "Manchester City FC",
-              "date": "2026-05-04",
-              "covered": true
-            },
-            {
-              "match_id": 538131,
-              "home": "Leeds United FC",
-              "away": "Burnley FC",
-              "date": "2026-05-01",
-              "covered": true
-            },
-            {
-              "match_id": 538128,
-              "home": "Brentford FC",
-              "away": "West Ham United FC",
-              "date": "2026-05-02",
-              "covered": true
-            },
-            {
-              "match_id": 538133,
-              "home": "Newcastle United FC",
-              "away": "Brighton & Hove Albion FC",
-              "date": "2026-05-02",
-              "covered": true
-            },
-            {
-              "match_id": 538134,
-              "home": "Wolverhampton Wanderers FC",
-              "away": "Sunderland AFC",
-              "date": "2026-05-02",
-              "covered": true
-            },
-            {
-              "match_id": 538127,
-              "home": "Arsenal FC",
-              "away": "Fulham FC",
-              "date": "2026-05-02",
-              "covered": true
-            },
-            {
-              "match_id": 538125,
-              "home": "AFC Bournemouth",
-              "away": "Crystal Palace FC",
-              "date": "2026-05-03",
-              "covered": true
-            },
-            {
-              "match_id": 538132,
-              "home": "Manchester United FC",
-              "away": "Liverpool FC",
-              "date": "2026-05-03",
-              "covered": true
-            },
-            {
-              "match_id": 538126,
-              "home": "Aston Villa FC",
-              "away": "Tottenham Hotspur FC",
-              "date": "2026-05-03",
-              "covered": true
-            },
-            {
-              "match_id": 538129,
-              "home": "Chelsea FC",
-              "away": "Nottingham Forest FC",
-              "date": "2026-05-04",
-              "covered": true
-            }
-          ]
-        },
         {
           "gameweek": 36,
           "total": 10,
@@ -155,6 +78,20 @@
               "home": "Tottenham Hotspur FC",
               "away": "Leeds United FC",
               "date": "2026-05-11",
+              "covered": true
+            }
+          ]
+        },
+        {
+          "gameweek": 37,
+          "total": 1,
+          "covered": 1,
+          "matches": [
+            {
+              "match_id": 538146,
+              "home": "Aston Villa FC",
+              "away": "Liverpool FC",
+              "date": "2026-05-15",
               "covered": true
             }
           ]
