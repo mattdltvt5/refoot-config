@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-16T14:14:30Z",
+  "generated_at": "2026-05-16T17:00:07Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -10660,6 +10660,76 @@
               "away": "1. FC Union Berlin",
               "date": "2026-05-10",
               "covered": true
+            }
+          ]
+        },
+        {
+          "gameweek": 34,
+          "total": 9,
+          "covered": 4,
+          "matches": [
+            {
+              "match_id": 540703,
+              "home": "SV Werder Bremen",
+              "away": "Borussia Dortmund",
+              "date": "2026-05-16",
+              "covered": false
+            },
+            {
+              "match_id": 540704,
+              "home": "1. FC Heidenheim 1846",
+              "away": "1. FSV Mainz 05",
+              "date": "2026-05-16",
+              "covered": false
+            },
+            {
+              "match_id": 540705,
+              "home": "SC Freiburg",
+              "away": "RB Leipzig",
+              "date": "2026-05-16",
+              "covered": false
+            },
+            {
+              "match_id": 540706,
+              "home": "Eintracht Frankfurt",
+              "away": "VfB Stuttgart",
+              "date": "2026-05-16",
+              "covered": false
+            },
+            {
+              "match_id": 540707,
+              "home": "FC St. Pauli 1910",
+              "away": "VfL Wolfsburg",
+              "date": "2026-05-16",
+              "covered": true
+            },
+            {
+              "match_id": 540708,
+              "home": "1. FC Union Berlin",
+              "away": "FC Augsburg",
+              "date": "2026-05-16",
+              "covered": true
+            },
+            {
+              "match_id": 540709,
+              "home": "Borussia Mönchengladbach",
+              "away": "TSG 1899 Hoffenheim",
+              "date": "2026-05-16",
+              "covered": true
+            },
+            {
+              "match_id": 540710,
+              "home": "FC Bayern München",
+              "away": "1. FC Köln",
+              "date": "2026-05-16",
+              "covered": true
+            },
+            {
+              "match_id": 540711,
+              "home": "Bayer 04 Leverkusen",
+              "away": "Hamburger SV",
+              "date": "2026-05-16",
+              "covered": false
             }
           ]
         }
