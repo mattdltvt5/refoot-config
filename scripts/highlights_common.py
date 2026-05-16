@@ -40,7 +40,6 @@ YT_PLAYLIST = "https://www.googleapis.com/youtube/v3/playlistItems"
 
 VIDEO_WINDOW_DAYS = 5    # accept videos published up to N days after fixture date
 MAX_YT_PAGES      = 10  # cap per playlist (50 items/page → max 500 items, 10 units)
-MAX_GW_IN_SUMMARY = 2   # most-recent gameweeks per competition in summary.json
 FD_SLEEP_SECONDS  = 6   # pause between football-data.org requests (10 req/min free tier)
 INCREMENTAL_CAP   = 8_000  # max YouTube units/day for incremental runs
 BACKFILL_CAP      = 9_500  # max YouTube units/day for backfill runs
@@ -592,7 +591,7 @@ def merge_into_gw(
 def generate_summary() -> None:
     """
     Scan all existing gameweek/matchday files and write highlights/summary.json.
-    Includes the MAX_GW_IN_SUMMARY most-recent gameweeks per competition.
+    Includes all gameweeks for every competition found on disk.
 
     Schema:
         {
@@ -625,7 +624,7 @@ def generate_summary() -> None:
 
         prefix = "matchday" if comp_name in UCL_UEL else "gameweek"
 
-        # Parse number once per file, sort numerically, keep only the latest N
+        # Parse number once per file, sort numerically
         numbered = sorted(
             (
                 (n, f)
@@ -633,7 +632,7 @@ def generate_summary() -> None:
                 if (n := _gw_file_num(f)) > 0
             ),
             key=lambda x: x[0],
-        )[-MAX_GW_IN_SUMMARY:]
+        )
 
         gameweeks: list[dict] = []
         for number, f in numbered:
