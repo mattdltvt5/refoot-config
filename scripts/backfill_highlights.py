@@ -38,6 +38,7 @@ from highlights_common import (
     QUOTA_TRACKER_PATH,
     QuotaCapReached,
     QuotaTracker,
+    current_season,
     fd_get,
     generate_summary,
     gw_path,
@@ -82,14 +83,6 @@ def run_git_commit(files: list[Path], message: str) -> None:
             "data is written locally; next commit will include it"
         )
 
-
-# ── Season helper ─────────────────────────────────────────────────────────────
-
-
-def current_season() -> int:
-    """Return the current football season start year (e.g. 2025 for the 2025-26 season)."""
-    now = datetime.now(timezone.utc)
-    return now.year if now.month >= 7 else now.year - 1
 
 
 # ── Progress tracker ──────────────────────────────────────────────────────────

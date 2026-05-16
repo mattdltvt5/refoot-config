@@ -1,11 +1,20 @@
 #!/usr/bin/env python3
 """
-fetch_highlights.py — Incremental highlights cache update.
+fetch_highlights.py — Highlights cache update.
 
 Runs every 4 hours via the fetch-highlights GitHub Action.
-Fetches recently completed fixtures from football-data.org, searches
-configured YouTube playlists in tier-priority order, and merges results
-into per-gameweek JSON files under highlights/{competition-slug}/.
+Fetches all FINISHED fixtures for the current season from football-data.org,
+searches configured YouTube playlists in tier-priority order for any fixture
+not yet covered, and merges results into per-gameweek JSON files under
+highlights/{competition-slug}/.
+
+Smart-skip logic keeps quota consumption low:
+  - Complete gameweeks (every fixture has ≥1 video) are skipped with 0 API calls.
+  - Within incomplete gameweeks, fixtures that already have videos are preserved
+    without making any YouTube API calls.
+
+This means adding a new broadcaster to sources.json automatically fills in
+any historical gaps on the next scheduled run, with no manual backfill needed.
 
 Budget: exits cleanly at 8,000 YouTube units/day (INCREMENTAL_CAP).
 Yields to the backfill job when highlights/backfill.lock is present and recent.
@@ -19,7 +28,7 @@ import logging
 import os
 import sys
 import time
-from datetime import datetime, timedelta, timezone
+from datetime import datetime, timezone
 
 from highlights_common import (
     BACKFILL_LOCK_PATH,
@@ -29,6 +38,7 @@ from highlights_common import (
     INCREMENTAL_CAP,
     QuotaCapReached,
     QuotaTracker,
+    current_season,
     fd_get,
     generate_summary,
     gw_path,
@@ -42,21 +52,18 @@ from highlights_common import (
 
 log = logging.getLogger(__name__)
 
-LOOKBACK_DAYS = 10  # how many days back to look for completed fixtures
-
 
 # ── Fixture fetching ──────────────────────────────────────────────────────────
 
 
-def fetch_recent_fixtures(fd_key: str) -> dict[str, dict[int, list[dict]]]:
+def fetch_all_fixtures(fd_key: str, season: int) -> dict[str, dict[int, list[dict]]]:
     """
-    Fetch FINISHED matches for every configured competition within the last
-    LOOKBACK_DAYS days (UTC). Sleeps FD_SLEEP_SECONDS between requests to
-    respect football-data.org's 10 req/min free-tier limit.
+    Fetch all FINISHED fixtures for the given season across every configured
+    competition. Sleeps FD_SLEEP_SECONDS between requests to respect
+    football-data.org's 10 req/min free-tier limit.
 
     Returns: {competition_name: {matchday: [fixture_dict, ...]}}
     """
-    cutoff = datetime.now(timezone.utc) - timedelta(days=LOOKBACK_DAYS)
     result: dict[str, dict[int, list[dict]]] = {}
 
     for i, (code, comp_name) in enumerate(COMPETITION_CODE_MAP.items()):
@@ -67,7 +74,7 @@ def fetch_recent_fixtures(fd_key: str) -> dict[str, dict[int, list[dict]]]:
             resp = fd_get(
                 f"{FD_BASE}/competitions/{code}/matches",
                 fd_key,
-                {"status": "FINISHED"},
+                {"status": "FINISHED", "season": str(season)},
             )
         except SystemExit:
             raise
@@ -76,7 +83,7 @@ def fetch_recent_fixtures(fd_key: str) -> dict[str, dict[int, list[dict]]]:
             continue
 
         if resp.status_code == 404:
-            log.warning(f"Competition {code} not found (404) — skipping")
+            log.warning(f"Competition {code} season {season} not found (404) — skipping")
             continue
         if not resp.ok:
             log.warning(
@@ -86,18 +93,9 @@ def fetch_recent_fixtures(fd_key: str) -> dict[str, dict[int, list[dict]]]:
 
         by_matchday: dict[int, list[dict]] = {}
         for m in resp.json().get("matches", []):
-            utc_str = m.get("utcDate", "")
-            if not utc_str:
-                continue
-            try:
-                match_dt = datetime.fromisoformat(utc_str.replace("Z", "+00:00"))
-            except ValueError:
-                continue
-            if match_dt < cutoff:
-                continue
-
             matchday = m.get("matchday")
-            if matchday is None:
+            utc_str  = m.get("utcDate", "")
+            if matchday is None or not utc_str:
                 continue
 
             home = m.get("homeTeam", {})
@@ -116,7 +114,7 @@ def fetch_recent_fixtures(fd_key: str) -> dict[str, dict[int, list[dict]]]:
             result[comp_name] = by_matchday
             total = sum(len(v) for v in by_matchday.values())
             log.info(
-                f"{comp_name}: {total} recent finished fixture(s) "
+                f"{comp_name}: {total} finished fixture(s) "
                 f"across {len(by_matchday)} matchday(s)"
             )
 
@@ -178,11 +176,12 @@ def main() -> None:
         generate_summary()
         return
 
+    season       = current_season()
     config       = load_sources()
-    all_fixtures = fetch_recent_fixtures(fd_key)
+    all_fixtures = fetch_all_fixtures(fd_key, season)
 
     if not all_fixtures:
-        log.info(f"No recently completed fixtures found in the last {LOOKBACK_DAYS} days.")
+        log.info(f"No finished fixtures found for season {season}.")
         generate_summary()
         return
 
@@ -197,12 +196,25 @@ def main() -> None:
                     log.info(f"GW{matchday} {comp_name}: complete — skipping")
                     continue
 
+                # Build per-match lookup so already-covered fixtures cost 0 quota
+                existing_by_id: dict[int, dict] = {}
+                if existing:
+                    existing_by_id = {
+                        m["match_id"]: m for m in existing.get("matches", [])
+                    }
+
                 log.info(
                     f"Processing {comp_name} GW{matchday} ({len(fixtures)} fixture(s))…"
                 )
                 enriched: list[dict] = []
 
                 for fix in fixtures:
+                    prior = existing_by_id.get(fix["match_id"])
+                    if prior and prior.get("videos"):
+                        # Already covered — preserve videos without any API calls
+                        enriched.append({**fix, "videos": prior["videos"]})
+                        continue
+
                     videos = resolve_videos_for_fixture(
                         fix, comp_name, config, yt_key, quota, INCREMENTAL_CAP
                     )

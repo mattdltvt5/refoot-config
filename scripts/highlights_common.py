@@ -89,7 +89,13 @@ class QuotaCapReached(Exception):
     """Daily YouTube unit cap hit — save state and exit cleanly (exit 0)."""
 
 
-# ── Time helper ───────────────────────────────────────────────────────────────
+# ── Season / time helpers ─────────────────────────────────────────────────────
+
+
+def current_season() -> int:
+    """Return the current football season start year (e.g. 2025 for 2025-26)."""
+    now = datetime.now(timezone.utc)
+    return now.year if now.month >= 7 else now.year - 1
 
 
 def utc_now_iso() -> str:
