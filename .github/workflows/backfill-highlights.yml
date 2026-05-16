@@ -44,5 +44,6 @@ jobs:
             && echo "No changes — skipping commit" \
             || (
                 git commit -m "chore: backfill highlights progress [skip ci]" \
+                && git pull --rebase \
                 && git push
                )
