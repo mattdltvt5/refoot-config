@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-16T21:54:23Z",
+  "generated_at": "2026-05-16T22:49:40Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -2800,14 +2800,14 @@
         {
           "gameweek": 1,
           "total": 10,
-          "covered": 7,
+          "covered": 8,
           "matches": [
             {
               "match_id": 544214,
               "home": "Girona FC",
               "away": "Rayo Vallecano de Madrid",
               "date": "2025-08-15",
-              "covered": false
+              "covered": true
             },
             {
               "match_id": 544220,
@@ -3108,7 +3108,7 @@
         {
           "gameweek": 5,
           "total": 10,
-          "covered": 7,
+          "covered": 10,
           "matches": [
             {
               "match_id": 544253,
@@ -3122,14 +3122,14 @@
               "home": "Girona FC",
               "away": "Levante UD",
               "date": "2025-09-20",
-              "covered": false
+              "covered": true
             },
             {
               "match_id": 544259,
               "home": "Real Madrid CF",
               "away": "RCD Espanyol de Barcelona",
               "date": "2025-09-20",
-              "covered": false
+              "covered": true
             },
             {
               "match_id": 544260,
@@ -3157,7 +3157,7 @@
               "home": "Rayo Vallecano de Madrid",
               "away": "RC Celta de Vigo",
               "date": "2025-09-21",
-              "covered": false
+              "covered": true
             },
             {
               "match_id": 544257,
@@ -3185,7 +3185,7 @@
         {
           "gameweek": 6,
           "total": 10,
-          "covered": 8,
+          "covered": 9,
           "matches": [
             {
               "match_id": 544268,
@@ -3213,7 +3213,7 @@
               "home": "Levante UD",
               "away": "Real Madrid CF",
               "date": "2025-09-23",
-              "covered": false
+              "covered": true
             },
             {
               "match_id": 544265,
@@ -3416,7 +3416,7 @@
         {
           "gameweek": 9,
           "total": 10,
-          "covered": 9,
+          "covered": 10,
           "matches": [
             {
               "match_id": 544299,
@@ -3472,7 +3472,7 @@
               "home": "Levante UD",
               "away": "Rayo Vallecano de Madrid",
               "date": "2025-10-19",
-              "covered": false
+              "covered": true
             },
             {
               "match_id": 544295,
@@ -3570,7 +3570,7 @@
         {
           "gameweek": 11,
           "total": 10,
-          "covered": 8,
+          "covered": 9,
           "matches": [
             {
               "match_id": 544315,
@@ -3605,7 +3605,7 @@
               "home": "Real Madrid CF",
               "away": "Valencia CF",
               "date": "2025-11-01",
-              "covered": false
+              "covered": true
             },
             {
               "match_id": 544318,
@@ -3647,7 +3647,7 @@
         {
           "gameweek": 12,
           "total": 10,
-          "covered": 8,
+          "covered": 9,
           "matches": [
             {
               "match_id": 544323,
@@ -3696,7 +3696,7 @@
               "home": "Rayo Vallecano de Madrid",
               "away": "Real Madrid CF",
               "date": "2025-11-09",
-              "covered": false
+              "covered": true
             },
             {
               "match_id": 544328,
@@ -3801,7 +3801,7 @@
         {
           "gameweek": 14,
           "total": 10,
-          "covered": 8,
+          "covered": 9,
           "matches": [
             {
               "match_id": 544350,
@@ -3864,7 +3864,7 @@
               "home": "Girona FC",
               "away": "Real Madrid CF",
               "date": "2025-11-30",
-              "covered": false
+              "covered": true
             },
             {
               "match_id": 544345,
@@ -4648,7 +4648,7 @@
         {
           "gameweek": 25,
           "total": 10,
-          "covered": 9,
+          "covered": 10,
           "matches": [
             {
               "match_id": 544452,
@@ -4669,7 +4669,7 @@
               "home": "Real Betis Balompié",
               "away": "Rayo Vallecano de Madrid",
               "date": "2026-02-21",
-              "covered": false
+              "covered": true
             },
             {
               "match_id": 544458,
@@ -4802,7 +4802,7 @@
         {
           "gameweek": 27,
           "total": 10,
-          "covered": 9,
+          "covered": 10,
           "matches": [
             {
               "match_id": 544473,
@@ -4823,7 +4823,7 @@
               "home": "Levante UD",
               "away": "Girona FC",
               "date": "2026-03-07",
-              "covered": false
+              "covered": true
             },
             {
               "match_id": 544472,
@@ -9756,14 +9756,14 @@
         {
           "gameweek": 21,
           "total": 9,
-          "covered": 8,
+          "covered": 9,
           "matches": [
             {
               "match_id": 540587,
               "home": "1. FC Union Berlin",
               "away": "Eintracht Frankfurt",
               "date": "2026-02-06",
-              "covered": false
+              "covered": true
             },
             {
               "match_id": 540588,
@@ -10666,7 +10666,7 @@
         {
           "gameweek": 34,
           "total": 9,
-          "covered": 6,
+          "covered": 9,
           "matches": [
             {
               "match_id": 540703,
@@ -10680,21 +10680,21 @@
               "home": "1. FC Heidenheim 1846",
               "away": "1. FSV Mainz 05",
               "date": "2026-05-16",
-              "covered": false
+              "covered": true
             },
             {
               "match_id": 540705,
               "home": "SC Freiburg",
               "away": "RB Leipzig",
               "date": "2026-05-16",
-              "covered": false
+              "covered": true
             },
             {
               "match_id": 540706,
               "home": "Eintracht Frankfurt",
               "away": "VfB Stuttgart",
               "date": "2026-05-16",
-              "covered": false
+              "covered": true
             },
             {
               "match_id": 540707,
