@@ -10,11 +10,13 @@ Remote channel configuration for the **ReFoot Highlights** Android app.
 | `admin.html` | Browser-based admin panel for managing `sources.json` |
 | `uicons/` | Flaticon UIcons Bold Rounded webfont (used by the admin panel) |
 | `highlights/` | Pre-built video metadata written by the fetch-highlights Action |
-| `scripts/highlights_common.py` | Shared utilities imported by both highlight scripts |
+| `scripts/highlights_common.py` | Shared utilities, title filter constants, and `is_highlight_title()` |
 | `scripts/fetch_highlights.py` | Incremental update script (runs every 4 hours) |
 | `scripts/backfill_highlights.py` | Full-season backfill script (manual trigger only) |
+| `scripts/clean_highlights.py` | One-time cleanup script — re-evaluates existing JSON files and removes false positives |
 | `.github/workflows/fetch-highlights.yml` | GitHub Action that runs the incremental script every 4 hours |
 | `.github/workflows/backfill-highlights.yml` | GitHub Action for the manual backfill (workflow_dispatch only) |
+| `.github/workflows/clean-highlights.yml` | GitHub Action for the manual false-positive cleanup (workflow_dispatch only) |
 
 ## Admin Panel
 
@@ -143,6 +145,73 @@ A video is accepted when **all** of the following are true:
 - `publishedAt` is within 5 days of the fixture date
 - If the source is a club channel uploads playlist (Tiers 1a/1b): the title contains a competition keyword
 - The title contains the home team's `shortName` **or** the away team's `shortName` (case-insensitive substring)
+- The title passes the multilingual highlight title filter (see [Title filter](#title-filter) below)
+
+### Title filter
+
+All tiers pass through `is_highlight_title()` in `highlights_common.py`. The function checks a **blocklist first** — if any term matches, the video is rejected immediately, regardless of allowlist matches. Only videos that survive the blocklist and contain at least one allowlist term are accepted.
+
+#### Evaluation order
+
+1. **Blocklist checked first — always wins.** A blocked video can never be saved by an allowlist match.
+2. **Allowlist checked second.** At least one term must match for the video to be accepted.
+
+#### Languages covered
+
+English, Spanish, French, German, Italian, Portuguese, Arabic, Dutch, Turkish, Japanese, Korean.
+
+#### Blocklist (reject if any term matches)
+
+| Language | Terms |
+|---|---|
+| English | `press conference`, `presser`, `interview`, `reaction`, `training`, `preview`, `analysis`, `tactical`, `watch along`, `live stream`, … |
+| Spanish | `rueda de prensa`, `entrevista`, `previo`, `análisis`, `reacción` |
+| French | `conférence de presse`, `avant-match`, `après-match`, `analyse`, `réaction`, `entraînement` |
+| German | `pressekonferenz`, `vorschau`, `reaktion`, `training einheit` |
+| Italian | `conferenza stampa`, `intervista`, `anteprima`, `analisi`, `reazione`, `allenamento` |
+| Portuguese | `coletiva de imprensa`, `pré-jogo`, `pós-jogo`, `análise`, `treino` |
+| Arabic | `مؤتمر صحفي`, `مقابلة`, `تحليل`, `تدريب`, `معاينة` |
+| Dutch | `persconferentie`, `vooruitblik` |
+| Turkish | `basın toplantısı`, `röportaj`, `önizleme`, `analiz`, `antrenman` |
+
+> Shared terms: `interview` / `entrevista` (Spanish + Portuguese), `analyse` (French / German / Dutch), `training` (English / Dutch) are listed once and cover all relevant languages.
+
+#### Allowlist (at least one term must match)
+
+| Language | Terms |
+|---|---|
+| English | `highlight`, `highlights`, `extended highlights`, `match highlights`, `full match`, `goals` |
+| French | `résumé`, `buts` |
+| Spanish | `resumen`, `goles`, `mejores momentos` |
+| German | `zusammenfassung`, `tore`, `spielzusammenfassung` |
+| Italian | `sintesi`, `gol` |
+| Portuguese | `melhores momentos`, `gols`, `resumo` |
+| Arabic | `ملخص`, `أهداف` |
+| Dutch | `samenvatting`, `doelpunten` |
+| Turkish | `özet`, `goller`, `maç özeti` |
+| Japanese | `ハイライト`, `ゴール` |
+| Korean | `하이라이트`, `골` |
+
+> `"gol"` is a substring — it intentionally matches `goles`, `gols`, `goal`, and `goals`.
+
+#### Edge case: `"Match Highlights Preview"`
+
+The word `"preview"` is in the blocklist, `"highlights"` is in the allowlist. Because the **blocklist is checked first**, this title is **rejected**. The filter never reaches the allowlist if any blocklist term matched.
+
+### False-positive cleanup
+
+If a filter update causes previously accepted videos to become false positives, run the **Clean highlights** workflow from the Actions tab:
+
+**Actions → Clean highlights (false-positive removal) → Run workflow**
+
+The script (`scripts/clean_highlights.py`):
+1. Iterates every gameweek/matchday JSON file for all competitions
+2. Re-evaluates the stored `title` field of each video against the current filter (no YouTube API calls — no quota consumed)
+3. Removes any video whose title no longer passes `is_highlight_title()`
+4. Regenerates `highlights/summary.json`
+5. Commits and pushes the changed files with `[skip ci]`
+
+Safe to re-run at any time. If nothing changed, no commit is made.
 
 ### Smart-skip logic
 

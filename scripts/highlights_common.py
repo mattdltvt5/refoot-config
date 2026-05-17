@@ -82,6 +82,165 @@ COMPETITION_KEYWORDS: dict[str, list[str]] = {
     "Europa League":    ["europa league", "uel"],
 }
 
+# ── Title filter ─────────────────────────────────────────────────────────────
+#
+# TITLE_BLOCKLIST is checked FIRST — any match immediately rejects the video.
+# TITLE_ALLOWLIST is checked second — at least one term must match to accept.
+# Both checks are case-insensitive substring matches.
+
+TITLE_BLOCKLIST: list[str] = [
+
+    # ── English ──
+    "press conference", "presser", "pre-match press", "post-match press",
+    "interview", "speaks to", "talks to", "media day",
+    "reaction", "reacts", "fan reaction", "player reaction",
+    "training", "training session", "open training",
+    "preview", "prediction", "preview show", "match preview",
+    "analysis", "tactical", "breakdown",
+    "watch along", "live stream", "matchday live",
+    "top 10", "best goals", "best of the season", "season review",
+    "all goals of the week",
+
+    # ── Spanish ──
+    "rueda de prensa",       # press conference
+    "entrevista",            # interview
+    "previo",                # preview
+    "análisis",              # analysis
+    "análisis táctico",      # tactical analysis
+    "previa",                # preview
+    "reacción",              # reaction
+
+    # ── French ──
+    "conférence de presse",  # press conference
+    "avant-match",           # pre-match
+    "après-match",           # post-match
+    "analyse",               # analysis
+    "réaction",              # reaction
+    "entraînement",          # training
+
+    # ── German ──
+    "pressekonferenz",       # press conference
+    "vorschau",              # preview
+    "training einheit",      # training session
+    "reaktion",              # reaction
+
+    # ── Italian ──
+    "conferenza stampa",     # press conference
+    "intervista",            # interview
+    "anteprima",             # preview
+    "analisi",               # analysis
+    "reazione",              # reaction
+    "allenamento",           # training
+
+    # ── Portuguese ──
+    "coletiva de imprensa",  # press conference
+    "pré-jogo",              # pre-match
+    "pós-jogo",              # post-match
+    "análise",               # analysis
+    "treino",                # training
+
+    # ── Arabic ──
+    "مؤتمر صحفي",            # press conference
+    "مقابلة",                # interview
+    "تحليل",                 # analysis
+    "تدريب",                 # training
+    "معاينة",                # preview
+
+    # ── Dutch ──
+    "persconferentie",       # press conference
+    "vooruitblik",           # preview
+
+    # ── Turkish ──
+    "basın toplantısı",      # press conference
+    "röportaj",              # interview
+    "önizleme",              # preview
+    "analiz",                # analysis
+    "antrenman",             # training
+]
+
+# "entrevista" covers Spanish + Portuguese; "analyse" covers French/German/Dutch;
+# "interview"/"training"/"analyse" appear in multiple languages — one entry handles all.
+# These shared terms are listed once in TITLE_BLOCKLIST above.
+
+TITLE_ALLOWLIST: list[str] = [
+
+    # ── English ──
+    "highlight", "highlights",
+    "extended highlights",
+    "match highlights",
+    "full match",
+    "goals",
+
+    # ── French ──
+    "résumé",                # summary/highlights
+    "buts",                  # goals
+
+    # ── Spanish ──
+    "resumen",               # summary/highlights
+    "goles",                 # goals
+    "mejores momentos",      # best moments
+
+    # ── German ──
+    "zusammenfassung",       # summary/highlights
+    "tore",                  # goals
+    "spielzusammenfassung",  # match summary
+
+    # ── Italian ──
+    "sintesi",               # summary/highlights
+    "gol",                   # goals (also Spanish/Portuguese; substring matches goles/gols/goal/goals)
+
+    # ── Portuguese ──
+    "melhores momentos",     # best moments / highlights
+    "gols",                  # goals
+    "resumo",                # summary/highlights
+
+    # ── Arabic ──
+    "ملخص",                  # summary/highlights
+    "أهداف",                 # goals
+
+    # ── Dutch ──
+    "samenvatting",          # summary/highlights
+    "doelpunten",            # goals
+
+    # ── Turkish ──
+    "özet",                  # summary/highlights
+    "goller",                # goals
+    "maç özeti",             # match summary
+
+    # ── Japanese ──
+    "ハイライト",              # highlights
+    "ゴール",                 # goals
+
+    # ── Korean ──
+    "하이라이트",              # highlights
+    "골",                    # goals
+]
+
+
+def is_highlight_title(title: str) -> bool:
+    """
+    Return True only when the video title passes both filters:
+
+    1. Blocklist (checked first — always wins): if any blocklist term is found
+       the video is rejected immediately, regardless of allowlist matches.
+    2. Allowlist: at least one allowlist term must be present for acceptance.
+
+    Both checks are case-insensitive substring matches and cover 11 languages:
+    English, Spanish, French, German, Italian, Portuguese, Arabic, Dutch,
+    Turkish, Japanese, Korean.
+    """
+    lower = title.lower()
+    for term in TITLE_BLOCKLIST:
+        if term in lower:
+            log.debug(f"Title blocked ({term!r}): {title!r}")
+            return False
+    for term in TITLE_ALLOWLIST:
+        if term in lower:
+            return True
+    log.debug(f"Title failed allowlist: {title!r}")
+    return False
+
+
 # ── Exception ─────────────────────────────────────────────────────────────────
 
 
@@ -440,6 +599,12 @@ def search_playlist(
                 continue
 
             if home_short not in lower_title and away_short not in lower_title:
+                continue
+
+            # Reject press conferences, interviews, previews, training clips, etc.
+            # Applies to all tiers — blocklist is checked inside is_highlight_title()
+            # before the allowlist, so blocklist always wins.
+            if not is_highlight_title(title):
                 continue
 
             seen_ids.add(video_id)
