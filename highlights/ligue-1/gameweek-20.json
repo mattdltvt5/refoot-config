@@ -1,7 +1,7 @@
 {
   "competition": "Ligue 1",
   "gameweek": 20,
-  "generated_at": "2026-05-17T00:15:10Z",
+  "generated_at": "2026-05-17T09:59:22Z",
   "matches": [
     {
       "match_id": 542584,
@@ -22,7 +22,14 @@
       "home_team": "Paris FC",
       "away_team": "Olympique de Marseille",
       "date": "2026-01-31",
-      "videos": []
+      "videos": [
+        {
+          "video_id": "73hJvgl39rw",
+          "title": "Marseille vs Paris FC | HIGHLIGHTS Ligue 1 | 01/31/2026 | beIN SPORTS USA",
+          "published_at": "2026-01-31",
+          "tier_used": 4
+        }
+      ]
     },
     {
       "match_id": 542578,
@@ -57,7 +64,20 @@
       "home_team": "Olympique Lyonnais",
       "away_team": "Lille OSC",
       "date": "2026-02-01",
-      "videos": []
+      "videos": [
+        {
+          "video_id": "l0AFEwiaEPQ",
+          "title": "Metz vs Lille  | HIGHLIGHTS Ligue 1 | 02/06/2026 | beIN SPORTS USA",
+          "published_at": "2026-02-06",
+          "tier_used": 4
+        },
+        {
+          "video_id": "bbrZ6vnIDTg",
+          "title": "Lyon vs Lille | HIGHLIGHTS Ligue 1 | 02/01/2026 | beIN SPORTS USA",
+          "published_at": "2026-02-01",
+          "tier_used": 4
+        }
+      ]
     },
     {
       "match_id": 542580,
@@ -99,7 +119,14 @@
       "home_team": "RC Strasbourg Alsace",
       "away_team": "Paris Saint-Germain FC",
       "date": "2026-02-01",
-      "videos": []
+      "videos": [
+        {
+          "video_id": "GdSgZkkWllI",
+          "title": "Strasbourg vs PSG | HIGHLIGHTS Ligue 1 | 02/01/2026 | beIN SPORTS USA",
+          "published_at": "2026-02-01",
+          "tier_used": 4
+        }
+      ]
     }
   ]
 }

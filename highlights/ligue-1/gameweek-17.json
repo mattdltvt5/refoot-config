@@ -1,21 +1,35 @@
 {
   "competition": "Ligue 1",
   "gameweek": 17,
-  "generated_at": "2026-05-17T00:15:10Z",
+  "generated_at": "2026-05-17T09:58:14Z",
   "matches": [
     {
       "match_id": 542553,
       "home_team": "Toulouse FC",
       "away_team": "Racing Club de Lens",
       "date": "2026-01-02",
-      "videos": []
+      "videos": [
+        {
+          "video_id": "poMvaOW7n3U",
+          "title": "Toulouse vs Lens | HIGHLIGHTS Ligue 1 | 01/02/2026 | beIN SPORTS USA",
+          "published_at": "2026-01-02",
+          "tier_used": 4
+        }
+      ]
     },
     {
       "match_id": 542551,
       "home_team": "AS Monaco FC",
       "away_team": "Olympique Lyonnais",
       "date": "2026-01-03",
-      "videos": []
+      "videos": [
+        {
+          "video_id": "ZAT3DY2xw0c",
+          "title": "Monaco vs Lyon | HIGHLIGHTS Ligue 1 | 01/03/2026 | beIN SPORTS USA",
+          "published_at": "2026-01-03",
+          "tier_used": 4
+        }
+      ]
     },
     {
       "match_id": 542554,
@@ -36,7 +50,14 @@
       "home_team": "Lille OSC",
       "away_team": "Stade Rennais FC 1901",
       "date": "2026-01-03",
-      "videos": []
+      "videos": [
+        {
+          "video_id": "rLMj6Hx2i1c",
+          "title": "Lille vs Stade Rennes | HIGHLIGHTS Ligue 1 | 01/03/2026 | beIN SPORTS USA",
+          "published_at": "2026-01-03",
+          "tier_used": 4
+        }
+      ]
     },
     {
       "match_id": 542555,
@@ -71,21 +92,42 @@
       "home_team": "FC Lorient",
       "away_team": "FC Metz",
       "date": "2026-01-04",
-      "videos": []
+      "videos": [
+        {
+          "video_id": "bWxtLl8urxc",
+          "title": "Lorient vs Metz | HIGHLIGHTS Ligue 1 | 01/04/2026 | beIN SPORTS USA",
+          "published_at": "2026-01-04",
+          "tier_used": 4
+        }
+      ]
     },
     {
       "match_id": 542558,
       "home_team": "Stade Brestois 29",
       "away_team": "AJ Auxerre",
       "date": "2026-01-04",
-      "videos": []
+      "videos": [
+        {
+          "video_id": "ajdASqAptHk",
+          "title": "Stade Brest vs Auxerre | HIGHLIGHTS Ligue 1 | 01/04/2026 | beIN SPORTS USA",
+          "published_at": "2026-01-04",
+          "tier_used": 4
+        }
+      ]
     },
     {
       "match_id": 542557,
       "home_team": "Paris Saint-Germain FC",
       "away_team": "Paris FC",
       "date": "2026-01-04",
-      "videos": []
+      "videos": [
+        {
+          "video_id": "mKIrSucOxgc",
+          "title": "PSG vs Paris FC | HIGHLIGHTS Ligue 1 | 01/04/2026 | beIN SPORTS USA",
+          "published_at": "2026-01-04",
+          "tier_used": 4
+        }
+      ]
     }
   ]
 }

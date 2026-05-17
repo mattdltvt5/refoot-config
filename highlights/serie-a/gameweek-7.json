@@ -1,7 +1,7 @@
 {
   "competition": "Serie A",
   "gameweek": 7,
-  "generated_at": "2026-05-17T00:15:10Z",
+  "generated_at": "2026-05-17T10:07:30Z",
   "matches": [
     {
       "match_id": 536882,
@@ -170,7 +170,26 @@
       "home_team": "US Cremonese",
       "away_team": "Udinese Calcio",
       "date": "2025-10-20",
-      "videos": []
+      "videos": [
+        {
+          "video_id": "l9niknVUIzg",
+          "title": "Cremonese vs. Atalanta: Extended Highlights | Serie A | CBS Sports Golazo",
+          "published_at": "2025-10-25",
+          "tier_used": 4
+        },
+        {
+          "video_id": "NbBfAgVhWjc",
+          "title": "Udinese vs. Lecce: Extended Highlights | Serie A | CBS Sports Golazo",
+          "published_at": "2025-10-25",
+          "tier_used": 4
+        },
+        {
+          "video_id": "IsoCudMvia8",
+          "title": "Cremonese vs. Udinese: Extended Highlights | Serie A | CBS Sports Golazo",
+          "published_at": "2025-10-20",
+          "tier_used": 4
+        }
+      ]
     }
   ]
 }

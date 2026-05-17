@@ -1,21 +1,35 @@
 {
   "competition": "Ligue 1",
   "gameweek": 30,
-  "generated_at": "2026-05-17T00:15:10Z",
+  "generated_at": "2026-05-17T10:03:34Z",
   "matches": [
     {
       "match_id": 542674,
       "home_team": "Racing Club de Lens",
       "away_team": "Toulouse FC",
       "date": "2026-04-17",
-      "videos": []
+      "videos": [
+        {
+          "video_id": "30C4H7-hJwM",
+          "title": "Lens vs Toulouse | HIGHLIGHTS Ligue 1 | 04/17/2026 | beIN SPORTS USA",
+          "published_at": "2026-04-17",
+          "tier_used": 4
+        }
+      ]
     },
     {
       "match_id": 542668,
       "home_team": "FC Lorient",
       "away_team": "Olympique de Marseille",
       "date": "2026-04-18",
-      "videos": []
+      "videos": [
+        {
+          "video_id": "NgmHXCPhn0E",
+          "title": "Lorient vs Marseille | HIGHLIGHTS Ligue 1 | 04/18/2026 | beIN SPORTS USA",
+          "published_at": "2026-04-18",
+          "tier_used": 4
+        }
+      ]
     },
     {
       "match_id": 542675,
@@ -36,7 +50,14 @@
       "home_team": "Lille OSC",
       "away_team": "OGC Nice",
       "date": "2026-04-18",
-      "videos": []
+      "videos": [
+        {
+          "video_id": "riXgGX72I-4",
+          "title": "Lille vs Nice | HIGHLIGHTS Ligue 1 | 04/18/2026 | beIN SPORTS USA",
+          "published_at": "2026-04-18",
+          "tier_used": 4
+        }
+      ]
     },
     {
       "match_id": 542667,
@@ -91,14 +112,40 @@
       "home_team": "RC Strasbourg Alsace",
       "away_team": "Stade Rennais FC 1901",
       "date": "2026-04-19",
-      "videos": []
+      "videos": [
+        {
+          "video_id": "TEbPBhfQBjw",
+          "title": "Strasbourg vs Stade Rennes | HIGHLIGHTS Ligue 1 | 04/19/2026 | beIN SPORTS USA",
+          "published_at": "2026-04-19",
+          "tier_used": 4
+        }
+      ]
     },
     {
       "match_id": 542672,
       "home_team": "Paris Saint-Germain FC",
       "away_team": "Olympique Lyonnais",
       "date": "2026-04-19",
-      "videos": []
+      "videos": [
+        {
+          "video_id": "7VMpvJUHHc0",
+          "title": "PSG vs Nantes | HIGHLIGHTS Ligue 1 | 04/22/2026 | beIN SPORTS USA",
+          "published_at": "2026-04-22",
+          "tier_used": 4
+        },
+        {
+          "video_id": "tmq9urNurPI",
+          "title": "Endrick vs PSG | HIGHLIGHTS Ligue 1 | 04/19/2026 | beIN SPORTS USA",
+          "published_at": "2026-04-19",
+          "tier_used": 4
+        },
+        {
+          "video_id": "AX4M0SDuxww",
+          "title": "PSG vs Lyon | HIGHLIGHTS Ligue 1 | 04/19/2026 | beIN SPORTS USA",
+          "published_at": "2026-04-19",
+          "tier_used": 4
+        }
+      ]
     }
   ]
 }

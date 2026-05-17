@@ -1,7 +1,7 @@
 {
   "competition": "Premier League",
   "gameweek": 31,
-  "generated_at": "2026-05-17T00:15:10Z",
+  "generated_at": "2026-05-17T10:07:03Z",
   "matches": [
     {
       "match_id": 538094,
@@ -60,14 +60,28 @@
       "home_team": "Brighton & Hove Albion FC",
       "away_team": "Liverpool FC",
       "date": "2026-03-21",
-      "videos": []
+      "videos": [
+        {
+          "video_id": "NVjhA93YjpE",
+          "title": "Brighton v. Liverpool | PREMIER LEAGUE HIGHLIGHTS | 3/21/2026 | NBC Sports",
+          "published_at": "2026-03-21",
+          "tier_used": 4
+        }
+      ]
     },
     {
       "match_id": 538089,
       "home_team": "Fulham FC",
       "away_team": "Burnley FC",
       "date": "2026-03-21",
-      "videos": []
+      "videos": [
+        {
+          "video_id": "VUjNsI52sB4",
+          "title": "Fulham v Burnley | Premier League Highlights",
+          "published_at": "2026-03-23",
+          "tier_used": 1
+        }
+      ]
     },
     {
       "match_id": 538088,
@@ -150,7 +164,20 @@
       "home_team": "Manchester City FC",
       "away_team": "Crystal Palace FC",
       "date": "2026-05-13",
-      "videos": []
+      "videos": [
+        {
+          "video_id": "T5D7aDmuyic",
+          "title": "EXTENDED HIGHLIGHTS | Man City 3 - 0 Crystal Palace | City keep the pressure on Arsenal at the top!",
+          "published_at": "2026-05-13",
+          "tier_used": 1
+        },
+        {
+          "video_id": "VZc1OI-oZ0w",
+          "title": "HIGHLIGHTS! City close gap at the top to two points with stylish win | Man City 3-0 Crystal Palace",
+          "published_at": "2026-05-13",
+          "tier_used": 1
+        }
+      ]
     }
   ]
 }

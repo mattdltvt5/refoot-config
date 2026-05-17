@@ -1,14 +1,27 @@
 {
   "competition": "LaLiga",
   "gameweek": 5,
-  "generated_at": "2026-05-17T00:15:10Z",
+  "generated_at": "2026-05-17T09:50:00Z",
   "matches": [
     {
       "match_id": 544253,
       "home_team": "Real Betis Balompié",
       "away_team": "Real Sociedad de Fútbol",
       "date": "2025-09-19",
-      "videos": []
+      "videos": [
+        {
+          "video_id": "CaPoe7yUSqs",
+          "title": "HIGHLIGHTS | LaLiga 25-26 | J6 | Real Sociedad 1 - 0 RCD Mallorca",
+          "published_at": "2025-09-24",
+          "tier_used": 1
+        },
+        {
+          "video_id": "qUd1zdmQnjo",
+          "title": "HIGHLIGHTS | LaLiga 25-26 | J5 | Real Betis 3 - 1 Real Sociedad",
+          "published_at": "2025-09-19",
+          "tier_used": 1
+        }
+      ]
     },
     {
       "match_id": 544255,
@@ -169,7 +182,20 @@
       "home_team": "FC Barcelona",
       "away_team": "Getafe CF",
       "date": "2025-09-21",
-      "videos": []
+      "videos": [
+        {
+          "video_id": "4clPHTvOACQ",
+          "title": "⚽ Resumen | Getafe CF 1 - 1 Deportivo Alavés | J6 LALIGA",
+          "published_at": "2025-09-25",
+          "tier_used": 1
+        },
+        {
+          "video_id": "5H5ivXZ3USk",
+          "title": "⚽ Resumen | FC Barcelona 3 - 0 Getafe CF | J5 LALIGA EASPORTS",
+          "published_at": "2025-09-21",
+          "tier_used": 1
+        }
+      ]
     }
   ]
 }

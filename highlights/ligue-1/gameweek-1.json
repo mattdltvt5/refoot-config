@@ -1,14 +1,21 @@
 {
   "competition": "Ligue 1",
   "gameweek": 1,
-  "generated_at": "2026-05-17T00:15:10Z",
+  "generated_at": "2026-05-17T09:53:23Z",
   "matches": [
     {
       "match_id": 542414,
       "home_team": "Stade Rennais FC 1901",
       "away_team": "Olympique de Marseille",
       "date": "2025-08-15",
-      "videos": []
+      "videos": [
+        {
+          "video_id": "6rMe4XomJTA",
+          "title": "Stade Rennes vs Marseille | Ligue 1 HIGHLIGHTS | 08/15/2025 | beIN SPORTS USA",
+          "published_at": "2025-08-15",
+          "tier_used": 4
+        }
+      ]
     },
     {
       "match_id": 542411,
@@ -57,7 +64,14 @@
       "home_team": "Stade Brestois 29",
       "away_team": "Lille OSC",
       "date": "2025-08-17",
-      "videos": []
+      "videos": [
+        {
+          "video_id": "oc7hWYiTSOg",
+          "title": "Stade Brestois vs Lille | HIGHLIGHTS Ligue 1 | 08/17/2025 | beIN SPORTS USA",
+          "published_at": "2025-08-17",
+          "tier_used": 4
+        }
+      ]
     },
     {
       "match_id": 542406,
@@ -78,7 +92,14 @@
       "home_team": "FC Metz",
       "away_team": "RC Strasbourg Alsace",
       "date": "2025-08-17",
-      "videos": []
+      "videos": [
+        {
+          "video_id": "eXaB3x0mUCo",
+          "title": "FC Metz vs RC Strasbourg | Ligue 1 HIGHLIGHTS | 08/17/25 beIN SPORTS USA",
+          "published_at": "2025-08-17",
+          "tier_used": 4
+        }
+      ]
     },
     {
       "match_id": 542412,
@@ -92,7 +113,20 @@
       "home_team": "FC Nantes",
       "away_team": "Paris Saint-Germain FC",
       "date": "2025-08-17",
-      "videos": []
+      "videos": [
+        {
+          "video_id": "a6Siip1CDts",
+          "title": "PSG vs Angers | Ligue 1 HIGHLIGHTS | 08/22/25 | beIN SPORTS USA",
+          "published_at": "2025-08-22",
+          "tier_used": 4
+        },
+        {
+          "video_id": "nsHMNMkKCcQ",
+          "title": "Nantes vs PSG | Ligue 1 HIGHLIGHTS | 08/17/25 beIN SPORTS USA",
+          "published_at": "2025-08-17",
+          "tier_used": 4
+        }
+      ]
     }
   ]
 }

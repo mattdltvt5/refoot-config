@@ -1,7 +1,7 @@
 {
   "competition": "Ligue 1",
   "gameweek": 29,
-  "generated_at": "2026-05-17T00:15:10Z",
+  "generated_at": "2026-05-17T10:03:17Z",
   "matches": [
     {
       "match_id": 542659,
@@ -22,7 +22,14 @@
       "home_team": "Olympique de Marseille",
       "away_team": "FC Metz",
       "date": "2026-04-10",
-      "videos": []
+      "videos": [
+        {
+          "video_id": "zs_Y_YoRWO4",
+          "title": "Marseille vs Metz | Ligue 1 HIGHLIGHTS | 04/10/2026 | beIN SPORTS USA",
+          "published_at": "2026-04-10",
+          "tier_used": 4
+        }
+      ]
     },
     {
       "match_id": 542658,
@@ -50,7 +57,20 @@
       "home_team": "Toulouse FC",
       "away_team": "Lille OSC",
       "date": "2026-04-12",
-      "videos": []
+      "videos": [
+        {
+          "video_id": "30C4H7-hJwM",
+          "title": "Lens vs Toulouse | HIGHLIGHTS Ligue 1 | 04/17/2026 | beIN SPORTS USA",
+          "published_at": "2026-04-17",
+          "tier_used": 4
+        },
+        {
+          "video_id": "HkyDcHi9HEM",
+          "title": "Toulouse vs Lille | HIGHLIGHTS Ligue 1 | 04/12/2026 | beIN SPORTS USA",
+          "published_at": "2026-04-12",
+          "tier_used": 4
+        }
+      ]
     },
     {
       "match_id": 542661,
@@ -71,21 +91,48 @@
       "home_team": "Olympique Lyonnais",
       "away_team": "FC Lorient",
       "date": "2026-04-12",
-      "videos": []
+      "videos": [
+        {
+          "video_id": "Qfq963bIhxg",
+          "title": "Lyon vs Lorient | HIGHLIGHTS Ligue 1 | 04/12/2026 | beIN SPORTS USA",
+          "published_at": "2026-04-12",
+          "tier_used": 4
+        }
+      ]
     },
     {
       "match_id": 542665,
       "home_team": "Stade Brestois 29",
       "away_team": "RC Strasbourg Alsace",
       "date": "2026-05-13",
-      "videos": []
+      "videos": [
+        {
+          "video_id": "YGH1l5fn_dE",
+          "title": "Stade Brest vs Strasbourg | HIGHLIGHTS Ligue 1 | 05/13/2026 | beIN SPORTS USA",
+          "published_at": "2026-05-13",
+          "tier_used": 4
+        }
+      ]
     },
     {
       "match_id": 542664,
       "home_team": "Racing Club de Lens",
       "away_team": "Paris Saint-Germain FC",
       "date": "2026-05-13",
-      "videos": []
+      "videos": [
+        {
+          "video_id": "_TSropEBRsc",
+          "title": "Lens vs PSG | EXTENDED HIGHLIGHTS Ligue 1 | 05/13/2026 | beIN SPORTS USA",
+          "published_at": "2026-05-13",
+          "tier_used": 4
+        },
+        {
+          "video_id": "E3nX22a6-Mg",
+          "title": "Lens vs PSG | HIGHLIGHTS Ligue 1 | 05/13/2026 | beIN SPORTS USA",
+          "published_at": "2026-05-13",
+          "tier_used": 4
+        }
+      ]
     }
   ]
 }

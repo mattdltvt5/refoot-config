@@ -1,7 +1,7 @@
 {
   "competition": "LaLiga",
   "gameweek": 3,
-  "generated_at": "2026-05-17T00:15:10Z",
+  "generated_at": "2026-05-17T09:49:44Z",
   "matches": [
     {
       "match_id": 544233,
@@ -99,7 +99,14 @@
       "home_team": "Real Betis Balompié",
       "away_team": "Athletic Club",
       "date": "2025-08-31",
-      "videos": []
+      "videos": [
+        {
+          "video_id": "4G_mIGHyTIw",
+          "title": "RESUMEN | Real Betis 1-2 Athletic Club | J3 LaLiga EA Sports",
+          "published_at": "2025-08-31",
+          "tier_used": 1
+        }
+      ]
     },
     {
       "match_id": 544234,
@@ -132,7 +139,14 @@
       "home_team": "Rayo Vallecano de Madrid",
       "away_team": "FC Barcelona",
       "date": "2025-08-31",
-      "videos": []
+      "videos": [
+        {
+          "video_id": "xeZUfVTV2MM",
+          "title": "Rayo Vallecano vs. Barcelona | LALIGA Highlights | ESPN FC",
+          "published_at": "2025-08-31",
+          "tier_used": 4
+        }
+      ]
     }
   ]
 }

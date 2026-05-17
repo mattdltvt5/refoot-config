@@ -1,7 +1,7 @@
 {
   "competition": "LaLiga",
   "gameweek": 10,
-  "generated_at": "2026-05-17T00:15:10Z",
+  "generated_at": "2026-05-17T09:50:49Z",
   "matches": [
     {
       "match_id": 544303,
@@ -92,7 +92,14 @@
       "home_team": "Real Madrid CF",
       "away_team": "FC Barcelona",
       "date": "2025-10-26",
-      "videos": []
+      "videos": [
+        {
+          "video_id": "q0ujyCy8O-Y",
+          "title": "Real Madrid vs. Barcelona EXTENDED HIGHLIGHTS [2025 OCTOBER EL CLASICO] | ESPN FC",
+          "published_at": "2025-10-28",
+          "tier_used": 4
+        }
+      ]
     },
     {
       "match_id": 544308,
@@ -139,7 +146,26 @@
       "home_team": "Real Betis Balompié",
       "away_team": "Club Atlético de Madrid",
       "date": "2025-10-27",
-      "videos": []
+      "videos": [
+        {
+          "video_id": "0RJbaGOwcIs",
+          "title": "Atletico Madrid vs. Sevilla | LALIGA Highlights | ESPN FC",
+          "published_at": "2025-11-01",
+          "tier_used": 4
+        },
+        {
+          "video_id": "yvRFqscajoo",
+          "title": "7 GOALS⁉️🔥 Palma del Rio vs. Real Betis | Copa del Rey Highlights | ESPN FC",
+          "published_at": "2025-10-30",
+          "tier_used": 4
+        },
+        {
+          "video_id": "1qmMWZasB8A",
+          "title": "Real Betis vs. Atletico Madrid | LALIGA Highlights | ESPN FC",
+          "published_at": "2025-10-27",
+          "tier_used": 4
+        }
+      ]
     }
   ]
 }

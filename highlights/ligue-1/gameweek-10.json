@@ -1,7 +1,7 @@
 {
   "competition": "Ligue 1",
   "gameweek": 10,
-  "generated_at": "2026-05-17T00:15:10Z",
+  "generated_at": "2026-05-17T09:56:10Z",
   "matches": [
     {
       "match_id": 542487,
@@ -77,7 +77,20 @@
       "home_team": "Paris FC",
       "away_team": "Olympique Lyonnais",
       "date": "2025-10-29",
-      "videos": []
+      "videos": [
+        {
+          "video_id": "qrNXnmqvXXw",
+          "title": "AS Monaco vs Paris FC  | Ligue 1 HIGHLIGHTS | 11/1/25 beIN SPORTS USA",
+          "published_at": "2025-11-01",
+          "tier_used": 4
+        },
+        {
+          "video_id": "tQz_H0vxENE",
+          "title": "Paris FC vs Lyon | Ligue 1 HIGHLIGHTS | 10/29/25 beIN SPORTS USA",
+          "published_at": "2025-10-29",
+          "tier_used": 4
+        }
+      ]
     },
     {
       "match_id": 542492,
@@ -98,14 +111,46 @@
       "home_team": "Olympique de Marseille",
       "away_team": "Angers SCO",
       "date": "2025-10-29",
-      "videos": []
+      "videos": [
+        {
+          "video_id": "Rw7sxUlBX_4",
+          "title": "Auxerre vs Marseille  | Ligue 1 HIGHLIGHTS | 11/1/25 | beIN SPORTS USA",
+          "published_at": "2025-11-01",
+          "tier_used": 4
+        },
+        {
+          "video_id": "1A4q4s3doW0",
+          "title": "Marseille vs Angers | HIGHLIGHTS Ligue 1 | 10/29/2025 | beIN SPORTS USA",
+          "published_at": "2025-10-29",
+          "tier_used": 4
+        }
+      ]
     },
     {
       "match_id": 542495,
       "home_team": "RC Strasbourg Alsace",
       "away_team": "AJ Auxerre",
       "date": "2025-10-29",
-      "videos": []
+      "videos": [
+        {
+          "video_id": "Yqfz7eyeza8",
+          "title": "Stade Rennes vs Strasbourg | Ligue 1 HIGHLIGHTS | 11/02/25 beIN SPORTS USA",
+          "published_at": "2025-11-02",
+          "tier_used": 4
+        },
+        {
+          "video_id": "Rw7sxUlBX_4",
+          "title": "Auxerre vs Marseille  | Ligue 1 HIGHLIGHTS | 11/1/25 | beIN SPORTS USA",
+          "published_at": "2025-11-01",
+          "tier_used": 4
+        },
+        {
+          "video_id": "PHQXUXqIQ8I",
+          "title": "Strasbourg vs Auxerre  | HIGHLIGHTS Ligue 1 | 10/29/2025 | beIN SPORTS USA",
+          "published_at": "2025-10-29",
+          "tier_used": 4
+        }
+      ]
     }
   ]
 }

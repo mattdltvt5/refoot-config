@@ -1,7 +1,7 @@
 {
   "competition": "Ligue 1",
   "gameweek": 13,
-  "generated_at": "2026-05-17T00:15:10Z",
+  "generated_at": "2026-05-17T09:56:59Z",
   "matches": [
     {
       "match_id": 542517,
@@ -22,14 +22,40 @@
       "home_team": "Racing Club de Lens",
       "away_team": "RC Strasbourg Alsace",
       "date": "2025-11-22",
-      "videos": []
+      "videos": [
+        {
+          "video_id": "Kc9OSYrPTmM",
+          "title": "Lens vs Strasbourg | HIGHLIGHTS Ligue 1 | 11/22/2025 | beIN SPORTS USA",
+          "published_at": "2025-11-22",
+          "tier_used": 4
+        }
+      ]
     },
     {
       "match_id": 542522,
       "home_team": "Stade Rennais FC 1901",
       "away_team": "AS Monaco FC",
       "date": "2025-11-22",
-      "videos": []
+      "videos": [
+        {
+          "video_id": "QrhAKS0zZHg",
+          "title": "Résumé Pafos - AS Monaco - Champions League",
+          "published_at": "2025-11-27",
+          "tier_used": 1
+        },
+        {
+          "video_id": "SWZoVaE-2CQ",
+          "title": "Résumé Pafos - AS Monaco - Youth League",
+          "published_at": "2025-11-27",
+          "tier_used": 1
+        },
+        {
+          "video_id": "0flDp9tNBQI",
+          "title": "Résumé Stade Rennais - AS Monaco - 13ème journée",
+          "published_at": "2025-11-24",
+          "tier_used": 1
+        }
+      ]
     },
     {
       "match_id": 542519,
@@ -99,7 +125,14 @@
       "home_team": "Lille OSC",
       "away_team": "Paris FC",
       "date": "2025-11-23",
-      "videos": []
+      "videos": [
+        {
+          "video_id": "2qJY4l-8KA0",
+          "title": "Lille vs Paris FC | HIGHLIGHTS Ligue 1 | 11/23/2025 | beIN SPORTS USA",
+          "published_at": "2025-11-23",
+          "tier_used": 4
+        }
+      ]
     }
   ]
 }
