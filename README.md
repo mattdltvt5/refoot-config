@@ -14,9 +14,11 @@ Remote channel configuration for the **ReFoot Highlights** Android app.
 | `scripts/fetch_highlights.py` | Incremental update script (runs every 4 hours) |
 | `scripts/backfill_highlights.py` | Full-season backfill script (manual trigger only) |
 | `scripts/clean_highlights.py` | One-time cleanup script — re-evaluates existing JSON files and removes false positives |
+| `scripts/clean_wrong_fixture_videos.py` | Retroactive cleanup — removes videos stored for the wrong fixture (both-teams rule) |
 | `.github/workflows/fetch-highlights.yml` | GitHub Action that runs the incremental script every 4 hours |
 | `.github/workflows/backfill-highlights.yml` | GitHub Action for the manual backfill (workflow_dispatch only) |
 | `.github/workflows/clean-highlights.yml` | GitHub Action for the manual false-positive cleanup (workflow_dispatch only) |
+| `.github/workflows/clean-wrong-fixture-videos.yml` | GitHub Action for the retroactive both-teams cleanup (workflow_dispatch only) |
 
 ## Admin Panel
 
@@ -212,6 +214,23 @@ The script (`scripts/clean_highlights.py`):
 5. Commits and pushes the changed files with `[skip ci]`
 
 Safe to re-run at any time. If nothing changed, no commit is made.
+
+### Wrong-fixture video cleanup
+
+If videos from other fixtures were stored (e.g. a "Rennais vs Nantes" recap stored against a "PSG vs Nantes" fixture because only one team name matched), run the **Clean wrong-fixture videos** workflow:
+
+**Actions → Clean wrong-fixture videos (retroactive both-teams cleanup) → Run workflow**
+
+The script (`scripts/clean_wrong_fixture_videos.py`):
+1. Iterates every gameweek/matchday JSON file for all competitions
+2. For each fixture, derives keyword sets for the home team and away team from the stored full names (strips year codes, org suffixes; adds known abbreviations from a built-in alias map)
+3. Removes any video whose title does not contain at least one keyword for **both** the home team **and** the away team
+4. Regenerates `highlights/summary.json`
+5. Commits and pushes the changed files with `[skip ci]`
+
+Safe to re-run at any time. Fixtures that lose all videos will show as "Highlight not available yet" placeholders in the app — which is correct behaviour when the only stored video was for the wrong match.
+
+> **Note:** The live pipeline (`search_playlist()`) now requires both team names for tier 2 and tier 4 sources, so this cleanup script only needs to be run once for historical data. Re-run if the alias map in the script is extended to cover additional teams.
 
 ### Smart-skip logic
 
