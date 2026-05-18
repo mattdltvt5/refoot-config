@@ -1,7 +1,7 @@
 {
   "competition": "LaLiga",
   "gameweek": 35,
-  "generated_at": "2026-05-18T11:07:43Z",
+  "generated_at": "2026-05-18T15:40:12Z",
   "matches": [
     {
       "match_id": 544554,
@@ -150,14 +150,28 @@
       "home_team": "FC Barcelona",
       "away_team": "Real Madrid CF",
       "date": "2026-05-10",
-      "videos": []
+      "videos": [
+        {
+          "video_id": "VHXY-83RvOs",
+          "title": "A special Clásico in a special Barça Live ❤️‍🔥 #LaLigaHighlights #ElClásico",
+          "published_at": "2026-05-12",
+          "tier_used": 1
+        }
+      ]
     },
     {
       "match_id": 544560,
       "home_team": "Rayo Vallecano de Madrid",
       "away_team": "Girona FC",
       "date": "2026-05-11",
-      "videos": []
+      "videos": [
+        {
+          "video_id": "BD6gbXMU5FE",
+          "title": "RAYO VALLECANO 1 - 1 GIRONA FC | RESUMEN LALIGA EA SPORTS",
+          "published_at": "2026-05-11",
+          "tier_used": 2
+        }
+      ]
     }
   ]
 }
