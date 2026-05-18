@@ -509,6 +509,7 @@ def search_playlist(
     quota: QuotaTracker,
     cap: int,
     requires_competition_filter: bool = False,
+    requires_both_teams: bool = False,
 ) -> list[dict]:
     """
     Search a playlist for videos matching the given fixture.
@@ -516,7 +517,15 @@ def search_playlist(
     Acceptance criteria (ALL must be true):
       1. published_at is in [fixture_date, fixture_date + VIDEO_WINDOW_DAYS]
       2. If requires_competition_filter: title contains a competition keyword
-      3. Title (case-insensitive) contains home_short OR away_short
+      3. If requires_both_teams: title contains home_short AND away_short
+         Otherwise: title contains home_short OR away_short
+
+    ``requires_both_teams`` should be True for broad channels (tier 2 competition
+    channel, tier 4 broadcaster playlists) which publish every fixture in the league.
+    Without it, a "Rennais vs Nantes" video would pass for a "PSG vs Nantes" fixture
+    because "nantes" (away_short) appears in both titles.  Team-scoped sources
+    (tiers 1a–1d) leave it False because the channel/playlist is already restricted
+    to one club, so only the opponent needs to appear in the title.
 
     Pagination capped at MAX_YT_PAGES; stops after the first page with an accepted video.
     Calls quota.increment(cap) per page fetched — raises QuotaCapReached if cap hit.
@@ -598,8 +607,12 @@ def search_playlist(
             ):
                 continue
 
-            if home_short not in lower_title and away_short not in lower_title:
-                continue
+            if requires_both_teams:
+                if home_short not in lower_title or away_short not in lower_title:
+                    continue
+            else:
+                if home_short not in lower_title and away_short not in lower_title:
+                    continue
 
             # Reject press conferences, interviews, previews, training clips, etc.
             # Applies to all tiers — blocklist is checked inside is_highlight_title()
@@ -648,11 +661,18 @@ def resolve_videos_for_fixture(
     home    = fixture["home_team"]
     away    = fixture["away_team"]
 
-    def _try(playlist_id: str, tier: int, comp_filter: bool = False) -> list[dict] | None:
+    def _try(
+        playlist_id: str,
+        tier: int,
+        comp_filter: bool = False,
+        both_teams: bool = False,
+    ) -> list[dict] | None:
         if not playlist_id:
             return None
         vids = search_playlist(
-            playlist_id, yt_key, fixture, comp_name, quota, cap, comp_filter
+            playlist_id, yt_key, fixture, comp_name, quota, cap,
+            requires_competition_filter=comp_filter,
+            requires_both_teams=both_teams,
         )
         return [{**v, "tier_used": tier} for v in vids]
 
@@ -667,16 +687,19 @@ def resolve_videos_for_fixture(
         return result
 
     # Tier 2 — official competition channel uploads
+    # Requires BOTH team names: a competition channel covers every fixture,
+    # so without both-team matching a "Rennais vs Nantes" video would be stored
+    # for the "PSG vs Nantes" fixture.
     ch = comp_ch.get(comp_name, "")
     if ch:
-        result = _try(channel_to_uploads(ch), tier=2)
+        result = _try(channel_to_uploads(ch), tier=2, both_teams=True)
         if result:
             return result
 
-    # Tier 4 — broadcaster playlists (all arrays flattened, try each)
+    # Tier 4 — broadcaster playlists (same rationale: broad channels, need both names)
     for _broadcaster, pl_ids in comp_pl.get(comp_name, {}).items():
         for pl_id in pl_ids:
-            result = _try(pl_id, tier=4)
+            result = _try(pl_id, tier=4, both_teams=True)
             if result:
                 return result
 
