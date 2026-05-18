@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-18T03:46:40Z",
+  "generated_at": "2026-05-18T08:13:45Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -2779,14 +2779,56 @@
         },
         {
           "gameweek": 37,
-          "total": 1,
-          "covered": 1,
+          "total": 7,
+          "covered": 7,
           "matches": [
             {
               "match_id": 538146,
               "home": "Aston Villa FC",
               "away": "Liverpool FC",
               "date": "2026-05-15",
+              "covered": true
+            },
+            {
+              "match_id": 538152,
+              "home": "Manchester United FC",
+              "away": "Nottingham Forest FC",
+              "date": "2026-05-17",
+              "covered": true
+            },
+            {
+              "match_id": 538148,
+              "home": "Brentford FC",
+              "away": "Crystal Palace FC",
+              "date": "2026-05-17",
+              "covered": true
+            },
+            {
+              "match_id": 538150,
+              "home": "Everton FC",
+              "away": "Sunderland AFC",
+              "date": "2026-05-17",
+              "covered": true
+            },
+            {
+              "match_id": 538151,
+              "home": "Leeds United FC",
+              "away": "Brighton & Hove Albion FC",
+              "date": "2026-05-17",
+              "covered": true
+            },
+            {
+              "match_id": 538154,
+              "home": "Wolverhampton Wanderers FC",
+              "away": "Fulham FC",
+              "date": "2026-05-17",
+              "covered": true
+            },
+            {
+              "match_id": 538153,
+              "home": "Newcastle United FC",
+              "away": "West Ham United FC",
+              "date": "2026-05-17",
               "covered": true
             }
           ]
@@ -8423,6 +8465,83 @@
               "covered": true
             }
           ]
+        },
+        {
+          "gameweek": 37,
+          "total": 10,
+          "covered": 10,
+          "matches": [
+            {
+              "match_id": 537175,
+              "home": "AS Roma",
+              "away": "SS Lazio",
+              "date": "2026-05-17",
+              "covered": true
+            },
+            {
+              "match_id": 537178,
+              "home": "Genoa CFC",
+              "away": "AC Milan",
+              "date": "2026-05-17",
+              "covered": true
+            },
+            {
+              "match_id": 537179,
+              "home": "Como 1907",
+              "away": "Parma Calcio 1913",
+              "date": "2026-05-17",
+              "covered": true
+            },
+            {
+              "match_id": 537181,
+              "home": "Juventus FC",
+              "away": "ACF Fiorentina",
+              "date": "2026-05-17",
+              "covered": true
+            },
+            {
+              "match_id": 537182,
+              "home": "AC Pisa 1909",
+              "away": "SSC Napoli",
+              "date": "2026-05-17",
+              "covered": true
+            },
+            {
+              "match_id": 537180,
+              "home": "FC Internazionale Milano",
+              "away": "Hellas Verona FC",
+              "date": "2026-05-17",
+              "covered": true
+            },
+            {
+              "match_id": 537176,
+              "home": "Atalanta BC",
+              "away": "Bologna FC 1909",
+              "date": "2026-05-17",
+              "covered": true
+            },
+            {
+              "match_id": 537177,
+              "home": "Cagliari Calcio",
+              "away": "Torino FC",
+              "date": "2026-05-17",
+              "covered": true
+            },
+            {
+              "match_id": 537183,
+              "home": "US Sassuolo Calcio",
+              "away": "US Lecce",
+              "date": "2026-05-17",
+              "covered": true
+            },
+            {
+              "match_id": 537184,
+              "home": "Udinese Calcio",
+              "away": "US Cremonese",
+              "date": "2026-05-17",
+              "covered": true
+            }
+          ]
         }
       ]
     },
@@ -13122,6 +13241,69 @@
               "home": "Stade Rennais FC 1901",
               "away": "Paris FC",
               "date": "2026-05-10",
+              "covered": false
+            }
+          ]
+        },
+        {
+          "gameweek": 34,
+          "total": 8,
+          "covered": 5,
+          "matches": [
+            {
+              "match_id": 542703,
+              "home": "FC Lorient",
+              "away": "Le Havre AC",
+              "date": "2026-05-17",
+              "covered": false
+            },
+            {
+              "match_id": 542705,
+              "home": "Paris FC",
+              "away": "Paris Saint-Germain FC",
+              "date": "2026-05-17",
+              "covered": true
+            },
+            {
+              "match_id": 542706,
+              "home": "OGC Nice",
+              "away": "FC Metz",
+              "date": "2026-05-17",
+              "covered": true
+            },
+            {
+              "match_id": 542707,
+              "home": "Olympique Lyonnais",
+              "away": "Racing Club de Lens",
+              "date": "2026-05-17",
+              "covered": false
+            },
+            {
+              "match_id": 542708,
+              "home": "Olympique de Marseille",
+              "away": "Stade Rennais FC 1901",
+              "date": "2026-05-17",
+              "covered": true
+            },
+            {
+              "match_id": 542709,
+              "home": "Lille OSC",
+              "away": "AJ Auxerre",
+              "date": "2026-05-17",
+              "covered": true
+            },
+            {
+              "match_id": 542710,
+              "home": "RC Strasbourg Alsace",
+              "away": "AS Monaco FC",
+              "date": "2026-05-17",
+              "covered": true
+            },
+            {
+              "match_id": 542711,
+              "home": "Stade Brestois 29",
+              "away": "Angers SCO",
+              "date": "2026-05-17",
               "covered": false
             }
           ]
