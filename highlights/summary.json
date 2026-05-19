@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-18T21:12:39Z",
+  "generated_at": "2026-05-19T03:47:07Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -85,7 +85,7 @@
         {
           "gameweek": 2,
           "total": 10,
-          "covered": 9,
+          "covered": 10,
           "matches": [
             {
               "match_id": 537804,
@@ -106,7 +106,7 @@
               "home": "AFC Bournemouth",
               "away": "Wolverhampton Wanderers FC",
               "date": "2025-08-23",
-              "covered": false
+              "covered": true
             },
             {
               "match_id": 537798,
@@ -316,14 +316,14 @@
         {
           "gameweek": 5,
           "total": 10,
-          "covered": 7,
+          "covered": 10,
           "matches": [
             {
               "match_id": 537831,
               "home": "Liverpool FC",
               "away": "Everton FC",
               "date": "2025-09-20",
-              "covered": false
+              "covered": true
             },
             {
               "match_id": 537827,
@@ -337,7 +337,7 @@
               "home": "Burnley FC",
               "away": "Nottingham Forest FC",
               "date": "2025-09-20",
-              "covered": false
+              "covered": true
             },
             {
               "match_id": 537833,
@@ -365,7 +365,7 @@
               "home": "Fulham FC",
               "away": "Brentford FC",
               "date": "2025-09-20",
-              "covered": false
+              "covered": true
             },
             {
               "match_id": 537825,
@@ -701,7 +701,7 @@
         {
           "gameweek": 10,
           "total": 10,
-          "covered": 9,
+          "covered": 10,
           "matches": [
             {
               "match_id": 537876,
@@ -715,7 +715,7 @@
               "home": "Crystal Palace FC",
               "away": "Brentford FC",
               "date": "2025-11-01",
-              "covered": false
+              "covered": true
             },
             {
               "match_id": 537878,
@@ -855,7 +855,7 @@
         {
           "gameweek": 12,
           "total": 10,
-          "covered": 9,
+          "covered": 10,
           "matches": [
             {
               "match_id": 537898,
@@ -904,7 +904,7 @@
               "home": "Newcastle United FC",
               "away": "Manchester City FC",
               "date": "2025-11-22",
-              "covered": false
+              "covered": true
             },
             {
               "match_id": 537901,
@@ -932,7 +932,7 @@
         {
           "gameweek": 13,
           "total": 10,
-          "covered": 9,
+          "covered": 10,
           "matches": [
             {
               "match_id": 537905,
@@ -981,7 +981,7 @@
               "home": "Aston Villa FC",
               "away": "Wolverhampton Wanderers FC",
               "date": "2025-11-30",
-              "covered": false
+              "covered": true
             },
             {
               "match_id": 537912,
@@ -1009,7 +1009,7 @@
         {
           "gameweek": 14,
           "total": 10,
-          "covered": 8,
+          "covered": 9,
           "matches": [
             {
               "match_id": 537915,
@@ -1072,7 +1072,7 @@
               "home": "Leeds United FC",
               "away": "Chelsea FC",
               "date": "2025-12-03",
-              "covered": false
+              "covered": true
             },
             {
               "match_id": 537922,
@@ -11918,7 +11918,7 @@
         {
           "gameweek": 15,
           "total": 9,
-          "covered": 7,
+          "covered": 9,
           "matches": [
             {
               "match_id": 542540,
@@ -11946,7 +11946,7 @@
               "home": "Toulouse FC",
               "away": "RC Strasbourg Alsace",
               "date": "2025-12-06",
-              "covered": false
+              "covered": true
             },
             {
               "match_id": 542539,
@@ -11967,7 +11967,7 @@
               "home": "Le Havre AC",
               "away": "Paris FC",
               "date": "2025-12-07",
-              "covered": false
+              "covered": true
             },
             {
               "match_id": 542533,
@@ -11988,7 +11988,7 @@
         {
           "gameweek": 16,
           "total": 9,
-          "covered": 8,
+          "covered": 9,
           "matches": [
             {
               "match_id": 542548,
@@ -12016,7 +12016,7 @@
               "home": "Paris FC",
               "away": "Toulouse FC",
               "date": "2025-12-13",
-              "covered": false
+              "covered": true
             },
             {
               "match_id": 542544,
@@ -12058,7 +12058,7 @@
         {
           "gameweek": 17,
           "total": 9,
-          "covered": 7,
+          "covered": 9,
           "matches": [
             {
               "match_id": 542553,
@@ -12079,7 +12079,7 @@
               "home": "OGC Nice",
               "away": "RC Strasbourg Alsace",
               "date": "2026-01-03",
-              "covered": false
+              "covered": true
             },
             {
               "match_id": 542556,
@@ -12100,7 +12100,7 @@
               "home": "Le Havre AC",
               "away": "Angers SCO",
               "date": "2026-01-04",
-              "covered": false
+              "covered": true
             },
             {
               "match_id": 542552,
@@ -12128,14 +12128,14 @@
         {
           "gameweek": 18,
           "total": 9,
-          "covered": 6,
+          "covered": 9,
           "matches": [
             {
               "match_id": 542559,
               "home": "AS Monaco FC",
               "away": "FC Lorient",
               "date": "2026-01-16",
-              "covered": false
+              "covered": true
             },
             {
               "match_id": 542563,
@@ -12156,7 +12156,7 @@
               "home": "Toulouse FC",
               "away": "OGC Nice",
               "date": "2026-01-17",
-              "covered": false
+              "covered": true
             },
             {
               "match_id": 542566,
@@ -12184,7 +12184,7 @@
               "home": "Stade Rennais FC 1901",
               "away": "Le Havre AC",
               "date": "2026-01-18",
-              "covered": false
+              "covered": true
             },
             {
               "match_id": 542562,
@@ -12198,7 +12198,7 @@
         {
           "gameweek": 19,
           "total": 9,
-          "covered": 5,
+          "covered": 7,
           "matches": [
             {
               "match_id": 542569,
@@ -12219,7 +12219,7 @@
               "home": "Le Havre AC",
               "away": "AS Monaco FC",
               "date": "2026-01-24",
-              "covered": false
+              "covered": true
             },
             {
               "match_id": 542573,
@@ -12254,7 +12254,7 @@
               "home": "Stade Brestois 29",
               "away": "Toulouse FC",
               "date": "2026-01-25",
-              "covered": false
+              "covered": true
             },
             {
               "match_id": 542574,
@@ -12268,14 +12268,14 @@
         {
           "gameweek": 20,
           "total": 9,
-          "covered": 6,
+          "covered": 8,
           "matches": [
             {
               "match_id": 542584,
               "home": "Racing Club de Lens",
               "away": "Le Havre AC",
               "date": "2026-01-30",
-              "covered": false
+              "covered": true
             },
             {
               "match_id": 542579,
@@ -12310,7 +12310,7 @@
               "home": "Toulouse FC",
               "away": "AJ Auxerre",
               "date": "2026-02-01",
-              "covered": false
+              "covered": true
             },
             {
               "match_id": 542581,
@@ -12478,7 +12478,7 @@
         {
           "gameweek": 23,
           "total": 9,
-          "covered": 7,
+          "covered": 8,
           "matches": [
             {
               "match_id": 542612,
@@ -12499,7 +12499,7 @@
               "home": "Toulouse FC",
               "away": "Paris FC",
               "date": "2026-02-21",
-              "covered": false
+              "covered": true
             },
             {
               "match_id": 542608,
@@ -12548,7 +12548,7 @@
         {
           "gameweek": 24,
           "total": 9,
-          "covered": 8,
+          "covered": 9,
           "matches": [
             {
               "match_id": 542620,
@@ -12604,7 +12604,7 @@
               "home": "Lille OSC",
               "away": "FC Nantes",
               "date": "2026-03-01",
-              "covered": false
+              "covered": true
             },
             {
               "match_id": 542618,
@@ -12618,7 +12618,7 @@
         {
           "gameweek": 25,
           "total": 9,
-          "covered": 7,
+          "covered": 8,
           "matches": [
             {
               "match_id": 542628,
@@ -12674,7 +12674,7 @@
               "home": "Stade Brestois 29",
               "away": "Le Havre AC",
               "date": "2026-03-08",
-              "covered": false
+              "covered": true
             },
             {
               "match_id": 542626,
@@ -12688,7 +12688,7 @@
         {
           "gameweek": 26,
           "total": 9,
-          "covered": 8,
+          "covered": 9,
           "matches": [
             {
               "match_id": 542635,
@@ -12744,7 +12744,7 @@
               "home": "Stade Rennais FC 1901",
               "away": "Lille OSC",
               "date": "2026-03-15",
-              "covered": false
+              "covered": true
             },
             {
               "match_id": 542636,
@@ -12758,7 +12758,7 @@
         {
           "gameweek": 27,
           "total": 9,
-          "covered": 3,
+          "covered": 6,
           "matches": [
             {
               "match_id": 542647,
@@ -12772,7 +12772,7 @@
               "home": "Toulouse FC",
               "away": "FC Lorient",
               "date": "2026-03-21",
-              "covered": false
+              "covered": true
             },
             {
               "match_id": 542640,
@@ -12786,7 +12786,7 @@
               "home": "OGC Nice",
               "away": "Paris Saint-Germain FC",
               "date": "2026-03-21",
-              "covered": false
+              "covered": true
             },
             {
               "match_id": 542645,
@@ -12800,7 +12800,7 @@
               "home": "Paris FC",
               "away": "Le Havre AC",
               "date": "2026-03-22",
-              "covered": false
+              "covered": true
             },
             {
               "match_id": 542646,
@@ -12828,7 +12828,7 @@
         {
           "gameweek": 28,
           "total": 9,
-          "covered": 6,
+          "covered": 7,
           "matches": [
             {
               "match_id": 542654,
@@ -12870,7 +12870,7 @@
               "home": "Le Havre AC",
               "away": "AJ Auxerre",
               "date": "2026-04-05",
-              "covered": false
+              "covered": true
             },
             {
               "match_id": 542651,
@@ -12898,7 +12898,7 @@
         {
           "gameweek": 29,
           "total": 9,
-          "covered": 7,
+          "covered": 8,
           "matches": [
             {
               "match_id": 542659,
@@ -12940,7 +12940,7 @@
               "home": "OGC Nice",
               "away": "Le Havre AC",
               "date": "2026-04-12",
-              "covered": false
+              "covered": true
             },
             {
               "match_id": 542662,
@@ -12968,7 +12968,7 @@
         {
           "gameweek": 30,
           "total": 9,
-          "covered": 8,
+          "covered": 9,
           "matches": [
             {
               "match_id": 542674,
@@ -12989,7 +12989,7 @@
               "home": "Angers SCO",
               "away": "Le Havre AC",
               "date": "2026-04-18",
-              "covered": false
+              "covered": true
             },
             {
               "match_id": 542671,
@@ -13038,7 +13038,7 @@
         {
           "gameweek": 31,
           "total": 9,
-          "covered": 8,
+          "covered": 9,
           "matches": [
             {
               "match_id": 542683,
@@ -13080,7 +13080,7 @@
               "home": "Le Havre AC",
               "away": "FC Metz",
               "date": "2026-04-26",
-              "covered": false
+              "covered": true
             },
             {
               "match_id": 542678,
@@ -13108,7 +13108,7 @@
         {
           "gameweek": 32,
           "total": 9,
-          "covered": 7,
+          "covered": 8,
           "matches": [
             {
               "match_id": 542687,
@@ -13143,7 +13143,7 @@
               "home": "Lille OSC",
               "away": "Le Havre AC",
               "date": "2026-05-03",
-              "covered": false
+              "covered": true
             },
             {
               "match_id": 542685,
@@ -13178,7 +13178,7 @@
         {
           "gameweek": 33,
           "total": 9,
-          "covered": 5,
+          "covered": 6,
           "matches": [
             {
               "match_id": 542700,
@@ -13206,7 +13206,7 @@
               "home": "AS Monaco FC",
               "away": "Lille OSC",
               "date": "2026-05-10",
-              "covered": false
+              "covered": true
             },
             {
               "match_id": 542697,
@@ -13248,14 +13248,14 @@
         {
           "gameweek": 34,
           "total": 8,
-          "covered": 5,
+          "covered": 6,
           "matches": [
             {
               "match_id": 542703,
               "home": "FC Lorient",
               "away": "Le Havre AC",
               "date": "2026-05-17",
-              "covered": false
+              "covered": true
             },
             {
               "match_id": 542705,
