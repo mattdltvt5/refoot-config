@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-23T20:52:11Z",
+  "generated_at": "2026-05-24T03:50:53Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -5708,6 +5708,76 @@
               "covered": true
             }
           ]
+        },
+        {
+          "gameweek": 38,
+          "total": 9,
+          "covered": 9,
+          "matches": [
+            {
+              "match_id": 544581,
+              "home": "Deportivo Alavés",
+              "away": "Rayo Vallecano de Madrid",
+              "date": "2026-05-23",
+              "covered": true
+            },
+            {
+              "match_id": 544582,
+              "home": "Real Betis Balompié",
+              "away": "Levante UD",
+              "date": "2026-05-23",
+              "covered": true
+            },
+            {
+              "match_id": 544583,
+              "home": "RC Celta de Vigo",
+              "away": "Sevilla FC",
+              "date": "2026-05-23",
+              "covered": true
+            },
+            {
+              "match_id": 544584,
+              "home": "RCD Espanyol de Barcelona",
+              "away": "Real Sociedad de Fútbol",
+              "date": "2026-05-23",
+              "covered": true
+            },
+            {
+              "match_id": 544585,
+              "home": "Getafe CF",
+              "away": "CA Osasuna",
+              "date": "2026-05-23",
+              "covered": true
+            },
+            {
+              "match_id": 544586,
+              "home": "RCD Mallorca",
+              "away": "Real Oviedo",
+              "date": "2026-05-23",
+              "covered": true
+            },
+            {
+              "match_id": 544587,
+              "home": "Real Madrid CF",
+              "away": "Athletic Club",
+              "date": "2026-05-23",
+              "covered": true
+            },
+            {
+              "match_id": 544589,
+              "home": "Valencia CF",
+              "away": "FC Barcelona",
+              "date": "2026-05-23",
+              "covered": true
+            },
+            {
+              "match_id": 544590,
+              "home": "Girona FC",
+              "away": "Elche CF",
+              "date": "2026-05-23",
+              "covered": true
+            }
+          ]
         }
       ]
     },
@@ -8566,14 +8636,28 @@
         },
         {
           "gameweek": 38,
-          "total": 1,
-          "covered": 1,
+          "total": 3,
+          "covered": 3,
           "matches": [
             {
               "match_id": 537185,
               "home": "ACF Fiorentina",
               "away": "Atalanta BC",
               "date": "2026-05-22",
+              "covered": true
+            },
+            {
+              "match_id": 537187,
+              "home": "Bologna FC 1909",
+              "away": "FC Internazionale Milano",
+              "date": "2026-05-23",
+              "covered": true
+            },
+            {
+              "match_id": 537190,
+              "home": "SS Lazio",
+              "away": "AC Pisa 1909",
+              "date": "2026-05-23",
               "covered": true
             }
           ]
