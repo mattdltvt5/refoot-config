@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-24T20:55:21Z",
+  "generated_at": "2026-05-25T04:03:32Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -2850,6 +2850,83 @@
               "home": "Chelsea FC",
               "away": "Tottenham Hotspur FC",
               "date": "2026-05-19",
+              "covered": true
+            }
+          ]
+        },
+        {
+          "gameweek": 38,
+          "total": 10,
+          "covered": 10,
+          "matches": [
+            {
+              "match_id": 538155,
+              "home": "Sunderland AFC",
+              "away": "Chelsea FC",
+              "date": "2026-05-24",
+              "covered": true
+            },
+            {
+              "match_id": 538156,
+              "home": "Brighton & Hove Albion FC",
+              "away": "Manchester United FC",
+              "date": "2026-05-24",
+              "covered": true
+            },
+            {
+              "match_id": 538157,
+              "home": "Crystal Palace FC",
+              "away": "Arsenal FC",
+              "date": "2026-05-24",
+              "covered": true
+            },
+            {
+              "match_id": 538158,
+              "home": "Burnley FC",
+              "away": "Wolverhampton Wanderers FC",
+              "date": "2026-05-24",
+              "covered": true
+            },
+            {
+              "match_id": 538159,
+              "home": "Fulham FC",
+              "away": "Newcastle United FC",
+              "date": "2026-05-24",
+              "covered": true
+            },
+            {
+              "match_id": 538160,
+              "home": "Liverpool FC",
+              "away": "Brentford FC",
+              "date": "2026-05-24",
+              "covered": true
+            },
+            {
+              "match_id": 538161,
+              "home": "Manchester City FC",
+              "away": "Aston Villa FC",
+              "date": "2026-05-24",
+              "covered": true
+            },
+            {
+              "match_id": 538162,
+              "home": "Nottingham Forest FC",
+              "away": "AFC Bournemouth",
+              "date": "2026-05-24",
+              "covered": true
+            },
+            {
+              "match_id": 538163,
+              "home": "Tottenham Hotspur FC",
+              "away": "Everton FC",
+              "date": "2026-05-24",
+              "covered": true
+            },
+            {
+              "match_id": 538164,
+              "home": "West Ham United FC",
+              "away": "Leeds United FC",
+              "date": "2026-05-24",
               "covered": true
             }
           ]
@@ -5711,8 +5788,8 @@
         },
         {
           "gameweek": 38,
-          "total": 9,
-          "covered": 9,
+          "total": 10,
+          "covered": 10,
           "matches": [
             {
               "match_id": 544581,
@@ -5775,6 +5852,13 @@
               "home": "Girona FC",
               "away": "Elche CF",
               "date": "2026-05-23",
+              "covered": true
+            },
+            {
+              "match_id": 544588,
+              "home": "Villarreal CF",
+              "away": "Club Atlético de Madrid",
+              "date": "2026-05-24",
               "covered": true
             }
           ]
@@ -8636,8 +8720,8 @@
         },
         {
           "gameweek": 38,
-          "total": 3,
-          "covered": 3,
+          "total": 10,
+          "covered": 9,
           "matches": [
             {
               "match_id": 537185,
@@ -8658,6 +8742,55 @@
               "home": "SS Lazio",
               "away": "AC Pisa 1909",
               "date": "2026-05-23",
+              "covered": true
+            },
+            {
+              "match_id": 537191,
+              "home": "Parma Calcio 1913",
+              "away": "US Sassuolo Calcio",
+              "date": "2026-05-24",
+              "covered": true
+            },
+            {
+              "match_id": 537192,
+              "home": "SSC Napoli",
+              "away": "Udinese Calcio",
+              "date": "2026-05-24",
+              "covered": true
+            },
+            {
+              "match_id": 537186,
+              "home": "AC Milan",
+              "away": "Cagliari Calcio",
+              "date": "2026-05-24",
+              "covered": true
+            },
+            {
+              "match_id": 537189,
+              "home": "Hellas Verona FC",
+              "away": "AS Roma",
+              "date": "2026-05-24",
+              "covered": true
+            },
+            {
+              "match_id": 537193,
+              "home": "US Cremonese",
+              "away": "Como 1907",
+              "date": "2026-05-24",
+              "covered": false
+            },
+            {
+              "match_id": 537194,
+              "home": "US Lecce",
+              "away": "Genoa CFC",
+              "date": "2026-05-24",
+              "covered": true
+            },
+            {
+              "match_id": 537188,
+              "home": "Torino FC",
+              "away": "Juventus FC",
+              "date": "2026-05-24",
               "covered": true
             }
           ]
