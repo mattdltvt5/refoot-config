@@ -55,6 +55,8 @@ COMPETITION_CODE_MAP: dict[str, str] = {
     "FL1": "Ligue 1",
     "CL":  "Champions League",
     "EL":  "Europa League",
+    "EC":  "Euro Cup",
+    "WC":  "World Cup",
 }
 
 # sources.json competition name → output directory slug
@@ -66,10 +68,18 @@ COMPETITION_SLUG_MAP: dict[str, str] = {
     "Ligue 1":          "ligue-1",
     "Champions League": "ucl",
     "Europa League":    "uel",
+    "Euro Cup":         "euro-cup",
+    "World Cup":        "world-cup",
 }
 
 # UCL/UEL use "matchday-N.json"; domestic leagues use "gameweek-N.json"
 UCL_UEL: set[str] = {"Champions League", "Europa League"}
+
+# Competitions with two-legged knockout rounds
+TWO_LEGGED_COMPS: set[str] = {"Champions League", "Europa League"}
+
+# Competitions that use stage-aware file naming (knockout rounds)
+STAGE_AWARE_COMPS: set[str] = {"Champions League", "Europa League", "Euro Cup", "World Cup"}
 
 # Keywords confirming a video belongs to the competition (used for club-channel tiers 1a/1b)
 COMPETITION_KEYWORDS: dict[str, list[str]] = {
@@ -80,6 +90,60 @@ COMPETITION_KEYWORDS: dict[str, list[str]] = {
     "Ligue 1":          ["ligue 1"],
     "Champions League": ["champions league", "ucl"],
     "Europa League":    ["europa league", "uel"],
+    "Euro Cup":         ["euro", "euros", "euro cup", "european championship"],
+    "World Cup":        ["world cup", "fifa world cup", "mundial"],
+}
+
+# Ordered list of all expected file stems per competition
+COMPETITION_FILE_STEMS: dict[str, list[str]] = {
+    "Premier League":   [f"gameweek-{i}" for i in range(1, 39)],
+    "LaLiga":           [f"gameweek-{i}" for i in range(1, 39)],
+    "Serie A":          [f"gameweek-{i}" for i in range(1, 39)],
+    "Bundesliga":       [f"gameweek-{i}" for i in range(1, 35)],
+    "Ligue 1":          [f"gameweek-{i}" for i in range(1, 35)],
+    "Champions League": (
+        [f"matchday-{i}" for i in range(1, 9)]
+        + ["playoff-leg-1", "playoff-leg-2",
+           "round-of-16-leg-1", "round-of-16-leg-2",
+           "quarter-final-leg-1", "quarter-final-leg-2",
+           "semi-final-leg-1", "semi-final-leg-2",
+           "final"]
+    ),
+    "Europa League":    (
+        [f"matchday-{i}" for i in range(1, 9)]
+        + ["playoff-leg-1", "playoff-leg-2",
+           "round-of-16-leg-1", "round-of-16-leg-2",
+           "quarter-final-leg-1", "quarter-final-leg-2",
+           "semi-final-leg-1", "semi-final-leg-2",
+           "final"]
+    ),
+    "Euro Cup":         (
+        [f"matchday-{i}" for i in range(1, 4)]
+        + ["round-of-16", "quarter-final", "semi-final", "final"]
+    ),
+    "World Cup":        (
+        [f"matchday-{i}" for i in range(1, 4)]
+        + ["round-of-16", "quarter-final", "semi-final", "third-place", "final"]
+    ),
+}
+
+# Display label for each file stem
+FILE_STEM_LABEL: dict[str, str] = {
+    **{f"gameweek-{i}": f"GW{i}" for i in range(1, 39)},
+    **{f"matchday-{i}": f"MD{i}" for i in range(1, 9)},
+    "playoff-leg-1":      "PO L1",
+    "playoff-leg-2":      "PO L2",
+    "round-of-16-leg-1":  "R16 L1",
+    "round-of-16-leg-2":  "R16 L2",
+    "round-of-16":        "R16",
+    "quarter-final-leg-1": "QF L1",
+    "quarter-final-leg-2": "QF L2",
+    "quarter-final":      "QF",
+    "semi-final-leg-1":   "SF L1",
+    "semi-final-leg-2":   "SF L2",
+    "semi-final":         "SF",
+    "third-place":        "3rd Place",
+    "final":              "Final",
 }
 
 # ── Title filter ─────────────────────────────────────────────────────────────
@@ -466,24 +530,69 @@ def load_sources() -> dict:
     }
 
 
+# ── Stage → file stem mapping ─────────────────────────────────────────────────
+
+
+def stage_to_file_stem(stage: str, matchday: int | None, comp_name: str) -> str | None:
+    """
+    Convert a football-data.org stage string to a file stem.
+
+    For non-STAGE_AWARE_COMPS (domestic leagues): returns "gameweek-{matchday}".
+    For STAGE_AWARE_COMPS (UCL/UEL/Euro Cup/World Cup): maps the stage string.
+
+    Returns None if the stage is unrecognised (caller should skip the fixture).
+    """
+    if comp_name not in STAGE_AWARE_COMPS:
+        if matchday is None:
+            return None
+        return f"gameweek-{matchday}"
+
+    two_legged = comp_name in TWO_LEGGED_COMPS
+
+    if stage in ("LEAGUE_STAGE", "GROUP_STAGE"):
+        if matchday is None:
+            return None
+        return f"matchday-{matchday}"
+    elif stage == "PLAYOFFS":
+        if matchday is None:
+            return None
+        return f"playoff-leg-{matchday}"
+    elif stage == "LAST_16":
+        if two_legged:
+            if matchday is None:
+                return None
+            return f"round-of-16-leg-{matchday}"
+        return "round-of-16"
+    elif stage == "QUARTER_FINALS":
+        if two_legged:
+            if matchday is None:
+                return None
+            return f"quarter-final-leg-{matchday}"
+        return "quarter-final"
+    elif stage == "SEMI_FINALS":
+        if two_legged:
+            if matchday is None:
+                return None
+            return f"semi-final-leg-{matchday}"
+        return "semi-final"
+    elif stage == "THIRD_PLACE":
+        return "third-place"
+    elif stage == "FINAL":
+        return "final"
+    else:
+        log.debug(f"Unrecognised stage {stage!r} for {comp_name} — skipping")
+        return None
+
+
 # ── Gameweek file helpers ─────────────────────────────────────────────────────
 
 
-def gw_filename(comp_name: str, matchday: int) -> str:
-    prefix = "matchday" if comp_name in UCL_UEL else "gameweek"
-    return f"{prefix}-{matchday}.json"
+def gw_filename(comp_name: str, stem: str) -> str:
+    return f"{stem}.json"
 
 
-def gw_path(comp_name: str, matchday: int) -> Path:
-    return HIGHLIGHTS_DIR / COMPETITION_SLUG_MAP[comp_name] / gw_filename(comp_name, matchday)
-
-
-def _gw_file_num(p: Path) -> int:
-    """Extract trailing integer from a gameweek-N.json / matchday-N.json filename stem."""
-    try:
-        return int(p.stem.split("-")[-1])
-    except (ValueError, IndexError):
-        return 0
+def gw_path(comp_name: str, stem: str) -> Path:
+    return HIGHLIGHTS_DIR / COMPETITION_SLUG_MAP[comp_name] / f"{stem}.json"
 
 
 def is_gameweek_complete(existing: dict | None, fixtures: list[dict]) -> bool:
@@ -726,7 +835,7 @@ def resolve_videos_for_fixture(
 def merge_into_gw(
     existing: dict | None,
     comp_name: str,
-    matchday: int,
+    stem: str,
     enriched_fixtures: list[dict],
 ) -> tuple[dict, bool]:
     """
@@ -739,10 +848,12 @@ def merge_into_gw(
 
     Returns (merged_data, changed: bool).
     """
+    label = FILE_STEM_LABEL.get(stem, stem)
     if existing is None:
         existing = {
             "competition":  comp_name,
-            "gameweek":     matchday,
+            "gameweek":     label,
+            "stem":         stem,
             "generated_at": "",
             "matches":      [],
         }
@@ -816,26 +927,20 @@ def generate_summary() -> None:
         if not comp_dir.exists():
             continue
 
-        prefix = "matchday" if comp_name in UCL_UEL else "gameweek"
-
-        # Parse number once per file, sort numerically
-        numbered = sorted(
-            (
-                (n, f)
-                for f in comp_dir.glob(f"{prefix}-*.json")
-                if (n := _gw_file_num(f)) > 0
-            ),
-            key=lambda x: x[0],
-        )
+        stems = COMPETITION_FILE_STEMS.get(comp_name, [])
 
         gameweeks: list[dict] = []
-        for number, f in numbered:
+        for stem in stems:
+            f = comp_dir / f"{stem}.json"
+            if not f.exists():
+                continue
             data = load_json_file(f)
             if not data:
                 continue
             matches_data = data.get("matches", [])
             gameweeks.append({
-                "gameweek": number,
+                "gameweek": FILE_STEM_LABEL.get(stem, stem),
+                "stem":     stem,
                 "total":    len(matches_data),
                 "covered":  sum(1 for m in matches_data if m.get("videos")),
                 "matches": [

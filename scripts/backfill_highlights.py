@@ -32,7 +32,9 @@ from highlights_common import (
     BACKFILL_LOCK_PATH,
     BACKFILL_PROGRESS_PATH,
     COMPETITION_CODE_MAP,
+    COMPETITION_FILE_STEMS,
     COMPETITION_SLUG_MAP,
+    FILE_STEM_LABEL,
     FD_BASE,
     FD_SLEEP_SECONDS,
     QUOTA_TRACKER_PATH,
@@ -46,6 +48,7 @@ from highlights_common import (
     load_sources,
     merge_into_gw,
     resolve_videos_for_fixture,
+    stage_to_file_stem,
     utc_now_iso,
     write_json_atomic,
 )
@@ -105,7 +108,7 @@ class BackfillProgress:
         self.season                     = season
         self.status                     = data.get("status", "in_progress")
         self.last_completed_competition = data.get("last_completed_competition")
-        self.last_completed_gameweek    = int(data.get("last_completed_gameweek", 0))
+        self.last_completed_file_stem   = data.get("last_completed_file_stem") or None
         self.competitions_done          = list(data.get("competitions_done", []))
         self.started_at                 = data.get("started_at") or utc_now_iso()
         self.last_resumed_at            = utc_now_iso()
@@ -116,26 +119,26 @@ class BackfillProgress:
             "status":                     self.status,
             "season":                     self.season,
             "last_completed_competition": self.last_completed_competition,
-            "last_completed_gameweek":    self.last_completed_gameweek,
+            "last_completed_file_stem":   self.last_completed_file_stem,
             "competitions_done":          self.competitions_done,
             "started_at":                 self.started_at,
             "last_resumed_at":            self.last_resumed_at,
         })
         log.debug(
             f"Checkpoint saved: competitions_done={self.competitions_done}, "
-            f"last_gw={self.last_completed_gameweek}"
+            f"last_stem={self.last_completed_file_stem}"
         )
 
-    def mark_gameweek_done(self, comp_name: str, matchday: int) -> None:
+    def mark_file_stem_done(self, comp_name: str, stem: str) -> None:
         self.last_completed_competition = comp_name
-        self.last_completed_gameweek    = matchday
+        self.last_completed_file_stem   = stem
         self._save()
 
     def mark_competition_done(self, comp_name: str) -> None:
         if comp_name not in self.competitions_done:
             self.competitions_done.append(comp_name)
         self.last_completed_competition = comp_name
-        self.last_completed_gameweek    = 0   # reset per-competition cursor
+        self.last_completed_file_stem   = None   # reset per-competition cursor
         self._save()
 
     def mark_complete(self) -> None:
@@ -151,11 +154,11 @@ def fetch_season_fixtures(
     comp_name: str,
     season: int,
     fd_key: str,
-) -> dict[int, list[dict]]:
+) -> dict[str, list[dict]]:
     """
     Fetch all FINISHED fixtures for a competition and season from football-data.org.
 
-    Returns: {matchday: [fixture_dict, ...]}
+    Returns: {file_stem: [fixture_dict, ...]}
     """
     resp = fd_get(
         f"{FD_BASE}/competitions/{code}/matches",
@@ -172,16 +175,21 @@ def fetch_season_fixtures(
         )
         return {}
 
-    by_matchday: dict[int, list[dict]] = {}
+    by_stem: dict[str, list[dict]] = {}
     for m in resp.json().get("matches", []):
         matchday = m.get("matchday")
+        stage    = m.get("stage", "")
         utc_str  = m.get("utcDate", "")
-        if matchday is None or not utc_str:
+        if not utc_str:
+            continue
+
+        stem = stage_to_file_stem(stage, matchday, comp_name)
+        if stem is None:
             continue
 
         home = m.get("homeTeam", {})
         away = m.get("awayTeam", {})
-        by_matchday.setdefault(matchday, []).append({
+        by_stem.setdefault(stem, []).append({
             "match_id":   m["id"],
             "home_team":  home.get("name", ""),
             "home_short": home.get("shortName") or home.get("name", ""),
@@ -189,14 +197,15 @@ def fetch_season_fixtures(
             "away_short": away.get("shortName") or away.get("name", ""),
             "date":       utc_str[:10],
             "matchday":   matchday,
+            "stage":      stage,
         })
 
-    total = sum(len(v) for v in by_matchday.values())
+    total = sum(len(v) for v in by_stem.values())
     log.info(
         f"{comp_name} {season}: {total} finished fixture(s) "
-        f"across {len(by_matchday)} matchday(s)"
+        f"across {len(by_stem)} file stem(s)"
     )
-    return by_matchday
+    return by_stem
 
 
 # ── Main ──────────────────────────────────────────────────────────────────────
@@ -220,7 +229,7 @@ def main() -> None:
     log.info(
         f"Backfill season {season} | "
         f"competitions done: {progress.competitions_done or '(none)'} | "
-        f"resuming after GW{progress.last_completed_gameweek} in "
+        f"resuming after {progress.last_completed_file_stem or '(start)'} in "
         f"{progress.last_completed_competition or 'start'}"
     )
 
@@ -269,8 +278,8 @@ def main() -> None:
             current_slug      = slug
             time.sleep(FD_SLEEP_SECONDS)
 
-            by_matchday = fetch_season_fixtures(code, comp_name, season, fd_key)
-            if not by_matchday:
+            by_stem = fetch_season_fixtures(code, comp_name, season, fd_key)
+            if not by_stem:
                 progress.mark_competition_done(comp_name)
                 run_git_commit(
                     [BACKFILL_PROGRESS_PATH, QUOTA_TRACKER_PATH],
@@ -278,23 +287,35 @@ def main() -> None:
                 )
                 continue
 
-            # Determine which gameweek to resume from within this competition
-            start_after = (
-                progress.last_completed_gameweek
+            # Determine which stem to resume from within this competition
+            all_stems = COMPETITION_FILE_STEMS.get(comp_name, [])
+            resume_after_stem = (
+                progress.last_completed_file_stem
                 if progress.last_completed_competition == comp_name
-                else 0
+                else None
             )
+            # Build a set of stems that precede or equal the resume point
+            skippable: set[str] = set()
+            if resume_after_stem and resume_after_stem in all_stems:
+                skip_idx = all_stems.index(resume_after_stem)
+                skippable = set(all_stems[:skip_idx + 1])
 
-            for matchday in sorted(by_matchday.keys()):
+            # Iterate stems in canonical order (COMPETITION_FILE_STEMS defines order)
+            # then process any stems not in the ordered list last
+            ordered_stems = [s for s in all_stems if s in by_stem]
+            extra_stems   = [s for s in by_stem if s not in all_stems]
+
+            for stem in ordered_stems + extra_stems:
                 if quota_cap_hit:
                     break
 
-                if matchday <= start_after:
-                    log.info(f"  GW{matchday}: already checkpointed — skipping")
+                if stem in skippable:
+                    label = FILE_STEM_LABEL.get(stem, stem)
+                    log.info(f"  {label}: already checkpointed — skipping")
                     continue
 
-                fixtures = by_matchday[matchday]
-                path     = gw_path(comp_name, matchday)
+                fixtures = by_stem[stem]
+                path     = gw_path(comp_name, stem)
                 existing = load_json_file(path)
 
                 # Build per-match lookup so already-covered fixtures are skipped
@@ -304,7 +325,8 @@ def main() -> None:
                         m["match_id"]: m for m in existing.get("matches", [])
                     }
 
-                log.info(f"  {comp_name} GW{matchday} ({len(fixtures)} fixture(s))…")
+                label = FILE_STEM_LABEL.get(stem, stem)
+                log.info(f"  {comp_name} {label} ({len(fixtures)} fixture(s))…")
                 enriched: list[dict] = []
 
                 for fix in fixtures:
@@ -328,7 +350,7 @@ def main() -> None:
 
                     if not videos:
                         log.warning(
-                            f"No highlights — {comp_name} GW{matchday}: "
+                            f"No highlights — {comp_name} {label}: "
                             f"{fix['home_team']} vs {fix['away_team']} ({fix['date']})"
                         )
                     else:
@@ -338,11 +360,11 @@ def main() -> None:
                             f"{len(videos)} video(s) via tier(s) {tiers}"
                         )
 
-                # Write whatever we have for this gameweek
-                # (full set when normal; partial set when quota was hit mid-gameweek)
+                # Write whatever we have for this stem
+                # (full set when normal; partial set when quota was hit mid-stem)
                 if enriched:
                     gw_data, changed = merge_into_gw(
-                        existing, comp_name, matchday, enriched
+                        existing, comp_name, stem, enriched
                     )
                     if changed:
                         write_json_atomic(path, gw_data)
@@ -350,9 +372,9 @@ def main() -> None:
                         written_this_comp.append(path)
                         log.info(f"    → Wrote {path.name}")
 
-                # Only advance the checkpoint when the full gameweek was processed
+                # Only advance the checkpoint when the full stem was processed
                 if not quota_cap_hit:
-                    progress.mark_gameweek_done(comp_name, matchday)
+                    progress.mark_file_stem_done(comp_name, stem)
 
             # ── Competition complete ───────────────────────────────────────────
             if not quota_cap_hit:
@@ -375,7 +397,7 @@ def main() -> None:
             log.info(
                 f"Backfill paused at daily cap. {total_written} file(s) written. "
                 f"Checkpoint: {progress.last_completed_competition} "
-                f"GW{progress.last_completed_gameweek}. "
+                f"{progress.last_completed_file_stem}. "
                 "Re-trigger this workflow tomorrow to continue."
             )
         else:

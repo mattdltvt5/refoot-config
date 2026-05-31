@@ -37,8 +37,8 @@ from pathlib import Path
 
 from highlights_common import (
     HIGHLIGHTS_DIR,
+    COMPETITION_FILE_STEMS,
     COMPETITION_SLUG_MAP,
-    UCL_UEL,
     load_json_file,
     write_json_atomic,
     generate_summary,
@@ -215,8 +215,9 @@ def main() -> None:
         if not comp_dir.exists():
             continue
 
-        prefix = "matchday" if comp_name in UCL_UEL else "gameweek"
-        files  = sorted(comp_dir.glob(f"{prefix}-*.json"))
+        stems = COMPETITION_FILE_STEMS.get(comp_name, [])
+        files = [comp_dir / f"{stem}.json" for stem in stems
+                 if (comp_dir / f"{stem}.json").exists()]
         if not files:
             continue
 

@@ -47,6 +47,7 @@ from highlights_common import (
     load_sources,
     merge_into_gw,
     resolve_videos_for_fixture,
+    stage_to_file_stem,
     write_json_atomic,
 )
 
@@ -56,15 +57,15 @@ log = logging.getLogger(__name__)
 # ── Fixture fetching ──────────────────────────────────────────────────────────
 
 
-def fetch_all_fixtures(fd_key: str, season: int) -> dict[str, dict[int, list[dict]]]:
+def fetch_all_fixtures(fd_key: str, season: int) -> dict[str, dict[str, list[dict]]]:
     """
     Fetch all FINISHED fixtures for the given season across every configured
     competition. Sleeps FD_SLEEP_SECONDS between requests to respect
     football-data.org's 10 req/min free-tier limit.
 
-    Returns: {competition_name: {matchday: [fixture_dict, ...]}}
+    Returns: {competition_name: {file_stem: [fixture_dict, ...]}}
     """
-    result: dict[str, dict[int, list[dict]]] = {}
+    result: dict[str, dict[str, list[dict]]] = {}
 
     for i, (code, comp_name) in enumerate(COMPETITION_CODE_MAP.items()):
         if i > 0:
@@ -91,16 +92,21 @@ def fetch_all_fixtures(fd_key: str, season: int) -> dict[str, dict[int, list[dic
             )
             continue
 
-        by_matchday: dict[int, list[dict]] = {}
+        by_stem: dict[str, list[dict]] = {}
         for m in resp.json().get("matches", []):
             matchday = m.get("matchday")
+            stage    = m.get("stage", "")
             utc_str  = m.get("utcDate", "")
-            if matchday is None or not utc_str:
+            if not utc_str:
+                continue
+
+            stem = stage_to_file_stem(stage, matchday, comp_name)
+            if stem is None:
                 continue
 
             home = m.get("homeTeam", {})
             away = m.get("awayTeam", {})
-            by_matchday.setdefault(matchday, []).append({
+            by_stem.setdefault(stem, []).append({
                 "match_id":   m["id"],
                 "home_team":  home.get("name", ""),
                 "home_short": home.get("shortName") or home.get("name", ""),
@@ -108,14 +114,15 @@ def fetch_all_fixtures(fd_key: str, season: int) -> dict[str, dict[int, list[dic
                 "away_short": away.get("shortName") or away.get("name", ""),
                 "date":       utc_str[:10],
                 "matchday":   matchday,
+                "stage":      stage,
             })
 
-        if by_matchday:
-            result[comp_name] = by_matchday
-            total = sum(len(v) for v in by_matchday.values())
+        if by_stem:
+            result[comp_name] = by_stem
+            total = sum(len(v) for v in by_stem.values())
             log.info(
                 f"{comp_name}: {total} finished fixture(s) "
-                f"across {len(by_matchday)} matchday(s)"
+                f"across {len(by_stem)} file stem(s)"
             )
 
     return result
@@ -187,13 +194,13 @@ def main() -> None:
 
     total_written = 0
     try:
-        for comp_name, by_matchday in sorted(all_fixtures.items()):
-            for matchday, fixtures in sorted(by_matchday.items()):
-                path     = gw_path(comp_name, matchday)
+        for comp_name, by_stem in sorted(all_fixtures.items()):
+            for stem, fixtures in sorted(by_stem.items()):
+                path     = gw_path(comp_name, stem)
                 existing = load_json_file(path)
 
                 if is_gameweek_complete(existing, fixtures):
-                    log.info(f"GW{matchday} {comp_name}: complete — skipping")
+                    log.info(f"{stem} {comp_name}: complete — skipping")
                     continue
 
                 # Build per-match lookup so already-covered fixtures cost 0 quota
@@ -204,7 +211,7 @@ def main() -> None:
                     }
 
                 log.info(
-                    f"Processing {comp_name} GW{matchday} ({len(fixtures)} fixture(s))…"
+                    f"Processing {comp_name} {stem} ({len(fixtures)} fixture(s))…"
                 )
                 enriched: list[dict] = []
 
@@ -222,7 +229,7 @@ def main() -> None:
 
                     if not videos:
                         log.warning(
-                            f"No highlights — {comp_name} GW{matchday}: "
+                            f"No highlights — {comp_name} {stem}: "
                             f"{fix['home_team']} vs {fix['away_team']} ({fix['date']})"
                         )
                     else:
@@ -232,7 +239,7 @@ def main() -> None:
                             f"{len(videos)} video(s) via tier(s) {tiers}"
                         )
 
-                gw_data, changed = merge_into_gw(existing, comp_name, matchday, enriched)
+                gw_data, changed = merge_into_gw(existing, comp_name, stem, enriched)
                 if changed:
                     write_json_atomic(path, gw_data)
                     total_written += 1
