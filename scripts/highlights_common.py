@@ -232,7 +232,9 @@ TITLE_ALLOWLIST: list[str] = [
     "highlight", "highlights",
     "extended highlights",
     "match highlights",
-    "full match",
+    # "full match" intentionally excluded: bare "FULL MATCH | ..." titles are
+    # full 90-min replays (e.g. FC Barcelona's channel), not highlight packages.
+    # "Full Match Highlights" still passes because "highlights" is in the list.
     "goals",
 
     # ── French ──
