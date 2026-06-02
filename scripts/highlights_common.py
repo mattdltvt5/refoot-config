@@ -351,11 +351,31 @@ class QuotaCapReached(Exception):
 
 # ── Season / time helpers ─────────────────────────────────────────────────────
 
+# Competitions that run in the calendar year (June-July) rather than the
+# August-July domestic football season.  For these, the season year equals
+# the calendar year of the tournament (e.g. WC 2026 → season=2026), even
+# when current_season() would otherwise return year-1 (e.g. in May/June).
+SUMMER_TOURNAMENT_COMPS: set[str] = {"World Cup", "Euro Cup"}
+
 
 def current_season() -> int:
-    """Return the current football season start year (e.g. 2025 for 2025-26)."""
+    """Return the current domestic football season start year (e.g. 2025 for 2025-26)."""
     now = datetime.now(timezone.utc)
     return now.year if now.month >= 7 else now.year - 1
+
+
+def season_for_competition(comp_name: str) -> int:
+    """
+    Return the football-data.org season year to query for a given competition.
+
+    Domestic leagues and UCL/UEL use the August–July convention handled by
+    ``current_season()``.  Summer tournaments (World Cup, Euro Cup) run
+    June–July and are indexed by their calendar year, so they always use
+    ``datetime.now().year`` regardless of the August cutoff.
+    """
+    if comp_name in SUMMER_TOURNAMENT_COMPS:
+        return datetime.now(timezone.utc).year
+    return current_season()
 
 
 def utc_now_iso() -> str:

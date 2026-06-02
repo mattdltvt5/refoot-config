@@ -37,8 +37,8 @@ from highlights_common import (
     FD_SLEEP_SECONDS,
     INCREMENTAL_CAP,
     QuotaCapReached,
+    season_for_competition,
     QuotaTracker,
-    current_season,
     fd_get,
     generate_summary,
     gw_path,
@@ -57,11 +57,15 @@ log = logging.getLogger(__name__)
 # ── Fixture fetching ──────────────────────────────────────────────────────────
 
 
-def fetch_all_fixtures(fd_key: str, season: int) -> dict[str, dict[str, list[dict]]]:
+def fetch_all_fixtures(fd_key: str) -> dict[str, dict[str, list[dict]]]:
     """
-    Fetch all FINISHED fixtures for the given season across every configured
-    competition. Sleeps FD_SLEEP_SECONDS between requests to respect
-    football-data.org's 10 req/min free-tier limit.
+    Fetch all FINISHED fixtures across every configured competition.
+    Each competition uses its own season year via ``season_for_competition()``:
+    domestic leagues / UCL / UEL follow the August–July convention, while
+    summer tournaments (World Cup, Euro Cup) use the current calendar year.
+
+    Sleeps FD_SLEEP_SECONDS between requests to respect football-data.org's
+    10 req/min free-tier limit.
 
     Returns: {competition_name: {file_stem: [fixture_dict, ...]}}
     """
@@ -70,6 +74,8 @@ def fetch_all_fixtures(fd_key: str, season: int) -> dict[str, dict[str, list[dic
     for i, (code, comp_name) in enumerate(COMPETITION_CODE_MAP.items()):
         if i > 0:
             time.sleep(FD_SLEEP_SECONDS)
+
+        season = season_for_competition(comp_name)
 
         try:
             resp = fd_get(
@@ -183,12 +189,11 @@ def main() -> None:
         generate_summary()
         return
 
-    season       = current_season()
     config       = load_sources()
-    all_fixtures = fetch_all_fixtures(fd_key, season)
+    all_fixtures = fetch_all_fixtures(fd_key)
 
     if not all_fixtures:
-        log.info(f"No finished fixtures found for season {season}.")
+        log.info("No finished fixtures found.")
         generate_summary()
         return
 

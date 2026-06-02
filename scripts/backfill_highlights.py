@@ -41,6 +41,7 @@ from highlights_common import (
     QuotaCapReached,
     QuotaTracker,
     current_season,
+    season_for_competition,
     fd_get,
     generate_summary,
     gw_path,
@@ -273,12 +274,13 @@ def main() -> None:
                 log.info(f"INFO: {comp_name} already complete — skipping")
                 continue
 
-            log.info(f"── {comp_name} (season {season}) ──")
+            comp_season = season_for_competition(comp_name)
+            log.info(f"── {comp_name} (season {comp_season}) ──")
             written_this_comp = []
             current_slug      = slug
             time.sleep(FD_SLEEP_SECONDS)
 
-            by_stem = fetch_season_fixtures(code, comp_name, season, fd_key)
+            by_stem = fetch_season_fixtures(code, comp_name, comp_season, fd_key)
             if not by_stem:
                 progress.mark_competition_done(comp_name)
                 run_git_commit(
