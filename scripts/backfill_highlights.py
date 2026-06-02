@@ -47,6 +47,7 @@ from highlights_common import (
     gw_path,
     load_json_file,
     load_sources,
+    is_same_tournament_edition,
     merge_into_gw,
     resolve_videos_for_fixture,
     stage_to_file_stem,
@@ -319,6 +320,10 @@ def main() -> None:
                 fixtures = by_stem[stem]
                 path     = gw_path(comp_name, stem)
                 existing = load_json_file(path)
+
+                # Detect new tournament edition for non-annual competitions
+                if not is_same_tournament_edition(existing, fixtures, comp_name):
+                    existing = None
 
                 # Build per-match lookup so already-covered fixtures are skipped
                 existing_by_id: dict[int, dict] = {}

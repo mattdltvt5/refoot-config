@@ -652,6 +652,45 @@ def gw_path(comp_name: str, stem: str) -> Path:
     return HIGHLIGHTS_DIR / COMPETITION_SLUG_MAP[comp_name] / f"{stem}.json"
 
 
+def is_same_tournament_edition(
+    existing: dict | None,
+    fixtures: list[dict],
+    comp_name: str,
+) -> bool:
+    """
+    Return True when the existing file belongs to the same tournament edition
+    as the incoming fixtures.
+
+    Only meaningful for non-annual summer tournaments (World Cup, Euro Cup).
+    For these competitions the same file path (e.g. ``matchday-1.json``) is
+    reused across editions, so we must detect when new-edition fixtures would
+    otherwise be merged into old-edition data.
+
+    Detection strategy: compare the calendar year of the first fixture date in
+    the existing file against the calendar year of the first incoming fixture.
+    A mismatch means a new tournament edition has started and the old file
+    should be treated as empty (``merge_into_gw`` will overwrite it).
+
+    For domestic leagues and UCL/UEL this always returns True (no-op).
+    """
+    if comp_name not in SUMMER_TOURNAMENT_COMPS:
+        return True
+    if existing is None or not fixtures:
+        return True
+    existing_matches = existing.get("matches", [])
+    if not existing_matches:
+        return True
+    existing_year = existing_matches[0].get("date", "")[:4]
+    new_year      = fixtures[0].get("date", "")[:4]
+    if existing_year != new_year:
+        log.info(
+            f"{comp_name}: existing file is from {existing_year}, "
+            f"incoming fixtures are from {new_year} — treating as new edition"
+        )
+        return False
+    return True
+
+
 def is_gameweek_complete(existing: dict | None, fixtures: list[dict]) -> bool:
     """Return True if every fixture already has at least one video in the existing file."""
     if existing is None:

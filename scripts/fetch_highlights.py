@@ -43,6 +43,7 @@ from highlights_common import (
     generate_summary,
     gw_path,
     is_gameweek_complete,
+    is_same_tournament_edition,
     load_json_file,
     load_sources,
     merge_into_gw,
@@ -203,6 +204,12 @@ def main() -> None:
             for stem, fixtures in sorted(by_stem.items()):
                 path     = gw_path(comp_name, stem)
                 existing = load_json_file(path)
+
+                # Detect new tournament edition for non-annual competitions
+                # (World Cup, Euro Cup). If the on-disk file belongs to a
+                # different year, discard it so the new edition starts clean.
+                if not is_same_tournament_edition(existing, fixtures, comp_name):
+                    existing = None
 
                 if is_gameweek_complete(existing, fixtures):
                     log.info(f"{stem} {comp_name}: complete — skipping")
