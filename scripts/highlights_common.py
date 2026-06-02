@@ -164,6 +164,11 @@ TITLE_BLOCKLIST: list[str] = [
     "watch along", "live stream", "matchday live",
     "top 10", "best goals", "best of the season", "season review",
     "all goals of the week",
+    "#shorts",               # YouTube Shorts — social clips, not highlight packages
+
+    # ── Spanish (single-goal clips & historical content) ──
+    "el gol de",             # "El gol de [player]" — single goal clip, not highlights
+    "de la temporada",       # "de la temporada 2012/13" — historical season clip
 
     # ── Spanish ──
     "rueda de prensa",       # press conference
@@ -288,21 +293,33 @@ def is_highlight_title(title: str) -> bool:
     Return True only when the video title passes both filters:
 
     1. Blocklist (checked first — always wins): if any blocklist term is found
-       the video is rejected immediately, regardless of allowlist matches.
-    2. Allowlist: at least one allowlist term must be present for acceptance.
+       in the raw lowercase title the video is rejected immediately, regardless
+       of allowlist matches.
+    2. Allowlist: at least one allowlist term must appear in the title **with
+       hashtags stripped out**.  Stripping prevents hashtag-only passes such as
+       ``#LaLigaHighlights`` matching the allowlist term ``"highlights"`` — a
+       common pattern on social/Shorts clips that are not highlight packages.
 
-    Both checks are case-insensitive substring matches and cover 11 languages:
-    English, Spanish, French, German, Italian, Portuguese, Arabic, Dutch,
-    Turkish, Japanese, Korean.
+    Both checks are case-insensitive and cover 11 languages: English, Spanish,
+    French, German, Italian, Portuguese, Arabic, Dutch, Turkish, Japanese, Korean.
     """
     lower = title.lower()
+
+    # Step 1 — blocklist on the raw title (hashtags included so "#shorts" fires)
     for term in TITLE_BLOCKLIST:
         if term in lower:
             log.debug(f"Title blocked ({term!r}): {title!r}")
             return False
+
+    # Step 2 — allowlist on the hashtag-stripped title.
+    # Removes every #word token so that "#LaLigaHighlights" does NOT satisfy
+    # the "highlights" allowlist entry.  A genuine highlights title always has
+    # the keyword in the non-hashtag body (e.g. "HIGHLIGHTS | LALIGA EA SPORTS").
+    lower_no_tags = re.sub(r"#\S+", "", lower).strip()
     for term in TITLE_ALLOWLIST:
-        if term in lower:
+        if term in lower_no_tags:
             return True
+
     log.debug(f"Title failed allowlist: {title!r}")
     return False
 
