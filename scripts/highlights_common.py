@@ -38,7 +38,9 @@ YT_PLAYLIST = "https://www.googleapis.com/youtube/v3/playlistItems"
 
 # ── Tuning constants ──────────────────────────────────────────────────────────
 
-VIDEO_WINDOW_DAYS = 5    # accept videos published up to N days after fixture date
+VIDEO_WINDOW_DAYS = 3    # accept videos published up to N days after fixture date
+                         # (was 5 — reduced to avoid catching the next fixture's
+                         # highlights when two matches are played within 5 days)
 MAX_YT_PAGES      = 10  # cap per playlist (50 items/page → max 500 items, 10 units)
 FD_SLEEP_SECONDS  = 6   # pause between football-data.org requests (10 req/min free tier)
 INCREMENTAL_CAP   = 8_000  # max YouTube units/day for incremental runs
@@ -805,12 +807,17 @@ def resolve_videos_for_fixture(
         return [{**v, "tier_used": tier} for v in vids]
 
     # Tier 1c — home team competition-scoped playlist
-    result = _try(team_pl.get(comp_name, {}).get(home, ""), tier=1)
+    # comp_filter=True: even though this playlist is labelled for one competition,
+    # clubs sometimes use the same playlist across competitions (e.g. a Betis
+    # LaLiga playlist that also contains Europa League clips).  Requiring a
+    # competition keyword in the title prevents cross-competition false positives
+    # (e.g. "PFC Ludogorets - Real Betis | HIGHLIGHTS" stored for a LaLiga fixture).
+    result = _try(team_pl.get(comp_name, {}).get(home, ""), tier=1, comp_filter=True)
     if result:
         return result
 
-    # Tier 1d — away team competition-scoped playlist
-    result = _try(team_pl.get(comp_name, {}).get(away, ""), tier=1)
+    # Tier 1d — away team competition-scoped playlist (same reasoning as 1c)
+    result = _try(team_pl.get(comp_name, {}).get(away, ""), tier=1, comp_filter=True)
     if result:
         return result
 
@@ -894,13 +901,24 @@ def merge_into_gw(
             }
             changed = True
         else:
-            existing_match   = by_id[mid]
-            existing_vid_ids = {v["video_id"] for v in existing_match.get("videos", [])}
+            existing_match    = by_id[mid]
+            existing_vid_ids  = {v["video_id"] for v in existing_match.get("videos", [])}
+            # Also deduplicate by normalised title: channels sometimes publish the
+            # same highlight twice with different video IDs but identical titles
+            # (e.g. LaLiga GW35 Levante vs Osasuna RESUMEN uploaded twice).
+            existing_titles   = {v["title"].strip().lower() for v in existing_match.get("videos", [])}
             for vid in new_videos:
-                if vid["video_id"] not in existing_vid_ids:
-                    existing_match.setdefault("videos", []).append(vid)
-                    existing_vid_ids.add(vid["video_id"])
-                    changed = True
+                if vid["video_id"] in existing_vid_ids:
+                    continue
+                if vid["title"].strip().lower() in existing_titles:
+                    log.debug(
+                        f"Skipping duplicate title for match {mid}: {vid['title']!r}"
+                    )
+                    continue
+                existing_match.setdefault("videos", []).append(vid)
+                existing_vid_ids.add(vid["video_id"])
+                existing_titles.add(vid["title"].strip().lower())
+                changed = True
 
     existing["matches"] = list(by_id.values())
     if changed:
