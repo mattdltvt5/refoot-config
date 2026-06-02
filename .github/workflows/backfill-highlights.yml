@@ -2,6 +2,23 @@ name: Backfill highlights cache
 
 on:
   workflow_dispatch:   # manual only — never scheduled
+    inputs:
+      season:
+        description: >
+          Season year override — use when you need to backfill a specific
+          tournament edition that differs from the automatically computed
+          season (e.g. "2024" for Euro 2024, "2022" for World Cup 2022).
+          Leave blank to use the automatic season logic.
+        required: false
+        type: string
+      competition:
+        description: >
+          Restrict the backfill to one competition (exact name, e.g.
+          "Euro Cup" or "World Cup"). Useful for targeted historical
+          backfills without re-processing every competition.
+          Leave blank to process all competitions.
+        required: false
+        type: string
 
 jobs:
   backfill:
@@ -13,6 +30,9 @@ jobs:
     env:
       FOOTBALL_DATA_API_KEY: ${{ secrets.FOOTBALL_DATA_API_KEY }}
       YOUTUBE_API_KEY:       ${{ secrets.YOUTUBE_API_KEY }}
+      # Optional overrides forwarded from workflow_dispatch inputs
+      SEASON_OVERRIDE:      ${{ inputs.season }}
+      COMPETITION_FILTER:   ${{ inputs.competition }}
       # Opt in to Node 24 for any JS-based actions in this workflow
       FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
 

@@ -224,6 +224,25 @@ def main() -> None:
         log.error("YOUTUBE_API_KEY is not set — backfill requires YouTube access")
         sys.exit(1)
 
+    # ── Optional overrides from workflow_dispatch inputs ──────────────────────
+    # SEASON_OVERRIDE: force a specific season year for all (or the filtered)
+    #   competition, e.g. "2024" to backfill Euro 2024 or WC 2022.
+    # COMPETITION_FILTER: restrict the run to one competition by exact name,
+    #   e.g. "Euro Cup" or "World Cup".  Useful for targeted historical runs.
+    season_override_str  = os.environ.get("SEASON_OVERRIDE", "").strip()
+    competition_filter   = os.environ.get("COMPETITION_FILTER", "").strip() or None
+
+    season_override: int | None = None
+    if season_override_str:
+        try:
+            season_override = int(season_override_str)
+            log.info(f"Season override active: will query season={season_override} for all competitions")
+        except ValueError:
+            log.error(f"SEASON_OVERRIDE={season_override_str!r} is not a valid integer — ignoring")
+
+    if competition_filter:
+        log.info(f"Competition filter active: only processing {competition_filter!r}")
+
     season   = current_season()
     progress = BackfillProgress(season)
 
@@ -235,7 +254,9 @@ def main() -> None:
         f"{progress.last_completed_competition or 'start'}"
     )
 
-    if progress.status == "complete":
+    # When a season or competition override is active we skip the "already
+    # complete" check so targeted historical runs always execute.
+    if progress.status == "complete" and not season_override and not competition_filter:
         log.info(f"Season {season} backfill is already complete — nothing to do")
         generate_summary()
         return
@@ -268,14 +289,19 @@ def main() -> None:
             if quota_cap_hit:
                 break
 
+            # ── Competition filter ────────────────────────────────────────────
+            if competition_filter and comp_name != competition_filter:
+                continue
+
             slug = COMPETITION_SLUG_MAP[comp_name]
 
-            # ── Step 3: resume check — must happen before any API calls ───────
-            if comp_name in progress.competitions_done:
+            # ── Resume check — skip if already done (unless override active) ─
+            if comp_name in progress.competitions_done and not season_override and not competition_filter:
                 log.info(f"INFO: {comp_name} already complete — skipping")
                 continue
 
-            comp_season = season_for_competition(comp_name)
+            # Season: explicit override wins; otherwise per-competition logic
+            comp_season = season_override if season_override else season_for_competition(comp_name)
             log.info(f"── {comp_name} (season {comp_season}) ──")
             written_this_comp = []
             current_slug      = slug
