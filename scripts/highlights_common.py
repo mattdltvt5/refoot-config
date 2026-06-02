@@ -168,9 +168,25 @@ TITLE_BLOCKLIST: list[str] = [
     "all goals of the week",
     "#shorts",               # YouTube Shorts — social clips, not highlight packages
 
-    # ── Spanish (single-goal clips & historical content) ──
-    "el gol de",             # "El gol de [player]" — single goal clip, not highlights
-    "de la temporada",       # "de la temporada 2012/13" — historical season clip
+    # ── Single-goal clips (all languages) ──────────────────────────────────────
+    # Format: "The goal by [player name]" — a moment clip, not a highlights package.
+    "el gol de",             # Spanish
+    "le but de",             # French
+    "il gol di",             # Italian
+    "o gol de",              # Portuguese (Brazilian)
+    "o golo de",             # Portuguese (European)
+    "das tor von",           # German
+    "tor von",               # German (short form)
+    "the goal by",           # English
+
+    # ── Historical season clips (all languages) ─────────────────────────────
+    # Format: "de la temporada 2012/13" — throwback clip from a past season,
+    # published by club channels with current competition hashtags.
+    "de la temporada",       # Spanish:    "de la temporada 2012/13"
+    "de la saison",          # French:     "de la saison 2012/13"
+    "della stagione",        # Italian:    "della stagione 2012/13"
+    "da temporada",          # Portuguese: "da temporada 2012/13"
+    "der saison",            # German:     "der saison 2012/13"
 
     # ── Spanish ──
     "rueda de prensa",       # press conference
