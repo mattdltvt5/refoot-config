@@ -179,6 +179,25 @@ TITLE_BLOCKLIST: list[str] = [
     "tor von",               # German (short form)
     "the goal by",           # English
 
+    # ── Single-goal "golazo" clips ──────────────────────────────────────────────
+    # "Golazo by [player]" / "Golazo de [player]" = one spectacular goal clip.
+    # Note: "CBS Sports Golazo" is a channel name and does NOT follow this pattern.
+    "golazo by ",            # English:  "Golazo by Noslin"
+    "golazo de ",            # Spanish:  "Golazo de Kebbal"
+
+    # ── Milestone / anniversary clips ───────────────────────────────────────────
+    # "[N] goals for [player]" or "first goal for [club]" = career milestone, not a match recap.
+    "100 goals for",         # English milestone e.g. "100 Goals for Bruno"
+    "every angle",           # English: "Goals from EVERY Angle" = single-goal multi-cam replay
+    "primer gol",            # Spanish: "Primer gol de Raúl García" = first goal milestone
+    "primers gol",           # Catalan: same pattern
+    "primo gol di",          # Italian: "Primo gol di Vardy" = first goal milestone
+    "primeiro gol",          # Portuguese: same pattern
+
+    # ── Club vlog / behind-the-scenes series ────────────────────────────────────
+    "un dia de partit",      # Catalan: FC Barcelona's matchday vlog series ("A Match Day")
+    "un día de partido",     # Spanish equivalent
+
     # ── Historical season clips (all languages) ─────────────────────────────
     # Format: "de la temporada 2012/13" — throwback clip from a past season,
     # published by club channels with current competition hashtags.
@@ -213,6 +232,7 @@ TITLE_BLOCKLIST: list[str] = [
 
     # ── Italian ──
     "conferenza stampa",     # press conference
+    "ci sta mancando",       # post-match manager quote ("we're missing the goal") — interview snippet
     "intervista",            # interview
     "anteprima",             # preview
     "analisi",               # analysis
