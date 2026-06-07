@@ -37,9 +37,11 @@ from highlights_common import (
     FILE_STEM_LABEL,
     FD_BASE,
     FD_SLEEP_SECONDS,
+    HIGHLIGHTS_DIR,
     QUOTA_TRACKER_PATH,
     QuotaCapReached,
     QuotaTracker,
+    STAGE_AWARE_COMPS,
     current_season,
     season_for_competition,
     fd_get,
@@ -210,6 +212,141 @@ def fetch_season_fixtures(
     return by_stem
 
 
+# ── Tier-4 re-check helpers ───────────────────────────────────────────────────
+
+
+def _stem_to_stage(stem: str, comp_name: str) -> tuple[int | None, str]:
+    """
+    Infer (matchday, stage) from a file stem for use in fixture reconstruction.
+
+    Domestic leagues are never STAGE_AWARE_COMPS, so their stage value is
+    irrelevant to resolution logic — we use "REGULAR_SEASON" as a safe default.
+
+    For stage-aware competitions (UCL/UEL/Euro Cup/World Cup) we distinguish
+    league-stage files (stem ends in a digit, implying a matchday) from
+    knockout files (stage unknown → empty string, which gracefully skips GW
+    playlist discovery without breaking anything else).
+    """
+    import re as _re
+    m = _re.search(r"(\d+)$", stem)
+    matchday = int(m.group(1)) if m else None
+
+    if comp_name not in STAGE_AWARE_COMPS:
+        stage = "REGULAR_SEASON"
+    elif matchday is not None:
+        stage = "LEAGUE_STAGE"
+    else:
+        stage = ""   # knockout round — GW playlist discovery will be skipped gracefully
+
+    return matchday, stage
+
+
+def tier4_recheck_mode(comp_name: str, yt_key: str, config: dict) -> None:
+    """
+    Re-check every stored match for *comp_name* where all videos were sourced
+    from tier 4 (broadcaster playlists).
+
+    Resolution is re-run from scratch using the full tier hierarchy, so a
+    higher-priority broadcaster (or even a higher tier entirely) can now win.
+    Files are only updated when the resulting video-ID set actually changes.
+    A single git commit is made at the end covering all changed files.
+    """
+    slug = COMPETITION_SLUG_MAP.get(comp_name)
+    if not slug:
+        log.error(f"Unknown competition for tier-4 re-check: {comp_name!r}")
+        sys.exit(1)
+
+    comp_dir = HIGHLIGHTS_DIR / slug
+    if not comp_dir.exists():
+        log.info(f"No highlights directory for {comp_name} — nothing to re-check")
+        return
+
+    quota            = QuotaTracker()
+    gw_playlist_cache: dict = {}
+    changed_files: list[Path] = []
+
+    json_files = sorted(comp_dir.glob("*.json"))
+    log.info(f"Tier-4 re-check for {comp_name}: scanning {len(json_files)} file(s)…")
+
+    for path in json_files:
+        if path.name in ("summary.json",):
+            continue
+
+        stem = path.stem
+        data = load_json_file(path)
+        if not data:
+            continue
+
+        matchday, stage = _stem_to_stage(stem, comp_name)
+        matches   = data.get("matches", [])
+        any_changed = False
+
+        for i, match in enumerate(matches):
+            videos = match.get("videos", [])
+            # Only re-check matches where every stored video came from tier 4.
+            # (All videos for a single match always share the same tier because
+            # resolve_videos_for_fixture() stops at the first successful tier.)
+            if not videos or not all(v.get("tier_used") == 4 for v in videos):
+                continue
+
+            # Reconstruct the fixture dict that resolve_videos_for_fixture() expects.
+            # home_short / away_short are not stored in the JSON — fall back to full names.
+            fix = {
+                "match_id":   match["match_id"],
+                "home_team":  match["home_team"],
+                "home_short": match.get("home_short", match["home_team"]),
+                "away_team":  match["away_team"],
+                "away_short": match.get("away_short", match["away_team"]),
+                "date":       match["date"],
+                "matchday":   matchday,
+                "stage":      stage,
+            }
+
+            try:
+                new_videos = resolve_videos_for_fixture(
+                    fix, comp_name, config, yt_key, quota, BACKFILL_CAP,
+                    gw_playlist_cache=gw_playlist_cache,
+                )
+            except QuotaCapReached as exc:
+                log.info(f"Quota cap reached during tier-4 re-check: {exc}")
+                if any_changed:
+                    write_json_atomic(path, data)
+                    changed_files.append(path)
+                break   # exit inner match loop; outer file loop exits at next iteration
+
+            old_ids = {v["video_id"] for v in videos}
+            new_ids = {v["video_id"] for v in new_videos} if new_videos else set()
+
+            if new_ids and new_ids != old_ids:
+                log.info(
+                    f"  ✓ Replacing tier-4 result for "
+                    f"{match['home_team']} vs {match['away_team']} ({match['date']}): "
+                    f"{old_ids} → {new_ids}"
+                )
+                matches[i] = {**match, "videos": new_videos}
+                any_changed = True
+            else:
+                tiers = sorted({v["tier_used"] for v in new_videos}) if new_videos else []
+                log.debug(
+                    f"  — No change for {match['home_team']} vs {match['away_team']}"
+                    + (f" (tier(s) {tiers})" if tiers else " (still no result)")
+                )
+
+        if any_changed:
+            write_json_atomic(path, data)
+            changed_files.append(path)
+            log.info(f"  → Updated {path.name}")
+
+    if changed_files:
+        run_git_commit(
+            changed_files + [QUOTA_TRACKER_PATH],
+            f"chore: tier-4 recheck {slug} [skip ci]",
+        )
+        log.info(f"Tier-4 re-check complete. {len(changed_files)} file(s) updated.")
+    else:
+        log.info(f"Tier-4 re-check complete. No changes needed for {comp_name}.")
+
+
 # ── Main ──────────────────────────────────────────────────────────────────────
 
 
@@ -217,7 +354,7 @@ def main() -> None:
     fd_key = os.environ.get("FOOTBALL_DATA_API_KEY", "").strip()
     yt_key = os.environ.get("YOUTUBE_API_KEY", "").strip()
 
-    if not fd_key:
+    if not tier4_recheck and not fd_key:
         log.error("FOOTBALL_DATA_API_KEY is not set")
         sys.exit(1)
     if not yt_key:
@@ -231,6 +368,7 @@ def main() -> None:
     #   e.g. "Euro Cup" or "World Cup".  Useful for targeted historical runs.
     season_override_str  = os.environ.get("SEASON_OVERRIDE", "").strip()
     competition_filter   = os.environ.get("COMPETITION_FILTER", "").strip() or None
+    tier4_recheck        = os.environ.get("TIER4_RECHECK", "").strip().lower() == "true"
 
     season_override: int | None = None
     if season_override_str:
@@ -263,6 +401,21 @@ def main() -> None:
 
     quota  = QuotaTracker()
     config = load_sources()
+
+    # ── Tier-4 broadcaster re-check mode (triggered by admin tool after reorder) ──
+    if tier4_recheck:
+        if not competition_filter:
+            log.error("TIER4_RECHECK requires COMPETITION_FILTER to be set")
+            sys.exit(1)
+        log.info(f"Tier-4 re-check mode: {competition_filter!r}")
+        subprocess.run(
+            ["git", "config", "user.email", "github-actions[bot]@users.noreply.github.com"],
+            check=True,
+        )
+        subprocess.run(["git", "config", "user.name", "github-actions[bot]"], check=True)
+        tier4_recheck_mode(competition_filter, yt_key, config)
+        generate_summary()
+        return
 
     BACKFILL_LOCK_PATH.write_text(utc_now_iso(), encoding="utf-8")
 

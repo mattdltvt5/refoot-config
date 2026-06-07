@@ -19,6 +19,13 @@ on:
           Leave blank to process all competitions.
         required: false
         type: string
+      tier4_recheck:
+        description: >
+          Re-check matches previously resolved via tier 4 (broadcaster playlists)
+          and replace them when a higher-priority broadcaster now returns a
+          different video.  Requires `competition` to be set.  Set to "true".
+        required: false
+        type: string
 
 jobs:
   backfill:
@@ -33,6 +40,7 @@ jobs:
       # Optional overrides forwarded from workflow_dispatch inputs
       SEASON_OVERRIDE:      ${{ inputs.season }}
       COMPETITION_FILTER:   ${{ inputs.competition }}
+      TIER4_RECHECK:        ${{ inputs.tier4_recheck }}
       # Opt in to Node 24 for any JS-based actions in this workflow
       FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
 

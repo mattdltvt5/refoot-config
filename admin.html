@@ -402,6 +402,15 @@
             border-bottom: 1px solid var(--border);
         }
         .bcast-row.editing { align-items: flex-start; padding-top: 10px; padding-bottom: 10px; }
+        .bcast-grip {
+            cursor: grab; color: var(--muted); padding-right: 4px;
+            font-size: 15px; flex-shrink: 0; user-select: none;
+            opacity: 0.45; transition: opacity 0.15s; line-height: 1;
+        }
+        .bcast-grip:hover { opacity: 1; }
+        .bcast-row.editing .bcast-grip { opacity: 0.15; cursor: default; pointer-events: none; }
+        .bcast-row.dragging { opacity: 0.35; }
+        .bcast-row.drag-over { box-shadow: inset 0 2px 0 var(--blue); }
         .bcast-name-input {
             background: #fff; border: 1px solid #BDBDBD; border-radius: 4px;
             color: var(--text); font-size: 12px; font-family: inherit;
@@ -1316,6 +1325,34 @@ function buildUI() {
             bcastSection.appendChild(addBcastBtn);
             block.appendChild(bcastSection);
 
+            // Section-level drag events — handle drop positioning for broadcaster reordering
+            bcastSection.addEventListener('dragover', e => {
+                e.preventDefault();
+                e.dataTransfer.dropEffect = 'move';
+                const dragging = bcastSection._draggingRow;
+                if (!dragging) return;
+                const rows = [...bcastSection.querySelectorAll('.bcast-row:not(.dragging)')];
+                rows.forEach(r => r.classList.remove('drag-over'));
+                const target = _bcastDragTarget(rows, e.clientY);
+                if (target) target.classList.add('drag-over');
+            });
+            bcastSection.addEventListener('dragleave', e => {
+                // Only clear if leaving the section entirely (not moving between children)
+                if (!bcastSection.contains(e.relatedTarget)) {
+                    bcastSection.querySelectorAll('.bcast-row.drag-over').forEach(r => r.classList.remove('drag-over'));
+                }
+            });
+            bcastSection.addEventListener('drop', e => {
+                e.preventDefault();
+                const dragging = bcastSection._draggingRow;
+                if (!dragging) return;
+                const rows = [...bcastSection.querySelectorAll('.bcast-row:not(.dragging)')];
+                rows.forEach(r => r.classList.remove('drag-over'));
+                const insertBefore = _bcastDragTarget(rows, e.clientY);
+                const anchor = insertBefore || bcastSection.querySelector('.add-bcast-btn');
+                bcastSection.insertBefore(dragging, anchor);
+            });
+
             // ── Team list ─────────────────────────────────────
             const list = document.createElement('div');
             list.className = 'team-list'; list.id = 'list-'+comp.slug;
@@ -1343,6 +1380,36 @@ function buildUI() {
             container.appendChild(block);
         });
     });
+}
+
+// Returns the first .bcast-row whose top half is below the cursor — the row
+// to insert the dragged item before.  Returns null to append at the end.
+function _bcastDragTarget(rows, cursorY) {
+    return rows.reduce((closest, el) => {
+        const { top, height } = el.getBoundingClientRect();
+        const offset = cursorY - top - height / 2;
+        return (offset < 0 && offset > closest.offset) ? { offset, element: el } : closest;
+    }, { offset: Number.NEGATIVE_INFINITY }).element ?? null;
+}
+
+async function triggerTier4Recheck(compName) {
+    dbg('Triggering tier-4 re-check for ' + compName + '…');
+    const res = await fetch(
+        'https://api.github.com/repos/' + GH_OWNER + '/' + GH_REPO +
+        '/actions/workflows/backfill-highlights.yml/dispatches',
+        {
+            method: 'POST',
+            headers: {
+                'Authorization': 'Bearer ' + ghPat,
+                'Accept': 'application/vnd.github+json',
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ ref: 'main', inputs: { competition: compName, tier4_recheck: 'true' } }),
+        }
+    );
+    if (res.status === 204) { dbg('Tier-4 re-check triggered for ' + compName, 'ok'); return; }
+    const e = await res.json().catch(() => ({}));
+    throw new Error('Workflow dispatch failed for ' + compName + ': ' + (e.message || 'HTTP ' + res.status));
 }
 
 function appendBcastRow(section, compName, bcastName, plValues) {
@@ -1397,10 +1464,36 @@ function appendBcastRow(section, compName, bcastName, plValues) {
     delBtn.title = 'Remove broadcaster';
     delBtn.innerHTML = '<i class="fi-br-cross"></i>';
 
+    // Grip handle — drag only starts from here, never from inputs
+    const gripEl = document.createElement('span');
+    gripEl.className = 'bcast-grip';
+    gripEl.textContent = '⠿';
+    gripEl.title = 'Drag to reorder';
+
+    row.appendChild(gripEl);
     row.appendChild(viewEl);
     row.appendChild(editEl);
     row.appendChild(delBtn);
     section.insertBefore(row, addBtn);
+
+    // Row drag events — draggable is only set to true on grip mousedown,
+    // preventing accidental drags when clicking inputs or the chip.
+    row.addEventListener('dragstart', e => {
+        if (!row.draggable) { e.preventDefault(); return; }
+        e.dataTransfer.effectAllowed = 'move';
+        e.dataTransfer.setData('text/plain', ''); // required by Firefox
+        row.classList.add('dragging');
+        section._draggingRow = row;
+    });
+    row.addEventListener('dragend', () => {
+        row.draggable = false;
+        row.classList.remove('dragging');
+        section._draggingRow = null;
+        section.querySelectorAll('.bcast-row.drag-over').forEach(r => r.classList.remove('drag-over'));
+        markUnsaved();
+    });
+    gripEl.addEventListener('mousedown', () => { row.draggable = true; });
+    gripEl.addEventListener('mouseup',   () => { row.draggable = false; });
 
     // ── Sync view chip + play button from current edit state
     function syncView() {
@@ -1583,14 +1676,44 @@ async function saveData() {
     const btn = document.getElementById('save-btn');
     btn.disabled = true; btn.innerHTML = '<i class="fi-br-refresh"></i> Saving…';
     let ok = false;
+
+    // Snapshot broadcaster key-order BEFORE collecting new data so we can detect reorders.
+    const prevBcastOrder = {};
+    Object.entries(sourcesData.playlists || {}).forEach(([comp, bcasters]) => {
+        prevBcastOrder[comp] = Object.keys(bcasters);
+    });
+
     try {
         const data = collectData(); data._updated = today();
         await writeSources(data);
         sourcesData = data; unsaved = false;
-        document.getElementById('last-saved').textContent = 'Last saved: '+data._updated;
-        toast('Saved to GitHub successfully', 'success');
+        document.getElementById('last-saved').textContent = 'Last saved: ' + data._updated;
+
+        // Detect which competitions had ONLY a broadcaster reorder (same keys, new sequence).
+        // Additions / removals are NOT a reorder — they don't need a re-check.
+        const reorderComps = Object.entries(data.playlists || {})
+            .filter(([comp, bcasters]) => {
+                const newKeys = Object.keys(bcasters);
+                const oldKeys = prevBcastOrder[comp] || [];
+                return (
+                    newKeys.length === oldKeys.length &&
+                    newKeys.join('\n') !== oldKeys.join('\n') &&
+                    newKeys.every(k => oldKeys.includes(k))
+                );
+            })
+            .map(([comp]) => comp);
+
+        if (reorderComps.length > 0) {
+            toast('Saved — triggering re-check for ' + reorderComps.join(', ') + '…', 'success');
+            for (const comp of reorderComps) {
+                await triggerTier4Recheck(comp);
+            }
+            toast('Re-check workflow triggered', 'success');
+        } else {
+            toast('Saved to GitHub successfully', 'success');
+        }
         ok = true;
-    } catch(err) { toast('Save failed: '+err.message, 'error'); }
+    } catch(err) { toast('Save failed: ' + err.message, 'error'); }
     btn.innerHTML = '<i class="fi-br-disk"></i> GitHub';
     if (!ok) btn.disabled = false;
 }
