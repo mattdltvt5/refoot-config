@@ -455,6 +455,7 @@ def find_gameweek_playlist(
     matchday: int | None,
     stage: str,
     comp_name: str,
+    *,
     yt_key: str,
     quota: "QuotaTracker",
     cap: int,
@@ -489,7 +490,7 @@ def find_gameweek_playlist(
         return cache[cache_key]
 
     patterns = [
-        re.compile(p.replace("{n}", str(matchday)), re.IGNORECASE)
+        re.compile(p.replace("{n}", re.escape(str(matchday))), re.IGNORECASE)
         for p in COMP_GW_PLAYLIST_PATTERNS[comp_name]
     ]
 
@@ -1134,8 +1135,10 @@ def resolve_videos_for_fixture(
             fixture.get("matchday"),
             fixture.get("stage", ""),
             comp_name,
-            yt_key, quota, cap,
-            gw_playlist_cache,
+            yt_key=yt_key,
+            quota=quota,
+            cap=cap,
+            cache=gw_playlist_cache,
         )
         if gw_pl:
             result = _try(gw_pl, tier=2, both_teams=True)
