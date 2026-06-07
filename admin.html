@@ -1145,36 +1145,47 @@ function makeTeamRow(teamName, ch, pl, hasComp, compName) {
         markUnsaved();
     }, parsePlaylistId);
 
-    indsEl.appendChild(chChip);
-    indsEl.appendChild(chInp);
-    indsEl.appendChild(plChip);
-    indsEl.appendChild(plInp);
+    const chPlayA = document.createElement('a');
+    chPlayA.className = 'yt-btn';
+    chPlayA.target = '_blank';
+    chPlayA.innerHTML = '<i class="fi-br-play"></i>';
 
-    const ytA = document.createElement('a');
-    ytA.className = 'yt-btn';
-    ytA.target = '_blank';
-    ytA.innerHTML = '<i class="fi-br-play"></i>';
-    function updateTeamYtBtn() {
+    const plPlayA = document.createElement('a');
+    plPlayA.className = 'yt-btn';
+    plPlayA.target = '_blank';
+    plPlayA.innerHTML = '<i class="fi-br-play"></i>';
+
+    function updateTeamYtBtns() {
         const cv = chInp.value.trim(), pv = plInp.value.trim();
         if (cv && validCh(cv)) {
-            ytA.href = 'https://www.youtube.com/channel/' + cv;
-            ytA.classList.remove('disabled');
-        } else if (pv && validPl(pv)) {
-            ytA.href = 'https://www.youtube.com/playlist?list=' + pv;
-            ytA.classList.remove('disabled');
+            chPlayA.href = 'https://www.youtube.com/channel/' + cv;
+            chPlayA.classList.remove('disabled');
         } else {
-            ytA.href = '#';
-            ytA.classList.add('disabled');
+            chPlayA.href = '#';
+            chPlayA.classList.add('disabled');
+        }
+        if (pv && validPl(pv)) {
+            plPlayA.href = 'https://www.youtube.com/playlist?list=' + pv;
+            plPlayA.classList.remove('disabled');
+        } else {
+            plPlayA.href = '#';
+            plPlayA.classList.add('disabled');
         }
     }
-    updateTeamYtBtn();
-    chInp.addEventListener('input', updateTeamYtBtn);
-    plInp.addEventListener('input', updateTeamYtBtn);
+    updateTeamYtBtns();
+    chInp.addEventListener('input', updateTeamYtBtns);
+    plInp.addEventListener('input', updateTeamYtBtns);
+
+    indsEl.appendChild(chChip);
+    indsEl.appendChild(chInp);
+    indsEl.appendChild(chPlayA);
+    indsEl.appendChild(plChip);
+    indsEl.appendChild(plInp);
+    indsEl.appendChild(plPlayA);
 
     row.appendChild(statusDot);
     row.appendChild(nameEl);
     row.appendChild(indsEl);
-    row.appendChild(ytA);
     return row;
 }
 
