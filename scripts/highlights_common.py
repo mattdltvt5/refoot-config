@@ -34,7 +34,10 @@ BACKFILL_LOCK_PATH     = HIGHLIGHTS_DIR / "backfill.lock"
 # ── API endpoints ─────────────────────────────────────────────────────────────
 
 FD_BASE     = "https://api.football-data.org/v4"
-YT_PLAYLIST = "https://www.googleapis.com/youtube/v3/playlistItems"
+YT_PLAYLIST  = "https://www.googleapis.com/youtube/v3/playlistItems"
+YT_VIDEOS    = "https://www.googleapis.com/youtube/v3/videos"
+YT_PLAYLISTS = "https://www.googleapis.com/youtube/v3/playlists"
+MIN_VIDEO_DURATION_SECONDS = 120   # reject clips shorter than 2 min (Shorts, social clips)
 
 # ── Tuning constants ──────────────────────────────────────────────────────────
 
@@ -94,6 +97,21 @@ COMPETITION_KEYWORDS: dict[str, list[str]] = {
     "Europa League":    ["europa league", "uel"],
     "Euro Cup":         ["euro", "euros", "euro cup", "european championship"],
     "World Cup":        ["world cup", "fifa world cup", "mundial"],
+}
+
+# Regex patterns used to auto-discover per-gameweek playlists from competition channels.
+# {n} is replaced with the actual matchday number before compiling (case-insensitive).
+# Patterns are tried in order; first match wins.
+COMP_GW_PLAYLIST_PATTERNS: dict[str, list[str]] = {
+    "Premier League":   [r"\bmatchday\s*{n}\b", r"\bgw\s*{n}\b"],
+    "LaLiga":           [r"\bj\s*{n}\b", r"\bjornada\s*{n}\b"],
+    "Serie A":          [r"\bgiornata\s*{n}\b"],
+    "Bundesliga":       [r"\bspieltag\s*{n}\b", r"\bmatchday\s*{n}\b"],
+    "Ligue 1":          [r"\bjourn[eé]e\s*{n}\b", r"\bj\s*{n}\b"],
+    "Champions League": [r"\bmatchday\s*{n}\b", r"\bmd\s*{n}\b"],
+    "Europa League":    [r"\bmatchday\s*{n}\b", r"\bmd\s*{n}\b"],
+    "Euro Cup":         [r"\bmatchday\s*{n}\b"],
+    "World Cup":        [r"\bmatchday\s*{n}\b"],
 }
 
 # Ordered list of all expected file stems per competition
@@ -360,6 +378,167 @@ def is_highlight_title(title: str) -> bool:
 
     log.debug(f"Title failed allowlist: {title!r}")
     return False
+
+
+# ── Video quality helpers ─────────────────────────────────────────────────────
+
+
+def _parse_iso8601_duration(duration: str) -> int:
+    """Parse an ISO 8601 duration string (e.g. 'PT4M13S') to total seconds."""
+    m = re.match(r"PT(?:(\d+)H)?(?:(\d+)M)?(?:(\d+)S)?", duration or "")
+    if not m:
+        return 0
+    return int(m.group(1) or 0) * 3600 + int(m.group(2) or 0) * 60 + int(m.group(3) or 0)
+
+
+def fetch_video_details(
+    video_ids: list[str],
+    yt_key: str,
+    quota: "QuotaTracker",
+    cap: int,
+) -> dict[str, dict]:
+    """
+    Fetch duration and thumbnail orientation for up to 50 video IDs in one API call.
+
+    Returns {video_id: {"duration_seconds": int, "is_portrait": bool}}.
+    Videos missing from the response are omitted — callers should treat absent
+    entries as "unknown, do not filter".
+    Costs 1 quota unit regardless of the number of IDs (up to the 50-ID batch limit).
+    Raises QuotaCapReached on HTTP 403.
+    """
+    if not video_ids:
+        return {}
+    try:
+        resp = requests.get(
+            YT_VIDEOS,
+            params={
+                "part":   "contentDetails,snippet",
+                "id":     ",".join(video_ids[:50]),
+                "key":    yt_key,
+                "fields": "items(id,contentDetails/duration,snippet/thumbnails)",
+            },
+            timeout=15,
+        )
+    except requests.RequestException as exc:
+        log.warning(f"Network error fetching video details: {exc}")
+        return {}
+
+    if resp.status_code == 403:
+        raise QuotaCapReached("YouTube 403 on videos.list — quota exhausted")
+    if not resp.ok:
+        log.warning(f"YouTube videos.list HTTP {resp.status_code} — skipping quality filter")
+        return {}
+
+    quota.increment(cap)
+
+    out: dict[str, dict] = {}
+    for item in resp.json().get("items", []):
+        vid_id   = item.get("id", "")
+        duration = _parse_iso8601_duration(
+            item.get("contentDetails", {}).get("duration", "")
+        )
+        thumbs   = item.get("snippet", {}).get("thumbnails", {})
+        portrait = False
+        for size in ("maxres", "standard", "high", "medium", "default"):
+            t = thumbs.get(size, {})
+            w, h = t.get("width", 0), t.get("height", 0)
+            if w > 0 and h > 0:
+                portrait = h > w
+                break
+        if vid_id:
+            out[vid_id] = {"duration_seconds": duration, "is_portrait": portrait}
+    return out
+
+
+def find_gameweek_playlist(
+    channel_id: str,
+    matchday: int | None,
+    stage: str,
+    comp_name: str,
+    yt_key: str,
+    quota: "QuotaTracker",
+    cap: int,
+    cache: dict,
+) -> str | None:
+    """
+    Discover the per-gameweek playlist published by a competition's official channel.
+
+    Calls ``playlists.list`` (1 unit) and matches playlist titles against
+    ``COMP_GW_PLAYLIST_PATTERNS``.  Results (including None) are stored in
+    ``cache`` keyed by ``(channel_id, matchday)`` so multiple fixtures in the
+    same gameweek share a single API call.
+
+    Returns the playlist ID on first title match, or None when:
+      - ``matchday`` is None (knockout fixtures; matchday = leg number, not GW)
+      - The competition has no defined patterns
+      - The stage is a knockout stage for a STAGE_AWARE_COMP (to avoid
+        conflating "leg 1" with "Matchday 1")
+      - No playlist title matches the pattern
+    """
+    # For knockout-stage competitions, matchday is the leg number (1/2),
+    # which would incorrectly match "Matchday 1" / "Matchday 2" playlists.
+    if matchday is None:
+        return None
+    if comp_name in STAGE_AWARE_COMPS and stage not in ("LEAGUE_STAGE", "GROUP_STAGE"):
+        return None
+    if comp_name not in COMP_GW_PLAYLIST_PATTERNS:
+        return None
+
+    cache_key = (channel_id, matchday)
+    if cache_key in cache:
+        return cache[cache_key]
+
+    patterns = [
+        re.compile(p.replace("{n}", str(matchday)), re.IGNORECASE)
+        for p in COMP_GW_PLAYLIST_PATTERNS[comp_name]
+    ]
+
+    try:
+        resp = requests.get(
+            YT_PLAYLISTS,
+            params={
+                "part":       "snippet",
+                "channelId":  channel_id,
+                "maxResults": 50,
+                "key":        yt_key,
+            },
+            timeout=15,
+        )
+    except requests.RequestException as exc:
+        log.warning(f"Network error fetching playlists for channel {channel_id}: {exc}")
+        cache[cache_key] = None
+        return None
+
+    if resp.status_code == 403:
+        raise QuotaCapReached("YouTube 403 on playlists.list — quota exhausted")
+    if not resp.ok:
+        log.warning(
+            f"YouTube playlists.list HTTP {resp.status_code} for {channel_id} — skipping"
+        )
+        cache[cache_key] = None
+        return None
+
+    quota.increment(cap)
+
+    found = None
+    for item in resp.json().get("items", []):
+        title = item.get("snippet", {}).get("title", "")
+        pl_id = item.get("id", "")
+        if pl_id and any(pat.search(title) for pat in patterns):
+            found = pl_id
+            log.info(
+                f"  Discovered GW playlist for {comp_name} MD{matchday}: "
+                f"{title!r} → {pl_id}"
+            )
+            break
+
+    if not found:
+        log.debug(
+            f"No GW playlist found for {comp_name} MD{matchday} on channel {channel_id}"
+        )
+
+    cache[cache_key] = found
+    return found
 
 
 # ── Exception ─────────────────────────────────────────────────────────────────
@@ -872,6 +1051,7 @@ def resolve_videos_for_fixture(
     yt_key: str,
     quota: QuotaTracker,
     cap: int,
+    gw_playlist_cache: dict | None = None,
 ) -> list[dict]:
     """
     Try each tier in priority order, stopping at the first that yields ≥1 video.
@@ -879,6 +1059,9 @@ def resolve_videos_for_fixture(
 
     Tier order: 1c → 1d → 2 → 4 → 1a → 1b
     """
+    if gw_playlist_cache is None:
+        gw_playlist_cache = {}
+
     team_pl = config["team_playlists"]
     comp_ch = config["competition_channels"]
     comp_pl = config["competition_playlists"]
@@ -899,7 +1082,31 @@ def resolve_videos_for_fixture(
             requires_competition_filter=comp_filter,
             requires_both_teams=both_teams,
         )
-        return [{**v, "tier_used": tier} for v in vids]
+        if not vids:
+            return None
+
+        # Quality filter: reject clips that are too short or filmed in portrait mode.
+        # Costs 1 quota unit per batch (up to 50 IDs); only called when candidates exist.
+        details = fetch_video_details([v["video_id"] for v in vids], yt_key, quota, cap)
+        filtered = []
+        for v in vids:
+            d = details.get(v["video_id"])
+            if d is not None:
+                if d["duration_seconds"] < MIN_VIDEO_DURATION_SECONDS:
+                    log.info(
+                        f"  Quality: skipping short clip "
+                        f"({d['duration_seconds']}s < {MIN_VIDEO_DURATION_SECONDS}s): "
+                        f"{v['title']!r}"
+                    )
+                    continue
+                if d["is_portrait"]:
+                    log.info(
+                        f"  Quality: skipping portrait/vertical video: {v['title']!r}"
+                    )
+                    continue
+            filtered.append(v)
+
+        return [{**v, "tier_used": tier} for v in filtered] if filtered else None
 
     # Tier 1c — home team competition-scoped playlist
     # comp_filter=True: even though this playlist is labelled for one competition,
@@ -916,12 +1123,25 @@ def resolve_videos_for_fixture(
     if result:
         return result
 
-    # Tier 2 — official competition channel uploads
-    # Requires BOTH team names: a competition channel covers every fixture,
-    # so without both-team matching a "Rennais vs Nantes" video would be stored
-    # for the "PSG vs Nantes" fixture.
+    # Tier 2 — official competition channel
+    # 2a: try the per-gameweek playlist first (curated; far less likely to contain
+    #     vertical social clips or wrong-fixture videos than the broad uploads feed).
+    # 2b: fall back to the channel uploads playlist if no GW playlist is found.
     ch = comp_ch.get(comp_name, "")
     if ch:
+        gw_pl = find_gameweek_playlist(
+            ch,
+            fixture.get("matchday"),
+            fixture.get("stage", ""),
+            comp_name,
+            yt_key, quota, cap,
+            gw_playlist_cache,
+        )
+        if gw_pl:
+            result = _try(gw_pl, tier=2, both_teams=True)
+            if result:
+                return result
+        # Tier 2b: broad channel uploads (original fallback)
         result = _try(channel_to_uploads(ch), tier=2, both_teams=True)
         if result:
             return result

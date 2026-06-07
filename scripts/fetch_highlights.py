@@ -199,6 +199,7 @@ def main() -> None:
         return
 
     total_written = 0
+    gw_playlist_cache: dict = {}  # shared across all fixtures to avoid redundant playlists.list calls
     try:
         for comp_name, by_stem in sorted(all_fixtures.items()):
             for stem, fixtures in sorted(by_stem.items()):
@@ -235,7 +236,8 @@ def main() -> None:
                         continue
 
                     videos = resolve_videos_for_fixture(
-                        fix, comp_name, config, yt_key, quota, INCREMENTAL_CAP
+                        fix, comp_name, config, yt_key, quota, INCREMENTAL_CAP,
+                        gw_playlist_cache=gw_playlist_cache,
                     )
                     enriched.append({**fix, "videos": videos})
 
