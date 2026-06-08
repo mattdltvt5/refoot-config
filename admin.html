@@ -124,11 +124,17 @@
         .cov-bar-wrap { width: 72px; height: 5px; background: var(--border); border-radius: 3px; flex-shrink: 0; }
         .cov-bar { height: 100%; border-radius: 3px; }
         .cov-ratio { font-size: 12px; font-weight: 600; color: var(--muted); min-width: 32px; text-align: right; flex-shrink: 0; }
-        .cov-gw-tag {
-            font-size: 10px; color: var(--muted);
+        .cov-filter-btn {
+            font-size: 10px; font-weight: 500; color: var(--muted);
             background: var(--bg); border: 1px solid var(--border);
-            border-radius: 4px; padding: 1px 5px; white-space: nowrap; flex-shrink: 0;
+            border-radius: 4px; padding: 1px 6px; white-space: nowrap; flex-shrink: 0;
+            text-transform: none; letter-spacing: 0;
+            transition: background 0.1s, color 0.1s, border-color 0.1s;
         }
+        .cov-filter-btn:hover { background: #FFF3E0; border-color: var(--yellow); color: var(--yellow); }
+        .cov-filter-btn.active { background: #FFEBEE; border-color: var(--red); color: var(--red); }
+        .cov-matches.filter-missing .cov-match-row.is-covered { display: none; }
+        .cov-matches.filter-missing .cov-gw-hdr.all-covered { display: none; }
         /* Group separator inside the coverage panel */
         .cov-section-hdr {
             font-size: 10px; font-weight: 600; color: var(--muted);
@@ -889,9 +895,8 @@ function renderCoverage(data) {
             const allGws  = comp ? (comp.gameweeks || []) : [];
             const total   = allGws.reduce((s, gw) => s + gw.total,   0);
             const covered = allGws.reduce((s, gw) => s + gw.covered, 0);
-            const lastGw  = allGws.length > 0 ? allGws[allGws.length - 1] : null;
-            const prefix  = COV_MATCHDAY.has(compName) ? 'MD' : 'GW';
-            const gwLabel = lastGw ? prefix + lastGw.gameweek : '';
+            const prefix       = COV_MATCHDAY.has(compName) ? 'MD' : 'GW';
+            const missingCount = total - covered;
             const pct     = total > 0 ? Math.round(covered / total * 100) : 0;
             // grey = no data yet, green = complete, yellow = partial, red = low
             const barColor = total === 0     ? 'var(--border)'
@@ -933,16 +938,30 @@ function renderCoverage(data) {
             ratio.textContent = covered + '/' + total;
             ratio.style.color = total === 0 ? 'var(--muted)' : barColor;
 
-            const gwTag = document.createElement('span');
-            gwTag.className   = 'cov-gw-tag';
-            gwTag.textContent = gwLabel;
+            let filterBtn = null;
+            if (missingCount > 0 && total > 0) {
+                filterBtn = document.createElement('button');
+                filterBtn.className   = 'cov-filter-btn';
+                filterBtn.textContent = missingCount + ' missing';
+                filterBtn.addEventListener('click', e => {
+                    e.stopPropagation();
+                    const isFiltered = matchesEl.classList.toggle('filter-missing');
+                    filterBtn.classList.toggle('active', isFiltered);
+                    filterBtn.textContent = isFiltered ? 'Show all' : missingCount + ' missing';
+                    // Auto-expand if section is still collapsed
+                    if (isFiltered && matchesEl.style.display === 'none') {
+                        matchesEl.style.display = '';
+                        chev.classList.add('open');
+                    }
+                });
+            }
 
             compRow.appendChild(chev);
             compRow.appendChild(flag);
             compRow.appendChild(nameEl);
             compRow.appendChild(barWrap);
             compRow.appendChild(ratio);
-            compRow.appendChild(gwTag);
+            if (filterBtn) compRow.appendChild(filterBtn);
             panel.appendChild(compRow);
 
             // ── Expanded match rows (only when data exists) ──────
@@ -953,14 +972,15 @@ function renderCoverage(data) {
             matchesEl.style.display = 'none';
 
             allGws.forEach(gw => {
+                const allGwCovered = gw.matches.every(m => m.covered);
                 const hdr = document.createElement('div');
-                hdr.className   = 'cov-gw-hdr';
+                hdr.className   = 'cov-gw-hdr' + (allGwCovered ? ' all-covered' : '');
                 hdr.textContent = prefix + gw.gameweek + '  ·  ' + gw.covered + '/' + gw.total + ' covered';
                 matchesEl.appendChild(hdr);
 
                 gw.matches.forEach(m => {
                     const mRow = document.createElement('div');
-                    mRow.className = 'cov-match-row';
+                    mRow.className = 'cov-match-row' + (m.covered ? ' is-covered' : '');
 
                     const icon = document.createElement('span');
                     icon.className = 'cov-match-icon';
