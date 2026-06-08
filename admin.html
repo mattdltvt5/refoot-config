@@ -895,7 +895,6 @@ function renderCoverage(data) {
             const allGws  = comp ? (comp.gameweeks || []) : [];
             const total   = allGws.reduce((s, gw) => s + gw.total,   0);
             const covered = allGws.reduce((s, gw) => s + gw.covered, 0);
-            const prefix       = COV_MATCHDAY.has(compName) ? 'MD' : 'GW';
             const missingCount = total - covered;
             const pct     = total > 0 ? Math.round(covered / total * 100) : 0;
             // grey = no data yet, green = complete, yellow = partial, red = low
@@ -975,7 +974,7 @@ function renderCoverage(data) {
                 const allGwCovered = gw.matches.every(m => m.covered);
                 const hdr = document.createElement('div');
                 hdr.className   = 'cov-gw-hdr' + (allGwCovered ? ' all-covered' : '');
-                hdr.textContent = prefix + gw.gameweek + '  ·  ' + gw.covered + '/' + gw.total + ' covered';
+                hdr.textContent = gw.gameweek + '  ·  ' + gw.covered + '/' + gw.total + ' covered';
                 matchesEl.appendChild(hdr);
 
                 gw.matches.forEach(m => {
