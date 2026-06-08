@@ -103,15 +103,13 @@ COMPETITION_KEYWORDS: dict[str, list[str]] = {
 # {n} is replaced with the actual matchday number before compiling (case-insensitive).
 # Patterns are tried in order; first match wins.
 COMP_GW_PLAYLIST_PATTERNS: dict[str, list[str]] = {
-    "Premier League":   [r"\bmatchday\s*{n}\b", r"\bgw\s*{n}\b"],
-    "LaLiga":           [r"\bj\s*{n}\b", r"\bjornada\s*{n}\b"],
-    "Serie A":          [r"\bgiornata\s*{n}\b"],
-    "Bundesliga":       [r"\bspieltag\s*{n}\b", r"\bmatchday\s*{n}\b"],
-    "Ligue 1":          [r"\bjourn[eé]e\s*{n}\b", r"\bj\s*{n}\b"],
-    "Champions League": [r"\bmatchday\s*{n}\b", r"\bmd\s*{n}\b"],
-    "Europa League":    [r"\bmatchday\s*{n}\b", r"\bmd\s*{n}\b"],
-    "Euro Cup":         [r"\bmatchday\s*{n}\b"],
-    "World Cup":        [r"\bmatchday\s*{n}\b"],
+    # Season-wide highlights playlists (no {n} — team-name matching within the playlist)
+    "Premier League":   [r"\bclub\s+highlights\b"],
+    "LaLiga":           [r"\bhighlights\b"],
+    # Per-GW playlists (use {n} substituted with matchday number)
+    "Serie A":          [r"\bround\s*{n}\b"],
+    "Bundesliga":       [r"\bmatchday\s*{n}\b"],
+    "Ligue 1":          [r"\b{n}(?:ère|ème)\s+journ[eé]e\b"],
 }
 
 # Ordered list of all expected file stems per competition
