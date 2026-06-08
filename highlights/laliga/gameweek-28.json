@@ -1,7 +1,7 @@
 {
   "competition": "LaLiga",
   "gameweek": 28,
-  "generated_at": "2026-05-18T11:07:42Z",
+  "generated_at": "2026-06-08T04:03:23Z",
   "matches": [
     {
       "match_id": 544481,
@@ -92,7 +92,14 @@
       "home_team": "FC Barcelona",
       "away_team": "Sevilla FC",
       "date": "2026-03-15",
-      "videos": []
+      "videos": [
+        {
+          "video_id": "A96IZhuy8gg",
+          "title": "FC Barcelona vs Sevilla FC (5-2) LALIGA | Resumen",
+          "published_at": "2026-03-15",
+          "tier_used": 1
+        }
+      ]
     },
     {
       "match_id": 544484,
@@ -127,7 +134,14 @@
       "home_team": "Rayo Vallecano de Madrid",
       "away_team": "Levante UD",
       "date": "2026-03-16",
-      "videos": []
+      "videos": [
+        {
+          "video_id": "C0fmK7iYd7c",
+          "title": "RAYO VALLECANO 1 -  1 LEVANTE UD | RESUMEN LALIGA EA SPORTS",
+          "published_at": "2026-03-16",
+          "tier_used": 2
+        }
+      ]
     }
   ]
 }

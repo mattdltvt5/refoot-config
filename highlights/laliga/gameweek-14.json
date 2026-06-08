@@ -1,7 +1,7 @@
 {
   "competition": "LaLiga",
   "gameweek": 14,
-  "generated_at": "2026-06-02T04:03:28Z",
+  "generated_at": "2026-06-08T04:02:54Z",
   "matches": [
     {
       "match_id": 544350,
@@ -99,7 +99,14 @@
       "home_team": "RC Celta de Vigo",
       "away_team": "RCD Espanyol de Barcelona",
       "date": "2025-11-30",
-      "videos": []
+      "videos": [
+        {
+          "video_id": "gAsObujyQHM",
+          "title": "CELTA 0 - 1 RCD ESPANYOL | RESUMEN LALIGA EA SPORTS",
+          "published_at": "2025-11-30",
+          "tier_used": 2
+        }
+      ]
     },
     {
       "match_id": 544343,
@@ -120,7 +127,14 @@
       "home_team": "Rayo Vallecano de Madrid",
       "away_team": "Valencia CF",
       "date": "2025-12-01",
-      "videos": []
+      "videos": [
+        {
+          "video_id": "BA0GypBrFxM",
+          "title": "RAYO VALLECANO 1 - 1 VALENCIA CF | RESUMEN LALIGA EA SPORTS",
+          "published_at": "2025-12-01",
+          "tier_used": 2
+        }
+      ]
     }
   ]
 }
