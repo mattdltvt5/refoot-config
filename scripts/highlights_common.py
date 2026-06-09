@@ -106,11 +106,8 @@ COMP_GW_PLAYLIST_PATTERNS: dict[str, list[str]] = {
     # Season-wide highlights playlists (no {n} — team-name matching within the playlist)
     "Premier League":   [r"\bclub\s+highlights\b"],
     # Per-GW playlists (use {n} substituted with matchday number)
-    # LaLiga channel uses two formats depending on the part of the season:
-    #   "LaLiga Highlights Matchday 26"   (later matchdays)
-    #   "LaLiga Highlights 22nd Round"    (earlier matchdays, ordinal suffix)
-    "LaLiga":           [r"\blaliga\s+highlights\s+matchday\s+{n}\b",
-                         r"\blaliga\s+highlights\s+{n}(?:st|nd|rd|th)\b"],
+    # LaLiga channel per-GW playlists: "RESÚMENES J38 | LALIGA EA SPORTS 2025/26"
+    "LaLiga":           [r"\bj\s*{n}\b", r"\bjornada\s*{n}\b"],
     "Serie A":          [r"\bround\s*{n}\b"],
     "Bundesliga":       [r"\bmatchday\s*{n}\b"],
     "Ligue 1":          [r"\b{n}(?:ère|ème)\s+journ[eé]e\b"],
