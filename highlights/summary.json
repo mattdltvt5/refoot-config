@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-09T11:14:38Z",
+  "generated_at": "2026-06-09T14:50:13Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -8211,7 +8211,7 @@
           "gameweek": "GW30",
           "stem": "gameweek-30",
           "total": 10,
-          "covered": 9,
+          "covered": 7,
           "matches": [
             {
               "match_id": 537109,
@@ -8225,7 +8225,7 @@
               "home": "Genoa CFC",
               "away": "Udinese Calcio",
               "date": "2026-03-20",
-              "covered": true
+              "covered": false
             },
             {
               "match_id": 537114,
@@ -8281,7 +8281,7 @@
               "home": "ACF Fiorentina",
               "away": "FC Internazionale Milano",
               "date": "2026-03-22",
-              "covered": true
+              "covered": false
             }
           ]
         },
@@ -8289,7 +8289,7 @@
           "gameweek": "GW31",
           "stem": "gameweek-31",
           "total": 10,
-          "covered": 9,
+          "covered": 8,
           "matches": [
             {
               "match_id": 537120,
@@ -8324,7 +8324,7 @@
               "home": "AC Pisa 1909",
               "away": "Torino FC",
               "date": "2026-04-05",
-              "covered": true
+              "covered": false
             },
             {
               "match_id": 537116,
@@ -8367,7 +8367,7 @@
           "gameweek": "GW32",
           "stem": "gameweek-32",
           "total": 10,
-          "covered": 10,
+          "covered": 8,
           "matches": [
             {
               "match_id": 537127,
@@ -8423,7 +8423,7 @@
               "home": "Bologna FC 1909",
               "away": "US Lecce",
               "date": "2026-04-12",
-              "covered": true
+              "covered": false
             },
             {
               "match_id": 537131,
@@ -8437,7 +8437,7 @@
               "home": "ACF Fiorentina",
               "away": "SS Lazio",
               "date": "2026-04-13",
-              "covered": true
+              "covered": false
             }
           ]
         },
@@ -8445,7 +8445,7 @@
           "gameweek": "GW33",
           "stem": "gameweek-33",
           "total": 10,
-          "covered": 10,
+          "covered": 5,
           "matches": [
             {
               "match_id": 537140,
@@ -8466,14 +8466,14 @@
               "home": "Udinese Calcio",
               "away": "Parma Calcio 1913",
               "date": "2026-04-18",
-              "covered": true
+              "covered": false
             },
             {
               "match_id": 537141,
               "home": "SSC Napoli",
               "away": "SS Lazio",
               "date": "2026-04-18",
-              "covered": true
+              "covered": false
             },
             {
               "match_id": 537135,
@@ -8487,7 +8487,7 @@
               "home": "US Cremonese",
               "away": "Torino FC",
               "date": "2026-04-19",
-              "covered": true
+              "covered": false
             },
             {
               "match_id": 537136,
@@ -8501,7 +8501,7 @@
               "home": "AC Pisa 1909",
               "away": "Genoa CFC",
               "date": "2026-04-19",
-              "covered": true
+              "covered": false
             },
             {
               "match_id": 537138,
@@ -8515,7 +8515,7 @@
               "home": "US Lecce",
               "away": "ACF Fiorentina",
               "date": "2026-04-20",
-              "covered": true
+              "covered": false
             }
           ]
         },
@@ -8523,7 +8523,7 @@
           "gameweek": "GW34",
           "stem": "gameweek-34",
           "total": 10,
-          "covered": 9,
+          "covered": 8,
           "matches": [
             {
               "match_id": 537154,
@@ -8593,7 +8593,7 @@
               "home": "SS Lazio",
               "away": "Udinese Calcio",
               "date": "2026-04-27",
-              "covered": true
+              "covered": false
             }
           ]
         },
@@ -8601,14 +8601,14 @@
           "gameweek": "GW35",
           "stem": "gameweek-35",
           "total": 10,
-          "covered": 10,
+          "covered": 7,
           "matches": [
             {
               "match_id": 537161,
               "home": "AC Pisa 1909",
               "away": "US Lecce",
               "date": "2026-05-01",
-              "covered": true
+              "covered": false
             },
             {
               "match_id": 537163,
@@ -8622,7 +8622,7 @@
               "home": "Como 1907",
               "away": "SSC Napoli",
               "date": "2026-05-02",
-              "covered": true
+              "covered": false
             },
             {
               "match_id": 537156,
@@ -8664,7 +8664,7 @@
               "home": "US Cremonese",
               "away": "SS Lazio",
               "date": "2026-05-04",
-              "covered": true
+              "covered": false
             },
             {
               "match_id": 537155,
@@ -8679,7 +8679,7 @@
           "gameweek": "GW36",
           "stem": "gameweek-36",
           "total": 10,
-          "covered": 10,
+          "covered": 7,
           "matches": [
             {
               "match_id": 537168,
@@ -8721,14 +8721,14 @@
               "home": "ACF Fiorentina",
               "away": "Genoa CFC",
               "date": "2026-05-10",
-              "covered": true
+              "covered": false
             },
             {
               "match_id": 537173,
               "home": "US Cremonese",
               "away": "AC Pisa 1909",
               "date": "2026-05-10",
-              "covered": true
+              "covered": false
             },
             {
               "match_id": 537171,
@@ -8749,7 +8749,7 @@
               "home": "SSC Napoli",
               "away": "Bologna FC 1909",
               "date": "2026-05-11",
-              "covered": true
+              "covered": false
             }
           ]
         },
@@ -8757,7 +8757,7 @@
           "gameweek": "GW37",
           "stem": "gameweek-37",
           "total": 10,
-          "covered": 10,
+          "covered": 5,
           "matches": [
             {
               "match_id": 537175,
@@ -8792,7 +8792,7 @@
               "home": "AC Pisa 1909",
               "away": "SSC Napoli",
               "date": "2026-05-17",
-              "covered": true
+              "covered": false
             },
             {
               "match_id": 537180,
@@ -8806,28 +8806,28 @@
               "home": "Atalanta BC",
               "away": "Bologna FC 1909",
               "date": "2026-05-17",
-              "covered": true
+              "covered": false
             },
             {
               "match_id": 537177,
               "home": "Cagliari Calcio",
               "away": "Torino FC",
               "date": "2026-05-17",
-              "covered": true
+              "covered": false
             },
             {
               "match_id": 537183,
               "home": "US Sassuolo Calcio",
               "away": "US Lecce",
               "date": "2026-05-17",
-              "covered": true
+              "covered": false
             },
             {
               "match_id": 537184,
               "home": "Udinese Calcio",
               "away": "US Cremonese",
               "date": "2026-05-17",
-              "covered": true
+              "covered": false
             }
           ]
         },
@@ -8835,21 +8835,21 @@
           "gameweek": "GW38",
           "stem": "gameweek-38",
           "total": 10,
-          "covered": 10,
+          "covered": 5,
           "matches": [
             {
               "match_id": 537185,
               "home": "ACF Fiorentina",
               "away": "Atalanta BC",
               "date": "2026-05-22",
-              "covered": true
+              "covered": false
             },
             {
               "match_id": 537187,
               "home": "Bologna FC 1909",
               "away": "FC Internazionale Milano",
               "date": "2026-05-23",
-              "covered": true
+              "covered": false
             },
             {
               "match_id": 537190,
@@ -8870,14 +8870,14 @@
               "home": "SSC Napoli",
               "away": "Udinese Calcio",
               "date": "2026-05-24",
-              "covered": true
+              "covered": false
             },
             {
               "match_id": 537186,
               "home": "AC Milan",
               "away": "Cagliari Calcio",
               "date": "2026-05-24",
-              "covered": true
+              "covered": false
             },
             {
               "match_id": 537189,
@@ -8898,7 +8898,7 @@
               "home": "US Lecce",
               "away": "Genoa CFC",
               "date": "2026-05-24",
-              "covered": true
+              "covered": false
             },
             {
               "match_id": 537188,
