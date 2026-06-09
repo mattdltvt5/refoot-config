@@ -466,8 +466,15 @@ def find_gameweek_playlist(
 
     Calls ``playlists.list`` (1 unit) and matches playlist titles against
     ``COMP_GW_PLAYLIST_PATTERNS``.  Results (including None) are stored in
-    ``cache`` keyed by ``(channel_id, matchday)`` so multiple fixtures in the
-    same gameweek share a single API call.
+    ``cache`` so multiple fixtures sharing the same playlist avoid redundant
+    API calls:
+
+    - Per-GW patterns (containing ``{n}``): keyed by ``(channel_id, matchday)``
+      so all fixtures in the same gameweek share one call.
+    - Season-wide patterns (no ``{n}``, e.g. LaLiga Highlights, PL Club
+      Highlights): keyed by ``(channel_id, None)`` so every fixture in the
+      competition shares a single call — the playlist is the same regardless
+      of matchday.
 
     Returns the playlist ID on first title match, or None when:
       - ``matchday`` is None (knockout fixtures; matchday = leg number, not GW)
@@ -485,13 +492,15 @@ def find_gameweek_playlist(
     if comp_name not in COMP_GW_PLAYLIST_PATTERNS:
         return None
 
-    cache_key = (channel_id, matchday)
+    comp_patterns = COMP_GW_PLAYLIST_PATTERNS[comp_name]
+    matchday_specific = any("{n}" in p for p in comp_patterns)
+    cache_key = (channel_id, matchday if matchday_specific else None)
     if cache_key in cache:
         return cache[cache_key]
 
     patterns = [
         re.compile(p.replace("{n}", re.escape(str(matchday))), re.IGNORECASE)
-        for p in COMP_GW_PLAYLIST_PATTERNS[comp_name]
+        for p in comp_patterns
     ]
 
     try:
