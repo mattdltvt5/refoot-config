@@ -182,6 +182,7 @@ TITLE_BLOCKLIST: list[str] = [
     "watch along", "live stream", "matchday live",
     "top 10", "best goals", "best of the season", "season review",
     "all goals of the week",
+    "goals |",               # goals-compilation pipe label: "Real Madrid 2-0 Oviedo | GOALS | LaLiga"
     "#shorts",               # YouTube Shorts — social clips, not highlight packages
 
     # ── Single-goal clips (all languages) ──────────────────────────────────────
@@ -294,7 +295,8 @@ TITLE_ALLOWLIST: list[str] = [
     # "full match" intentionally excluded: bare "FULL MATCH | ..." titles are
     # full 90-min replays (e.g. FC Barcelona's channel), not highlight packages.
     # "Full Match Highlights" still passes because "highlights" is in the list.
-    "goals",
+    # "goals" intentionally excluded: covered by "gol" substring below, and
+    # "goals |" is now in the blocklist to reject goals-compilation pipe labels.
 
     # ── French ──
     "résumé",                # summary/highlights
