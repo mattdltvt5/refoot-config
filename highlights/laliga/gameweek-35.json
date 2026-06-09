@@ -1,14 +1,21 @@
 {
   "competition": "LaLiga",
   "gameweek": 35,
-  "generated_at": "2026-06-02T00:12:11Z",
+  "generated_at": "2026-06-09T03:35:50Z",
   "matches": [
     {
       "match_id": 544554,
       "home_team": "Levante UD",
       "away_team": "CA Osasuna",
       "date": "2026-05-08",
-      "videos": []
+      "videos": [
+        {
+          "video_id": "BIfzbgBM7u4",
+          "title": "LEVANTE UD 3 - 2 CA OSASUNA | RESUMEN LALIGA EA SPORTS",
+          "published_at": "2026-05-08",
+          "tier_used": 2
+        }
+      ]
     },
     {
       "match_id": 544556,
@@ -120,7 +127,14 @@
       "home_team": "Rayo Vallecano de Madrid",
       "away_team": "Girona FC",
       "date": "2026-05-11",
-      "videos": []
+      "videos": [
+        {
+          "video_id": "BD6gbXMU5FE",
+          "title": "RAYO VALLECANO 1 - 1 GIRONA FC | RESUMEN LALIGA EA SPORTS",
+          "published_at": "2026-05-11",
+          "tier_used": 2
+        }
+      ]
     }
   ]
 }

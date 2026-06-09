@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-08T21:49:47Z",
+  "generated_at": "2026-06-09T03:45:31Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -5241,7 +5241,7 @@
           "gameweek": "GW30",
           "stem": "gameweek-30",
           "total": 10,
-          "covered": 8,
+          "covered": 9,
           "matches": [
             {
               "match_id": 544509,
@@ -5290,7 +5290,7 @@
               "home": "Valencia CF",
               "away": "RC Celta de Vigo",
               "date": "2026-04-05",
-              "covered": false
+              "covered": true
             },
             {
               "match_id": 544506,
@@ -5319,7 +5319,7 @@
           "gameweek": "GW31",
           "stem": "gameweek-31",
           "total": 10,
-          "covered": 7,
+          "covered": 9,
           "matches": [
             {
               "match_id": 544520,
@@ -5340,7 +5340,7 @@
               "home": "Elche CF",
               "away": "Valencia CF",
               "date": "2026-04-11",
-              "covered": false
+              "covered": true
             },
             {
               "match_id": 544512,
@@ -5375,7 +5375,7 @@
               "home": "RC Celta de Vigo",
               "away": "Real Oviedo",
               "date": "2026-04-12",
-              "covered": false
+              "covered": true
             },
             {
               "match_id": 544511,
@@ -5397,7 +5397,7 @@
           "gameweek": "GW32",
           "stem": "gameweek-32",
           "total": 10,
-          "covered": 8,
+          "covered": 9,
           "matches": [
             {
               "match_id": 544522,
@@ -5425,7 +5425,7 @@
               "home": "Valencia CF",
               "away": "Girona FC",
               "date": "2026-04-25",
-              "covered": false
+              "covered": true
             },
             {
               "match_id": 544526,
@@ -5475,7 +5475,7 @@
           "gameweek": "GW33",
           "stem": "gameweek-33",
           "total": 10,
-          "covered": 8,
+          "covered": 9,
           "matches": [
             {
               "match_id": 544531,
@@ -5503,7 +5503,7 @@
               "home": "Girona FC",
               "away": "Real Betis Balompié",
               "date": "2026-04-21",
-              "covered": false
+              "covered": true
             },
             {
               "match_id": 544537,
@@ -5553,7 +5553,7 @@
           "gameweek": "GW34",
           "stem": "gameweek-34",
           "total": 10,
-          "covered": 8,
+          "covered": 9,
           "matches": [
             {
               "match_id": 544550,
@@ -5623,7 +5623,7 @@
               "home": "RCD Espanyol de Barcelona",
               "away": "Real Madrid CF",
               "date": "2026-05-03",
-              "covered": false
+              "covered": true
             }
           ]
         },
@@ -5631,14 +5631,14 @@
           "gameweek": "GW35",
           "stem": "gameweek-35",
           "total": 10,
-          "covered": 7,
+          "covered": 9,
           "matches": [
             {
               "match_id": 544554,
               "home": "Levante UD",
               "away": "CA Osasuna",
               "date": "2026-05-08",
-              "covered": false
+              "covered": true
             },
             {
               "match_id": 544556,
@@ -5701,7 +5701,7 @@
               "home": "Rayo Vallecano de Madrid",
               "away": "Girona FC",
               "date": "2026-05-11",
-              "covered": false
+              "covered": true
             }
           ]
         },
@@ -5709,21 +5709,21 @@
           "gameweek": "GW36",
           "stem": "gameweek-36",
           "total": 10,
-          "covered": 6,
+          "covered": 10,
           "matches": [
             {
               "match_id": 544563,
               "home": "RC Celta de Vigo",
               "away": "Levante UD",
               "date": "2026-05-12",
-              "covered": false
+              "covered": true
             },
             {
               "match_id": 544562,
               "home": "Real Betis Balompié",
               "away": "Elche CF",
               "date": "2026-05-12",
-              "covered": false
+              "covered": true
             },
             {
               "match_id": 544567,
@@ -5765,14 +5765,14 @@
               "home": "Valencia CF",
               "away": "Rayo Vallecano de Madrid",
               "date": "2026-05-14",
-              "covered": false
+              "covered": true
             },
             {
               "match_id": 544565,
               "home": "Girona FC",
               "away": "Real Sociedad de Fútbol",
               "date": "2026-05-14",
-              "covered": false
+              "covered": true
             },
             {
               "match_id": 544570,
@@ -5787,7 +5787,7 @@
           "gameweek": "GW37",
           "stem": "gameweek-37",
           "total": 10,
-          "covered": 8,
+          "covered": 9,
           "matches": [
             {
               "match_id": 544571,
@@ -5843,7 +5843,7 @@
               "home": "CA Osasuna",
               "away": "RCD Espanyol de Barcelona",
               "date": "2026-05-17",
-              "covered": false
+              "covered": true
             },
             {
               "match_id": 544580,
@@ -5865,21 +5865,21 @@
           "gameweek": "GW38",
           "stem": "gameweek-38",
           "total": 10,
-          "covered": 5,
+          "covered": 10,
           "matches": [
             {
               "match_id": 544581,
               "home": "Deportivo Alavés",
               "away": "Rayo Vallecano de Madrid",
               "date": "2026-05-23",
-              "covered": false
+              "covered": true
             },
             {
               "match_id": 544582,
               "home": "Real Betis Balompié",
               "away": "Levante UD",
               "date": "2026-05-23",
-              "covered": false
+              "covered": true
             },
             {
               "match_id": 544583,
@@ -5893,7 +5893,7 @@
               "home": "RCD Espanyol de Barcelona",
               "away": "Real Sociedad de Fútbol",
               "date": "2026-05-23",
-              "covered": false
+              "covered": true
             },
             {
               "match_id": 544585,
@@ -5914,7 +5914,7 @@
               "home": "Real Madrid CF",
               "away": "Athletic Club",
               "date": "2026-05-23",
-              "covered": false
+              "covered": true
             },
             {
               "match_id": 544589,
@@ -5928,7 +5928,7 @@
               "home": "Girona FC",
               "away": "Elche CF",
               "date": "2026-05-23",
-              "covered": false
+              "covered": true
             },
             {
               "match_id": 544588,
