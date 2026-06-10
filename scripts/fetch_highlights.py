@@ -186,11 +186,19 @@ def main() -> None:
             "— regenerating summary only"
         )
         generate_summary()
+        write_json_atomic(
+            HIGHLIGHTS_DIR / "fetch-log.json",
+            {"last_run": datetime.now(timezone.utc).isoformat(), "files_updated": 0, "additions": []},
+        )
         sys.exit(0)
 
     # ── No YouTube key: regenerate summary and exit ───────────────────────────
     if not yt_key:
         generate_summary()
+        write_json_atomic(
+            HIGHLIGHTS_DIR / "fetch-log.json",
+            {"last_run": datetime.now(timezone.utc).isoformat(), "files_updated": 0, "additions": []},
+        )
         return
 
     config       = load_sources()
@@ -199,6 +207,10 @@ def main() -> None:
     if not all_fixtures:
         log.info("No finished fixtures found.")
         generate_summary()
+        write_json_atomic(
+            HIGHLIGHTS_DIR / "fetch-log.json",
+            {"last_run": datetime.now(timezone.utc).isoformat(), "files_updated": 0, "additions": []},
+        )
         return
 
     total_written = 0
