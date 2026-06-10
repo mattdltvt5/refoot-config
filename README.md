@@ -10,7 +10,7 @@ Remote channel configuration for the **ReFoot Highlights** Android app.
 | `admin.html` | Browser-based admin panel for managing `sources.json` |
 | `uicons/` | Flaticon UIcons Bold Rounded webfont (used by the admin panel) |
 | `highlights/` | Pre-built video metadata written by the fetch-highlights Action |
-| `scripts/highlights_common.py` | Shared utilities, title filter constants, `is_highlight_title()`, and `TEAM_NAME_ALIASES` |
+| `scripts/highlights_common.py` | Shared utilities, title filter constants, `is_highlight_title()`, `_normalize()`, `team_tokens()`, and `TEAM_TITLE_ALIASES` |
 | `scripts/fetch_highlights.py` | Incremental update script (runs every 4 hours) |
 | `scripts/backfill_highlights.py` | Full-season backfill script (manual trigger only) |
 | `scripts/clean_highlights.py` | One-time cleanup script — re-evaluates existing JSON files and removes false positives |
@@ -147,7 +147,7 @@ The script tries sources in this order and stops at the **first tier that yields
 A video is accepted when **all** of the following are true:
 - `publishedAt` is within 3 days of the fixture date
 - If the source is a club channel uploads playlist (Tiers 1a/1b): the title contains a competition keyword
-- The title contains **at least one alias token** for the home team **or** (for tier 2/4) **both** the home and away team — resolved via `TEAM_NAME_ALIASES` with fallback to the FD `shortName` (case-insensitive substring)
+- The title matches **at least one candidate token** for the home team **or** (for tier 2/4) **both** the home and away team.  Candidates are derived from the FD `{name, shortName, tla}` triplet with NFKD diacritic normalisation (e.g. `"Barça"` → `"barca"`) and the title is normalised the same way before comparison.  TLAs shorter than 4 characters are excluded from the auto-derived set.  `TEAM_TITLE_ALIASES` provides explicit override tokens for teams whose YouTube title form cannot be derived from the FD fields (e.g. `"LOSC"` for Lille OSC, `"Stade Rennais"` for Stade Rennais FC 1901).
 - The title passes the multilingual highlight title filter (see [Title filter](#title-filter) below)
 
 ### Title filter
@@ -233,27 +233,31 @@ Safe to re-run at any time. Fixtures that lose all videos will show as "Highligh
 
 > **Note:** The live pipeline (`search_playlist()`) now requires both team names for tier 2 and tier 4 sources, so this cleanup script only needs to be run once for historical data. Re-run if the alias map in the script is extended to cover additional teams.
 
-### Team name alias map
+### Team name matching and diacritic normalisation
 
-football-data.org `shortName` values are geographically-based (e.g. `"Rennes"` for *Stade Rennais FC 1901*, `"Lille"` for *Lille OSC*), while official competition channels and club channels often use branded short names (e.g. `"Stade Rennais"`, `"LOSC"`).  Because `"rennes"` is not a substring of `"stade rennais"`, the plain substring check missed matches from the official Ligue 1 per-GW playlists even when the video clearly covered the right fixture.
+`team_tokens()` in `highlights_common.py` builds the candidate set for each team:
 
-`TEAM_NAME_ALIASES` in `highlights_common.py` maps each football-data.org canonical team name to a list of all acceptable YouTube title tokens.  Any one token is sufficient to match.  The list **replaces** the FD `shortName` for configured teams; unconfigured teams fall back to the FD `shortName` (existing behaviour).
+1. **General path** (all teams by default): normalise each of `{name, shortName, tla}` from the FD API with `_normalize()` — NFKD decomposition, drop combining marks, casefold — then deduplicate.  TLAs shorter than 4 characters are excluded to prevent two-letter codes (`"OL"`, `"OM"`, `"RM"`) from substring-matching unrelated words.  The video title is normalised the same way before any comparison.
+
+   Examples: FD `shortName = "Barça"` → candidate `"barca"` matches titles saying `"Barça"` or `"Barca"`.  FD `name = "FC Barcelona"` → candidate `"fc barcelona"` matches titles saying `"FC Barcelona"` without risking a false match against `"RCD Espanyol de Barcelona"` (different prefix).
+
+2. **Override path** (`TEAM_TITLE_ALIASES`): for teams whose YouTube title form is completely unrelated to all three FD fields.  An entry **replaces** the auto-derived set entirely.  Current entries cover Ligue 1 branded names that diverge from FD geography-based `shortName` values:
 
 ```python
-TEAM_NAME_ALIASES: dict[str, list[str]] = {
+TEAM_TITLE_ALIASES: dict[str, list[str]] = {
     "Stade Rennais FC 1901": ["Stade Rennais", "Rennais", "Rennes", "Stade Rennes"],
     "Lille OSC":              ["LOSC", "Lille LOSC", "Lille OSC", "Lille"],
-    "Paris FC":               ["Paris FC"],   # explicit — must NOT include "Paris"
+    "Paris FC":               ["Paris FC"],   # must NOT include bare "Paris" — see below
     "Paris Saint-Germain FC": ["Paris Saint-Germain", "Paris Saint Germain", "PSG", "Paris SG"],
     # … see highlights_common.py for the full map
 }
 ```
 
-**Adding entries for other competitions:**  add a new key using the exact `team.name` value from football-data.org (the same string that appears in `home_team`/`away_team` in the JSON files) with a list of all title tokens to accept.  No code changes are needed beyond the dict.
+**Adding entries for other competitions:** add a key with the exact FD `team.name` value (the same string that appears as `home_team`/`away_team` in the JSON files).  Only add an entry if the general path (`{name, shortName, tla}` normalised) genuinely cannot produce a working token.
 
-**Paris FC / PSG disambiguation:** `Paris FC` is intentionally mapped to `["Paris FC"]` only.  Adding `"Paris"` would allow it to absorb PSG videos that contain `"Paris Saint-Germain"` as a substring — a false match that is especially dangerous in the broad channel-uploads tier (2b) where both clubs' videos coexist.
+**Paris FC / PSG disambiguation:** `Paris FC` maps only to `["Paris FC"]`.  Adding bare `"Paris"` would absorb PSG videos in the broad channel-uploads tier (2b) where both clubs' videos coexist.
 
-**Diagnostics:** run `python scripts/debug_match.py` to test the matcher over all cached Ligue 1 data without any YouTube API calls.  The script shows per-fixture root-cause analysis and a regression summary (old vs new match counts).
+**Diagnostics:** `python scripts/debug_match.py` tests the matcher over all cached Ligue 1 data with zero YouTube API calls.  Shows per-fixture root-cause analysis and a regression summary.
 
 ### Smart-skip logic
 

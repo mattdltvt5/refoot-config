@@ -197,8 +197,10 @@ def fetch_season_fixtures(
             "match_id":   m["id"],
             "home_team":  home.get("name", ""),
             "home_short": home.get("shortName") or home.get("name", ""),
+            "home_tla":   home.get("tla", ""),
             "away_team":  away.get("name", ""),
             "away_short": away.get("shortName") or away.get("name", ""),
+            "away_tla":   away.get("tla", ""),
             "date":       utc_str[:10],
             "matchday":   matchday,
             "stage":      stage,
@@ -290,13 +292,16 @@ def tier4_recheck_mode(comp_name: str, yt_key: str, config: dict) -> None:
                 continue
 
             # Reconstruct the fixture dict that resolve_videos_for_fixture() expects.
-            # home_short / away_short are not stored in the JSON — fall back to full names.
+            # home_short/away_short/home_tla/away_tla are not stored in the JSON —
+            # fall back gracefully (tla="" is safe; team_tokens handles it).
             fix = {
                 "match_id":   match["match_id"],
                 "home_team":  match["home_team"],
                 "home_short": match.get("home_short", match["home_team"]),
+                "home_tla":   match.get("home_tla", ""),
                 "away_team":  match["away_team"],
                 "away_short": match.get("away_short", match["away_team"]),
+                "away_tla":   match.get("away_tla", ""),
                 "date":       match["date"],
                 "matchday":   matchday,
                 "stage":      stage,

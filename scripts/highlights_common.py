@@ -12,6 +12,7 @@ import re
 import sys
 import tempfile
 import time
+import unicodedata
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
@@ -99,64 +100,88 @@ COMPETITION_KEYWORDS: dict[str, list[str]] = {
     "World Cup":        ["world cup", "fifa world cup", "mundial"],
 }
 
-# ── Team name alias map ───────────────────────────────────────────────────────
+# ── Title normalisation ───────────────────────────────────────────────────────
+
+# TLAs shorter than this are excluded from automatic candidates to prevent
+# two- and three-letter codes ("OL", "OM", "FCB") from substring-matching
+# unrelated words in titles.
+_MIN_TLA_LEN: int = 4
+
+
+def _normalize(s: str) -> str:
+    """NFKD decompose, drop combining marks, then casefold.
+
+    "Barça" → "barca", "Atlético" → "atletico", "Bayern München" → "bayern munchen".
+    Produces a plain-ASCII-friendly string safe for substring matching without
+    false-negative diacritic mismatches.
+    """
+    return "".join(
+        c for c in unicodedata.normalize("NFKD", s)
+        if unicodedata.category(c) != "Mn"
+    ).casefold()
+
+
+# ── Team title override map ───────────────────────────────────────────────────
 #
-# Maps football-data.org canonical team names (stored as home_team/away_team in
-# the JSON files) to every title token that should be accepted in a YouTube video
-# title for that team.
+# EXCEPTION-ONLY override for teams whose YouTube title forms cannot be derived
+# from their football-data.org {name, shortName, tla} triplet.
 #
-# WHY this exists: football-data.org shortName values are geographically-based
-# (e.g. "Rennes", "Lille") while official competition channels and club channels
-# often use branded short names ("Stade Rennais", "LOSC").  Since "rennes" is not
-# a substring of "stade rennais", the plain substring check misses matches from
-# the official Ligue 1 per-GW playlists even though the video is clearly about
-# the right fixture.
+# The general mechanism (team_tokens) already tests all three FD fields with
+# diacritic normalisation — so "Barça" vs "FC Barcelona" and "Atlético" vs
+# "Atletico" resolve automatically.  Add an entry here only when a broadcaster
+# uses a branded or colloquial name that is completely unrelated to those fields
+# (e.g. "LOSC" for Lille OSC, "Stade Rennais" when the FD name includes "1901").
 #
 # Rules:
-#   - Key = exact football-data.org team.name (must match home_team/away_team in JSON)
-#   - Values = list of ALL acceptable tokens; any one is sufficient to match
-#   - The list intentionally REPLACES the FD shortName for configured teams
-#   - Paris FC is listed separately and NEVER includes "Paris" to avoid absorbing
-#     Paris Saint-Germain FC videos (which use "paris" as substring)
-#   - Extend the dict to cover additional competitions; no code changes required
+#   - Key  = exact FD team.name (matches home_team/away_team in JSON)
+#   - Value = list of tokens; REPLACES the auto-derived set for this team
+#   - Paris FC MUST NOT include bare "Paris" — it would absorb PSG videos
+#   - Prefer adding new competitions' branded names here over code changes
 
-TEAM_NAME_ALIASES: dict[str, list[str]] = {
-    # ── Ligue 1 ──
+TEAM_TITLE_ALIASES: dict[str, list[str]] = {
+    # ── Ligue 1 — branded names not derivable from FD name/shortName/tla ──────
     "Stade Rennais FC 1901": ["Stade Rennais", "Rennais", "Rennes", "Stade Rennes"],
     "Lille OSC":              ["LOSC", "Lille LOSC", "Lille OSC", "Lille"],
-    "Racing Club de Lens":    ["RC Lens", "Lens"],
-    "Le Havre AC":            ["Le Havre"],
     "Olympique Lyonnais":     ["Olympique Lyonnais", "Lyon", "OL"],
     "Olympique de Marseille": ["Olympique de Marseille", "Olympique Marseille", "Marseille", "OM"],
     "Stade Brestois 29":      ["Stade Brestois", "Stade Brest", "Brestois", "Brest"],
-    "Paris FC":               ["Paris FC"],      # explicit — must NOT match PSG
+    "Paris FC":               ["Paris FC"],      # must NOT match PSG
     "Paris Saint-Germain FC": ["Paris Saint-Germain", "Paris Saint Germain", "PSG", "Paris SG"],
     "AS Monaco FC":           ["AS Monaco", "Monaco"],
-    "RC Strasbourg Alsace":   ["RC Strasbourg", "Strasbourg"],
-    "AJ Auxerre":             ["AJ Auxerre", "Auxerre"],
-    "FC Nantes":              ["FC Nantes", "Nantes"],
-    "FC Lorient":             ["FC Lorient", "Lorient"],
-    "FC Metz":                ["FC Metz", "Metz"],
-    "Toulouse FC":            ["Toulouse FC", "Toulouse"],
-    "OGC Nice":               ["OGC Nice", "Nice"],
-    "Angers SCO":             ["Angers SCO", "SCO Angers", "Angers"],
 }
 
 
-def team_tokens(team_name: str, short_name: str) -> list[str]:
-    """
-    Return the list of lowercase tokens to search for in a YouTube title.
+def team_tokens(team_name: str, short_name: str, tla: str = "") -> list[str]:
+    """Return normalised candidate strings to search for in a YouTube title.
 
-    If the team has an entry in TEAM_NAME_ALIASES (keyed by the full FD team name),
-    that list supersedes the FD shortName — every token in the list is tried and
-    any one match is sufficient.
+    Primary path — check TEAM_TITLE_ALIASES for an explicit override (keyed by
+    the full FD team name).  If found, return those strings normalised; they
+    replace the auto-derived set entirely.
 
-    If no alias entry exists, falls back to [short_name.lower()] (current behaviour).
+    General path — build candidates from the FD {name, shortName, tla} triplet,
+    each passed through _normalize().  TLAs shorter than _MIN_TLA_LEN are
+    excluded to prevent two/three-letter codes from matching unrelated words.
+    Any one candidate appearing as a substring of the (normalised) title is
+    sufficient for a hit.
+
+    Falls back gracefully when fields are absent (older JSON records lack tla).
     """
-    aliases = TEAM_NAME_ALIASES.get(team_name)
-    if aliases:
-        return [a.lower() for a in aliases]
-    return [short_name.lower()]
+    override = TEAM_TITLE_ALIASES.get(team_name)
+    if override:
+        return [_normalize(a) for a in override]
+
+    candidates: list[str] = []
+    seen: set[str] = set()
+    for raw in (team_name, short_name):
+        n = _normalize(raw)
+        if n and n not in seen:
+            candidates.append(n)
+            seen.add(n)
+    if tla:
+        n = _normalize(tla)
+        if n and len(tla) >= _MIN_TLA_LEN and n not in seen:
+            candidates.append(n)
+    return candidates or [_normalize(short_name) or short_name.casefold()]
 
 
 # Regex patterns used to auto-discover per-gameweek playlists from competition channels.
@@ -1009,8 +1034,12 @@ def search_playlist(
     """
     fixture_date = datetime.strptime(fixture["date"], "%Y-%m-%d").replace(tzinfo=timezone.utc)
     window_end   = fixture_date + timedelta(days=VIDEO_WINDOW_DAYS)
-    home_tokens  = team_tokens(fixture.get("home_team", ""), fixture["home_short"])
-    away_tokens  = team_tokens(fixture.get("away_team", ""), fixture["away_short"])
+    home_tokens  = team_tokens(
+        fixture.get("home_team", ""), fixture["home_short"], fixture.get("home_tla", "")
+    )
+    away_tokens  = team_tokens(
+        fixture.get("away_team", ""), fixture["away_short"], fixture.get("away_tla", "")
+    )
     keywords     = COMPETITION_KEYWORDS.get(comp_name, [])
 
     accepted:      list[dict] = []
@@ -1075,15 +1104,15 @@ def search_playlist(
             if pub_date < fixture_date or pub_date > window_end:
                 continue
 
-            lower_title = title.lower()
+            norm_title = _normalize(title)
 
             if requires_competition_filter and not any(
-                kw in lower_title for kw in keywords
+                kw in norm_title for kw in keywords
             ):
                 continue
 
-            home_hit = any(tok in lower_title for tok in home_tokens)
-            away_hit = any(tok in lower_title for tok in away_tokens)
+            home_hit = any(tok in norm_title for tok in home_tokens)
+            away_hit = any(tok in norm_title for tok in away_tokens)
 
             if requires_both_teams:
                 if not home_hit or not away_hit:

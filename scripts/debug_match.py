@@ -25,7 +25,8 @@ sys.stdout.reconfigure(encoding="utf-8")
 sys.path.insert(0, os.path.dirname(__file__))
 from highlights_common import (
     HIGHLIGHTS_DIR,
-    TEAM_NAME_ALIASES,
+    TEAM_TITLE_ALIASES,
+    _normalize,
     team_tokens,
 )
 
@@ -50,8 +51,8 @@ def new_match(
     title: str,
     both_teams: bool,
 ) -> bool:
-    """New matcher: alias-aware token check."""
-    t = title.lower()
+    """New matcher: alias-aware, diacritic-normalised token check."""
+    t = _normalize(title)
     ht = team_tokens(home_team, home_short)
     at = team_tokens(away_team, away_short)
     home_hit = any(tok in t for tok in ht)
