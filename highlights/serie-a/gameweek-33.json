@@ -1,7 +1,7 @@
 {
   "competition": "Serie A",
   "gameweek": 33,
-  "generated_at": "2026-06-03T04:20:39Z",
+  "generated_at": "2026-06-10T03:58:13Z",
   "matches": [
     {
       "match_id": 537140,
@@ -36,14 +36,28 @@
       "home_team": "Udinese Calcio",
       "away_team": "Parma Calcio 1913",
       "date": "2026-04-18",
-      "videos": []
+      "videos": [
+        {
+          "video_id": "DsWWtSsQuIs",
+          "title": "UDINESE-PARMA | HIGHLIGHTS | Narrow Margins in Udine | Serie A 2025/26",
+          "published_at": "2026-04-18",
+          "tier_used": 2
+        }
+      ]
     },
     {
       "match_id": 537141,
       "home_team": "SSC Napoli",
       "away_team": "SS Lazio",
       "date": "2026-04-18",
-      "videos": []
+      "videos": [
+        {
+          "video_id": "UFG2LCxp_r4",
+          "title": "NAPOLI-LAZIO | HIGHLIGHTS | Vanja Heroics Not Enough For Napoli | Serie A 2025/26",
+          "published_at": "2026-04-18",
+          "tier_used": 2
+        }
+      ]
     },
     {
       "match_id": 537135,
@@ -64,7 +78,14 @@
       "home_team": "US Cremonese",
       "away_team": "Torino FC",
       "date": "2026-04-19",
-      "videos": []
+      "videos": [
+        {
+          "video_id": "zHnjP7Fh-Kc",
+          "title": "CREMONESE-TORINO | HIGHLIGHTS | Cremonese Still in Danger | Serie A 2025/26",
+          "published_at": "2026-04-19",
+          "tier_used": 2
+        }
+      ]
     },
     {
       "match_id": 537136,
@@ -106,7 +127,14 @@
       "home_team": "US Lecce",
       "away_team": "ACF Fiorentina",
       "date": "2026-04-20",
-      "videos": []
+      "videos": [
+        {
+          "video_id": "LpD8qCZAk7I",
+          "title": "Shared Points in Relegation Battle | LECCE-FIORENTINA | HIGHLIGHTS | Serie A 2025/26",
+          "published_at": "2026-04-20",
+          "tier_used": 2
+        }
+      ]
     }
   ]
 }

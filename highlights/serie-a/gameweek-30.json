@@ -1,7 +1,7 @@
 {
   "competition": "Serie A",
   "gameweek": 30,
-  "generated_at": "2026-05-18T11:07:43Z",
+  "generated_at": "2026-06-10T03:57:49Z",
   "matches": [
     {
       "match_id": 537109,
@@ -22,7 +22,14 @@
       "home_team": "Genoa CFC",
       "away_team": "Udinese Calcio",
       "date": "2026-03-20",
-      "videos": []
+      "videos": [
+        {
+          "video_id": "qm8TekaosyE",
+          "title": "Udinese Victorious in Tight Clash | GENOA-UDINESE | HIGHLIGHTS | Serie A 2025/26",
+          "published_at": "2026-03-20",
+          "tier_used": 2
+        }
+      ]
     },
     {
       "match_id": 537114,
@@ -126,7 +133,14 @@
       "home_team": "ACF Fiorentina",
       "away_team": "FC Internazionale Milano",
       "date": "2026-03-22",
-      "videos": []
+      "videos": [
+        {
+          "video_id": "AGF81zYwwz4",
+          "title": "Shared Spoils at the Franchi | FIORENTINA-INTER | HIGHLIGHTS | Serie A 2025/26",
+          "published_at": "2026-03-22",
+          "tier_used": 2
+        }
+      ]
     }
   ]
 }
