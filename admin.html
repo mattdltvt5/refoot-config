@@ -103,6 +103,18 @@
             display: flex; align-items: center; gap: 5px;
         }
         #last-saved { font-size: 11px; color: var(--muted); }
+        #fetch-log-bar {
+            display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 6px;
+            padding: 7px 16px; border-bottom: 1px solid var(--border);
+            font-size: 11px; color: var(--muted);
+        }
+        #fetch-additions-list { padding: 2px 16px 8px; border-bottom: 1px solid var(--border); }
+        .fetch-addition-row {
+            display: flex; align-items: center; gap: 6px;
+            font-size: 12px; padding: 2px 0; color: var(--text);
+        }
+        .fetch-addition-row i { font-size: 10px; color: var(--green); flex-shrink: 0; }
+        .fetch-addition-comp { color: var(--muted); font-size: 11px; }
         #coverage-panel { }
         .cov-empty {
             padding: 14px 16px; font-size: 13px; color: var(--muted);
@@ -608,6 +620,11 @@
             <span id="cov-topbar-label"><i class="fi-br-film"></i> Highlights Coverage</span>
             <span id="last-saved"></span>
         </div>
+        <div id="fetch-log-bar" style="display:none">
+            <span id="fetch-log-time"></span>
+            <span id="fetch-log-status"></span>
+        </div>
+        <div id="fetch-additions-list" style="display:none"></div>
         <div id="coverage-panel">
             <div class="cov-empty">Loading coverage data…</div>
         </div>
@@ -867,6 +884,54 @@ async function loadHighlightsCoverage() {
     } catch {
         panel.innerHTML = '<div class="cov-empty">Could not load coverage data.</div>';
     }
+}
+
+async function loadFetchLog() {
+    try {
+        const url = 'https://raw.githubusercontent.com/' + GH_OWNER + '/' + GH_REPO
+                  + '/main/highlights/fetch-log.json?_=' + Date.now();
+        const res = await fetch(url);
+        if (!res.ok) return;
+        renderFetchLog(await res.json());
+    } catch {}
+}
+
+function renderFetchLog(log) {
+    if (!log || !log.last_run) return;
+    const bar = document.getElementById('fetch-log-bar');
+    const timeEl = document.getElementById('fetch-log-time');
+    const statusEl = document.getElementById('fetch-log-status');
+    const listEl = document.getElementById('fetch-additions-list');
+    if (!bar || !timeEl || !statusEl || !listEl) return;
+
+    const dt = new Date(log.last_run);
+    const diffMs = Date.now() - dt.getTime();
+    const diffH = Math.floor(diffMs / 3600000);
+    const diffM = Math.floor((diffMs % 3600000) / 60000);
+    const ago = diffH > 0 ? diffH + 'h ' + diffM + 'm ago' : diffM + 'm ago';
+    const formatted = dt.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' })
+                    + ' ' + dt.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' });
+    timeEl.textContent = 'Last fetch: ' + ago + ' (' + formatted + ')';
+
+    const additions = log.additions || [];
+    if (additions.length === 0) {
+        statusEl.textContent = 'No new highlights added';
+    } else {
+        statusEl.innerHTML = '<span style="color:var(--green);font-weight:500">+'
+            + additions.length + ' highlight' + (additions.length > 1 ? 's' : '') + ' added</span>';
+        listEl.innerHTML = '';
+        additions.forEach(a => {
+            const row = document.createElement('div');
+            row.className = 'fetch-addition-row';
+            row.innerHTML = '<i class="fi-br-check"></i>'
+                + '<span>' + a.home + ' vs ' + a.away + '</span>'
+                + '<span class="fetch-addition-comp">· ' + a.comp
+                + (a.date ? ' · ' + a.date : '') + '</span>';
+            listEl.appendChild(row);
+        });
+        listEl.style.display = '';
+    }
+    bar.style.display = 'flex';
 }
 
 function renderCoverage(data) {
@@ -1680,6 +1745,7 @@ async function loadAll() {
         buildUI();
         showContent();
         loadHighlightsCoverage(); // async — does not block the main UI
+        loadFetchLog();           // async — does not block the main UI
     } catch(err) {
         dbg('Fatal: ' + err.message, 'err');
         document.getElementById('loading-state').innerHTML =

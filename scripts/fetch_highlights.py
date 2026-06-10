@@ -34,6 +34,7 @@ from highlights_common import (
     BACKFILL_LOCK_PATH,
     COMPETITION_CODE_MAP,
     FD_BASE,
+    HIGHLIGHTS_DIR,
     FD_SLEEP_SECONDS,
     INCREMENTAL_CAP,
     QuotaCapReached,
@@ -201,6 +202,7 @@ def main() -> None:
         return
 
     total_written = 0
+    new_additions: list[dict] = []
     gw_playlist_cache: dict = {}  # shared across all fixtures to avoid redundant playlists.list calls
     try:
         for comp_name, by_stem in sorted(all_fixtures.items()):
@@ -249,6 +251,13 @@ def main() -> None:
                             f"{fix['home_team']} vs {fix['away_team']} ({fix['date']})"
                         )
                     else:
+                        new_additions.append({
+                            "comp":   comp_name,
+                            "home":   fix["home_team"],
+                            "away":   fix["away_team"],
+                            "date":   fix["date"],
+                            "videos": len(videos),
+                        })
                         tiers = sorted({v["tier_used"] for v in videos})
                         log.info(
                             f"  ✓ {fix['home_team']} vs {fix['away_team']}: "
@@ -272,6 +281,14 @@ def main() -> None:
     log.info(
         f"Done. {total_written} file(s) updated. "
         f"Quota: {quota.units_used} units used today."
+    )
+    write_json_atomic(
+        HIGHLIGHTS_DIR / "fetch-log.json",
+        {
+            "last_run":      datetime.now(timezone.utc).isoformat(),
+            "files_updated": total_written,
+            "additions":     new_additions,
+        },
     )
     generate_summary()
 
