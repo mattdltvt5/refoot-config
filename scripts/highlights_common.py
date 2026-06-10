@@ -102,10 +102,13 @@ COMPETITION_KEYWORDS: dict[str, list[str]] = {
 
 # ── Title normalisation ───────────────────────────────────────────────────────
 
-# TLAs shorter than this are excluded from automatic candidates to prevent
+# TLAs shorter than this are excluded from auto-derived candidates to prevent
 # two- and three-letter codes ("OL", "OM", "FCB") from substring-matching
-# unrelated words in titles.
+# unrelated words in titles.  Explicit TEAM_TITLE_ALIASES entries bypass this.
 _MIN_TLA_LEN: int = 4
+
+# Minimum length for any auto-derived token (prevents very short stripped forms).
+_MIN_AUTO_TOKEN_LEN: int = 4
 
 
 def _normalize(s: str) -> str:
@@ -121,67 +124,229 @@ def _normalize(s: str) -> str:
     ).casefold()
 
 
-# ── Team title override map ───────────────────────────────────────────────────
+# ── Smart auto-alias derivation (fallback for teams not in TEAM_TITLE_ALIASES) ─
 #
-# EXCEPTION-ONLY override for teams whose YouTube title forms cannot be derived
-# from their football-data.org {name, shortName, tla} triplet.
+# Newly promoted / relegated teams that have no explicit entry still get a
+# reasonable candidate set by progressively stripping common suffixes, year
+# numbers, and geographic qualifiers from the FD full name.
 #
-# The general mechanism (team_tokens) already tests all three FD fields with
-# diacritic normalisation — so "Barça" vs "FC Barcelona" and "Atlético" vs
-# "Atletico" resolve automatically.  Add an entry here only when a broadcaster
-# uses a branded or colloquial name that is completely unrelated to those fields
-# (e.g. "LOSC" for Lille OSC, "Stade Rennais" when the FD name includes "1901").
+# Examples (FD name → additional auto-derived candidates):
+#   "Bologna FC 1909"           → "Bologna FC", "Bologna"
+#   "1. FC Heidenheim 1846"     → "Heidenheim 1846", "Heidenheim"
+#   "Parma Calcio 1913"         → "Parma Calcio", "Parma"
+#   "Rayo Vallecano de Madrid"  → "Rayo Vallecano"
+#   "Real Sociedad de Fútbol"   → "Real Sociedad"
+#   "Stade Rennais FC 1901"     → "Stade Rennais 1901", "Stade Rennais"
+
+# Remove "1. FC/FSV/SV …" prefixes common in German football.
+_RE_NUM_PREFIX = re.compile(r"^1\.\s+(?:F[CS]?V?\.?\s*)?", re.IGNORECASE)
+
+# Remove trailing organisational suffixes (can appear multiple times, e.g. "AFC").
+_RE_ORG_SUFFIX = re.compile(
+    r"(?:\s+(?:"
+    r"F\.?C\.?|A\.?F\.?C\.?|S\.?C\.?|S\.?V\.?|A\.?C\.?|B\.?C\.?|"
+    r"S\.?S\.?|U\.?S\.?|U\.?D\.?|C\.?F\.?|"
+    r"Calcio|Balompi[eé]|Football\s+Club"
+    r"))+\s*$",
+    re.IGNORECASE,
+)
+
+# Remove trailing year-like numbers (four-digit years or short suffixes like "29").
+_RE_YEAR_SUFFIX = re.compile(r"\s+\b(?:1[89]\d{2}|20\d{2}|\d{1,2})\b\s*$")
+
+# Remove trailing geographic preposition + one or two words ("de Madrid", "de Vigo",
+# "de Fútbol", "von Bremen", "van Amsterdam").
+_RE_GEO_SUFFIX = re.compile(
+    r"\s+\b(?:de\s+la\b|de\b|del\b|von\b|van\b|of\b)\s+\S+(?:\s+\S+)?\s*$",
+    re.IGNORECASE,
+)
+
+
+def _auto_tokens(team_name: str, short_name: str, tla: str = "") -> list[str]:
+    """Derive matching tokens for a team without a TEAM_TITLE_ALIASES entry.
+
+    Returns the normalised FD name + shortName as the base, then adds
+    progressively stripped variants so that promoted teams work without a manual
+    alias entry.  Tokens shorter than _MIN_AUTO_TOKEN_LEN are discarded.
+    """
+    seen: set[str] = set()
+    result: list[str] = []
+
+    def _add(raw: str) -> None:
+        n = _normalize(raw.strip())
+        if n and n not in seen:
+            seen.add(n)
+            result.append(n)
+
+    _add(team_name)
+    _add(short_name)
+
+    # Progressive stripping: num-prefix → year → org-suffix → year again → geo
+    s = _RE_NUM_PREFIX.sub("", team_name).strip()
+    _add(s)
+    prev = None
+    while s != prev:
+        prev = s
+        s = _RE_YEAR_SUFFIX.sub("", s).strip()
+        _add(s)
+        s = _RE_ORG_SUFFIX.sub("", s).strip()
+        _add(s)
+    s = _RE_GEO_SUFFIX.sub("", s).strip()
+    _add(s)
+
+    if tla and len(tla) >= _MIN_TLA_LEN:
+        _add(tla)
+
+    filtered = [t for t in result if len(t) >= _MIN_AUTO_TOKEN_LEN]
+    return filtered or [_normalize(short_name) or _normalize(team_name)]
+
+
+# ── Team title alias map ──────────────────────────────────────────────────────
+#
+# Explicit token sets for every known team across all tracked competitions.
+# An entry REPLACES the _auto_tokens() set entirely for that team.
 #
 # Rules:
-#   - Key  = exact FD team.name (matches home_team/away_team in JSON)
-#   - Value = list of tokens; REPLACES the auto-derived set for this team
+#   - Key  = exact FD team.name (same string as home_team/away_team in JSON)
+#   - Value = all title forms a broadcaster might use; any one is sufficient
+#   - For newly promoted/relegated teams with no entry, _auto_tokens() applies
 #   - Paris FC MUST NOT include bare "Paris" — it would absorb PSG videos
-#   - Prefer adding new competitions' branded names here over code changes
+#   - FC Barcelona MUST NOT include bare "Barcelona" — it is a substring of
+#     "RCD Espanyol de Barcelona", causing false matches with both_teams=True
+#   - Real Madrid MUST NOT include bare "Madrid" — shared with Atlético/Rayo
 
 TEAM_TITLE_ALIASES: dict[str, list[str]] = {
-    # ── Ligue 1 — branded names not derivable from FD name/shortName/tla ──────
-    "Stade Rennais FC 1901": ["Stade Rennais", "Rennais", "Rennes", "Stade Rennes"],
-    "Lille OSC":              ["LOSC", "Lille LOSC", "Lille OSC", "Lille"],
-    "Olympique Lyonnais":     ["Olympique Lyonnais", "Lyon", "OL"],
-    "Olympique de Marseille": ["Olympique de Marseille", "Olympique Marseille", "Marseille", "OM"],
-    "Stade Brestois 29":      ["Stade Brestois", "Stade Brest", "Brestois", "Brest"],
-    "Paris FC":               ["Paris FC"],      # must NOT match PSG
-    "Paris Saint-Germain FC": ["Paris Saint-Germain", "Paris Saint Germain", "PSG", "Paris SG"],
-    "AS Monaco FC":           ["AS Monaco", "Monaco"],
+    # ── Premier League ───────────────────────────────────────────────────────
+    "AFC Bournemouth":             ["AFC Bournemouth", "Bournemouth"],
+    "Arsenal FC":                  ["Arsenal FC", "Arsenal"],
+    "Aston Villa FC":              ["Aston Villa FC", "Aston Villa"],
+    "Brentford FC":                ["Brentford FC", "Brentford"],
+    "Brighton & Hove Albion FC":   ["Brighton & Hove Albion FC", "Brighton & Hove Albion", "Brighton"],
+    "Burnley FC":                  ["Burnley FC", "Burnley"],
+    "Chelsea FC":                  ["Chelsea FC", "Chelsea"],
+    "Crystal Palace FC":           ["Crystal Palace FC", "Crystal Palace"],
+    "Everton FC":                  ["Everton FC", "Everton"],
+    "Fulham FC":                   ["Fulham FC", "Fulham"],
+    "Leeds United FC":             ["Leeds United FC", "Leeds United", "Leeds"],
+    "Liverpool FC":                ["Liverpool FC", "Liverpool"],
+    "Manchester City FC":          ["Manchester City FC", "Manchester City", "Man City"],
+    "Manchester United FC":        ["Manchester United FC", "Manchester United", "Man United", "Man Utd"],
+    "Newcastle United FC":         ["Newcastle United FC", "Newcastle United", "Newcastle"],
+    "Nottingham Forest FC":        ["Nottingham Forest FC", "Nottingham Forest", "Nottm Forest"],
+    "Sunderland AFC":              ["Sunderland AFC", "Sunderland"],
+    "Tottenham Hotspur FC":        ["Tottenham Hotspur FC", "Tottenham Hotspur", "Tottenham", "Spurs"],
+    "West Ham United FC":          ["West Ham United FC", "West Ham United", "West Ham"],
+    "Wolverhampton Wanderers FC":  ["Wolverhampton Wanderers FC", "Wolverhampton Wanderers", "Wolverhampton", "Wolves"],
+
+    # ── LaLiga ───────────────────────────────────────────────────────────────
+    "Athletic Club":               ["Athletic Club", "Athletic Bilbao", "Athletic"],
+    "CA Osasuna":                  ["CA Osasuna", "Osasuna"],
+    "Club Atlético de Madrid":     ["Club Atlético de Madrid", "Club Atletico de Madrid",
+                                    "Atlético de Madrid", "Atletico de Madrid",
+                                    "Atlético Madrid", "Atletico Madrid",
+                                    "Atlético", "Atletico", "Atleti"],
+    "Deportivo Alavés":            ["Deportivo Alavés", "Deportivo Alaves", "Alavés", "Alaves"],
+    "Elche CF":                    ["Elche CF", "Elche"],
+    "FC Barcelona":                ["FC Barcelona", "Barça", "Barca"],   # NOT bare "Barcelona"
+    "Getafe CF":                   ["Getafe CF", "Getafe"],
+    "Girona FC":                   ["Girona FC", "Girona"],
+    "Levante UD":                  ["Levante UD", "Levante"],
+    "RC Celta de Vigo":            ["RC Celta de Vigo", "Celta de Vigo", "RC Celta", "Celta Vigo", "Celta"],
+    "RCD Espanyol de Barcelona":   ["RCD Espanyol de Barcelona", "Espanyol de Barcelona", "RCD Espanyol", "Espanyol"],
+    "RCD Mallorca":                ["RCD Mallorca", "Mallorca"],
+    "Rayo Vallecano de Madrid":    ["Rayo Vallecano de Madrid", "Rayo Vallecano", "Rayo"],
+    "Real Betis Balompié":         ["Real Betis Balompié", "Real Betis Balompie", "Real Betis", "Betis"],
+    "Real Madrid CF":              ["Real Madrid CF", "Real Madrid"],    # NOT bare "Madrid"
+    "Real Oviedo":                 ["Real Oviedo", "Oviedo"],
+    "Real Sociedad de Fútbol":     ["Real Sociedad de Fútbol", "Real Sociedad de Futbol", "Real Sociedad"],
+    "Sevilla FC":                  ["Sevilla FC", "Sevilla"],
+    "Valencia CF":                 ["Valencia CF", "Valencia"],
+    "Villarreal CF":               ["Villarreal CF", "Villarreal"],
+
+    # ── Serie A ──────────────────────────────────────────────────────────────
+    "AC Milan":                    ["AC Milan", "Milan"],
+    "AC Pisa 1909":                ["AC Pisa 1909", "AC Pisa", "Pisa"],
+    "ACF Fiorentina":              ["ACF Fiorentina", "Fiorentina"],
+    "AS Roma":                     ["AS Roma", "Roma"],
+    "Atalanta BC":                 ["Atalanta BC", "Atalanta"],
+    "Bologna FC 1909":             ["Bologna FC 1909", "Bologna FC", "Bologna"],
+    "Cagliari Calcio":             ["Cagliari Calcio", "Cagliari"],
+    "Como 1907":                   ["Como 1907", "Como"],
+    "FC Internazionale Milano":    ["FC Internazionale Milano", "Internazionale Milano",
+                                    "Inter Milan", "Internazionale", "Inter"],
+    "Genoa CFC":                   ["Genoa CFC", "Genoa"],
+    "Hellas Verona FC":            ["Hellas Verona FC", "Hellas Verona", "Verona"],
+    "Juventus FC":                 ["Juventus FC", "Juventus", "Juve"],
+    "Parma Calcio 1913":           ["Parma Calcio 1913", "Parma Calcio", "Parma"],
+    "SS Lazio":                    ["SS Lazio", "Lazio"],
+    "SSC Napoli":                  ["SSC Napoli", "Napoli"],
+    "Torino FC":                   ["Torino FC", "Torino"],
+    "US Cremonese":                ["US Cremonese", "Cremonese"],
+    "US Lecce":                    ["US Lecce", "Lecce"],
+    "US Sassuolo Calcio":          ["US Sassuolo Calcio", "Sassuolo Calcio", "Sassuolo"],
+    "Udinese Calcio":              ["Udinese Calcio", "Udinese"],
+
+    # ── Bundesliga ───────────────────────────────────────────────────────────
+    "1. FC Heidenheim 1846":       ["1. FC Heidenheim 1846", "FC Heidenheim", "Heidenheim"],
+    "1. FC Köln":                  ["1. FC Köln", "1. FC Koln", "FC Köln", "FC Koln", "Köln", "Koln", "Cologne"],
+    "1. FC Union Berlin":          ["1. FC Union Berlin", "FC Union Berlin", "Union Berlin"],
+    "1. FSV Mainz 05":             ["1. FSV Mainz 05", "FSV Mainz 05", "Mainz 05", "Mainz"],
+    "Bayer 04 Leverkusen":         ["Bayer 04 Leverkusen", "Bayer Leverkusen", "Leverkusen"],
+    "Borussia Dortmund":           ["Borussia Dortmund", "BVB", "Dortmund"],
+    "Borussia Mönchengladbach":    ["Borussia Mönchengladbach", "Borussia Monchengladbach",
+                                    "Mönchengladbach", "Monchengladbach", "Gladbach"],
+    "Eintracht Frankfurt":         ["Eintracht Frankfurt", "Frankfurt"],
+    "FC Augsburg":                 ["FC Augsburg", "Augsburg"],
+    "FC Bayern München":           ["FC Bayern München", "FC Bayern Munich",
+                                    "Bayern München", "Bayern Munich", "Bayern"],
+    "FC St. Pauli 1910":           ["FC St. Pauli 1910", "FC St. Pauli", "St. Pauli"],
+    "Hamburger SV":                ["Hamburger SV", "HSV", "Hamburg"],
+    "RB Leipzig":                  ["RB Leipzig", "Leipzig"],
+    "SC Freiburg":                 ["SC Freiburg", "Freiburg"],
+    "SV Werder Bremen":            ["SV Werder Bremen", "Werder Bremen", "Werder"],
+    "TSG 1899 Hoffenheim":         ["TSG 1899 Hoffenheim", "TSG Hoffenheim", "1899 Hoffenheim", "Hoffenheim"],
+    "VfB Stuttgart":               ["VfB Stuttgart", "Stuttgart"],
+    "VfL Wolfsburg":               ["VfL Wolfsburg", "Wolfsburg"],
+
+    # ── Ligue 1 ──────────────────────────────────────────────────────────────
+    "AJ Auxerre":                  ["AJ Auxerre", "Auxerre"],
+    "AS Monaco FC":                ["AS Monaco", "Monaco"],
+    "Angers SCO":                  ["Angers SCO", "Angers"],
+    "FC Lorient":                  ["FC Lorient", "Lorient"],
+    "FC Metz":                     ["FC Metz", "Metz"],
+    "FC Nantes":                   ["FC Nantes", "Nantes"],
+    "Le Havre AC":                 ["Le Havre AC", "Le Havre"],
+    "Lille OSC":                   ["LOSC", "Lille LOSC", "Lille OSC", "Lille"],
+    "OGC Nice":                    ["OGC Nice", "Nice"],
+    "Olympique Lyonnais":          ["Olympique Lyonnais", "Lyon", "OL"],
+    "Olympique de Marseille":      ["Olympique de Marseille", "Olympique Marseille", "Marseille", "OM"],
+    "Paris FC":                    ["Paris FC"],   # must NOT include bare "Paris" — see above
+    "Paris Saint-Germain FC":      ["Paris Saint-Germain", "Paris Saint Germain", "PSG", "Paris SG"],
+    "RC Strasbourg Alsace":        ["RC Strasbourg Alsace", "RC Strasbourg", "Strasbourg"],
+    "Racing Club de Lens":         ["Racing Club de Lens", "RC Lens", "Lens"],
+    "Stade Brestois 29":           ["Stade Brestois", "Stade Brest", "Brestois", "Brest"],
+    "Stade Rennais FC 1901":       ["Stade Rennais", "Rennais", "Rennes", "Stade Rennes"],
+    "Toulouse FC":                 ["Toulouse FC", "Toulouse"],
 }
 
 
 def team_tokens(team_name: str, short_name: str, tla: str = "") -> list[str]:
     """Return normalised candidate strings to search for in a YouTube title.
 
-    Primary path — check TEAM_TITLE_ALIASES for an explicit override (keyed by
-    the full FD team name).  If found, return those strings normalised; they
-    replace the auto-derived set entirely.
+    Override path — if the team has an entry in TEAM_TITLE_ALIASES (keyed by the
+    exact FD team.name), return those strings normalised.  They replace the
+    auto-derived set entirely.
 
-    General path — build candidates from the FD {name, shortName, tla} triplet,
-    each passed through _normalize().  TLAs shorter than _MIN_TLA_LEN are
-    excluded to prevent two/three-letter codes from matching unrelated words.
-    Any one candidate appearing as a substring of the (normalised) title is
-    sufficient for a hit.
+    Fallback path — call _auto_tokens() which derives candidates from the FD
+    {name, shortName, tla} triplet plus progressively stripped variants.  This
+    handles newly promoted/relegated teams with no explicit entry.
 
-    Falls back gracefully when fields are absent (older JSON records lack tla).
+    Any one candidate appearing as a substring of the normalised title is a hit.
     """
     override = TEAM_TITLE_ALIASES.get(team_name)
     if override:
         return [_normalize(a) for a in override]
-
-    candidates: list[str] = []
-    seen: set[str] = set()
-    for raw in (team_name, short_name):
-        n = _normalize(raw)
-        if n and n not in seen:
-            candidates.append(n)
-            seen.add(n)
-    if tla:
-        n = _normalize(tla)
-        if n and len(tla) >= _MIN_TLA_LEN and n not in seen:
-            candidates.append(n)
-    return candidates or [_normalize(short_name) or short_name.casefold()]
+    return _auto_tokens(team_name, short_name, tla)
 
 
 # Regex patterns used to auto-discover per-gameweek playlists from competition channels.

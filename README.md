@@ -235,27 +235,26 @@ Safe to re-run at any time. Fixtures that lose all videos will show as "Highligh
 
 ### Team name matching and diacritic normalisation
 
-`team_tokens()` in `highlights_common.py` builds the candidate set for each team:
+`team_tokens()` in `highlights_common.py` resolves the candidate set for each team in two steps:
 
-1. **General path** (all teams by default): normalise each of `{name, shortName, tla}` from the FD API with `_normalize()` — NFKD decomposition, drop combining marks, casefold — then deduplicate.  TLAs shorter than 4 characters are excluded to prevent two-letter codes (`"OL"`, `"OM"`, `"RM"`) from substring-matching unrelated words.  The video title is normalised the same way before any comparison.
+1. **Override path** (`TEAM_TITLE_ALIASES`): explicit token list for every known team across all five competitions.  An entry **replaces** the auto-derived set entirely and is the expected path for all current teams.  96 teams are mapped — see `highlights_common.py` for the full dict.
 
-   Examples: FD `shortName = "Barça"` → candidate `"barca"` matches titles saying `"Barça"` or `"Barca"`.  FD `name = "FC Barcelona"` → candidate `"fc barcelona"` matches titles saying `"FC Barcelona"` without risking a false match against `"RCD Espanyol de Barcelona"` (different prefix).
+2. **Auto-derivation fallback** (`_auto_tokens()`): for teams with **no entry** (newly promoted / relegated clubs).  Derives candidates from the FD `{name, shortName, tla}` triplet plus progressively stripped variants:
+   - Strip `"1. FC/FSV"` numeric prefix
+   - Strip trailing year numbers (`1909`, `1846`, `05` …)
+   - Strip trailing org suffixes (`FC`, `AFC`, `SC`, `SV`, `Calcio`, `Balompié` …)
+   - Strip trailing geographic qualifiers (`de Madrid`, `de Vigo`, `de Fútbol` …)
 
-2. **Override path** (`TEAM_TITLE_ALIASES`): for teams whose YouTube title form is completely unrelated to all three FD fields.  An entry **replaces** the auto-derived set entirely.  Current entries cover Ligue 1 branded names that diverge from FD geography-based `shortName` values:
+   Examples: `"Leicester City FC"` → `["leicester city fc", "leicester city"]`; `"Bologna FC 1909"` → `["bologna fc 1909", "bologna fc", "bologna"]`; `"Rayo Vallecano de Madrid"` → `["rayo vallecano de madrid", "rayo", "rayo vallecano"]`.
 
-```python
-TEAM_TITLE_ALIASES: dict[str, list[str]] = {
-    "Stade Rennais FC 1901": ["Stade Rennais", "Rennais", "Rennes", "Stade Rennes"],
-    "Lille OSC":              ["LOSC", "Lille LOSC", "Lille OSC", "Lille"],
-    "Paris FC":               ["Paris FC"],   # must NOT include bare "Paris" — see below
-    "Paris Saint-Germain FC": ["Paris Saint-Germain", "Paris Saint Germain", "PSG", "Paris SG"],
-    # … see highlights_common.py for the full map
-}
-```
+Both paths normalise through `_normalize()` (NFKD + drop combining marks + casefold), and the video title is normalised the same way before comparison.
 
-**Adding entries for other competitions:** add a key with the exact FD `team.name` value (the same string that appears as `home_team`/`away_team` in the JSON files).  Only add an entry if the general path (`{name, shortName, tla}` normalised) genuinely cannot produce a working token.
+**Hard collision guards** baked into the alias entries:
+- `"FC Barcelona"` maps to `["FC Barcelona", "Barça", "Barca"]` — NOT bare `"Barcelona"`, which is a substring of `"RCD Espanyol de Barcelona"`
+- `"Real Madrid CF"` maps to `["Real Madrid CF", "Real Madrid"]` — NOT bare `"Madrid"`, shared with Atlético and Rayo
+- `"Paris FC"` maps only to `["Paris FC"]` — bare `"Paris"` would absorb PSG videos in the broad uploads tier
 
-**Paris FC / PSG disambiguation:** `Paris FC` maps only to `["Paris FC"]`.  Adding bare `"Paris"` would absorb PSG videos in the broad channel-uploads tier (2b) where both clubs' videos coexist.
+**Adding/updating entries:** use the exact FD `team.name` value (same string as `home_team`/`away_team` in the JSON files).  Newly promoted teams that are not yet in the map are handled automatically by `_auto_tokens()` — only add an explicit entry if the auto-derivation produces tokens that don't appear in actual broadcast titles.
 
 **Diagnostics:** `python scripts/debug_match.py` tests the matcher over all cached Ligue 1 data with zero YouTube API calls.  Shows per-fixture root-cause analysis and a regression summary.
 
