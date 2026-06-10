@@ -99,6 +99,66 @@ COMPETITION_KEYWORDS: dict[str, list[str]] = {
     "World Cup":        ["world cup", "fifa world cup", "mundial"],
 }
 
+# ── Team name alias map ───────────────────────────────────────────────────────
+#
+# Maps football-data.org canonical team names (stored as home_team/away_team in
+# the JSON files) to every title token that should be accepted in a YouTube video
+# title for that team.
+#
+# WHY this exists: football-data.org shortName values are geographically-based
+# (e.g. "Rennes", "Lille") while official competition channels and club channels
+# often use branded short names ("Stade Rennais", "LOSC").  Since "rennes" is not
+# a substring of "stade rennais", the plain substring check misses matches from
+# the official Ligue 1 per-GW playlists even though the video is clearly about
+# the right fixture.
+#
+# Rules:
+#   - Key = exact football-data.org team.name (must match home_team/away_team in JSON)
+#   - Values = list of ALL acceptable tokens; any one is sufficient to match
+#   - The list intentionally REPLACES the FD shortName for configured teams
+#   - Paris FC is listed separately and NEVER includes "Paris" to avoid absorbing
+#     Paris Saint-Germain FC videos (which use "paris" as substring)
+#   - Extend the dict to cover additional competitions; no code changes required
+
+TEAM_NAME_ALIASES: dict[str, list[str]] = {
+    # ── Ligue 1 ──
+    "Stade Rennais FC 1901": ["Stade Rennais", "Rennais", "Rennes", "Stade Rennes"],
+    "Lille OSC":              ["LOSC", "Lille LOSC", "Lille OSC", "Lille"],
+    "Racing Club de Lens":    ["RC Lens", "Lens"],
+    "Le Havre AC":            ["Le Havre"],
+    "Olympique Lyonnais":     ["Olympique Lyonnais", "Lyon", "OL"],
+    "Olympique de Marseille": ["Olympique de Marseille", "Olympique Marseille", "Marseille", "OM"],
+    "Stade Brestois 29":      ["Stade Brestois", "Stade Brest", "Brestois", "Brest"],
+    "Paris FC":               ["Paris FC"],      # explicit — must NOT match PSG
+    "Paris Saint-Germain FC": ["Paris Saint-Germain", "Paris Saint Germain", "PSG", "Paris SG"],
+    "AS Monaco FC":           ["AS Monaco", "Monaco"],
+    "RC Strasbourg Alsace":   ["RC Strasbourg", "Strasbourg"],
+    "AJ Auxerre":             ["AJ Auxerre", "Auxerre"],
+    "FC Nantes":              ["FC Nantes", "Nantes"],
+    "FC Lorient":             ["FC Lorient", "Lorient"],
+    "FC Metz":                ["FC Metz", "Metz"],
+    "Toulouse FC":            ["Toulouse FC", "Toulouse"],
+    "OGC Nice":               ["OGC Nice", "Nice"],
+    "Angers SCO":             ["Angers SCO", "SCO Angers", "Angers"],
+}
+
+
+def team_tokens(team_name: str, short_name: str) -> list[str]:
+    """
+    Return the list of lowercase tokens to search for in a YouTube title.
+
+    If the team has an entry in TEAM_NAME_ALIASES (keyed by the full FD team name),
+    that list supersedes the FD shortName — every token in the list is tried and
+    any one match is sufficient.
+
+    If no alias entry exists, falls back to [short_name.lower()] (current behaviour).
+    """
+    aliases = TEAM_NAME_ALIASES.get(team_name)
+    if aliases:
+        return [a.lower() for a in aliases]
+    return [short_name.lower()]
+
+
 # Regex patterns used to auto-discover per-gameweek playlists from competition channels.
 # {n} is replaced with the actual matchday number before compiling (case-insensitive).
 # Patterns are tried in order; first match wins.
@@ -949,8 +1009,8 @@ def search_playlist(
     """
     fixture_date = datetime.strptime(fixture["date"], "%Y-%m-%d").replace(tzinfo=timezone.utc)
     window_end   = fixture_date + timedelta(days=VIDEO_WINDOW_DAYS)
-    home_short   = fixture["home_short"].lower()
-    away_short   = fixture["away_short"].lower()
+    home_tokens  = team_tokens(fixture.get("home_team", ""), fixture["home_short"])
+    away_tokens  = team_tokens(fixture.get("away_team", ""), fixture["away_short"])
     keywords     = COMPETITION_KEYWORDS.get(comp_name, [])
 
     accepted:      list[dict] = []
@@ -1022,11 +1082,14 @@ def search_playlist(
             ):
                 continue
 
+            home_hit = any(tok in lower_title for tok in home_tokens)
+            away_hit = any(tok in lower_title for tok in away_tokens)
+
             if requires_both_teams:
-                if home_short not in lower_title or away_short not in lower_title:
+                if not home_hit or not away_hit:
                     continue
             else:
-                if home_short not in lower_title and away_short not in lower_title:
+                if not home_hit and not away_hit:
                     continue
 
             # Reject press conferences, interviews, previews, training clips, etc.

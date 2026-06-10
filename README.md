@@ -10,11 +10,12 @@ Remote channel configuration for the **ReFoot Highlights** Android app.
 | `admin.html` | Browser-based admin panel for managing `sources.json` |
 | `uicons/` | Flaticon UIcons Bold Rounded webfont (used by the admin panel) |
 | `highlights/` | Pre-built video metadata written by the fetch-highlights Action |
-| `scripts/highlights_common.py` | Shared utilities, title filter constants, and `is_highlight_title()` |
+| `scripts/highlights_common.py` | Shared utilities, title filter constants, `is_highlight_title()`, and `TEAM_NAME_ALIASES` |
 | `scripts/fetch_highlights.py` | Incremental update script (runs every 4 hours) |
 | `scripts/backfill_highlights.py` | Full-season backfill script (manual trigger only) |
 | `scripts/clean_highlights.py` | One-time cleanup script — re-evaluates existing JSON files and removes false positives |
 | `scripts/clean_wrong_fixture_videos.py` | Retroactive cleanup — removes videos stored for the wrong fixture (both-teams rule) |
+| `scripts/debug_match.py` | Dry-run diagnostic — tests the fixture↔title matcher over cached data without hitting the YouTube API |
 | `.github/workflows/fetch-highlights.yml` | GitHub Action that runs the incremental script every 4 hours |
 | `.github/workflows/backfill-highlights.yml` | GitHub Action for the manual backfill (workflow_dispatch only) |
 | `.github/workflows/clean-highlights.yml` | GitHub Action for the manual false-positive cleanup (workflow_dispatch only) |
@@ -144,9 +145,9 @@ The script tries sources in this order and stops at the **first tier that yields
 | 6th | 1b | `teams[away_team]` channel → uploads playlist (requires competition keyword in title) |
 
 A video is accepted when **all** of the following are true:
-- `publishedAt` is within 5 days of the fixture date
+- `publishedAt` is within 3 days of the fixture date
 - If the source is a club channel uploads playlist (Tiers 1a/1b): the title contains a competition keyword
-- The title contains the home team's `shortName` **or** the away team's `shortName` (case-insensitive substring)
+- The title contains **at least one alias token** for the home team **or** (for tier 2/4) **both** the home and away team — resolved via `TEAM_NAME_ALIASES` with fallback to the FD `shortName` (case-insensitive substring)
 - The title passes the multilingual highlight title filter (see [Title filter](#title-filter) below)
 
 ### Title filter
@@ -231,6 +232,28 @@ The script (`scripts/clean_wrong_fixture_videos.py`):
 Safe to re-run at any time. Fixtures that lose all videos will show as "Highlight not available yet" placeholders in the app — which is correct behaviour when the only stored video was for the wrong match.
 
 > **Note:** The live pipeline (`search_playlist()`) now requires both team names for tier 2 and tier 4 sources, so this cleanup script only needs to be run once for historical data. Re-run if the alias map in the script is extended to cover additional teams.
+
+### Team name alias map
+
+football-data.org `shortName` values are geographically-based (e.g. `"Rennes"` for *Stade Rennais FC 1901*, `"Lille"` for *Lille OSC*), while official competition channels and club channels often use branded short names (e.g. `"Stade Rennais"`, `"LOSC"`).  Because `"rennes"` is not a substring of `"stade rennais"`, the plain substring check missed matches from the official Ligue 1 per-GW playlists even when the video clearly covered the right fixture.
+
+`TEAM_NAME_ALIASES` in `highlights_common.py` maps each football-data.org canonical team name to a list of all acceptable YouTube title tokens.  Any one token is sufficient to match.  The list **replaces** the FD `shortName` for configured teams; unconfigured teams fall back to the FD `shortName` (existing behaviour).
+
+```python
+TEAM_NAME_ALIASES: dict[str, list[str]] = {
+    "Stade Rennais FC 1901": ["Stade Rennais", "Rennais", "Rennes", "Stade Rennes"],
+    "Lille OSC":              ["LOSC", "Lille LOSC", "Lille OSC", "Lille"],
+    "Paris FC":               ["Paris FC"],   # explicit — must NOT include "Paris"
+    "Paris Saint-Germain FC": ["Paris Saint-Germain", "Paris Saint Germain", "PSG", "Paris SG"],
+    # … see highlights_common.py for the full map
+}
+```
+
+**Adding entries for other competitions:**  add a new key using the exact `team.name` value from football-data.org (the same string that appears in `home_team`/`away_team` in the JSON files) with a list of all title tokens to accept.  No code changes are needed beyond the dict.
+
+**Paris FC / PSG disambiguation:** `Paris FC` is intentionally mapped to `["Paris FC"]` only.  Adding `"Paris"` would allow it to absorb PSG videos that contain `"Paris Saint-Germain"` as a substring — a false match that is especially dangerous in the broad channel-uploads tier (2b) where both clubs' videos coexist.
+
+**Diagnostics:** run `python scripts/debug_match.py` to test the matcher over all cached Ligue 1 data without any YouTube API calls.  The script shows per-fixture root-cause analysis and a regression summary (old vs new match counts).
 
 ### Smart-skip logic
 
