@@ -620,9 +620,9 @@
             <span id="cov-topbar-label"><i class="fi-br-film"></i> Highlights Coverage</span>
             <span id="last-saved"></span>
         </div>
-        <div id="fetch-log-bar" style="display:none">
-            <span id="fetch-log-time"></span>
-            <span id="fetch-log-status"></span>
+        <div id="fetch-log-bar">
+            <span id="fetch-log-time">Last fetch: —</span>
+            <span id="fetch-log-next"></span>
         </div>
         <div id="fetch-additions-list" style="display:none"></div>
         <div id="coverage-panel">
@@ -898,27 +898,26 @@ async function loadFetchLog() {
 
 function renderFetchLog(log) {
     if (!log || !log.last_run) return;
-    const bar = document.getElementById('fetch-log-bar');
     const timeEl = document.getElementById('fetch-log-time');
-    const statusEl = document.getElementById('fetch-log-status');
     const listEl = document.getElementById('fetch-additions-list');
-    if (!bar || !timeEl || !statusEl || !listEl) return;
+    if (!timeEl || !listEl) return;
 
     const dt = new Date(log.last_run);
     const diffMs = Date.now() - dt.getTime();
     const diffH = Math.floor(diffMs / 3600000);
     const diffM = Math.floor((diffMs % 3600000) / 60000);
     const ago = diffH > 0 ? diffH + 'h ' + diffM + 'm ago' : diffM + 'm ago';
-    const formatted = dt.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' })
-                    + ' ' + dt.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' });
-    timeEl.textContent = 'Last fetch: ' + ago + ' (' + formatted + ')';
+    const timeStr = dt.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit', timeZone: 'UTC' }) + ' UTC';
 
     const additions = log.additions || [];
-    if (additions.length === 0) {
-        statusEl.textContent = 'No new highlights added';
-    } else {
-        statusEl.innerHTML = '<span style="color:var(--green);font-weight:500">+'
+    const statusPart = additions.length === 0
+        ? 'no new highlights'
+        : '<span style="color:var(--green);font-weight:500">+'
             + additions.length + ' highlight' + (additions.length > 1 ? 's' : '') + ' added</span>';
+    timeEl.innerHTML = 'Last fetch: ' + ago + ' (' + timeStr + ')'
+        + ' <span style="color:var(--border)">·</span> ' + statusPart;
+
+    if (additions.length > 0) {
         listEl.innerHTML = '';
         additions.forEach(a => {
             const row = document.createElement('div');
@@ -931,7 +930,25 @@ function renderFetchLog(log) {
         });
         listEl.style.display = '';
     }
-    bar.style.display = 'flex';
+}
+
+// ── Next scheduled fetch (cron: "0 */4 * * *" UTC) ───────────────────────
+function nextFetchTimeUTC() {
+    const now = new Date();
+    const base = Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate());
+    return new Date(base + ((Math.floor(now.getUTCHours() / 4) + 1) * 4) * 3600000);
+}
+
+function renderNextFetch() {
+    const el = document.getElementById('fetch-log-next');
+    if (!el) return;
+    const next = nextFetchTimeUTC();
+    const diffMs = next.getTime() - Date.now();
+    const diffH = Math.floor(diffMs / 3600000);
+    const diffM = Math.floor((diffMs % 3600000) / 60000);
+    const inStr = diffH > 0 ? 'in ' + diffH + 'h ' + diffM + 'm' : 'in ' + diffM + 'm';
+    const timeStr = next.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit', timeZone: 'UTC' }) + ' UTC';
+    el.textContent = 'Next: ' + inStr + ' (' + timeStr + ')';
 }
 
 function renderCoverage(data) {
@@ -1746,6 +1763,8 @@ async function loadAll() {
         showContent();
         loadHighlightsCoverage(); // async — does not block the main UI
         loadFetchLog();           // async — does not block the main UI
+        renderNextFetch();        // sync — computed from cron schedule + current time
+        setInterval(renderNextFetch, 60000); // keep countdown live
     } catch(err) {
         dbg('Fatal: ' + err.message, 'err');
         document.getElementById('loading-state').innerHTML =
