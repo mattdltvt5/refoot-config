@@ -326,7 +326,98 @@ TEAM_TITLE_ALIASES: dict[str, list[str]] = {
     "Racing Club de Lens":         ["Racing Club de Lens", "RC Lens", "Lens"],
     "Stade Brestois 29":           ["Stade Brestois", "Stade Brest", "Brestois", "Brest"],
     "Stade Rennais FC 1901":       ["Stade Rennais", "Rennais", "Rennes", "Stade Rennes"],
+    "Stade de Reims":              ["Stade de Reims", "Reims"],
     "Toulouse FC":                 ["Toulouse FC", "Toulouse"],
+    "AS Saint-Étienne":            ["AS Saint-Étienne", "AS Saint-Etienne", "Saint-Étienne",
+                                    "Saint-Etienne", "ASSE"],
+    "Montpellier HSC":             ["Montpellier HSC", "Montpellier"],
+
+    # ── Champions League / Europa League clubs ───────────────────────────────
+    "AFC Ajax":                    ["AFC Ajax", "Ajax"],
+    "Club Brugge KV":              ["Club Brugge KV", "Club Brugge", "Brugge"],
+    "FC København":                ["FC København", "FC Kobenhavn", "Copenhagen", "FC Copenhagen"],
+    "FK Bodø/Glimt":               ["FK Bodø/Glimt", "FK Bodo/Glimt", "Bodø/Glimt",
+                                    "Bodo/Glimt", "Bodo Glimt"],
+    "FK Kairat":                   ["FK Kairat", "Kairat", "Kairat Almaty"],
+    "Galatasaray SK":              ["Galatasaray SK", "Galatasaray"],
+    "PAE Olympiakos SFP":          ["PAE Olympiakos SFP", "Olympiakos", "Olympiacos"],
+    "PSV":                         ["PSV", "PSV Eindhoven"],
+    "Paphos FC":                   ["Paphos FC", "Pafos FC", "Pafos"],
+    "Qarabağ Ağdam FK":            ["Qarabağ Ağdam FK", "Qarabağ FK", "Qarabağ", "Qarabag"],
+    "Royale Union Saint-Gilloise": ["Royale Union Saint-Gilloise", "Union Saint-Gilloise",
+                                    "Union SG", "Union St. Gilloise", "Union Saint Gilloise"],
+    "SK Slavia Praha":             ["SK Slavia Praha", "Slavia Praha", "Slavia Prague"],
+    "Sport Lisboa e Benfica":      ["Sport Lisboa e Benfica", "SL Benfica", "Benfica"],
+    "Sporting Clube de Portugal":  ["Sporting Clube de Portugal", "Sporting CP", "Sporting"],
+
+    # ── LaLiga additional ────────────────────────────────────────────────────
+    "CD Leganés":                  ["CD Leganés", "CD Leganes", "Leganés", "Leganes"],
+    "Real Valladolid CF":          ["Real Valladolid CF", "Real Valladolid", "Valladolid"],
+    "UD Las Palmas":               ["UD Las Palmas", "Las Palmas"],
+
+    # ── Euro Cup national teams ──────────────────────────────────────────────
+    "Albania":                     ["Albania"],
+    "Austria":                     ["Austria", "Österreich"],
+    "Belgium":                     ["Belgium"],
+    "Croatia":                     ["Croatia", "Hrvatska"],
+    "Czechia":                     ["Czechia", "Czech Republic"],
+    "Denmark":                     ["Denmark"],
+    "England":                     ["England"],
+    "France":                      ["France"],
+    "Georgia":                     ["Georgia"],
+    "Germany":                     ["Germany"],
+    "Hungary":                     ["Hungary"],
+    "Italy":                       ["Italy"],
+    "Netherlands":                 ["Netherlands", "Holland"],
+    "Poland":                      ["Poland"],
+    "Portugal":                    ["Portugal"],
+    "Romania":                     ["Romania"],
+    "Scotland":                    ["Scotland"],
+    "Serbia":                      ["Serbia"],
+    "Slovakia":                    ["Slovakia"],
+    "Slovenia":                    ["Slovenia"],
+    "Spain":                       ["Spain"],
+    "Switzerland":                 ["Switzerland"],
+    "Turkey":                      ["Turkey", "Türkiye"],
+    "Ukraine":                     ["Ukraine"],
+
+    # ── World Cup national teams (additional) ────────────────────────────────
+    "Algeria":                     ["Algeria"],
+    "Argentina":                   ["Argentina"],
+    "Australia":                   ["Australia"],
+    "Bosnia-Herzegovina":          ["Bosnia-Herzegovina", "Bosnia Herzegovina",
+                                    "Bosnia & Herzegovina", "Bosnia"],
+    "Brazil":                      ["Brazil"],
+    "Canada":                      ["Canada"],
+    "Cape Verde Islands":          ["Cape Verde Islands", "Cape Verde"],
+    "Colombia":                    ["Colombia"],
+    "Congo DR":                    ["Congo DR", "DR Congo"],
+    "Curaçao":                     ["Curaçao", "Curacao"],
+    "Ecuador":                     ["Ecuador"],
+    "Egypt":                       ["Egypt"],
+    "Ghana":                       ["Ghana"],
+    "Haiti":                       ["Haiti"],
+    "Iran":                        ["Iran"],
+    "Iraq":                        ["Iraq"],
+    "Ivory Coast":                 ["Ivory Coast", "Côte d'Ivoire", "Cote d'Ivoire"],
+    "Japan":                       ["Japan"],
+    "Jordan":                      ["Jordan"],
+    "Mexico":                      ["Mexico", "México"],
+    "Morocco":                     ["Morocco"],
+    "New Zealand":                 ["New Zealand"],
+    "Norway":                      ["Norway"],
+    "Panama":                      ["Panama"],
+    "Paraguay":                    ["Paraguay"],
+    "Qatar":                       ["Qatar"],
+    "Saudi Arabia":                ["Saudi Arabia"],
+    "Senegal":                     ["Senegal"],
+    "South Africa":                ["South Africa"],
+    "South Korea":                 ["South Korea", "Korea Republic"],
+    "Sweden":                      ["Sweden"],
+    "Tunisia":                     ["Tunisia"],
+    "United States":               ["United States", "USA"],
+    "Uruguay":                     ["Uruguay"],
+    "Uzbekistan":                  ["Uzbekistan"],
 }
 
 
@@ -594,8 +685,19 @@ TITLE_ALLOWLIST: list[str] = [
     "골",                    # goals
 ]
 
+# Per-competition allowlist extensions applied ONLY to official competition channel
+# searches (tier 2).  These terms are competition-branded and too broad for club-channel
+# tier 1 searches, where a non-highlight video could legitimately mention the competition
+# name.  Entries here are sponsor-agnostic and survive rebranding between seasons.
+COMP_CHANNEL_TITLE_TERMS: dict[str, list[str]] = {
+    # "| HL | MD 4 – Bundesliga" AND "| Highlights | Matchday 21 – Bundesliga 2025/26"
+    "Bundesliga": ["bundesliga"],
+    # "| Week N - Ligue 1 McDonald's 25/26" — survives future sponsor changes
+    "Ligue 1":    ["ligue 1"],
+}
 
-def is_highlight_title(title: str) -> bool:
+
+def is_highlight_title(title: str, extra_allowlist: "list[str] | tuple[str, ...]" = ()) -> bool:
     """
     Return True only when the video title passes both filters:
 
@@ -606,6 +708,10 @@ def is_highlight_title(title: str) -> bool:
        hashtags stripped out**.  Stripping prevents hashtag-only passes such as
        ``#LaLigaHighlights`` matching the allowlist term ``"highlights"`` — a
        common pattern on social/Shorts clips that are not highlight packages.
+
+    ``extra_allowlist`` is an optional per-source extension (e.g. competition-name
+    terms for official competition channel searches) that is checked after the main
+    allowlist without affecting other search tiers.
 
     Both checks are case-insensitive and cover 11 languages: English, Spanish,
     French, German, Italian, Portuguese, Arabic, Dutch, Turkish, Japanese, Korean.
@@ -623,7 +729,7 @@ def is_highlight_title(title: str) -> bool:
     # the "highlights" allowlist entry.  A genuine highlights title always has
     # the keyword in the non-hashtag body (e.g. "HIGHLIGHTS | LALIGA EA SPORTS").
     lower_no_tags = re.sub(r"#\S+", "", lower).strip()
-    for term in TITLE_ALLOWLIST:
+    for term in (*TITLE_ALLOWLIST, *extra_allowlist):
         if term in lower_no_tags:
             return True
 
@@ -1175,6 +1281,7 @@ def search_playlist(
     cap: int,
     requires_competition_filter: bool = False,
     requires_both_teams: bool = False,
+    extra_allowlist: "list[str] | tuple[str, ...]" = (),
 ) -> list[dict]:
     """
     Search a playlist for videos matching the given fixture.
@@ -1289,7 +1396,7 @@ def search_playlist(
             # Reject press conferences, interviews, previews, training clips, etc.
             # Applies to all tiers — blocklist is checked inside is_highlight_title()
             # before the allowlist, so blocklist always wins.
-            if not is_highlight_title(title):
+            if not is_highlight_title(title, extra_allowlist):
                 continue
 
             seen_ids.add(video_id)
@@ -1342,6 +1449,7 @@ def resolve_videos_for_fixture(
         tier: int,
         comp_filter: bool = False,
         both_teams: bool = False,
+        extra_allowlist: "list[str] | tuple[str, ...]" = (),
     ) -> list[dict] | None:
         if not playlist_id:
             return None
@@ -1349,6 +1457,7 @@ def resolve_videos_for_fixture(
             playlist_id, yt_key, fixture, comp_name, quota, cap,
             requires_competition_filter=comp_filter,
             requires_both_teams=both_teams,
+            extra_allowlist=extra_allowlist,
         )
         if not vids:
             return None
@@ -1395,8 +1504,12 @@ def resolve_videos_for_fixture(
     # 2a: try the per-gameweek playlist first (curated; far less likely to contain
     #     vertical social clips or wrong-fixture videos than the broad uploads feed).
     # 2b: fall back to the channel uploads playlist if no GW playlist is found.
+    # comp_extra extends the title allowlist with competition-branded terms (e.g.
+    # "bundesliga", "ligue 1") that are too broad for club-channel tier 1 searches
+    # but safe here because tier 2 always uses requires_both_teams=True.
     ch = comp_ch.get(comp_name, "")
     if ch:
+        comp_extra = COMP_CHANNEL_TITLE_TERMS.get(comp_name, ())
         gw_pl = find_gameweek_playlist(
             ch,
             fixture.get("matchday"),
@@ -1408,11 +1521,11 @@ def resolve_videos_for_fixture(
             cache=gw_playlist_cache,
         )
         if gw_pl:
-            result = _try(gw_pl, tier=2, both_teams=True)
+            result = _try(gw_pl, tier=2, both_teams=True, extra_allowlist=comp_extra)
             if result:
                 return result
         # Tier 2b: broad channel uploads (original fallback)
-        result = _try(channel_to_uploads(ch), tier=2, both_teams=True)
+        result = _try(channel_to_uploads(ch), tier=2, both_teams=True, extra_allowlist=comp_extra)
         if result:
             return result
 
