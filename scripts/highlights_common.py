@@ -737,6 +737,22 @@ def is_highlight_title(title: str, extra_allowlist: "list[str] | tuple[str, ...]
     return False
 
 
+def is_laliga_highlight_title(title: str) -> bool:
+    """
+    Strict gate for videos discovered via the LaLiga competition channel (tier 2).
+
+    Returns True only when the title contains 'highlights laliga' after case-folding
+    and whitespace normalisation.  Sponsor suffixes (e.g. 'EA SPORTS') are ignored —
+    the check is durable across season rebranding.
+
+    Applied exclusively to tier-2 LaLiga results in resolve_videos_for_fixture() and
+    in clean_highlights.py.  Team-channel (tier 1) and broadcaster-playlist (tier 4)
+    LaLiga videos are never evaluated against this function.
+    """
+    normalised = " ".join(title.lower().split())
+    return "highlights laliga" in normalised
+
+
 # ── Video quality helpers ─────────────────────────────────────────────────────
 
 
@@ -1522,10 +1538,18 @@ def resolve_videos_for_fixture(
         )
         if gw_pl:
             result = _try(gw_pl, tier=2, both_teams=True, extra_allowlist=comp_extra)
+            # LaLiga channel strict gate: only 'HIGHLIGHTS LALIGA' titles accepted from
+            # this source.  'RESUMEN LALIGA EA SPORTS' passes is_highlight_title() via
+            # the Spanish 'resumen' allowlist term but is rejected here because it is
+            # the competition channel's own social/summary reel, not the broadcast cut.
+            if result and comp_name == "LaLiga":
+                result = [v for v in result if is_laliga_highlight_title(v["title"])] or None
             if result:
                 return result
         # Tier 2b: broad channel uploads (original fallback)
         result = _try(channel_to_uploads(ch), tier=2, both_teams=True, extra_allowlist=comp_extra)
+        if result and comp_name == "LaLiga":
+            result = [v for v in result if is_laliga_highlight_title(v["title"])] or None
         if result:
             return result
 

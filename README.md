@@ -201,20 +201,37 @@ English, Spanish, French, German, Italian, Portuguese, Arabic, Dutch, Turkish, J
 
 The word `"preview"` is in the blocklist, `"highlights"` is in the allowlist. Because the **blocklist is checked first**, this title is **rejected**. The filter never reaches the allowlist if any blocklist term matched.
 
+#### LaLiga competition-channel strict gate (tier 2 only)
+
+Videos from the **LaLiga official channel** (tier 2 — both per-matchday playlists and the uploads feed) are subject to a second, stricter filter beyond `is_highlight_title()`.  `is_laliga_highlight_title()` requires the title to contain **`HIGHLIGHTS LALIGA`** (case-insensitive, whitespace-normalised).
+
+**Why this exists:** The LaLiga channel publishes two types of highlight content:
+- `VILLARREAL CF 5 - 1 ATLÉTICO DE MADRID | HIGHLIGHTS LALIGA EA SPORTS` ✅ accepted
+- `FC BARCELONA 2 - 1 GIRONA FC | RESUMEN LALIGA EA SPORTS` ❌ rejected
+
+`RESUMEN` passes the global Spanish allowlist (it means "highlights") but the LaLiga channel's RESUMEN format produces shorter, vertically-cropped social edits rather than full broadcast highlight packages.  Adding `resumen` to the global blocklist would break legitimate Spanish-language videos from team channels and broadcasters — so the gate is scoped to the source, not the language.
+
+**Scope is by source, not by competition:**
+- Tier 2 (LaLiga competition channel): `is_laliga_highlight_title()` required in addition to `is_highlight_title()`
+- Tier 1 (team channels / team playlists): unchanged — `is_highlight_title()` only
+- Tier 4 (broadcaster playlists): unchanged — `is_highlight_title()` only
+
+**Durability:** The `HIGHLIGHTS LALIGA` marker is sponsor-agnostic.  The EA SPORTS suffix may change between seasons; the check deliberately omits it.
+
 ### False-positive cleanup
 
 If a filter update causes previously accepted videos to become false positives, run the **Clean highlights** workflow from the Actions tab:
 
 **Actions → Clean highlights (false-positive removal) → Run workflow**
 
-The script (`scripts/clean_highlights.py`):
-1. Iterates every gameweek/matchday JSON file for all competitions
-2. Re-evaluates the stored `title` field of each video against the current filter (no YouTube API calls — no quota consumed)
-3. Removes any video whose title no longer passes `is_highlight_title()`
-4. Regenerates `highlights/summary.json`
-5. Commits and pushes the changed files with `[skip ci]`
+The script (`scripts/clean_highlights.py`) applies the **source-scoped LaLiga gate**:
+1. Iterates all LaLiga `gameweek-*.json` files
+2. For each video whose `tier_used == 2` (LaLiga competition channel): removes it if the title does not contain `HIGHLIGHTS LALIGA`
+3. Videos with `tier_used == 1` or `tier_used == 4` are **never removed** by this pass, regardless of title
+4. Prints a per-gameweek audit log — removed video IDs + titles, non-LaLiga-channel count, fixtures that became empty
+5. Regenerates `highlights/summary.json`
 
-Safe to re-run at any time. If nothing changed, no commit is made.
+Safe to re-run at any time. Fixtures that lose all videos stay in the JSON as empty `videos: []` — the app shows them as "Highlight not available yet".
 
 ### Wrong-fixture video cleanup
 
