@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-11T22:02:24Z",
+  "generated_at": "2026-06-12T04:07:01Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -11552,7 +11552,7 @@
           "gameweek": "GW4",
           "stem": "gameweek-4",
           "total": 9,
-          "covered": 8,
+          "covered": 9,
           "matches": [
             {
               "match_id": 542436,
@@ -11594,7 +11594,7 @@
               "home": "Paris Saint-Germain FC",
               "away": "Racing Club de Lens",
               "date": "2025-09-14",
-              "covered": false
+              "covered": true
             },
             {
               "match_id": 542439,
@@ -11694,7 +11694,7 @@
           "gameweek": "GW6",
           "stem": "gameweek-6",
           "total": 9,
-          "covered": 7,
+          "covered": 9,
           "matches": [
             {
               "match_id": 542457,
@@ -11736,7 +11736,7 @@
               "home": "FC Metz",
               "away": "Le Havre AC",
               "date": "2025-09-28",
-              "covered": false
+              "covered": true
             },
             {
               "match_id": 542455,
@@ -11750,7 +11750,7 @@
               "home": "Angers SCO",
               "away": "Stade Brestois 29",
               "date": "2025-09-28",
-              "covered": false
+              "covered": true
             },
             {
               "match_id": 542459,
@@ -11907,7 +11907,7 @@
           "gameweek": "GW9",
           "stem": "gameweek-9",
           "total": 9,
-          "covered": 8,
+          "covered": 9,
           "matches": [
             {
               "match_id": 542480,
@@ -11942,7 +11942,7 @@
               "home": "Lille OSC",
               "away": "FC Metz",
               "date": "2025-10-26",
-              "covered": false
+              "covered": true
             },
             {
               "match_id": 542478,
@@ -12617,7 +12617,7 @@
           "gameweek": "GW19",
           "stem": "gameweek-19",
           "total": 9,
-          "covered": 8,
+          "covered": 9,
           "matches": [
             {
               "match_id": 542569,
@@ -12645,7 +12645,7 @@
               "home": "Olympique de Marseille",
               "away": "Racing Club de Lens",
               "date": "2026-01-24",
-              "covered": false
+              "covered": true
             },
             {
               "match_id": 542571,
@@ -12759,7 +12759,7 @@
           "gameweek": "GW21",
           "stem": "gameweek-21",
           "total": 9,
-          "covered": 8,
+          "covered": 9,
           "matches": [
             {
               "match_id": 542588,
@@ -12801,7 +12801,7 @@
               "home": "Le Havre AC",
               "away": "RC Strasbourg Alsace",
               "date": "2026-02-08",
-              "covered": false
+              "covered": true
             },
             {
               "match_id": 542587,
@@ -12901,7 +12901,7 @@
           "gameweek": "GW23",
           "stem": "gameweek-23",
           "total": 9,
-          "covered": 8,
+          "covered": 9,
           "matches": [
             {
               "match_id": 542612,
@@ -12957,7 +12957,7 @@
               "home": "Angers SCO",
               "away": "Lille OSC",
               "date": "2026-02-22",
-              "covered": false
+              "covered": true
             },
             {
               "match_id": 542609,
@@ -13185,7 +13185,7 @@
           "gameweek": "GW27",
           "stem": "gameweek-27",
           "total": 9,
-          "covered": 8,
+          "covered": 9,
           "matches": [
             {
               "match_id": 542647,
@@ -13206,7 +13206,7 @@
               "home": "AJ Auxerre",
               "away": "Stade Brestois 29",
               "date": "2026-03-21",
-              "covered": false
+              "covered": true
             },
             {
               "match_id": 542644,
@@ -13611,7 +13611,7 @@
           "gameweek": "GW33",
           "stem": "gameweek-33",
           "total": 9,
-          "covered": 6,
+          "covered": 8,
           "matches": [
             {
               "match_id": 542700,
@@ -13646,7 +13646,7 @@
               "home": "FC Metz",
               "away": "FC Lorient",
               "date": "2026-05-10",
-              "covered": false
+              "covered": true
             },
             {
               "match_id": 542698,
@@ -13667,7 +13667,7 @@
               "home": "Angers SCO",
               "away": "RC Strasbourg Alsace",
               "date": "2026-05-10",
-              "covered": false
+              "covered": true
             },
             {
               "match_id": 542702,
@@ -13682,7 +13682,7 @@
           "gameweek": "GW34",
           "stem": "gameweek-34",
           "total": 8,
-          "covered": 6,
+          "covered": 7,
           "matches": [
             {
               "match_id": 542703,
@@ -13738,7 +13738,7 @@
               "home": "Stade Brestois 29",
               "away": "Angers SCO",
               "date": "2026-05-17",
-              "covered": false
+              "covered": true
             }
           ]
         }
@@ -15512,6 +15512,27 @@
               "away": "Arsenal FC",
               "date": "2026-05-30",
               "covered": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "competition": "World Cup",
+      "slug": "world-cup",
+      "gameweeks": [
+        {
+          "gameweek": "MD1",
+          "stem": "matchday-1",
+          "total": 1,
+          "covered": 0,
+          "matches": [
+            {
+              "match_id": 537327,
+              "home": "Mexico",
+              "away": "South Africa",
+              "date": "2026-06-11",
+              "covered": false
             }
           ]
         }
