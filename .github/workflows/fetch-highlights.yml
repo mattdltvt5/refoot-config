@@ -13,8 +13,9 @@ jobs:
       contents: write   # allow the bot to commit and push highlights/
 
     env:
-      FOOTBALL_DATA_API_KEY: ${{ secrets.FOOTBALL_DATA_API_KEY }}
-      YOUTUBE_API_KEY:       ${{ secrets.YOUTUBE_API_KEY }}
+      FOOTBALL_DATA_API_KEY:   ${{ secrets.FOOTBALL_DATA_API_KEY }}
+      YOUTUBE_API_KEY:         ${{ secrets.YOUTUBE_API_KEY }}
+      REFOOT_DEBUG_MATCHING:   "1"
       # Opt in to Node 24 for any JS-based actions in this workflow
       FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
 
