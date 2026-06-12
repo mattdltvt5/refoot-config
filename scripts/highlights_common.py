@@ -1298,6 +1298,7 @@ def search_playlist(
     requires_competition_filter: bool = False,
     requires_both_teams: bool = False,
     extra_allowlist: "list[str] | tuple[str, ...]" = (),
+    debug_sink: "list | None" = None,
 ) -> list[dict]:
     """
     Search a playlist for videos matching the given fixture.
@@ -1334,6 +1335,24 @@ def search_playlist(
     seen_ids:      set[str]   = set()
     page_token:    str        = ""
     pages_fetched: int        = 0
+
+    # ── Debug helper: no-op when debug_sink is None ───────────────────────────
+    # Caps collection at 30 records per search_playlist() call so UCL playlists
+    # with hundreds of items don't bloat the sink.  The display cap in
+    # _emit_debug_block() (fetch_highlights.py) is a separate, lower limit.
+    _sink_start          = len(debug_sink) if debug_sink is not None else 0
+    _MAX_DEBUG_RECS: int = 30
+
+    def _rec(v_id: str, raw_title: str, norm: str, why: str) -> None:
+        if debug_sink is not None and (len(debug_sink) - _sink_start) < _MAX_DEBUG_RECS:
+            debug_sink.append({
+                "video_id":    v_id,
+                "title":       raw_title,
+                "norm_title":  norm,
+                "reason":      why,
+                "playlist_id": playlist_id,
+                "tier":        None,  # patched by _try() after the call returns
+            })
 
     while pages_fetched < MAX_YT_PAGES:
         params: dict = {
@@ -1389,33 +1408,57 @@ def search_playlist(
             except ValueError:
                 continue
 
-            if pub_date < fixture_date or pub_date > window_end:
-                continue
-
+            # Normalise up front so every debug record sees the same form
+            # the matcher actually compares against.
             norm_title = _normalize(title)
+
+            if pub_date < fixture_date or pub_date > window_end:
+                _rec(video_id, title, norm_title, f"outside-date-window ({pub_str_date})")
+                continue
 
             if requires_competition_filter and not any(
                 kw in norm_title for kw in keywords
             ):
+                _rec(video_id, title, norm_title, "no-comp-keyword")
                 continue
 
             home_hit = any(tok in norm_title for tok in home_tokens)
             away_hit = any(tok in norm_title for tok in away_tokens)
 
             if requires_both_teams:
-                if not home_hit or not away_hit:
+                # Report which team is missing to distinguish cross-match-guard
+                # failures from genuine token mismatches (diacritics, aliases).
+                if not home_hit:
+                    _rec(video_id, title, norm_title,
+                         f"cross-match-guard:home-missing "
+                         f"(need one of {sorted(home_tokens)!r})")
+                    continue
+                if not away_hit:
+                    _rec(video_id, title, norm_title,
+                         f"cross-match-guard:away-missing "
+                         f"(need one of {sorted(away_tokens)!r})")
                     continue
             else:
                 if not home_hit and not away_hit:
+                    _rec(video_id, title, norm_title, "no-token-overlap")
                     continue
 
             # Reject press conferences, interviews, previews, training clips, etc.
             # Applies to all tiers — blocklist is checked inside is_highlight_title()
             # before the allowlist, so blocklist always wins.
             if not is_highlight_title(title, extra_allowlist):
+                lower = title.lower()
+                blocked_by = next((t for t in TITLE_BLOCKLIST if t in lower), None)
+                reason = (
+                    f"title-filter:blocked:{blocked_by!r}"
+                    if blocked_by
+                    else "title-filter:no-allowlist-match"
+                )
+                _rec(video_id, title, norm_title, reason)
                 continue
 
             seen_ids.add(video_id)
+            _rec(video_id, title, norm_title, "passed-search-filter")
             accepted.append({
                 "video_id":     video_id,
                 "title":        title,
@@ -1443,6 +1486,7 @@ def resolve_videos_for_fixture(
     quota: QuotaTracker,
     cap: int,
     gw_playlist_cache: dict | None = None,
+    debug_sink: "list | None" = None,
 ) -> list[dict]:
     """
     Try each tier in priority order, stopping at the first that yields ≥1 video.
@@ -1469,12 +1513,19 @@ def resolve_videos_for_fixture(
     ) -> list[dict] | None:
         if not playlist_id:
             return None
+        # Track where this call starts in the shared sink so we can retroactively
+        # tag the tier number on all records that search_playlist() appends.
+        _sink_start = len(debug_sink) if debug_sink is not None else 0
         vids = search_playlist(
             playlist_id, yt_key, fixture, comp_name, quota, cap,
             requires_competition_filter=comp_filter,
             requires_both_teams=both_teams,
             extra_allowlist=extra_allowlist,
+            debug_sink=debug_sink,
         )
+        if debug_sink is not None:
+            for rec in debug_sink[_sink_start:]:
+                rec["tier"] = tier
         if not vids:
             return None
 
@@ -1486,6 +1537,15 @@ def resolve_videos_for_fixture(
             d = details.get(v["video_id"])
             if d is not None:
                 if d["duration_seconds"] < MIN_VIDEO_DURATION_SECONDS:
+                    if debug_sink is not None:
+                        debug_sink.append({
+                            "video_id":    v["video_id"],
+                            "title":       v["title"],
+                            "norm_title":  _normalize(v["title"]),
+                            "reason":      f"too-short:{d['duration_seconds']}s",
+                            "playlist_id": playlist_id,
+                            "tier":        tier,
+                        })
                     log.info(
                         f"  Quality: skipping short clip "
                         f"({d['duration_seconds']}s < {MIN_VIDEO_DURATION_SECONDS}s): "
@@ -1493,6 +1553,15 @@ def resolve_videos_for_fixture(
                     )
                     continue
                 if d["is_portrait"]:
+                    if debug_sink is not None:
+                        debug_sink.append({
+                            "video_id":    v["video_id"],
+                            "title":       v["title"],
+                            "norm_title":  _normalize(v["title"]),
+                            "reason":      "portrait-video",
+                            "playlist_id": playlist_id,
+                            "tier":        tier,
+                        })
                     log.info(
                         f"  Quality: skipping portrait/vertical video: {v['title']!r}"
                     )
@@ -1543,12 +1612,35 @@ def resolve_videos_for_fixture(
             # the Spanish 'resumen' allowlist term but is rejected here because it is
             # the competition channel's own social/summary reel, not the broadcast cut.
             if result and comp_name == "LaLiga":
+                if debug_sink is not None:
+                    for v in result:
+                        if not is_laliga_highlight_title(v["title"]):
+                            debug_sink.append({
+                                "video_id":    v["video_id"],
+                                "title":       v["title"],
+                                "norm_title":  _normalize(v["title"]),
+                                "reason":      "laliga-gate:no-highlights-laliga",
+                                "playlist_id": gw_pl,
+                                "tier":        2,
+                            })
                 result = [v for v in result if is_laliga_highlight_title(v["title"])] or None
             if result:
                 return result
         # Tier 2b: broad channel uploads (original fallback)
-        result = _try(channel_to_uploads(ch), tier=2, both_teams=True, extra_allowlist=comp_extra)
+        uploads_pl = channel_to_uploads(ch)
+        result = _try(uploads_pl, tier=2, both_teams=True, extra_allowlist=comp_extra)
         if result and comp_name == "LaLiga":
+            if debug_sink is not None:
+                for v in result:
+                    if not is_laliga_highlight_title(v["title"]):
+                        debug_sink.append({
+                            "video_id":    v["video_id"],
+                            "title":       v["title"],
+                            "norm_title":  _normalize(v["title"]),
+                            "reason":      "laliga-gate:no-highlights-laliga",
+                            "playlist_id": uploads_pl,
+                            "tier":        2,
+                        })
             result = [v for v in result if is_laliga_highlight_title(v["title"])] or None
         if result:
             return result

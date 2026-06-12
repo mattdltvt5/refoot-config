@@ -24,6 +24,7 @@ Environment variables required:
     YOUTUBE_API_KEY         — YouTube Data API v3 key (optional; skips searches if absent)
 """
 
+import argparse
 import logging
 import os
 import sys
@@ -40,6 +41,7 @@ from highlights_common import (
     QuotaCapReached,
     season_for_competition,
     QuotaTracker,
+    _normalize,
     fd_get,
     generate_summary,
     gw_path,
@@ -50,10 +52,121 @@ from highlights_common import (
     merge_into_gw,
     resolve_videos_for_fixture,
     stage_to_file_stem,
+    team_tokens,
     write_json_atomic,
 )
 
 log = logging.getLogger(__name__)
+
+
+# ── CLI args ──────────────────────────────────────────────────────────────────
+
+
+def _parse_args() -> argparse.Namespace:
+    p = argparse.ArgumentParser(description="Fetch highlights incrementally.")
+    p.add_argument(
+        "--debug-matching",
+        action="store_true",
+        help=(
+            "Emit per-fixture candidate rejection reasons for every fixture that "
+            "ends up with no highlights.  Quota-neutral: reuses already-fetched "
+            "playlist items in memory, makes zero extra YouTube API calls.  "
+            "Can also be enabled with REFOOT_DEBUG_MATCHING=1."
+        ),
+    )
+    return p.parse_args()
+
+
+# ── Debug output ──────────────────────────────────────────────────────────────
+
+# Maximum number of candidate-reason lines shown per fixture in the debug block.
+# Caps the display only — the debug_sink itself may hold more records.
+_DEBUG_DISPLAY_CAP = 10
+
+
+def _emit_debug_block(
+    fix: dict,
+    comp_name: str,
+    stem: str,
+    debug_sink: list,
+) -> None:
+    """
+    Emit a structured diagnostic block for a fixture that ended up with no
+    highlights.  Called only when debug_matching is True.
+
+    Shows:
+      - Fixture team names as received from football-data.org + their
+        _normalize() forms (accent probe).
+      - The token sets the matcher actually compares against (from
+        team_tokens()).
+      - Per-candidate rejection reasons collected in debug_sink, capped at
+        _DEBUG_DISPLAY_CAP, grouped by tier / playlist_id.
+    """
+    home = fix["home_team"]
+    away = fix["away_team"]
+    h_norm = _normalize(home)
+    a_norm = _normalize(away)
+
+    log.info("=" * 72)
+    log.info(f"DEBUG MATCH FAILURE  {comp_name} / {stem} / {fix['date']}")
+    log.info(f"  fixture: {home!r}  vs  {away!r}")
+
+    # ── Accent probe ─────────────────────────────────────────────────────────
+    # Confirm whether diacritics (Alavés→alaves, Köln→koln, ø→ø) are stripped
+    # by _normalize().  This is a read-only probe — no effect on acceptance.
+    accent_tag = "diacritics stripped" if h_norm != home.lower() else "no diacritic change"
+    log.info(f"  accent-probe home: {home!r}  →  {h_norm!r}  ({accent_tag})")
+    accent_tag = "diacritics stripped" if a_norm != away.lower() else "no diacritic change"
+    log.info(f"  accent-probe away: {away!r}  →  {a_norm!r}  ({accent_tag})")
+
+    # ── Token sets ───────────────────────────────────────────────────────────
+    h_toks = team_tokens(home, fix.get("home_short", home), fix.get("home_tla", ""))
+    a_toks = team_tokens(away, fix.get("away_short", away), fix.get("away_tla", ""))
+    log.info(f"  home tokens: {sorted(h_toks)}")
+    log.info(f"  away tokens: {sorted(a_toks)}")
+
+    if not debug_sink:
+        log.info("  (no playlist candidates were evaluated — all tiers skipped or empty)")
+        log.info("=" * 72)
+        return
+
+    # ── Per-candidate reason lines ───────────────────────────────────────────
+    # Iterate in collection order (= tier priority order).
+    # Print a tier/playlist header whenever the source changes.
+    # Hard-stop at _DEBUG_DISPLAY_CAP individual candidate lines.
+    total = len(debug_sink)
+    shown = 0
+    prev_key: tuple | None = None
+
+    for rec in debug_sink:
+        key = (rec.get("tier"), rec.get("playlist_id", "?"))
+        if key != prev_key:
+            # Count how many candidates belong to this source
+            src_count = sum(
+                1 for r in debug_sink
+                if (r.get("tier"), r.get("playlist_id", "?")) == key
+            )
+            log.info(
+                f"  [Tier {key[0]} / {key[1]}] — {src_count} candidate(s)"
+            )
+            prev_key = key
+
+        if shown >= _DEBUG_DISPLAY_CAP:
+            continue  # keep printing source headers but skip detail lines
+
+        log.info(f"    [{rec['video_id']}]  {rec['reason']}")
+        log.info(f"      title: {rec['title']!r}")
+        nt = rec.get("norm_title", "")
+        if nt and nt != rec["title"].lower():
+            log.info(f"      norm:  {nt!r}")
+        shown += 1
+
+    if total > _DEBUG_DISPLAY_CAP:
+        log.info(
+            f"  (showing {_DEBUG_DISPLAY_CAP} of {total} total candidates; "
+            f"increase _DEBUG_DISPLAY_CAP in fetch_highlights.py to see more)"
+        )
+    log.info("=" * 72)
 
 
 # ── Fixture fetching ──────────────────────────────────────────────────────────
@@ -142,6 +255,16 @@ def fetch_all_fixtures(fd_key: str) -> dict[str, dict[str, list[dict]]]:
 
 
 def main() -> None:
+    args = _parse_args()
+    debug_matching = args.debug_matching or bool(
+        os.environ.get("REFOOT_DEBUG_MATCHING", "").strip()
+    )
+    if debug_matching:
+        log.info(
+            "REFOOT_DEBUG_MATCHING enabled — per-fixture candidate reasons will be "
+            "logged for every fixture with no highlights.  Zero extra API calls."
+        )
+
     fd_key = os.environ.get("FOOTBALL_DATA_API_KEY", "").strip()
     yt_key = os.environ.get("YOUTUBE_API_KEY", "").strip()
 
@@ -251,13 +374,19 @@ def main() -> None:
                         enriched.append({**fix, "videos": prior["videos"]})
                         continue
 
+                    # Allocate a fresh sink per fixture so each debug block is
+                    # self-contained.  None when debug_matching is off (default).
+                    _sink: list | None = [] if debug_matching else None
                     videos = resolve_videos_for_fixture(
                         fix, comp_name, config, yt_key, quota, INCREMENTAL_CAP,
                         gw_playlist_cache=gw_playlist_cache,
+                        debug_sink=_sink,
                     )
                     enriched.append({**fix, "videos": videos})
 
                     if not videos:
+                        if debug_matching:
+                            _emit_debug_block(fix, comp_name, stem, _sink or [])
                         log.warning(
                             f"No highlights — {comp_name} {stem}: "
                             f"{fix['home_team']} vs {fix['away_team']} ({fix['date']})"

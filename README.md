@@ -275,6 +275,63 @@ Both paths normalise through `_normalize()` (NFKD + drop combining marks + casef
 
 **Diagnostics:** `python scripts/debug_match.py` tests the matcher over all cached Ligue 1 data with zero YouTube API calls.  Shows per-fixture root-cause analysis and a regression summary.
 
+### Matching diagnostics (`REFOOT_DEBUG_MATCHING`)
+
+When a fixture repeatedly shows "No highlights" and the root cause is unclear, enable the matching debugger:
+
+```bash
+# Via environment variable (works with any runner):
+REFOOT_DEBUG_MATCHING=1 python scripts/fetch_highlights.py
+
+# Via CLI flag:
+python scripts/fetch_highlights.py --debug-matching
+```
+
+**What it emits** (only for fixtures that end up with no highlights):
+
+```
+=== DEBUG MATCH FAILURE  LaLiga / gameweek-14 / 2025-11-30
+  fixture: 'RC Celta de Vigo'  vs  'RCD Espanyol de Barcelona'
+  accent-probe home: 'RC Celta de Vigo'  →  'rc celta de vigo'  (no diacritic change)
+  accent-probe away: 'RCD Espanyol de Barcelona'  →  'rcd espanyol de barcelona'  (no diacritic change)
+  home tokens: ['celta', 'celta de vigo', 'celta vigo', 'rc celta', 'rc celta de vigo']
+  away tokens: ['espanyol', 'espanyol de barcelona', 'rcd espanyol', 'rcd espanyol de barcelona']
+  [Tier 2 / PLxxx] — 5 candidate(s)
+    [abc123]  cross-match-guard:away-missing (need one of ['espanyol', ...])
+      title: 'CELTA 2-1 GETAFE | RESUMEN LALIGA EA SPORTS'
+      norm:  'celta 2-1 getafe | resumen laliga ea sports'
+    [def456]  too-short:63s
+      title: 'CELTA vs ESPANYOL | #Shorts'
+===
+```
+
+**Rejection reasons:**
+
+| Code | Meaning |
+|---|---|
+| `outside-date-window (YYYY-MM-DD)` | Video published outside the ±3-day window |
+| `no-comp-keyword` | Tier 1c/1d competition filter: no competition keyword in title |
+| `cross-match-guard:home-missing` | `requires_both_teams=True` but home team tokens absent |
+| `cross-match-guard:away-missing` | `requires_both_teams=True` but away team tokens absent |
+| `no-token-overlap` | Tier 1a/1b: neither team found in title |
+| `title-filter:blocked:<term>` | Global blocklist matched first (e.g. `'press conference'`) |
+| `title-filter:no-allowlist-match` | No allowlist term found after hashtag strip |
+| `laliga-gate:no-highlights-laliga` | Passed all other filters but title lacks `HIGHLIGHTS LALIGA` (tier 2 only) |
+| `too-short:<N>s` | Quality filter: clip shorter than 120 s |
+| `portrait-video` | Quality filter: vertical/portrait aspect ratio |
+
+**Accent probe:** The `accent-probe` lines show what `_normalize()` does to each team name.  This pinpoints diacritic bugs:
+- `'Deportivo Alavés'` → `'deportivo alaves'` (ÿ/é/á stripped by NFKD combining-mark removal)
+- `'Köln'` → `'koln'` (ö = o + combining umlaut, stripped)
+- `'FC København'` → `'fc københavn'` (ø has no NFKD decomposition — survives as-is)
+
+When a team whose name contains ø or ß doesn't match broadcast titles that use the ASCII transliteration, the fix is a `TEAM_TITLE_ALIASES` entry, not a change to `_normalize()`.
+
+**Properties:**
+- **Quota-neutral**: reuses already-fetched playlist items in memory; makes zero new YouTube API calls.
+- **Output-only gate**: no accept/reject thresholds, token sets, or quota tracking are modified.
+- **Normal runs unaffected**: without the flag, behavior is byte-identical to before.
+
 ### Smart-skip logic
 
 Before making any YouTube API calls for a gameweek, the script loads the existing JSON file. If every fixture from the current run already has at least one video in its `videos` array, the entire gameweek is skipped with:
