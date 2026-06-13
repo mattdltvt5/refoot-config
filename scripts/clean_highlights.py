@@ -4,12 +4,12 @@ clean_highlights.py — Source-scoped LaLiga highlight cleanup.
 
 Removes videos from the LaLiga highlights cache that were fetched from
 the official LaLiga competition channel (tier_used == 2) and do not
-contain 'HIGHLIGHTS LALIGA' in their title.
+contain either 'HIGHLIGHTS LALIGA' or 'RESUMEN LALIGA' in their title.
 
 Provenance: each cached video records ``tier_used`` (1, 2, or 4).
 ``tier_used == 2`` identifies videos sourced from the LaLiga channel —
 either via per-matchday playlists (tier 2a) or the channel uploads feed
-(tier 2b).  Both sub-sources apply the same strict title gate.
+(tier 2b).  Both sub-sources apply the same title gate.
 
 Videos from team-channel playlists (tier 1) or broadcaster playlists
 (tier 4) are never touched by this pass, regardless of title content.
@@ -60,7 +60,7 @@ def main() -> None:
     print("=" * 70)
     print("LaLiga source-scoped cleanup")
     print("Scope: tier_used == 2 (LaLiga competition channel)")
-    print("Gate:  title must contain 'highlights laliga' (case-insensitive)")
+    print("Gate:  title must contain 'highlights laliga' or 'resumen laliga' (case-insensitive)")
     print("Other sources (tier 1, tier 4): untouched regardless of title")
     print("=" * 70)
 

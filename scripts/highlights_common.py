@@ -644,8 +644,9 @@ TITLE_ALLOWLIST: list[str] = [
     "résumé",                # summary/highlights
     "buts",                  # goals
 
-    # ── Spanish ──
+    # ── Spanish / Catalan ──
     "resumen",               # summary/highlights
+    "resum",                 # Catalan summary (RCD Espanyol: "⚽ RESUM J{N} | …")
     "goles",                 # goals
     "mejores momentos",      # best moments
 
@@ -740,18 +741,21 @@ def is_highlight_title(title: str, extra_allowlist: "list[str] | tuple[str, ...]
 
 def is_laliga_highlight_title(title: str) -> bool:
     """
-    Strict gate for videos discovered via the LaLiga competition channel (tier 2).
+    Gate for videos discovered via the LaLiga competition channel (tier 2).
 
-    Returns True only when the title contains 'highlights laliga' after case-folding
-    and whitespace normalisation.  Sponsor suffixes (e.g. 'EA SPORTS') are ignored —
-    the check is durable across season rebranding.
+    Returns True when the title contains either:
+    - 'highlights laliga'  — e.g. "HIGHLIGHTS LALIGA EA SPORTS"
+    - 'resumen laliga'     — e.g. "TEAM A 2 - 1 TEAM B | RESUMEN LALIGA EA SPORTS"
+
+    Both are the official LaLiga match-highlights title formats.  Sponsor suffixes
+    (e.g. 'EA SPORTS') are ignored — the check is durable across season rebranding.
 
     Applied exclusively to tier-2 LaLiga results in resolve_videos_for_fixture() and
     in clean_highlights.py.  Team-channel (tier 1) and broadcaster-playlist (tier 4)
     LaLiga videos are never evaluated against this function.
     """
     normalised = " ".join(title.lower().split())
-    return "highlights laliga" in normalised
+    return "highlights laliga" in normalised or "resumen laliga" in normalised
 
 
 # ── Video quality helpers ─────────────────────────────────────────────────────
