@@ -309,18 +309,18 @@ TEAM_TITLE_ALIASES: dict[str, list[str]] = {
     "VfL Wolfsburg":               ["VfL Wolfsburg", "Wolfsburg"],
 
     # ── Ligue 1 ──────────────────────────────────────────────────────────────
-    "AJ Auxerre":                  ["AJ Auxerre", "Auxerre"],
+    "AJ Auxerre":                  ["AJ Auxerre", "Auxerre", "AJA"],
     "AS Monaco FC":                ["AS Monaco", "Monaco"],
     "Angers SCO":                  ["Angers SCO", "Angers"],
     "FC Lorient":                  ["FC Lorient", "Lorient"],
     "FC Metz":                     ["FC Metz", "Metz"],
     "FC Nantes":                   ["FC Nantes", "Nantes"],
-    "Le Havre AC":                 ["Le Havre AC", "Le Havre"],
+    "Le Havre AC":                 ["Le Havre AC", "Le Havre", "HAC"],
     "Lille OSC":                   ["LOSC", "Lille LOSC", "Lille OSC", "Lille"],
     "OGC Nice":                    ["OGC Nice", "Nice"],
     "Olympique Lyonnais":          ["Olympique Lyonnais", "Lyon", "OL"],
     "Olympique de Marseille":      ["Olympique de Marseille", "Olympique Marseille", "Marseille", "OM"],
-    "Paris FC":                    ["Paris FC"],   # must NOT include bare "Paris" — see above
+    "Paris FC":                    ["Paris FC", "PFC"],   # must NOT include bare "Paris" — see above
     "Paris Saint-Germain FC":      ["Paris Saint-Germain", "Paris Saint Germain", "PSG", "Paris SG"],
     "RC Strasbourg Alsace":        ["RC Strasbourg Alsace", "RC Strasbourg", "Strasbourg"],
     "Racing Club de Lens":         ["Racing Club de Lens", "RC Lens", "Lens"],
@@ -690,8 +690,9 @@ TITLE_ALLOWLIST: list[str] = [
 # tier 1 searches, where a non-highlight video could legitimately mention the competition
 # name.  Entries here are sponsor-agnostic and survive rebranding between seasons.
 COMP_CHANNEL_TITLE_TERMS: dict[str, list[str]] = {
-    # "| HL | MD 4 – Bundesliga" AND "| Highlights | Matchday 21 – Bundesliga 2025/26"
-    "Bundesliga": ["bundesliga"],
+    # "| HL | MD 4 – Bundesliga", "| Highlights | Matchday 21 – Bundesliga 2025/26",
+    # and bare "| Matchday 19" titles that lack "Bundesliga" or "Highlights"
+    "Bundesliga": ["bundesliga", "matchday"],
     # "| Week N - Ligue 1 McDonald's 25/26" — survives future sponsor changes
     "Ligue 1":    ["ligue 1"],
 }
