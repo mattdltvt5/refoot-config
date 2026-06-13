@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-12T21:43:33Z",
+  "generated_at": "2026-06-13T03:54:56Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -15524,7 +15524,7 @@
         {
           "gameweek": "MD1",
           "stem": "matchday-1",
-          "total": 2,
+          "total": 4,
           "covered": 0,
           "matches": [
             {
@@ -15539,6 +15539,20 @@
               "home": "South Korea",
               "away": "Czechia",
               "date": "2026-06-12",
+              "covered": false
+            },
+            {
+              "match_id": 537333,
+              "home": "Canada",
+              "away": "Bosnia-Herzegovina",
+              "date": "2026-06-12",
+              "covered": false
+            },
+            {
+              "match_id": 537345,
+              "home": "United States",
+              "away": "Paraguay",
+              "date": "2026-06-13",
               "covered": false
             }
           ]
