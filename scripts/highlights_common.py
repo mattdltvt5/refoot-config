@@ -100,6 +100,82 @@ COMPETITION_KEYWORDS: dict[str, list[str]] = {
     "World Cup":        ["world cup", "fifa world cup", "mundial"],
 }
 
+# Terms that indicate a video belongs to a DIFFERENT competition than the target.
+# Used by Tier 1a/1b (team channel uploads) as an exclusion filter so creative/viral
+# titles without competition names (e.g. "Buendía's 95′ WINNER! | Villa 2-1 Arsenal")
+# are accepted while cup and European knockout content is rejected.
+# All entries must be pre-normalised: lowercase, accent-free (NFKD-stripped).
+# Deliberately omit bare "final"/"finale"/"semi" — too common as adjectives in titles.
+# Bare "leg"/"legs" also omitted — standard football vocabulary ("leg tackle" etc.).
+COMP_EXCLUSION_KEYWORDS: dict[str, tuple[str, ...]] = {
+    "Premier League": (
+        # Named competitions
+        "fa cup", "carabao cup", "league cup", "champions league", "ucl",
+        "europa league", "uel", "conference league", "uecl",
+        "community shield", "fa community shield",
+        # Knockout-round format indicators
+        "quarter-final", "quarter final", "semi-final", "semi final",
+        "first leg", "second leg", "1st leg", "2nd leg",
+        "round of 16", "round of 32", "round of 8",
+        # Generic cup word
+        "cup",
+    ),
+    "LaLiga": (
+        # Named competitions
+        "copa del rey", "supercopa", "champions league", "ucl",
+        "europa league", "uel", "conference league", "uecl",
+        # Knockout-round format indicators (Spanish + universal)
+        "cuartos de final", "semifinal",
+        "partido de ida", "partido de vuelta",
+        "quarter-final", "quarter final", "semi-final", "semi final",
+        "first leg", "second leg", "1st leg", "2nd leg",
+        "round of 16", "round of 32",
+        # Generic cup word (Spanish)
+        "copa",
+    ),
+    "Bundesliga": (
+        # Named competitions
+        "dfb-pokal", "dfb pokal", "supercup", "champions league", "ucl",
+        "europa league", "uel", "conference league", "uecl",
+        # Knockout-round format indicators (German + universal)
+        "viertelfinale", "halbfinale", "hinspiel", "ruckspiel",
+        "quarter-final", "quarter final", "semi-final", "semi final",
+        "first leg", "second leg", "1st leg", "2nd leg",
+        "round of 16", "round of 32",
+        # Generic cup word (German)
+        "pokal",
+    ),
+    "Serie A": (
+        # Named competitions
+        "coppa italia", "supercoppa", "champions league", "ucl",
+        "europa league", "uel", "conference league", "uecl",
+        # Knockout-round format indicators (Italian + universal)
+        # bare "finale" omitted — used as adjective: "gol al minuto finale"
+        "quarti di finale", "semifinale",
+        "gara di andata", "gara di ritorno",
+        "quarter-final", "quarter final", "semi-final", "semi final",
+        "first leg", "second leg", "1st leg", "2nd leg",
+        "round of 16", "round of 32",
+        # Generic cup word (Italian)
+        "coppa",
+    ),
+    "Ligue 1": (
+        # Named competitions
+        "coupe de france", "coupe de la ligue", "trophee des champions",
+        "champions league", "ucl", "europa league", "uel",
+        "conference league", "uecl",
+        # Knockout-round format indicators (French + universal)
+        # bare "finale" omitted — used as adjective in French too
+        "quart de finale", "quarts de finale", "demi-finale", "demi finale",
+        "match aller", "match retour",
+        "quarter-final", "quarter final", "semi-final", "semi final",
+        "first leg", "second leg", "1st leg", "2nd leg",
+        "round of 16", "round of 32",
+        # Generic cup word (French)
+        "coupe",
+    ),
+}
+
 # ── Title normalisation ───────────────────────────────────────────────────────
 
 # TLAs shorter than this are excluded from auto-derived candidates to prevent
@@ -1546,6 +1622,7 @@ def resolve_videos_for_fixture(
         both_teams: bool = False,
         extra_allowlist: "list[str] | tuple[str, ...]" = (),
         date_window: int = VIDEO_WINDOW_DAYS,
+        comp_exclusion_kws: "tuple[str, ...] | list[str]" = (),
     ) -> list[dict] | None:
         if not playlist_id:
             return None
@@ -1563,6 +1640,33 @@ def resolve_videos_for_fixture(
         if debug_sink is not None:
             for rec in debug_sink[_sink_start:]:
                 rec["tier"] = tier
+        if not vids:
+            return None
+
+        # Competition-exclusion filter: drop videos that belong to a different
+        # competition (cups, knockout rounds) when an exclusion list is provided.
+        if comp_exclusion_kws:
+            kept = []
+            for v in vids:
+                nt = _normalize(v["title"])
+                hit = next((kw for kw in comp_exclusion_kws if kw in nt), None)
+                if hit:
+                    if debug_sink is not None:
+                        debug_sink.append({
+                            "video_id":    v["video_id"],
+                            "title":       v["title"],
+                            "norm_title":  nt,
+                            "reason":      f"comp-exclusion:{hit}",
+                            "playlist_id": playlist_id,
+                            "tier":        tier,
+                        })
+                    log.info(
+                        f"  Exclusion: cross-competition keyword {hit!r} in title: "
+                        f"{v['title']!r}"
+                    )
+                else:
+                    kept.append(v)
+            vids = kept
         if not vids:
             return None
 
@@ -1699,17 +1803,23 @@ def resolve_videos_for_fixture(
             if result:
                 return result
 
-    # Tier 1a — home team club channel uploads (requires competition keyword in title)
+    # Tier 1a — home team club channel uploads.
+    # Channel uploads contain ALL competitions, so we require both team names
+    # (catches creative/viral titles without competition names) and exclude
+    # known cup / knockout terms for this competition.
+    _excl = COMP_EXCLUSION_KEYWORDS.get(comp_name, ())
     ch = team_ch.get(home, "")
     if ch:
-        result = _try(channel_to_uploads(ch), tier=1, comp_filter=True)
+        result = _try(channel_to_uploads(ch), tier=1, both_teams=True,
+                      comp_exclusion_kws=_excl)
         if result:
             return result
 
-    # Tier 1b — away team club channel uploads (requires competition keyword in title)
+    # Tier 1b — away team club channel uploads (same reasoning as 1a)
     ch = team_ch.get(away, "")
     if ch:
-        result = _try(channel_to_uploads(ch), tier=1, comp_filter=True)
+        result = _try(channel_to_uploads(ch), tier=1, both_teams=True,
+                      comp_exclusion_kws=_excl)
         if result:
             return result
 
