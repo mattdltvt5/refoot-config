@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-14T04:08:07Z",
+  "generated_at": "2026-06-14T10:53:02Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -15524,8 +15524,8 @@
         {
           "gameweek": "MD1",
           "stem": "matchday-1",
-          "total": 7,
-          "covered": 7,
+          "total": 8,
+          "covered": 8,
           "matches": [
             {
               "match_id": 537327,
@@ -15573,6 +15573,13 @@
               "match_id": 537340,
               "home": "Haiti",
               "away": "Scotland",
+              "date": "2026-06-14",
+              "covered": true
+            },
+            {
+              "match_id": 537346,
+              "home": "Australia",
+              "away": "Turkey",
               "date": "2026-06-14",
               "covered": true
             }
