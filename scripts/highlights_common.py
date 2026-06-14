@@ -38,7 +38,7 @@ FD_BASE     = "https://api.football-data.org/v4"
 YT_PLAYLIST  = "https://www.googleapis.com/youtube/v3/playlistItems"
 YT_VIDEOS    = "https://www.googleapis.com/youtube/v3/videos"
 YT_PLAYLISTS = "https://www.googleapis.com/youtube/v3/playlists"
-MIN_VIDEO_DURATION_SECONDS = 120   # reject clips shorter than 2 min (Shorts, social clips)
+MIN_VIDEO_DURATION_SECONDS = 55    # reject clips shorter than 55s (Shorts, social clips)
 
 # ── Tuning constants ──────────────────────────────────────────────────────────
 
