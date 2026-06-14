@@ -247,7 +247,7 @@ TEAM_TITLE_ALIASES: dict[str, list[str]] = {
                                     "Atlético", "Atletico", "Atleti"],
     "Deportivo Alavés":            ["Deportivo Alavés", "Deportivo Alaves", "Alavés", "Alaves"],
     "Elche CF":                    ["Elche CF", "Elche"],
-    "FC Barcelona":                ["FC Barcelona", "Barça", "Barca"],   # NOT bare "Barcelona"
+    "FC Barcelona":                ["FC Barcelona", "Barcelona", "Barça", "Barca"],
     "Getafe CF":                   ["Getafe CF", "Getafe"],
     "Girona FC":                   ["Girona FC", "Girona"],
     "Levante UD":                  ["Levante UD", "Levante"],
@@ -1333,6 +1333,7 @@ def search_playlist(
     requires_both_teams: bool = False,
     extra_allowlist: "list[str] | tuple[str, ...]" = (),
     debug_sink: "list | None" = None,
+    date_window_days: int = VIDEO_WINDOW_DAYS,
 ) -> list[dict]:
     """
     Search a playlist for videos matching the given fixture.
@@ -1356,7 +1357,7 @@ def search_playlist(
     save state and exit cleanly rather than crashing with a non-zero exit code.
     """
     fixture_date = datetime.strptime(fixture["date"], "%Y-%m-%d").replace(tzinfo=timezone.utc)
-    window_end   = fixture_date + timedelta(days=VIDEO_WINDOW_DAYS)
+    window_end   = fixture_date + timedelta(days=date_window_days)
     home_tokens  = team_tokens(
         fixture.get("home_team", ""), fixture["home_short"], fixture.get("home_tla", "")
     )
@@ -1544,6 +1545,7 @@ def resolve_videos_for_fixture(
         comp_filter: bool = False,
         both_teams: bool = False,
         extra_allowlist: "list[str] | tuple[str, ...]" = (),
+        date_window: int = VIDEO_WINDOW_DAYS,
     ) -> list[dict] | None:
         if not playlist_id:
             return None
@@ -1556,6 +1558,7 @@ def resolve_videos_for_fixture(
             requires_both_teams=both_teams,
             extra_allowlist=extra_allowlist,
             debug_sink=debug_sink,
+            date_window_days=date_window,
         )
         if debug_sink is not None:
             for rec in debug_sink[_sink_start:]:
@@ -1680,9 +1683,16 @@ def resolve_videos_for_fixture(
             return result
 
     # Tier 4 — broadcaster playlists (same rationale: broad channels, need both names)
+    # Use a 7-day window: curated PL… playlists timestamp items with the date they
+    # were added to the playlist, not the video publication date.  Early-season
+    # games added to the playlist retroactively can sit outside a 3-day window even
+    # though the video itself was published on time.  requires_both_teams=True
+    # guards against cross-fixture false positives; UCL/UEL matchdays are 2+ weeks
+    # apart so 7 days does not bleed into a subsequent matchday.
+    _TIER4_WINDOW = 7
     for _broadcaster, pl_ids in comp_pl.get(comp_name, {}).items():
         for pl_id in pl_ids:
-            result = _try(pl_id, tier=4, both_teams=True)
+            result = _try(pl_id, tier=4, both_teams=True, date_window=_TIER4_WINDOW)
             if result:
                 return result
 
