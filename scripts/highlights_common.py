@@ -315,7 +315,7 @@ TEAM_TITLE_ALIASES: dict[str, list[str]] = {
     "FC Lorient":                  ["FC Lorient", "Lorient"],
     "FC Metz":                     ["FC Metz", "Metz"],
     "FC Nantes":                   ["FC Nantes", "Nantes"],
-    "Le Havre AC":                 ["Le Havre AC", "Le Havre", "HAC"],
+    "Le Havre AC":                 ["Le Havre AC", "Le Havre", "Havre AC", "HAC"],
     "Lille OSC":                   ["LOSC", "Lille LOSC", "Lille OSC", "Lille"],
     "OGC Nice":                    ["OGC Nice", "Nice"],
     "Olympique Lyonnais":          ["Olympique Lyonnais", "Lyon", "OL"],
@@ -897,43 +897,56 @@ def find_gameweek_playlist(
         for p in comp_patterns
     ]
 
-    try:
-        resp = requests.get(
-            YT_PLAYLISTS,
-            params={
-                "part":       "snippet",
-                "channelId":  channel_id,
-                "maxResults": 50,
-                "key":        yt_key,
-            },
-            timeout=15,
-        )
-    except requests.RequestException as exc:
-        log.warning(f"Network error fetching playlists for channel {channel_id}: {exc}")
-        cache[cache_key] = None
-        return None
+    # Channels may have >50 playlists (multiple seasons + bonus content), so
+    # paginate until we find a match or exhaust the channel's playlist list.
+    # Each page costs 1 quota unit; cap at 5 pages (250 playlists) to stay lean.
+    _MAX_PAGES   = 5
+    found        = None
+    page_token   = ""
 
-    if resp.status_code == 403:
-        raise QuotaCapReached("YouTube 403 on playlists.list — quota exhausted")
-    if not resp.ok:
-        log.warning(
-            f"YouTube playlists.list HTTP {resp.status_code} for {channel_id} — skipping"
-        )
-        cache[cache_key] = None
-        return None
+    for _ in range(_MAX_PAGES):
+        params: dict = {
+            "part":       "snippet",
+            "channelId":  channel_id,
+            "maxResults": 50,
+            "key":        yt_key,
+        }
+        if page_token:
+            params["pageToken"] = page_token
 
-    quota.increment(cap)
+        try:
+            resp = requests.get(YT_PLAYLISTS, params=params, timeout=15)
+        except requests.RequestException as exc:
+            log.warning(f"Network error fetching playlists for channel {channel_id}: {exc}")
+            break
 
-    found = None
-    for item in resp.json().get("items", []):
-        title = item.get("snippet", {}).get("title", "")
-        pl_id = item.get("id", "")
-        if pl_id and any(pat.search(title) for pat in patterns):
-            found = pl_id
-            log.info(
-                f"  Discovered GW playlist for {comp_name} MD{matchday}: "
-                f"{title!r} → {pl_id}"
+        if resp.status_code == 403:
+            raise QuotaCapReached("YouTube 403 on playlists.list — quota exhausted")
+        if not resp.ok:
+            log.warning(
+                f"YouTube playlists.list HTTP {resp.status_code} for {channel_id} — skipping"
             )
+            break
+
+        quota.increment(cap)
+        data = resp.json()
+
+        for item in data.get("items", []):
+            title = item.get("snippet", {}).get("title", "")
+            pl_id = item.get("id", "")
+            if pl_id and any(pat.search(title) for pat in patterns):
+                found = pl_id
+                log.info(
+                    f"  Discovered GW playlist for {comp_name} MD{matchday}: "
+                    f"{title!r} → {pl_id}"
+                )
+                break
+
+        if found:
+            break
+
+        page_token = data.get("nextPageToken", "")
+        if not page_token:
             break
 
     if not found:
