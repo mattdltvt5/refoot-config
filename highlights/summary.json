@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-14T17:24:14Z",
+  "generated_at": "2026-06-14T21:14:38Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -243,7 +243,7 @@
           "gameweek": "GW4",
           "stem": "gameweek-4",
           "total": 10,
-          "covered": 9,
+          "covered": 10,
           "matches": [
             {
               "match_id": 537817,
@@ -257,7 +257,7 @@
               "home": "AFC Bournemouth",
               "away": "Brighton & Hove Albion FC",
               "date": "2025-09-13",
-              "covered": false
+              "covered": true
             },
             {
               "match_id": 537816,
@@ -399,7 +399,7 @@
           "gameweek": "GW6",
           "stem": "gameweek-6",
           "total": 10,
-          "covered": 9,
+          "covered": 10,
           "matches": [
             {
               "match_id": 537837,
@@ -448,7 +448,7 @@
               "home": "Tottenham Hotspur FC",
               "away": "Wolverhampton Wanderers FC",
               "date": "2025-09-27",
-              "covered": false
+              "covered": true
             },
             {
               "match_id": 537835,
@@ -477,7 +477,7 @@
           "gameweek": "GW7",
           "stem": "gameweek-7",
           "total": 10,
-          "covered": 9,
+          "covered": 10,
           "matches": [
             {
               "match_id": 537845,
@@ -540,7 +540,7 @@
               "home": "Wolverhampton Wanderers FC",
               "away": "Brighton & Hove Albion FC",
               "date": "2025-10-05",
-              "covered": false
+              "covered": true
             },
             {
               "match_id": 537848,
@@ -1413,7 +1413,7 @@
           "gameweek": "GW19",
           "stem": "gameweek-19",
           "total": 10,
-          "covered": 9,
+          "covered": 10,
           "matches": [
             {
               "match_id": 537969,
@@ -1455,7 +1455,7 @@
               "home": "Manchester United FC",
               "away": "Wolverhampton Wanderers FC",
               "date": "2025-12-30",
-              "covered": false
+              "covered": true
             },
             {
               "match_id": 537966,
@@ -1803,7 +1803,7 @@
           "gameweek": "GW24",
           "stem": "gameweek-24",
           "total": 10,
-          "covered": 8,
+          "covered": 9,
           "matches": [
             {
               "match_id": 538017,
@@ -1824,7 +1824,7 @@
               "home": "Wolverhampton Wanderers FC",
               "away": "AFC Bournemouth",
               "date": "2026-01-31",
-              "covered": false
+              "covered": true
             },
             {
               "match_id": 538018,
@@ -1959,7 +1959,7 @@
           "gameweek": "GW26",
           "stem": "gameweek-26",
           "total": 10,
-          "covered": 9,
+          "covered": 10,
           "matches": [
             {
               "match_id": 538039,
@@ -2008,7 +2008,7 @@
               "home": "Nottingham Forest FC",
               "away": "Wolverhampton Wanderers FC",
               "date": "2026-02-11",
-              "covered": false
+              "covered": true
             },
             {
               "match_id": 538037,
@@ -11481,7 +11481,7 @@
           "gameweek": "GW3",
           "stem": "gameweek-3",
           "total": 9,
-          "covered": 8,
+          "covered": 9,
           "matches": [
             {
               "match_id": 542431,
@@ -11537,7 +11537,7 @@
               "home": "Paris FC",
               "away": "FC Metz",
               "date": "2025-08-31",
-              "covered": false
+              "covered": true
             },
             {
               "match_id": 542430,
@@ -11978,14 +11978,14 @@
           "gameweek": "GW10",
           "stem": "gameweek-10",
           "total": 9,
-          "covered": 8,
+          "covered": 9,
           "matches": [
             {
               "match_id": 542487,
               "home": "Le Havre AC",
               "away": "Stade Brestois 29",
               "date": "2025-10-29",
-              "covered": false
+              "covered": true
             },
             {
               "match_id": 542488,
@@ -12191,7 +12191,7 @@
           "gameweek": "GW13",
           "stem": "gameweek-13",
           "total": 9,
-          "covered": 8,
+          "covered": 9,
           "matches": [
             {
               "match_id": 542517,
@@ -12247,7 +12247,7 @@
               "home": "Stade Brestois 29",
               "away": "FC Metz",
               "date": "2025-11-23",
-              "covered": false
+              "covered": true
             },
             {
               "match_id": 542518,
@@ -14328,14 +14328,14 @@
           "gameweek": "MD3",
           "stem": "matchday-3",
           "total": 18,
-          "covered": 17,
+          "covered": 18,
           "matches": [
             {
               "match_id": 551955,
               "home": "FC Barcelona",
               "away": "PAE Olympiakos SFP",
               "date": "2025-10-21",
-              "covered": false
+              "covered": true
             },
             {
               "match_id": 552045,
@@ -14998,7 +14998,7 @@
           "gameweek": "MD8",
           "stem": "matchday-8",
           "total": 18,
-          "covered": 17,
+          "covered": 18,
           "matches": [
             {
               "match_id": 551950,
@@ -15012,7 +15012,7 @@
               "home": "FC Barcelona",
               "away": "FC København",
               "date": "2026-01-28",
-              "covered": false
+              "covered": true
             },
             {
               "match_id": 551967,
@@ -15524,8 +15524,8 @@
         {
           "gameweek": "MD1",
           "stem": "matchday-1",
-          "total": 8,
-          "covered": 8,
+          "total": 9,
+          "covered": 9,
           "matches": [
             {
               "match_id": 537327,
@@ -15580,6 +15580,13 @@
               "match_id": 537346,
               "home": "Australia",
               "away": "Turkey",
+              "date": "2026-06-14",
+              "covered": true
+            },
+            {
+              "match_id": 537351,
+              "home": "Germany",
+              "away": "Curaçao",
               "date": "2026-06-14",
               "covered": true
             }
