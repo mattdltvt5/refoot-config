@@ -1,14 +1,21 @@
 {
   "competition": "LaLiga",
   "gameweek": 3,
-  "generated_at": "2026-06-11T14:37:18Z",
+  "generated_at": "2026-06-14T04:05:19Z",
   "matches": [
     {
       "match_id": 544233,
       "home_team": "Elche CF",
       "away_team": "Levante UD",
       "date": "2025-08-29",
-      "videos": []
+      "videos": [
+        {
+          "video_id": "_JlAgeHQOds",
+          "title": "ELCHE CF 2 - 0 LEVANTE UD | RESUMEN LALIGA EA SPORTS",
+          "published_at": "2025-08-29",
+          "tier_used": 2
+        }
+      ]
     },
     {
       "match_id": 544239,
@@ -113,7 +120,26 @@
       "home_team": "RCD Espanyol de Barcelona",
       "away_team": "CA Osasuna",
       "date": "2025-08-31",
-      "videos": []
+      "videos": [
+        {
+          "video_id": "OMx2DWgVIBk",
+          "title": "⚽ RESUM J3 | Espanyol 1-0 Osasuna | #LaLigaHighlights",
+          "published_at": "2025-09-01",
+          "tier_used": 1
+        },
+        {
+          "video_id": "9vmXvxkeU_g",
+          "title": "⚽️ RESUM J2 | Real Sociedad 2-2 RCD Espanyol | #LaLigaHighlights",
+          "published_at": "2025-09-01",
+          "tier_used": 1
+        },
+        {
+          "video_id": "qbHWRg34Aog",
+          "title": "⚽️ RESUM J1 | Espanyol 2-1 Atlético de Madrid | #LaLigaHighlights",
+          "published_at": "2025-09-01",
+          "tier_used": 1
+        }
+      ]
     },
     {
       "match_id": 544238,

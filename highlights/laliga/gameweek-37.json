@@ -1,7 +1,7 @@
 {
   "competition": "LaLiga",
   "gameweek": 37,
-  "generated_at": "2026-06-11T14:37:19Z",
+  "generated_at": "2026-06-14T04:05:34Z",
   "matches": [
     {
       "match_id": 544571,
@@ -106,7 +106,20 @@
       "home_team": "CA Osasuna",
       "away_team": "RCD Espanyol de Barcelona",
       "date": "2026-05-17",
-      "videos": []
+      "videos": [
+        {
+          "video_id": "9oV901P81fQ",
+          "title": "⚽ RESUM J37 Osasuna 1-2 Espanyol #LaLigaHighlights",
+          "published_at": "2026-05-17",
+          "tier_used": 1
+        },
+        {
+          "video_id": "DcCsw3FtLTk",
+          "title": "⚽ RESUM J36 Espanyol 2-0 Athletic Club #LaLigaHighlight",
+          "published_at": "2026-05-17",
+          "tier_used": 1
+        }
+      ]
     },
     {
       "match_id": 544580,
@@ -127,7 +140,14 @@
       "home_team": "FC Barcelona",
       "away_team": "Real Betis Balompié",
       "date": "2026-05-17",
-      "videos": []
+      "videos": [
+        {
+          "video_id": "s93kZOppXkg",
+          "title": "FC BARCELONA 3 - 1 REAL BETIS | RESUMEN LALIGA EA SPORTS",
+          "published_at": "2026-05-17",
+          "tier_used": 2
+        }
+      ]
     }
   ]
 }

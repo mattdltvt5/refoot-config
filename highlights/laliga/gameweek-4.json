@@ -1,7 +1,7 @@
 {
   "competition": "LaLiga",
   "gameweek": 4,
-  "generated_at": "2026-06-11T14:37:18Z",
+  "generated_at": "2026-06-14T04:05:39Z",
   "matches": [
     {
       "match_id": 544249,
@@ -78,14 +78,28 @@
       "home_team": "RC Celta de Vigo",
       "away_team": "Girona FC",
       "date": "2025-09-14",
-      "videos": []
+      "videos": [
+        {
+          "video_id": "nSaZlkcPCHU",
+          "title": "CELTA 1 - 1 GIRONA FC | RESUMEN LALIGA EA SPORTS",
+          "published_at": "2025-09-14",
+          "tier_used": 2
+        }
+      ]
     },
     {
       "match_id": 544248,
       "home_team": "Levante UD",
       "away_team": "Real Betis Balompié",
       "date": "2025-09-14",
-      "videos": []
+      "videos": [
+        {
+          "video_id": "yly_MOjuS6Y",
+          "title": "LEVANTE UD 2 - 2 REAL BETIS | RESUMEN LALIGA EA SPORTS",
+          "published_at": "2025-09-14",
+          "tier_used": 2
+        }
+      ]
     },
     {
       "match_id": 544246,
@@ -120,7 +134,14 @@
       "home_team": "RCD Espanyol de Barcelona",
       "away_team": "RCD Mallorca",
       "date": "2025-09-15",
-      "videos": []
+      "videos": [
+        {
+          "video_id": "YFLO8k_Nkz4",
+          "title": "⚽ RESUM J4 | Espanyol 3-2 Mallorca | #LaLigaHighlights",
+          "published_at": "2025-09-15",
+          "tier_used": 1
+        }
+      ]
     }
   ]
 }
