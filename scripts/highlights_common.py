@@ -1608,19 +1608,28 @@ def resolve_videos_for_fixture(
         return [{**v, "tier_used": tier} for v in filtered] if filtered else None
 
     # Tier 1c — home team competition-scoped playlist
-    # comp_filter=True: even though this playlist is labelled for one competition,
-    # clubs sometimes use the same playlist across competitions (e.g. a Betis
-    # LaLiga playlist that also contains Europa League clips).  Requiring a
-    # competition keyword in the title prevents cross-competition false positives
-    # (e.g. "PFC Ludogorets - Real Betis | HIGHLIGHTS" stored for a LaLiga fixture).
-    result = _try(team_pl.get(comp_name, {}).get(home, ""), tier=1, comp_filter=True)
+    # requires_both_teams=True (no comp_filter): the playlist is already scoped to
+    # this competition by its entry in teamPlaylists[comp_name], so requiring a
+    # competition keyword in the title is redundant and blocks clubs (e.g. Paris FC)
+    # whose titles use "résumé + opponent" format without naming the competition.
+    # Requiring BOTH team names is at least as strict a cross-fixture guard, and
+    # also protects against cross-competition false positives: a Europa League clip
+    # that slipped into a LaLiga playlist would still need the *LaLiga* opponent in
+    # its title to pass — which it won't have.
+    result = _try(team_pl.get(comp_name, {}).get(home, ""), tier=1, both_teams=True)
     if result:
         return result
 
     # Tier 1d — away team competition-scoped playlist (same reasoning as 1c)
-    result = _try(team_pl.get(comp_name, {}).get(away, ""), tier=1, comp_filter=True)
+    result = _try(team_pl.get(comp_name, {}).get(away, ""), tier=1, both_teams=True)
     if result:
         return result
+
+    # Window for curated PL… playlists (Tier 2a per-GW and Tier 4 broadcaster):
+    # publishedAt = date item was added to the playlist, not video publication date.
+    # Early-season games added retroactively can fall outside a 3-day window even
+    # though the video was published on time.
+    _CURATED_PLAYLIST_WINDOW = 7
 
     # Tier 2 — official competition channel
     # 2a: try the per-gameweek playlist first (curated; far less likely to contain
@@ -1643,7 +1652,7 @@ def resolve_videos_for_fixture(
             cache=gw_playlist_cache,
         )
         if gw_pl:
-            result = _try(gw_pl, tier=2, both_teams=True, extra_allowlist=comp_extra)
+            result = _try(gw_pl, tier=2, both_teams=True, extra_allowlist=comp_extra, date_window=_CURATED_PLAYLIST_WINDOW)
             # LaLiga channel strict gate: only 'HIGHLIGHTS LALIGA' titles accepted from
             # this source.  'RESUMEN LALIGA EA SPORTS' passes is_highlight_title() via
             # the Spanish 'resumen' allowlist term but is rejected here because it is
@@ -1682,17 +1691,11 @@ def resolve_videos_for_fixture(
         if result:
             return result
 
-    # Tier 4 — broadcaster playlists (same rationale: broad channels, need both names)
-    # Use a 7-day window: curated PL… playlists timestamp items with the date they
-    # were added to the playlist, not the video publication date.  Early-season
-    # games added to the playlist retroactively can sit outside a 3-day window even
-    # though the video itself was published on time.  requires_both_teams=True
-    # guards against cross-fixture false positives; UCL/UEL matchdays are 2+ weeks
-    # apart so 7 days does not bleed into a subsequent matchday.
-    _TIER4_WINDOW = 7
+    # Tier 4 — broadcaster playlists (same rationale as Tier 2a: curated PL…
+    # playlists, requires_both_teams=True guards cross-fixture false positives).
     for _broadcaster, pl_ids in comp_pl.get(comp_name, {}).items():
         for pl_id in pl_ids:
-            result = _try(pl_id, tier=4, both_teams=True, date_window=_TIER4_WINDOW)
+            result = _try(pl_id, tier=4, both_teams=True, date_window=_CURATED_PLAYLIST_WINDOW)
             if result:
                 return result
 
