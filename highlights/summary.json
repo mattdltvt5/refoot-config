@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-15T19:49:44Z",
+  "generated_at": "2026-06-15T22:20:38Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -15524,8 +15524,8 @@
         {
           "gameweek": "MD1",
           "stem": "matchday-1",
-          "total": 13,
-          "covered": 13,
+          "total": 14,
+          "covered": 14,
           "matches": [
             {
               "match_id": 537327,
@@ -15615,6 +15615,13 @@
               "match_id": 537369,
               "home": "Spain",
               "away": "Cape Verde Islands",
+              "date": "2026-06-15",
+              "covered": true
+            },
+            {
+              "match_id": 537363,
+              "home": "Belgium",
+              "away": "Egypt",
               "date": "2026-06-15",
               "covered": true
             }
