@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-14T21:14:38Z",
+  "generated_at": "2026-06-15T04:17:08Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -15524,8 +15524,8 @@
         {
           "gameweek": "MD1",
           "stem": "matchday-1",
-          "total": 9,
-          "covered": 9,
+          "total": 11,
+          "covered": 10,
           "matches": [
             {
               "match_id": 537327,
@@ -15589,6 +15589,20 @@
               "away": "Curaçao",
               "date": "2026-06-14",
               "covered": true
+            },
+            {
+              "match_id": 537357,
+              "home": "Netherlands",
+              "away": "Japan",
+              "date": "2026-06-14",
+              "covered": true
+            },
+            {
+              "match_id": 537358,
+              "home": "Sweden",
+              "away": "Tunisia",
+              "date": "2026-06-15",
+              "covered": false
             }
           ]
         }
