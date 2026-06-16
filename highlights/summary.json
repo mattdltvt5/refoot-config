@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-16T19:37:27Z",
+  "generated_at": "2026-06-16T22:13:13Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -15524,8 +15524,8 @@
         {
           "gameweek": "MD1",
           "stem": "matchday-1",
-          "total": 16,
-          "covered": 16,
+          "total": 17,
+          "covered": 17,
           "matches": [
             {
               "match_id": 537327,
@@ -15636,6 +15636,13 @@
               "match_id": 537364,
               "home": "Iran",
               "away": "New Zealand",
+              "date": "2026-06-16",
+              "covered": true
+            },
+            {
+              "match_id": 537391,
+              "home": "France",
+              "away": "Senegal",
               "date": "2026-06-16",
               "covered": true
             }
