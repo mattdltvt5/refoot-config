@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-17T18:17:39Z",
+  "generated_at": "2026-06-17T22:02:08Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -15524,8 +15524,8 @@
         {
           "gameweek": "MD1",
           "stem": "matchday-1",
-          "total": 20,
-          "covered": 20,
+          "total": 21,
+          "covered": 21,
           "matches": [
             {
               "match_id": 537327,
@@ -15664,6 +15664,13 @@
               "match_id": 537398,
               "home": "Austria",
               "away": "Jordan",
+              "date": "2026-06-17",
+              "covered": true
+            },
+            {
+              "match_id": 537403,
+              "home": "Portugal",
+              "away": "Congo DR",
               "date": "2026-06-17",
               "covered": true
             }
