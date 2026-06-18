@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-18T18:27:36Z",
+  "generated_at": "2026-06-18T22:09:31Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -15700,15 +15700,22 @@
         {
           "gameweek": "MD2",
           "stem": "matchday-2",
-          "total": 1,
-          "covered": 0,
+          "total": 2,
+          "covered": 2,
           "matches": [
             {
               "match_id": 537329,
               "home": "Czechia",
               "away": "South Africa",
               "date": "2026-06-18",
-              "covered": false
+              "covered": true
+            },
+            {
+              "match_id": 537335,
+              "home": "Switzerland",
+              "away": "Bosnia-Herzegovina",
+              "date": "2026-06-18",
+              "covered": true
             }
           ]
         }
