@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-18T03:58:39Z",
+  "generated_at": "2026-06-18T08:51:21Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -15524,8 +15524,8 @@
         {
           "gameweek": "MD1",
           "stem": "matchday-1",
-          "total": 23,
-          "covered": 23,
+          "total": 24,
+          "covered": 24,
           "matches": [
             {
               "match_id": 537327,
@@ -15686,6 +15686,13 @@
               "home": "Ghana",
               "away": "Panama",
               "date": "2026-06-17",
+              "covered": true
+            },
+            {
+              "match_id": 537404,
+              "home": "Uzbekistan",
+              "away": "Colombia",
+              "date": "2026-06-18",
               "covered": true
             }
           ]
