@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-19T17:59:11Z",
+  "generated_at": "2026-06-19T21:12:23Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -15700,7 +15700,7 @@
         {
           "gameweek": "MD2",
           "stem": "matchday-2",
-          "total": 4,
+          "total": 5,
           "covered": 4,
           "matches": [
             {
@@ -15730,6 +15730,13 @@
               "away": "South Korea",
               "date": "2026-06-19",
               "covered": true
+            },
+            {
+              "match_id": 537348,
+              "home": "United States",
+              "away": "Australia",
+              "date": "2026-06-19",
+              "covered": false
             }
           ]
         }
