@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-19T21:12:23Z",
+  "generated_at": "2026-06-20T03:40:21Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -15700,8 +15700,8 @@
         {
           "gameweek": "MD2",
           "stem": "matchday-2",
-          "total": 5,
-          "covered": 4,
+          "total": 7,
+          "covered": 7,
           "matches": [
             {
               "match_id": 537329,
@@ -15736,7 +15736,21 @@
               "home": "United States",
               "away": "Australia",
               "date": "2026-06-19",
-              "covered": false
+              "covered": true
+            },
+            {
+              "match_id": 537342,
+              "home": "Scotland",
+              "away": "Morocco",
+              "date": "2026-06-19",
+              "covered": true
+            },
+            {
+              "match_id": 537341,
+              "home": "Brazil",
+              "away": "Haiti",
+              "date": "2026-06-20",
+              "covered": true
             }
           ]
         }

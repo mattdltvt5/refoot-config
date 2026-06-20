@@ -2,7 +2,7 @@
   "competition": "World Cup",
   "gameweek": "MD2",
   "stem": "matchday-2",
-  "generated_at": "2026-06-19T21:12:23Z",
+  "generated_at": "2026-06-20T03:40:21Z",
   "matches": [
     {
       "match_id": 537329,
@@ -65,7 +65,42 @@
       "home_team": "United States",
       "away_team": "Australia",
       "date": "2026-06-19",
-      "videos": []
+      "videos": [
+        {
+          "video_id": "1gMiT5r-K7Q",
+          "title": "United States vs Australia Extended Highlights 🌎🏆 2026 FIFA World Cup™",
+          "published_at": "2026-06-19",
+          "tier_used": 4
+        }
+      ]
+    },
+    {
+      "match_id": 537342,
+      "home_team": "Scotland",
+      "away_team": "Morocco",
+      "date": "2026-06-19",
+      "videos": [
+        {
+          "video_id": "wff2tvitS-s",
+          "title": "Scotland vs Morocco Extended Highlights 🌎🏆 2026 FIFA World Cup™",
+          "published_at": "2026-06-20",
+          "tier_used": 4
+        }
+      ]
+    },
+    {
+      "match_id": 537341,
+      "home_team": "Brazil",
+      "away_team": "Haiti",
+      "date": "2026-06-20",
+      "videos": [
+        {
+          "video_id": "BphiVajPsFc",
+          "title": "Brazil vs Haiti Extended Highlights 🌎🏆 2026 FIFA World Cup™",
+          "published_at": "2026-06-20",
+          "tier_used": 4
+        }
+      ]
     }
   ]
 }
