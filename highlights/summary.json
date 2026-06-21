@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-20T21:20:01Z",
+  "generated_at": "2026-06-21T04:12:53Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -15700,8 +15700,8 @@
         {
           "gameweek": "MD2",
           "stem": "matchday-2",
-          "total": 9,
-          "covered": 9,
+          "total": 11,
+          "covered": 11,
           "matches": [
             {
               "match_id": 537329,
@@ -15764,6 +15764,20 @@
               "home": "Netherlands",
               "away": "Sweden",
               "date": "2026-06-20",
+              "covered": true
+            },
+            {
+              "match_id": 537353,
+              "home": "Germany",
+              "away": "Ivory Coast",
+              "date": "2026-06-20",
+              "covered": true
+            },
+            {
+              "match_id": 537354,
+              "home": "Ecuador",
+              "away": "Curaçao",
+              "date": "2026-06-21",
               "covered": true
             }
           ]
