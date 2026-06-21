@@ -16,6 +16,7 @@ Remote channel configuration for the **ReFoot Highlights** Android app.
 | `scripts/clean_highlights.py` | One-time cleanup script — re-evaluates existing JSON files and removes false positives |
 | `scripts/clean_wrong_fixture_videos.py` | Retroactive cleanup — removes videos stored for the wrong fixture (both-teams rule) |
 | `scripts/debug_match.py` | Dry-run diagnostic — tests the fixture↔title matcher over cached data without hitting the YouTube API |
+| `diagnostics/apisports_probe.py` | **Manual-only** API-Sports probe — verifies season coverage and captures round-string formats; see [Diagnostics](#diagnostics) |
 | `.github/workflows/fetch-highlights.yml` | GitHub Action that runs the incremental script every 4 hours |
 | `.github/workflows/backfill-highlights.yml` | GitHub Action for the manual backfill (workflow_dispatch only) |
 | `.github/workflows/clean-highlights.yml` | GitHub Action for the manual false-positive cleanup (workflow_dispatch only) |
@@ -407,6 +408,48 @@ A YouTube HTTP 403 (quota exhaustion detected by YouTube itself) is treated iden
 |---|---|
 | `FOOTBALL_DATA_API_KEY` | Fixture fetch from football-data.org |
 | `YOUTUBE_API_KEY` | YouTube `playlistItems.list` calls |
+
+## Diagnostics
+
+Diagnostic scripts live in `diagnostics/` and are **manual-only** — they are never
+wired into any GitHub Actions workflow and must always be committed with `[skip ci]`.
+
+### `diagnostics/apisports_probe.py` — API-Sports season/round probe
+
+Verifies whether Copa America and UEFA Europa League target seasons are available on
+the [API-Sports](https://www.api-sports.io/) free tier (100 req/day) and captures the
+exact `league.round` strings the API returns — the strings that the pipeline's Round/Stage
+filter normalization will later key off.
+
+**Prerequisites**
+
+```bash
+pip install requests   # already present in the pipeline venv
+export APISPORTS_API_KEY=<your-key>   # never hardcode
+```
+
+**Run**
+
+```bash
+python diagnostics/apisports_probe.py
+```
+
+**What it does (read-only, ~5 API calls)**
+
+1. Calls `/status` and aborts early if fewer than 10 daily calls remain.
+2. Searches `/leagues?search=copa+america` and `/leagues?search=europa+league`,
+   printing every matched league with its full seasons table (year, start/end dates,
+   `fixtures.events` coverage flag) so you can verify the canonical IDs.
+3. Auto-selects the most likely canonical entry for each competition and fetches
+   `/fixtures?league={id}&season={year}` for its most-recent season.
+4. Reports fixture count, explicit `NOT COVERED` if the API returns 0 results, and
+   the complete ordered list of distinct `league.round` strings.
+5. Writes `diagnostics/apisports_probe_report.md` with identical content.
+
+**Throttling:** 7 s sleep between calls — safely under the 10 req/min free-tier cap.
+
+**No side effects:** does not modify `fetch_highlights.py`, `backfill_highlights.py`,
+`highlights_common.py`, any competition config, or `quota-tracker.json`.
 
 ## Admin Panel — Highlights Coverage dashboard
 
