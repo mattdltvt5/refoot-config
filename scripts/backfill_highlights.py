@@ -312,13 +312,6 @@ def main() -> None:
     fd_key = os.environ.get("FOOTBALL_DATA_API_KEY", "").strip()
     yt_key = os.environ.get("YOUTUBE_API_KEY", "").strip()
 
-    if not tier4_recheck and not fd_key:
-        log.error("FOOTBALL_DATA_API_KEY is not set")
-        sys.exit(1)
-    if not yt_key:
-        log.error("YOUTUBE_API_KEY is not set — backfill requires YouTube access")
-        sys.exit(1)
-
     # ── Optional overrides from workflow_dispatch inputs ──────────────────────
     # SEASON_OVERRIDE: force a specific season year for all (or the filtered)
     #   competition, e.g. "2024" to backfill Euro 2024 or WC 2022.
@@ -327,6 +320,13 @@ def main() -> None:
     season_override_str  = os.environ.get("SEASON_OVERRIDE", "").strip()
     competition_filter   = os.environ.get("COMPETITION_FILTER", "").strip() or None
     tier4_recheck        = os.environ.get("TIER4_RECHECK", "").strip().lower() == "true"
+
+    if not tier4_recheck and not fd_key:
+        log.error("FOOTBALL_DATA_API_KEY is not set")
+        sys.exit(1)
+    if not yt_key:
+        log.error("YOUTUBE_API_KEY is not set — backfill requires YouTube access")
+        sys.exit(1)
 
     season_override: int | None = None
     if season_override_str:
