@@ -2,7 +2,7 @@
   "competition": "Copa America",
   "gameweek": "SF",
   "stem": "semi-final",
-  "generated_at": "2026-06-22T01:03:10Z",
+  "generated_at": "2026-06-22T01:53:14Z",
   "matches": [
     {
       "match_id": 1227537,
@@ -16,7 +16,9 @@
           "published_at": "2024-07-10",
           "tier_used": 4
         }
-      ]
+      ],
+      "home_crest": "https://media.api-sports.io/football/teams/26.png",
+      "away_crest": "https://media.api-sports.io/football/teams/5529.png"
     },
     {
       "match_id": 1227538,
@@ -30,7 +32,9 @@
           "published_at": "2024-07-11",
           "tier_used": 4
         }
-      ]
+      ],
+      "home_crest": "https://media.api-sports.io/football/teams/7.png",
+      "away_crest": "https://media.api-sports.io/football/teams/8.png"
     }
   ]
 }

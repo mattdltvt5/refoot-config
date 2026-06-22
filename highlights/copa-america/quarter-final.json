@@ -2,7 +2,7 @@
   "competition": "Copa America",
   "gameweek": "QF",
   "stem": "quarter-final",
-  "generated_at": "2026-06-22T01:03:10Z",
+  "generated_at": "2026-06-22T01:53:14Z",
   "matches": [
     {
       "match_id": 1219957,
@@ -16,7 +16,9 @@
           "published_at": "2024-07-05",
           "tier_used": 4
         }
-      ]
+      ],
+      "home_crest": "https://media.api-sports.io/football/teams/26.png",
+      "away_crest": "https://media.api-sports.io/football/teams/2382.png"
     },
     {
       "match_id": 1219958,
@@ -30,7 +32,9 @@
           "published_at": "2024-07-06",
           "tier_used": 4
         }
-      ]
+      ],
+      "home_crest": "https://media.api-sports.io/football/teams/2379.png",
+      "away_crest": "https://media.api-sports.io/football/teams/5529.png"
     },
     {
       "match_id": 1222459,
@@ -44,7 +48,9 @@
           "published_at": "2024-07-07",
           "tier_used": 4
         }
-      ]
+      ],
+      "home_crest": "https://media.api-sports.io/football/teams/8.png",
+      "away_crest": "https://media.api-sports.io/football/teams/11.png"
     },
     {
       "match_id": 1222460,
@@ -58,7 +64,9 @@
           "published_at": "2024-07-07",
           "tier_used": 4
         }
-      ]
+      ],
+      "home_crest": "https://media.api-sports.io/football/teams/7.png",
+      "away_crest": "https://media.api-sports.io/football/teams/6.png"
     }
   ]
 }

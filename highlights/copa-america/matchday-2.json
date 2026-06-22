@@ -2,7 +2,7 @@
   "competition": "Copa America",
   "gameweek": "MD2",
   "stem": "matchday-2",
-  "generated_at": "2026-06-22T01:03:02Z",
+  "generated_at": "2026-06-22T01:53:12Z",
   "matches": [
     {
       "match_id": 1146307,
@@ -16,7 +16,9 @@
           "published_at": "2024-06-26",
           "tier_used": 4
         }
-      ]
+      ],
+      "home_crest": "https://media.api-sports.io/football/teams/2383.png",
+      "away_crest": "https://media.api-sports.io/football/teams/26.png"
     },
     {
       "match_id": 1189122,
@@ -30,7 +32,9 @@
           "published_at": "2024-06-26",
           "tier_used": 4
         }
-      ]
+      ],
+      "home_crest": "https://media.api-sports.io/football/teams/30.png",
+      "away_crest": "https://media.api-sports.io/football/teams/5529.png"
     },
     {
       "match_id": 1146309,
@@ -44,7 +48,9 @@
           "published_at": "2024-06-27",
           "tier_used": 4
         }
-      ]
+      ],
+      "home_crest": "https://media.api-sports.io/football/teams/2379.png",
+      "away_crest": "https://media.api-sports.io/football/teams/16.png"
     },
     {
       "match_id": 1146308,
@@ -58,7 +64,9 @@
           "published_at": "2024-06-27",
           "tier_used": 4
         }
-      ]
+      ],
+      "home_crest": "https://media.api-sports.io/football/teams/2382.png",
+      "away_crest": "https://media.api-sports.io/football/teams/2385.png"
     },
     {
       "match_id": 1146311,
@@ -72,14 +80,18 @@
           "published_at": "2024-06-28",
           "tier_used": 4
         }
-      ]
+      ],
+      "home_crest": "https://media.api-sports.io/football/teams/7.png",
+      "away_crest": "https://media.api-sports.io/football/teams/2381.png"
     },
     {
       "match_id": 1146310,
       "home_team": "Panama",
       "away_team": "USA",
       "date": "2024-06-28",
-      "videos": []
+      "videos": [],
+      "home_crest": "https://media.api-sports.io/football/teams/11.png",
+      "away_crest": "https://media.api-sports.io/football/teams/2384.png"
     },
     {
       "match_id": 1146312,
@@ -93,7 +105,9 @@
           "published_at": "2024-06-29",
           "tier_used": 4
         }
-      ]
+      ],
+      "home_crest": "https://media.api-sports.io/football/teams/2380.png",
+      "away_crest": "https://media.api-sports.io/football/teams/6.png"
     },
     {
       "match_id": 1189123,
@@ -107,7 +121,9 @@
           "published_at": "2024-06-29",
           "tier_used": 4
         }
-      ]
+      ],
+      "home_crest": "https://media.api-sports.io/football/teams/8.png",
+      "away_crest": "https://media.api-sports.io/football/teams/29.png"
     }
   ]
 }
