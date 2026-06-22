@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-21T21:15:30Z",
+  "generated_at": "2026-06-22T01:03:12Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -15800,6 +15800,292 @@
               "away": "Iran",
               "date": "2026-06-21",
               "covered": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "competition": "Copa America",
+      "slug": "copa-america",
+      "gameweeks": [
+        {
+          "gameweek": "MD1",
+          "stem": "matchday-1",
+          "total": 8,
+          "covered": 6,
+          "matches": [
+            {
+              "match_id": 1189120,
+              "home": "Argentina",
+              "away": "Canada",
+              "date": "2024-06-21",
+              "covered": true
+            },
+            {
+              "match_id": 1146301,
+              "home": "Peru",
+              "away": "Chile",
+              "date": "2024-06-22",
+              "covered": true
+            },
+            {
+              "match_id": 1146302,
+              "home": "Ecuador",
+              "away": "Venezuela",
+              "date": "2024-06-22",
+              "covered": false
+            },
+            {
+              "match_id": 1146303,
+              "home": "Mexico",
+              "away": "Jamaica",
+              "date": "2024-06-23",
+              "covered": true
+            },
+            {
+              "match_id": 1146304,
+              "home": "USA",
+              "away": "Bolivia",
+              "date": "2024-06-23",
+              "covered": false
+            },
+            {
+              "match_id": 1146305,
+              "home": "Uruguay",
+              "away": "Panama",
+              "date": "2024-06-24",
+              "covered": true
+            },
+            {
+              "match_id": 1146306,
+              "home": "Colombia",
+              "away": "Paraguay",
+              "date": "2024-06-24",
+              "covered": true
+            },
+            {
+              "match_id": 1189121,
+              "home": "Brazil",
+              "away": "Costa Rica",
+              "date": "2024-06-25",
+              "covered": true
+            }
+          ]
+        },
+        {
+          "gameweek": "MD2",
+          "stem": "matchday-2",
+          "total": 8,
+          "covered": 7,
+          "matches": [
+            {
+              "match_id": 1146307,
+              "home": "Chile",
+              "away": "Argentina",
+              "date": "2024-06-26",
+              "covered": true
+            },
+            {
+              "match_id": 1189122,
+              "home": "Peru",
+              "away": "Canada",
+              "date": "2024-06-26",
+              "covered": true
+            },
+            {
+              "match_id": 1146309,
+              "home": "Venezuela",
+              "away": "Mexico",
+              "date": "2024-06-27",
+              "covered": true
+            },
+            {
+              "match_id": 1146308,
+              "home": "Ecuador",
+              "away": "Jamaica",
+              "date": "2024-06-27",
+              "covered": true
+            },
+            {
+              "match_id": 1146311,
+              "home": "Uruguay",
+              "away": "Bolivia",
+              "date": "2024-06-28",
+              "covered": true
+            },
+            {
+              "match_id": 1146310,
+              "home": "Panama",
+              "away": "USA",
+              "date": "2024-06-28",
+              "covered": false
+            },
+            {
+              "match_id": 1146312,
+              "home": "Paraguay",
+              "away": "Brazil",
+              "date": "2024-06-29",
+              "covered": true
+            },
+            {
+              "match_id": 1189123,
+              "home": "Colombia",
+              "away": "Costa Rica",
+              "date": "2024-06-29",
+              "covered": true
+            }
+          ]
+        },
+        {
+          "gameweek": "MD3",
+          "stem": "matchday-3",
+          "total": 8,
+          "covered": 7,
+          "matches": [
+            {
+              "match_id": 1146313,
+              "home": "Argentina",
+              "away": "Peru",
+              "date": "2024-06-30",
+              "covered": true
+            },
+            {
+              "match_id": 1189124,
+              "home": "Canada",
+              "away": "Chile",
+              "date": "2024-06-30",
+              "covered": true
+            },
+            {
+              "match_id": 1146315,
+              "home": "Mexico",
+              "away": "Ecuador",
+              "date": "2024-07-01",
+              "covered": true
+            },
+            {
+              "match_id": 1146314,
+              "home": "Jamaica",
+              "away": "Venezuela",
+              "date": "2024-07-01",
+              "covered": true
+            },
+            {
+              "match_id": 1146316,
+              "home": "Bolivia",
+              "away": "Panama",
+              "date": "2024-07-02",
+              "covered": true
+            },
+            {
+              "match_id": 1146317,
+              "home": "USA",
+              "away": "Uruguay",
+              "date": "2024-07-02",
+              "covered": false
+            },
+            {
+              "match_id": 1146318,
+              "home": "Brazil",
+              "away": "Colombia",
+              "date": "2024-07-03",
+              "covered": true
+            },
+            {
+              "match_id": 1189125,
+              "home": "Costa Rica",
+              "away": "Paraguay",
+              "date": "2024-07-03",
+              "covered": true
+            }
+          ]
+        },
+        {
+          "gameweek": "QF",
+          "stem": "quarter-final",
+          "total": 4,
+          "covered": 4,
+          "matches": [
+            {
+              "match_id": 1219957,
+              "home": "Argentina",
+              "away": "Ecuador",
+              "date": "2024-07-05",
+              "covered": true
+            },
+            {
+              "match_id": 1219958,
+              "home": "Venezuela",
+              "away": "Canada",
+              "date": "2024-07-06",
+              "covered": true
+            },
+            {
+              "match_id": 1222459,
+              "home": "Colombia",
+              "away": "Panama",
+              "date": "2024-07-06",
+              "covered": true
+            },
+            {
+              "match_id": 1222460,
+              "home": "Uruguay",
+              "away": "Brazil",
+              "date": "2024-07-07",
+              "covered": true
+            }
+          ]
+        },
+        {
+          "gameweek": "SF",
+          "stem": "semi-final",
+          "total": 2,
+          "covered": 2,
+          "matches": [
+            {
+              "match_id": 1227537,
+              "home": "Argentina",
+              "away": "Canada",
+              "date": "2024-07-10",
+              "covered": true
+            },
+            {
+              "match_id": 1227538,
+              "home": "Uruguay",
+              "away": "Colombia",
+              "date": "2024-07-11",
+              "covered": true
+            }
+          ]
+        },
+        {
+          "gameweek": "3rd Place",
+          "stem": "third-place",
+          "total": 1,
+          "covered": 1,
+          "matches": [
+            {
+              "match_id": 1234029,
+              "home": "Canada",
+              "away": "Uruguay",
+              "date": "2024-07-14",
+              "covered": true
+            }
+          ]
+        },
+        {
+          "gameweek": "Final",
+          "stem": "final",
+          "total": 1,
+          "covered": 1,
+          "matches": [
+            {
+              "match_id": 1234030,
+              "home": "Argentina",
+              "away": "Colombia",
+              "date": "2024-07-15",
+              "covered": true
             }
           ]
         }
