@@ -56,6 +56,7 @@ from highlights_common import (
     utc_now_iso,
     write_json_atomic,
 )
+from fixture_providers import FootballDataProvider
 
 log = logging.getLogger(__name__)
 
@@ -160,58 +161,10 @@ def fetch_season_fixtures(
     fd_key: str,
 ) -> dict[str, list[dict]]:
     """
-    Fetch all FINISHED fixtures for a competition and season from football-data.org.
-
+    Fetch all FINISHED fixtures for a competition and season via FootballDataProvider.
     Returns: {file_stem: [fixture_dict, ...]}
     """
-    resp = fd_get(
-        f"{FD_BASE}/competitions/{code}/matches",
-        fd_key,
-        {"status": "FINISHED", "season": str(season)},
-    )
-
-    if resp.status_code == 404:
-        log.warning(f"Competition {code} season {season} not found (404) — skipping")
-        return {}
-    if not resp.ok:
-        log.warning(
-            f"football-data.org HTTP {resp.status_code} for {code} — skipping"
-        )
-        return {}
-
-    by_stem: dict[str, list[dict]] = {}
-    for m in resp.json().get("matches", []):
-        matchday = m.get("matchday")
-        stage    = m.get("stage", "")
-        utc_str  = m.get("utcDate", "")
-        if not utc_str:
-            continue
-
-        stem = stage_to_file_stem(stage, matchday, comp_name)
-        if stem is None:
-            continue
-
-        home = m.get("homeTeam", {})
-        away = m.get("awayTeam", {})
-        by_stem.setdefault(stem, []).append({
-            "match_id":   m["id"],
-            "home_team":  home.get("name", ""),
-            "home_short": home.get("shortName") or home.get("name", ""),
-            "home_tla":   home.get("tla", ""),
-            "away_team":  away.get("name", ""),
-            "away_short": away.get("shortName") or away.get("name", ""),
-            "away_tla":   away.get("tla", ""),
-            "date":       utc_str[:10],
-            "matchday":   matchday,
-            "stage":      stage,
-        })
-
-    total = sum(len(v) for v in by_stem.values())
-    log.info(
-        f"{comp_name} {season}: {total} finished fixture(s) "
-        f"across {len(by_stem)} file stem(s)"
-    )
-    return by_stem
+    return FootballDataProvider(fd_key).get_fixtures(code, comp_name, season)
 
 
 # ── Tier-4 re-check helpers ───────────────────────────────────────────────────

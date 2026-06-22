@@ -55,6 +55,7 @@ from highlights_common import (
     team_tokens,
     write_json_atomic,
 )
+from fixture_providers import FootballDataProvider
 
 log = logging.getLogger(__name__)
 
@@ -174,79 +175,27 @@ def _emit_debug_block(
 
 def fetch_all_fixtures(fd_key: str) -> dict[str, dict[str, list[dict]]]:
     """
-    Fetch all FINISHED fixtures across every configured competition.
-    Each competition uses its own season year via ``season_for_competition()``:
-    domestic leagues / UCL / UEL follow the August–July convention, while
-    summer tournaments (World Cup, Euro Cup) use the current calendar year.
+    Fetch all FINISHED fixtures across every configured competition via FootballDataProvider.
 
-    Sleeps FD_SLEEP_SECONDS between requests to respect football-data.org's
-    10 req/min free-tier limit.
+    Each competition uses its own season year via season_for_competition(): domestic
+    leagues / UCL / UEL follow the August-July convention; summer tournaments (World Cup,
+    Euro Cup) use the current calendar year.
+
+    Sleeps FD_SLEEP_SECONDS between requests to respect football-data.org's 10 req/min limit.
 
     Returns: {competition_name: {file_stem: [fixture_dict, ...]}}
     """
+    provider = FootballDataProvider(fd_key)
     result: dict[str, dict[str, list[dict]]] = {}
 
     for i, (code, comp_name) in enumerate(COMPETITION_CODE_MAP.items()):
         if i > 0:
             time.sleep(FD_SLEEP_SECONDS)
 
-        season = season_for_competition(comp_name)
-
-        try:
-            resp = fd_get(
-                f"{FD_BASE}/competitions/{code}/matches",
-                fd_key,
-                {"status": "FINISHED", "season": str(season)},
-            )
-        except SystemExit:
-            raise
-        except Exception as exc:
-            log.warning(f"Network error fetching {code}: {exc}")
-            continue
-
-        if resp.status_code == 404:
-            log.warning(f"Competition {code} season {season} not found (404) — skipping")
-            continue
-        if not resp.ok:
-            log.warning(
-                f"football-data.org HTTP {resp.status_code} for {code} — skipping"
-            )
-            continue
-
-        by_stem: dict[str, list[dict]] = {}
-        for m in resp.json().get("matches", []):
-            matchday = m.get("matchday")
-            stage    = m.get("stage", "")
-            utc_str  = m.get("utcDate", "")
-            if not utc_str:
-                continue
-
-            stem = stage_to_file_stem(stage, matchday, comp_name)
-            if stem is None:
-                continue
-
-            home = m.get("homeTeam", {})
-            away = m.get("awayTeam", {})
-            by_stem.setdefault(stem, []).append({
-                "match_id":   m["id"],
-                "home_team":  home.get("name", ""),
-                "home_short": home.get("shortName") or home.get("name", ""),
-                "home_tla":   home.get("tla", ""),
-                "away_team":  away.get("name", ""),
-                "away_short": away.get("shortName") or away.get("name", ""),
-                "away_tla":   away.get("tla", ""),
-                "date":       utc_str[:10],
-                "matchday":   matchday,
-                "stage":      stage,
-            })
-
+        season  = season_for_competition(comp_name)
+        by_stem = provider.get_fixtures(code, comp_name, season)
         if by_stem:
             result[comp_name] = by_stem
-            total = sum(len(v) for v in by_stem.values())
-            log.info(
-                f"{comp_name}: {total} finished fixture(s) "
-                f"across {len(by_stem)} file stem(s)"
-            )
 
     return result
 

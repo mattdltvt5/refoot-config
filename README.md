@@ -11,14 +11,17 @@ Remote channel configuration for the **ReFoot Highlights** Android app.
 | `uicons/` | Flaticon UIcons Bold Rounded webfont (used by the admin panel) |
 | `highlights/` | Pre-built video metadata written by the fetch-highlights Action |
 | `scripts/highlights_common.py` | Shared utilities, title filter constants, `is_highlight_title()`, `_normalize()`, `team_tokens()`, and `TEAM_TITLE_ALIASES` |
+| `scripts/fixture_providers.py` | Pluggable fixture provider layer — `FootballDataProvider` (football-data.org), `ApiSportsProvider` (API-Sports free tier), `ApisportsQuotaTracker`, and `APISPORTS_COMPETITIONS` config registry |
 | `scripts/fetch_highlights.py` | Incremental update script (runs every 4 hours) |
 | `scripts/backfill_highlights.py` | Full-season backfill script (manual trigger only) |
+| `scripts/backfill_copa_america.py` | Copa America 2024 backfill script — fetches fixtures from API-Sports, finds highlights on YouTube (manual trigger only) |
 | `scripts/clean_highlights.py` | One-time cleanup script — re-evaluates existing JSON files and removes false positives |
 | `scripts/clean_wrong_fixture_videos.py` | Retroactive cleanup — removes videos stored for the wrong fixture (both-teams rule) |
 | `scripts/debug_match.py` | Dry-run diagnostic — tests the fixture↔title matcher over cached data without hitting the YouTube API |
 | `diagnostics/apisports_probe.py` | **Manual-only** API-Sports probe — verifies season coverage and captures round-string formats; see [Diagnostics](#diagnostics) |
 | `.github/workflows/fetch-highlights.yml` | GitHub Action that runs the incremental script every 4 hours |
 | `.github/workflows/backfill-highlights.yml` | GitHub Action for the manual backfill (workflow_dispatch only) |
+| `.github/workflows/backfill-copa-america.yml` | GitHub Action for the Copa America backfill (workflow_dispatch only) |
 | `.github/workflows/clean-highlights.yml` | GitHub Action for the manual false-positive cleanup (workflow_dispatch only) |
 | `.github/workflows/clean-wrong-fixture-videos.yml` | GitHub Action for the retroactive both-teams cleanup (workflow_dispatch only) |
 
@@ -69,14 +72,35 @@ The admin panel uses the [UIcons Bold Rounded](https://www.flaticon.com/uicons) 
 
 ## Highlights Cache
 
-The highlights pipeline has **two operating modes** that share a single YouTube 10,000 unit/day quota:
+The highlights pipeline has **two operating modes** for football-data.org competitions plus a separate Copa America backfill path:
 
-| Mode | Script | Trigger | Budget |
-|---|---|---|---|
-| **Incremental** | `fetch_highlights.py` | Every 4 hours (scheduled) | 8,000 units/day |
-| **Backfill** | `backfill_highlights.py` | Manual only (`workflow_dispatch`) | 9,500 units/day |
+| Mode | Script | Trigger | Fixture source | Budget |
+|---|---|---|---|---|
+| **Incremental** | `fetch_highlights.py` | Every 4 hours (scheduled) | football-data.org | 8,000 YouTube units/day |
+| **Backfill** | `backfill_highlights.py` | Manual only (`workflow_dispatch`) | football-data.org | 9,500 YouTube units/day |
+| **Copa America backfill** | `backfill_copa_america.py` | Manual only (`workflow_dispatch`) | API-Sports free tier | 9,500 YouTube units/day (isolated) |
 
-Both scripts write to the same `highlights/` files and track consumption in `highlights/quota-tracker.json`.
+The incremental and main-backfill scripts track YouTube consumption in `highlights/quota-tracker.json`.  The Copa America backfill uses a **separate** in-memory YouTube quota tracker (never writes `quota-tracker.json`) and tracks API-Sports calls in `highlights/apisports-quota-tracker.json`.
+
+#### Fixture provider architecture
+
+`scripts/fixture_providers.py` implements a pluggable provider layer:
+
+- **`FootballDataProvider`** — wraps football-data.org fetch + normalize logic.  Used by both the incremental and main-backfill scripts for all competitions in `COMPETITION_CODE_MAP`.
+- **`ApiSportsProvider`** — fetches from the [API-Sports](https://www.api-sports.io/) free tier (100 req/day).  Used only by `backfill_copa_america.py`.
+- **`APISPORTS_COMPETITIONS`** — config-driven registry.  Adding a new API-Sports competition is a one-entry change with no code modification needed.
+
+> **API-Sports free-tier constraint:** seasons 2022–2024 only.  Querying season 2025+ returns a paywall error.  The free tier is a **historical backfill source only** — it cannot cover the current season.  Live coverage requires a paid plan.  Canonical league IDs are pinned in the config (Copa America = id 9) to avoid accidentally selecting women's or youth variants.
+
+#### Copa America 2024
+
+Copa America is intentionally **not** in `COMPETITION_CODE_MAP`, so the scheduled 4-hour fetch Action never touches it.  To populate Copa America data, trigger the dedicated Action manually:
+
+**Actions tab → Backfill Copa America highlights → Run workflow**
+
+This fetches all 32 Copa America 2024 fixtures from API-Sports and searches YouTube for highlights using the same tier-waterfall logic as the main backfill.  Fixture data is written to `highlights/copa-america/matchday-{1,2,3}.json`, `quarter-final.json`, `semi-final.json`, `third-place.json`, and `final.json`.
+
+Required secrets: `APISPORTS_API_KEY` (API-Sports key) and `YOUTUBE_API_KEY`.
 
 ### First-time setup
 

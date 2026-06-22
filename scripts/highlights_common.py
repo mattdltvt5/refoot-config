@@ -76,6 +76,7 @@ COMPETITION_SLUG_MAP: dict[str, str] = {
     "Europa League":    "uel",
     "Euro Cup":         "euro-cup",
     "World Cup":        "world-cup",
+    "Copa America":     "copa-america",
 }
 
 # UCL/UEL use "matchday-N.json"; domestic leagues use "gameweek-N.json"
@@ -85,7 +86,7 @@ UCL_UEL: set[str] = {"Champions League", "Europa League"}
 TWO_LEGGED_COMPS: set[str] = {"Champions League", "Europa League"}
 
 # Competitions that use stage-aware file naming (knockout rounds)
-STAGE_AWARE_COMPS: set[str] = {"Champions League", "Europa League", "Euro Cup", "World Cup"}
+STAGE_AWARE_COMPS: set[str] = {"Champions League", "Europa League", "Euro Cup", "World Cup", "Copa America"}
 
 # Keywords confirming a video belongs to the competition (used for club-channel tiers 1a/1b)
 COMPETITION_KEYWORDS: dict[str, list[str]] = {
@@ -98,6 +99,7 @@ COMPETITION_KEYWORDS: dict[str, list[str]] = {
     "Europa League":    ["europa league", "uel"],
     "Euro Cup":         ["euro", "euros", "euro cup", "european championship"],
     "World Cup":        ["world cup", "fifa world cup", "mundial"],
+    "Copa America":     ["copa america", "conmebol copa america", "copa"],
 }
 
 # Terms that indicate a video belongs to a DIFFERENT competition than the target.
@@ -510,6 +512,18 @@ TEAM_TITLE_ALIASES: dict[str, list[str]] = {
     "United States":               ["United States", "USA"],
     "Uruguay":                     ["Uruguay"],
     "Uzbekistan":                  ["Uzbekistan"],
+
+    # ── Copa America national teams (additional) ─────────────────────────────
+    # Teams already present above (via Euro Cup / World Cup sections):
+    #   Argentina, Brazil, Canada, Colombia, Ecuador, Mexico, Panama, Paraguay,
+    #   United States, Uruguay.
+    # The six below are Copa America-only participants not covered above.
+    "Bolivia":                     ["Bolivia"],
+    "Chile":                       ["Chile"],
+    "Costa Rica":                  ["Costa Rica"],
+    "Jamaica":                     ["Jamaica"],
+    "Peru":                        ["Peru", "Perú"],
+    "Venezuela":                   ["Venezuela"],
 }
 
 
@@ -576,6 +590,10 @@ COMPETITION_FILE_STEMS: dict[str, list[str]] = {
     "World Cup":        (
         [f"matchday-{i}" for i in range(1, 4)]
         + ["round-of-16", "quarter-final", "semi-final", "third-place", "final"]
+    ),
+    "Copa America":     (
+        [f"matchday-{i}" for i in range(1, 4)]
+        + ["quarter-final", "semi-final", "third-place", "final"]
     ),
 }
 
@@ -1047,7 +1065,7 @@ class QuotaCapReached(Exception):
 # August-July domestic football season.  For these, the season year equals
 # the calendar year of the tournament (e.g. WC 2026 → season=2026), even
 # when current_season() would otherwise return year-1 (e.g. in May/June).
-SUMMER_TOURNAMENT_COMPS: set[str] = {"World Cup", "Euro Cup"}
+SUMMER_TOURNAMENT_COMPS: set[str] = {"World Cup", "Euro Cup", "Copa America"}
 
 
 def current_season() -> int:
