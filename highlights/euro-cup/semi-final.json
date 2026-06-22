@@ -1,0 +1,40 @@
+{
+  "competition": "Euro Cup",
+  "gameweek": "SF",
+  "stem": "semi-final",
+  "generated_at": "2026-06-22T02:39:22Z",
+  "matches": [
+    {
+      "match_id": 1225853,
+      "home_team": "Spain",
+      "away_team": "France",
+      "date": "2024-07-09",
+      "videos": [
+        {
+          "video_id": "0YTf1-DEqHU",
+          "title": "Spain vs. France Highlights | UEFA Euro 2024 | Semifinals",
+          "published_at": "2024-07-09",
+          "tier_used": 4
+        }
+      ],
+      "home_crest": "https://media.api-sports.io/football/teams/9.png",
+      "away_crest": "https://media.api-sports.io/football/teams/2.png"
+    },
+    {
+      "match_id": 1227539,
+      "home_team": "Netherlands",
+      "away_team": "England",
+      "date": "2024-07-10",
+      "videos": [
+        {
+          "video_id": "jod3yA9KeW4",
+          "title": "Netherlands vs. England Highlights | UEFA Euro 2024 | Semifinals",
+          "published_at": "2024-07-10",
+          "tier_used": 4
+        }
+      ],
+      "home_crest": "https://media.api-sports.io/football/teams/1118.png",
+      "away_crest": "https://media.api-sports.io/football/teams/10.png"
+    }
+  ]
+}
