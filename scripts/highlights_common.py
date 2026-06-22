@@ -287,10 +287,14 @@ def _auto_tokens(team_name: str, short_name: str, tla: str = "") -> list[str]:
 # Rules:
 #   - Key  = exact FD team.name (same string as home_team/away_team in JSON)
 #   - Value = all title forms a broadcaster might use; any one is sufficient
-#   - For newly promoted/relegated teams with no entry, _auto_tokens() applies
+#   - For newly promoted/relegated clubs, _auto_tokens() is an adequate fallback
+#   - For national teams, ALWAYS add an explicit entry here.  _auto_tokens()
+#     produces only one token (TLAs are 3 chars, filtered by _MIN_TLA_LEN) and
+#     cannot derive alternate-language name forms (e.g. "Turkey" vs "Türkiye").
 #   - Paris FC MUST NOT include bare "Paris" — it would absorb PSG videos
-#   - FC Barcelona MUST NOT include bare "Barcelona" — it is a substring of
-#     "RCD Espanyol de Barcelona", causing false matches with both_teams=True
+#   - FC Barcelona includes bare "Barcelona" intentionally — broadcast short-form
+#     titles like "Barcelona 3-2 Atletico" require it; tier-4 false-positive risk
+#     with Espanyol is low because broadcasters use "Espanyol", not the full city name
 #   - Real Madrid MUST NOT include bare "Madrid" — shared with Atlético/Rayo
 
 TEAM_TITLE_ALIASES: dict[str, list[str]] = {
