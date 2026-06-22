@@ -198,13 +198,13 @@ def _stem_to_stage(stem: str, comp_name: str) -> tuple[int | None, str]:
 
 def tier4_recheck_mode(comp_name: str, yt_key: str, config: dict) -> None:
     """
-    Re-check every stored match for *comp_name* where all videos were sourced
-    from tier 4 (broadcaster playlists).
+    Re-check every stored match for *comp_name* that either has no videos yet
+    or whose videos were all sourced from tier 4 (broadcaster playlists).
 
     Resolution is re-run from scratch using the full tier hierarchy, so a
-    higher-priority broadcaster (or even a higher tier entirely) can now win.
-    Files are only updated when the resulting video-ID set actually changes.
-    A single git commit is made at the end covering all changed files.
+    higher-priority source can win.  Empty fixtures are filled in if a match
+    is now found.  Files are only updated when the resulting video-ID set
+    actually changes.  A single git commit is made at the end.
     """
     slug = COMPETITION_SLUG_MAP.get(comp_name)
     if not slug:
@@ -238,10 +238,12 @@ def tier4_recheck_mode(comp_name: str, yt_key: str, config: dict) -> None:
 
         for i, match in enumerate(matches):
             videos = match.get("videos", [])
-            # Only re-check matches where every stored video came from tier 4.
+            # Process matches with no videos yet (empty fixtures) and matches
+            # where every stored video came from tier 4.  Skip matches that
+            # already have a higher-tier result — those are considered settled.
             # (All videos for a single match always share the same tier because
             # resolve_videos_for_fixture() stops at the first successful tier.)
-            if not videos or not all(v.get("tier_used") == 4 for v in videos):
+            if videos and not all(v.get("tier_used") == 4 for v in videos):
                 continue
 
             # Reconstruct the fixture dict that resolve_videos_for_fixture() expects.
