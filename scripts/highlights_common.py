@@ -473,6 +473,7 @@ TEAM_TITLE_ALIASES: dict[str, list[str]] = {
     "Spain":                       ["Spain"],
     "Switzerland":                 ["Switzerland"],
     "Türkiye":                     ["Turkey", "Türkiye"],
+    "Turkey":                      ["Turkey", "Türkiye"],   # FD returns English form; covers both title spellings
     "Ukraine":                     ["Ukraine"],
 
     # ── World Cup national teams (additional) ────────────────────────────────
@@ -523,6 +524,7 @@ TEAM_TITLE_ALIASES: dict[str, list[str]] = {
     "Costa Rica":                  ["Costa Rica"],
     "Jamaica":                     ["Jamaica"],
     "Peru":                        ["Peru", "Perú"],
+    "USA":                         ["United States", "USA"],   # API-Sports returns "USA"; covers both title forms
     "Venezuela":                   ["Venezuela"],
 }
 
