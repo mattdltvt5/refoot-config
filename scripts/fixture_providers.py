@@ -87,6 +87,32 @@ APISPORTS_COMPETITIONS: dict = {
             "Final":           ("FINAL", None),
         },
     },
+    "Euro Cup": {
+        "league_id": 4,
+        "season":    2024,
+        # Maps verbatim API-Sports league.round -> output file stem.
+        # If fixtures are missing after a backfill run, check logs for
+        # "unmapped round" warnings -- the exact round strings may differ.
+        "round_map": {
+            "Group Stage - 1": "matchday-1",
+            "Group Stage - 2": "matchday-2",
+            "Group Stage - 3": "matchday-3",
+            "Round of 16":     "round-of-16",
+            "Quarter-finals":  "quarter-final",
+            "Semi-finals":     "semi-final",
+            "Final":           "final",
+        },
+        # Maps verbatim API-Sports league.round -> (FD-equivalent stage value, matchday int|None)
+        "stage_map": {
+            "Group Stage - 1": ("GROUP_STAGE", 1),
+            "Group Stage - 2": ("GROUP_STAGE", 2),
+            "Group Stage - 3": ("GROUP_STAGE", 3),
+            "Round of 16":     ("LAST_16", None),
+            "Quarter-finals":  ("QUARTER_FINALS", None),
+            "Semi-finals":     ("SEMI_FINALS", None),
+            "Final":           ("FINAL", None),
+        },
+    },
     # Europa League (id=3, season=2024, 269 fixtures) is intentionally parked.
     # Free tier covers 2022-2024; current EL seasons (2025+) require a paid plan.
     # To add historical EL backfill, add a "Europa League" entry here with its

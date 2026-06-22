@@ -472,7 +472,7 @@ TEAM_TITLE_ALIASES: dict[str, list[str]] = {
     "Slovenia":                    ["Slovenia"],
     "Spain":                       ["Spain"],
     "Switzerland":                 ["Switzerland"],
-    "Turkey":                      ["Turkey", "Türkiye"],
+    "Türkiye":                     ["Turkey", "Türkiye"],
     "Ukraine":                     ["Ukraine"],
 
     # ── World Cup national teams (additional) ────────────────────────────────
