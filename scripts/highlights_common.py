@@ -1881,16 +1881,28 @@ def merge_into_gw(
         new_videos = fix.get("videos", [])
 
         if mid not in by_id:
-            by_id[mid] = {
+            entry = {
                 "match_id":  mid,
                 "home_team": fix["home_team"],
                 "away_team": fix["away_team"],
                 "date":      fix["date"],
                 "videos":    new_videos[:],
             }
+            # Include crest URLs when provided (API-Sports competitions).
+            if fix.get("home_crest"):
+                entry["home_crest"] = fix["home_crest"]
+            if fix.get("away_crest"):
+                entry["away_crest"] = fix["away_crest"]
+            by_id[mid] = entry
             changed = True
         else:
-            existing_match    = by_id[mid]
+            existing_match = by_id[mid]
+            # Back-fill crest URLs when newly available (e.g. after pipeline update).
+            for crest_field in ("home_crest", "away_crest"):
+                new_val = fix.get(crest_field, "")
+                if new_val and not existing_match.get(crest_field):
+                    existing_match[crest_field] = new_val
+                    changed = True
             existing_vid_ids  = {v["video_id"] for v in existing_match.get("videos", [])}
             # Also deduplicate by normalised title: channels sometimes publish the
             # same highlight twice with different video IDs but identical titles
