@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-22T11:20:35Z",
+  "generated_at": "2026-06-22T11:44:00Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -15525,7 +15525,7 @@
           "gameweek": "MD1",
           "stem": "matchday-1",
           "total": 12,
-          "covered": 11,
+          "covered": 12,
           "matches": [
             {
               "match_id": 428747,
@@ -15602,7 +15602,7 @@
               "home": "Turkey",
               "away": "Georgia",
               "date": "2024-06-18",
-              "covered": false
+              "covered": true
             },
             {
               "match_id": 428777,
@@ -15617,7 +15617,7 @@
           "gameweek": "MD2",
           "stem": "matchday-2",
           "total": 12,
-          "covered": 11,
+          "covered": 12,
           "matches": [
             {
               "match_id": 428751,
@@ -15694,7 +15694,7 @@
               "home": "Turkey",
               "away": "Portugal",
               "date": "2024-06-22",
-              "covered": false
+              "covered": true
             },
             {
               "match_id": 428768,
@@ -15709,7 +15709,7 @@
           "gameweek": "MD3",
           "stem": "matchday-3",
           "total": 12,
-          "covered": 11,
+          "covered": 12,
           "matches": [
             {
               "match_id": 428742,
@@ -15786,7 +15786,7 @@
               "home": "Czechia",
               "away": "Turkey",
               "date": "2024-06-26",
-              "covered": false
+              "covered": true
             },
             {
               "match_id": 428773,
@@ -15801,7 +15801,7 @@
           "gameweek": "R16",
           "stem": "round-of-16",
           "total": 8,
-          "covered": 7,
+          "covered": 8,
           "matches": [
             {
               "match_id": 428791,
@@ -15857,7 +15857,7 @@
               "home": "Austria",
               "away": "Turkey",
               "date": "2024-07-02",
-              "covered": false
+              "covered": true
             }
           ]
         },
@@ -15865,7 +15865,7 @@
           "gameweek": "QF",
           "stem": "quarter-final",
           "total": 4,
-          "covered": 3,
+          "covered": 4,
           "matches": [
             {
               "match_id": 495401,
@@ -15893,7 +15893,7 @@
               "home": "Netherlands",
               "away": "Turkey",
               "date": "2024-07-06",
-              "covered": false
+              "covered": true
             }
           ]
         },
