@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-22T02:39:24Z",
+  "generated_at": "2026-06-22T03:17:49Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -15522,66 +15522,342 @@
       "slug": "euro-cup",
       "gameweeks": [
         {
+          "gameweek": "MD1",
+          "stem": "matchday-1",
+          "total": 12,
+          "covered": 11,
+          "matches": [
+            {
+              "match_id": 428747,
+              "home": "Germany",
+              "away": "Scotland",
+              "date": "2024-06-14",
+              "covered": true
+            },
+            {
+              "match_id": 428746,
+              "home": "Hungary",
+              "away": "Switzerland",
+              "date": "2024-06-15",
+              "covered": true
+            },
+            {
+              "match_id": 428753,
+              "home": "Spain",
+              "away": "Croatia",
+              "date": "2024-06-15",
+              "covered": true
+            },
+            {
+              "match_id": 428752,
+              "home": "Italy",
+              "away": "Albania",
+              "date": "2024-06-15",
+              "covered": true
+            },
+            {
+              "match_id": 428765,
+              "home": "Poland",
+              "away": "Netherlands",
+              "date": "2024-06-16",
+              "covered": true
+            },
+            {
+              "match_id": 428758,
+              "home": "Slovenia",
+              "away": "Denmark",
+              "date": "2024-06-16",
+              "covered": true
+            },
+            {
+              "match_id": 428759,
+              "home": "Serbia",
+              "away": "England",
+              "date": "2024-06-16",
+              "covered": true
+            },
+            {
+              "match_id": 428770,
+              "home": "Romania",
+              "away": "Ukraine",
+              "date": "2024-06-17",
+              "covered": true
+            },
+            {
+              "match_id": 428771,
+              "home": "Belgium",
+              "away": "Slovakia",
+              "date": "2024-06-17",
+              "covered": true
+            },
+            {
+              "match_id": 428764,
+              "home": "Austria",
+              "away": "France",
+              "date": "2024-06-17",
+              "covered": true
+            },
+            {
+              "match_id": 428776,
+              "home": "Turkey",
+              "away": "Georgia",
+              "date": "2024-06-18",
+              "covered": false
+            },
+            {
+              "match_id": 428777,
+              "home": "Portugal",
+              "away": "Czechia",
+              "date": "2024-06-18",
+              "covered": true
+            }
+          ]
+        },
+        {
+          "gameweek": "MD2",
+          "stem": "matchday-2",
+          "total": 12,
+          "covered": 11,
+          "matches": [
+            {
+              "match_id": 428751,
+              "home": "Croatia",
+              "away": "Albania",
+              "date": "2024-06-19",
+              "covered": true
+            },
+            {
+              "match_id": 428744,
+              "home": "Germany",
+              "away": "Hungary",
+              "date": "2024-06-19",
+              "covered": true
+            },
+            {
+              "match_id": 428745,
+              "home": "Scotland",
+              "away": "Switzerland",
+              "date": "2024-06-19",
+              "covered": true
+            },
+            {
+              "match_id": 428756,
+              "home": "Slovenia",
+              "away": "Serbia",
+              "date": "2024-06-20",
+              "covered": true
+            },
+            {
+              "match_id": 428757,
+              "home": "Denmark",
+              "away": "England",
+              "date": "2024-06-20",
+              "covered": true
+            },
+            {
+              "match_id": 428750,
+              "home": "Spain",
+              "away": "Italy",
+              "date": "2024-06-20",
+              "covered": true
+            },
+            {
+              "match_id": 428769,
+              "home": "Slovakia",
+              "away": "Ukraine",
+              "date": "2024-06-21",
+              "covered": true
+            },
+            {
+              "match_id": 428763,
+              "home": "Poland",
+              "away": "Austria",
+              "date": "2024-06-21",
+              "covered": true
+            },
+            {
+              "match_id": 428762,
+              "home": "Netherlands",
+              "away": "France",
+              "date": "2024-06-21",
+              "covered": true
+            },
+            {
+              "match_id": 428775,
+              "home": "Georgia",
+              "away": "Czechia",
+              "date": "2024-06-22",
+              "covered": true
+            },
+            {
+              "match_id": 428774,
+              "home": "Turkey",
+              "away": "Portugal",
+              "date": "2024-06-22",
+              "covered": false
+            },
+            {
+              "match_id": 428768,
+              "home": "Belgium",
+              "away": "Romania",
+              "date": "2024-06-22",
+              "covered": true
+            }
+          ]
+        },
+        {
+          "gameweek": "MD3",
+          "stem": "matchday-3",
+          "total": 12,
+          "covered": 11,
+          "matches": [
+            {
+              "match_id": 428742,
+              "home": "Scotland",
+              "away": "Hungary",
+              "date": "2024-06-23",
+              "covered": true
+            },
+            {
+              "match_id": 428743,
+              "home": "Switzerland",
+              "away": "Germany",
+              "date": "2024-06-23",
+              "covered": true
+            },
+            {
+              "match_id": 428748,
+              "home": "Albania",
+              "away": "Spain",
+              "date": "2024-06-24",
+              "covered": true
+            },
+            {
+              "match_id": 428749,
+              "home": "Croatia",
+              "away": "Italy",
+              "date": "2024-06-24",
+              "covered": true
+            },
+            {
+              "match_id": 428760,
+              "home": "France",
+              "away": "Poland",
+              "date": "2024-06-25",
+              "covered": true
+            },
+            {
+              "match_id": 428761,
+              "home": "Netherlands",
+              "away": "Austria",
+              "date": "2024-06-25",
+              "covered": true
+            },
+            {
+              "match_id": 428754,
+              "home": "Denmark",
+              "away": "Serbia",
+              "date": "2024-06-25",
+              "covered": true
+            },
+            {
+              "match_id": 428755,
+              "home": "England",
+              "away": "Slovenia",
+              "date": "2024-06-25",
+              "covered": true
+            },
+            {
+              "match_id": 428766,
+              "home": "Ukraine",
+              "away": "Belgium",
+              "date": "2024-06-26",
+              "covered": true
+            },
+            {
+              "match_id": 428767,
+              "home": "Slovakia",
+              "away": "Romania",
+              "date": "2024-06-26",
+              "covered": true
+            },
+            {
+              "match_id": 428772,
+              "home": "Czechia",
+              "away": "Turkey",
+              "date": "2024-06-26",
+              "covered": false
+            },
+            {
+              "match_id": 428773,
+              "home": "Georgia",
+              "away": "Portugal",
+              "date": "2024-06-26",
+              "covered": true
+            }
+          ]
+        },
+        {
           "gameweek": "R16",
           "stem": "round-of-16",
           "total": 8,
-          "covered": 8,
+          "covered": 7,
           "matches": [
             {
-              "match_id": 1212958,
+              "match_id": 428791,
               "home": "Switzerland",
               "away": "Italy",
               "date": "2024-06-29",
               "covered": true
             },
             {
-              "match_id": 1214156,
+              "match_id": 428792,
               "home": "Germany",
               "away": "Denmark",
               "date": "2024-06-29",
               "covered": true
             },
             {
-              "match_id": 1215074,
+              "match_id": 428789,
               "home": "England",
               "away": "Slovakia",
               "date": "2024-06-30",
               "covered": true
             },
             {
-              "match_id": 1215075,
+              "match_id": 428790,
               "home": "Spain",
               "away": "Georgia",
               "date": "2024-06-30",
               "covered": true
             },
             {
-              "match_id": 1215073,
+              "match_id": 428787,
               "home": "France",
               "away": "Belgium",
               "date": "2024-07-01",
               "covered": true
             },
             {
-              "match_id": 1215076,
+              "match_id": 428788,
               "home": "Portugal",
               "away": "Slovenia",
               "date": "2024-07-01",
               "covered": true
             },
             {
-              "match_id": 1215077,
+              "match_id": 428786,
               "home": "Romania",
               "away": "Netherlands",
               "date": "2024-07-02",
               "covered": true
             },
             {
-              "match_id": 1215078,
+              "match_id": 428785,
               "home": "Austria",
-              "away": "Türkiye",
+              "away": "Turkey",
               "date": "2024-07-02",
-              "covered": true
+              "covered": false
             }
           ]
         },
@@ -15589,35 +15865,35 @@
           "gameweek": "QF",
           "stem": "quarter-final",
           "total": 4,
-          "covered": 4,
+          "covered": 3,
           "matches": [
             {
-              "match_id": 1219688,
+              "match_id": 495401,
               "home": "Spain",
               "away": "Germany",
               "date": "2024-07-05",
               "covered": true
             },
             {
-              "match_id": 1219959,
+              "match_id": 495402,
               "home": "Portugal",
               "away": "France",
               "date": "2024-07-05",
               "covered": true
             },
             {
-              "match_id": 1219689,
+              "match_id": 495403,
               "home": "England",
               "away": "Switzerland",
               "date": "2024-07-06",
               "covered": true
             },
             {
-              "match_id": 1220308,
+              "match_id": 495404,
               "home": "Netherlands",
-              "away": "Türkiye",
+              "away": "Turkey",
               "date": "2024-07-06",
-              "covered": true
+              "covered": false
             }
           ]
         },
@@ -15628,14 +15904,14 @@
           "covered": 2,
           "matches": [
             {
-              "match_id": 1225853,
+              "match_id": 428780,
               "home": "Spain",
               "away": "France",
               "date": "2024-07-09",
               "covered": true
             },
             {
-              "match_id": 1227539,
+              "match_id": 428779,
               "home": "Netherlands",
               "away": "England",
               "date": "2024-07-10",
@@ -15650,7 +15926,7 @@
           "covered": 1,
           "matches": [
             {
-              "match_id": 1232551,
+              "match_id": 428778,
               "home": "Spain",
               "away": "England",
               "date": "2024-07-14",
