@@ -55,3 +55,14 @@ Common icons already in use in this project:
 - Always commit with `[skip ci]` in the message for any commit that touches `highlights/` or other data files, to prevent the fetch-highlights Action from re-triggering and burning YouTube quota
 - Never force-push to `main`
 - Use `gh` CLI (at `D:\4_Programs\gh.exe`) for GitHub operations
+
+### Firebase deployment (Flutter app changes)
+
+The Flutter web app is served by Firebase Hosting at `refoot-highlights-app.web.app`.
+Source changes are NOT visible to the user until the web build is rebuilt and redeployed.
+
+- After completing any change that affects the deployed Flutter web app, redeploy to Firebase Hosting as the final step, so the change is visible in the live app. Do not end the task with an undeployed Flutter change.
+- If you cannot safely auto-deploy for any reason (build failure, uncertainty about the command, or anything ambiguous), explicitly ask whether to redeploy before finishing — never silently skip it.
+- Discover the actual deploy command from the repo (`firebase.json`, any deploy script, or the README) rather than assuming. The standard path is `flutter build web` then `firebase deploy --only hosting`, but confirm against the project's real setup.
+- Do NOT deploy if the build fails — report the failure instead of pushing a broken build live.
+- Do NOT redeploy Firebase for `refoot-config` pipeline or data-only changes. Those reach the app via the GitHub push to `raw.githubusercontent.com`, not Firebase. Firebase redeploy applies only to Flutter app source changes.
