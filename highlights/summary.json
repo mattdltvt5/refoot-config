@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-22T01:53:16Z",
+  "generated_at": "2026-06-22T02:39:24Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -15511,6 +15511,149 @@
               "home": "Paris Saint-Germain FC",
               "away": "Arsenal FC",
               "date": "2026-05-30",
+              "covered": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "competition": "Euro Cup",
+      "slug": "euro-cup",
+      "gameweeks": [
+        {
+          "gameweek": "R16",
+          "stem": "round-of-16",
+          "total": 8,
+          "covered": 8,
+          "matches": [
+            {
+              "match_id": 1212958,
+              "home": "Switzerland",
+              "away": "Italy",
+              "date": "2024-06-29",
+              "covered": true
+            },
+            {
+              "match_id": 1214156,
+              "home": "Germany",
+              "away": "Denmark",
+              "date": "2024-06-29",
+              "covered": true
+            },
+            {
+              "match_id": 1215074,
+              "home": "England",
+              "away": "Slovakia",
+              "date": "2024-06-30",
+              "covered": true
+            },
+            {
+              "match_id": 1215075,
+              "home": "Spain",
+              "away": "Georgia",
+              "date": "2024-06-30",
+              "covered": true
+            },
+            {
+              "match_id": 1215073,
+              "home": "France",
+              "away": "Belgium",
+              "date": "2024-07-01",
+              "covered": true
+            },
+            {
+              "match_id": 1215076,
+              "home": "Portugal",
+              "away": "Slovenia",
+              "date": "2024-07-01",
+              "covered": true
+            },
+            {
+              "match_id": 1215077,
+              "home": "Romania",
+              "away": "Netherlands",
+              "date": "2024-07-02",
+              "covered": true
+            },
+            {
+              "match_id": 1215078,
+              "home": "Austria",
+              "away": "Türkiye",
+              "date": "2024-07-02",
+              "covered": true
+            }
+          ]
+        },
+        {
+          "gameweek": "QF",
+          "stem": "quarter-final",
+          "total": 4,
+          "covered": 4,
+          "matches": [
+            {
+              "match_id": 1219688,
+              "home": "Spain",
+              "away": "Germany",
+              "date": "2024-07-05",
+              "covered": true
+            },
+            {
+              "match_id": 1219959,
+              "home": "Portugal",
+              "away": "France",
+              "date": "2024-07-05",
+              "covered": true
+            },
+            {
+              "match_id": 1219689,
+              "home": "England",
+              "away": "Switzerland",
+              "date": "2024-07-06",
+              "covered": true
+            },
+            {
+              "match_id": 1220308,
+              "home": "Netherlands",
+              "away": "Türkiye",
+              "date": "2024-07-06",
+              "covered": true
+            }
+          ]
+        },
+        {
+          "gameweek": "SF",
+          "stem": "semi-final",
+          "total": 2,
+          "covered": 2,
+          "matches": [
+            {
+              "match_id": 1225853,
+              "home": "Spain",
+              "away": "France",
+              "date": "2024-07-09",
+              "covered": true
+            },
+            {
+              "match_id": 1227539,
+              "home": "Netherlands",
+              "away": "England",
+              "date": "2024-07-10",
+              "covered": true
+            }
+          ]
+        },
+        {
+          "gameweek": "Final",
+          "stem": "final",
+          "total": 1,
+          "covered": 1,
+          "matches": [
+            {
+              "match_id": 1232551,
+              "home": "Spain",
+              "away": "England",
+              "date": "2024-07-14",
               "covered": true
             }
           ]
