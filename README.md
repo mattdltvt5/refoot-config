@@ -421,6 +421,13 @@ the [API-Sports](https://www.api-sports.io/) free tier (100 req/day) and capture
 exact `league.round` strings the API returns — the strings that the pipeline's Round/Stage
 filter normalization will later key off.
 
+> **Free-tier limitation:** The API-Sports free plan only covers seasons **2022–2024**.
+> Querying 2025 or later returns a paywall error (`"Free plans do not have access to this
+> season"`).  This makes the free tier a **historical backfill source only** — it cannot
+> cover the current season.  Live/current-season coverage requires a paid plan.
+> Canonical league IDs are pinned in the script (Copa America = id 9, Europa League = id 3)
+> to avoid accidentally selecting women's or youth variants.
+
 **Prerequisites**
 
 ```bash
@@ -440,8 +447,10 @@ python diagnostics/apisports_probe.py
 2. Searches `/leagues?search=copa+america` and `/leagues?search=europa+league`,
    printing every matched league with its full seasons table (year, start/end dates,
    `fixtures.events` coverage flag) so you can verify the canonical IDs.
-3. Auto-selects the most likely canonical entry for each competition and fetches
-   `/fixtures?league={id}&season={year}` for its most-recent season.
+3. Resolves the canonical entry for each competition (pinned ID first, name-filter
+   fallback) and selects the newest season with year ≤ 2024 and `fixtures.events = True`.
+   Seasons > 2024 are never queried — a `SeasonLockedError` is caught and logged if one
+   somehow slips through.
 4. Reports fixture count, explicit `NOT COVERED` if the API returns 0 results, and
    the complete ordered list of distinct `league.round` strings.
 5. Writes `diagnostics/apisports_probe_report.md` with identical content.

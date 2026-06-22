@@ -3,8 +3,8 @@
 diagnostics/apisports_probe.py
 
 Read-only diagnostic: confirms whether Copa America and UEFA Europa League
-target seasons are available on the API-Sports free tier and captures their
-real round-string formats for later normalization.
+target seasons are available on the API-Sports free tier (2022–2024 only) and
+captures the exact `league.round` strings the API returns.
 
 Usage
 -----
@@ -38,23 +38,28 @@ BASE_URL            = "https://v3.football.api-sports.io"
 INTER_REQUEST_SLEEP = 7      # seconds — keeps bursts safely under 10 req/min
 MIN_DAILY_REMAINING = 10     # abort threshold
 
+# API-Sports free plan covers seasons 2022–2024 only.
+# Querying 2025 or 2026 returns a paywall error even on valid leagues.
+FREE_TIER_SEASON_MAX = 2024
+
 DIAGNOSTICS_DIR = Path(__file__).resolve().parent
 REPORT_PATH     = DIAGNOSTICS_DIR / "apisports_probe_report.md"
 
-# Search targets.  canon_includes / canon_excludes drive the heuristic that
-# auto-selects the canonical league entry for the fixtures probe.  All matches
-# are still printed so the user can verify the selection.
+# Search targets.
+# canonical_id: known league ID — used as primary path; name-filter is fallback only.
+# canon_includes / canon_excludes: name-filter heuristic (backup path).
 TARGETS = [
     {
         "label":          "Copa America",
         "search":         "copa america",
+        "canonical_id":   9,   # men's senior tournament (NOT id 926 Copa America Femenina)
         "canon_includes": ["copa america"],
         "canon_excludes": [],
     },
     {
         "label":          "UEFA Europa League",
         "search":         "europa league",
-        # Exclude Conference League, qualification rounds, defunct variants
+        "canonical_id":   3,   # main UEL (NOT Conference League, qualification rounds)
         "canon_includes": ["europa league"],
         "canon_excludes": ["conference", "qualification", "qualifying", "play-off",
                            "championship", "reserve", "youth"],
@@ -81,6 +86,15 @@ def _out(line: str = "") -> None:
 
 
 # ──────────────────────────────────────────────────────────────────────────────
+# Custom exception for free-tier paywall
+# ──────────────────────────────────────────────────────────────────────────────
+
+class SeasonLockedError(Exception):
+    """Raised when API-Sports returns errors.plan (free-tier season paywall)."""
+    pass
+
+
+# ──────────────────────────────────────────────────────────────────────────────
 # HTTP helper
 # ──────────────────────────────────────────────────────────────────────────────
 
@@ -91,7 +105,9 @@ def _get(path: str, params: Optional[Dict] = None) -> dict:
     - Enforces INTER_REQUEST_SLEEP between consecutive calls.
     - Logs x-ratelimit-requests-remaining (daily) and X-RateLimit-Remaining
       (per-minute) from every response header.
-    - Raises RuntimeError on non-200 HTTP status.
+    - Raises SeasonLockedError when errors.plan contains "does not have access
+      to this season" — expected free-tier paywall, not a bug.
+    - Raises RuntimeError on non-200 HTTP status or other API-level errors.
     - A 200 with an empty `response` array is NOT an error; callers handle it.
     """
     global _calls_made, _last_call_ts
@@ -132,15 +148,40 @@ def _get(path: str, params: Optional[Dict] = None) -> dict:
 
     body   = resp.json()
     errors = body.get("errors")
-    if errors:   # non-empty dict or non-empty list means an API-level error
+    if errors:
+        err_str = str(errors).lower()
+        if "does not have access to this season" in err_str or "free plans" in err_str:
+            raise SeasonLockedError(str(errors))
         raise RuntimeError(f"API-Sports returned errors: {errors}")
 
     return body
 
 
 # ──────────────────────────────────────────────────────────────────────────────
-# League-selection heuristic
+# Season helpers
 # ──────────────────────────────────────────────────────────────────────────────
+
+def _best_free_season(seasons: List[dict]) -> Optional[dict]:
+    """
+    Return the newest season with year <= FREE_TIER_SEASON_MAX and
+    fixtures.events == True.  Returns None if no eligible season exists.
+    """
+    eligible = [
+        s for s in seasons
+        if s.get("year", 9999) <= FREE_TIER_SEASON_MAX
+        and s.get("coverage", {}).get("fixtures", {}).get("events") is True
+    ]
+    if not eligible:
+        return None
+    return max(eligible, key=lambda s: s.get("year", 0))
+
+
+# ──────────────────────────────────────────────────────────────────────────────
+# League-selection heuristic (fallback path — canonical_id is preferred)
+# ──────────────────────────────────────────────────────────────────────────────
+
+# Variants to exclude during name-based selection.
+_GENDER_AGE_EXCLUDES = {"femenina", "women", "feminine", "u21", "u20", "u19"}
 
 def _pick_canonical(
     leagues:  List[dict],
@@ -150,23 +191,25 @@ def _pick_canonical(
     """
     From a /leagues?search= result set pick the most likely canonical entry:
       1. league.name (lower) contains every string in `includes`.
-      2. league.name (lower) contains none of the strings in `excludes`.
-      3. Among survivors pick the entry whose most-recent season year is newest.
+      2. league.name (lower) contains none of the strings in `excludes` or
+         _GENDER_AGE_EXCLUDES (women's/youth variants).
+      3. Among survivors pick the entry whose most-recent free-tier season
+         (year <= FREE_TIER_SEASON_MAX, fixtures.events == True) is newest.
 
     Returns None if nothing passes the filter.
     """
+    all_excludes = set(excludes) | _GENDER_AGE_EXCLUDES
     candidates = []
     for entry in leagues:
         name_lower = entry.get("league", {}).get("name", "").lower()
         if not all(t in name_lower for t in includes):
             continue
-        if any(t in name_lower for t in excludes):
+        if any(t in name_lower for t in all_excludes):
             continue
-        seasons = entry.get("seasons", [])
-        if not seasons:
+        best = _best_free_season(entry.get("seasons", []))
+        if best is None:
             continue
-        max_year = max(s.get("year", 0) for s in seasons)
-        candidates.append((max_year, entry))
+        candidates.append((best["year"], entry))
 
     if not candidates:
         return None
@@ -206,6 +249,10 @@ def main() -> None:
     _out(f"# API-Sports Probe Report — {run_ts}")
     _out()
     _out("**Read-only diagnostic** — no pipeline file, config, or quota tracker is modified.")
+    _out()
+    _out(f"> **Free-tier constraint:** API-Sports free plan covers seasons"
+         f" 2022–{FREE_TIER_SEASON_MAX} only.  Seasons"
+         f" {FREE_TIER_SEASON_MAX + 1}+ return a paywall error and are never queried.")
     _out()
 
     # ── 1. /status ────────────────────────────────────────────────────────────
@@ -295,44 +342,57 @@ def main() -> None:
 
     # ── 3. Fixtures probe ─────────────────────────────────────────────────────
     _out("---")
-    _out("## 3. Fixtures probe (most-recent season per canonical league)")
+    _out("## 3. Fixtures probe (newest free-tier season per canonical league)")
     _out()
     _out(
-        "> **Review required for Europa League:** `/leagues?search=europa+league`"
-        " can return Conference League, qualification rounds, and defunct cups."
-        " The script auto-selects the most likely canonical entry (reason shown"
-        " below) — verify against section 2 before treating round strings as final."
+        f"> **Free-tier window: 2022–{FREE_TIER_SEASON_MAX}.**"
+        f"  Only seasons within this range are queried.  Current seasons"
+        f" ({FREE_TIER_SEASON_MAX + 1}+) require a paid plan."
     )
     _out()
     _out(
-        "> **Copa America season-year note:** API-Sports uses the calendar year"
-        " of the tournament (e.g. 2024 = Copa America 2024, June–July 2024),"
-        " not a split-year notation like European leagues.  Confirm start/end"
-        " dates below against the competition calendar."
+        "> **Canonical IDs are pinned** (id=9 for Copa America, id=3 for Europa League)."
+        "  Name-filter heuristic is used only if the pinned ID is absent from search results."
     )
     _out()
 
     probe_results: List[dict] = []
 
     for target in TARGETS:
-        label    = target["label"]
-        includes = target["canon_includes"]
-        excludes = target["canon_excludes"]
-        leagues  = all_leagues.get(label, [])
+        label        = target["label"]
+        includes     = target["canon_includes"]
+        excludes     = target["canon_excludes"]
+        canonical_id = target.get("canonical_id")
+        leagues      = all_leagues.get(label, [])
 
         _out(f"### {label}")
         _out()
 
-        canonical = _pick_canonical(leagues, includes, excludes)
+        # Primary path: look up by canonical_id in search results
+        canonical = None
+        if canonical_id is not None:
+            for entry in leagues:
+                if entry.get("league", {}).get("id") == canonical_id:
+                    canonical = entry
+                    break
+            if canonical is None:
+                _out(
+                    f"*Pinned id={canonical_id} not found in `/leagues?search={target['search']}`"
+                    f" results — falling back to name-filter heuristic.*"
+                )
+
+        # Fallback: name-based selection (excludes women's/youth variants)
+        if canonical is None:
+            canonical = _pick_canonical(leagues, includes, excludes)
 
         if canonical is None and leagues:
             _out(
-                f"*Heuristic found no match after applying excludes "
-                f"({', '.join(excludes) or 'none'}) — falling back to first "
-                f"result with seasons.*"
+                f"*Name-filter found no match after applying excludes"
+                f" ({', '.join(excludes) or 'none'} + gender/age variants)"
+                f" — falling back to first result with eligible seasons.*"
             )
             for entry in leagues:
-                if entry.get("seasons"):
+                if _best_free_season(entry.get("seasons", [])) is not None:
                     canonical = entry
                     break
 
@@ -344,23 +404,54 @@ def main() -> None:
 
         lg      = canonical["league"]
         seasons = canonical.get("seasons", [])
-        most_recent = max(seasons, key=lambda s: s.get("year", 0))
 
         lg_id   = lg["id"]
         lg_name = lg["name"]
-        season  = most_recent["year"]
-        s_start = most_recent.get("start", "?")
-        s_end   = most_recent.get("end",   "?")
+
+        best_season = _best_free_season(seasons)
+        if best_season is None:
+            _out(
+                f"**SKIPPED** — no season with year ≤ {FREE_TIER_SEASON_MAX}"
+                f" and fixtures.events=True found for {lg_name!r} (id={lg_id})."
+            )
+            probe_results.append({
+                "label":  label,
+                "status": f"SKIPPED — no free-tier eligible season (≤{FREE_TIER_SEASON_MAX})",
+            })
+            _out()
+            continue
+
+        season  = best_season["year"]
+        s_start = best_season.get("start", "?")
+        s_end   = best_season.get("end",   "?")
 
         excl_note = ""
         if excludes:
-            excl_note = "  *(excludes: " + ", ".join(f"`{e}`" for e in excludes) + ")*"
+            excl_note = "  *(excludes: " + ", ".join(f"`{e}`" for e in excludes) + " + gender/age variants)*"
 
-        _out(f"**Auto-selected:** id={lg_id}  {lg_name!r}{excl_note}")
-        _out(f"**Most-recent season:** {season}  ({s_start} → {s_end})")
+        _out(f"**Selected:** id={lg_id}  {lg_name!r}{excl_note}")
+        _out(f"**Target season:** {season}  ({s_start} → {s_end})  *(newest ≤ {FREE_TIER_SEASON_MAX} with coverage)*")
         _out()
 
-        fix_body = _get("/fixtures", {"league": lg_id, "season": season})
+        try:
+            fix_body = _get("/fixtures", {"league": lg_id, "season": season})
+        except SeasonLockedError as exc:
+            _out(f"> **SEASON LOCKED (free tier)** — season {season} is paywalled.")
+            _out(f"> API error: `{exc}`")
+            _out(f"> This should not happen when season ≤ {FREE_TIER_SEASON_MAX} — check coverage flags in section 2.")
+            probe_results.append({
+                "label":         label,
+                "league_id":     lg_id,
+                "league_name":   lg_name,
+                "season":        season,
+                "season_span":   f"{s_start} → {s_end}",
+                "status":        f"SEASON LOCKED (free tier) — season {season}",
+                "round_strings": [],
+                "fixture_count": 0,
+            })
+            _out()
+            continue
+
         fix_list = fix_body.get("response", [])
         total    = len(fix_list)
 
@@ -417,6 +508,12 @@ def main() -> None:
     _out("## 4. Summary")
     _out()
     _out(f"**Total API-Sports calls this run: {_calls_made}**")
+    _out()
+    _out(
+        f"**Free-tier coverage window: 2022–{FREE_TIER_SEASON_MAX}.**"
+        f"  Seasons {FREE_TIER_SEASON_MAX + 1}+ require a paid plan."
+        f"  The free tier is a historical backfill source only — it cannot cover the current season."
+    )
     _out()
     _out("| Competition | League ID | Season | Span | Status | Fixture count |")
     _out("|-------------|-----------|--------|------|--------|---------------|")
