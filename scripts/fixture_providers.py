@@ -252,15 +252,19 @@ class ApiSportsProvider(FixtureProvider):
 
             home = fix.get("teams", {}).get("home", {})
             away = fix.get("teams", {}).get("away", {})
+            home_id = home.get("id")
+            away_id = away.get("id")
 
             by_stem.setdefault(stem, []).append({
                 "match_id":   fix["fixture"]["id"],
                 "home_team":  home.get("name", ""),
                 "home_short": home.get("name", ""),  # API-Sports has no separate shortName
                 "home_tla":   "",                     # API-Sports provides no TLA
+                "home_crest": f"https://media.api-sports.io/football/teams/{home_id}.png" if home_id else "",
                 "away_team":  away.get("name", ""),
                 "away_short": away.get("name", ""),
                 "away_tla":   "",
+                "away_crest": f"https://media.api-sports.io/football/teams/{away_id}.png" if away_id else "",
                 "date":       date_str,
                 "matchday":   matchday,
                 "stage":      stage_val,
