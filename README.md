@@ -98,9 +98,15 @@ Copa America is intentionally **not** in `COMPETITION_CODE_MAP`, so the schedule
 
 **Actions tab → Backfill Copa America highlights → Run workflow**
 
+The workflow (`backfill-copa-america.yml`) uses `permissions: contents: write` and `persist-credentials: true` — the same push mechanism as the other backfill workflows — so the commit and push happen automatically inside CI.  No manual `git push` is needed.
+
 This fetches all 32 Copa America 2024 fixtures from API-Sports and searches YouTube for highlights using the same tier-waterfall logic as the main backfill.  Fixture data is written to `highlights/copa-america/matchday-{1,2,3}.json`, `quarter-final.json`, `semi-final.json`, `third-place.json`, and `final.json`.
 
-Required secrets: `APISPORTS_API_KEY` (API-Sports key) and `YOUTUBE_API_KEY`.
+**Required secrets** (Settings → Secrets and variables → Actions):
+- `APISPORTS_API_KEY` — API-Sports API key (free tier, 100 req/day)
+- `YOUTUBE_API_KEY` — YouTube Data API v3 key (shared with the other workflows)
+
+The workflow is **manual-only** (`workflow_dispatch`).  It has no `schedule:` trigger and is never invoked by the 4-hour incremental run.  This is intentional — running it on a schedule would burn API-Sports free-tier quota and violate the standing rule that the scheduled job is API-Sports-free.
 
 ### First-time setup
 
