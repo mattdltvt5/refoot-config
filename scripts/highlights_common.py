@@ -1067,6 +1067,19 @@ class QuotaCapReached(Exception):
 # when current_season() would otherwise return year-1 (e.g. in May/June).
 SUMMER_TOURNAMENT_COMPS: set[str] = {"World Cup", "Euro Cup", "Copa America"}
 
+# Each summer tournament has a known anchor year and a recurrence period.
+# season_for_competition uses these to find the most recent edition year that
+# is <= today, so the app always shows the latest completed tournament while
+# correctly stepping forward when a new edition year arrives.
+#
+# To register a new edition: update anchor_year to the next scheduled year
+# once it is confirmed (the period handles all future editions automatically).
+SUMMER_TOURNAMENT_CYCLE: dict[str, tuple[int, int]] = {
+    "World Cup":    (2022, 4),   # 2022, 2026, 2030 …
+    "Euro Cup":     (2024, 4),   # 2020, 2024, 2028 …
+    "Copa America": (2024, 4),   # 2021, 2024, 2028 …
+}
+
 
 def current_season() -> int:
     """Return the current domestic football season start year (e.g. 2025 for 2025-26)."""
@@ -1079,13 +1092,19 @@ def season_for_competition(comp_name: str) -> int:
     Return the football-data.org season year to query for a given competition.
 
     Domestic leagues and UCL/UEL use the August–July convention handled by
-    ``current_season()``.  Summer tournaments (World Cup, Euro Cup) run
-    June–July and are indexed by their calendar year, so they always use
-    ``datetime.now().year`` regardless of the August cutoff.
+    ``current_season()``.  Summer tournaments run in calendar years and use
+    SUMMER_TOURNAMENT_CYCLE to return the most recent edition year <= today,
+    so the previous tournament is shown until the next one begins.
     """
-    if comp_name in SUMMER_TOURNAMENT_COMPS:
+    if comp_name not in SUMMER_TOURNAMENT_COMPS:
+        return current_season()
+    cycle = SUMMER_TOURNAMENT_CYCLE.get(comp_name)
+    if cycle is None:
         return datetime.now(timezone.utc).year
-    return current_season()
+    anchor, period = cycle
+    current_year = datetime.now(timezone.utc).year
+    completed = (current_year - anchor) // period
+    return anchor + completed * period
 
 
 def utc_now_iso() -> str:
