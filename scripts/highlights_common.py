@@ -301,7 +301,7 @@ TEAM_TITLE_ALIASES: dict[str, list[str]] = {
     # ── Premier League ───────────────────────────────────────────────────────
     "AFC Bournemouth":             ["AFC Bournemouth", "Bournemouth"],
     "Arsenal FC":                  ["Arsenal FC", "Arsenal"],
-    "Aston Villa FC":              ["Aston Villa FC", "Aston Villa"],
+    "Aston Villa FC":              ["Aston Villa FC", "Aston Villa", "AVFC"],
     "Brentford FC":                ["Brentford FC", "Brentford"],
     "Brighton & Hove Albion FC":   ["Brighton & Hove Albion FC", "Brighton & Hove Albion", "Brighton"],
     "Burnley FC":                  ["Burnley FC", "Burnley"],
@@ -314,7 +314,7 @@ TEAM_TITLE_ALIASES: dict[str, list[str]] = {
     "Manchester City FC":          ["Manchester City FC", "Manchester City", "Man City"],
     "Manchester United FC":        ["Manchester United FC", "Manchester United", "Man United", "Man Utd"],
     "Newcastle United FC":         ["Newcastle United FC", "Newcastle United", "Newcastle"],
-    "Nottingham Forest FC":        ["Nottingham Forest FC", "Nottingham Forest", "Nottm Forest"],
+    "Nottingham Forest FC":        ["Nottingham Forest FC", "Nottingham Forest", "Nottm Forest", "Nott'm Forest"],
     "Sunderland AFC":              ["Sunderland AFC", "Sunderland"],
     "Tottenham Hotspur FC":        ["Tottenham Hotspur FC", "Tottenham Hotspur", "Tottenham", "Spurs"],
     "West Ham United FC":          ["West Ham United FC", "West Ham United", "West Ham"],
@@ -1754,6 +1754,13 @@ def resolve_videos_for_fixture(
 
         return [{**v, "tier_used": tier} for v in filtered] if filtered else None
 
+    # publishedAt in playlistItems.list = date item was added to the playlist, not
+    # video publication date.  Applies to all curated playlists: tier 1c/1d team
+    # playlists, tier 2a GW playlists, and tier 4 broadcaster playlists.  Clubs and
+    # broadcasters routinely add videos several days after upload, so a 3-day window
+    # misses them permanently on subsequent recheck runs.
+    _CURATED_PLAYLIST_WINDOW = 7
+
     # Tier 1c — home team competition-scoped playlist
     # requires_both_teams=True (no comp_filter): the playlist is already scoped to
     # this competition by its entry in teamPlaylists[comp_name], so requiring a
@@ -1763,20 +1770,14 @@ def resolve_videos_for_fixture(
     # also protects against cross-competition false positives: a Europa League clip
     # that slipped into a LaLiga playlist would still need the *LaLiga* opponent in
     # its title to pass — which it won't have.
-    result = _try(team_pl.get(comp_name, {}).get(home, ""), tier=1, both_teams=True)
+    result = _try(team_pl.get(comp_name, {}).get(home, ""), tier=1, both_teams=True, date_window=_CURATED_PLAYLIST_WINDOW)
     if result:
         return result
 
     # Tier 1d — away team competition-scoped playlist (same reasoning as 1c)
-    result = _try(team_pl.get(comp_name, {}).get(away, ""), tier=1, both_teams=True)
+    result = _try(team_pl.get(comp_name, {}).get(away, ""), tier=1, both_teams=True, date_window=_CURATED_PLAYLIST_WINDOW)
     if result:
         return result
-
-    # Window for curated PL… playlists (Tier 2a per-GW and Tier 4 broadcaster):
-    # publishedAt = date item was added to the playlist, not video publication date.
-    # Early-season games added retroactively can fall outside a 3-day window even
-    # though the video was published on time.
-    _CURATED_PLAYLIST_WINDOW = 7
 
     # Tier 2 — official competition channel
     # 2a: try the per-gameweek playlist first (curated; far less likely to contain
