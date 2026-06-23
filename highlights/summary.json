@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-23T14:49:38Z",
+  "generated_at": "2026-06-23T17:56:00Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -1803,7 +1803,7 @@
           "gameweek": "GW24",
           "stem": "gameweek-24",
           "total": 10,
-          "covered": 9,
+          "covered": 10,
           "matches": [
             {
               "match_id": 538017,
@@ -1859,7 +1859,7 @@
               "home": "Nottingham Forest FC",
               "away": "Crystal Palace FC",
               "date": "2026-02-01",
-              "covered": false
+              "covered": true
             },
             {
               "match_id": 538023,
