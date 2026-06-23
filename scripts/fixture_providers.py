@@ -149,12 +149,32 @@ class FootballDataProvider(FixtureProvider):
         return self._normalize(resp.json().get("matches", []), comp_name)
 
     def _normalize(self, matches: list, comp_name: str) -> dict:
+        # FD sometimes returns the same match twice for stage-aware competitions
+        # (UCL/UEL): once with the correct knockout stage and once with
+        # LEAGUE_STAGE + leg-number as matchday.  Pre-scan to identify match IDs
+        # that have a proper knockout stem so we can skip the spurious league-stage
+        # routing for those IDs.
+        knockout_ids: set[int] = set()
+        for m in matches:
+            stage    = m.get("stage", "")
+            matchday = m.get("matchday")
+            if stage not in ("LEAGUE_STAGE", "GROUP_STAGE"):
+                if stage_to_file_stem(stage, matchday, comp_name) is not None:
+                    knockout_ids.add(m["id"])
+
         by_stem: dict = {}
         for m in matches:
             matchday = m.get("matchday")
             stage    = m.get("stage", "")
             utc_str  = m.get("utcDate", "")
             if not utc_str:
+                continue
+
+            # Skip league-stage routing when a proper knockout stem exists for this ID.
+            if stage in ("LEAGUE_STAGE", "GROUP_STAGE") and m["id"] in knockout_ids:
+                log.debug(
+                    f"{comp_name}: skipping league-stage duplicate for match {m['id']}"
+                )
                 continue
 
             stem = stage_to_file_stem(stage, matchday, comp_name)
