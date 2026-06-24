@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-23T21:43:57Z",
+  "generated_at": "2026-06-24T03:35:28Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -15811,8 +15811,8 @@
         {
           "gameweek": "MD2",
           "stem": "matchday-2",
-          "total": 21,
-          "covered": 21,
+          "total": 23,
+          "covered": 23,
           "matches": [
             {
               "match_id": 537329,
@@ -15958,6 +15958,20 @@
               "match_id": 537405,
               "home": "Portugal",
               "away": "Uzbekistan",
+              "date": "2026-06-23",
+              "covered": true
+            },
+            {
+              "match_id": 537411,
+              "home": "England",
+              "away": "Ghana",
+              "date": "2026-06-23",
+              "covered": true
+            },
+            {
+              "match_id": 537412,
+              "home": "Panama",
+              "away": "Croatia",
               "date": "2026-06-23",
               "covered": true
             }
