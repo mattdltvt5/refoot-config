@@ -301,7 +301,7 @@ TEAM_TITLE_ALIASES: dict[str, list[str]] = {
     # ── Premier League ───────────────────────────────────────────────────────
     "AFC Bournemouth":             ["AFC Bournemouth", "Bournemouth"],
     "Arsenal FC":                  ["Arsenal FC", "Arsenal"],
-    "Aston Villa FC":              ["Aston Villa FC", "Aston Villa", "AVFC"],
+    "Aston Villa FC":              ["Aston Villa FC", "Aston Villa", "AVFC", "Villa"],
     "Brentford FC":                ["Brentford FC", "Brentford"],
     "Brighton & Hove Albion FC":   ["Brighton & Hove Albion FC", "Brighton & Hove Albion", "Brighton"],
     "Burnley FC":                  ["Burnley FC", "Burnley"],
@@ -815,7 +815,11 @@ COMP_CHANNEL_TITLE_TERMS: dict[str, list[str]] = {
 }
 
 
-def is_highlight_title(title: str, extra_allowlist: "list[str] | tuple[str, ...]" = ()) -> bool:
+def is_highlight_title(
+    title: str,
+    extra_allowlist: "list[str] | tuple[str, ...]" = (),
+    require_allowlist: bool = True,
+) -> bool:
     """
     Return True only when the video title passes both filters:
 
@@ -826,6 +830,8 @@ def is_highlight_title(title: str, extra_allowlist: "list[str] | tuple[str, ...]
        hashtags stripped out**.  Stripping prevents hashtag-only passes such as
        ``#LaLigaHighlights`` matching the allowlist term ``"highlights"`` — a
        common pattern on social/Shorts clips that are not highlight packages.
+       Skipped when ``require_allowlist=False`` (caller knows the playlist title
+       already signals this is a highlights playlist).
 
     ``extra_allowlist`` is an optional per-source extension (e.g. competition-name
     terms for official competition channel searches) that is checked after the main
@@ -841,6 +847,9 @@ def is_highlight_title(title: str, extra_allowlist: "list[str] | tuple[str, ...]
         if term in lower:
             log.debug(f"Title blocked ({term!r}): {title!r}")
             return False
+
+    if not require_allowlist:
+        return True
 
     # Step 2 — allowlist on the hashtag-stripped title.
     # Removes every #word token so that "#LaLigaHighlights" does NOT satisfy
@@ -954,7 +963,7 @@ def find_gameweek_playlist(
     quota: "QuotaTracker",
     cap: int,
     cache: dict,
-) -> str | None:
+) -> "tuple[str, str] | None":
     """
     Discover the per-gameweek playlist published by a competition's official channel.
 
@@ -970,7 +979,7 @@ def find_gameweek_playlist(
       competition shares a single call — the playlist is the same regardless
       of matchday.
 
-    Returns the playlist ID on first title match, or None when:
+    Returns ``(playlist_id, playlist_title)`` on first title match, or None when:
       - ``matchday`` is None (knockout fixtures; matchday = leg number, not GW)
       - The competition has no defined patterns
       - The stage is a knockout stage for a STAGE_AWARE_COMP (to avoid
@@ -1002,6 +1011,7 @@ def find_gameweek_playlist(
     # Each page costs 1 quota unit; cap at 5 pages (250 playlists) to stay lean.
     _MAX_PAGES   = 5
     found        = None
+    found_title  = ""
     page_token   = ""
 
     for _ in range(_MAX_PAGES):
@@ -1035,7 +1045,8 @@ def find_gameweek_playlist(
             title = item.get("snippet", {}).get("title", "")
             pl_id = item.get("id", "")
             if pl_id and any(pat.search(title) for pat in patterns):
-                found = pl_id
+                found       = pl_id
+                found_title = title
                 log.info(
                     f"  Discovered GW playlist for {comp_name} MD{matchday}: "
                     f"{title!r} → {pl_id}"
@@ -1054,8 +1065,8 @@ def find_gameweek_playlist(
             f"No GW playlist found for {comp_name} MD{matchday} on channel {channel_id}"
         )
 
-    cache[cache_key] = found
-    return found
+    cache[cache_key] = (found, found_title) if found else None
+    return (found, found_title) if found else None
 
 
 # ── Exception ─────────────────────────────────────────────────────────────────
@@ -1453,6 +1464,7 @@ def search_playlist(
     extra_allowlist: "list[str] | tuple[str, ...]" = (),
     debug_sink: "list | None" = None,
     date_window_days: int = VIDEO_WINDOW_DAYS,
+    bypass_highlight_allowlist: bool = False,
 ) -> list[dict]:
     """
     Search a playlist for videos matching the given fixture.
@@ -1462,6 +1474,9 @@ def search_playlist(
       2. If requires_competition_filter: title contains a competition keyword
       3. If requires_both_teams: title contains home_short AND away_short
          Otherwise: title contains home_short OR away_short
+      4. is_highlight_title() passes (blocklist always; allowlist skipped when
+         bypass_highlight_allowlist=True, i.e. the playlist title already signals
+         this is a highlights playlist so the per-video title need not repeat it).
 
     ``requires_both_teams`` should be True for broad channels (tier 2 competition
     channel, tier 4 broadcaster playlists) which publish every fixture in the league.
@@ -1598,9 +1613,9 @@ def search_playlist(
                     continue
 
             # Reject press conferences, interviews, previews, training clips, etc.
-            # Applies to all tiers — blocklist is checked inside is_highlight_title()
-            # before the allowlist, so blocklist always wins.
-            if not is_highlight_title(title, extra_allowlist):
+            # Blocklist always wins; allowlist is skipped when bypass_highlight_allowlist
+            # is True (the playlist title already implies these are highlight videos).
+            if not is_highlight_title(title, extra_allowlist, require_allowlist=not bypass_highlight_allowlist):
                 lower = title.lower()
                 blocked_by = next((t for t in TITLE_BLOCKLIST if t in lower), None)
                 reason = (
@@ -1666,6 +1681,7 @@ def resolve_videos_for_fixture(
         extra_allowlist: "list[str] | tuple[str, ...]" = (),
         date_window: int = VIDEO_WINDOW_DAYS,
         comp_exclusion_kws: "tuple[str, ...] | list[str]" = (),
+        highlight_playlist: bool = False,
     ) -> list[dict] | None:
         if not playlist_id:
             return None
@@ -1679,6 +1695,7 @@ def resolve_videos_for_fixture(
             extra_allowlist=extra_allowlist,
             debug_sink=debug_sink,
             date_window_days=date_window,
+            bypass_highlight_allowlist=highlight_playlist,
         )
         if debug_sink is not None:
             for rec in debug_sink[_sink_start:]:
@@ -1770,12 +1787,14 @@ def resolve_videos_for_fixture(
     # also protects against cross-competition false positives: a Europa League clip
     # that slipped into a LaLiga playlist would still need the *LaLiga* opponent in
     # its title to pass — which it won't have.
-    result = _try(team_pl.get(comp_name, {}).get(home, ""), tier=1, both_teams=True, date_window=_CURATED_PLAYLIST_WINDOW)
+    # highlight_playlist=True: these playlists are curated by clubs specifically for
+    # competition highlights, so the per-video title need not also say "highlights".
+    result = _try(team_pl.get(comp_name, {}).get(home, ""), tier=1, both_teams=True, date_window=_CURATED_PLAYLIST_WINDOW, highlight_playlist=True)
     if result:
         return result
 
     # Tier 1d — away team competition-scoped playlist (same reasoning as 1c)
-    result = _try(team_pl.get(comp_name, {}).get(away, ""), tier=1, both_teams=True, date_window=_CURATED_PLAYLIST_WINDOW)
+    result = _try(team_pl.get(comp_name, {}).get(away, ""), tier=1, both_teams=True, date_window=_CURATED_PLAYLIST_WINDOW, highlight_playlist=True)
     if result:
         return result
 
@@ -1789,7 +1808,7 @@ def resolve_videos_for_fixture(
     ch = comp_ch.get(comp_name, "")
     if ch:
         comp_extra = COMP_CHANNEL_TITLE_TERMS.get(comp_name, ())
-        gw_pl = find_gameweek_playlist(
+        gw_pl_result = find_gameweek_playlist(
             ch,
             fixture.get("matchday"),
             fixture.get("stage", ""),
@@ -1799,8 +1818,9 @@ def resolve_videos_for_fixture(
             cap=cap,
             cache=gw_playlist_cache,
         )
-        if gw_pl:
-            result = _try(gw_pl, tier=2, both_teams=True, extra_allowlist=comp_extra, date_window=_CURATED_PLAYLIST_WINDOW)
+        if gw_pl_result:
+            gw_pl, gw_pl_title = gw_pl_result
+            result = _try(gw_pl, tier=2, both_teams=True, extra_allowlist=comp_extra, date_window=_CURATED_PLAYLIST_WINDOW, highlight_playlist="highlight" in gw_pl_title.lower())
             # LaLiga channel strict gate: only 'HIGHLIGHTS LALIGA' titles accepted from
             # this source.  'RESUMEN LALIGA EA SPORTS' passes is_highlight_title() via
             # the Spanish 'resumen' allowlist term but is rejected here because it is
@@ -1841,9 +1861,11 @@ def resolve_videos_for_fixture(
 
     # Tier 4 — broadcaster playlists (same rationale as Tier 2a: curated PL…
     # playlists, requires_both_teams=True guards cross-fixture false positives).
+    # highlight_playlist=True: these are explicitly configured broadcaster highlights
+    # playlists, so the per-video title need not also contain "highlights".
     for _broadcaster, pl_ids in comp_pl.get(comp_name, {}).items():
         for pl_id in pl_ids:
-            result = _try(pl_id, tier=4, both_teams=True, date_window=_CURATED_PLAYLIST_WINDOW)
+            result = _try(pl_id, tier=4, both_teams=True, date_window=_CURATED_PLAYLIST_WINDOW, highlight_playlist=True)
             if result:
                 return result
 
