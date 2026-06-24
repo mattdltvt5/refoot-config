@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-24T03:35:28Z",
+  "generated_at": "2026-06-24T07:42:01Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -15811,8 +15811,8 @@
         {
           "gameweek": "MD2",
           "stem": "matchday-2",
-          "total": 23,
-          "covered": 23,
+          "total": 24,
+          "covered": 24,
           "matches": [
             {
               "match_id": 537329,
@@ -15973,6 +15973,13 @@
               "home": "Panama",
               "away": "Croatia",
               "date": "2026-06-23",
+              "covered": true
+            },
+            {
+              "match_id": 537406,
+              "home": "Colombia",
+              "away": "Congo DR",
+              "date": "2026-06-24",
               "covered": true
             }
           ]
