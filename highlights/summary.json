@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-24T17:55:24Z",
+  "generated_at": "2026-06-24T21:23:05Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -321,7 +321,7 @@
           "gameweek": "GW5",
           "stem": "gameweek-5",
           "total": 10,
-          "covered": 9,
+          "covered": 10,
           "matches": [
             {
               "match_id": 537831,
@@ -342,7 +342,7 @@
               "home": "Burnley FC",
               "away": "Nottingham Forest FC",
               "date": "2025-09-20",
-              "covered": false
+              "covered": true
             },
             {
               "match_id": 537833,
@@ -789,7 +789,7 @@
           "gameweek": "GW11",
           "stem": "gameweek-11",
           "total": 10,
-          "covered": 9,
+          "covered": 10,
           "matches": [
             {
               "match_id": 537893,
@@ -831,7 +831,7 @@
               "home": "Aston Villa FC",
               "away": "AFC Bournemouth",
               "date": "2025-11-09",
-              "covered": false
+              "covered": true
             },
             {
               "match_id": 537887,
@@ -1101,14 +1101,14 @@
           "gameweek": "GW15",
           "stem": "gameweek-15",
           "total": 10,
-          "covered": 9,
+          "covered": 10,
           "matches": [
             {
               "match_id": 537926,
               "home": "Aston Villa FC",
               "away": "Arsenal FC",
               "date": "2025-12-06",
-              "covered": false
+              "covered": true
             },
             {
               "match_id": 537925,
@@ -15981,6 +15981,28 @@
               "away": "Congo DR",
               "date": "2026-06-24",
               "covered": true
+            }
+          ]
+        },
+        {
+          "gameweek": "MD3",
+          "stem": "matchday-3",
+          "total": 2,
+          "covered": 1,
+          "matches": [
+            {
+              "match_id": 537337,
+              "home": "Switzerland",
+              "away": "Canada",
+              "date": "2026-06-24",
+              "covered": true
+            },
+            {
+              "match_id": 537338,
+              "home": "Bosnia-Herzegovina",
+              "away": "Qatar",
+              "date": "2026-06-24",
+              "covered": false
             }
           ]
         }
