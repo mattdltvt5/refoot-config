@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-24T21:23:05Z",
+  "generated_at": "2026-06-25T03:32:54Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -15987,8 +15987,8 @@
         {
           "gameweek": "MD3",
           "stem": "matchday-3",
-          "total": 2,
-          "covered": 1,
+          "total": 6,
+          "covered": 5,
           "matches": [
             {
               "match_id": 537337,
@@ -16002,7 +16002,35 @@
               "home": "Bosnia-Herzegovina",
               "away": "Qatar",
               "date": "2026-06-24",
+              "covered": true
+            },
+            {
+              "match_id": 537344,
+              "home": "Morocco",
+              "away": "Haiti",
+              "date": "2026-06-24",
+              "covered": true
+            },
+            {
+              "match_id": 537343,
+              "home": "Scotland",
+              "away": "Brazil",
+              "date": "2026-06-24",
+              "covered": true
+            },
+            {
+              "match_id": 537331,
+              "home": "Czechia",
+              "away": "Mexico",
+              "date": "2026-06-25",
               "covered": false
+            },
+            {
+              "match_id": 537332,
+              "home": "South Africa",
+              "away": "South Korea",
+              "date": "2026-06-25",
+              "covered": true
             }
           ]
         }

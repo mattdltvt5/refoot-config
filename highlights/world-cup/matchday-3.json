@@ -2,7 +2,7 @@
   "competition": "World Cup",
   "gameweek": "MD3",
   "stem": "matchday-3",
-  "generated_at": "2026-06-24T21:23:05Z",
+  "generated_at": "2026-06-25T03:32:54Z",
   "matches": [
     {
       "match_id": 537337,
@@ -23,7 +23,63 @@
       "home_team": "Bosnia-Herzegovina",
       "away_team": "Qatar",
       "date": "2026-06-24",
+      "videos": [
+        {
+          "video_id": "mk6m1LJdkrI",
+          "title": "Bosnia and Herzegovina vs Qatar Extended Highlights 🌎🏆 2026 FIFA World Cup™",
+          "published_at": "2026-06-24",
+          "tier_used": 4
+        }
+      ]
+    },
+    {
+      "match_id": 537344,
+      "home_team": "Morocco",
+      "away_team": "Haiti",
+      "date": "2026-06-24",
+      "videos": [
+        {
+          "video_id": "37c0v5fkCLI",
+          "title": "Morocco vs Haiti Extended Highlights 🌎🏆 2026 FIFA World Cup™",
+          "published_at": "2026-06-25",
+          "tier_used": 4
+        }
+      ]
+    },
+    {
+      "match_id": 537343,
+      "home_team": "Scotland",
+      "away_team": "Brazil",
+      "date": "2026-06-24",
+      "videos": [
+        {
+          "video_id": "fWN13Oe4kA0",
+          "title": "Scotland vs Brazil Extended Highlights 🌎🏆 2026 FIFA World Cup™",
+          "published_at": "2026-06-25",
+          "tier_used": 4
+        }
+      ]
+    },
+    {
+      "match_id": 537331,
+      "home_team": "Czechia",
+      "away_team": "Mexico",
+      "date": "2026-06-25",
       "videos": []
+    },
+    {
+      "match_id": 537332,
+      "home_team": "South Africa",
+      "away_team": "South Korea",
+      "date": "2026-06-25",
+      "videos": [
+        {
+          "video_id": "A7PTebEdius",
+          "title": "South Africa vs South Korea Extended Highlights 🌎🏆 2026 FIFA World Cup™",
+          "published_at": "2026-06-25",
+          "tier_used": 4
+        }
+      ]
     }
   ]
 }
