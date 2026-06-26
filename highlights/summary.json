@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-26T17:48:52Z",
+  "generated_at": "2026-06-26T21:19:57Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -15987,7 +15987,7 @@
         {
           "gameweek": "MD3",
           "stem": "matchday-3",
-          "total": 12,
+          "total": 14,
           "covered": 12,
           "matches": [
             {
@@ -16073,6 +16073,20 @@
               "away": "Australia",
               "date": "2026-06-26",
               "covered": true
+            },
+            {
+              "match_id": 537395,
+              "home": "Norway",
+              "away": "France",
+              "date": "2026-06-26",
+              "covered": false
+            },
+            {
+              "match_id": 537396,
+              "home": "Senegal",
+              "away": "Iraq",
+              "date": "2026-06-26",
+              "covered": false
             }
           ]
         }
