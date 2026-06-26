@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+# Pre-commit hook: run the no-network Python unit tests before every commit.
+#
+# Install (from the repo root):
+#   cp .githooks/pre-commit .git/hooks/pre-commit
+#   chmod +x .git/hooks/pre-commit
+#
+# On Windows (Git Bash):
+#   cp .githooks/pre-commit .git/hooks/pre-commit
+#   (Git Bash executes the bash shebang automatically — no chmod needed)
+
+set -e
+
+if ! command -v pytest &>/dev/null; then
+    echo "[pre-commit] WARNING: pytest not found — skipping Python tests."
+    echo "  Install with: pip install -r requirements-dev.txt"
+    exit 0
+fi
+
+ROOT="$(git rev-parse --show-toplevel)"
+echo "[pre-commit] Running pure-function tests..."
+cd "$ROOT"
+pytest scripts/tests/test_pure_functions.py -x --no-header -q

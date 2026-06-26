@@ -439,6 +439,71 @@ A YouTube HTTP 403 (quota exhaustion detected by YouTube itself) is treated iden
 | `FOOTBALL_DATA_API_KEY` | Fixture fetch from football-data.org |
 | `YOUTUBE_API_KEY` | YouTube `playlistItems.list` calls |
 
+## Testing
+
+### Running the tests
+
+**Python test suite** (pure-function + mocked-HTTP + config schema):
+```bash
+# From the repo root
+pip install -r requirements-dev.txt
+pytest scripts/tests/ -v
+```
+
+**Fast subset only** (pre-commit / quick iteration — no network, no file I/O):
+```bash
+pytest scripts/tests/test_pure_functions.py -x --no-header -q
+```
+
+### Pre-commit hook
+
+Runs the no-network pure-function tests automatically before every local commit.
+
+Install (Unix / Git Bash on Windows):
+```bash
+cp .githooks/pre-commit .git/hooks/pre-commit
+chmod +x .git/hooks/pre-commit   # Unix only; not needed in Git Bash on Windows
+```
+
+After installation the hook runs `test_pure_functions.py` on every `git commit`.
+If `pytest` is not installed it warns and exits 0 (never hard-blocks a commit).
+
+### CI gate
+
+`.github/workflows/run-tests.yml` runs the full Python suite on every push and
+pull request.  It carries **no API keys**, so any accidental live call to
+YouTube, football-data.org, or API-Sports fails immediately with a
+missing-key/auth error — quota is never burned by tests.
+
+The auto-commit produced by `fetch-highlights.yml` carries `[skip ci]` in its
+message.  GitHub Actions skips all workflows for commits that contain `[skip ci]`
+— this workflow is therefore **never triggered by data-only commits**.  Do NOT
+remove `[skip ci]` from the fetch-highlights auto-commit.
+
+### Where fixtures live
+
+| Repo | Path | Purpose |
+|---|---|---|
+| `refoot-config` | `scripts/tests/fixtures/` | Python test snapshot files (future use) |
+| `refoot_flutter` | `test/fixtures/` | Flutter test JSON fixtures |
+
+### API-isolation rules
+
+- **No live API calls in any test.** Python tests patch `requests.get` via
+  `unittest.mock.patch("highlights_common.requests.get", ...)`.  Flutter tests
+  inject `MockClient` via the `svgHttpClient` / `http.Client?` constructor param.
+- **No API keys in CI.** The `run-tests.yml` workflow intentionally omits
+  `YOUTUBE_API_KEY`, `FOOTBALL_DATA_API_KEY`, and `APISPORTS_API_KEY`.
+- **Fixtures are snapshots.** Python fixtures in `scripts/tests/fixtures/` and
+  Flutter fixtures in `test/fixtures/` are in-repo copies, never read from the
+  live `highlights/` directory.
+
+### PR-review policy
+
+Any change to matcher logic (`_normalize`, `team_tokens`, `TEAM_TITLE_ALIASES`),
+title-filter logic (`is_highlight_title`, `TITLE_BLOCKLIST`, `TITLE_ALLOWLIST`),
+or normalization must include a corresponding test in the same commit.
+
 ## Diagnostics
 
 Diagnostic scripts live in `diagnostics/` and are **manual-only** — they are never

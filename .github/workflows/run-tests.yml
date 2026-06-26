@@ -1,0 +1,38 @@
+name: Run tests
+
+# Triggers on every push and pull request to every branch.
+# Does NOT have a schedule: trigger, so it is never fired by the 4-hour
+# fetch-highlights job.  The fetch-highlights auto-commit carries [skip ci]
+# in its message, which causes GitHub Actions to skip ALL workflows for that
+# push — this workflow is therefore never triggered by data-only commits.
+#
+# API-isolation rule: NO API keys are present in this workflow's environment.
+# Any accidental live call to YouTube, football-data.org, or API-Sports will
+# fail with a missing-key / authentication error rather than burning quota.
+on:
+  push:
+    branches: ["**"]
+  pull_request:
+    branches: ["**"]
+
+jobs:
+  python-tests:
+    name: Python test suite
+    runs-on: ubuntu-latest
+
+    # Intentionally no YOUTUBE_API_KEY, FOOTBALL_DATA_API_KEY, or
+    # APISPORTS_API_KEY — missing keys are the desired guard against live calls.
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install -r requirements-dev.txt
+
+      - name: Run Python test suite
+        run: pytest scripts/tests/ -v --no-header
