@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-27T03:26:39Z",
+  "generated_at": "2026-06-27T06:53:04Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -15987,8 +15987,8 @@
         {
           "gameweek": "MD3",
           "stem": "matchday-3",
-          "total": 16,
-          "covered": 16,
+          "total": 18,
+          "covered": 18,
           "matches": [
             {
               "match_id": 537337,
@@ -16099,6 +16099,20 @@
               "match_id": 537374,
               "home": "Cape Verde Islands",
               "away": "Saudi Arabia",
+              "date": "2026-06-27",
+              "covered": true
+            },
+            {
+              "match_id": 537367,
+              "home": "New Zealand",
+              "away": "Belgium",
+              "date": "2026-06-27",
+              "covered": true
+            },
+            {
+              "match_id": 537368,
+              "home": "Egypt",
+              "away": "Iran",
               "date": "2026-06-27",
               "covered": true
             }
