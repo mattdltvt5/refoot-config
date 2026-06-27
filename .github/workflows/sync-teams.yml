@@ -23,7 +23,7 @@ jobs:
         run: |
           python3 << 'PYEOF'
           import json, os, time, urllib.request, urllib.error
-          from datetime import date
+          from datetime import date, datetime
 
           API_KEY = os.environ["FOOTBALL_DATA_API_KEY"]
 
@@ -54,7 +54,18 @@ jobs:
               try:
                   with urllib.request.urlopen(req, timeout=15) as resp:
                       payload = json.loads(resp.read())
-                      teams = sorted(t["name"] for t in payload.get("teams", []))
+                      teams = sorted(
+                          [
+                              {
+                                  "name":     t["name"],
+                                  "id":       t["id"],
+                                  "tla":      t.get("tla", ""),
+                                  "crestUrl": t.get("crest", ""),
+                              }
+                              for t in payload.get("teams", [])
+                          ],
+                          key=lambda x: x["name"],
+                      )
                       data["teamLists"][comp_name] = teams
                       print(f"✓ {comp_name}: {len(teams)} teams")
               except urllib.error.HTTPError as e:
@@ -69,16 +80,84 @@ jobs:
               f.write("\n")
 
           print("sources.json written.")
+
+          # ── Tournament group + knockout cache ──────────────────────────────
+          TOURNAMENT_COMPETITIONS = [
+              (2018, "Euro Cup",  "euro-cup"),
+              (2000, "World Cup", "world-cup"),
+          ]
+
+          KNOCKOUT_STAGES = {
+              "LAST_16", "QUARTER_FINALS", "SEMI_FINALS", "THIRD_PLACE", "FINAL",
+          }
+
+          os.makedirs("tournament-groups", exist_ok=True)
+
+          for comp_id, comp_name, slug in TOURNAMENT_COMPETITIONS:
+              time.sleep(7)
+              standings_url = (
+                  f"https://api.football-data.org/v4/competitions/{comp_id}/standings"
+              )
+              standings_req = urllib.request.Request(
+                  standings_url, headers={"X-Auth-Token": API_KEY}
+              )
+              try:
+                  with urllib.request.urlopen(standings_req, timeout=15) as resp:
+                      standings_payload = json.loads(resp.read())
+              except urllib.error.HTTPError as e:
+                  print(f"✗ {comp_name} standings: HTTP {e.code} — skipping")
+                  continue
+              except Exception as e:
+                  print(f"✗ {comp_name} standings: {e} — skipping")
+                  continue
+
+              time.sleep(7)
+              matches_url = (
+                  f"https://api.football-data.org/v4/competitions/{comp_id}/matches"
+              )
+              matches_req = urllib.request.Request(
+                  matches_url, headers={"X-Auth-Token": API_KEY}
+              )
+              try:
+                  with urllib.request.urlopen(matches_req, timeout=15) as resp:
+                      matches_payload = json.loads(resp.read())
+              except urllib.error.HTTPError as e:
+                  print(f"✗ {comp_name} matches: HTTP {e.code} — skipping")
+                  continue
+              except Exception as e:
+                  print(f"✗ {comp_name} matches: {e} — skipping")
+                  continue
+
+              tournament_data = {
+                  "generated_at": datetime.utcnow().isoformat() + "Z",
+                  "slug": slug,
+                  "standings": [
+                      s for s in standings_payload.get("standings", [])
+                      if s.get("type") == "TOTAL"
+                  ],
+                  "matches": [
+                      m for m in matches_payload.get("matches", [])
+                      if m.get("stage") in KNOCKOUT_STAGES
+                  ],
+              }
+
+              out_path = f"tournament-groups/{slug}.json"
+              with open(out_path, "w", encoding="utf-8") as f:
+                  json.dump(tournament_data, f, indent=2, ensure_ascii=False)
+                  f.write("\n")
+
+              print(f"✓ {comp_name}: {out_path} written")
+
           PYEOF
 
       - name: Commit if changed
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add sources.json
+          git add sources.json tournament-groups/
           git diff --cached --quiet \
             && echo "No changes to commit." \
             || (
-                git commit -m "chore: sync team lists [$(date -u +%Y-%m-%d)]" \
+                git commit -m "chore: sync team data [$(date -u +%Y-%m-%d)]" \
                 && git push
                )

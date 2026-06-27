@@ -86,6 +86,23 @@ def test_team_lists_keys_subset_of_competitions(sources):
         )
 
 
+def test_team_lists_entries_have_required_fields_when_object_format(sources):
+    """When teamLists entries are dicts (new format), they must carry name/id/tla/crestUrl.
+
+    String entries (pre-migration format) are accepted during the rollout window
+    before sync-teams.yml has run with the new code.  Once it runs, all entries
+    become dicts and this test enforces their shape.
+    """
+    for comp, entries in sources.get("teamLists", {}).items():
+        for entry in entries:
+            if not isinstance(entry, dict):
+                continue  # old string-list format — still valid during rollout
+            for field in ("name", "id", "tla", "crestUrl"):
+                assert field in entry, (
+                    f"teamLists[{comp!r}] entry missing field {field!r}: {entry!r}"
+                )
+
+
 # ── Invariant 16: every competition has a playlists entry ────────────────────
 
 def test_every_competition_has_playlists_entry(sources):
