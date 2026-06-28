@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-28T03:48:07Z",
+  "generated_at": "2026-06-28T07:52:25Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -15987,8 +15987,8 @@
         {
           "gameweek": "MD3",
           "stem": "matchday-3",
-          "total": 22,
-          "covered": 22,
+          "total": 24,
+          "covered": 24,
           "matches": [
             {
               "match_id": 537337,
@@ -16142,6 +16142,20 @@
               "home": "Congo DR",
               "away": "Uzbekistan",
               "date": "2026-06-27",
+              "covered": true
+            },
+            {
+              "match_id": 537401,
+              "home": "Jordan",
+              "away": "Argentina",
+              "date": "2026-06-28",
+              "covered": true
+            },
+            {
+              "match_id": 537402,
+              "home": "Algeria",
+              "away": "Austria",
+              "date": "2026-06-28",
               "covered": true
             }
           ]
