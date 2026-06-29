@@ -1,0 +1,1728 @@
+{
+  "generated_at": "2026-06-29T08:55:33.281230Z",
+  "slug": "euro-cup",
+  "standings": [
+    {
+      "stage": "ALL",
+      "type": "TOTAL",
+      "group": "Group A",
+      "table": [
+        {
+          "position": 1,
+          "team": {
+            "id": 759,
+            "name": "Germany",
+            "shortName": "Germany",
+            "tla": "GER",
+            "crest": "https://crests.football-data.org/759.svg"
+          },
+          "playedGames": 3,
+          "form": null,
+          "won": 2,
+          "draw": 1,
+          "lost": 0,
+          "points": 7,
+          "goalsFor": 8,
+          "goalsAgainst": 2,
+          "goalDifference": 6
+        },
+        {
+          "position": 2,
+          "team": {
+            "id": 788,
+            "name": "Switzerland",
+            "shortName": "Switzerland",
+            "tla": "SUI",
+            "crest": "https://crests.football-data.org/788.svg"
+          },
+          "playedGames": 3,
+          "form": null,
+          "won": 1,
+          "draw": 2,
+          "lost": 0,
+          "points": 5,
+          "goalsFor": 5,
+          "goalsAgainst": 3,
+          "goalDifference": 2
+        },
+        {
+          "position": 3,
+          "team": {
+            "id": 827,
+            "name": "Hungary",
+            "shortName": "Hungary",
+            "tla": "HUN",
+            "crest": "https://crests.football-data.org/827.svg"
+          },
+          "playedGames": 3,
+          "form": null,
+          "won": 1,
+          "draw": 0,
+          "lost": 2,
+          "points": 3,
+          "goalsFor": 2,
+          "goalsAgainst": 5,
+          "goalDifference": -3
+        },
+        {
+          "position": 4,
+          "team": {
+            "id": 8873,
+            "name": "Scotland",
+            "shortName": "Scotland",
+            "tla": "SCO",
+            "crest": "https://crests.football-data.org/814.svg"
+          },
+          "playedGames": 3,
+          "form": null,
+          "won": 0,
+          "draw": 1,
+          "lost": 2,
+          "points": 1,
+          "goalsFor": 2,
+          "goalsAgainst": 7,
+          "goalDifference": -5
+        }
+      ]
+    },
+    {
+      "stage": "ALL",
+      "type": "TOTAL",
+      "group": "Group B",
+      "table": [
+        {
+          "position": 1,
+          "team": {
+            "id": 760,
+            "name": "Spain",
+            "shortName": "Spain",
+            "tla": "ESP",
+            "crest": "https://crests.football-data.org/760.svg"
+          },
+          "playedGames": 3,
+          "form": null,
+          "won": 3,
+          "draw": 0,
+          "lost": 0,
+          "points": 9,
+          "goalsFor": 5,
+          "goalsAgainst": 0,
+          "goalDifference": 5
+        },
+        {
+          "position": 2,
+          "team": {
+            "id": 784,
+            "name": "Italy",
+            "shortName": "Italy",
+            "tla": "ITA",
+            "crest": "https://crests.football-data.org/784.svg"
+          },
+          "playedGames": 3,
+          "form": null,
+          "won": 1,
+          "draw": 1,
+          "lost": 1,
+          "points": 4,
+          "goalsFor": 3,
+          "goalsAgainst": 3,
+          "goalDifference": 0
+        },
+        {
+          "position": 3,
+          "team": {
+            "id": 799,
+            "name": "Croatia",
+            "shortName": "Croatia",
+            "tla": "CRO",
+            "crest": "https://crests.football-data.org/799.svg"
+          },
+          "playedGames": 3,
+          "form": null,
+          "won": 0,
+          "draw": 2,
+          "lost": 1,
+          "points": 2,
+          "goalsFor": 3,
+          "goalsAgainst": 6,
+          "goalDifference": -3
+        },
+        {
+          "position": 4,
+          "team": {
+            "id": 1065,
+            "name": "Albania",
+            "shortName": "Albania",
+            "tla": "ALB",
+            "crest": "https://upload.wikimedia.org/wikipedia/commons/3/36/Flag_of_Albania.svg"
+          },
+          "playedGames": 3,
+          "form": null,
+          "won": 0,
+          "draw": 1,
+          "lost": 2,
+          "points": 1,
+          "goalsFor": 3,
+          "goalsAgainst": 5,
+          "goalDifference": -2
+        }
+      ]
+    },
+    {
+      "stage": "ALL",
+      "type": "TOTAL",
+      "group": "Group C",
+      "table": [
+        {
+          "position": 1,
+          "team": {
+            "id": 770,
+            "name": "England",
+            "shortName": "England",
+            "tla": "ENG",
+            "crest": "https://crests.football-data.org/770.svg"
+          },
+          "playedGames": 3,
+          "form": null,
+          "won": 1,
+          "draw": 2,
+          "lost": 0,
+          "points": 5,
+          "goalsFor": 2,
+          "goalsAgainst": 1,
+          "goalDifference": 1
+        },
+        {
+          "position": 2,
+          "team": {
+            "id": 782,
+            "name": "Denmark",
+            "shortName": "Denmark",
+            "tla": "DEN",
+            "crest": "https://crests.football-data.org/782.svg"
+          },
+          "playedGames": 3,
+          "form": null,
+          "won": 0,
+          "draw": 3,
+          "lost": 0,
+          "points": 3,
+          "goalsFor": 2,
+          "goalsAgainst": 2,
+          "goalDifference": 0
+        },
+        {
+          "position": 3,
+          "team": {
+            "id": 777,
+            "name": "Slovenia",
+            "shortName": "Slovenia",
+            "tla": "SVN",
+            "crest": "https://crests.football-data.org/777.svg"
+          },
+          "playedGames": 3,
+          "form": null,
+          "won": 0,
+          "draw": 3,
+          "lost": 0,
+          "points": 3,
+          "goalsFor": 2,
+          "goalsAgainst": 2,
+          "goalDifference": 0
+        },
+        {
+          "position": 4,
+          "team": {
+            "id": 780,
+            "name": "Serbia",
+            "shortName": "Serbia",
+            "tla": "SRB",
+            "crest": "https://crests.football-data.org/780.svg"
+          },
+          "playedGames": 3,
+          "form": null,
+          "won": 0,
+          "draw": 2,
+          "lost": 1,
+          "points": 2,
+          "goalsFor": 1,
+          "goalsAgainst": 2,
+          "goalDifference": -1
+        }
+      ]
+    },
+    {
+      "stage": "ALL",
+      "type": "TOTAL",
+      "group": "Group D",
+      "table": [
+        {
+          "position": 1,
+          "team": {
+            "id": 816,
+            "name": "Austria",
+            "shortName": "Austria",
+            "tla": "AUT",
+            "crest": "https://crests.football-data.org/816.svg"
+          },
+          "playedGames": 3,
+          "form": null,
+          "won": 2,
+          "draw": 0,
+          "lost": 1,
+          "points": 6,
+          "goalsFor": 6,
+          "goalsAgainst": 4,
+          "goalDifference": 2
+        },
+        {
+          "position": 2,
+          "team": {
+            "id": 773,
+            "name": "France",
+            "shortName": "France",
+            "tla": "FRA",
+            "crest": "https://crests.football-data.org/773.svg"
+          },
+          "playedGames": 3,
+          "form": null,
+          "won": 1,
+          "draw": 2,
+          "lost": 0,
+          "points": 5,
+          "goalsFor": 2,
+          "goalsAgainst": 1,
+          "goalDifference": 1
+        },
+        {
+          "position": 3,
+          "team": {
+            "id": 8601,
+            "name": "Netherlands",
+            "shortName": "Netherlands",
+            "tla": "NED",
+            "crest": "https://crests.football-data.org/8601.svg"
+          },
+          "playedGames": 3,
+          "form": null,
+          "won": 1,
+          "draw": 1,
+          "lost": 1,
+          "points": 4,
+          "goalsFor": 4,
+          "goalsAgainst": 4,
+          "goalDifference": 0
+        },
+        {
+          "position": 4,
+          "team": {
+            "id": 794,
+            "name": "Poland",
+            "shortName": "Poland",
+            "tla": "POL",
+            "crest": "https://crests.football-data.org/794.svg"
+          },
+          "playedGames": 3,
+          "form": null,
+          "won": 0,
+          "draw": 1,
+          "lost": 2,
+          "points": 1,
+          "goalsFor": 3,
+          "goalsAgainst": 6,
+          "goalDifference": -3
+        }
+      ]
+    },
+    {
+      "stage": "ALL",
+      "type": "TOTAL",
+      "group": "Group E",
+      "table": [
+        {
+          "position": 1,
+          "team": {
+            "id": 811,
+            "name": "Romania",
+            "shortName": "Romania",
+            "tla": "ROU",
+            "crest": "https://crests.football-data.org/811.svg"
+          },
+          "playedGames": 3,
+          "form": null,
+          "won": 1,
+          "draw": 1,
+          "lost": 1,
+          "points": 4,
+          "goalsFor": 4,
+          "goalsAgainst": 3,
+          "goalDifference": 1
+        },
+        {
+          "position": 2,
+          "team": {
+            "id": 805,
+            "name": "Belgium",
+            "shortName": "Belgium",
+            "tla": "BEL",
+            "crest": "https://crests.football-data.org/805.svg"
+          },
+          "playedGames": 3,
+          "form": null,
+          "won": 1,
+          "draw": 1,
+          "lost": 1,
+          "points": 4,
+          "goalsFor": 2,
+          "goalsAgainst": 1,
+          "goalDifference": 1
+        },
+        {
+          "position": 3,
+          "team": {
+            "id": 768,
+            "name": "Slovakia",
+            "shortName": "Slovakia",
+            "tla": "SVK",
+            "crest": "https://crests.football-data.org/768.svg"
+          },
+          "playedGames": 3,
+          "form": null,
+          "won": 1,
+          "draw": 1,
+          "lost": 1,
+          "points": 4,
+          "goalsFor": 3,
+          "goalsAgainst": 3,
+          "goalDifference": 0
+        },
+        {
+          "position": 4,
+          "team": {
+            "id": 790,
+            "name": "Ukraine",
+            "shortName": "Ukraine",
+            "tla": "UKR",
+            "crest": "https://crests.football-data.org/790.svg"
+          },
+          "playedGames": 3,
+          "form": null,
+          "won": 1,
+          "draw": 1,
+          "lost": 1,
+          "points": 4,
+          "goalsFor": 2,
+          "goalsAgainst": 4,
+          "goalDifference": -2
+        }
+      ]
+    },
+    {
+      "stage": "ALL",
+      "type": "TOTAL",
+      "group": "Group F",
+      "table": [
+        {
+          "position": 1,
+          "team": {
+            "id": 765,
+            "name": "Portugal",
+            "shortName": "Portugal",
+            "tla": "POR",
+            "crest": "https://crests.football-data.org/765.svg"
+          },
+          "playedGames": 3,
+          "form": null,
+          "won": 2,
+          "draw": 0,
+          "lost": 1,
+          "points": 6,
+          "goalsFor": 5,
+          "goalsAgainst": 3,
+          "goalDifference": 2
+        },
+        {
+          "position": 2,
+          "team": {
+            "id": 803,
+            "name": "Turkey",
+            "shortName": "Turkey",
+            "tla": "TUR",
+            "crest": "https://crests.football-data.org/803.svg"
+          },
+          "playedGames": 3,
+          "form": null,
+          "won": 2,
+          "draw": 0,
+          "lost": 1,
+          "points": 6,
+          "goalsFor": 5,
+          "goalsAgainst": 5,
+          "goalDifference": 0
+        },
+        {
+          "position": 3,
+          "team": {
+            "id": 1978,
+            "name": "Georgia",
+            "shortName": "Georgia",
+            "tla": "GEO",
+            "crest": "https://crests.football-data.org/ge.svg"
+          },
+          "playedGames": 3,
+          "form": null,
+          "won": 1,
+          "draw": 1,
+          "lost": 1,
+          "points": 4,
+          "goalsFor": 4,
+          "goalsAgainst": 4,
+          "goalDifference": 0
+        },
+        {
+          "position": 4,
+          "team": {
+            "id": 798,
+            "name": "Czechia",
+            "shortName": "Czechia",
+            "tla": "CZE",
+            "crest": "https://crests.football-data.org/798.svg"
+          },
+          "playedGames": 3,
+          "form": null,
+          "won": 0,
+          "draw": 1,
+          "lost": 2,
+          "points": 1,
+          "goalsFor": 3,
+          "goalsAgainst": 5,
+          "goalDifference": -2
+        }
+      ]
+    }
+  ],
+  "matches": [
+    {
+      "area": {
+        "id": 2077,
+        "name": "Europe",
+        "code": "EUR",
+        "flag": "https://crests.football-data.org/EUR.svg"
+      },
+      "competition": {
+        "id": 2018,
+        "name": "European Championship",
+        "code": "EC",
+        "type": "CUP",
+        "emblem": "https://crests.football-data.org/ec.png"
+      },
+      "season": {
+        "id": 1537,
+        "startDate": "2024-06-14",
+        "endDate": "2024-07-14",
+        "currentMatchday": 7,
+        "winner": {
+          "id": 760,
+          "name": "Spain",
+          "shortName": "Spain",
+          "tla": "ESP",
+          "crest": "https://crests.football-data.org/760.svg",
+          "address": "Ramón y Cajal, s/n Las Rozas 28230",
+          "website": "http://www.rfef.es",
+          "founded": 1909,
+          "clubColors": "Red / Blue / Yellow",
+          "venue": null,
+          "lastUpdated": "2026-06-01T09:41:19Z"
+        }
+      },
+      "id": 428791,
+      "utcDate": "2024-06-29T16:00:00Z",
+      "status": "FINISHED",
+      "matchday": 4,
+      "stage": "LAST_16",
+      "group": null,
+      "lastUpdated": "2024-07-23T10:21:24Z",
+      "homeTeam": {
+        "id": 788,
+        "name": "Switzerland",
+        "shortName": "Switzerland",
+        "tla": "SUI",
+        "crest": "https://crests.football-data.org/788.svg"
+      },
+      "awayTeam": {
+        "id": 784,
+        "name": "Italy",
+        "shortName": "Italy",
+        "tla": "ITA",
+        "crest": "https://crests.football-data.org/784.svg"
+      },
+      "score": {
+        "winner": "HOME_TEAM",
+        "duration": "REGULAR",
+        "fullTime": {
+          "home": 2,
+          "away": 0
+        },
+        "halfTime": {
+          "home": 1,
+          "away": 0
+        }
+      },
+      "odds": {
+        "msg": "Activate Odds-Package in User-Panel to retrieve odds."
+      },
+      "referees": [
+        {
+          "id": 43888,
+          "name": "Szymon Marciniak",
+          "type": "REFEREE",
+          "nationality": "Poland"
+        }
+      ]
+    },
+    {
+      "area": {
+        "id": 2077,
+        "name": "Europe",
+        "code": "EUR",
+        "flag": "https://crests.football-data.org/EUR.svg"
+      },
+      "competition": {
+        "id": 2018,
+        "name": "European Championship",
+        "code": "EC",
+        "type": "CUP",
+        "emblem": "https://crests.football-data.org/ec.png"
+      },
+      "season": {
+        "id": 1537,
+        "startDate": "2024-06-14",
+        "endDate": "2024-07-14",
+        "currentMatchday": 7,
+        "winner": {
+          "id": 760,
+          "name": "Spain",
+          "shortName": "Spain",
+          "tla": "ESP",
+          "crest": "https://crests.football-data.org/760.svg",
+          "address": "Ramón y Cajal, s/n Las Rozas 28230",
+          "website": "http://www.rfef.es",
+          "founded": 1909,
+          "clubColors": "Red / Blue / Yellow",
+          "venue": null,
+          "lastUpdated": "2026-06-01T09:41:19Z"
+        }
+      },
+      "id": 428792,
+      "utcDate": "2024-06-29T19:00:00Z",
+      "status": "FINISHED",
+      "matchday": 4,
+      "stage": "LAST_16",
+      "group": null,
+      "lastUpdated": "2024-07-23T10:21:24Z",
+      "homeTeam": {
+        "id": 759,
+        "name": "Germany",
+        "shortName": "Germany",
+        "tla": "GER",
+        "crest": "https://crests.football-data.org/759.svg"
+      },
+      "awayTeam": {
+        "id": 782,
+        "name": "Denmark",
+        "shortName": "Denmark",
+        "tla": "DEN",
+        "crest": "https://crests.football-data.org/782.svg"
+      },
+      "score": {
+        "winner": "HOME_TEAM",
+        "duration": "REGULAR",
+        "fullTime": {
+          "home": 2,
+          "away": 0
+        },
+        "halfTime": {
+          "home": 0,
+          "away": 0
+        }
+      },
+      "odds": {
+        "msg": "Activate Odds-Package in User-Panel to retrieve odds."
+      },
+      "referees": [
+        {
+          "id": 11605,
+          "name": "Michael Oliver",
+          "type": "REFEREE",
+          "nationality": "England"
+        }
+      ]
+    },
+    {
+      "area": {
+        "id": 2077,
+        "name": "Europe",
+        "code": "EUR",
+        "flag": "https://crests.football-data.org/EUR.svg"
+      },
+      "competition": {
+        "id": 2018,
+        "name": "European Championship",
+        "code": "EC",
+        "type": "CUP",
+        "emblem": "https://crests.football-data.org/ec.png"
+      },
+      "season": {
+        "id": 1537,
+        "startDate": "2024-06-14",
+        "endDate": "2024-07-14",
+        "currentMatchday": 7,
+        "winner": {
+          "id": 760,
+          "name": "Spain",
+          "shortName": "Spain",
+          "tla": "ESP",
+          "crest": "https://crests.football-data.org/760.svg",
+          "address": "Ramón y Cajal, s/n Las Rozas 28230",
+          "website": "http://www.rfef.es",
+          "founded": 1909,
+          "clubColors": "Red / Blue / Yellow",
+          "venue": null,
+          "lastUpdated": "2026-06-01T09:41:19Z"
+        }
+      },
+      "id": 428789,
+      "utcDate": "2024-06-30T16:00:00Z",
+      "status": "FINISHED",
+      "matchday": 4,
+      "stage": "LAST_16",
+      "group": null,
+      "lastUpdated": "2024-07-23T10:21:24Z",
+      "homeTeam": {
+        "id": 770,
+        "name": "England",
+        "shortName": "England",
+        "tla": "ENG",
+        "crest": "https://crests.football-data.org/770.svg"
+      },
+      "awayTeam": {
+        "id": 768,
+        "name": "Slovakia",
+        "shortName": "Slovakia",
+        "tla": "SVK",
+        "crest": "https://crests.football-data.org/768.svg"
+      },
+      "score": {
+        "winner": "HOME_TEAM",
+        "duration": "EXTRA_TIME",
+        "fullTime": {
+          "home": 2,
+          "away": 1
+        },
+        "halfTime": {
+          "home": 0,
+          "away": 1
+        },
+        "regularTime": {
+          "home": 1,
+          "away": 1
+        },
+        "extraTime": {
+          "home": 1,
+          "away": 0
+        }
+      },
+      "odds": {
+        "msg": "Activate Odds-Package in User-Panel to retrieve odds."
+      },
+      "referees": [
+        {
+          "id": 214424,
+          "name": "Halil Meler",
+          "type": "REFEREE",
+          "nationality": "Turkey"
+        }
+      ]
+    },
+    {
+      "area": {
+        "id": 2077,
+        "name": "Europe",
+        "code": "EUR",
+        "flag": "https://crests.football-data.org/EUR.svg"
+      },
+      "competition": {
+        "id": 2018,
+        "name": "European Championship",
+        "code": "EC",
+        "type": "CUP",
+        "emblem": "https://crests.football-data.org/ec.png"
+      },
+      "season": {
+        "id": 1537,
+        "startDate": "2024-06-14",
+        "endDate": "2024-07-14",
+        "currentMatchday": 7,
+        "winner": {
+          "id": 760,
+          "name": "Spain",
+          "shortName": "Spain",
+          "tla": "ESP",
+          "crest": "https://crests.football-data.org/760.svg",
+          "address": "Ramón y Cajal, s/n Las Rozas 28230",
+          "website": "http://www.rfef.es",
+          "founded": 1909,
+          "clubColors": "Red / Blue / Yellow",
+          "venue": null,
+          "lastUpdated": "2026-06-01T09:41:19Z"
+        }
+      },
+      "id": 428790,
+      "utcDate": "2024-06-30T19:00:00Z",
+      "status": "FINISHED",
+      "matchday": 4,
+      "stage": "LAST_16",
+      "group": null,
+      "lastUpdated": "2024-07-23T10:21:24Z",
+      "homeTeam": {
+        "id": 760,
+        "name": "Spain",
+        "shortName": "Spain",
+        "tla": "ESP",
+        "crest": "https://crests.football-data.org/760.svg"
+      },
+      "awayTeam": {
+        "id": 1978,
+        "name": "Georgia",
+        "shortName": "Georgia",
+        "tla": "GEO",
+        "crest": "https://crests.football-data.org/ge.svg"
+      },
+      "score": {
+        "winner": "HOME_TEAM",
+        "duration": "REGULAR",
+        "fullTime": {
+          "home": 4,
+          "away": 1
+        },
+        "halfTime": {
+          "home": 1,
+          "away": 1
+        }
+      },
+      "odds": {
+        "msg": "Activate Odds-Package in User-Panel to retrieve odds."
+      },
+      "referees": [
+        {
+          "id": 43918,
+          "name": "François Letexier",
+          "type": "REFEREE",
+          "nationality": "France"
+        }
+      ]
+    },
+    {
+      "area": {
+        "id": 2077,
+        "name": "Europe",
+        "code": "EUR",
+        "flag": "https://crests.football-data.org/EUR.svg"
+      },
+      "competition": {
+        "id": 2018,
+        "name": "European Championship",
+        "code": "EC",
+        "type": "CUP",
+        "emblem": "https://crests.football-data.org/ec.png"
+      },
+      "season": {
+        "id": 1537,
+        "startDate": "2024-06-14",
+        "endDate": "2024-07-14",
+        "currentMatchday": 7,
+        "winner": {
+          "id": 760,
+          "name": "Spain",
+          "shortName": "Spain",
+          "tla": "ESP",
+          "crest": "https://crests.football-data.org/760.svg",
+          "address": "Ramón y Cajal, s/n Las Rozas 28230",
+          "website": "http://www.rfef.es",
+          "founded": 1909,
+          "clubColors": "Red / Blue / Yellow",
+          "venue": null,
+          "lastUpdated": "2026-06-01T09:41:19Z"
+        }
+      },
+      "id": 428787,
+      "utcDate": "2024-07-01T16:00:00Z",
+      "status": "FINISHED",
+      "matchday": 4,
+      "stage": "LAST_16",
+      "group": null,
+      "lastUpdated": "2024-07-23T10:21:24Z",
+      "homeTeam": {
+        "id": 773,
+        "name": "France",
+        "shortName": "France",
+        "tla": "FRA",
+        "crest": "https://crests.football-data.org/773.svg"
+      },
+      "awayTeam": {
+        "id": 805,
+        "name": "Belgium",
+        "shortName": "Belgium",
+        "tla": "BEL",
+        "crest": "https://crests.football-data.org/805.svg"
+      },
+      "score": {
+        "winner": "HOME_TEAM",
+        "duration": "REGULAR",
+        "fullTime": {
+          "home": 1,
+          "away": 0
+        },
+        "halfTime": {
+          "home": 0,
+          "away": 0
+        }
+      },
+      "odds": {
+        "msg": "Activate Odds-Package in User-Panel to retrieve odds."
+      },
+      "referees": [
+        {
+          "id": 30960,
+          "name": "Glenn Nyberg",
+          "type": "REFEREE",
+          "nationality": "Sweden"
+        }
+      ]
+    },
+    {
+      "area": {
+        "id": 2077,
+        "name": "Europe",
+        "code": "EUR",
+        "flag": "https://crests.football-data.org/EUR.svg"
+      },
+      "competition": {
+        "id": 2018,
+        "name": "European Championship",
+        "code": "EC",
+        "type": "CUP",
+        "emblem": "https://crests.football-data.org/ec.png"
+      },
+      "season": {
+        "id": 1537,
+        "startDate": "2024-06-14",
+        "endDate": "2024-07-14",
+        "currentMatchday": 7,
+        "winner": {
+          "id": 760,
+          "name": "Spain",
+          "shortName": "Spain",
+          "tla": "ESP",
+          "crest": "https://crests.football-data.org/760.svg",
+          "address": "Ramón y Cajal, s/n Las Rozas 28230",
+          "website": "http://www.rfef.es",
+          "founded": 1909,
+          "clubColors": "Red / Blue / Yellow",
+          "venue": null,
+          "lastUpdated": "2026-06-01T09:41:19Z"
+        }
+      },
+      "id": 428788,
+      "utcDate": "2024-07-01T19:00:00Z",
+      "status": "FINISHED",
+      "matchday": 4,
+      "stage": "LAST_16",
+      "group": null,
+      "lastUpdated": "2024-07-23T10:21:24Z",
+      "homeTeam": {
+        "id": 765,
+        "name": "Portugal",
+        "shortName": "Portugal",
+        "tla": "POR",
+        "crest": "https://crests.football-data.org/765.svg"
+      },
+      "awayTeam": {
+        "id": 777,
+        "name": "Slovenia",
+        "shortName": "Slovenia",
+        "tla": "SVN",
+        "crest": "https://crests.football-data.org/777.svg"
+      },
+      "score": {
+        "winner": "HOME_TEAM",
+        "duration": "PENALTY_SHOOTOUT",
+        "fullTime": {
+          "home": 3,
+          "away": 0
+        },
+        "halfTime": {
+          "home": 0,
+          "away": 0
+        },
+        "regularTime": {
+          "home": 0,
+          "away": 0
+        },
+        "extraTime": {
+          "home": 0,
+          "away": 0
+        },
+        "penalties": {
+          "home": 3,
+          "away": 0
+        }
+      },
+      "odds": {
+        "msg": "Activate Odds-Package in User-Panel to retrieve odds."
+      },
+      "referees": [
+        {
+          "id": 11116,
+          "name": "Daniele Orsato",
+          "type": "REFEREE",
+          "nationality": "Italy"
+        }
+      ]
+    },
+    {
+      "area": {
+        "id": 2077,
+        "name": "Europe",
+        "code": "EUR",
+        "flag": "https://crests.football-data.org/EUR.svg"
+      },
+      "competition": {
+        "id": 2018,
+        "name": "European Championship",
+        "code": "EC",
+        "type": "CUP",
+        "emblem": "https://crests.football-data.org/ec.png"
+      },
+      "season": {
+        "id": 1537,
+        "startDate": "2024-06-14",
+        "endDate": "2024-07-14",
+        "currentMatchday": 7,
+        "winner": {
+          "id": 760,
+          "name": "Spain",
+          "shortName": "Spain",
+          "tla": "ESP",
+          "crest": "https://crests.football-data.org/760.svg",
+          "address": "Ramón y Cajal, s/n Las Rozas 28230",
+          "website": "http://www.rfef.es",
+          "founded": 1909,
+          "clubColors": "Red / Blue / Yellow",
+          "venue": null,
+          "lastUpdated": "2026-06-01T09:41:19Z"
+        }
+      },
+      "id": 428786,
+      "utcDate": "2024-07-02T16:00:00Z",
+      "status": "FINISHED",
+      "matchday": 4,
+      "stage": "LAST_16",
+      "group": null,
+      "lastUpdated": "2024-07-06T15:20:53Z",
+      "homeTeam": {
+        "id": 811,
+        "name": "Romania",
+        "shortName": "Romania",
+        "tla": "ROU",
+        "crest": "https://crests.football-data.org/811.svg"
+      },
+      "awayTeam": {
+        "id": 8601,
+        "name": "Netherlands",
+        "shortName": "Netherlands",
+        "tla": "NED",
+        "crest": "https://crests.football-data.org/8601.svg"
+      },
+      "score": {
+        "winner": "AWAY_TEAM",
+        "duration": "REGULAR",
+        "fullTime": {
+          "home": 0,
+          "away": 3
+        },
+        "halfTime": {
+          "home": 0,
+          "away": 1
+        }
+      },
+      "odds": {
+        "msg": "Activate Odds-Package in User-Panel to retrieve odds."
+      },
+      "referees": [
+        {
+          "id": 43878,
+          "name": "Felix Zwayer",
+          "type": "REFEREE",
+          "nationality": "Germany"
+        }
+      ]
+    },
+    {
+      "area": {
+        "id": 2077,
+        "name": "Europe",
+        "code": "EUR",
+        "flag": "https://crests.football-data.org/EUR.svg"
+      },
+      "competition": {
+        "id": 2018,
+        "name": "European Championship",
+        "code": "EC",
+        "type": "CUP",
+        "emblem": "https://crests.football-data.org/ec.png"
+      },
+      "season": {
+        "id": 1537,
+        "startDate": "2024-06-14",
+        "endDate": "2024-07-14",
+        "currentMatchday": 7,
+        "winner": {
+          "id": 760,
+          "name": "Spain",
+          "shortName": "Spain",
+          "tla": "ESP",
+          "crest": "https://crests.football-data.org/760.svg",
+          "address": "Ramón y Cajal, s/n Las Rozas 28230",
+          "website": "http://www.rfef.es",
+          "founded": 1909,
+          "clubColors": "Red / Blue / Yellow",
+          "venue": null,
+          "lastUpdated": "2026-06-01T09:41:19Z"
+        }
+      },
+      "id": 428785,
+      "utcDate": "2024-07-02T19:00:00Z",
+      "status": "FINISHED",
+      "matchday": 4,
+      "stage": "LAST_16",
+      "group": null,
+      "lastUpdated": "2024-07-06T15:20:53Z",
+      "homeTeam": {
+        "id": 816,
+        "name": "Austria",
+        "shortName": "Austria",
+        "tla": "AUT",
+        "crest": "https://crests.football-data.org/816.svg"
+      },
+      "awayTeam": {
+        "id": 803,
+        "name": "Turkey",
+        "shortName": "Turkey",
+        "tla": "TUR",
+        "crest": "https://crests.football-data.org/803.svg"
+      },
+      "score": {
+        "winner": "AWAY_TEAM",
+        "duration": "REGULAR",
+        "fullTime": {
+          "home": 1,
+          "away": 2
+        },
+        "halfTime": {
+          "home": 0,
+          "away": 1
+        }
+      },
+      "odds": {
+        "msg": "Activate Odds-Package in User-Panel to retrieve odds."
+      },
+      "referees": [
+        {
+          "id": 193984,
+          "name": "Artur Dias",
+          "type": "REFEREE",
+          "nationality": "Portugal"
+        }
+      ]
+    },
+    {
+      "area": {
+        "id": 2077,
+        "name": "Europe",
+        "code": "EUR",
+        "flag": "https://crests.football-data.org/EUR.svg"
+      },
+      "competition": {
+        "id": 2018,
+        "name": "European Championship",
+        "code": "EC",
+        "type": "CUP",
+        "emblem": "https://crests.football-data.org/ec.png"
+      },
+      "season": {
+        "id": 1537,
+        "startDate": "2024-06-14",
+        "endDate": "2024-07-14",
+        "currentMatchday": 7,
+        "winner": {
+          "id": 760,
+          "name": "Spain",
+          "shortName": "Spain",
+          "tla": "ESP",
+          "crest": "https://crests.football-data.org/760.svg",
+          "address": "Ramón y Cajal, s/n Las Rozas 28230",
+          "website": "http://www.rfef.es",
+          "founded": 1909,
+          "clubColors": "Red / Blue / Yellow",
+          "venue": null,
+          "lastUpdated": "2026-06-01T09:41:19Z"
+        }
+      },
+      "id": 495401,
+      "utcDate": "2024-07-05T16:00:00Z",
+      "status": "FINISHED",
+      "matchday": 5,
+      "stage": "QUARTER_FINALS",
+      "group": null,
+      "lastUpdated": "2024-07-23T10:21:24Z",
+      "homeTeam": {
+        "id": 760,
+        "name": "Spain",
+        "shortName": "Spain",
+        "tla": "ESP",
+        "crest": "https://crests.football-data.org/760.svg"
+      },
+      "awayTeam": {
+        "id": 759,
+        "name": "Germany",
+        "shortName": "Germany",
+        "tla": "GER",
+        "crest": "https://crests.football-data.org/759.svg"
+      },
+      "score": {
+        "winner": "HOME_TEAM",
+        "duration": "EXTRA_TIME",
+        "fullTime": {
+          "home": 2,
+          "away": 1
+        },
+        "halfTime": {
+          "home": 0,
+          "away": 0
+        },
+        "regularTime": {
+          "home": 1,
+          "away": 1
+        },
+        "extraTime": {
+          "home": 1,
+          "away": 0
+        }
+      },
+      "odds": {
+        "msg": "Activate Odds-Package in User-Panel to retrieve odds."
+      },
+      "referees": [
+        {
+          "id": 11580,
+          "name": "Anthony Taylor",
+          "type": "REFEREE",
+          "nationality": "England"
+        }
+      ]
+    },
+    {
+      "area": {
+        "id": 2077,
+        "name": "Europe",
+        "code": "EUR",
+        "flag": "https://crests.football-data.org/EUR.svg"
+      },
+      "competition": {
+        "id": 2018,
+        "name": "European Championship",
+        "code": "EC",
+        "type": "CUP",
+        "emblem": "https://crests.football-data.org/ec.png"
+      },
+      "season": {
+        "id": 1537,
+        "startDate": "2024-06-14",
+        "endDate": "2024-07-14",
+        "currentMatchday": 7,
+        "winner": {
+          "id": 760,
+          "name": "Spain",
+          "shortName": "Spain",
+          "tla": "ESP",
+          "crest": "https://crests.football-data.org/760.svg",
+          "address": "Ramón y Cajal, s/n Las Rozas 28230",
+          "website": "http://www.rfef.es",
+          "founded": 1909,
+          "clubColors": "Red / Blue / Yellow",
+          "venue": null,
+          "lastUpdated": "2026-06-01T09:41:19Z"
+        }
+      },
+      "id": 495402,
+      "utcDate": "2024-07-05T19:00:00Z",
+      "status": "FINISHED",
+      "matchday": 5,
+      "stage": "QUARTER_FINALS",
+      "group": null,
+      "lastUpdated": "2024-07-23T10:21:24Z",
+      "homeTeam": {
+        "id": 765,
+        "name": "Portugal",
+        "shortName": "Portugal",
+        "tla": "POR",
+        "crest": "https://crests.football-data.org/765.svg"
+      },
+      "awayTeam": {
+        "id": 773,
+        "name": "France",
+        "shortName": "France",
+        "tla": "FRA",
+        "crest": "https://crests.football-data.org/773.svg"
+      },
+      "score": {
+        "winner": "AWAY_TEAM",
+        "duration": "PENALTY_SHOOTOUT",
+        "fullTime": {
+          "home": 3,
+          "away": 5
+        },
+        "halfTime": {
+          "home": 0,
+          "away": 0
+        },
+        "regularTime": {
+          "home": 0,
+          "away": 0
+        },
+        "extraTime": {
+          "home": 0,
+          "away": 0
+        },
+        "penalties": {
+          "home": 3,
+          "away": 5
+        }
+      },
+      "odds": {
+        "msg": "Activate Odds-Package in User-Panel to retrieve odds."
+      },
+      "referees": [
+        {
+          "id": 11605,
+          "name": "Michael Oliver",
+          "type": "REFEREE",
+          "nationality": "England"
+        }
+      ]
+    },
+    {
+      "area": {
+        "id": 2077,
+        "name": "Europe",
+        "code": "EUR",
+        "flag": "https://crests.football-data.org/EUR.svg"
+      },
+      "competition": {
+        "id": 2018,
+        "name": "European Championship",
+        "code": "EC",
+        "type": "CUP",
+        "emblem": "https://crests.football-data.org/ec.png"
+      },
+      "season": {
+        "id": 1537,
+        "startDate": "2024-06-14",
+        "endDate": "2024-07-14",
+        "currentMatchday": 7,
+        "winner": {
+          "id": 760,
+          "name": "Spain",
+          "shortName": "Spain",
+          "tla": "ESP",
+          "crest": "https://crests.football-data.org/760.svg",
+          "address": "Ramón y Cajal, s/n Las Rozas 28230",
+          "website": "http://www.rfef.es",
+          "founded": 1909,
+          "clubColors": "Red / Blue / Yellow",
+          "venue": null,
+          "lastUpdated": "2026-06-01T09:41:19Z"
+        }
+      },
+      "id": 495403,
+      "utcDate": "2024-07-06T16:00:00Z",
+      "status": "FINISHED",
+      "matchday": 5,
+      "stage": "QUARTER_FINALS",
+      "group": null,
+      "lastUpdated": "2024-07-23T10:21:24Z",
+      "homeTeam": {
+        "id": 770,
+        "name": "England",
+        "shortName": "England",
+        "tla": "ENG",
+        "crest": "https://crests.football-data.org/770.svg"
+      },
+      "awayTeam": {
+        "id": 788,
+        "name": "Switzerland",
+        "shortName": "Switzerland",
+        "tla": "SUI",
+        "crest": "https://crests.football-data.org/788.svg"
+      },
+      "score": {
+        "winner": "HOME_TEAM",
+        "duration": "PENALTY_SHOOTOUT",
+        "fullTime": {
+          "home": 6,
+          "away": 4
+        },
+        "halfTime": {
+          "home": 0,
+          "away": 0
+        },
+        "regularTime": {
+          "home": 1,
+          "away": 1
+        },
+        "extraTime": {
+          "home": 0,
+          "away": 0
+        },
+        "penalties": {
+          "home": 5,
+          "away": 3
+        }
+      },
+      "odds": {
+        "msg": "Activate Odds-Package in User-Panel to retrieve odds."
+      },
+      "referees": [
+        {
+          "id": 11116,
+          "name": "Daniele Orsato",
+          "type": "REFEREE",
+          "nationality": "Italy"
+        }
+      ]
+    },
+    {
+      "area": {
+        "id": 2077,
+        "name": "Europe",
+        "code": "EUR",
+        "flag": "https://crests.football-data.org/EUR.svg"
+      },
+      "competition": {
+        "id": 2018,
+        "name": "European Championship",
+        "code": "EC",
+        "type": "CUP",
+        "emblem": "https://crests.football-data.org/ec.png"
+      },
+      "season": {
+        "id": 1537,
+        "startDate": "2024-06-14",
+        "endDate": "2024-07-14",
+        "currentMatchday": 7,
+        "winner": {
+          "id": 760,
+          "name": "Spain",
+          "shortName": "Spain",
+          "tla": "ESP",
+          "crest": "https://crests.football-data.org/760.svg",
+          "address": "Ramón y Cajal, s/n Las Rozas 28230",
+          "website": "http://www.rfef.es",
+          "founded": 1909,
+          "clubColors": "Red / Blue / Yellow",
+          "venue": null,
+          "lastUpdated": "2026-06-01T09:41:19Z"
+        }
+      },
+      "id": 495404,
+      "utcDate": "2024-07-06T19:00:00Z",
+      "status": "FINISHED",
+      "matchday": 5,
+      "stage": "QUARTER_FINALS",
+      "group": null,
+      "lastUpdated": "2024-07-07T00:20:50Z",
+      "homeTeam": {
+        "id": 8601,
+        "name": "Netherlands",
+        "shortName": "Netherlands",
+        "tla": "NED",
+        "crest": "https://crests.football-data.org/8601.svg"
+      },
+      "awayTeam": {
+        "id": 803,
+        "name": "Turkey",
+        "shortName": "Turkey",
+        "tla": "TUR",
+        "crest": "https://crests.football-data.org/803.svg"
+      },
+      "score": {
+        "winner": "HOME_TEAM",
+        "duration": "REGULAR",
+        "fullTime": {
+          "home": 2,
+          "away": 1
+        },
+        "halfTime": {
+          "home": 0,
+          "away": 1
+        }
+      },
+      "odds": {
+        "msg": "Activate Odds-Package in User-Panel to retrieve odds."
+      },
+      "referees": [
+        {
+          "id": 9374,
+          "name": "Clément Turpin",
+          "type": "REFEREE",
+          "nationality": "France"
+        }
+      ]
+    },
+    {
+      "area": {
+        "id": 2077,
+        "name": "Europe",
+        "code": "EUR",
+        "flag": "https://crests.football-data.org/EUR.svg"
+      },
+      "competition": {
+        "id": 2018,
+        "name": "European Championship",
+        "code": "EC",
+        "type": "CUP",
+        "emblem": "https://crests.football-data.org/ec.png"
+      },
+      "season": {
+        "id": 1537,
+        "startDate": "2024-06-14",
+        "endDate": "2024-07-14",
+        "currentMatchday": 7,
+        "winner": {
+          "id": 760,
+          "name": "Spain",
+          "shortName": "Spain",
+          "tla": "ESP",
+          "crest": "https://crests.football-data.org/760.svg",
+          "address": "Ramón y Cajal, s/n Las Rozas 28230",
+          "website": "http://www.rfef.es",
+          "founded": 1909,
+          "clubColors": "Red / Blue / Yellow",
+          "venue": null,
+          "lastUpdated": "2026-06-01T09:41:19Z"
+        }
+      },
+      "id": 428780,
+      "utcDate": "2024-07-09T19:00:00Z",
+      "status": "FINISHED",
+      "matchday": 6,
+      "stage": "SEMI_FINALS",
+      "group": null,
+      "lastUpdated": "2024-07-23T10:21:24Z",
+      "homeTeam": {
+        "id": 760,
+        "name": "Spain",
+        "shortName": "Spain",
+        "tla": "ESP",
+        "crest": "https://crests.football-data.org/760.svg"
+      },
+      "awayTeam": {
+        "id": 773,
+        "name": "France",
+        "shortName": "France",
+        "tla": "FRA",
+        "crest": "https://crests.football-data.org/773.svg"
+      },
+      "score": {
+        "winner": "HOME_TEAM",
+        "duration": "REGULAR",
+        "fullTime": {
+          "home": 2,
+          "away": 1
+        },
+        "halfTime": {
+          "home": 2,
+          "away": 1
+        }
+      },
+      "odds": {
+        "msg": "Activate Odds-Package in User-Panel to retrieve odds."
+      },
+      "referees": [
+        {
+          "id": 9351,
+          "name": "Slavko Vinčič",
+          "type": "REFEREE",
+          "nationality": "Slovenia"
+        }
+      ]
+    },
+    {
+      "area": {
+        "id": 2077,
+        "name": "Europe",
+        "code": "EUR",
+        "flag": "https://crests.football-data.org/EUR.svg"
+      },
+      "competition": {
+        "id": 2018,
+        "name": "European Championship",
+        "code": "EC",
+        "type": "CUP",
+        "emblem": "https://crests.football-data.org/ec.png"
+      },
+      "season": {
+        "id": 1537,
+        "startDate": "2024-06-14",
+        "endDate": "2024-07-14",
+        "currentMatchday": 7,
+        "winner": {
+          "id": 760,
+          "name": "Spain",
+          "shortName": "Spain",
+          "tla": "ESP",
+          "crest": "https://crests.football-data.org/760.svg",
+          "address": "Ramón y Cajal, s/n Las Rozas 28230",
+          "website": "http://www.rfef.es",
+          "founded": 1909,
+          "clubColors": "Red / Blue / Yellow",
+          "venue": null,
+          "lastUpdated": "2026-06-01T09:41:19Z"
+        }
+      },
+      "id": 428779,
+      "utcDate": "2024-07-10T19:00:00Z",
+      "status": "FINISHED",
+      "matchday": 6,
+      "stage": "SEMI_FINALS",
+      "group": null,
+      "lastUpdated": "2024-07-23T10:21:24Z",
+      "homeTeam": {
+        "id": 8601,
+        "name": "Netherlands",
+        "shortName": "Netherlands",
+        "tla": "NED",
+        "crest": "https://crests.football-data.org/8601.svg"
+      },
+      "awayTeam": {
+        "id": 770,
+        "name": "England",
+        "shortName": "England",
+        "tla": "ENG",
+        "crest": "https://crests.football-data.org/770.svg"
+      },
+      "score": {
+        "winner": "AWAY_TEAM",
+        "duration": "REGULAR",
+        "fullTime": {
+          "home": 1,
+          "away": 2
+        },
+        "halfTime": {
+          "home": 1,
+          "away": 1
+        }
+      },
+      "odds": {
+        "msg": "Activate Odds-Package in User-Panel to retrieve odds."
+      },
+      "referees": [
+        {
+          "id": 43878,
+          "name": "Felix Zwayer",
+          "type": "REFEREE",
+          "nationality": "Germany"
+        }
+      ]
+    },
+    {
+      "area": {
+        "id": 2077,
+        "name": "Europe",
+        "code": "EUR",
+        "flag": "https://crests.football-data.org/EUR.svg"
+      },
+      "competition": {
+        "id": 2018,
+        "name": "European Championship",
+        "code": "EC",
+        "type": "CUP",
+        "emblem": "https://crests.football-data.org/ec.png"
+      },
+      "season": {
+        "id": 1537,
+        "startDate": "2024-06-14",
+        "endDate": "2024-07-14",
+        "currentMatchday": 7,
+        "winner": {
+          "id": 760,
+          "name": "Spain",
+          "shortName": "Spain",
+          "tla": "ESP",
+          "crest": "https://crests.football-data.org/760.svg",
+          "address": "Ramón y Cajal, s/n Las Rozas 28230",
+          "website": "http://www.rfef.es",
+          "founded": 1909,
+          "clubColors": "Red / Blue / Yellow",
+          "venue": null,
+          "lastUpdated": "2026-06-01T09:41:19Z"
+        }
+      },
+      "id": 428778,
+      "utcDate": "2024-07-14T19:00:00Z",
+      "status": "FINISHED",
+      "matchday": 7,
+      "stage": "FINAL",
+      "group": null,
+      "lastUpdated": "2024-07-23T10:21:24Z",
+      "homeTeam": {
+        "id": 760,
+        "name": "Spain",
+        "shortName": "Spain",
+        "tla": "ESP",
+        "crest": "https://crests.football-data.org/760.svg"
+      },
+      "awayTeam": {
+        "id": 770,
+        "name": "England",
+        "shortName": "England",
+        "tla": "ENG",
+        "crest": "https://crests.football-data.org/770.svg"
+      },
+      "score": {
+        "winner": "HOME_TEAM",
+        "duration": "REGULAR",
+        "fullTime": {
+          "home": 2,
+          "away": 1
+        },
+        "halfTime": {
+          "home": 0,
+          "away": 0
+        }
+      },
+      "odds": {
+        "msg": "Activate Odds-Package in User-Panel to retrieve odds."
+      },
+      "referees": [
+        {
+          "id": 43918,
+          "name": "François Letexier",
+          "type": "REFEREE",
+          "nationality": "France"
+        }
+      ]
+    }
+  ]
+}
