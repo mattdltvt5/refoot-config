@@ -504,6 +504,119 @@ Any change to matcher logic (`_normalize`, `team_tokens`, `TEAM_TITLE_ALIASES`),
 title-filter logic (`is_highlight_title`, `TITLE_BLOCKLIST`, `TITLE_ALLOWLIST`),
 or normalization must include a corresponding test in the same commit.
 
+## Tournament-groups cache
+
+Euro Cup, World Cup, Champions League, and Copa América each write a JSON file to
+`tournament-groups/{slug}.json`.  The Flutter app reads these files via
+`TeamCacheService.fetchTournamentData()` to populate the Groups and Knockout tabs.
+
+### Writers
+
+| Slug | Pipeline | Schedule |
+|---|---|---|
+| `euro-cup` | `sync-teams.yml` (FD `/matches`) | Monday 04:00 UTC |
+| `world-cup` | `sync-teams.yml` (FD `/matches`) | Monday 04:00 UTC |
+| `ucl` | `sync-teams.yml` (FD `/matches`) | Monday 04:00 UTC |
+| `copa-america` | `scripts/sync_copa_tournament.py` (API-Sports `/fixtures`) | Monday 05:00 UTC |
+
+### Top-level shape
+
+```json
+{
+  "generated_at": "2026-07-01T13:07:43Z",
+  "slug": "copa-america",
+  "standings":    [...],
+  "matches":      [...],
+  "groupMatches": [...]
+}
+```
+
+### `standings` — aggregated group table
+
+One entry per group (`type: "TOTAL"`).  Consumed by the Groups tab standings table.
+
+```json
+{
+  "group": "GROUP_A",
+  "type":  "TOTAL",
+  "table": [
+    {
+      "position": 1,
+      "team": { "id": 26, "name": "Argentina", "tla": "ARG", "crest": "https://…" },
+      "playedGames": 3, "won": 3, "draw": 0, "lost": 0,
+      "goalsFor": 7, "goalsAgainst": 1, "goalDifference": 6,
+      "points": 9, "form": "WWW"
+    }
+  ]
+}
+```
+
+### `matches` — knockout-stage fixtures
+
+One entry per knockout match.  Consumed by the Knockout tab bracket.
+
+```json
+{
+  "stage": "QUARTER_FINALS",
+  "homeTeam": { "id": 26, "name": "Argentina", "tla": "", "crest": "https://…" },
+  "awayTeam": { "id": 2382, "name": "Ecuador", "tla": "", "crest": "https://…" },
+  "score": {
+    "fullTime":  { "home": 1, "away": 1 },
+    "penalties": { "home": 4, "away": 2 }
+  }
+}
+```
+
+Penalty-shootout score handling: Football-Data.org sets `score.fullTime` to the
+penalty tally when `score.duration == "PENALTY_SHOOTOUT"`; the regulation result
+lives in `score.regularTime`.  The Flutter `KnockoutMatch.fromJson()` checks
+`duration` and reads `regularTime` for the headline score in that case.
+Copa América (API-Sports) always places the regulation result in `score.fullTime`,
+so no special handling is needed there.
+
+### `groupMatches` — group-stage fixtures
+
+One entry per group-stage fixture.  Consumed by the Groups tab fixtures list.
+Competitions without a group stage (e.g. UCL from the 2024-25 league-phase format)
+emit `groupMatches: []`.
+
+```json
+{
+  "group":       "GROUP_A",
+  "matchday":    1,
+  "sourceRound": "Group Stage - 1",
+  "homeTeam": { "id": 26, "name": "Argentina", "tla": "", "crest": "https://…" },
+  "awayTeam": { "id": 5529, "name": "Canada",   "tla": "", "crest": "https://…" },
+  "score": {
+    "fullTime": { "home": 2, "away": 0 }
+  },
+  "status": "FT"
+}
+```
+
+**Matchday normalisation rule** — both pipelines produce an integer `matchday`:
+
+| Source | Raw value | Normalised to |
+|---|---|---|
+| Football-Data.org (Euro, WC, UCL) | integer `matchday` field on the match object | stored directly as integer |
+| API-Sports (Copa América) | string `league.round` = `"Group Stage - N"` | `N` extracted via regex |
+
+**`sourceRound`** preserves the raw API value for traceability:
+- FD: `"Matchday N"` (derived from the integer)
+- API-Sports: verbatim round string (e.g. `"Group Stage - 1"`)
+
+**`status`** values differ by source: FD uses `"FINISHED"` / `"SCHEDULED"`;
+API-Sports uses `"FT"` / `"NS"`.  The app handles both.
+
+### API-Sports quota — hard invariants
+
+1. `scripts/sync_copa_tournament.py` is the **only** source of API-Sports tournament calls — exactly 2 calls per run (standings + fixtures).
+2. The 4-hour incremental highlights workflow **never** triggers API-Sports.
+3. The Flutter app **never** calls API-Sports directly.
+
+Copa 2024 is in the free-tier window (seasons 2022–2024).  A future edition outside
+that window is a separate paid-plan decision.
+
 ## Diagnostics
 
 Diagnostic scripts live in `diagnostics/` and are **manual-only** — they are never

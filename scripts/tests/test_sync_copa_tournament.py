@@ -20,6 +20,9 @@ sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
 from sync_copa_tournament import (
     KNOCKOUT_STAGE_MAP,
     SLUG,
+    _build_team_group_map,
+    _parse_matchday,
+    normalize_group,
     normalize_knockout,
     normalize_standings,
     write_tournament,
@@ -142,6 +145,26 @@ def _fixtures_body():
     }
 
 
+def _fixtures_body_with_groups():
+    """Extended fixtures body: two group-stage matches + QF + Final."""
+    base = _fixtures_body()
+    extra_group = {
+        "fixture": {"id": 1002, "status": {"short": "FT"}},
+        "league":  {"round": "Group Stage - 2"},
+        "teams": {
+            "home": {"id": 16,   "name": "Mexico",
+                     "logo": "https://media.api-sports.io/football/teams/16.png"},
+            "away": {"id": 26,   "name": "Argentina",
+                     "logo": "https://media.api-sports.io/football/teams/26.png"},
+        },
+        "score": {
+            "fulltime": {"home": 0, "away": 2},
+            "penalty":  {"home": None, "away": None},
+        },
+    }
+    return {"response": [base["response"][0], extra_group] + base["response"][1:]}
+
+
 # ── TestNormalizeStandings ────────────────────────────────────────────────────
 
 class TestNormalizeStandings(unittest.TestCase):
@@ -243,16 +266,130 @@ class TestNormalizeKnockout(unittest.TestCase):
         self.assertEqual(normalize_knockout({"response": []}), [])
 
 
+# ── TestParseMatchday ─────────────────────────────────────────────────────────
+
+class TestParseMatchday(unittest.TestCase):
+
+    def test_standard_format(self):
+        self.assertEqual(_parse_matchday("Group Stage - 1"), 1)
+        self.assertEqual(_parse_matchday("Group Stage - 3"), 3)
+
+    def test_no_space_around_dash(self):
+        self.assertEqual(_parse_matchday("Group Stage-2"), 2)
+
+    def test_case_insensitive(self):
+        self.assertEqual(_parse_matchday("group stage - 1"), 1)
+
+    def test_unknown_round_returns_none(self):
+        self.assertIsNone(_parse_matchday("Quarter-finals"))
+        self.assertIsNone(_parse_matchday(""))
+        self.assertIsNone(_parse_matchday("Group A"))
+
+
+# ── TestBuildTeamGroupMap ─────────────────────────────────────────────────────
+
+class TestBuildTeamGroupMap(unittest.TestCase):
+
+    def test_maps_team_ids_to_group_keys(self):
+        groups  = normalize_standings(_standings_body())
+        mapping = _build_team_group_map(groups)
+        self.assertEqual(mapping[26],   "GROUP_A")   # Argentina
+        self.assertEqual(mapping[5529], "GROUP_A")   # Canada
+        self.assertEqual(mapping[16],   "GROUP_B")   # Mexico
+
+    def test_empty_standings_returns_empty_map(self):
+        self.assertEqual(_build_team_group_map([]), {})
+
+
+# ── TestNormalizeGroup ────────────────────────────────────────────────────────
+
+class TestNormalizeGroup(unittest.TestCase):
+
+    def _map(self):
+        return _build_team_group_map(normalize_standings(_standings_body()))
+
+    def test_group_stage_matches_are_included(self):
+        matches = normalize_group(_fixtures_body(), self._map())
+        self.assertEqual(len(matches), 1,
+                         "only the Group Stage - 1 fixture survives the filter")
+
+    def test_knockout_rounds_are_excluded(self):
+        matches = normalize_group(_fixtures_body(), self._map())
+        stages = {m.get("stage") for m in matches}
+        self.assertNotIn("QUARTER_FINALS", stages)
+        self.assertNotIn("FINAL", stages)
+
+    def test_normalized_integer_matchday(self):
+        matches = normalize_group(_fixtures_body(), self._map())
+        self.assertEqual(matches[0]["matchday"], 1)
+        self.assertIsInstance(matches[0]["matchday"], int)
+
+    def test_source_round_preserved_verbatim(self):
+        matches = normalize_group(_fixtures_body(), self._map())
+        self.assertEqual(matches[0]["sourceRound"], "Group Stage - 1")
+
+    def test_group_derived_from_standings_map(self):
+        matches = normalize_group(_fixtures_body(), self._map())
+        self.assertEqual(matches[0]["group"], "GROUP_A")
+
+    def test_scores_correct(self):
+        matches = normalize_group(_fixtures_body(), self._map())
+        m = matches[0]
+        self.assertEqual(m["score"]["fullTime"]["home"], 2)
+        self.assertEqual(m["score"]["fullTime"]["away"], 0)
+
+    def test_team_fields_match_knockout_shape(self):
+        matches = normalize_group(_fixtures_body(), self._map())
+        m = matches[0]
+        for team_key in ("homeTeam", "awayTeam"):
+            for field in ("id", "name", "tla", "crest"):
+                self.assertIn(field, m[team_key],
+                              f"{team_key} missing field {field!r}")
+
+    def test_crest_url_built_from_team_id(self):
+        matches = normalize_group(_fixtures_body(), self._map())
+        m = matches[0]
+        self.assertIn("26.png",              m["homeTeam"]["crest"])
+        self.assertIn("media.api-sports.io", m["homeTeam"]["crest"])
+
+    def test_multiple_matchdays(self):
+        matches = normalize_group(_fixtures_body_with_groups(), self._map())
+        matchdays = {m["matchday"] for m in matches}
+        self.assertIn(1, matchdays)
+        self.assertIn(2, matchdays)
+
+    def test_unknown_round_skipped_gracefully(self):
+        body = {"response": [{
+            "fixture": {"id": 9999, "status": {"short": "NS"}},
+            "league":  {"round": "Something Unknown"},
+            "teams": {
+                "home": {"id": 26,   "name": "Argentina",
+                         "logo": "https://media.api-sports.io/football/teams/26.png"},
+                "away": {"id": 5529, "name": "Canada",
+                         "logo": "https://media.api-sports.io/football/teams/5529.png"},
+            },
+            "score": {"fulltime": {"home": 0, "away": 0},
+                      "penalty":  {"home": None, "away": None}},
+        }]}
+        self.assertEqual(normalize_group(body, self._map()), [])
+
+    def test_empty_response_returns_empty_list(self):
+        self.assertEqual(normalize_group({}, {}), [])
+        self.assertEqual(normalize_group({"response": []}, {}), [])
+
+
 # ── TestWriteTournament ───────────────────────────────────────────────────────
 
 class TestWriteTournament(unittest.TestCase):
 
     def _run(self):
-        groups  = normalize_standings(_standings_body())
-        matches = normalize_knockout(_fixtures_body())
+        groups        = normalize_standings(_standings_body())
+        matches       = normalize_knockout(_fixtures_body())
+        team_group_map = _build_team_group_map(groups)
+        group_matches  = normalize_group(_fixtures_body(), team_group_map)
         with tempfile.TemporaryDirectory() as tmp:
             out = Path(tmp) / "tournament-groups" / "copa-america.json"
-            write_tournament(groups, matches, out_path=out)
+            write_tournament(groups, matches, group_matches, out_path=out)
             with open(out, encoding="utf-8") as f:
                 return json.load(f)
 
@@ -261,7 +398,7 @@ class TestWriteTournament(unittest.TestCase):
 
     def test_required_top_level_keys_present(self):
         data = self._run()
-        for key in ("generated_at", "slug", "standings", "matches"):
+        for key in ("generated_at", "slug", "standings", "matches", "groupMatches"):
             self.assertIn(key, data, f"missing top-level key: {key!r}")
 
     def test_slug_is_copa_america(self):
@@ -305,6 +442,40 @@ class TestWriteTournament(unittest.TestCase):
                             f"empty home crest in {match['stage']!r}")
             self.assertTrue(match["awayTeam"]["crest"],
                             f"empty away crest in {match['stage']!r}")
+
+    def test_group_matches_array_present(self):
+        data = self._run()
+        self.assertIn("groupMatches", data)
+        self.assertIsInstance(data["groupMatches"], list)
+
+    def test_group_matches_populated(self):
+        data = self._run()
+        self.assertGreater(len(data["groupMatches"]), 0,
+                           "groupMatches must not be empty for Copa 2024")
+
+    def test_group_matches_have_required_fields(self):
+        match = self._run()["groupMatches"][0]
+        for field in ("group", "matchday", "sourceRound",
+                      "homeTeam", "awayTeam", "score", "status"):
+            self.assertIn(field, match, f"groupMatch missing field {field!r}")
+        self.assertIn("fullTime", match["score"])
+        for team_key in ("homeTeam", "awayTeam"):
+            for field in ("id", "name", "tla", "crest"):
+                self.assertIn(field, match[team_key])
+
+    def test_group_matches_matchday_is_integer(self):
+        for m in self._run()["groupMatches"]:
+            self.assertIsInstance(m["matchday"], int,
+                                  "matchday must be an integer, not a string")
+
+    def test_knockout_matches_array_unchanged(self):
+        data = self._run()
+        self.assertEqual(len(data["matches"]), 2,
+                         "knockout matches array must still be QF + Final only")
+        stages = {m["stage"] for m in data["matches"]}
+        self.assertIn("QUARTER_FINALS", stages)
+        self.assertIn("FINAL", stages)
+        self.assertNotIn("GROUP_STAGE", stages)
 
 
 if __name__ == "__main__":

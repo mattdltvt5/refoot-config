@@ -129,6 +129,47 @@ jobs:
                   print(f"✗ {comp_name} matches: {e} — skipping")
                   continue
 
+              # Build group-stage fixtures (matchday-grouped, separate array).
+              # Group matches are those with a non-null "group" field that are
+              # NOT in the knockout stages set.  UCL league-phase matches have
+              # group=None, so they produce an empty list naturally.
+              group_matches = []
+              for m in matches_payload.get("matches", []):
+                  if m.get("stage") in KNOCKOUT_STAGES:
+                      continue
+                  raw_group = m.get("group")
+                  if not raw_group:
+                      continue  # no group field → league phase or qualifying; skip
+                  matchday = m.get("matchday")
+                  if not matchday:
+                      continue
+                  group_key = raw_group.upper().replace(" ", "_")  # "Group A" → "GROUP_A"
+                  ht    = m.get("homeTeam", {}) or {}
+                  at    = m.get("awayTeam", {}) or {}
+                  score = m.get("score", {}) or {}
+                  ft    = score.get("fullTime", {}) or {}
+                  group_matches.append({
+                      "group":       group_key,
+                      "matchday":    matchday,
+                      "sourceRound": f"Matchday {matchday}",
+                      "homeTeam": {
+                          "id":    ht.get("id"),
+                          "name":  ht.get("name", ""),
+                          "tla":   ht.get("tla", ""),
+                          "crest": ht.get("crest", ""),
+                      },
+                      "awayTeam": {
+                          "id":    at.get("id"),
+                          "name":  at.get("name", ""),
+                          "tla":   at.get("tla", ""),
+                          "crest": at.get("crest", ""),
+                      },
+                      "score": {
+                          "fullTime": {"home": ft.get("home"), "away": ft.get("away")},
+                      },
+                      "status": m.get("status", ""),
+                  })
+
               tournament_data = {
                   "generated_at": datetime.utcnow().isoformat() + "Z",
                   "slug": slug,
@@ -140,6 +181,7 @@ jobs:
                       m for m in matches_payload.get("matches", [])
                       if m.get("stage") in KNOCKOUT_STAGES
                   ],
+                  "groupMatches": group_matches,
               }
 
               out_path = f"tournament-groups/{slug}.json"
