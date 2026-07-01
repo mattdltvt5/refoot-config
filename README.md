@@ -576,7 +576,7 @@ so no special handling is needed there.
 
 ### `groupMatches` — group-stage fixtures
 
-One entry per group-stage fixture.  Consumed by the Groups tab fixtures list.
+One entry per group-stage fixture.  Consumed by the Flutter app's group detail screen (`GroupStandingsScreen`), which renders them below the standings table grouped by matchday with a view-local matchday filter chip.
 Competitions without a group stage (e.g. UCL from the 2024-25 league-phase format)
 emit `groupMatches: []`.
 
