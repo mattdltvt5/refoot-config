@@ -553,7 +553,7 @@ One entry per group (`type: "TOTAL"`).  Consumed by the Groups tab standings tab
 
 ### `matches` — knockout-stage fixtures
 
-One entry per knockout match.  Consumed by the Knockout tab bracket.
+One entry per knockout match.  Consumed by the Flutter app's Knockout tab, which renders matches grouped by stage with a view-local phase filter chip (Quarter-finals → Semi-finals → 3rd Place → Final, or from Round of 16 for competitions that include it).
 
 ```json
 {
