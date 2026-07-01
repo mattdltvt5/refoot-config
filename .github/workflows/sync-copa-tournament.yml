@@ -1,0 +1,40 @@
+name: Sync Copa América tournament data from API-Sports
+
+on:
+  schedule:
+    - cron: '0 5 * * 1'   # Every Monday at 05:00 UTC (after sync-teams.yml at 04:00)
+  workflow_dispatch:        # Manual trigger from the Actions tab
+
+# API-Sports quota discipline:
+#   This workflow is the ONLY trigger for API-Sports tournament calls.
+#   It must NEVER be called from, or merged with, the 4-hour incremental
+#   highlights workflow. The Flutter app never calls API-Sports directly.
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: 'true'
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write       # needed to commit tournament-groups/ back to the repo
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Sync Copa América tournament data
+        env:
+          APISPORTS_API_KEY: ${{ secrets.APISPORTS_API_KEY }}
+        run: python3 scripts/sync_copa_tournament.py
+
+      - name: Commit if changed
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add tournament-groups/ highlights/apisports-quota-tracker.json
+          git diff --cached --quiet \
+            && echo "No changes to commit." \
+            || (
+                git commit -m "chore: sync Copa América tournament data [$(date -u +%Y-%m-%d)] [skip ci]" \
+                && git push
+               )

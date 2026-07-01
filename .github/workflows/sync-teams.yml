@@ -83,8 +83,9 @@ jobs:
 
           # ── Tournament group + knockout cache ──────────────────────────────
           TOURNAMENT_COMPETITIONS = [
-              (2018, "Euro Cup",  "euro-cup"),
-              (2000, "World Cup", "world-cup"),
+              (2018, "Euro Cup",         "euro-cup"),
+              (2000, "World Cup",        "world-cup"),
+              (2001, "Champions League", "ucl"),
           ]
 
           KNOCKOUT_STAGES = {

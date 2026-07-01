@@ -1,0 +1,148 @@
+"""Tests for scripts/sync_standings.py.
+
+All tests are pure-function / mocked-HTTP — no live FD calls.
+"""
+
+import json, sys, os, unittest, tempfile
+from unittest.mock import patch, MagicMock
+
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
+from sync_standings import extract_total_table, fetch_standings, write_standings
+
+
+class TestExtractTotalTable(unittest.TestCase):
+    def test_returns_only_total_type(self):
+        payload = {
+            "standings": [
+                {"type": "HOME",  "table": [{"position": 1}]},
+                {"type": "AWAY",  "table": [{"position": 1}]},
+                {"type": "TOTAL", "table": [{"position": 1}, {"position": 2}]},
+            ]
+        }
+        result = extract_total_table(payload)
+        self.assertEqual(len(result), 1)
+        self.assertEqual(result[0]["type"], "TOTAL")
+        self.assertEqual(len(result[0]["table"]), 2)
+
+    def test_returns_empty_when_no_total(self):
+        payload = {"standings": [{"type": "HOME", "table": []}]}
+        self.assertEqual(extract_total_table(payload), [])
+
+    def test_returns_empty_for_missing_standings_key(self):
+        self.assertEqual(extract_total_table({}), [])
+
+    def test_multiple_total_groups_for_tournaments(self):
+        # WC / Euro have one TOTAL entry per group — all should be returned
+        payload = {
+            "standings": [
+                {"type": "TOTAL", "group": "GROUP_A", "table": [{"position": 1}]},
+                {"type": "TOTAL", "group": "GROUP_B", "table": [{"position": 1}]},
+                {"type": "HOME",  "group": "GROUP_A", "table": []},
+            ]
+        }
+        result = extract_total_table(payload)
+        self.assertEqual(len(result), 2)
+
+
+class TestWriteStandings(unittest.TestCase):
+    _SAMPLE_ROWS = [
+        {
+            "position": 1,
+            "team": {
+                "id": 66, "name": "Liverpool FC",
+                "shortName": "Liverpool", "tla": "LIV",
+                "crest": "https://crests.football-data.org/64.svg",
+            },
+            "playedGames": 38, "won": 28, "draw": 5, "lost": 5,
+            "points": 89, "goalsFor": 94, "goalsAgainst": 41,
+            "goalDifference": 53, "form": "WWWWW",
+        }
+    ]
+
+    def test_output_shape_matches_flutter_model(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            path = write_standings("Premier League", "premier-league",
+                                   self._SAMPLE_ROWS, out_dir=tmp)
+            with open(path, encoding="utf-8") as f:
+                data = json.load(f)
+
+        # Top-level fields
+        self.assertIn("generated_at", data)
+        self.assertEqual(data["competition"], "Premier League")
+        self.assertEqual(data["slug"], "premier-league")
+        self.assertIn("standings", data)
+        self.assertEqual(len(data["standings"]), 1)
+
+        # Row fields that GroupStanding.fromJson reads
+        row = data["standings"][0]
+        self.assertEqual(row["position"], 1)
+        self.assertEqual(row["team"]["id"], 66)
+        self.assertEqual(row["team"]["tla"], "LIV")
+        self.assertEqual(row["team"]["crest"], "https://crests.football-data.org/64.svg")
+        self.assertEqual(row["points"], 89)
+        self.assertEqual(row["form"], "WWWWW")
+
+    def test_generated_at_ends_with_z(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            path = write_standings("Test", "test", [], out_dir=tmp)
+            with open(path, encoding="utf-8") as f:
+                data = json.load(f)
+        self.assertTrue(data["generated_at"].endswith("Z"),
+                        f"expected UTC 'Z' suffix, got {data['generated_at']!r}")
+
+    def test_file_is_valid_json_after_write(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            path = write_standings("Bundesliga", "bundesliga",
+                                   self._SAMPLE_ROWS, out_dir=tmp)
+            with open(path, encoding="utf-8") as f:
+                data = json.load(f)  # should not raise
+        self.assertIsInstance(data, dict)
+
+    def test_creates_standings_subdirectory(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            write_standings("Serie A", "serie-a", [], out_dir=tmp)
+            self.assertTrue(
+                os.path.isdir(os.path.join(tmp, "standings")),
+                "standings/ subdirectory must be created if absent",
+            )
+
+
+class TestFetchStandings(unittest.TestCase):
+    def _make_mock_response(self, payload):
+        mock_resp = MagicMock()
+        mock_resp.read.return_value = json.dumps(payload).encode()
+        mock_resp.__enter__ = lambda self: self
+        mock_resp.__exit__ = MagicMock(return_value=False)
+        return mock_resp
+
+    def test_calls_correct_endpoint(self):
+        payload = {"standings": [{"type": "TOTAL", "table": []}]}
+        with patch("urllib.request.urlopen") as mock_urlopen:
+            mock_urlopen.return_value = self._make_mock_response(payload)
+            result = fetch_standings(2021, "test_key", base_url="https://mock.api")
+
+        mock_urlopen.assert_called_once()
+        req = mock_urlopen.call_args[0][0]
+        self.assertIn("2021", req.get_full_url())
+        self.assertIn("mock.api", req.get_full_url())
+
+    def test_sends_auth_header(self):
+        payload = {"standings": []}
+        with patch("urllib.request.urlopen") as mock_urlopen:
+            mock_urlopen.return_value = self._make_mock_response(payload)
+            fetch_standings(2021, "secret_key", base_url="https://mock.api")
+
+        req = mock_urlopen.call_args[0][0]
+        self.assertEqual(req.get_header("X-auth-token"), "secret_key")
+
+    def test_returns_parsed_payload(self):
+        payload = {"standings": [{"type": "TOTAL", "table": [{"position": 1}]}]}
+        with patch("urllib.request.urlopen") as mock_urlopen:
+            mock_urlopen.return_value = self._make_mock_response(payload)
+            result = fetch_standings(2021, "key", base_url="https://mock.api")
+
+        self.assertEqual(result, payload)
+
+
+if __name__ == "__main__":
+    unittest.main()
