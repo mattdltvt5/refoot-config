@@ -1,0 +1,508 @@
+{
+  "generated_at": "2026-07-01T13:07:43Z",
+  "slug": "copa-america",
+  "standings": [
+    {
+      "group": "GROUP_A",
+      "type": "TOTAL",
+      "table": [
+        {
+          "position": 1,
+          "team": {
+            "id": 26,
+            "name": "Argentina",
+            "tla": "",
+            "crest": "https://media.api-sports.io/football/teams/26.png"
+          },
+          "playedGames": 3,
+          "won": 3,
+          "draw": 0,
+          "lost": 0,
+          "goalsFor": 5,
+          "goalsAgainst": 0,
+          "goalDifference": 5,
+          "points": 9,
+          "form": "WWW"
+        },
+        {
+          "position": 2,
+          "team": {
+            "id": 5529,
+            "name": "Canada",
+            "tla": "",
+            "crest": "https://media.api-sports.io/football/teams/5529.png"
+          },
+          "playedGames": 3,
+          "won": 1,
+          "draw": 1,
+          "lost": 1,
+          "goalsFor": 1,
+          "goalsAgainst": 2,
+          "goalDifference": -1,
+          "points": 4,
+          "form": "DWL"
+        },
+        {
+          "position": 3,
+          "team": {
+            "id": 2383,
+            "name": "Chile",
+            "tla": "",
+            "crest": "https://media.api-sports.io/football/teams/2383.png"
+          },
+          "playedGames": 3,
+          "won": 0,
+          "draw": 2,
+          "lost": 1,
+          "goalsFor": 0,
+          "goalsAgainst": 1,
+          "goalDifference": -1,
+          "points": 2,
+          "form": "DLD"
+        },
+        {
+          "position": 4,
+          "team": {
+            "id": 30,
+            "name": "Peru",
+            "tla": "",
+            "crest": "https://media.api-sports.io/football/teams/30.png"
+          },
+          "playedGames": 3,
+          "won": 0,
+          "draw": 1,
+          "lost": 2,
+          "goalsFor": 0,
+          "goalsAgainst": 3,
+          "goalDifference": -3,
+          "points": 1,
+          "form": "LLD"
+        }
+      ]
+    },
+    {
+      "group": "GROUP_B",
+      "type": "TOTAL",
+      "table": [
+        {
+          "position": 1,
+          "team": {
+            "id": 2379,
+            "name": "Venezuela",
+            "tla": "",
+            "crest": "https://media.api-sports.io/football/teams/2379.png"
+          },
+          "playedGames": 3,
+          "won": 3,
+          "draw": 0,
+          "lost": 0,
+          "goalsFor": 6,
+          "goalsAgainst": 1,
+          "goalDifference": 5,
+          "points": 9,
+          "form": "WWW"
+        },
+        {
+          "position": 2,
+          "team": {
+            "id": 2382,
+            "name": "Ecuador",
+            "tla": "",
+            "crest": "https://media.api-sports.io/football/teams/2382.png"
+          },
+          "playedGames": 3,
+          "won": 1,
+          "draw": 1,
+          "lost": 1,
+          "goalsFor": 4,
+          "goalsAgainst": 3,
+          "goalDifference": 1,
+          "points": 4,
+          "form": "DWL"
+        },
+        {
+          "position": 3,
+          "team": {
+            "id": 16,
+            "name": "Mexico",
+            "tla": "",
+            "crest": "https://media.api-sports.io/football/teams/16.png"
+          },
+          "playedGames": 3,
+          "won": 1,
+          "draw": 1,
+          "lost": 1,
+          "goalsFor": 1,
+          "goalsAgainst": 1,
+          "goalDifference": 0,
+          "points": 4,
+          "form": "DLW"
+        },
+        {
+          "position": 4,
+          "team": {
+            "id": 2385,
+            "name": "Jamaica",
+            "tla": "",
+            "crest": "https://media.api-sports.io/football/teams/2385.png"
+          },
+          "playedGames": 3,
+          "won": 0,
+          "draw": 0,
+          "lost": 3,
+          "goalsFor": 1,
+          "goalsAgainst": 7,
+          "goalDifference": -6,
+          "points": 0,
+          "form": "LLL"
+        }
+      ]
+    },
+    {
+      "group": "GROUP_C",
+      "type": "TOTAL",
+      "table": [
+        {
+          "position": 1,
+          "team": {
+            "id": 7,
+            "name": "Uruguay",
+            "tla": "",
+            "crest": "https://media.api-sports.io/football/teams/7.png"
+          },
+          "playedGames": 3,
+          "won": 3,
+          "draw": 0,
+          "lost": 0,
+          "goalsFor": 9,
+          "goalsAgainst": 1,
+          "goalDifference": 8,
+          "points": 9,
+          "form": "WWW"
+        },
+        {
+          "position": 2,
+          "team": {
+            "id": 11,
+            "name": "Panama",
+            "tla": "",
+            "crest": "https://media.api-sports.io/football/teams/11.png"
+          },
+          "playedGames": 3,
+          "won": 2,
+          "draw": 0,
+          "lost": 1,
+          "goalsFor": 6,
+          "goalsAgainst": 5,
+          "goalDifference": 1,
+          "points": 6,
+          "form": "WWL"
+        },
+        {
+          "position": 3,
+          "team": {
+            "id": 2384,
+            "name": "USA",
+            "tla": "",
+            "crest": "https://media.api-sports.io/football/teams/2384.png"
+          },
+          "playedGames": 3,
+          "won": 1,
+          "draw": 0,
+          "lost": 2,
+          "goalsFor": 3,
+          "goalsAgainst": 3,
+          "goalDifference": 0,
+          "points": 3,
+          "form": "LLW"
+        },
+        {
+          "position": 4,
+          "team": {
+            "id": 2381,
+            "name": "Bolivia",
+            "tla": "",
+            "crest": "https://media.api-sports.io/football/teams/2381.png"
+          },
+          "playedGames": 3,
+          "won": 0,
+          "draw": 0,
+          "lost": 3,
+          "goalsFor": 1,
+          "goalsAgainst": 10,
+          "goalDifference": -9,
+          "points": 0,
+          "form": "LLL"
+        }
+      ]
+    },
+    {
+      "group": "GROUP_D",
+      "type": "TOTAL",
+      "table": [
+        {
+          "position": 1,
+          "team": {
+            "id": 8,
+            "name": "Colombia",
+            "tla": "",
+            "crest": "https://media.api-sports.io/football/teams/8.png"
+          },
+          "playedGames": 3,
+          "won": 2,
+          "draw": 1,
+          "lost": 0,
+          "goalsFor": 6,
+          "goalsAgainst": 2,
+          "goalDifference": 4,
+          "points": 7,
+          "form": "DWW"
+        },
+        {
+          "position": 2,
+          "team": {
+            "id": 6,
+            "name": "Brazil",
+            "tla": "",
+            "crest": "https://media.api-sports.io/football/teams/6.png"
+          },
+          "playedGames": 3,
+          "won": 1,
+          "draw": 2,
+          "lost": 0,
+          "goalsFor": 5,
+          "goalsAgainst": 2,
+          "goalDifference": 3,
+          "points": 5,
+          "form": "DWD"
+        },
+        {
+          "position": 3,
+          "team": {
+            "id": 29,
+            "name": "Costa Rica",
+            "tla": "",
+            "crest": "https://media.api-sports.io/football/teams/29.png"
+          },
+          "playedGames": 3,
+          "won": 1,
+          "draw": 1,
+          "lost": 1,
+          "goalsFor": 2,
+          "goalsAgainst": 4,
+          "goalDifference": -2,
+          "points": 4,
+          "form": "WLD"
+        },
+        {
+          "position": 4,
+          "team": {
+            "id": 2380,
+            "name": "Paraguay",
+            "tla": "",
+            "crest": "https://media.api-sports.io/football/teams/2380.png"
+          },
+          "playedGames": 3,
+          "won": 0,
+          "draw": 0,
+          "lost": 3,
+          "goalsFor": 3,
+          "goalsAgainst": 8,
+          "goalDifference": -5,
+          "points": 0,
+          "form": "LLL"
+        }
+      ]
+    }
+  ],
+  "matches": [
+    {
+      "stage": "QUARTER_FINALS",
+      "homeTeam": {
+        "id": 26,
+        "name": "Argentina",
+        "tla": "",
+        "crest": "https://media.api-sports.io/football/teams/26.png"
+      },
+      "awayTeam": {
+        "id": 2382,
+        "name": "Ecuador",
+        "tla": "",
+        "crest": "https://media.api-sports.io/football/teams/2382.png"
+      },
+      "score": {
+        "fullTime": {
+          "home": 1,
+          "away": 1
+        },
+        "penalties": {
+          "home": 4,
+          "away": 2
+        }
+      }
+    },
+    {
+      "stage": "QUARTER_FINALS",
+      "homeTeam": {
+        "id": 2379,
+        "name": "Venezuela",
+        "tla": "",
+        "crest": "https://media.api-sports.io/football/teams/2379.png"
+      },
+      "awayTeam": {
+        "id": 5529,
+        "name": "Canada",
+        "tla": "",
+        "crest": "https://media.api-sports.io/football/teams/5529.png"
+      },
+      "score": {
+        "fullTime": {
+          "home": 1,
+          "away": 1
+        },
+        "penalties": {
+          "home": 3,
+          "away": 4
+        }
+      }
+    },
+    {
+      "stage": "QUARTER_FINALS",
+      "homeTeam": {
+        "id": 8,
+        "name": "Colombia",
+        "tla": "",
+        "crest": "https://media.api-sports.io/football/teams/8.png"
+      },
+      "awayTeam": {
+        "id": 11,
+        "name": "Panama",
+        "tla": "",
+        "crest": "https://media.api-sports.io/football/teams/11.png"
+      },
+      "score": {
+        "fullTime": {
+          "home": 5,
+          "away": 0
+        },
+        "penalties": null
+      }
+    },
+    {
+      "stage": "QUARTER_FINALS",
+      "homeTeam": {
+        "id": 7,
+        "name": "Uruguay",
+        "tla": "",
+        "crest": "https://media.api-sports.io/football/teams/7.png"
+      },
+      "awayTeam": {
+        "id": 6,
+        "name": "Brazil",
+        "tla": "",
+        "crest": "https://media.api-sports.io/football/teams/6.png"
+      },
+      "score": {
+        "fullTime": {
+          "home": 0,
+          "away": 0
+        },
+        "penalties": {
+          "home": 4,
+          "away": 2
+        }
+      }
+    },
+    {
+      "stage": "SEMI_FINALS",
+      "homeTeam": {
+        "id": 26,
+        "name": "Argentina",
+        "tla": "",
+        "crest": "https://media.api-sports.io/football/teams/26.png"
+      },
+      "awayTeam": {
+        "id": 5529,
+        "name": "Canada",
+        "tla": "",
+        "crest": "https://media.api-sports.io/football/teams/5529.png"
+      },
+      "score": {
+        "fullTime": {
+          "home": 2,
+          "away": 0
+        },
+        "penalties": null
+      }
+    },
+    {
+      "stage": "SEMI_FINALS",
+      "homeTeam": {
+        "id": 7,
+        "name": "Uruguay",
+        "tla": "",
+        "crest": "https://media.api-sports.io/football/teams/7.png"
+      },
+      "awayTeam": {
+        "id": 8,
+        "name": "Colombia",
+        "tla": "",
+        "crest": "https://media.api-sports.io/football/teams/8.png"
+      },
+      "score": {
+        "fullTime": {
+          "home": 0,
+          "away": 1
+        },
+        "penalties": null
+      }
+    },
+    {
+      "stage": "THIRD_PLACE",
+      "homeTeam": {
+        "id": 5529,
+        "name": "Canada",
+        "tla": "",
+        "crest": "https://media.api-sports.io/football/teams/5529.png"
+      },
+      "awayTeam": {
+        "id": 7,
+        "name": "Uruguay",
+        "tla": "",
+        "crest": "https://media.api-sports.io/football/teams/7.png"
+      },
+      "score": {
+        "fullTime": {
+          "home": 2,
+          "away": 2
+        },
+        "penalties": {
+          "home": 3,
+          "away": 4
+        }
+      }
+    },
+    {
+      "stage": "FINAL",
+      "homeTeam": {
+        "id": 26,
+        "name": "Argentina",
+        "tla": "",
+        "crest": "https://media.api-sports.io/football/teams/26.png"
+      },
+      "awayTeam": {
+        "id": 8,
+        "name": "Colombia",
+        "tla": "",
+        "crest": "https://media.api-sports.io/football/teams/8.png"
+      },
+      "score": {
+        "fullTime": {
+          "home": 0,
+          "away": 0
+        },
+        "penalties": null
+      }
+    }
+  ]
+}
