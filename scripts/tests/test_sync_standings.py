@@ -4,10 +4,31 @@ All tests are pure-function / mocked-HTTP — no live FD calls.
 """
 
 import json, sys, os, unittest, tempfile
+from datetime import datetime, timezone
 from unittest.mock import patch, MagicMock
 
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
-from sync_standings import extract_total_table, fetch_standings, write_standings
+from sync_standings import current_season, extract_total_table, fetch_standings, write_standings
+
+
+class TestCurrentSeason(unittest.TestCase):
+    def test_before_august_returns_previous_year(self):
+        # July 2026 → 2025-26 season → FD season key 2025
+        now = datetime(2026, 7, 1, tzinfo=timezone.utc)
+        self.assertEqual(current_season(now), 2025)
+
+    def test_in_august_returns_current_year(self):
+        # August 2026 → 2026-27 season → FD season key 2026
+        now = datetime(2026, 8, 1, tzinfo=timezone.utc)
+        self.assertEqual(current_season(now), 2026)
+
+    def test_after_august_returns_current_year(self):
+        now = datetime(2026, 12, 15, tzinfo=timezone.utc)
+        self.assertEqual(current_season(now), 2026)
+
+    def test_january_returns_previous_year(self):
+        now = datetime(2026, 1, 1, tzinfo=timezone.utc)
+        self.assertEqual(current_season(now), 2025)
 
 
 class TestExtractTotalTable(unittest.TestCase):
@@ -142,6 +163,24 @@ class TestFetchStandings(unittest.TestCase):
             result = fetch_standings(2021, "key", base_url="https://mock.api")
 
         self.assertEqual(result, payload)
+
+    def test_season_param_included_in_url(self):
+        payload = {"standings": []}
+        with patch("urllib.request.urlopen") as mock_urlopen:
+            mock_urlopen.return_value = self._make_mock_response(payload)
+            fetch_standings(2021, "key", base_url="https://mock.api", season=2025)
+
+        req = mock_urlopen.call_args[0][0]
+        self.assertIn("season=2025", req.get_full_url())
+
+    def test_no_season_param_when_omitted(self):
+        payload = {"standings": []}
+        with patch("urllib.request.urlopen") as mock_urlopen:
+            mock_urlopen.return_value = self._make_mock_response(payload)
+            fetch_standings(2021, "key", base_url="https://mock.api")
+
+        req = mock_urlopen.call_args[0][0]
+        self.assertNotIn("season", req.get_full_url())
 
 
 if __name__ == "__main__":

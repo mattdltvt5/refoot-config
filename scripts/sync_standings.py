@@ -14,6 +14,20 @@ from datetime import datetime, timezone
 
 FD_BASE = "https://api.football-data.org/v4"
 
+
+def current_season(now=None):
+    """Return the FD season start year for today's date.
+
+    FD season keys use the start year (2025 = 2025-26).
+    Domestic leagues start in August, so before August the current season
+    started the previous year.
+    now is injectable for unit tests; defaults to UTC today.
+    """
+    if now is None:
+        now = datetime.now(timezone.utc)
+    return now.year - 1 if now.month < 8 else now.year
+
+
 # Competitions that get a standings file. Each entry is (FD id, display name, slug).
 COMPETITIONS = [
     (2021, "Premier League",   "premier-league"),
@@ -25,13 +39,16 @@ COMPETITIONS = [
 ]
 
 
-def fetch_standings(comp_id, api_key, base_url=FD_BASE):
+def fetch_standings(comp_id, api_key, base_url=FD_BASE, season=None):
     """Fetch /standings for a competition. Returns parsed JSON dict.
 
     Raises urllib.error.HTTPError on non-200 responses.
-    base_url is overridable for unit tests.
+    base_url and season are overridable for unit tests.
+    Passing season avoids FD defaulting to a not-yet-started future season.
     """
     url = f"{base_url}/competitions/{comp_id}/standings"
+    if season is not None:
+        url += f"?season={season}"
     req = urllib.request.Request(url, headers={"X-Auth-Token": api_key})
     with urllib.request.urlopen(req, timeout=15) as resp:
         return json.loads(resp.read())
@@ -68,11 +85,12 @@ def write_standings(comp_name, slug, rows, out_dir="."):
 
 
 def main(api_key, out_dir="."):
+    season = current_season()
     for i, (comp_id, comp_name, slug) in enumerate(COMPETITIONS):
         if i > 0:
             time.sleep(7)  # free tier: 10 req/min
         try:
-            payload = fetch_standings(comp_id, api_key)
+            payload = fetch_standings(comp_id, api_key, season=season)
             rows = []
             for group in extract_total_table(payload):
                 rows.extend(group.get("table", []))
