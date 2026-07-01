@@ -553,7 +553,7 @@ One entry per group (`type: "TOTAL"`).  Consumed by the Groups tab standings tab
 
 ### `matches` — knockout-stage fixtures
 
-One entry per knockout match.  Consumed by the Flutter app's Knockout tab, which renders matches grouped by stage with a view-local phase filter chip (Quarter-finals → Semi-finals → 3rd Place → Final, or from Round of 16 for competitions that include it).
+One entry per knockout match.  Consumed by the Flutter app's Knockout tab, which renders matches grouped by stage with a horizontally scrollable stage tab strip (All · Round of 16 · Quarter-finals · Semi-finals · 3rd Place · Final — only tabs for stages present in the data are shown).  Each stage tab carries a colour-coded status dot (green = complete, orange = in progress, red = not started) derived from match scores; the dot colours are defined in `KnockoutTabTheme` (a Flutter `ThemeExtension`) so they live in the theme, not in the widget.  The selected stage resets to "All" when the user navigates away and back.
 
 ```json
 {
