@@ -22,7 +22,7 @@ jobs:
           FOOTBALL_DATA_API_KEY: ${{ secrets.FOOTBALL_DATA_API_KEY }}
         run: |
           python3 << 'PYEOF'
-          import json, os, time, urllib.request, urllib.error
+          import json, os, pathlib, time, urllib.request, urllib.error
           from datetime import date, datetime
 
           API_KEY = os.environ["FOOTBALL_DATA_API_KEY"]
@@ -91,6 +91,37 @@ jobs:
           KNOCKOUT_STAGES = {
               "LAST_32", "LAST_16", "QUARTER_FINALS", "SEMI_FINALS", "THIRD_PLACE", "FINAL",
           }
+
+          # Maps FD stage → highlight file stem.  Two-legged UCL rounds get a
+          # matchday suffix (leg-1 / leg-2); single-leg rounds get the base stem.
+          def _stage_stem(stage, matchday):
+              fixed = {"LAST_32": "round-of-32", "THIRD_PLACE": "third-place", "FINAL": "final"}
+              if stage in fixed:
+                  return fixed[stage]
+              legged = {"LAST_16": "round-of-16", "QUARTER_FINALS": "quarter-final",
+                        "SEMI_FINALS": "semi-final"}
+              if stage in legged:
+                  base = legged[stage]
+                  if matchday in (1, 2):
+                      return f"{base}-leg-{matchday}"
+                  return base
+              return None
+
+          def _lookup_video_id(slug, stage, matchday, match_id):
+              stem = _stage_stem(stage, matchday)
+              if not stem or match_id is None:
+                  return None
+              p = pathlib.Path(f"highlights/{slug}/{stem}.json")
+              if not p.exists():
+                  return None
+              try:
+                  highlights = json.loads(p.read_text(encoding="utf-8"))
+                  for e in highlights:
+                      if e.get("match_id") == match_id and e.get("videos"):
+                          return e["videos"][0]["video_id"]
+              except Exception:
+                  pass
+              return None
 
           os.makedirs("tournament-groups", exist_ok=True)
 
@@ -174,6 +205,12 @@ jobs:
                       "status": m.get("status", ""),
                   })
 
+              def _with_video_id(m):
+                  vid = _lookup_video_id(
+                      slug, m.get("stage"), m.get("matchday"), m.get("id")
+                  )
+                  return {**m, "video_id": vid}
+
               tournament_data = {
                   "generated_at": datetime.utcnow().isoformat() + "Z",
                   "slug": slug,
@@ -182,7 +219,8 @@ jobs:
                       if s.get("type") == "TOTAL"
                   ],
                   "matches": [
-                      m for m in matches_payload.get("matches", [])
+                      _with_video_id(m)
+                      for m in matches_payload.get("matches", [])
                       if m.get("stage") in KNOCKOUT_STAGES
                   ],
                   "groupMatches": group_matches,

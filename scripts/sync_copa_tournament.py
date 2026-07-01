@@ -20,6 +20,7 @@ API-Sports quota discipline (hard invariants):
   The Flutter app NEVER calls API-Sports directly.
 """
 
+import json
 import logging
 import os
 import re
@@ -41,6 +42,32 @@ log = logging.getLogger(__name__)
 
 SLUG     = "copa-america"
 OUT_PATH = REPO_ROOT / "tournament-groups" / f"{SLUG}.json"
+
+# Highlight file stems for Copa knockout stages (single-leg only).
+_COPA_STAGE_STEMS: dict = {
+    "QUARTER_FINALS": "quarter-final",
+    "SEMI_FINALS":    "semi-final",
+    "THIRD_PLACE":    "third-place",
+    "FINAL":          "final",
+}
+
+
+def _lookup_copa_video_id(match_id) -> "str | None":
+    """Return a YouTube video_id for match_id from the Copa highlights files."""
+    if match_id is None:
+        return None
+    for stage, stem in _COPA_STAGE_STEMS.items():
+        path = REPO_ROOT / "highlights" / SLUG / f"{stem}.json"
+        if not path.exists():
+            continue
+        try:
+            highlights = json.loads(path.read_text(encoding="utf-8"))
+            for e in highlights:
+                if e.get("match_id") == match_id and e.get("videos"):
+                    return e["videos"][0]["video_id"]
+        except Exception:
+            pass
+    return None
 
 # Maps verbatim API-Sports league.round values → FD-compatible stage keys.
 # Group-stage rounds are intentionally absent; they go into groupMatches instead.
@@ -258,7 +285,9 @@ def normalize_knockout(body: dict) -> list:
         if pens and pens.get("home") is not None and pens.get("away") is not None:
             penalties = {"home": pens["home"], "away": pens["away"]}
 
+        fixture_id = fix.get("fixture", {}).get("id")
         matches.append({
+            "id":    fixture_id,  # API-Sports fixture ID; used for highlight lookup
             "stage": stage,
             "homeTeam": {
                 "id":    home_id or 0,
@@ -349,6 +378,7 @@ def main() -> None:
     fixtures_body = provider._get("/fixtures", {"league": league_id, "season": season})
 
     matches = [] if fixtures_body is None else normalize_knockout(fixtures_body)
+    matches = [{**m, "video_id": _lookup_copa_video_id(m.get("id"))} for m in matches]
     log.info(f"  {len(matches)} knockout match(es)")
 
     team_group_map = _build_team_group_map(groups)
