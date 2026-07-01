@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-29T08:55:33.281230Z",
+  "generated_at": "2026-07-01T15:17:34.008493Z",
   "slug": "euro-cup",
   "standings": [
     {
@@ -1723,6 +1723,872 @@
           "nationality": "France"
         }
       ]
+    }
+  ],
+  "groupMatches": [
+    {
+      "group": "GROUP_A",
+      "matchday": 1,
+      "sourceRound": "Matchday 1",
+      "homeTeam": {
+        "id": 759,
+        "name": "Germany",
+        "tla": "GER",
+        "crest": "https://crests.football-data.org/759.svg"
+      },
+      "awayTeam": {
+        "id": 8873,
+        "name": "Scotland",
+        "tla": "SCO",
+        "crest": "https://crests.football-data.org/814.svg"
+      },
+      "score": {
+        "fullTime": {
+          "home": 5,
+          "away": 1
+        }
+      },
+      "status": "FINISHED"
+    },
+    {
+      "group": "GROUP_A",
+      "matchday": 1,
+      "sourceRound": "Matchday 1",
+      "homeTeam": {
+        "id": 827,
+        "name": "Hungary",
+        "tla": "HUN",
+        "crest": "https://crests.football-data.org/827.svg"
+      },
+      "awayTeam": {
+        "id": 788,
+        "name": "Switzerland",
+        "tla": "SUI",
+        "crest": "https://crests.football-data.org/788.svg"
+      },
+      "score": {
+        "fullTime": {
+          "home": 1,
+          "away": 3
+        }
+      },
+      "status": "FINISHED"
+    },
+    {
+      "group": "GROUP_B",
+      "matchday": 1,
+      "sourceRound": "Matchday 1",
+      "homeTeam": {
+        "id": 760,
+        "name": "Spain",
+        "tla": "ESP",
+        "crest": "https://crests.football-data.org/760.svg"
+      },
+      "awayTeam": {
+        "id": 799,
+        "name": "Croatia",
+        "tla": "CRO",
+        "crest": "https://crests.football-data.org/799.svg"
+      },
+      "score": {
+        "fullTime": {
+          "home": 3,
+          "away": 0
+        }
+      },
+      "status": "FINISHED"
+    },
+    {
+      "group": "GROUP_B",
+      "matchday": 1,
+      "sourceRound": "Matchday 1",
+      "homeTeam": {
+        "id": 784,
+        "name": "Italy",
+        "tla": "ITA",
+        "crest": "https://crests.football-data.org/784.svg"
+      },
+      "awayTeam": {
+        "id": 1065,
+        "name": "Albania",
+        "tla": "ALB",
+        "crest": "https://upload.wikimedia.org/wikipedia/commons/3/36/Flag_of_Albania.svg"
+      },
+      "score": {
+        "fullTime": {
+          "home": 2,
+          "away": 1
+        }
+      },
+      "status": "FINISHED"
+    },
+    {
+      "group": "GROUP_D",
+      "matchday": 1,
+      "sourceRound": "Matchday 1",
+      "homeTeam": {
+        "id": 794,
+        "name": "Poland",
+        "tla": "POL",
+        "crest": "https://crests.football-data.org/794.svg"
+      },
+      "awayTeam": {
+        "id": 8601,
+        "name": "Netherlands",
+        "tla": "NED",
+        "crest": "https://crests.football-data.org/8601.svg"
+      },
+      "score": {
+        "fullTime": {
+          "home": 1,
+          "away": 2
+        }
+      },
+      "status": "FINISHED"
+    },
+    {
+      "group": "GROUP_C",
+      "matchday": 1,
+      "sourceRound": "Matchday 1",
+      "homeTeam": {
+        "id": 777,
+        "name": "Slovenia",
+        "tla": "SVN",
+        "crest": "https://crests.football-data.org/777.svg"
+      },
+      "awayTeam": {
+        "id": 782,
+        "name": "Denmark",
+        "tla": "DEN",
+        "crest": "https://crests.football-data.org/782.svg"
+      },
+      "score": {
+        "fullTime": {
+          "home": 1,
+          "away": 1
+        }
+      },
+      "status": "FINISHED"
+    },
+    {
+      "group": "GROUP_C",
+      "matchday": 1,
+      "sourceRound": "Matchday 1",
+      "homeTeam": {
+        "id": 780,
+        "name": "Serbia",
+        "tla": "SRB",
+        "crest": "https://crests.football-data.org/780.svg"
+      },
+      "awayTeam": {
+        "id": 770,
+        "name": "England",
+        "tla": "ENG",
+        "crest": "https://crests.football-data.org/770.svg"
+      },
+      "score": {
+        "fullTime": {
+          "home": 0,
+          "away": 1
+        }
+      },
+      "status": "FINISHED"
+    },
+    {
+      "group": "GROUP_E",
+      "matchday": 1,
+      "sourceRound": "Matchday 1",
+      "homeTeam": {
+        "id": 811,
+        "name": "Romania",
+        "tla": "ROU",
+        "crest": "https://crests.football-data.org/811.svg"
+      },
+      "awayTeam": {
+        "id": 790,
+        "name": "Ukraine",
+        "tla": "UKR",
+        "crest": "https://crests.football-data.org/790.svg"
+      },
+      "score": {
+        "fullTime": {
+          "home": 3,
+          "away": 0
+        }
+      },
+      "status": "FINISHED"
+    },
+    {
+      "group": "GROUP_E",
+      "matchday": 1,
+      "sourceRound": "Matchday 1",
+      "homeTeam": {
+        "id": 805,
+        "name": "Belgium",
+        "tla": "BEL",
+        "crest": "https://crests.football-data.org/805.svg"
+      },
+      "awayTeam": {
+        "id": 768,
+        "name": "Slovakia",
+        "tla": "SVK",
+        "crest": "https://crests.football-data.org/768.svg"
+      },
+      "score": {
+        "fullTime": {
+          "home": 0,
+          "away": 1
+        }
+      },
+      "status": "FINISHED"
+    },
+    {
+      "group": "GROUP_D",
+      "matchday": 1,
+      "sourceRound": "Matchday 1",
+      "homeTeam": {
+        "id": 816,
+        "name": "Austria",
+        "tla": "AUT",
+        "crest": "https://crests.football-data.org/816.svg"
+      },
+      "awayTeam": {
+        "id": 773,
+        "name": "France",
+        "tla": "FRA",
+        "crest": "https://crests.football-data.org/773.svg"
+      },
+      "score": {
+        "fullTime": {
+          "home": 0,
+          "away": 1
+        }
+      },
+      "status": "FINISHED"
+    },
+    {
+      "group": "GROUP_F",
+      "matchday": 1,
+      "sourceRound": "Matchday 1",
+      "homeTeam": {
+        "id": 803,
+        "name": "Turkey",
+        "tla": "TUR",
+        "crest": "https://crests.football-data.org/803.svg"
+      },
+      "awayTeam": {
+        "id": 1978,
+        "name": "Georgia",
+        "tla": "GEO",
+        "crest": "https://crests.football-data.org/ge.svg"
+      },
+      "score": {
+        "fullTime": {
+          "home": 3,
+          "away": 1
+        }
+      },
+      "status": "FINISHED"
+    },
+    {
+      "group": "GROUP_F",
+      "matchday": 1,
+      "sourceRound": "Matchday 1",
+      "homeTeam": {
+        "id": 765,
+        "name": "Portugal",
+        "tla": "POR",
+        "crest": "https://crests.football-data.org/765.svg"
+      },
+      "awayTeam": {
+        "id": 798,
+        "name": "Czechia",
+        "tla": "CZE",
+        "crest": "https://crests.football-data.org/798.svg"
+      },
+      "score": {
+        "fullTime": {
+          "home": 2,
+          "away": 1
+        }
+      },
+      "status": "FINISHED"
+    },
+    {
+      "group": "GROUP_B",
+      "matchday": 2,
+      "sourceRound": "Matchday 2",
+      "homeTeam": {
+        "id": 799,
+        "name": "Croatia",
+        "tla": "CRO",
+        "crest": "https://crests.football-data.org/799.svg"
+      },
+      "awayTeam": {
+        "id": 1065,
+        "name": "Albania",
+        "tla": "ALB",
+        "crest": "https://upload.wikimedia.org/wikipedia/commons/3/36/Flag_of_Albania.svg"
+      },
+      "score": {
+        "fullTime": {
+          "home": 2,
+          "away": 2
+        }
+      },
+      "status": "FINISHED"
+    },
+    {
+      "group": "GROUP_A",
+      "matchday": 2,
+      "sourceRound": "Matchday 2",
+      "homeTeam": {
+        "id": 759,
+        "name": "Germany",
+        "tla": "GER",
+        "crest": "https://crests.football-data.org/759.svg"
+      },
+      "awayTeam": {
+        "id": 827,
+        "name": "Hungary",
+        "tla": "HUN",
+        "crest": "https://crests.football-data.org/827.svg"
+      },
+      "score": {
+        "fullTime": {
+          "home": 2,
+          "away": 0
+        }
+      },
+      "status": "FINISHED"
+    },
+    {
+      "group": "GROUP_A",
+      "matchday": 2,
+      "sourceRound": "Matchday 2",
+      "homeTeam": {
+        "id": 8873,
+        "name": "Scotland",
+        "tla": "SCO",
+        "crest": "https://crests.football-data.org/814.svg"
+      },
+      "awayTeam": {
+        "id": 788,
+        "name": "Switzerland",
+        "tla": "SUI",
+        "crest": "https://crests.football-data.org/788.svg"
+      },
+      "score": {
+        "fullTime": {
+          "home": 1,
+          "away": 1
+        }
+      },
+      "status": "FINISHED"
+    },
+    {
+      "group": "GROUP_C",
+      "matchday": 2,
+      "sourceRound": "Matchday 2",
+      "homeTeam": {
+        "id": 777,
+        "name": "Slovenia",
+        "tla": "SVN",
+        "crest": "https://crests.football-data.org/777.svg"
+      },
+      "awayTeam": {
+        "id": 780,
+        "name": "Serbia",
+        "tla": "SRB",
+        "crest": "https://crests.football-data.org/780.svg"
+      },
+      "score": {
+        "fullTime": {
+          "home": 1,
+          "away": 1
+        }
+      },
+      "status": "FINISHED"
+    },
+    {
+      "group": "GROUP_C",
+      "matchday": 2,
+      "sourceRound": "Matchday 2",
+      "homeTeam": {
+        "id": 782,
+        "name": "Denmark",
+        "tla": "DEN",
+        "crest": "https://crests.football-data.org/782.svg"
+      },
+      "awayTeam": {
+        "id": 770,
+        "name": "England",
+        "tla": "ENG",
+        "crest": "https://crests.football-data.org/770.svg"
+      },
+      "score": {
+        "fullTime": {
+          "home": 1,
+          "away": 1
+        }
+      },
+      "status": "FINISHED"
+    },
+    {
+      "group": "GROUP_B",
+      "matchday": 2,
+      "sourceRound": "Matchday 2",
+      "homeTeam": {
+        "id": 760,
+        "name": "Spain",
+        "tla": "ESP",
+        "crest": "https://crests.football-data.org/760.svg"
+      },
+      "awayTeam": {
+        "id": 784,
+        "name": "Italy",
+        "tla": "ITA",
+        "crest": "https://crests.football-data.org/784.svg"
+      },
+      "score": {
+        "fullTime": {
+          "home": 1,
+          "away": 0
+        }
+      },
+      "status": "FINISHED"
+    },
+    {
+      "group": "GROUP_E",
+      "matchday": 2,
+      "sourceRound": "Matchday 2",
+      "homeTeam": {
+        "id": 768,
+        "name": "Slovakia",
+        "tla": "SVK",
+        "crest": "https://crests.football-data.org/768.svg"
+      },
+      "awayTeam": {
+        "id": 790,
+        "name": "Ukraine",
+        "tla": "UKR",
+        "crest": "https://crests.football-data.org/790.svg"
+      },
+      "score": {
+        "fullTime": {
+          "home": 1,
+          "away": 2
+        }
+      },
+      "status": "FINISHED"
+    },
+    {
+      "group": "GROUP_D",
+      "matchday": 2,
+      "sourceRound": "Matchday 2",
+      "homeTeam": {
+        "id": 794,
+        "name": "Poland",
+        "tla": "POL",
+        "crest": "https://crests.football-data.org/794.svg"
+      },
+      "awayTeam": {
+        "id": 816,
+        "name": "Austria",
+        "tla": "AUT",
+        "crest": "https://crests.football-data.org/816.svg"
+      },
+      "score": {
+        "fullTime": {
+          "home": 1,
+          "away": 3
+        }
+      },
+      "status": "FINISHED"
+    },
+    {
+      "group": "GROUP_D",
+      "matchday": 2,
+      "sourceRound": "Matchday 2",
+      "homeTeam": {
+        "id": 8601,
+        "name": "Netherlands",
+        "tla": "NED",
+        "crest": "https://crests.football-data.org/8601.svg"
+      },
+      "awayTeam": {
+        "id": 773,
+        "name": "France",
+        "tla": "FRA",
+        "crest": "https://crests.football-data.org/773.svg"
+      },
+      "score": {
+        "fullTime": {
+          "home": 0,
+          "away": 0
+        }
+      },
+      "status": "FINISHED"
+    },
+    {
+      "group": "GROUP_F",
+      "matchday": 2,
+      "sourceRound": "Matchday 2",
+      "homeTeam": {
+        "id": 1978,
+        "name": "Georgia",
+        "tla": "GEO",
+        "crest": "https://crests.football-data.org/ge.svg"
+      },
+      "awayTeam": {
+        "id": 798,
+        "name": "Czechia",
+        "tla": "CZE",
+        "crest": "https://crests.football-data.org/798.svg"
+      },
+      "score": {
+        "fullTime": {
+          "home": 1,
+          "away": 1
+        }
+      },
+      "status": "FINISHED"
+    },
+    {
+      "group": "GROUP_F",
+      "matchday": 2,
+      "sourceRound": "Matchday 2",
+      "homeTeam": {
+        "id": 803,
+        "name": "Turkey",
+        "tla": "TUR",
+        "crest": "https://crests.football-data.org/803.svg"
+      },
+      "awayTeam": {
+        "id": 765,
+        "name": "Portugal",
+        "tla": "POR",
+        "crest": "https://crests.football-data.org/765.svg"
+      },
+      "score": {
+        "fullTime": {
+          "home": 0,
+          "away": 3
+        }
+      },
+      "status": "FINISHED"
+    },
+    {
+      "group": "GROUP_E",
+      "matchday": 2,
+      "sourceRound": "Matchday 2",
+      "homeTeam": {
+        "id": 805,
+        "name": "Belgium",
+        "tla": "BEL",
+        "crest": "https://crests.football-data.org/805.svg"
+      },
+      "awayTeam": {
+        "id": 811,
+        "name": "Romania",
+        "tla": "ROU",
+        "crest": "https://crests.football-data.org/811.svg"
+      },
+      "score": {
+        "fullTime": {
+          "home": 2,
+          "away": 0
+        }
+      },
+      "status": "FINISHED"
+    },
+    {
+      "group": "GROUP_A",
+      "matchday": 3,
+      "sourceRound": "Matchday 3",
+      "homeTeam": {
+        "id": 8873,
+        "name": "Scotland",
+        "tla": "SCO",
+        "crest": "https://crests.football-data.org/814.svg"
+      },
+      "awayTeam": {
+        "id": 827,
+        "name": "Hungary",
+        "tla": "HUN",
+        "crest": "https://crests.football-data.org/827.svg"
+      },
+      "score": {
+        "fullTime": {
+          "home": 0,
+          "away": 1
+        }
+      },
+      "status": "FINISHED"
+    },
+    {
+      "group": "GROUP_A",
+      "matchday": 3,
+      "sourceRound": "Matchday 3",
+      "homeTeam": {
+        "id": 788,
+        "name": "Switzerland",
+        "tla": "SUI",
+        "crest": "https://crests.football-data.org/788.svg"
+      },
+      "awayTeam": {
+        "id": 759,
+        "name": "Germany",
+        "tla": "GER",
+        "crest": "https://crests.football-data.org/759.svg"
+      },
+      "score": {
+        "fullTime": {
+          "home": 1,
+          "away": 1
+        }
+      },
+      "status": "FINISHED"
+    },
+    {
+      "group": "GROUP_B",
+      "matchday": 3,
+      "sourceRound": "Matchday 3",
+      "homeTeam": {
+        "id": 1065,
+        "name": "Albania",
+        "tla": "ALB",
+        "crest": "https://upload.wikimedia.org/wikipedia/commons/3/36/Flag_of_Albania.svg"
+      },
+      "awayTeam": {
+        "id": 760,
+        "name": "Spain",
+        "tla": "ESP",
+        "crest": "https://crests.football-data.org/760.svg"
+      },
+      "score": {
+        "fullTime": {
+          "home": 0,
+          "away": 1
+        }
+      },
+      "status": "FINISHED"
+    },
+    {
+      "group": "GROUP_B",
+      "matchday": 3,
+      "sourceRound": "Matchday 3",
+      "homeTeam": {
+        "id": 799,
+        "name": "Croatia",
+        "tla": "CRO",
+        "crest": "https://crests.football-data.org/799.svg"
+      },
+      "awayTeam": {
+        "id": 784,
+        "name": "Italy",
+        "tla": "ITA",
+        "crest": "https://crests.football-data.org/784.svg"
+      },
+      "score": {
+        "fullTime": {
+          "home": 1,
+          "away": 1
+        }
+      },
+      "status": "FINISHED"
+    },
+    {
+      "group": "GROUP_D",
+      "matchday": 3,
+      "sourceRound": "Matchday 3",
+      "homeTeam": {
+        "id": 773,
+        "name": "France",
+        "tla": "FRA",
+        "crest": "https://crests.football-data.org/773.svg"
+      },
+      "awayTeam": {
+        "id": 794,
+        "name": "Poland",
+        "tla": "POL",
+        "crest": "https://crests.football-data.org/794.svg"
+      },
+      "score": {
+        "fullTime": {
+          "home": 1,
+          "away": 1
+        }
+      },
+      "status": "FINISHED"
+    },
+    {
+      "group": "GROUP_D",
+      "matchday": 3,
+      "sourceRound": "Matchday 3",
+      "homeTeam": {
+        "id": 8601,
+        "name": "Netherlands",
+        "tla": "NED",
+        "crest": "https://crests.football-data.org/8601.svg"
+      },
+      "awayTeam": {
+        "id": 816,
+        "name": "Austria",
+        "tla": "AUT",
+        "crest": "https://crests.football-data.org/816.svg"
+      },
+      "score": {
+        "fullTime": {
+          "home": 2,
+          "away": 3
+        }
+      },
+      "status": "FINISHED"
+    },
+    {
+      "group": "GROUP_C",
+      "matchday": 3,
+      "sourceRound": "Matchday 3",
+      "homeTeam": {
+        "id": 782,
+        "name": "Denmark",
+        "tla": "DEN",
+        "crest": "https://crests.football-data.org/782.svg"
+      },
+      "awayTeam": {
+        "id": 780,
+        "name": "Serbia",
+        "tla": "SRB",
+        "crest": "https://crests.football-data.org/780.svg"
+      },
+      "score": {
+        "fullTime": {
+          "home": 0,
+          "away": 0
+        }
+      },
+      "status": "FINISHED"
+    },
+    {
+      "group": "GROUP_C",
+      "matchday": 3,
+      "sourceRound": "Matchday 3",
+      "homeTeam": {
+        "id": 770,
+        "name": "England",
+        "tla": "ENG",
+        "crest": "https://crests.football-data.org/770.svg"
+      },
+      "awayTeam": {
+        "id": 777,
+        "name": "Slovenia",
+        "tla": "SVN",
+        "crest": "https://crests.football-data.org/777.svg"
+      },
+      "score": {
+        "fullTime": {
+          "home": 0,
+          "away": 0
+        }
+      },
+      "status": "FINISHED"
+    },
+    {
+      "group": "GROUP_E",
+      "matchday": 3,
+      "sourceRound": "Matchday 3",
+      "homeTeam": {
+        "id": 790,
+        "name": "Ukraine",
+        "tla": "UKR",
+        "crest": "https://crests.football-data.org/790.svg"
+      },
+      "awayTeam": {
+        "id": 805,
+        "name": "Belgium",
+        "tla": "BEL",
+        "crest": "https://crests.football-data.org/805.svg"
+      },
+      "score": {
+        "fullTime": {
+          "home": 0,
+          "away": 0
+        }
+      },
+      "status": "FINISHED"
+    },
+    {
+      "group": "GROUP_E",
+      "matchday": 3,
+      "sourceRound": "Matchday 3",
+      "homeTeam": {
+        "id": 768,
+        "name": "Slovakia",
+        "tla": "SVK",
+        "crest": "https://crests.football-data.org/768.svg"
+      },
+      "awayTeam": {
+        "id": 811,
+        "name": "Romania",
+        "tla": "ROU",
+        "crest": "https://crests.football-data.org/811.svg"
+      },
+      "score": {
+        "fullTime": {
+          "home": 1,
+          "away": 1
+        }
+      },
+      "status": "FINISHED"
+    },
+    {
+      "group": "GROUP_F",
+      "matchday": 3,
+      "sourceRound": "Matchday 3",
+      "homeTeam": {
+        "id": 798,
+        "name": "Czechia",
+        "tla": "CZE",
+        "crest": "https://crests.football-data.org/798.svg"
+      },
+      "awayTeam": {
+        "id": 803,
+        "name": "Turkey",
+        "tla": "TUR",
+        "crest": "https://crests.football-data.org/803.svg"
+      },
+      "score": {
+        "fullTime": {
+          "home": 1,
+          "away": 2
+        }
+      },
+      "status": "FINISHED"
+    },
+    {
+      "group": "GROUP_F",
+      "matchday": 3,
+      "sourceRound": "Matchday 3",
+      "homeTeam": {
+        "id": 1978,
+        "name": "Georgia",
+        "tla": "GEO",
+        "crest": "https://crests.football-data.org/ge.svg"
+      },
+      "awayTeam": {
+        "id": 765,
+        "name": "Portugal",
+        "tla": "POR",
+        "crest": "https://crests.football-data.org/765.svg"
+      },
+      "score": {
+        "fullTime": {
+          "home": 2,
+          "away": 0
+        }
+      },
+      "status": "FINISHED"
     }
   ]
 }
