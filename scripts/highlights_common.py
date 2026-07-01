@@ -1360,6 +1360,8 @@ def stage_to_file_stem(stage: str, matchday: int | None, comp_name: str) -> str 
         if matchday is None:
             return None
         return f"playoff-leg-{matchday}"
+    elif stage == "LAST_32":
+        return "round-of-32"
     elif stage == "LAST_16":
         if two_legged:
             if matchday is None:

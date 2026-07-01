@@ -89,7 +89,7 @@ jobs:
           ]
 
           KNOCKOUT_STAGES = {
-              "LAST_16", "QUARTER_FINALS", "SEMI_FINALS", "THIRD_PLACE", "FINAL",
+              "LAST_32", "LAST_16", "QUARTER_FINALS", "SEMI_FINALS", "THIRD_PLACE", "FINAL",
           }
 
           os.makedirs("tournament-groups", exist_ok=True)
@@ -128,6 +128,10 @@ jobs:
               except Exception as e:
                   print(f"✗ {comp_name} matches: {e} — skipping")
                   continue
+
+              # Log every stage value FD returned (confirms LAST_32 vs any other spelling).
+              all_stages = sorted({m.get("stage", "") for m in matches_payload.get("matches", [])})
+              print(f"  {comp_name} stages in raw FD response: {all_stages}")
 
               # Build group-stage fixtures (matchday-grouped, separate array).
               # Group matches are those with a non-null "group" field that are
