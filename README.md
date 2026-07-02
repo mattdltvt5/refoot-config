@@ -508,17 +508,23 @@ or normalization must include a corresponding test in the same commit.
 
 ### World Cup broadcaster playlist IDs
 
-The Telemundo and FIFA entries in `sources.json → playlists["World Cup"]` are
-currently set to `[]` (empty).  The previous values were 13-character strings that
-failed the `PL[A-Za-z0-9_-]{20,}` validation check and were silently skipped by
-the pipeline.
+**FIFA** — resolved: `PLNuJDkj3zBvPVhoKC6Oq8j4w7AH9l-ejG` ("FIFA World Cup
+2026™ Match Highlights") added to `sources.json`.
 
-**Action required**: find the correct full-length YouTube playlist IDs for the
-Telemundo and FIFA World Cup 2026 highlight playlists and add them to
+**Telemundo** — the entry in `sources.json → playlists["World Cup"]["Telemundo"]`
+is still set to `[]` (empty).  The previous value was a 13-character string
+(`PLXHZm5xDlEdQ`) that failed the `PL[A-Za-z0-9_-]{20,}` validation check and
+was silently skipped by the pipeline.  A qualifying playlist
+(`PLXEMPXZ3PY1i3lX_C0Tul361dLtGE1SrT`) was found but covers qualifying matches
+only, not the main tournament.
+
+**Action required**: find the correct full-length YouTube playlist ID for the
+Telemundo Deportes World Cup 2026 **tournament** highlight playlist and add it to
 `sources.json`.  The pipeline's schema test (`test_playlist_ids_are_valid_format`)
 will reject any ID shorter than 22 characters, so only real IDs can be committed.
-The FOX Sports playlist (`PLSoN6Th-EepMUaxmTobuR_SBwVkdkxdfO`) is valid and will
-continue to cover knockout highlights in the meantime.
+FOX Sports (`PLSoN6Th-EepMUaxmTobuR_SBwVkdkxdfO`) and FIFA
+(`PLNuJDkj3zBvPVhoKC6Oq8j4w7AH9l-ejG`) are valid and will cover highlights in
+the meantime.
 
 ## Tournament-groups cache
 
