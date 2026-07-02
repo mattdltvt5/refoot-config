@@ -206,10 +206,26 @@ jobs:
                       "status": m.get("status", ""),
                   })
 
+              out_path = f"tournament-groups/{slug}.json"
+
+              # Preserve previously resolved video IDs so a timing race on one run
+              # can't overwrite a non-null value with null on the next run.
+              existing_video_ids = {}
+              if pathlib.Path(out_path).exists():
+                  try:
+                      prev = json.loads(pathlib.Path(out_path).read_text(encoding="utf-8"))
+                      for m in prev.get("matches", []):
+                          if m.get("video_id") is not None:
+                              existing_video_ids[m.get("id")] = m["video_id"]
+                  except Exception:
+                      pass
+
               def _with_video_id(m):
                   vid = _lookup_video_id(
                       slug, m.get("stage"), m.get("matchday"), m.get("id")
                   )
+                  if vid is None:
+                      vid = existing_video_ids.get(m.get("id"))
                   return {**m, "video_id": vid}
 
               tournament_data = {
@@ -227,7 +243,6 @@ jobs:
                   "groupMatches": group_matches,
               }
 
-              out_path = f"tournament-groups/{slug}.json"
               with open(out_path, "w", encoding="utf-8") as f:
                   json.dump(tournament_data, f, indent=2, ensure_ascii=False)
                   f.write("\n")

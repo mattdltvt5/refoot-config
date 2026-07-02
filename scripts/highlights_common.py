@@ -596,7 +596,7 @@ COMPETITION_FILE_STEMS: dict[str, list[str]] = {
     ),
     "World Cup":        (
         [f"matchday-{i}" for i in range(1, 4)]
-        + ["round-of-16", "quarter-final", "semi-final", "third-place", "final"]
+        + ["round-of-32", "round-of-16", "quarter-final", "semi-final", "third-place", "final"]
     ),
     "Copa America":     (
         [f"matchday-{i}" for i in range(1, 4)]
@@ -612,6 +612,7 @@ FILE_STEM_LABEL: dict[str, str] = {
     "playoff-leg-2":      "PO L2",
     "round-of-16-leg-1":  "R16 L1",
     "round-of-16-leg-2":  "R16 L2",
+    "round-of-32":        "R32",
     "round-of-16":        "R16",
     "quarter-final-leg-1": "QF L1",
     "quarter-final-leg-2": "QF L2",
