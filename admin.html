@@ -801,7 +801,7 @@ function toPlArray(v) {
     if (Array.isArray(v)) return v.map(s => String(s)).filter(s => s.length > 0);
     return (typeof v === 'string' && v.length > 0) ? [v] : [];
 }
-function sid(name) { return name.replace(/[^a-zA-Z0-9]/g,'_'); }
+function sid(name) { return String(name ?? '').replace(/[^a-zA-Z0-9]/g,'_'); }
 function validCh(v) { return v.length===0 || (v.startsWith('UC') && v.length===24); }
 function validPl(v) { return v.length===0 || (v.length>=10 && (v.startsWith('PL') || v.startsWith('UU'))); }
 function parseChannelId(v) {
@@ -1314,9 +1314,10 @@ function buildUI() {
             const compCh  = (sourcesData.competitions||{})[comp.name] || '';
             const compPls = (sourcesData.playlists||{})[comp.name] || {};
             const hasComp = compCh.length > 0 || Object.values(compPls).some(v => toPlArray(v).length > 0);
-            const teamMap    = (sourcesData.teamPlaylists||{})[comp.name] || {};
-            const syncedList = (sourcesData.teamLists||{})[comp.name] || [];
-            const allTeams   = [...new Set([...syncedList, ...Object.keys(teamMap)])].sort();
+            const teamMap      = (sourcesData.teamPlaylists||{})[comp.name] || {};
+            const rawTeamList  = (sourcesData.teamLists||{})[comp.name] || [];
+            const syncedList   = rawTeamList.map(e => typeof e === 'string' ? e : (e?.name ?? '')).filter(Boolean);
+            const allTeams     = [...new Set([...syncedList, ...Object.keys(teamMap)])].sort();
 
             let compNone = 0;
             allTeams.forEach(name => {
@@ -1700,7 +1701,8 @@ function addTeam(slug, compName, list, addBtn) {
 
 // ── Collect ──────────────────────────────────────────────
 function collectData() {
-    const data = { competitions:{}, teams:{}, playlists:{}, teamPlaylists:{} };
+    // Spread all existing keys first so sync-managed fields (teamLists, etc.) survive a save.
+    const data = { ...sourcesData, competitions:{}, teams:{}, playlists:{}, teamPlaylists:{} };
     document.querySelectorAll('.ch-input-dark[data-comp]').forEach(inp => {
         data.competitions[inp.dataset.comp] = inp.value.trim();
     });
