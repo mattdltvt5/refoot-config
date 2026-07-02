@@ -115,8 +115,9 @@ jobs:
               if not p.exists():
                   return None
               try:
-                  highlights = json.loads(p.read_text(encoding="utf-8"))
-                  for e in highlights:
+                  data = json.loads(p.read_text(encoding="utf-8"))
+                  items = data if isinstance(data, list) else data.get("matches", [])
+                  for e in items:
                       if e.get("match_id") == match_id and e.get("videos"):
                           return e["videos"][0]["video_id"]
               except Exception:

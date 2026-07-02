@@ -557,15 +557,23 @@ One entry per knockout match.  Consumed by the Flutter app's Knockout tab, which
 
 ```json
 {
+  "id":    1010,
   "stage": "QUARTER_FINALS",
   "homeTeam": { "id": 26, "name": "Argentina", "tla": "", "crest": "https://…" },
   "awayTeam": { "id": 2382, "name": "Ecuador", "tla": "", "crest": "https://…" },
   "score": {
     "fullTime":  { "home": 1, "away": 1 },
     "penalties": { "home": 4, "away": 2 }
-  }
+  },
+  "video_id": "abc123XYZ"
 }
 ```
+
+**`id`** — source match ID (FD fixture ID for Euro/WC/UCL; API-Sports fixture ID for Copa América). Used by the pipeline to look up the corresponding highlight entry.
+
+**`video_id`** — YouTube video ID embedded at sync time by cross-referencing the match `id` against the corresponding `highlights/{slug}/{stem}.json` file. `null` when no highlight has been found yet.  The Flutter app renders a "Highlights" affordance on finished ties that carry a non-null `video_id`; tapping it navigates to `MatchHighlightScreen`.  Ties with `video_id: null` show "No highlights yet."
+
+The highlight lookup runs at every `sync-teams.yml` execution (Monday 04:00 UTC + any manual trigger), so a video matched by the 4-hourly highlights pipeline becomes visible in the app within at most 7 days.  Trigger `sync-teams.yml` manually from the Actions tab to pull in highlights immediately after they are matched.
 
 Penalty-shootout score handling: Football-Data.org sets `score.fullTime` to the
 penalty tally when `score.duration == "PENALTY_SHOOTOUT"`; the regulation result

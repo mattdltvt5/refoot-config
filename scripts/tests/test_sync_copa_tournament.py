@@ -7,10 +7,12 @@ and the file-writing contract (write_tournament).
 
 import json
 import os
+import shutil
 import sys
 import tempfile
 import unittest
 from pathlib import Path
+from unittest.mock import patch
 
 # Set the API key env var before any import that touches ApiSportsProvider.__init__.
 os.environ.setdefault("APISPORTS_API_KEY", "test_key_copa_fixture")
@@ -21,6 +23,7 @@ from sync_copa_tournament import (
     KNOCKOUT_STAGE_MAP,
     SLUG,
     _build_team_group_map,
+    _lookup_copa_video_id,
     _parse_matchday,
     normalize_group,
     normalize_knockout,
@@ -476,6 +479,104 @@ class TestWriteTournament(unittest.TestCase):
         self.assertIn("QUARTER_FINALS", stages)
         self.assertIn("FINAL", stages)
         self.assertNotIn("GROUP_STAGE", stages)
+
+
+# ── TestLookupCopaVideoId ─────────────────────────────────────────────────────
+
+class TestLookupCopaVideoId(unittest.TestCase):
+    """Tests for _lookup_copa_video_id().
+
+    The function reads real files from REPO_ROOT/highlights/copa-america/.
+    We patch REPO_ROOT to a temp directory so tests are hermetic.
+    """
+
+    def setUp(self):
+        self.tmp = Path(tempfile.mkdtemp())
+        hl_dir = self.tmp / "highlights" / SLUG
+        hl_dir.mkdir(parents=True)
+        self.hl_dir = hl_dir
+
+    def tearDown(self):
+        shutil.rmtree(self.tmp)
+
+    def _write(self, stem, data):
+        (self.hl_dir / f"{stem}.json").write_text(
+            json.dumps(data), encoding="utf-8"
+        )
+
+    # ── Basic guards ──────────────────────────────────────────────────────────
+
+    def test_none_match_id_returns_none_without_touching_files(self):
+        self.assertIsNone(_lookup_copa_video_id(None))
+
+    def test_file_absent_returns_none(self):
+        with patch("sync_copa_tournament.REPO_ROOT", self.tmp):
+            self.assertIsNone(_lookup_copa_video_id(99999))
+
+    # ── Dict format (current pipeline output: {"matches": [...]}) ─────────────
+
+    def test_dict_format_match_found_returns_first_video_id(self):
+        self._write("quarter-final", {"competition": "Copa America", "matches": [
+            {"match_id": 1010, "home_team": "Argentina", "away_team": "Ecuador",
+             "videos": [{"video_id": "abc123", "title": "...",
+                         "published_at": "2024-07-05", "tier_used": 4}]},
+        ]})
+        with patch("sync_copa_tournament.REPO_ROOT", self.tmp):
+            self.assertEqual(_lookup_copa_video_id(1010), "abc123")
+
+    def test_dict_format_no_matching_id_returns_none(self):
+        self._write("quarter-final", {"matches": [
+            {"match_id": 1010, "videos": [{"video_id": "abc123"}]},
+        ]})
+        with patch("sync_copa_tournament.REPO_ROOT", self.tmp):
+            self.assertIsNone(_lookup_copa_video_id(9999))
+
+    def test_dict_format_empty_videos_list_returns_none(self):
+        self._write("quarter-final", {"matches": [
+            {"match_id": 1010, "videos": []},
+        ]})
+        with patch("sync_copa_tournament.REPO_ROOT", self.tmp):
+            self.assertIsNone(_lookup_copa_video_id(1010))
+
+    # ── List format (legacy flat-list format) ────────────────────────────────
+
+    def test_list_format_match_found_returns_video_id(self):
+        self._write("final", [
+            {"match_id": 1020, "home_team": "Argentina", "away_team": "Colombia",
+             "videos": [{"video_id": "xyz789", "title": "...",
+                         "published_at": "2024-07-15", "tier_used": 4}]},
+        ])
+        with patch("sync_copa_tournament.REPO_ROOT", self.tmp):
+            self.assertEqual(_lookup_copa_video_id(1020), "xyz789")
+
+    # ── Multiple matches / multiple videos ───────────────────────────────────
+
+    def test_first_video_returned_when_multiple_present(self):
+        self._write("semi-final", {"matches": [
+            {"match_id": 1015, "videos": [
+                {"video_id": "first111"},
+                {"video_id": "second22"},
+            ]},
+        ]})
+        with patch("sync_copa_tournament.REPO_ROOT", self.tmp):
+            self.assertEqual(_lookup_copa_video_id(1015), "first111")
+
+    def test_match_found_in_second_stem_when_first_stem_absent(self):
+        """Only the final.json file exists; quarter-final.json is absent."""
+        self._write("final", {"matches": [
+            {"match_id": 1020, "videos": [{"video_id": "final_vid"}]},
+        ]})
+        with patch("sync_copa_tournament.REPO_ROOT", self.tmp):
+            self.assertEqual(_lookup_copa_video_id(1020), "final_vid")
+
+    # ── Error resilience ─────────────────────────────────────────────────────
+
+    def test_malformed_json_silently_returns_none(self):
+        (self.hl_dir / "quarter-final.json").write_text(
+            "not valid json", encoding="utf-8"
+        )
+        with patch("sync_copa_tournament.REPO_ROOT", self.tmp):
+            self.assertIsNone(_lookup_copa_video_id(1010))
 
 
 if __name__ == "__main__":

@@ -61,8 +61,9 @@ def _lookup_copa_video_id(match_id) -> "str | None":
         if not path.exists():
             continue
         try:
-            highlights = json.loads(path.read_text(encoding="utf-8"))
-            for e in highlights:
+            data = json.loads(path.read_text(encoding="utf-8"))
+            items = data if isinstance(data, list) else data.get("matches", [])
+            for e in items:
                 if e.get("match_id") == match_id and e.get("videos"):
                     return e["videos"][0]["video_id"]
         except Exception:
