@@ -369,6 +369,61 @@
             border-left: 3px solid var(--red); display: none;
         }
 
+        /* ── Credentials status & per-key controls ────────── */
+        .cred-status-section {
+            display: flex; gap: 14px; margin-bottom: 16px;
+            padding: 12px 14px; background: var(--bg);
+            border-radius: 6px; border: 1px solid var(--border);
+            flex-wrap: wrap;
+        }
+        .cred-status-item {
+            display: flex; align-items: center; gap: 7px;
+            font-size: 12px; font-weight: 500; color: var(--text);
+        }
+        .status-dot { width: 9px; height: 9px; border-radius: 50%; flex-shrink: 0; }
+        .status-dot-set   { background: var(--green); }
+        .status-dot-unset { background: var(--red); }
+        .cred-missing-banner {
+            background: #FFF3E0; border-left: 4px solid var(--yellow);
+            border-radius: 4px; padding: 10px 14px; margin-bottom: 16px;
+            font-size: 13px; color: #E65100; line-height: 1.5; display: none;
+        }
+        .input-with-reveal { display: flex; align-items: stretch; }
+        .input-with-reveal .form-input {
+            flex: 1; border-radius: 4px 0 0 0; border-right: none;
+        }
+        .btn-reveal {
+            background: #fff; border: 1px solid #BDBDBD;
+            border-bottom: 2px solid #BDBDBD; border-radius: 0 4px 0 0;
+            color: var(--muted); padding: 0 10px; cursor: pointer;
+            font-size: 15px; line-height: 1; display: flex; align-items: center;
+            transition: color 0.15s; flex-shrink: 0;
+        }
+        .btn-reveal:hover { color: var(--text); }
+        .btn-reveal:focus { outline: none; }
+        .cred-key-actions { display: flex; gap: 8px; margin-top: 8px; }
+        .btn-cred-save {
+            background: var(--blue); color: #fff; border-radius: 4px;
+            padding: 6px 14px; font-size: 12px; font-weight: 500;
+            text-transform: none; letter-spacing: 0; transition: background 0.15s;
+        }
+        .btn-cred-save:hover { background: var(--blue-dark); }
+        .btn-cred-clear {
+            background: none; color: var(--muted); border-radius: 4px;
+            border: 1px solid var(--border); padding: 6px 14px;
+            font-size: 12px; font-weight: 500;
+            text-transform: none; letter-spacing: 0;
+            transition: color 0.15s, border-color 0.15s;
+        }
+        .btn-cred-clear:hover { color: var(--red); border-color: var(--red); }
+        .settings-btn-wrap { position: relative; }
+        .settings-badge {
+            position: absolute; top: 4px; right: 4px;
+            width: 8px; height: 8px; border-radius: 50%;
+            background: var(--red); pointer-events: none;
+            border: 1.5px solid var(--blue); display: none;
+        }
+
         /* ── Save button (header) — disabled until dirty ─── */
         #save-btn:disabled { opacity: 0.35; cursor: not-allowed; pointer-events: none; }
 
@@ -565,10 +620,30 @@
     </div>
     <div class="drawer-body">
         <div class="drawer-pane active" id="pane-credentials">
-            <p style="font-size:13px;color:var(--muted);margin-bottom:20px;line-height:1.6">Stored only in this browser — you only need to do this once.</p>
+            <div class="cred-status-section">
+                <div class="cred-status-item">
+                    <span class="status-dot" id="status-dot-pat"></span>
+                    <span id="status-label-pat">GitHub token: checking…</span>
+                </div>
+                <div class="cred-status-item">
+                    <span class="status-dot" id="status-dot-yt"></span>
+                    <span id="status-label-yt">YouTube key: checking…</span>
+                </div>
+            </div>
+            <div class="cred-missing-banner" id="cred-missing-banner">
+                GitHub token is required to load and save data — enter it below.
+            </div>
+            <p style="font-size:12px;color:var(--muted);margin-bottom:20px;line-height:1.6">Stored only in this browser/device — each device needs a one-time setup. A broad "cookies and site data" clear will wipe stored keys.</p>
             <div class="form-group">
                 <label class="form-label" for="in-pat">GitHub Personal Access Token</label>
-                <input class="form-input" id="in-pat" type="password" placeholder="github_pat_xxxx or ghp_xxxx">
+                <div class="input-with-reveal">
+                    <input class="form-input" id="in-pat" type="password" placeholder="github_pat_xxxx or ghp_xxxx" autocomplete="off">
+                    <button class="btn-reveal" id="reveal-pat" title="Show / hide" tabindex="-1">&#128065;</button>
+                </div>
+                <div class="cred-key-actions">
+                    <button class="btn-cred-save" id="save-pat-btn">Save token</button>
+                    <button class="btn-cred-clear" id="clear-pat-btn">Clear</button>
+                </div>
                 <div class="form-hint">
                     <a href="https://github.com/settings/tokens?type=beta" target="_blank">Settings → Developer settings → Fine-grained tokens</a><br>
                     Repository: <strong>refoot-config</strong> &nbsp;·&nbsp; Permission: <strong>Contents → Read &amp; Write</strong>
@@ -576,14 +651,21 @@
             </div>
             <div class="form-group" style="margin-top:16px">
                 <label class="form-label" for="in-yt-key">YouTube API Key <span style="font-weight:400;color:var(--muted)">(optional)</span></label>
-                <input class="form-input" id="in-yt-key" type="password" placeholder="AIzaSy…">
+                <div class="input-with-reveal">
+                    <input class="form-input" id="in-yt-key" type="password" placeholder="AIzaSy…" autocomplete="off">
+                    <button class="btn-reveal" id="reveal-yt" title="Show / hide" tabindex="-1">&#128065;</button>
+                </div>
+                <div class="cred-key-actions">
+                    <button class="btn-cred-save" id="save-yt-btn">Save key</button>
+                    <button class="btn-cred-clear" id="clear-yt-btn">Clear</button>
+                </div>
                 <div class="form-hint">
                     Required to auto-resolve YouTube @handle URLs to channel IDs when you paste them into channel fields.<br>
                     <a href="https://console.cloud.google.com/apis/credentials" target="_blank">Google Cloud Console → APIs &amp; Services → Credentials</a><br>
                     Enable: <strong>YouTube Data API v3</strong>
                 </div>
             </div>
-            <button class="btn-blue" id="setup-confirm-btn" style="width:100%;text-align:center;margin-top:16px">Save &amp; Load Data</button>
+            <button class="btn-blue" id="setup-confirm-btn" style="width:100%;text-align:center;margin-top:20px">Save &amp; Load Data</button>
             <div class="modal-error" id="setup-error"></div>
         </div>
         <div class="drawer-pane" id="pane-debug">
@@ -600,7 +682,10 @@
     <div class="header-right">
         <button class="btn-ghost" id="save-btn" disabled><i class="fi-br-disk"></i> GitHub</button>
         <button class="btn-ghost" id="reload-btn"><i class="fi-br-refresh"></i> Reload</button>
-        <button class="btn-icon" id="settings-btn" title="Settings"><i class="fi-br-home-settings"></i></button>
+        <div class="settings-btn-wrap">
+            <button class="btn-icon" id="settings-btn" title="Settings"><i class="fi-br-home-settings"></i></button>
+            <span class="settings-badge" id="settings-badge"></span>
+        </div>
     </div>
 </header>
 
@@ -704,9 +789,28 @@ let sourcesData = { competitions: {}, teams: {}, playlists: {}, teamPlaylists: {
 let unsaved = false;
 
 // ── Credentials ──────────────────────────────────────────
+function updateCredStatus() {
+    const hasPat = !!localStorage.getItem('rf_gh_pat');
+    const hasYt  = !!localStorage.getItem('rf_yt_key');
+    const dotPat = document.getElementById('status-dot-pat');
+    const dotYt  = document.getElementById('status-dot-yt');
+    if (dotPat) {
+        dotPat.className = 'status-dot ' + (hasPat ? 'status-dot-set' : 'status-dot-unset');
+        document.getElementById('status-label-pat').textContent = 'GitHub token: ' + (hasPat ? 'Set ✓' : 'Not set');
+    }
+    if (dotYt) {
+        dotYt.className = 'status-dot ' + (hasYt ? 'status-dot-set' : 'status-dot-unset');
+        document.getElementById('status-label-yt').textContent = 'YouTube key: ' + (hasYt ? 'Set ✓' : 'Not set');
+    }
+    const banner = document.getElementById('cred-missing-banner');
+    if (banner) banner.style.display = hasPat ? 'none' : 'block';
+    const badge = document.getElementById('settings-badge');
+    if (badge) badge.style.display = hasPat ? 'none' : 'block';
+}
 function loadCreds() {
     ghPat    = localStorage.getItem('rf_gh_pat') || '';
     ytApiKey = localStorage.getItem('rf_yt_key')  || '';
+    updateCredStatus();
     return !!ghPat;
 }
 function saveCreds() {
@@ -1829,6 +1933,9 @@ function openDrawer(tab) {
     tab = tab || 'credentials';
     document.getElementById('in-pat').value    = ghPat;
     document.getElementById('in-yt-key').value = ytApiKey;
+    document.getElementById('in-pat').type    = 'password';
+    document.getElementById('in-yt-key').type = 'password';
+    updateCredStatus();
     document.querySelectorAll('.drawer-tab').forEach(t => t.classList.toggle('active', t.dataset.tab === tab));
     document.querySelectorAll('.drawer-pane').forEach(p => p.classList.toggle('active', p.id === 'pane-' + tab));
     document.getElementById('settings-overlay').classList.add('open');
@@ -1849,9 +1956,48 @@ document.getElementById('setup-confirm-btn').addEventListener('click', () => {
     ghPat    = pat;
     ytApiKey = ytKey;
     saveCreds();
+    updateCredStatus();
     closeDrawer();
     loadAll();
 });
+document.getElementById('save-pat-btn').addEventListener('click', () => {
+    const val = document.getElementById('in-pat').value.trim();
+    const err = document.getElementById('setup-error');
+    if (!val) { err.textContent = 'GitHub token cannot be empty.'; err.style.display = 'block'; return; }
+    err.style.display = 'none';
+    ghPat = val;
+    localStorage.setItem('rf_gh_pat', ghPat);
+    updateCredStatus();
+    toast('GitHub token saved', 'success');
+});
+document.getElementById('clear-pat-btn').addEventListener('click', () => {
+    ghPat = '';
+    localStorage.removeItem('rf_gh_pat');
+    document.getElementById('in-pat').value = '';
+    updateCredStatus();
+    toast('GitHub token cleared');
+});
+document.getElementById('save-yt-btn').addEventListener('click', () => {
+    const val = document.getElementById('in-yt-key').value.trim();
+    ytApiKey = val;
+    if (val) localStorage.setItem('rf_yt_key', val);
+    else     localStorage.removeItem('rf_yt_key');
+    updateCredStatus();
+    toast(val ? 'YouTube key saved' : 'YouTube key cleared', val ? 'success' : '');
+});
+document.getElementById('clear-yt-btn').addEventListener('click', () => {
+    ytApiKey = '';
+    localStorage.removeItem('rf_yt_key');
+    document.getElementById('in-yt-key').value = '';
+    updateCredStatus();
+    toast('YouTube key cleared');
+});
+function toggleReveal(inputId) {
+    const inp = document.getElementById(inputId);
+    inp.type = inp.type === 'password' ? 'text' : 'password';
+}
+document.getElementById('reveal-pat').addEventListener('click', () => toggleReveal('in-pat'));
+document.getElementById('reveal-yt').addEventListener('click',  () => toggleReveal('in-yt-key'));
 document.getElementById('settings-btn').addEventListener('click', () => openDrawer('credentials'));
 document.getElementById('drawer-close-btn').addEventListener('click', closeDrawer);
 document.getElementById('settings-overlay').addEventListener('click', closeDrawer);
