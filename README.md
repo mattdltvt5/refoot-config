@@ -523,33 +523,50 @@ different broadcaster is caught at this layer.
 | API call | `playlists.list?part=snippet` (1 quota unit per new ID) |
 | Quota | Counted against `highlights/quota-tracker.json` |
 
-**On-change gating**: only IDs _absent_ from `playlist-owners.json` trigger an
-API call.  Already-verified IDs are skipped (quota conserved).  The label-vs-owner
-comparison re-runs on every invocation for all IDs so a re-label in `sources.json`
-is caught without a re-fetch.
+**On-change gating** (with seeded-entry exception):
+- IDs with a resolved `channel_id` in `playlist-owners.json` are not re-fetched.
+  The label-vs-owner comparison re-runs on every invocation so a re-label in
+  `sources.json` is caught without a re-fetch.
+- IDs with `channel_id = null` (manually seeded, not yet API-verified) are
+  treated as new — they are fetched even though they appear in the cache.  This
+  ensures a hand-asserted owner is confirmed by a real API call before being trusted.
 
 **Failure modes** (non-zero exit):
-- Owner mismatch — correct-length ID filed under the wrong broadcaster label
+- Owner mismatch — correct-length ID filed under the wrong broadcaster label.
+  Owner comparison uses `channel_title` (the channel's own name), never
+  `playlist_title` — a playlist titled "FIFA World Cup 2026™ Match Highlights"
+  but owned by "SBS Sport" filed under "FIFA" is correctly flagged.
 - Unresolvable ID — playlist is private, deleted, or the API returns no items
-- New uncached ID with no `YOUTUBE_API_KEY` in the environment
+- Uncached or seeded (`channel_id = null`) ID with no `YOUTUBE_API_KEY`
+
+**Quota**: `playlists.list?part=snippet` costs 1 unit — identical to
+`playlistItems.list`.  `playlistItems.list` cannot return the playlist owner
+(only the item uploader); `playlists.list` is therefore both the correct and the
+most efficient endpoint for owner verification.  All calls are counted in
+`highlights/quota-tracker.json` using the same `quota.increment()` mechanism as
+every other YouTube API call.
 
 ### Owner-matching tolerance
 
 Label and channel-title comparisons strip common qualifier words (`Sport`,
 `Sports`, `TV`, `US`, `Deportes`) and lowercase before comparing token sets.
 `"CBS Sport Golazo"` matches `"CBS Sports"` (same org); `"FIFA"` does not match
-`"SBS Sport"` (different entity).
+`"SBS Sport"` (different entity).  Tolerance applies to **owner names only** —
+a playlist title containing "FIFA" never satisfies a "FIFA" broadcaster label if
+the owning channel is a different entity.
 
 ## Known TODOs
 
 ### World Cup broadcaster playlist IDs
 
-**SBS Sport** (`PLNuJDkj3zBvPVhoKC6Oq8j4w7AH9l-ejG`) — active source, filed
-under the correct broadcaster label.  The playlist title ("FIFA World Cup 2026™
-Match Highlights") is the YouTube title chosen by SBS Sport, not the channel
-name; the owner-verification guard confirmed the label-vs-owner match.
-`channel_id` will be auto-populated by the verify-playlist-owners workflow on
-its first run.
+**SBS Sport** (`PLNuJDkj3zBvPVhoKC6Oq8j4w7AH9l-ejG`) — active source, correctly
+filed under `"SBS Sport"`.  The playlist title ("FIFA World Cup 2026™ Match
+Highlights") is the title SBS Sport chose for their playlist; it is NOT the
+channel's name.  Owner verification compares against `channel_title` ("SBS Sport"),
+not `playlist_title`, so the "FIFA" tokens in the title do not satisfy a "FIFA"
+broadcaster label.  The guard's `highlights/playlist-owners.json` cache was
+seeded with `channel_id = null`; the verify-playlist-owners workflow will
+resolve the real `channel_id` on its next run triggered by this push.
 
 **FIFA-official** — `sources.json → playlists["World Cup"]["FIFA"]` is `[]`.
 The FIFA-official YouTube channel playlist for the 2026 World Cup tournament

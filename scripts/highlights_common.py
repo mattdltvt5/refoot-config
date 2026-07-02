@@ -2121,14 +2121,18 @@ def fetch_playlist_owner(
     quota_cap: int = BACKFILL_CAP,
 ) -> "dict | None":
     """
-    Fetch playlist metadata via playlists.list?part=snippet (1 quota unit).
+    Fetch playlist ownership metadata via playlists.list?part=snippet.
 
     Returns {"channel_id": str, "channel_title": str, "playlist_title": str}
     or None if the playlist is private, deleted, or otherwise unresolvable.
 
-    Counts 1 quota unit against *quota* (if provided).  Uses the lighter
-    playlists.list metadata endpoint — not playlistItems.list — because we
-    only need the owning channel, not the playlist's items.
+    Quota cost: 1 unit per call — identical to playlistItems.list.  playlistItems.list
+    cannot return the PLAYLIST owner (only the item uploader); playlists.list is
+    therefore the correct and most efficient endpoint for owner verification.
+    Cost is counted against *quota* the same way all other YouTube calls are.
+
+    Increment fires after a 200 OK (raise_for_status passes).  HTTP 4xx/5xx
+    throws before the increment, consistent with the rest of the codebase.
     """
     http: requests.Session = session if session is not None else requests.Session()
     resp = http.get(
@@ -2137,16 +2141,20 @@ def fetch_playlist_owner(
         timeout=30,
     )
     resp.raise_for_status()
+    # Count 1 unit against the shared daily budget (same cost as playlistItems.list).
     if quota is not None:
         quota.increment(quota_cap)
     items = resp.json().get("items", [])
     if not items:
         return None  # private, deleted, or bad ID
     sn = items[0]["snippet"]
+    # channel_title is the owning channel's name — NOT the playlist title (sn["title"]).
+    # The two differ: e.g. playlist title "FIFA World Cup 2026™ Match Highlights" vs
+    # channel_title "SBS Sport".  Owner verification must key on channel_title only.
     return {
-        "channel_id":    sn["channelId"],
-        "channel_title": sn["channelTitle"],
-        "playlist_title": sn["title"],
+        "channel_id":     sn["channelId"],
+        "channel_title":  sn["channelTitle"],   # the OWNER — used for label comparison
+        "playlist_title": sn["title"],           # for audit; never used in label comparison
     }
 
 
@@ -2163,18 +2171,23 @@ def verify_playlist_owners(
     For every PL-prefixed playlist ID in sources.json, verify that the
     YouTube channel owning it matches the broadcaster label it is filed under.
 
-    **On-change gating**: IDs already present in playlist-owners.json are not
-    re-fetched (quota saved).  Only IDs absent from the cache trigger an API
-    call.  The label-vs-owner comparison runs on every call (cached or not) so
-    a re-label in sources.json is caught without a re-fetch.
+    **On-change gating**: IDs that already have a resolved channel_id in
+    playlist-owners.json are not re-fetched (quota saved); the label-vs-owner
+    check re-runs on every call so a re-label in sources.json is caught
+    without a re-fetch.
 
-    Each verification call consumes 1 quota unit (playlists.list?part=snippet)
-    counted against *quota* consistently with other YT API calls.
+    **Seeded entries**: entries with channel_id = null (manually asserted,
+    not API-verified) are treated the same as new IDs — they are fetched and
+    the real channel_id is recorded.  Owner matching keys on the fetched
+    channel_title (the channel's own name), never on the playlist title.
+
+    Quota: each new-ID or seeded-entry fetch costs 1 unit (playlists.list
+    ?part=snippet), counted against *quota* the same as playlistItems.list.
 
     Returns a (possibly empty) list of human-readable error strings for:
     - owner mismatches (right ID / wrong broadcaster label)
     - unresolvable IDs (private, deleted, network error)
-    - uncached IDs when *api_key* is empty
+    - uncached/seeded IDs when *api_key* is empty
 
     An empty return list means all IDs passed.
     """
@@ -2199,21 +2212,38 @@ def verify_playlist_owners(
                     continue  # already caught by format guard
 
                 if p in cache:
-                    # Cached — skip re-fetch; still re-check the current label.
-                    ct = cache[p].get("channel_title")
-                    if ct is None:
+                    entry = cache[p]
+                    cid = entry.get("channel_id")
+                    ct  = entry.get("channel_title")
+
+                    if entry.get("error"):
+                        # Previously recorded as unresolvable — keep flagging.
                         errors.append(
                             f"{comp}/{label}: {p!r} previously failed to resolve — "
                             "update playlist-owners.json or replace the ID"
                         )
-                    elif not labels_match(label, ct):
-                        errors.append(
-                            f"{comp}/{label}: {p!r} is owned by {ct!r} — "
-                            "label mismatch (re-file under the correct broadcaster)"
-                        )
-                    continue
+                        continue
 
-                # New ID — must fetch.
+                    if cid is not None:
+                        # API-verified entry: skip re-fetch, re-check label only.
+                        # Comparison is against channel_title (the owner's channel
+                        # name), never against playlist_title.
+                        if not labels_match(label, ct or ""):
+                            errors.append(
+                                f"{comp}/{label}: {p!r} is owned by {ct!r} — "
+                                "label mismatch (re-file under the correct broadcaster)"
+                            )
+                        continue
+
+                    # channel_id is None: manually seeded without API verification.
+                    # Do not trust the asserted owner — fall through to fetch.
+                    log.info(
+                        "verify_playlist_owners: %s has no channel_id "
+                        "(manually seeded) — fetching to verify",
+                        p,
+                    )
+
+                # New ID or seeded-but-unverified — must fetch.
                 if not api_key:
                     errors.append(
                         f"{comp}/{label}: {p!r} is not yet verified and "

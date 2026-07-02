@@ -319,23 +319,22 @@ class TestVerifyPlaylistOwners:
         assert errors == []
         assert quota.calls == 0
 
-    # ── SBS relabel ───────────────────────────────────────────────────────────
+    # ── SBS relabel and seed-entry first-resolution (Gap 1) ──────────────────
 
-    def test_sbs_entry_passes_with_preloaded_cache(self, tmp_path):
+    def test_sbs_entry_passes_after_api_verification(self, tmp_path):
         """
-        The relabelled SBS Sport entry (PLNuJDkj3zBvPVhoKC6Oq8j4w7AH9l-ejG)
-        passes when the pre-populated playlist-owners.json carries
-        channel_title='SBS Sport' and sources.json files it under 'SBS Sport'.
+        The relabelled SBS Sport entry passes once the verify workflow has run
+        and populated a real channel_id.  Represents the stable state after
+        the first automated resolution.
         """
         cached = {
             _PL_SBS: {
-                "competition": "World Cup",
-                "label": "SBS Sport",
-                "channel_id": None,
-                "channel_title": "SBS Sport",
+                "competition":    "World Cup",
+                "label":          "SBS Sport",
+                "channel_id":     "UCsbs_verified_by_workflow",
+                "channel_title":  "SBS Sport",
                 "playlist_title": "FIFA World Cup 2026™ Match Highlights",
-                "verified_at": "2026-07-02T00:00:00Z",
-                "note": "Manually verified",
+                "verified_at":    "2026-07-02T12:00:00Z",
             }
         }
         sess = MagicMock()
@@ -346,3 +345,128 @@ class TestVerifyPlaylistOwners:
         assert errors == [], f"Expected no errors, got: {errors}"
         assert quota.calls == 0
         sess.get.assert_not_called()
+
+    def test_seeded_entry_with_null_channel_id_triggers_fetch(self, tmp_path):
+        """
+        Gap 1: a manually-seeded entry (channel_id = null) must NOT be trusted
+        as verified.  The guard must fetch its owner and record the real
+        channel_id rather than relying on the hand-asserted channel_title.
+        """
+        seeded_cache = {
+            _PL_SBS: {
+                "competition":    "World Cup",
+                "label":          "SBS Sport",
+                "channel_id":     None,          # ← manually seeded, no API call yet
+                "channel_title":  "SBS Sport",
+                "playlist_title": "FIFA World Cup 2026™ Match Highlights",
+                "verified_at":    "2026-07-02T00:00:00Z",
+                "note":           "Manually verified; channel_id pending first automated run.",
+            }
+        }
+        sess = _mock_session(
+            _yt_playlists_response("UCreal_sbs_channel", "SBS Sport", "FIFA WC Highlights")
+        )
+        errors, quota = self._run(
+            {"World Cup": {"SBS Sport": [_PL_SBS]}},
+            sess, cached=seeded_cache, tmp_path=tmp_path,
+        )
+        # Label check passes: "SBS Sport" owns playlist filed under "SBS Sport".
+        assert errors == [], f"Expected no errors after fetch, got: {errors}"
+        # The API WAS called — the guard did not trust the seeded entry.
+        sess.get.assert_called_once()
+        assert quota.calls == 1
+        # The owners file is updated with the real channel_id.
+        op = tmp_path / "owners.json"
+        updated = json.loads(op.read_text(encoding="utf-8"))
+        assert updated[_PL_SBS]["channel_id"] == "UCreal_sbs_channel", (
+            "channel_id must be populated from the API, not left as the seeded null"
+        )
+
+    def test_seeded_entry_with_null_channel_id_and_no_api_key_errors(self, tmp_path):
+        """
+        A seeded entry (channel_id = null) with no API key must error — the
+        guard cannot trust the assertion without a real fetch.
+        """
+        seeded_cache = {
+            _PL_SBS: {
+                "channel_id": None,
+                "channel_title": "SBS Sport",
+            }
+        }
+        sess = MagicMock()
+        errors, quota = self._run(
+            {"World Cup": {"SBS Sport": [_PL_SBS]}},
+            sess, cached=seeded_cache, tmp_path=tmp_path, api_key="",
+        )
+        assert len(errors) == 1
+        assert "YOUTUBE_API_KEY" in errors[0]
+        assert quota.calls == 0
+        sess.get.assert_not_called()
+
+    # ── wrong-owner / matching-title (Gap 3) ─────────────────────────────────
+
+    def test_wrong_owner_with_matching_playlist_title_is_flagged(self, tmp_path):
+        """
+        Gap 3: a playlist titled 'FIFA World Cup 2026™ Match Highlights' but
+        OWNED by 'SBS Sport', filed under a 'FIFA' broadcaster label, must be
+        flagged as a mismatch.
+
+        The comparison must use channel_title ('SBS Sport') — the owning
+        channel's name — NOT playlist_title ('FIFA World Cup 2026™ Match
+        Highlights').  If the comparison accidentally keyed on the playlist
+        title, the 'FIFA' token in it would satisfy the label, hiding the
+        wrong-owner bug this guard exists to catch.
+        """
+        sess = _mock_session(
+            _yt_playlists_response(
+                "UCsbsxx",
+                "SBS Sport",                              # channel_title: real owner
+                "FIFA World Cup 2026™ Match Highlights",  # playlist_title: contains "FIFA"
+            )
+        )
+        errors, _ = self._run(
+            {"World Cup": {"FIFA": [_PL_SBS]}},  # label = "FIFA"
+            sess, tmp_path=tmp_path,
+        )
+        # channel_title "SBS Sport" ≠ "FIFA" → mismatch flagged.
+        assert len(errors) == 1, (
+            "Mismatch expected: channel_title 'SBS Sport' must not satisfy 'FIFA' label "
+            "even though the playlist title contains 'FIFA' tokens"
+        )
+        assert "SBS Sport" in errors[0]
+        assert "FIFA" in errors[0]
+
+    def test_tolerant_label_sbs_vs_sbs_sport_passes(self, tmp_path):
+        """
+        Gap 3b: the tolerant owner-vs-label matching works for 'SBS' vs 'SBS Sport'.
+        Qualifier words ('Sport', 'TV', etc.) must not cause a false mismatch.
+        """
+        sess = _mock_session(
+            _yt_playlists_response("UCsbs", "SBS Sport", "Any Playlist Title")
+        )
+        errors, _ = self._run(
+            {"World Cup": {"SBS": [_PL_SBS]}},  # label "SBS" vs channel "SBS Sport"
+            sess, tmp_path=tmp_path,
+        )
+        assert errors == [], (
+            "Label 'SBS' should match channel_title 'SBS Sport' — "
+            "qualifier-word tolerance must not block the correct owner"
+        )
+
+    # ── quota accounting for playlists.list (Gap 2) ──────────────────────────
+
+    def test_playlists_list_call_costs_one_quota_unit(self):
+        """
+        Gap 2: playlists.list?part=snippet costs 1 quota unit, identical to
+        playlistItems.list.  Each call to fetch_playlist_owner must increment
+        the tracker by exactly 1 — no more, no less.
+        """
+        quota = _MockQuota()
+        sess  = _mock_session(
+            _yt_playlists_response("UCsbs", "SBS Sport", "WC Highlights")
+        )
+        fetch_playlist_owner(_PL_SBS, _FAKE_KEY, session=sess, quota=quota)
+        assert quota.calls == 1, (
+            "playlists.list?part=snippet must count as exactly 1 quota unit "
+            "(same as playlistItems.list)"
+        )
