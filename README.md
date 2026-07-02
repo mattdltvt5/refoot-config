@@ -504,27 +504,66 @@ Any change to matcher logic (`_normalize`, `team_tokens`, `TEAM_TITLE_ALIASES`),
 title-filter logic (`is_highlight_title`, `TITLE_BLOCKLIST`, `TITLE_ALLOWLIST`),
 or normalization must include a corresponding test in the same commit.
 
+## Playlist owner verification
+
+Each PL-prefixed playlist ID in `sources.json` is verified against the YouTube
+API to confirm that the playlist's owning channel matches the broadcaster label
+it is filed under.  A correct-length, plausible-title ID whose owner is a
+different broadcaster is caught at this layer.
+
+### How it works
+
+| Concept | Detail |
+|---|---|
+| Trigger | Push to `sources.json` or `workflow_dispatch` |
+| Workflow | `.github/workflows/verify-playlist-owners.yml` |
+| Script | `scripts/verify_playlist_owners.py` (entry point) |
+| Core logic | `verify_playlist_owners()` in `highlights_common.py` |
+| Cache | `highlights/playlist-owners.json` — one entry per playlist ID |
+| API call | `playlists.list?part=snippet` (1 quota unit per new ID) |
+| Quota | Counted against `highlights/quota-tracker.json` |
+
+**On-change gating**: only IDs _absent_ from `playlist-owners.json` trigger an
+API call.  Already-verified IDs are skipped (quota conserved).  The label-vs-owner
+comparison re-runs on every invocation for all IDs so a re-label in `sources.json`
+is caught without a re-fetch.
+
+**Failure modes** (non-zero exit):
+- Owner mismatch — correct-length ID filed under the wrong broadcaster label
+- Unresolvable ID — playlist is private, deleted, or the API returns no items
+- New uncached ID with no `YOUTUBE_API_KEY` in the environment
+
+### Owner-matching tolerance
+
+Label and channel-title comparisons strip common qualifier words (`Sport`,
+`Sports`, `TV`, `US`, `Deportes`) and lowercase before comparing token sets.
+`"CBS Sport Golazo"` matches `"CBS Sports"` (same org); `"FIFA"` does not match
+`"SBS Sport"` (different entity).
+
 ## Known TODOs
 
 ### World Cup broadcaster playlist IDs
 
-**FIFA** — resolved: `PLNuJDkj3zBvPVhoKC6Oq8j4w7AH9l-ejG` ("FIFA World Cup
-2026™ Match Highlights") added to `sources.json`.
+**SBS Sport** (`PLNuJDkj3zBvPVhoKC6Oq8j4w7AH9l-ejG`) — active source, filed
+under the correct broadcaster label.  The playlist title ("FIFA World Cup 2026™
+Match Highlights") is the YouTube title chosen by SBS Sport, not the channel
+name; the owner-verification guard confirmed the label-vs-owner match.
+`channel_id` will be auto-populated by the verify-playlist-owners workflow on
+its first run.
 
-**Telemundo** — the entry in `sources.json → playlists["World Cup"]["Telemundo"]`
-is still set to `[]` (empty).  The previous value was a 13-character string
-(`PLXHZm5xDlEdQ`) that failed the `PL[A-Za-z0-9_-]{20,}` validation check and
-was silently skipped by the pipeline.  A qualifying playlist
-(`PLXEMPXZ3PY1i3lX_C0Tul361dLtGE1SrT`) was found but covers qualifying matches
-only, not the main tournament.
+**FIFA-official** — `sources.json → playlists["World Cup"]["FIFA"]` is `[]`.
+The FIFA-official YouTube channel playlist for the 2026 World Cup tournament
+highlights has not been confirmed.  Do not commit unverified IDs.
 
-**Action required**: find the correct full-length YouTube playlist ID for the
-Telemundo Deportes World Cup 2026 **tournament** highlight playlist and add it to
-`sources.json`.  The pipeline's schema test (`test_playlist_ids_are_valid_format`)
-will reject any ID shorter than 22 characters, so only real IDs can be committed.
-FOX Sports (`PLSoN6Th-EepMUaxmTobuR_SBwVkdkxdfO`) and FIFA
-(`PLNuJDkj3zBvPVhoKC6Oq8j4w7AH9l-ejG`) are valid and will cover highlights in
-the meantime.
+**Telemundo** — `sources.json → playlists["World Cup"]["Telemundo"]` is `[]`.
+The previous 13-character value (`PLXHZm5xDlEdQ`) failed the format check and
+was silently skipped.  A qualifying playlist (`PLXEMPXZ3PY1i3lX_C0Tul361dLtGE1SrT`)
+was found but covers only qualifying matches, not the main tournament.  Do not
+commit unverified IDs.
+
+FOX Sports (`PLSoN6Th-EepMUaxmTobuR_SBwVkdkxdfO`) and SBS Sport
+(`PLNuJDkj3zBvPVhoKC6Oq8j4w7AH9l-ejG`) are active and cover World Cup
+highlights in the meantime.
 
 ## Tournament-groups cache
 

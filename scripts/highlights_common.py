@@ -29,6 +29,7 @@ REPO_ROOT              = Path(__file__).resolve().parent.parent
 SOURCES_JSON           = REPO_ROOT / "sources.json"
 HIGHLIGHTS_DIR         = REPO_ROOT / "highlights"
 QUOTA_TRACKER_PATH     = HIGHLIGHTS_DIR / "quota-tracker.json"
+PLAYLIST_OWNERS_PATH   = HIGHLIGHTS_DIR / "playlist-owners.json"
 BACKFILL_PROGRESS_PATH = HIGHLIGHTS_DIR / "backfill-progress.json"
 BACKFILL_LOCK_PATH     = HIGHLIGHTS_DIR / "backfill.lock"
 
@@ -2072,4 +2073,215 @@ def generate_summary() -> None:
             "competitions": competitions,
         },
     )
+
+
+# ── Playlist owner verification ───────────────────────────────────────────────
+
+# Words stripped when normalising broadcaster/channel names for fuzzy matching.
+_OWNER_STOPWORDS: frozenset[str] = frozenset({
+    "sport", "sports", "tv", "us", "usa", "the", "en", "vivo",
+    "deportes", "fc", "sc",
+})
+
+
+def _owner_tokens(name: str) -> frozenset[str]:
+    """Return lowercase content words from a broadcaster or channel name."""
+    return frozenset(
+        w for w in re.split(r"[\W_]+", name.lower())
+        if w and w not in _OWNER_STOPWORDS
+    )
+
+
+def labels_match(label: str, channel_title: str) -> bool:
+    """
+    Return True if the sources.json broadcaster label and the YouTube
+    channel_title refer to the same entity.
+
+    Comparison is tolerant of qualifier words ('Sport', 'TV', 'US') and
+    capitalisation.  Catches genuine wrong-owner cases (e.g. 'FIFA' vs
+    'SBS Sport') while accepting 'CBS Sport Golazo' vs 'CBS Sports'.
+
+    Strategy: strip common qualifier words, lowercase, split into tokens;
+    match if the smaller token-set is wholly contained in the larger.
+    """
+    lt = _owner_tokens(label)
+    ct = _owner_tokens(channel_title)
+    if not lt or not ct:
+        return False
+    smaller, larger = (lt, ct) if len(lt) <= len(ct) else (ct, lt)
+    return smaller.issubset(larger)
+
+
+def fetch_playlist_owner(
+    playlist_id: str,
+    api_key: str,
+    *,
+    session: "requests.Session | None" = None,
+    quota: "QuotaTracker | None" = None,
+    quota_cap: int = BACKFILL_CAP,
+) -> "dict | None":
+    """
+    Fetch playlist metadata via playlists.list?part=snippet (1 quota unit).
+
+    Returns {"channel_id": str, "channel_title": str, "playlist_title": str}
+    or None if the playlist is private, deleted, or otherwise unresolvable.
+
+    Counts 1 quota unit against *quota* (if provided).  Uses the lighter
+    playlists.list metadata endpoint — not playlistItems.list — because we
+    only need the owning channel, not the playlist's items.
+    """
+    http: requests.Session = session if session is not None else requests.Session()
+    resp = http.get(
+        YT_PLAYLISTS,
+        params={"part": "snippet", "id": playlist_id, "key": api_key, "maxResults": 1},
+        timeout=30,
+    )
+    resp.raise_for_status()
+    if quota is not None:
+        quota.increment(quota_cap)
+    items = resp.json().get("items", [])
+    if not items:
+        return None  # private, deleted, or bad ID
+    sn = items[0]["snippet"]
+    return {
+        "channel_id":    sn["channelId"],
+        "channel_title": sn["channelTitle"],
+        "playlist_title": sn["title"],
+    }
+
+
+def verify_playlist_owners(
+    api_key: str,
+    *,
+    quota: "QuotaTracker | None" = None,
+    quota_cap: int = BACKFILL_CAP,
+    session: "requests.Session | None" = None,
+    sources_path: "Path | None" = None,
+    owners_path: "Path | None" = None,
+) -> list[str]:
+    """
+    For every PL-prefixed playlist ID in sources.json, verify that the
+    YouTube channel owning it matches the broadcaster label it is filed under.
+
+    **On-change gating**: IDs already present in playlist-owners.json are not
+    re-fetched (quota saved).  Only IDs absent from the cache trigger an API
+    call.  The label-vs-owner comparison runs on every call (cached or not) so
+    a re-label in sources.json is caught without a re-fetch.
+
+    Each verification call consumes 1 quota unit (playlists.list?part=snippet)
+    counted against *quota* consistently with other YT API calls.
+
+    Returns a (possibly empty) list of human-readable error strings for:
+    - owner mismatches (right ID / wrong broadcaster label)
+    - unresolvable IDs (private, deleted, network error)
+    - uncached IDs when *api_key* is empty
+
+    An empty return list means all IDs passed.
+    """
+    sp: Path = sources_path or SOURCES_JSON
+    op: Path = owners_path  or PLAYLIST_OWNERS_PATH
+
+    with open(sp, encoding="utf-8") as f:
+        raw = json.load(f)
+
+    cache: dict = load_json_file(op) or {}
+    errors: list[str] = []
+    new_entries: dict = {}
+
+    for comp, broadcasters in raw.get("playlists", {}).items():
+        if not isinstance(broadcasters, dict):
+            continue
+        for label, ids in broadcasters.items():
+            items_list = ids if isinstance(ids, list) else ([ids] if isinstance(ids, str) else [])
+            for pid in items_list:
+                p = extract_playlist_id(pid) if isinstance(pid, str) else None
+                if not p:
+                    continue  # already caught by format guard
+
+                if p in cache:
+                    # Cached — skip re-fetch; still re-check the current label.
+                    ct = cache[p].get("channel_title")
+                    if ct is None:
+                        errors.append(
+                            f"{comp}/{label}: {p!r} previously failed to resolve — "
+                            "update playlist-owners.json or replace the ID"
+                        )
+                    elif not labels_match(label, ct):
+                        errors.append(
+                            f"{comp}/{label}: {p!r} is owned by {ct!r} — "
+                            "label mismatch (re-file under the correct broadcaster)"
+                        )
+                    continue
+
+                # New ID — must fetch.
+                if not api_key:
+                    errors.append(
+                        f"{comp}/{label}: {p!r} is not yet verified and "
+                        "YOUTUBE_API_KEY is not set — run verify-playlist-owners "
+                        "workflow after adding a new ID"
+                    )
+                    continue
+
+                log.info(
+                    "verify_playlist_owners: fetching owner for %s (%s / %s)",
+                    p, comp, label,
+                )
+                try:
+                    info = fetch_playlist_owner(
+                        p, api_key, session=session, quota=quota, quota_cap=quota_cap,
+                    )
+                except Exception as exc:
+                    errors.append(f"{comp}/{label}: {p!r} fetch failed — {exc}")
+                    new_entries[p] = {
+                        "competition": comp, "label": label,
+                        "channel_id": None, "channel_title": None,
+                        "playlist_title": None,
+                        "verified_at": utc_now_iso(), "error": str(exc),
+                    }
+                    continue
+
+                if info is None:
+                    errors.append(
+                        f"{comp}/{label}: {p!r} did not resolve — "
+                        "playlist may be private or deleted"
+                    )
+                    new_entries[p] = {
+                        "competition": comp, "label": label,
+                        "channel_id": None, "channel_title": None,
+                        "playlist_title": None,
+                        "verified_at": utc_now_iso(), "error": "unresolvable",
+                    }
+                    continue
+
+                new_entries[p] = {
+                    "competition":    comp,
+                    "label":          label,
+                    "channel_id":     info["channel_id"],
+                    "channel_title":  info["channel_title"],
+                    "playlist_title": info["playlist_title"],
+                    "verified_at":    utc_now_iso(),
+                }
+                if not labels_match(label, info["channel_title"]):
+                    errors.append(
+                        f"{comp}/{label}: {p!r} is owned by "
+                        f"{info['channel_title']!r} (channel {info['channel_id']!r}) — "
+                        "label mismatch (re-file under the correct broadcaster)"
+                    )
+                    log.warning(
+                        "verify_playlist_owners: owner mismatch — %s filed under %r "
+                        "but owned by %r",
+                        p, label, info["channel_title"],
+                    )
+
+    if new_entries:
+        cache.update(new_entries)
+        write_json_atomic(op, cache)
+        log.info(
+            "verify_playlist_owners: wrote %d new entr%s to %s",
+            len(new_entries),
+            "y" if len(new_entries) == 1 else "ies",
+            op.name,
+        )
+
+    return errors
     log.info(f"Written summary.json ({len(competitions)} competition(s))")
