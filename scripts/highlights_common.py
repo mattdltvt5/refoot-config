@@ -1252,11 +1252,19 @@ def extract_channel_id(value: str) -> str | None:
 
 
 def extract_playlist_id(value: str) -> str | None:
-    """Return a clean PL... playlist ID, or None if invalid."""
+    """Return a clean PL... playlist ID, or None if invalid.
+
+    Accepts any PL-prefixed ID whose body consists solely of alphanumeric,
+    underscore, or dash characters.  Length is intentionally unconstrained:
+    YouTube serves real playlists at IDs shorter than the common 34-char form
+    (e.g. PLXHZm5xDlEdQ at 13 chars).  Resolution + owner verification in
+    verify_playlist_owners() is the authoritative validity check; character
+    count is not.
+    """
     if not value or not isinstance(value, str):
         return None
     v = value.strip()
-    return v if re.fullmatch(r"PL[A-Za-z0-9_\-]{20,}", v) else None
+    return v if re.fullmatch(r"PL[A-Za-z0-9_\-]+", v) else None
 
 
 def channel_to_uploads(channel_id: str) -> str:

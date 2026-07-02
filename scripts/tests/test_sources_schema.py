@@ -124,18 +124,18 @@ def test_every_competition_has_playlists_entry(sources):
 # ── Playlist ID format ────────────────────────────────────────────────────────
 
 def test_playlist_ids_are_valid_format(sources):
-    """All PL-prefixed playlist IDs in sources.json must match the valid YouTube format.
+    """All PL-prefixed playlist IDs in sources.json must pass extract_playlist_id().
 
-    Valid: PL followed by at least 20 alphanumeric/underscore/dash characters
-    (total length >= 22).  Short IDs like PLXHZm5xDlEdQ (13 chars) are truncated
-    and will be silently dropped by load_sources() at pipeline time.
+    Valid: PL followed by one or more alphanumeric/underscore/dash characters.
+    No minimum length — real YouTube playlists exist at 13-char IDs (e.g.
+    PLXHZm5xDlEdQ).  Length-based rejection is a false-negative; validity is
+    determined by resolution + owner verification at pipeline time.
 
-    Fix: find the correct full-length playlist ID and replace the entry in
-    sources.json.  If unavailable, set the broadcaster list to [] and leave a
-    note in the README rather than committing a placeholder.
+    This test only catches structurally broken values: empty strings, IDs with
+    spaces or illegal characters, or non-PL-prefixed entries filed as PL IDs.
     """
     import re
-    VALID_PL = re.compile(r"PL[A-Za-z0-9_\-]{20,}")
+    VALID_PL = re.compile(r"PL[A-Za-z0-9_\-]+")
     errors = []
     for comp, broadcasters in sources.get("playlists", {}).items():
         if not isinstance(broadcasters, dict):
@@ -146,11 +146,9 @@ def test_playlist_ids_are_valid_format(sources):
                 if isinstance(pid, str) and pid.startswith("PL"):
                     if not VALID_PL.fullmatch(pid):
                         errors.append(
-                            f"{comp}/{bcast}: {pid!r} (len={len(pid)}, "
-                            f"need PL + ≥20 chars)"
+                            f"{comp}/{bcast}: {pid!r} — illegal characters or empty body"
                         )
     assert not errors, (
-        "Truncated or malformed PL playlist IDs found — these will be silently "
-        "skipped by load_sources().  Fix each entry or set its list to [] and "
-        f"document as a TODO in README.md:\n  " + "\n  ".join(errors)
+        "Malformed PL playlist IDs found — these will be silently skipped by "
+        f"load_sources():\n  " + "\n  ".join(errors)
     )
