@@ -590,12 +590,16 @@ Euro Cup, World Cup, Champions League, and Copa América each write a JSON file 
 
 ### Writers
 
-| Slug | Pipeline | Schedule |
-|---|---|---|
-| `euro-cup` | `sync-teams.yml` (FD `/matches`) | Monday 04:00 UTC |
-| `world-cup` | `sync-teams.yml` (FD `/matches`) | Monday 04:00 UTC |
-| `ucl` | `sync-teams.yml` (FD `/matches`) | Monday 04:00 UTC |
-| `copa-america` | `scripts/sync_copa_tournament.py` (API-Sports `/fixtures`) | Monday 05:00 UTC |
+Two writes happen at different cadences — `sync-teams.yml` owns the full structure
+(standings, match fixtures); `fetch-highlights.yml` owns the `video_id` fields.
+
+| Slug | What is written | Pipeline | Schedule |
+|---|---|---|---|
+| `euro-cup` | Full structure (standings + fixtures), `video_id` preserved | `sync-teams.yml` (FD `/standings` + `/matches`) | Monday 04:00 UTC |
+| `world-cup` | Full structure (standings + fixtures), `video_id` preserved | `sync-teams.yml` (FD `/standings` + `/matches`) | Monday 04:00 UTC |
+| `ucl` | Full structure (standings + fixtures), `video_id` preserved | `sync-teams.yml` (FD `/standings` + `/matches`) | Monday 04:00 UTC |
+| `copa-america` | Full structure (standings + fixtures), `video_id` preserved | `scripts/sync_copa_tournament.py` (API-Sports `/fixtures`) | Monday 05:00 UTC |
+| All slugs | `video_id` fields only (knockout matches) | `fetch-highlights.yml` (local reads, no API calls) | Every 4 hours |
 
 ### Top-level shape
 
@@ -651,7 +655,12 @@ One entry per knockout match.  Consumed by the Flutter app's Knockout tab, which
 
 **`video_id`** — YouTube video ID embedded at sync time by cross-referencing the match `id` against the corresponding `highlights/{slug}/{stem}.json` file. `null` when no highlight has been found yet.  The Flutter app renders a "Highlights" affordance on finished ties that carry a non-null `video_id`; tapping it navigates to `MatchHighlightScreen`.  Ties with `video_id: null` show "No highlights yet."
 
-The highlight lookup runs at every `sync-teams.yml` execution (Monday 04:00 UTC + any manual trigger), so a video matched by the 4-hourly highlights pipeline becomes visible in the app within at most 7 days.  Trigger `sync-teams.yml` manually from the Actions tab to pull in highlights immediately after they are matched.
+`video_id` fields for knockout matches are refreshed inside `fetch-highlights.yml` immediately after each highlights run, so matched videos become visible in the app within one highlights cycle (~4 hours).  `sync-teams.yml` preserves any `video_id`s already written when it rebuilds the full structure on its weekly run — the roster sync does not wipe highlight links.
+
+#### Rejected alternatives
+
+- **Daily roster cron** — running `sync-teams.yml` daily would invoke the full football-data.org roster sequence 7× per week for no roster benefit; team lists change on a transfer/season cadence, not a daily one.
+- **Separate `tournament-refresh` workflow triggered via `workflow_run`** — adds a cross-workflow dependency and a second failure surface; the video-ID refresh reads only local highlights files (zero new API calls), so it belongs inside the existing highlights run rather than chained as a separate action.
 
 Penalty-shootout score handling: Football-Data.org sets `score.fullTime` to the
 penalty tally when `score.duration == "PENALTY_SHOOTOUT"`; the regulation result

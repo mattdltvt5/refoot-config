@@ -35,13 +35,87 @@ jobs:
       - name: Fetch and write highlights cache
         run: python scripts/fetch_highlights.py
 
+      # Refresh tournament-groups video IDs from the highlights just written.
+      # Reads only local files — no new API calls.  Generic across all slugs.
+      - name: Refresh tournament-groups video IDs
+        run: |
+          python3 << 'PYEOF'
+          import json, pathlib
+
+          KNOCKOUT_STAGES = {
+              "LAST_32", "LAST_16", "QUARTER_FINALS", "SEMI_FINALS", "THIRD_PLACE", "FINAL",
+          }
+
+          def _stage_stem(stage, matchday):
+              fixed = {"LAST_32": "round-of-32", "THIRD_PLACE": "third-place", "FINAL": "final"}
+              if stage in fixed:
+                  return fixed[stage]
+              legged = {"LAST_16": "round-of-16", "QUARTER_FINALS": "quarter-final",
+                        "SEMI_FINALS": "semi-final"}
+              if stage in legged:
+                  base = legged[stage]
+                  if matchday in (1, 2):
+                      return f"{base}-leg-{matchday}"
+                  return base
+              return None
+
+          def _lookup_video_id(slug, stage, matchday, match_id):
+              stem = _stage_stem(stage, matchday)
+              if not stem or match_id is None:
+                  return None
+              p = pathlib.Path(f"highlights/{slug}/{stem}.json")
+              if not p.exists():
+                  return None
+              try:
+                  data = json.loads(p.read_text(encoding="utf-8"))
+                  items = data if isinstance(data, list) else data.get("matches", [])
+                  for e in items:
+                      if e.get("match_id") == match_id and e.get("videos"):
+                          return e["videos"][0]["video_id"]
+              except Exception:
+                  pass
+              return None
+
+          tg_dir = pathlib.Path("tournament-groups")
+          if not tg_dir.exists():
+              print("No tournament-groups/ directory — nothing to refresh.")
+          else:
+              for tg_path in sorted(tg_dir.glob("*.json")):
+                  slug = tg_path.stem
+                  try:
+                      tg = json.loads(tg_path.read_text(encoding="utf-8"))
+                  except Exception as e:
+                      print(f"  {slug}: parse error — {e}")
+                      continue
+
+                  changed = False
+                  for m in tg.get("matches", []):
+                      if m.get("stage") not in KNOCKOUT_STAGES:
+                          continue
+                      vid = _lookup_video_id(
+                          slug, m.get("stage"), m.get("matchday"), m.get("id")
+                      )
+                      if vid is not None and vid != m.get("video_id"):
+                          m["video_id"] = vid
+                          changed = True
+
+                  if changed:
+                      tg_path.write_text(
+                          json.dumps(tg, indent=2, ensure_ascii=False) + "\n",
+                          encoding="utf-8",
+                      )
+                      print(f"✓ {slug}: updated tournament-groups video IDs")
+                  else:
+                      print(f"  {slug}: no new video IDs")
+          PYEOF
+
       # Only commit when the script changed at least one file.
       # [skip ci] prevents this commit from re-triggering the workflow.
       - name: Commit and push if changed
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add highlights/
+          git add highlights/ tournament-groups/
           git diff --cached --quiet \
             && echo "No changes — skipping commit" \
             || (
