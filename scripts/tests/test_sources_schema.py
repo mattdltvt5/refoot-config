@@ -119,3 +119,38 @@ def test_every_competition_has_playlists_entry(sources):
             f"Competition {comp!r} is in competitions but has no entry in playlists. "
             "Add an empty dict to sources['playlists'][{comp!r}] = {{}}"
         )
+
+
+# ── Playlist ID format ────────────────────────────────────────────────────────
+
+def test_playlist_ids_are_valid_format(sources):
+    """All PL-prefixed playlist IDs in sources.json must match the valid YouTube format.
+
+    Valid: PL followed by at least 20 alphanumeric/underscore/dash characters
+    (total length >= 22).  Short IDs like PLXHZm5xDlEdQ (13 chars) are truncated
+    and will be silently dropped by load_sources() at pipeline time.
+
+    Fix: find the correct full-length playlist ID and replace the entry in
+    sources.json.  If unavailable, set the broadcaster list to [] and leave a
+    note in the README rather than committing a placeholder.
+    """
+    import re
+    VALID_PL = re.compile(r"PL[A-Za-z0-9_\-]{20,}")
+    errors = []
+    for comp, broadcasters in sources.get("playlists", {}).items():
+        if not isinstance(broadcasters, dict):
+            continue
+        for bcast, ids in broadcasters.items():
+            items = ids if isinstance(ids, list) else [ids]
+            for pid in items:
+                if isinstance(pid, str) and pid.startswith("PL"):
+                    if not VALID_PL.fullmatch(pid):
+                        errors.append(
+                            f"{comp}/{bcast}: {pid!r} (len={len(pid)}, "
+                            f"need PL + ≥20 chars)"
+                        )
+    assert not errors, (
+        "Truncated or malformed PL playlist IDs found — these will be silently "
+        "skipped by load_sources().  Fix each entry or set its list to [] and "
+        f"document as a TODO in README.md:\n  " + "\n  ".join(errors)
+    )

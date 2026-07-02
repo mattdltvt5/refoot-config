@@ -1295,9 +1295,24 @@ def load_sources() -> dict:
         bmap: dict[str, list[str]] = {}
         for bcast, ids in broadcasters.items():
             if isinstance(ids, list):
-                clean = [p for p in (extract_playlist_id(i) for i in ids) if p]
+                clean = []
+                for i in ids:
+                    p = extract_playlist_id(i)
+                    if p:
+                        clean.append(p)
+                    elif isinstance(i, str) and i.startswith("PL"):
+                        log.warning(
+                            "sources.json: playlist ID %r for %s/%s is invalid "
+                            "(PL IDs must match PL[A-Za-z0-9_-]{20,}); skipping",
+                            i, comp, bcast,
+                        )
             elif isinstance(ids, str):
                 p = extract_playlist_id(ids)
+                if not p and isinstance(ids, str) and ids.startswith("PL"):
+                    log.warning(
+                        "sources.json: playlist ID %r for %s/%s is invalid; skipping",
+                        ids, comp, bcast,
+                    )
                 clean = [p] if p else []
             else:
                 clean = []

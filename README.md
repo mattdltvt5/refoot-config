@@ -504,6 +504,22 @@ Any change to matcher logic (`_normalize`, `team_tokens`, `TEAM_TITLE_ALIASES`),
 title-filter logic (`is_highlight_title`, `TITLE_BLOCKLIST`, `TITLE_ALLOWLIST`),
 or normalization must include a corresponding test in the same commit.
 
+## Known TODOs
+
+### World Cup broadcaster playlist IDs
+
+The Telemundo and FIFA entries in `sources.json → playlists["World Cup"]` are
+currently set to `[]` (empty).  The previous values were 13-character strings that
+failed the `PL[A-Za-z0-9_-]{20,}` validation check and were silently skipped by
+the pipeline.
+
+**Action required**: find the correct full-length YouTube playlist IDs for the
+Telemundo and FIFA World Cup 2026 highlight playlists and add them to
+`sources.json`.  The pipeline's schema test (`test_playlist_ids_are_valid_format`)
+will reject any ID shorter than 22 characters, so only real IDs can be committed.
+The FOX Sports playlist (`PLSoN6Th-EepMUaxmTobuR_SBwVkdkxdfO`) is valid and will
+continue to cover knockout highlights in the meantime.
+
 ## Tournament-groups cache
 
 Euro Cup, World Cup, Champions League, and Copa América each write a JSON file to
