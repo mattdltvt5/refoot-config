@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-02T21:07:04Z",
+  "generated_at": "2026-07-03T02:56:27Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -16163,8 +16163,8 @@
         {
           "gameweek": "R32",
           "stem": "round-of-32",
-          "total": 11,
-          "covered": 10,
+          "total": 12,
+          "covered": 12,
           "matches": [
             {
               "match_id": 537417,
@@ -16241,7 +16241,14 @@
               "home": "Spain",
               "away": "Austria",
               "date": "2026-07-02",
-              "covered": false
+              "covered": true
+            },
+            {
+              "match_id": 537419,
+              "home": "Portugal",
+              "away": "Croatia",
+              "date": "2026-07-02",
+              "covered": true
             }
           ]
         }
