@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-03T17:25:59Z",
+  "generated_at": "2026-07-03T21:06:24Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -16163,7 +16163,7 @@
         {
           "gameweek": "R32",
           "stem": "round-of-32",
-          "total": 13,
+          "total": 14,
           "covered": 13,
           "matches": [
             {
@@ -16256,6 +16256,13 @@
               "away": "Algeria",
               "date": "2026-07-03",
               "covered": true
+            },
+            {
+              "match_id": 537428,
+              "home": "Australia",
+              "away": "Egypt",
+              "date": "2026-07-03",
+              "covered": false
             }
           ]
         }
