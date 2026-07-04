@@ -81,133 +81,11 @@ jobs:
 
           print("sources.json written.")
 
-          # ── Tournament group + knockout cache ──────────────────────────────
-          TOURNAMENT_COMPETITIONS = [
-              (2018, "Euro Cup",         "euro-cup"),
-              (2000, "World Cup",        "world-cup"),
-              (2001, "Champions League", "ucl"),
-          ]
-
-          KNOCKOUT_STAGES = {
-              "LAST_32", "LAST_16", "QUARTER_FINALS", "SEMI_FINALS", "THIRD_PLACE", "FINAL",
-          }
-
-          os.makedirs("tournament-groups", exist_ok=True)
-
-          for comp_id, comp_name, slug in TOURNAMENT_COMPETITIONS:
-              time.sleep(7)
-              standings_url = (
-                  f"https://api.football-data.org/v4/competitions/{comp_id}/standings"
-              )
-              standings_req = urllib.request.Request(
-                  standings_url, headers={"X-Auth-Token": API_KEY}
-              )
-              try:
-                  with urllib.request.urlopen(standings_req, timeout=15) as resp:
-                      standings_payload = json.loads(resp.read())
-              except urllib.error.HTTPError as e:
-                  print(f"✗ {comp_name} standings: HTTP {e.code} — skipping")
-                  continue
-              except Exception as e:
-                  print(f"✗ {comp_name} standings: {e} — skipping")
-                  continue
-
-              time.sleep(7)
-              matches_url = (
-                  f"https://api.football-data.org/v4/competitions/{comp_id}/matches"
-              )
-              matches_req = urllib.request.Request(
-                  matches_url, headers={"X-Auth-Token": API_KEY}
-              )
-              try:
-                  with urllib.request.urlopen(matches_req, timeout=15) as resp:
-                      matches_payload = json.loads(resp.read())
-              except urllib.error.HTTPError as e:
-                  print(f"✗ {comp_name} matches: HTTP {e.code} — skipping")
-                  continue
-              except Exception as e:
-                  print(f"✗ {comp_name} matches: {e} — skipping")
-                  continue
-
-              # Log every stage value FD returned (confirms LAST_32 vs any other spelling).
-              all_stages = sorted({m.get("stage", "") for m in matches_payload.get("matches", [])})
-              print(f"  {comp_name} stages in raw FD response: {all_stages}")
-
-              # Build group-stage fixtures (matchday-grouped, separate array).
-              # Group matches are those with a non-null "group" field that are
-              # NOT in the knockout stages set.  UCL league-phase matches have
-              # group=None, so they produce an empty list naturally.
-              group_matches = []
-              for m in matches_payload.get("matches", []):
-                  if m.get("stage") in KNOCKOUT_STAGES:
-                      continue
-                  raw_group = m.get("group")
-                  if not raw_group:
-                      continue  # no group field → league phase or qualifying; skip
-                  matchday = m.get("matchday")
-                  if not matchday:
-                      continue
-                  group_key = raw_group.upper().replace(" ", "_")  # "Group A" → "GROUP_A"
-                  ht    = m.get("homeTeam", {}) or {}
-                  at    = m.get("awayTeam", {}) or {}
-                  score = m.get("score", {}) or {}
-                  ft    = score.get("fullTime", {}) or {}
-                  group_matches.append({
-                      "group":       group_key,
-                      "matchday":    matchday,
-                      "sourceRound": f"Matchday {matchday}",
-                      "homeTeam": {
-                          "id":    ht.get("id"),
-                          "name":  ht.get("name", ""),
-                          "tla":   ht.get("tla", ""),
-                          "crest": ht.get("crest", ""),
-                      },
-                      "awayTeam": {
-                          "id":    at.get("id"),
-                          "name":  at.get("name", ""),
-                          "tla":   at.get("tla", ""),
-                          "crest": at.get("crest", ""),
-                      },
-                      "score": {
-                          "fullTime": {"home": ft.get("home"), "away": ft.get("away")},
-                      },
-                      "status": m.get("status", ""),
-                  })
-
-              out_path = f"tournament-groups/{slug}.json"
-
-              # video_id fields are written by fetch-highlights.yml (every 4 h);
-              # preserve any already-resolved IDs so this weekly rebuild doesn't wipe them.
-              existing_video_ids = {}
-              if pathlib.Path(out_path).exists():
-                  try:
-                      prev = json.loads(pathlib.Path(out_path).read_text(encoding="utf-8"))
-                      for m in prev.get("matches", []):
-                          if m.get("video_id") is not None:
-                              existing_video_ids[m.get("id")] = m["video_id"]
-                  except Exception:
-                      pass
-
-              tournament_data = {
-                  "generated_at": datetime.utcnow().isoformat() + "Z",
-                  "slug": slug,
-                  "standings": [
-                      s for s in standings_payload.get("standings", [])
-                      if s.get("type") == "TOTAL"
-                  ],
-                  "matches": [
-                      {**m, "video_id": existing_video_ids.get(m.get("id"))}
-                      for m in matches_payload.get("matches", [])
-                      if m.get("stage") in KNOCKOUT_STAGES
-                  ],
-                  "groupMatches": group_matches,
-              }
-
-              with open(out_path, "w", encoding="utf-8") as f:
-                  json.dump(tournament_data, f, indent=2, ensure_ascii=False)
-                  f.write("\n")
-
-              print(f"✓ {comp_name}: {out_path} written")
+          # NOTE: the tournament-groups cache (standings + knockout scores/status
+          # + group fixtures + video IDs) is NO LONGER written here.  It now lives
+          # in fetch-highlights.yml (scripts/sync_tournaments.py) so scores refresh
+          # on the ~4-hour cadence instead of this weekly roster run.  This job is
+          # purely roster/TeamLists work — it must not write tournament-groups/.
 
           PYEOF
 
@@ -215,7 +93,7 @@ jobs:
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add sources.json tournament-groups/
+          git add sources.json
           git diff --cached --quiet \
             && echo "No changes to commit." \
             || (
