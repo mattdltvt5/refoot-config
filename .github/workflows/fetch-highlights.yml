@@ -2,7 +2,7 @@ name: Fetch highlights cache
 
 on:
   schedule:
-    - cron: "0 */4 * * *"   # every 4 hours
+    - cron: "*/30 * * * *"   # every 30 minutes (was 0 */4 * * * — every 4h)
   workflow_dispatch:         # manual trigger from Actions tab
 
 jobs:
