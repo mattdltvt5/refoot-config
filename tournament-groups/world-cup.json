@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-04T21:59:28.550850Z",
+  "generated_at": "2026-07-04T23:05:02.362916Z",
   "slug": "world-cup",
   "standings": [
     {
@@ -2214,11 +2214,11 @@
       },
       "id": 537375,
       "utcDate": "2026-07-04T21:00:00Z",
-      "status": "PAUSED",
+      "status": "IN_PLAY",
       "matchday": null,
       "stage": "LAST_16",
       "group": null,
-      "lastUpdated": "2026-07-04T21:58:09Z",
+      "lastUpdated": "2026-07-04T23:04:57Z",
       "homeTeam": {
         "id": 761,
         "name": "Paraguay",
@@ -2234,11 +2234,11 @@
         "crest": "https://crests.football-data.org/773.svg"
       },
       "score": {
-        "winner": "DRAW",
+        "winner": "AWAY_TEAM",
         "duration": "REGULAR",
         "fullTime": {
           "home": 0,
-          "away": 0
+          "away": 1
         },
         "halfTime": {
           "home": 0,
