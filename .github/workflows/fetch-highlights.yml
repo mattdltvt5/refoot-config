@@ -2,8 +2,17 @@ name: Fetch highlights cache
 
 on:
   schedule:
-    - cron: "*/30 * * * *"   # every 30 minutes (was 0 */4 * * * — every 4h)
+    - cron: "*/15 * * * *"   # every 15 minutes (was */30 → was 0 */4 — every 4h)
   workflow_dispatch:         # manual trigger from Actions tab
+
+# Prevent overlapping runs by construction.  cancel-in-progress: false means a
+# new run queues behind the in-progress one rather than killing it mid-commit.
+# At most one queued run exists at a time (later triggers replace the queued slot,
+# not the active one), so the FD 10-req/min guarantee is never broken by two
+# concurrent runs, and no commit is interrupted.
+concurrency:
+  group: fetch-highlights
+  cancel-in-progress: false
 
 jobs:
   fetch:

@@ -12,14 +12,14 @@ Remote channel configuration for the **ReFoot Highlights** Android app.
 | `highlights/` | Pre-built video metadata written by the fetch-highlights Action |
 | `scripts/highlights_common.py` | Shared utilities, title filter constants, `is_highlight_title()`, `_normalize()`, `team_tokens()`, and `TEAM_TITLE_ALIASES` |
 | `scripts/fixture_providers.py` | Pluggable fixture provider layer — `FootballDataProvider` (football-data.org), `ApiSportsProvider` (API-Sports free tier), `ApisportsQuotaTracker`, and `APISPORTS_COMPETITIONS` config registry |
-| `scripts/fetch_highlights.py` | Incremental update script (runs every 30 minutes) |
+| `scripts/fetch_highlights.py` | Incremental update script (runs every 15 minutes) |
 | `scripts/backfill_highlights.py` | Full-season backfill script (manual trigger only) |
 | `scripts/backfill_copa_america.py` | Copa America 2024 backfill script — fetches fixtures from API-Sports, finds highlights on YouTube (manual trigger only) |
 | `scripts/clean_highlights.py` | One-time cleanup script — re-evaluates existing JSON files and removes false positives |
 | `scripts/clean_wrong_fixture_videos.py` | Retroactive cleanup — removes videos stored for the wrong fixture (both-teams rule) |
 | `scripts/debug_match.py` | Dry-run diagnostic — tests the fixture↔title matcher over cached data without hitting the YouTube API |
 | `diagnostics/apisports_probe.py` | **Manual-only** API-Sports probe — verifies season coverage and captures round-string formats; see [Diagnostics](#diagnostics) |
-| `.github/workflows/fetch-highlights.yml` | GitHub Action that runs the incremental script every 30 minutes |
+| `.github/workflows/fetch-highlights.yml` | GitHub Action that runs the incremental script every 15 minutes |
 | `.github/workflows/backfill-highlights.yml` | GitHub Action for the manual backfill (workflow_dispatch only) |
 | `.github/workflows/backfill-copa-america.yml` | GitHub Action for the Copa America backfill (workflow_dispatch only) |
 | `.github/workflows/clean-highlights.yml` | GitHub Action for the manual false-positive cleanup (workflow_dispatch only) |
@@ -76,7 +76,7 @@ The highlights pipeline has **two operating modes** for football-data.org compet
 
 | Mode | Script | Trigger | Fixture source | Budget |
 |---|---|---|---|---|
-| **Incremental** | `fetch_highlights.py` | Every 30 minutes (scheduled) | football-data.org | 8,000 YouTube units/day |
+| **Incremental** | `fetch_highlights.py` | Every 15 minutes (scheduled) | football-data.org | 8,000 YouTube units/day |
 | **Backfill** | `backfill_highlights.py` | Manual only (`workflow_dispatch`) | football-data.org | 9,500 YouTube units/day |
 | **Copa America backfill** | `backfill_copa_america.py` | Manual only (`workflow_dispatch`) | API-Sports free tier | 9,500 YouTube units/day (isolated) |
 
@@ -112,7 +112,7 @@ The workflow is **manual-only** (`workflow_dispatch`).  It has no `schedule:` tr
 
 Before the incremental job can cover the full season, trigger the backfill once manually from the **Actions** tab → **Backfill highlights cache** → **Run workflow**. It will fetch all finished fixtures for the current season. If the daily cap is hit, re-trigger the next day — it resumes exactly where it stopped.
 
-The incremental job runs automatically every 30 minutes and keeps new results flowing once the backfill is complete.
+The incremental job runs automatically every 15 minutes and keeps new results flowing once the backfill is complete.
 
 ### Directory structure
 
@@ -591,7 +591,7 @@ Euro Cup, World Cup, Champions League, and Copa América each write a JSON file 
 ### Writers
 
 `fetch-highlights.yml` is the **single refresher of the FD tournament cache** — on
-its **~30-minute** cadence it rebuilds the *whole* match write (standings + knockout
+its **~15-minute** cadence it rebuilds the *whole* match write (standings + knockout
 **scores + status** + group fixtures) and grafts `video_id`s, all via
 `scripts/sync_tournaments.py`.  `sync-teams.yml` is now purely weekly roster /
 TeamLists work (`sources.json`) and **no longer writes `tournament-groups/`**.
@@ -605,24 +605,32 @@ TeamLists work (`sources.json`) and **no longer writes `tournament-groups/`**.
 > populates its score **within one highlights cycle** instead of on the next
 > Monday.
 
-> **Cadence: every 30 minutes (was every 4 hours, `0 */4 * * *`).**  Bumped to
-> `*/30 * * * *` so a just-finished game's score and highlight surface within
-> ~30 min instead of up to ~4 h.  A read-only budget analysis cleared it against
-> both APIs: **football-data.org** (free tier — 10 req/min, **no daily cap**) is
-> respected by the in-run `FD_SLEEP_SECONDS=6` throttle regardless of cadence
-> (15 FD calls/run spread over ~90 s; ~720 calls/day at 30 min), and **YouTube**
-> stays far under its 8,000 units/day cap (steady-state ≈ near-zero via smart-skip
-> — ~7 units/day observed).  A run takes ~1–3 min, so 30-min runs never overlap.
-> _(If the FD key is ever moved to a metered/paid plan, re-check 720 calls/day
+> **Cadence: every 15 minutes (was 30 min → was 4 h `0 */4 * * *`).**  Budget
+> analysis cleared it against both APIs: **football-data.org** (free tier —
+> 10 req/min, **no daily cap**) is respected by the in-run `FD_SLEEP_SECONDS=6`
+> throttle regardless of cadence (15 FD calls/run over ~90 s; ~1,440 calls/day
+> at 15 min — still no daily cap concern on the free tier), and **YouTube** stays
+> far under its 8,000 units/day cap (steady-state ≈ near-zero via smart-skip —
+> ~7 units/day observed).  A run takes ~1–3 min under normal load.
+> _(If the FD key is ever moved to a metered/paid plan, re-check ~1,440 calls/day
 > against that plan's daily cap.)_
+>
+> **Concurrency guard (`cancel-in-progress: false`).**  A `concurrency:` block
+> (group `fetch-highlights`) prevents overlapping runs by construction — if a run
+> is in progress when the next 15-min slot fires, the new run queues rather than
+> cancelling the active one.  At most one queued run exists at a time (later
+> triggers replace the pending slot, not the active one), so the FD 10-req/min
+> guarantee is never broken by two concurrent runs and no commit is interrupted
+> mid-write.  Skip/queue was chosen over cancel-in-progress to preserve an
+> in-flight tournament-groups write.
 
 | Slug | What is written | Pipeline | Schedule |
 |---|---|---|---|
-| `euro-cup` | Full structure (standings + knockout scores/status + group fixtures) + `video_id` graft | `fetch-highlights.yml` → `scripts/sync_tournaments.py` (FD `/standings` + `/matches`) | **Every ~30 minutes** |
-| `world-cup` | Full structure (standings + knockout scores/status + group fixtures) + `video_id` graft | `fetch-highlights.yml` → `scripts/sync_tournaments.py` (FD `/standings` + `/matches`) | **Every ~30 minutes** |
-| `ucl` | Full structure (standings + knockout scores/status + group fixtures) + `video_id` graft | `fetch-highlights.yml` → `scripts/sync_tournaments.py` (FD `/standings` + `/matches`) | **Every ~30 minutes** |
+| `euro-cup` | Full structure (standings + knockout scores/status + group fixtures) + `video_id` graft | `fetch-highlights.yml` → `scripts/sync_tournaments.py` (FD `/standings` + `/matches`) | **Every ~15 minutes** |
+| `world-cup` | Full structure (standings + knockout scores/status + group fixtures) + `video_id` graft | `fetch-highlights.yml` → `scripts/sync_tournaments.py` (FD `/standings` + `/matches`) | **Every ~15 minutes** |
+| `ucl` | Full structure (standings + knockout scores/status + group fixtures) + `video_id` graft | `fetch-highlights.yml` → `scripts/sync_tournaments.py` (FD `/standings` + `/matches`) | **Every ~15 minutes** |
 | `copa-america` | Full structure (standings + fixtures + scores) | `scripts/sync_copa_tournament.py` (API-Sports `/fixtures`) | Monday 05:00 UTC |
-| `copa-america` | `video_id` graft only (scores untouched) | `fetch-highlights.yml` → `sync_tournaments.py` (local reads, no API calls) | Every ~30 minutes |
+| `copa-america` | `video_id` graft only (scores untouched) | `fetch-highlights.yml` → `sync_tournaments.py` (local reads, no API calls) | Every ~15 minutes |
 | _(roster / TeamLists in `sources.json` — not `tournament-groups/`)_ | Team lists | `sync-teams.yml` (FD `/teams`) | Monday 04:00 UTC |
 
 `sync_tournaments.py` makes only football-data.org calls (2 per FD tournament —
@@ -688,7 +696,7 @@ One entry per knockout match.  Consumed by the Flutter app's Knockout tab, which
 **`video_id`** — YouTube video ID embedded at sync time by cross-referencing the match `id` against the corresponding `highlights/{slug}/{stem}.json` file. `null` when no highlight has been found yet.  The Flutter app renders a "Highlights" affordance on finished ties that carry a non-null `video_id`; tapping it navigates to `MatchHighlightScreen`.  Ties with `video_id: null` show "No highlights yet."
 
 The entire knockout write — **scores, status, and `video_id`s** — is refreshed
-inside `fetch-highlights.yml` (via `scripts/sync_tournaments.py`) on every ~30-minute
+inside `fetch-highlights.yml` (via `scripts/sync_tournaments.py`) on every ~15-minute
 run, so both a finished game's scoreline and its matched video become visible in
 the app within one highlights cycle.  `sync_tournaments.py` preserves any
 `video_id`s already on disk while rebuilding from FD, then re-grafts them from the
