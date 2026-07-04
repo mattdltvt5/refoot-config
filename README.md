@@ -590,16 +590,37 @@ Euro Cup, World Cup, Champions League, and Copa América each write a JSON file 
 
 ### Writers
 
-Two writes happen at different cadences — `sync-teams.yml` owns the full structure
-(standings, match fixtures); `fetch-highlights.yml` owns the `video_id` fields.
+`fetch-highlights.yml` is the **single refresher of the FD tournament cache** — on
+its ~4-hour cadence it rebuilds the *whole* match write (standings + knockout
+**scores + status** + group fixtures) and grafts `video_id`s, all via
+`scripts/sync_tournaments.py`.  `sync-teams.yml` is now purely weekly roster /
+TeamLists work (`sources.json`) and **no longer writes `tournament-groups/`**.
+
+> **Why this changed.**  Previously the FD tournament cache — including knockout
+> **scores and status** — was written only by the weekly `sync-teams.yml`
+> (Mondays 04:00 UTC), while `fetch-highlights.yml` grafted just the `video_id`s
+> every 4 hours.  So during a live tournament a game that finished mid-week
+> showed **no score for up to a week** (fresh video link, stale scoreline).  The
+> full score/status write now runs on the ~4-hour cadence, so a finished game
+> populates its score **within one highlights cycle** instead of on the next
+> Monday.
 
 | Slug | What is written | Pipeline | Schedule |
 |---|---|---|---|
-| `euro-cup` | Full structure (standings + fixtures), `video_id` preserved | `sync-teams.yml` (FD `/standings` + `/matches`) | Monday 04:00 UTC |
-| `world-cup` | Full structure (standings + fixtures), `video_id` preserved | `sync-teams.yml` (FD `/standings` + `/matches`) | Monday 04:00 UTC |
-| `ucl` | Full structure (standings + fixtures), `video_id` preserved | `sync-teams.yml` (FD `/standings` + `/matches`) | Monday 04:00 UTC |
-| `copa-america` | Full structure (standings + fixtures), `video_id` preserved | `scripts/sync_copa_tournament.py` (API-Sports `/fixtures`) | Monday 05:00 UTC |
-| All slugs | `video_id` fields only (knockout matches) | `fetch-highlights.yml` (local reads, no API calls) | Every 4 hours |
+| `euro-cup` | Full structure (standings + knockout scores/status + group fixtures) + `video_id` graft | `fetch-highlights.yml` → `scripts/sync_tournaments.py` (FD `/standings` + `/matches`) | **Every ~4 hours** |
+| `world-cup` | Full structure (standings + knockout scores/status + group fixtures) + `video_id` graft | `fetch-highlights.yml` → `scripts/sync_tournaments.py` (FD `/standings` + `/matches`) | **Every ~4 hours** |
+| `ucl` | Full structure (standings + knockout scores/status + group fixtures) + `video_id` graft | `fetch-highlights.yml` → `scripts/sync_tournaments.py` (FD `/standings` + `/matches`) | **Every ~4 hours** |
+| `copa-america` | Full structure (standings + fixtures + scores) | `scripts/sync_copa_tournament.py` (API-Sports `/fixtures`) | Monday 05:00 UTC |
+| `copa-america` | `video_id` graft only (scores untouched) | `fetch-highlights.yml` → `sync_tournaments.py` (local reads, no API calls) | Every ~4 hours |
+| _(roster / TeamLists in `sources.json` — not `tournament-groups/`)_ | Team lists | `sync-teams.yml` (FD `/teams`) | Monday 04:00 UTC |
+
+`sync_tournaments.py` makes only football-data.org calls (2 per FD tournament —
+`/standings` + `/matches` — × 3 = 6 calls/run, throttled to the free-tier
+10 req/min limit).  It adds **no** YouTube or API-Sports quota: these are the same
+FD calls the weekly roster job used to make, simply moved to the frequent cadence.
+Copa América's **scores** stay owned by its own weekly API-Sports job — the
+frequent path never calls API-Sports and never forces FD fields onto Copa's
+schema; it only grafts Copa's `video_id`s from the local highlights cache.
 
 ### Top-level shape
 
@@ -655,12 +676,28 @@ One entry per knockout match.  Consumed by the Flutter app's Knockout tab, which
 
 **`video_id`** — YouTube video ID embedded at sync time by cross-referencing the match `id` against the corresponding `highlights/{slug}/{stem}.json` file. `null` when no highlight has been found yet.  The Flutter app renders a "Highlights" affordance on finished ties that carry a non-null `video_id`; tapping it navigates to `MatchHighlightScreen`.  Ties with `video_id: null` show "No highlights yet."
 
-`video_id` fields for knockout matches are refreshed inside `fetch-highlights.yml` immediately after each highlights run, so matched videos become visible in the app within one highlights cycle (~4 hours).  `sync-teams.yml` preserves any `video_id`s already written when it rebuilds the full structure on its weekly run — the roster sync does not wipe highlight links.
+The entire knockout write — **scores, status, and `video_id`s** — is refreshed
+inside `fetch-highlights.yml` (via `scripts/sync_tournaments.py`) on every ~4-hour
+run, so both a finished game's scoreline and its matched video become visible in
+the app within one highlights cycle.  `sync_tournaments.py` preserves any
+`video_id`s already on disk while rebuilding from FD, then re-grafts them from the
+freshly-written highlights — a rebuild never wipes highlight links.
+
+#### Freshness & live fallback
+
+The Flutter app treats the pre-built cache as stale after 7 days
+(`TeamCacheService._staleDays = 7`) and then falls back to a live football-data.org
+call (`FootballDataService.getKnockoutMatches`).  Because the tournament cache now
+refreshes every ~4 hours, it never reaches that 7-day window under normal
+operation — the freshness check remains only as a safety net.  As defence in
+depth, the live fallback's stage filter now includes `LAST_32`, so even if it ever
+fires it returns Round-of-32 ties rather than silently dropping them (the cache
+path already included `LAST_32`; the two are now aligned).
 
 #### Rejected alternatives
 
-- **Daily roster cron** — running `sync-teams.yml` daily would invoke the full football-data.org roster sequence 7× per week for no roster benefit; team lists change on a transfer/season cadence, not a daily one.
-- **Separate `tournament-refresh` workflow triggered via `workflow_run`** — adds a cross-workflow dependency and a second failure surface; the video-ID refresh reads only local highlights files (zero new API calls), so it belongs inside the existing highlights run rather than chained as a separate action.
+- **Daily roster cron** — running `sync-teams.yml` daily would invoke the full football-data.org roster sequence 7× per week for no roster benefit; team lists change on a transfer/season cadence, not a daily one.  (The tournament *scores* moved to the frequent cadence; the *roster* stays weekly.)
+- **Separate `tournament-refresh` workflow triggered via `workflow_run`** — adds a cross-workflow dependency and a second failure surface.  The tournament refresh is instead consolidated **inside** the existing `fetch-highlights.yml` run: it reuses that job's football-data.org access for the score/status rebuild and reads local highlights files for the `video_id` graft, so no new workflow and no `workflow_run` chain are introduced.
 
 Penalty-shootout score handling: Football-Data.org sets `score.fullTime` to the
 penalty tally when `score.duration == "PENALTY_SHOOTOUT"`; the regulation result
