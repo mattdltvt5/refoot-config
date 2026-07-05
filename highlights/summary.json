@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-04T23:04:40Z",
+  "generated_at": "2026-07-05T00:13:30Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -16283,13 +16283,20 @@
         {
           "gameweek": "R16",
           "stem": "round-of-16",
-          "total": 1,
-          "covered": 1,
+          "total": 2,
+          "covered": 2,
           "matches": [
             {
               "match_id": 537376,
               "home": "Canada",
               "away": "Morocco",
+              "date": "2026-07-04",
+              "covered": true
+            },
+            {
+              "match_id": 537375,
+              "home": "Paraguay",
+              "away": "France",
               "date": "2026-07-04",
               "covered": true
             }
