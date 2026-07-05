@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-05T21:20:35.410021Z",
+  "generated_at": "2026-07-05T22:31:11.926849Z",
   "slug": "world-cup",
   "standings": [
     {
@@ -2281,11 +2281,11 @@
       },
       "id": 537377,
       "utcDate": "2026-07-05T20:00:00Z",
-      "status": "LIVE",
+      "status": "FINISHED",
       "matchday": null,
       "stage": "LAST_16",
       "group": null,
-      "lastUpdated": "2026-07-05T21:20:25Z",
+      "lastUpdated": "2026-07-05T22:09:19Z",
       "homeTeam": {
         "id": 764,
         "name": "Brazil",
@@ -2301,11 +2301,11 @@
         "crest": "https://crests.football-data.org/813.svg"
       },
       "score": {
-        "winner": "DRAW",
+        "winner": "AWAY_TEAM",
         "duration": "REGULAR",
         "fullTime": {
-          "home": 0,
-          "away": 0
+          "home": 1,
+          "away": 2
         },
         "halfTime": {
           "home": 0,
@@ -2382,7 +2382,14 @@
       "odds": {
         "msg": "Activate Odds-Package in User-Panel to retrieve odds."
       },
-      "referees": [],
+      "referees": [
+        {
+          "id": 55970,
+          "name": "Alireza Faghani",
+          "type": "REFEREE",
+          "nationality": "Iran"
+        }
+      ],
       "video_id": null
     },
     {
