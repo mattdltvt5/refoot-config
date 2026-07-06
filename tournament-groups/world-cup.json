@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-06T21:12:04.167187Z",
+  "generated_at": "2026-07-06T22:39:15.770673Z",
   "slug": "world-cup",
   "standings": [
     {
@@ -2457,7 +2457,7 @@
           "nationality": "England"
         }
       ],
-      "video_id": null
+      "video_id": "xINJD9fo6BM"
     },
     {
       "area": {
@@ -2516,7 +2516,14 @@
       "odds": {
         "msg": "Activate Odds-Package in User-Panel to retrieve odds."
       },
-      "referees": [],
+      "referees": [
+        {
+          "id": 129250,
+          "name": "Adham Makhadmeh",
+          "type": "REFEREE",
+          "nationality": "Jordan"
+        }
+      ],
       "video_id": null
     },
     {
