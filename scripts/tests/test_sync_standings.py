@@ -83,7 +83,7 @@ class TestWriteStandings(unittest.TestCase):
     def test_output_shape_matches_flutter_model(self):
         with tempfile.TemporaryDirectory() as tmp:
             path = write_standings("Premier League", "premier-league",
-                                   self._SAMPLE_ROWS, out_dir=tmp)
+                                   self._SAMPLE_ROWS, 2025, out_dir=tmp)
             with open(path, encoding="utf-8") as f:
                 data = json.load(f)
 
@@ -91,6 +91,7 @@ class TestWriteStandings(unittest.TestCase):
         self.assertIn("generated_at", data)
         self.assertEqual(data["competition"], "Premier League")
         self.assertEqual(data["slug"], "premier-league")
+        self.assertEqual(data["season"], 2025)
         self.assertIn("standings", data)
         self.assertEqual(len(data["standings"]), 1)
 
@@ -105,7 +106,7 @@ class TestWriteStandings(unittest.TestCase):
 
     def test_generated_at_ends_with_z(self):
         with tempfile.TemporaryDirectory() as tmp:
-            path = write_standings("Test", "test", [], out_dir=tmp)
+            path = write_standings("Test", "test", [], 2025, out_dir=tmp)
             with open(path, encoding="utf-8") as f:
                 data = json.load(f)
         self.assertTrue(data["generated_at"].endswith("Z"),
@@ -114,17 +115,17 @@ class TestWriteStandings(unittest.TestCase):
     def test_file_is_valid_json_after_write(self):
         with tempfile.TemporaryDirectory() as tmp:
             path = write_standings("Bundesliga", "bundesliga",
-                                   self._SAMPLE_ROWS, out_dir=tmp)
+                                   self._SAMPLE_ROWS, 2025, out_dir=tmp)
             with open(path, encoding="utf-8") as f:
                 data = json.load(f)  # should not raise
         self.assertIsInstance(data, dict)
 
     def test_creates_standings_subdirectory(self):
         with tempfile.TemporaryDirectory() as tmp:
-            write_standings("Serie A", "serie-a", [], out_dir=tmp)
+            write_standings("Serie A", "serie-a", [], 2025, out_dir=tmp)
             self.assertTrue(
-                os.path.isdir(os.path.join(tmp, "standings")),
-                "standings/ subdirectory must be created if absent",
+                os.path.isdir(os.path.join(tmp, "standings", "serie-a")),
+                "standings/{slug}/ subdirectory must be created if absent",
             )
 
 
