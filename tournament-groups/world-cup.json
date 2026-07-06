@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-06T19:16:55.781327Z",
+  "generated_at": "2026-07-06T21:12:04.167187Z",
   "slug": "world-cup",
   "standings": [
     {
@@ -2415,11 +2415,11 @@
       },
       "id": 537379,
       "utcDate": "2026-07-06T19:00:00Z",
-      "status": "LIVE",
+      "status": "FINISHED",
       "matchday": null,
       "stage": "LAST_16",
       "group": null,
-      "lastUpdated": "2026-07-06T19:16:06Z",
+      "lastUpdated": "2026-07-06T21:06:44Z",
       "homeTeam": {
         "id": 765,
         "name": "Portugal",
@@ -2435,15 +2435,15 @@
         "crest": "https://crests.football-data.org/760.svg"
       },
       "score": {
-        "winner": "DRAW",
+        "winner": "AWAY_TEAM",
         "duration": "REGULAR",
         "fullTime": {
           "home": 0,
-          "away": 0
+          "away": 1
         },
         "halfTime": {
-          "home": null,
-          "away": null
+          "home": 0,
+          "away": 0
         }
       },
       "odds": {
