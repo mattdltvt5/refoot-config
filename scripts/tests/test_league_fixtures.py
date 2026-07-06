@@ -182,6 +182,28 @@ class TestNormalizeArtifact:
         result = self.provider._normalize_artifact(matches, "Premier League", 2024)
         assert len(result) == 5
 
+    def test_match_id_equals_fd_id(self):
+        matches = [_make_match(537785, "FINISHED", ft_home=4, ft_away=2)]
+        result  = self.provider._normalize_artifact(matches, "Premier League", 2025)
+        assert result[0]["match_id"] == 537785
+
+    def test_match_id_same_value_as_highlights_path(self):
+        # Both _normalize_artifact and _normalize (highlights path) read m["id"] from
+        # the same raw FD match dict — verify they produce the same integer for a
+        # FINISHED match so the app's integer join is guaranteed to work.
+        matches  = [_make_match(999, "FINISHED", ft_home=1, ft_away=0)]
+        artifact = self.provider._normalize_artifact(matches, "Premier League", 2025)
+        hl       = self.provider._normalize(matches, "Premier League")
+        hl_ids   = [entry["match_id"] for entries in hl.values() for entry in entries]
+        assert artifact[0]["match_id"] == hl_ids[0]
+
+    def test_missing_id_emits_null_not_crash(self):
+        m = _make_match(100, "FINISHED", ft_home=1, ft_away=0)
+        del m["id"]
+        result = self.provider._normalize_artifact([m], "Premier League", 2025)
+        assert len(result) == 1
+        assert result[0]["match_id"] is None
+
 
 # ── _normalize (highlights path) tests ───────────────────────────────────────
 

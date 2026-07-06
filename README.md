@@ -4,6 +4,16 @@ Remote channel configuration for the **ReFoot Highlights** Android app.
 
 ## Recent changes
 
+### League fixtures carry match_id (2026-07-06)
+
+Each fixture in `fixtures/{slug}/{season}.json` now carries `"match_id"` — the Football-Data.org fixture ID (`m["id"]`). This is the same integer the highlights artifact (`highlights/{slug}/{season}/gameweek-N.json`) already stores as `match_id`. The app can now join a gameweek fixture to its highlight with an integer equality check (`fixture.matchId == highlight.matchId`) rather than a three-field string comparison, mirroring the knockout pattern where the match object carries its highlight reference directly.
+
+**Why:** The audit confirmed that `_normalize_artifact()` had `m["id"]` in scope but omitted it from the output dict. Adding it is a pure mapping addition — no new API calls, no new workflow, no change to which fixtures are written or when. A match with a missing FD `id` field emits `match_id: null` (treated by the app as not-joinable, no play button) rather than crashing the artifact.
+
+**Files changed:** `scripts/fixture_providers.py`  
+**Tests added:** three new assertions in `scripts/tests/test_league_fixtures.py` — `match_id` equals FD id, value is identical to the highlights-path `_normalize` output for the same match (cross-artifact join is sound), missing id emits null without crashing  
+**Total Python tests:** 237 passing
+
 ### Per-season file restructure (2026-07-06)
 
 Restructured all three data stores to per-season file paths — `{type}/{slug}/{season}.json` for fixtures and standings, `highlights/{slug}/{season}/{stem}.json` for highlights — so prior seasons are preserved when the new season starts in August.

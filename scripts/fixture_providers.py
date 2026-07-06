@@ -283,6 +283,7 @@ class FootballDataProvider(FixtureProvider):
             score   = m.get("score", {}) or {}
             ft      = score.get("fullTime", {}) or {}
             result.append({
+                "match_id":    m.get("id"),
                 "group":       "",
                 "matchday":    matchday,
                 "sourceRound": f"Gameweek {matchday}",
