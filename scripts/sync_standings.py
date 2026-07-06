@@ -51,20 +51,21 @@ def extract_total_table(standings_payload):
     ]
 
 
-def write_standings(comp_name, slug, rows, out_dir="."):
-    """Write standings/{slug}.json and return the path.
+def write_standings(comp_name, slug, rows, season, out_dir="."):
+    """Write standings/{slug}/{season}.json and return the path.
 
     Uses an atomic tmp→rename to avoid half-written files.
     rows is a flat list of FD table-row dicts (one per team).
     """
-    os.makedirs(os.path.join(out_dir, "standings"), exist_ok=True)
+    os.makedirs(os.path.join(out_dir, "standings", slug), exist_ok=True)
     data = {
         "generated_at": datetime.now(timezone.utc).isoformat().replace("+00:00", "Z"),
         "competition":  comp_name,
         "slug":         slug,
+        "season":       season,
         "standings":    rows,
     }
-    path = os.path.join(out_dir, "standings", f"{slug}.json")
+    path = os.path.join(out_dir, "standings", slug, f"{season}.json")
     tmp  = path + ".tmp"
     with open(tmp, "w", encoding="utf-8") as f:
         json.dump(data, f, indent=2, ensure_ascii=False)
@@ -83,7 +84,7 @@ def main(api_key, out_dir="."):
             rows = []
             for group in extract_total_table(payload):
                 rows.extend(group.get("table", []))
-            path = write_standings(comp_name, slug, rows, out_dir)
+            path = write_standings(comp_name, slug, rows, season, out_dir)
             print(f"✓ {comp_name}: {len(rows)} rows → {path}")
         except urllib.error.HTTPError as e:
             print(f"✗ {comp_name}: HTTP {e.code} — skipping", file=sys.stderr)

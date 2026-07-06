@@ -4,6 +4,32 @@ Remote channel configuration for the **ReFoot Highlights** Android app.
 
 ## Recent changes
 
+### Per-season file restructure (2026-07-06)
+
+Restructured all three data stores to per-season file paths — `{type}/{slug}/{season}.json` for fixtures and standings, `highlights/{slug}/{season}/{stem}.json` for highlights — so prior seasons are preserved when the new season starts in August.
+
+**Why:** with flat paths (`standings/premier-league.json`) the pipeline overwrites last season's data at the season rollover, which would break the app during the transition window. Per-season paths mean the current season's file is written without touching previous seasons.
+
+**Pipeline changes:**
+- `write_fixtures_artifacts()` now writes `fixtures/{slug}/{season}.json` (e.g. `fixtures/premier-league/2025.json`)
+- `write_standings()` now writes `standings/{slug}/{season}.json`; `season` is passed from `main()`
+- `gw_path()` now accepts a `season: int` parameter and writes to `highlights/{slug}/{season}/{stem}.json`
+- `generate_summary()` scans `highlights/{slug}/{season}/` using `season_for_competition(comp_name)` to determine the right season directory
+- Both `gw_path` callers (`fetch_highlights.py`, `backfill_highlights.py`) pass the season already in scope
+
+**App changes:**
+- `SeasonDateCalculator.currentSeasonYear(slug, now)` — new static method; August threshold for domestic/UCL/UEL slugs, cycle formula for summer tournaments (mirrors `season_for_competition()` in Python); all three cache services use it
+- `LeagueFixturesCacheService` — updated URL to `fixtures/{slug}/{season}.json`; `_staleMinutes` increased from 30 → 360 to match the ~4-hour pipeline cadence
+- `StandingsCacheService` — updated URL to `standings/{slug}/{season}.json`
+- `HighlightsCacheService` — updated URL to `highlights/{slug}/{season}/{stem}.json`; added `now` injection for clock control in tests
+
+**Migration (data already in place):**  
+Existing standings and highlights files were COPIED (not moved) to their per-season paths. Old flat paths remain until the app is verified against the new paths. Fixtures were NOT copied — the remote file had a stale `season: 2026` from before the threshold fix; the pipeline writes the correct `fixtures/{slug}/2025.json` on its next run.
+
+**Files changed:** `scripts/fetch_highlights.py`, `scripts/sync_standings.py`, `scripts/highlights_common.py`, `scripts/backfill_highlights.py`, `lib/services/season_date_calculator.dart`, `lib/services/league_fixtures_cache_service.dart`, `lib/services/standings_cache_service.dart`, `lib/services/highlights_cache_service.dart`  
+**Tests added:** `scripts/tests/test_per_season_paths.py` — 11 Python tests (per-season write paths, prior-season preservation, fixtures+standings agreement); `test/season_date_calculator_test.dart` — 14 Dart tests (August boundary, cycle logic for summer tournaments); per-season URL assertions added to `test/standings_cache_service_test.dart`, `test/highlights_cache_test.dart`, `test/gameweeks_tab_test.dart`  
+**Total Python tests:** 253 passing · **Total Dart tests:** 220 passing
+
 ### Season-selection consolidation (2026-07-06)
 
 Fixed a season-boundary bug that caused the Gameweeks tab to show the upcoming (2026-27) season while the Standings tab correctly showed the previous (2025-26) season.
@@ -40,8 +66,9 @@ Added a dedicated `fixtures/{slug}.json` artifact for all five domestic leagues 
 | `sources.json` | YouTube channel/playlist IDs for all tiers (read by the app at runtime) |
 | `admin.html` | Browser-based admin panel for managing `sources.json` |
 | `uicons/` | Flaticon UIcons Bold Rounded webfont (used by the admin panel) |
-| `highlights/` | Pre-built video metadata written by the fetch-highlights Action |
-| `fixtures/` | Per-league fixture artifacts (`{slug}.json`) — all match statuses, GroupMatch shape, written every 15 minutes |
+| `highlights/` | Pre-built video metadata written by the fetch-highlights Action (`{slug}/{season}/{stem}.json`) |
+| `fixtures/` | Per-league fixture artifacts (`{slug}/{season}.json`) — all match statuses, GroupMatch shape, written every ~4 hours |
+| `standings/` | Pre-built standings cache (`{slug}/{season}.json`) — written daily by sync-standings |
 | `scripts/season_utils.py` | Canonical `current_season(now=None)` — the shared August-boundary rule used by both the standings and fixtures pipelines |
 | `scripts/highlights_common.py` | Shared utilities, title filter constants, `is_highlight_title()`, `_normalize()`, `team_tokens()`, `DOMESTIC_LEAGUE_COMPS`, `TEAM_TITLE_ALIASES`, and `season_for_competition()` |
 | `scripts/fixture_providers.py` | Pluggable fixture provider layer — `FootballDataProvider` (all-status fetch with `_raw_cache`, `get_fixtures()`, `get_full_season()`, `_normalize_artifact()`), `ApiSportsProvider`, and `APISPORTS_COMPETITIONS` config registry |

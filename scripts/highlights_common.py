@@ -1426,8 +1426,8 @@ def gw_filename(comp_name: str, stem: str) -> str:
     return f"{stem}.json"
 
 
-def gw_path(comp_name: str, stem: str) -> Path:
-    return HIGHLIGHTS_DIR / COMPETITION_SLUG_MAP[comp_name] / f"{stem}.json"
+def gw_path(comp_name: str, stem: str, season: int) -> Path:
+    return HIGHLIGHTS_DIR / COMPETITION_SLUG_MAP[comp_name] / str(season) / f"{stem}.json"
 
 
 def is_same_tournament_edition(
@@ -2041,7 +2041,8 @@ def generate_summary() -> None:
     competitions: list[dict] = []
 
     for comp_name, slug in COMPETITION_SLUG_MAP.items():
-        comp_dir = HIGHLIGHTS_DIR / slug
+        season   = season_for_competition(comp_name)
+        comp_dir = HIGHLIGHTS_DIR / slug / str(season)
         if not comp_dir.exists():
             continue
 

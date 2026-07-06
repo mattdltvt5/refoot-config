@@ -458,7 +458,7 @@ def main() -> None:
                     continue
 
                 fixtures = by_stem[stem]
-                path     = gw_path(comp_name, stem)
+                path     = gw_path(comp_name, stem, comp_season)
                 existing = load_json_file(path)
 
                 # Detect new tournament edition for non-annual competitions

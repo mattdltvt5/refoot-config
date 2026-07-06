@@ -217,19 +217,19 @@ def fetch_all_fixtures(
 
 
 def write_fixtures_artifacts(artifacts: dict[str, list[dict]]) -> None:
-    """Write one fixtures/{slug}.json per domestic league."""
-    FIXTURES_DIR.mkdir(parents=True, exist_ok=True)
+    """Write one fixtures/{slug}/{season}.json per domestic league."""
     for comp_name, fixtures in artifacts.items():
         slug   = COMPETITION_SLUG_MAP[comp_name]
         season = season_for_competition(comp_name)
-        path   = FIXTURES_DIR / f"{slug}.json"
+        path   = FIXTURES_DIR / slug / f"{season}.json"
+        path.parent.mkdir(parents=True, exist_ok=True)
         write_json_atomic(path, {
             "competition":  comp_name,
             "season":       season,
             "generated_at": utc_now_iso(),
             "fixtures":     fixtures,
         })
-        log.info(f"Wrote fixtures artifact: fixtures/{slug}.json ({len(fixtures)} fixture(s))")
+        log.info(f"Wrote fixtures artifact: fixtures/{slug}/{season}.json ({len(fixtures)} fixture(s))")
 
 
 # ── Main ──────────────────────────────────────────────────────────────────────
@@ -329,8 +329,9 @@ def main() -> None:
     gw_playlist_cache: dict = {}  # shared across all fixtures to avoid redundant playlists.list calls
     try:
         for comp_name, by_stem in sorted(all_highlights.items()):
+            season = season_for_competition(comp_name)
             for stem, fixtures in sorted(by_stem.items()):
-                path     = gw_path(comp_name, stem)
+                path     = gw_path(comp_name, stem, season)
                 existing = load_json_file(path)
 
                 # Detect new tournament edition for non-annual competitions
