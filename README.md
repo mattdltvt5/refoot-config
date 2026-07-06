@@ -4,6 +4,26 @@ Remote channel configuration for the **ReFoot Highlights** Android app.
 
 ## Recent changes
 
+### Group-stage highlights grafted onto group matches (2026-07-06)
+
+Group-stage matches in every `tournament-groups/*.json` now carry `video_id` (the matched YouTube ID) and `match_id` (the FD/API-Sports fixture ID), mirroring the existing knockout graft. Three surfaces — Euro Cup, World Cup, and Copa América group stages — are covered by the same generic code path.
+
+**Confirmed: group fixtures were already being matched.** `stage_to_file_stem()` maps `GROUP_STAGE` → `matchday-{N}`, so `highlights/{slug}/{season}/matchday-1.json` etc. have been written by the highlights pipeline all along. The highlights data was present; the tournament cache just wasn't carrying the reference.
+
+**What changed:**
+- `build_group_matches()` now emits `match_id` (FD fixture ID) on each group match; `build_tournament_data()` wraps each group match with `video_id` from `existing_video_ids` — same pattern as knockout matches.
+- `read_existing_video_ids()` now also reads group-match `video_id` values from the existing file, so a matched highlight survives an FD cache rebuild without the graft needing to re-run.
+- `graft_video_ids()` now loops over `groupMatches[]` in addition to `matches[]`, looking up `matchday-{N}.json` files in the per-season highlights directory for each slug.
+- Fixed a latent bug introduced by the per-season restructure: `_lookup_video_id` and Copa's `_lookup_copa_video_id` were reading from the old flat `highlights/{slug}/{stem}.json` path; both now correctly read `highlights/{slug}/{season}/{stem}.json`.
+- `_read_video_from_stem()` — shared helper extracted to avoid duplicating the file-read logic between knockout and group lookups.
+- `normalize_group()` in `sync_copa_tournament.py` now emits `match_id` (API-Sports fixture ID) and `video_id: null` on each group match; `graft_video_ids()` (which already covers Copa) grafts the Copa group matches on each 4-hour run.
+
+**No new API calls.** The graft reads only local highlights files — the same `matchday-N.json` files already written by the incremental highlights pipeline.
+
+**Files changed:** `scripts/sync_tournaments.py`, `scripts/sync_copa_tournament.py`  
+**Tests added/updated:** 10 new tests in `test_sync_tournaments.py` (group-match graft, null-when-unmatched, non-regression, existing video_id preservation via round-trip); 3 new + 1 updated in `test_sync_copa_tournament.py` (match_id field, video_id field, Copa lookup path fix)  
+**Total Python tests:** 248 passing
+
 ### League fixtures carry match_id (2026-07-06)
 
 Each fixture in `fixtures/{slug}/{season}.json` now carries `"match_id"` — the Football-Data.org fixture ID (`m["id"]`). This is the same integer the highlights artifact (`highlights/{slug}/{season}/gameweek-N.json`) already stores as `match_id`. The app can now join a gameweek fixture to its highlight with an integer equality check (`fixture.matchId == highlight.matchId`) rather than a three-field string comparison, mirroring the knockout pattern where the match object carries its highlight reference directly.

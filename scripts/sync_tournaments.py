@@ -39,6 +39,8 @@ import urllib.error
 import urllib.request
 from datetime import datetime, timezone
 
+from highlights_common import season_for_competition, COMPETITION_SLUG_MAP
+
 FD_BASE = "https://api.football-data.org/v4"
 FD_SLEEP_SECONDS = 6  # pause between football-data.org requests (10 req/min free tier)
 
@@ -59,6 +61,10 @@ TOURNAMENT_COMPETITIONS = [
 KNOCKOUT_STAGES = {
     "LAST_32", "LAST_16", "QUARTER_FINALS", "SEMI_FINALS", "THIRD_PLACE", "FINAL",
 }
+
+# Reverse of COMPETITION_SLUG_MAP — used in graft_video_ids() to resolve
+# a tournament-groups slug back to a competition name for season lookup.
+_SLUG_TO_COMP_NAME: dict = {v: k for k, v in COMPETITION_SLUG_MAP.items()}
 
 
 # ── football-data.org fetch (urllib; base_url/season overridable for tests) ────
@@ -116,6 +122,7 @@ def build_group_matches(matches_payload):
         score = m.get("score", {}) or {}
         ft    = score.get("fullTime", {}) or {}
         group_matches.append({
+            "match_id":    m.get("id"),
             "group":       group_key,
             "matchday":    matchday,
             "sourceRound": f"Matchday {matchday}",
@@ -161,7 +168,10 @@ def build_tournament_data(slug, standings_payload, matches_payload,
             for m in matches_payload.get("matches", [])
             if m.get("stage") in KNOCKOUT_STAGES
         ],
-        "groupMatches": build_group_matches(matches_payload),
+        "groupMatches": [
+            {**gm, "video_id": existing_video_ids.get(gm.get("match_id"))}
+            for gm in build_group_matches(matches_payload)
+        ],
     }
 
 
@@ -180,6 +190,9 @@ def read_existing_video_ids(path):
         for m in prev.get("matches", []):
             if m.get("video_id") is not None:
                 result[m.get("id")] = m["video_id"]
+        for gm in prev.get("groupMatches", []):
+            if gm.get("video_id") is not None and gm.get("match_id") is not None:
+                result[gm.get("match_id")] = gm["video_id"]
     except Exception:
         pass
     return result
@@ -215,12 +228,11 @@ def _stage_stem(stage, matchday):
     return None
 
 
-def _lookup_video_id(slug, stage, matchday, match_id, out_dir="."):
-    """Find the first matched video_id for a knockout match in highlights/."""
-    stem = _stage_stem(stage, matchday)
-    if not stem or match_id is None:
+def _read_video_from_stem(slug, stem, match_id, season, out_dir="."):
+    """Return the first matched video_id in highlights/{slug}/{season}/{stem}.json."""
+    if match_id is None:
         return None
-    p = pathlib.Path(out_dir) / "highlights" / slug / f"{stem}.json"
+    p = pathlib.Path(out_dir) / "highlights" / slug / str(season) / f"{stem}.json"
     if not p.exists():
         return None
     try:
@@ -234,12 +246,28 @@ def _lookup_video_id(slug, stage, matchday, match_id, out_dir="."):
     return None
 
 
+def _lookup_video_id(slug, stage, matchday, match_id, season, out_dir="."):
+    """Find the first matched video_id for a knockout match in highlights/."""
+    stem = _stage_stem(stage, matchday)
+    if not stem:
+        return None
+    return _read_video_from_stem(slug, stem, match_id, season, out_dir)
+
+
+def _lookup_group_video_id(slug, matchday, match_id, season, out_dir="."):
+    """Find the first matched video_id for a group match in highlights/."""
+    if matchday is None:
+        return None
+    return _read_video_from_stem(slug, f"matchday-{matchday}", match_id, season, out_dir)
+
+
 def graft_video_ids(out_dir="."):
     """Graft matched video_ids into EVERY tournament-groups/*.json.
 
     Generic across all slugs — including copa-america, whose scores come from
     its own scheduled API-Sports job but whose video_ids are refreshed here.
     Reads only local files (highlights/), makes no API calls.
+    Grafts both knockout matches (matches[]) and group-stage matches (groupMatches[]).
     """
     tg_dir = pathlib.Path(out_dir) / "tournament-groups"
     if not tg_dir.exists():
@@ -247,6 +275,11 @@ def graft_video_ids(out_dir="."):
         return
     for tg_path in sorted(tg_dir.glob("*.json")):
         slug = tg_path.stem
+        comp_name = _SLUG_TO_COMP_NAME.get(slug)
+        if comp_name is None:
+            print(f"  {slug}: unknown slug — skipping video_id graft", file=sys.stderr)
+            continue
+        season = season_for_competition(comp_name)
         try:
             tg = json.loads(tg_path.read_text(encoding="utf-8"))
         except Exception as e:
@@ -258,10 +291,18 @@ def graft_video_ids(out_dir="."):
             if m.get("stage") not in KNOCKOUT_STAGES:
                 continue
             vid = _lookup_video_id(
-                slug, m.get("stage"), m.get("matchday"), m.get("id"), out_dir
+                slug, m.get("stage"), m.get("matchday"), m.get("id"), season, out_dir
             )
             if vid is not None and vid != m.get("video_id"):
                 m["video_id"] = vid
+                changed = True
+
+        for gm in tg.get("groupMatches", []):
+            vid = _lookup_group_video_id(
+                slug, gm.get("matchday"), gm.get("match_id"), season, out_dir
+            )
+            if vid is not None and vid != gm.get("video_id"):
+                gm["video_id"] = vid
                 changed = True
 
         if changed:

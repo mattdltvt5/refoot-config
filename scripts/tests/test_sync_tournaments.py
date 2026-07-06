@@ -252,6 +252,19 @@ class TestVideoIdGraftIntoBuild(unittest.TestCase):
         )
         self.assertIsNone(data["matches"][0]["video_id"])
 
+    def test_group_match_video_id_null_by_default(self):
+        data = build_tournament_data(
+            "world-cup", {}, _matches_payload(_MATCH_GROUP)
+        )
+        self.assertIsNone(data["groupMatches"][0]["video_id"])
+
+    def test_group_match_existing_video_id_preserved(self):
+        data = build_tournament_data(
+            "world-cup", {}, _matches_payload(_MATCH_GROUP),
+            existing_video_ids={600001: "PREV_VID"},
+        )
+        self.assertEqual(data["groupMatches"][0]["video_id"], "PREV_VID")
+
 
 # ── group matches ───────────────────────────────────────────────────────────────
 
@@ -265,6 +278,15 @@ class TestBuildGroupMatches(unittest.TestCase):
         self.assertEqual(gm["matchday"], 1)
         self.assertEqual(gm["score"]["fullTime"], {"home": 2, "away": 0})
         self.assertEqual(gm["status"], "FINISHED")
+
+    def test_group_match_has_match_id(self):
+        gms = build_group_matches(_matches_payload(_MATCH_GROUP))
+        self.assertEqual(gms[0]["match_id"], 600001)
+
+    def test_group_match_missing_fd_id_emits_null_match_id(self):
+        no_id = {k: v for k, v in _MATCH_GROUP.items() if k != "id"}
+        gms = build_group_matches(_matches_payload(no_id))
+        self.assertIsNone(gms[0]["match_id"])
 
     def test_knockout_excluded_from_group_matches(self):
         self.assertEqual(build_group_matches(_matches_payload(_MATCH_REGULAR)), [])
@@ -336,11 +358,22 @@ class TestWriteReadGraft(unittest.TestCase):
             got = read_existing_video_ids(path)
             self.assertEqual(got, {537417: "vidABC"})
 
+    def test_read_existing_video_ids_preserves_group_match_video_id(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            data = build_tournament_data(
+                "world-cup", {}, _matches_payload(_MATCH_GROUP),
+                existing_video_ids={600001: "GROUP_PREV"},
+            )
+            path = write_tournament("world-cup", data, out_dir=tmp)
+            got = read_existing_video_ids(path)
+            self.assertIn(600001, got)
+            self.assertEqual(got[600001], "GROUP_PREV")
+
     def test_read_existing_video_ids_missing_file(self):
         self.assertEqual(read_existing_video_ids("/no/such/file.json"), {})
 
-    def _write_highlights(self, tmp, slug, stem, entries):
-        d = os.path.join(tmp, "highlights", slug)
+    def _write_highlights(self, tmp, slug, season, stem, entries):
+        d = os.path.join(tmp, "highlights", slug, str(season))
         os.makedirs(d, exist_ok=True)
         with open(os.path.join(d, f"{stem}.json"), "w", encoding="utf-8") as f:
             json.dump({"matches": entries}, f)
@@ -351,9 +384,9 @@ class TestWriteReadGraft(unittest.TestCase):
                 "world-cup", {}, _matches_payload(_MATCH_REGULAR)
             )
             write_tournament("world-cup", data, out_dir=tmp)
-            # LAST_32 → round-of-32.json ; match_id 537417 has a matched video.
+            # LAST_32 → round-of-32.json; World Cup season=2026.
             self._write_highlights(
-                tmp, "world-cup", "round-of-32",
+                tmp, "world-cup", 2026, "round-of-32",
                 [{"match_id": 537417, "videos": [{"video_id": "GRAFTED99"}]}],
             )
             graft_video_ids(out_dir=tmp)
@@ -388,8 +421,9 @@ class TestWriteReadGraft(unittest.TestCase):
                 "w", encoding="utf-8",
             ) as f:
                 json.dump(copa_cache, f)
+            # Copa America season=2024 (cycle anchor 2024, period 4).
             self._write_highlights(
-                tmp, "copa-america", "quarter-final",
+                tmp, "copa-america", 2024, "quarter-final",
                 [{"match_id": 700001, "videos": [{"video_id": "COPAVID1"}]}],
             )
             graft_video_ids(out_dir=tmp)
@@ -403,6 +437,66 @@ class TestWriteReadGraft(unittest.TestCase):
             # Scores untouched — API-Sports schema preserved, no FD fields forced.
             self.assertEqual(m["score"], copa_match["score"])
             self.assertNotIn("status", m)
+
+    def test_graft_sets_video_id_on_group_match(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            data = build_tournament_data(
+                "world-cup", {}, _matches_payload(_MATCH_GROUP)
+            )
+            write_tournament("world-cup", data, out_dir=tmp)
+            # GROUP_STAGE matchday=1 → matchday-1.json; World Cup season=2026.
+            self._write_highlights(
+                tmp, "world-cup", 2026, "matchday-1",
+                [{"match_id": 600001, "videos": [{"video_id": "GROUPVID1"}]}],
+            )
+            graft_video_ids(out_dir=tmp)
+            with open(
+                os.path.join(tmp, "tournament-groups", "world-cup.json"),
+                encoding="utf-8",
+            ) as f:
+                reloaded = json.load(f)
+            gm = reloaded["groupMatches"][0]
+            self.assertEqual(gm["video_id"], "GROUPVID1")
+
+    def test_group_match_without_highlight_stays_null(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            data = build_tournament_data(
+                "world-cup", {}, _matches_payload(_MATCH_GROUP)
+            )
+            write_tournament("world-cup", data, out_dir=tmp)
+            # No highlights file written → video_id stays null.
+            graft_video_ids(out_dir=tmp)
+            with open(
+                os.path.join(tmp, "tournament-groups", "world-cup.json"),
+                encoding="utf-8",
+            ) as f:
+                reloaded = json.load(f)
+            self.assertIsNone(reloaded["groupMatches"][0]["video_id"])
+
+    def test_knockout_graft_non_regression_with_group_present(self):
+        # Both a group match and a knockout match — graft must handle both;
+        # knockout video_id is unaffected by the new group-match graft path.
+        with tempfile.TemporaryDirectory() as tmp:
+            data = build_tournament_data(
+                "world-cup", {}, _matches_payload(_MATCH_REGULAR, _MATCH_GROUP)
+            )
+            write_tournament("world-cup", data, out_dir=tmp)
+            self._write_highlights(
+                tmp, "world-cup", 2026, "round-of-32",
+                [{"match_id": 537417, "videos": [{"video_id": "KO_VID"}]}],
+            )
+            self._write_highlights(
+                tmp, "world-cup", 2026, "matchday-1",
+                [{"match_id": 600001, "videos": [{"video_id": "GRP_VID"}]}],
+            )
+            graft_video_ids(out_dir=tmp)
+            with open(
+                os.path.join(tmp, "tournament-groups", "world-cup.json"),
+                encoding="utf-8",
+            ) as f:
+                reloaded = json.load(f)
+            self.assertEqual(reloaded["matches"][0]["video_id"], "KO_VID")
+            self.assertEqual(reloaded["groupMatches"][0]["video_id"], "GRP_VID")
 
 
 # ── Workflow consolidation (no double-write) ────────────────────────────────────

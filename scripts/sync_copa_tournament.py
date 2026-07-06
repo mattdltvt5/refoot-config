@@ -33,6 +33,7 @@ from fixture_providers import (
 )
 from highlights_common import (
     REPO_ROOT,
+    season_for_competition,
     utc_now_iso,
     write_json_atomic,
 )
@@ -56,8 +57,9 @@ def _lookup_copa_video_id(match_id) -> "str | None":
     """Return a YouTube video_id for match_id from the Copa highlights files."""
     if match_id is None:
         return None
+    season = season_for_competition("Copa America")
     for stage, stem in _COPA_STAGE_STEMS.items():
-        path = REPO_ROOT / "highlights" / SLUG / f"{stem}.json"
+        path = REPO_ROOT / "highlights" / SLUG / str(season) / f"{stem}.json"
         if not path.exists():
             continue
         try:
@@ -203,23 +205,25 @@ def normalize_group(body: dict, team_group_map: dict) -> list:
         if matchday is None:
             continue  # round label not recognised as group-stage — skip silently
 
-        teams   = fix.get("teams", {})
-        home    = teams.get("home", {})
-        away    = teams.get("away", {})
-        score   = fix.get("score", {})
-        ft      = score.get("fulltime", {})  # API-Sports: lowercase key
+        teams      = fix.get("teams", {})
+        home       = teams.get("home", {})
+        away       = teams.get("away", {})
+        score      = fix.get("score", {})
+        ft         = score.get("fulltime", {})  # API-Sports: lowercase key
+        fixture    = fix.get("fixture", {})
 
-        home_id = home.get("id")
-        away_id = away.get("id")
+        home_id    = home.get("id")
+        away_id    = away.get("id")
+        fixture_id = fixture.get("id")
 
         # Derive group from standings map; fall back to "" if team not found.
         group = team_group_map.get(home_id) or team_group_map.get(away_id) or ""
 
-        status = (
-            fix.get("fixture", {}).get("status", {}).get("short", "")
-        )
+        status = fixture.get("status", {}).get("short", "")
 
         matches.append({
+            "match_id":    fixture_id,
+            "video_id":    None,
             "group":       group,
             "matchday":    matchday,
             "sourceRound": league_round,

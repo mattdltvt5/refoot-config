@@ -458,7 +458,7 @@ class TestWriteTournament(unittest.TestCase):
 
     def test_group_matches_have_required_fields(self):
         match = self._run()["groupMatches"][0]
-        for field in ("group", "matchday", "sourceRound",
+        for field in ("match_id", "video_id", "group", "matchday", "sourceRound",
                       "homeTeam", "awayTeam", "score", "status"):
             self.assertIn(field, match, f"groupMatch missing field {field!r}")
         self.assertIn("fullTime", match["score"])
@@ -490,9 +490,12 @@ class TestLookupCopaVideoId(unittest.TestCase):
     We patch REPO_ROOT to a temp directory so tests are hermetic.
     """
 
+    # Copa América 2024 — the season _lookup_copa_video_id resolves via cycle formula.
+    _SEASON = 2024
+
     def setUp(self):
         self.tmp = Path(tempfile.mkdtemp())
-        hl_dir = self.tmp / "highlights" / SLUG
+        hl_dir = self.tmp / "highlights" / SLUG / str(self._SEASON)
         hl_dir.mkdir(parents=True)
         self.hl_dir = hl_dir
 
@@ -577,6 +580,32 @@ class TestLookupCopaVideoId(unittest.TestCase):
         )
         with patch("sync_copa_tournament.REPO_ROOT", self.tmp):
             self.assertIsNone(_lookup_copa_video_id(1010))
+
+
+# ── TestNormalizeGroupMatchId ────────────────────────────────────────────────
+
+
+class TestNormalizeGroupMatchId(unittest.TestCase):
+    """normalize_group() must carry the API-Sports fixture ID as match_id."""
+
+    def _map(self):
+        return _build_team_group_map(normalize_standings(_standings_body()))
+
+    def test_group_match_has_match_id(self):
+        matches = normalize_group(_fixtures_body(), self._map())
+        self.assertEqual(len(matches), 1)
+        self.assertEqual(matches[0]["match_id"], 1001)
+
+    def test_group_match_has_video_id_null(self):
+        matches = normalize_group(_fixtures_body(), self._map())
+        self.assertIn("video_id", matches[0])
+        self.assertIsNone(matches[0]["video_id"])
+
+    def test_multiple_matchdays_each_carry_match_id(self):
+        matches = normalize_group(_fixtures_body_with_groups(), self._map())
+        ids = {m["match_id"] for m in matches}
+        self.assertIn(1001, ids)
+        self.assertIn(1002, ids)
 
 
 if __name__ == "__main__":
