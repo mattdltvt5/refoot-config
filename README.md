@@ -4,6 +4,20 @@ Remote channel configuration for the **ReFoot Highlights** Android app.
 
 ## Recent changes
 
+### Season-selection consolidation (2026-07-06)
+
+Fixed a season-boundary bug that caused the Gameweeks tab to show the upcoming (2026-27) season while the Standings tab correctly showed the previous (2025-26) season.
+
+**Root cause:** two separate `current_season()` implementations with different thresholds. `sync_standings.py` used August (month ≥ 8 → new season), which is correct. `highlights_common.py` used July (month ≥ 7), which returned 2026 in July 2026 and caused the fixtures pipeline to query the registered-but-not-started 2026-27 season instead of the completed 2025-26 season.
+
+**Fix:** extracted a single canonical `current_season(now=None)` into `scripts/season_utils.py` (stdlib-only, no external deps). Both `sync_standings.py` and `highlights_common.py` now import from it — neither defines its own implementation. The August boundary rule is the same as the app's `SeasonDateCalculator._leagueSeasonStart` (Dart); the rule and its location are cross-referenced in both files. No backfill is needed: the next pipeline run calls `get_full_season(code, comp, 2025)`, which fetches the completed 2025-26 season from FD, and overwrites the artifact.
+
+**The canonical rule:** `month < 8` → previous season year; `month ≥ 8` → current year. This keeps fixtures and standings on the same season from now through July 31; both roll to the new season on August 1.
+
+**Files changed:** `scripts/season_utils.py` (new), `scripts/highlights_common.py`, `scripts/sync_standings.py`, `lib/services/season_date_calculator.dart` (comment only)  
+**Tests added:** `scripts/tests/test_season_utils.py` — 31 tests covering the August boundary, all 5 domestic leagues + UCL/UEL, summer tournaments unchanged, and a consolidation identity check (`sync_standings.current_season is season_utils.current_season`)  
+**Total Python tests:** 222 passing
+
 ### League fixtures artifact (2026-07-05)
 
 Added a dedicated `fixtures/{slug}.json` artifact for all five domestic leagues (Premier League, LaLiga, Serie A, Bundesliga, Ligue 1). Each file carries every fixture for the current season — scheduled, in-play, and finished — with score, status, gameweek, and team crest URLs in a shape that `GroupMatch.fromJson` consumes unchanged.
@@ -28,7 +42,8 @@ Added a dedicated `fixtures/{slug}.json` artifact for all five domestic leagues 
 | `uicons/` | Flaticon UIcons Bold Rounded webfont (used by the admin panel) |
 | `highlights/` | Pre-built video metadata written by the fetch-highlights Action |
 | `fixtures/` | Per-league fixture artifacts (`{slug}.json`) — all match statuses, GroupMatch shape, written every 15 minutes |
-| `scripts/highlights_common.py` | Shared utilities, title filter constants, `is_highlight_title()`, `_normalize()`, `team_tokens()`, `DOMESTIC_LEAGUE_COMPS`, and `TEAM_TITLE_ALIASES` |
+| `scripts/season_utils.py` | Canonical `current_season(now=None)` — the shared August-boundary rule used by both the standings and fixtures pipelines |
+| `scripts/highlights_common.py` | Shared utilities, title filter constants, `is_highlight_title()`, `_normalize()`, `team_tokens()`, `DOMESTIC_LEAGUE_COMPS`, `TEAM_TITLE_ALIASES`, and `season_for_competition()` |
 | `scripts/fixture_providers.py` | Pluggable fixture provider layer — `FootballDataProvider` (all-status fetch with `_raw_cache`, `get_fixtures()`, `get_full_season()`, `_normalize_artifact()`), `ApiSportsProvider`, and `APISPORTS_COMPETITIONS` config registry |
 | `scripts/fetch_highlights.py` | Incremental update script (runs every 15 minutes) |
 | `scripts/backfill_highlights.py` | Full-season backfill script (manual trigger only) |

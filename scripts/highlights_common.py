@@ -18,6 +18,8 @@ from pathlib import Path
 
 import requests
 
+from season_utils import current_season  # canonical August-threshold rule
+
 # ── Logging ───────────────────────────────────────────────────────────────────
 
 logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
@@ -1107,28 +1109,24 @@ SUMMER_TOURNAMENT_CYCLE: dict[str, tuple[int, int]] = {
 }
 
 
-def current_season() -> int:
-    """Return the current domestic football season start year (e.g. 2025 for 2025-26)."""
-    now = datetime.now(timezone.utc)
-    return now.year if now.month >= 7 else now.year - 1
+def season_for_competition(comp_name: str, now=None) -> int:
+    """Return the football-data.org season year to query for a given competition.
 
+    Domestic leagues and UCL/UEL delegate to current_season() from season_utils
+    (the canonical August-threshold rule).  Summer tournaments use
+    SUMMER_TOURNAMENT_CYCLE to return the most recent edition year <= today.
 
-def season_for_competition(comp_name: str) -> int:
-    """
-    Return the football-data.org season year to query for a given competition.
-
-    Domestic leagues and UCL/UEL use the August–July convention handled by
-    ``current_season()``.  Summer tournaments run in calendar years and use
-    SUMMER_TOURNAMENT_CYCLE to return the most recent edition year <= today,
-    so the previous tournament is shown until the next one begins.
+    now is injectable for unit tests; defaults to UTC today.
     """
     if comp_name not in SUMMER_TOURNAMENT_COMPS:
-        return current_season()
+        return current_season(now)
+    if now is None:
+        now = datetime.now(timezone.utc)
     cycle = SUMMER_TOURNAMENT_CYCLE.get(comp_name)
     if cycle is None:
-        return datetime.now(timezone.utc).year
+        return now.year
     anchor, period = cycle
-    current_year = datetime.now(timezone.utc).year
+    current_year = now.year
     completed = (current_year - anchor) // period
     return anchor + completed * period
 

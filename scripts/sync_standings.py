@@ -12,20 +12,9 @@ TTL in the Flutter app: 2 days (StandingsCacheService._staleDays = 2).
 import json, os, sys, time, urllib.request, urllib.error
 from datetime import datetime, timezone
 
+from season_utils import current_season  # canonical August-threshold rule (shared with fixtures pipeline)
+
 FD_BASE = "https://api.football-data.org/v4"
-
-
-def current_season(now=None):
-    """Return the FD season start year for today's date.
-
-    FD season keys use the start year (2025 = 2025-26).
-    Domestic leagues start in August, so before August the current season
-    started the previous year.
-    now is injectable for unit tests; defaults to UTC today.
-    """
-    if now is None:
-        now = datetime.now(timezone.utc)
-    return now.year - 1 if now.month < 8 else now.year
 
 
 # Competitions that get a standings file. Each entry is (FD id, display name, slug).
