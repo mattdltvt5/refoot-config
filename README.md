@@ -2,6 +2,23 @@
 
 Remote channel configuration for the **ReFoot Highlights** Android app.
 
+## Recent changes
+
+### League fixtures artifact (2026-07-05)
+
+Added a dedicated `fixtures/{slug}.json` artifact for all five domestic leagues (Premier League, LaLiga, Serie A, Bundesliga, Ligue 1). Each file carries every fixture for the current season — scheduled, in-play, and finished — with score, status, gameweek, and team crest URLs in a shape that `GroupMatch.fromJson` consumes unchanged.
+
+**How it works:**
+- `FootballDataProvider` now fetches all match statuses (no `status=FINISHED` filter) and caches the raw FD response per `(code, season)`.
+- `get_fixtures()` (highlights path) filters to `FINISHED` only — unchanged behaviour for `is_gameweek_complete()`.
+- `get_full_season()` (artifact path) uses the cached response to produce a flat list of GroupMatch-compatible dicts; zero extra FD calls.
+- `fetch_highlights.py` calls `write_fixtures_artifacts()` before the YouTube quota guard, so artifacts stay current even when the YouTube daily budget is spent.
+- The `fetch-highlights.yml` workflow's `git add` step now includes `fixtures/`.
+
+**Files changed:** `scripts/fixture_providers.py`, `scripts/fetch_highlights.py`, `scripts/highlights_common.py`, `.github/workflows/fetch-highlights.yml`  
+**Tests added:** `scripts/tests/test_league_fixtures.py` — 33 tests covering artifact shape, highlights-path FINISHED filter, no-double-fetch cache, and `DOMESTIC_LEAGUE_COMPS` membership  
+**Total Python tests:** 192 passing
+
 ## Files
 
 | File | Purpose |
@@ -10,8 +27,9 @@ Remote channel configuration for the **ReFoot Highlights** Android app.
 | `admin.html` | Browser-based admin panel for managing `sources.json` |
 | `uicons/` | Flaticon UIcons Bold Rounded webfont (used by the admin panel) |
 | `highlights/` | Pre-built video metadata written by the fetch-highlights Action |
-| `scripts/highlights_common.py` | Shared utilities, title filter constants, `is_highlight_title()`, `_normalize()`, `team_tokens()`, and `TEAM_TITLE_ALIASES` |
-| `scripts/fixture_providers.py` | Pluggable fixture provider layer — `FootballDataProvider` (football-data.org), `ApiSportsProvider` (API-Sports free tier), `ApisportsQuotaTracker`, and `APISPORTS_COMPETITIONS` config registry |
+| `fixtures/` | Per-league fixture artifacts (`{slug}.json`) — all match statuses, GroupMatch shape, written every 15 minutes |
+| `scripts/highlights_common.py` | Shared utilities, title filter constants, `is_highlight_title()`, `_normalize()`, `team_tokens()`, `DOMESTIC_LEAGUE_COMPS`, and `TEAM_TITLE_ALIASES` |
+| `scripts/fixture_providers.py` | Pluggable fixture provider layer — `FootballDataProvider` (all-status fetch with `_raw_cache`, `get_fixtures()`, `get_full_season()`, `_normalize_artifact()`), `ApiSportsProvider`, and `APISPORTS_COMPETITIONS` config registry |
 | `scripts/fetch_highlights.py` | Incremental update script (runs every 15 minutes) |
 | `scripts/backfill_highlights.py` | Full-season backfill script (manual trigger only) |
 | `scripts/backfill_copa_america.py` | Copa America 2024 backfill script — fetches fixtures from API-Sports, finds highlights on YouTube (manual trigger only) |
