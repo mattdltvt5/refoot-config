@@ -28,6 +28,7 @@ log = logging.getLogger(__name__)
 REPO_ROOT              = Path(__file__).resolve().parent.parent
 SOURCES_JSON           = REPO_ROOT / "sources.json"
 HIGHLIGHTS_DIR         = REPO_ROOT / "highlights"
+FIXTURES_DIR           = REPO_ROOT / "fixtures"
 QUOTA_TRACKER_PATH     = HIGHLIGHTS_DIR / "quota-tracker.json"
 PLAYLIST_OWNERS_PATH   = HIGHLIGHTS_DIR / "playlist-owners.json"
 BACKFILL_PROGRESS_PATH = HIGHLIGHTS_DIR / "backfill-progress.json"
@@ -82,6 +83,12 @@ COMPETITION_SLUG_MAP: dict[str, str] = {
 
 # UCL/UEL use "matchday-N.json"; domestic leagues use "gameweek-N.json"
 UCL_UEL: set[str] = {"Champions League", "Europa League"}
+
+# The five domestic leagues that get a dedicated fixtures/{slug}.json artifact.
+# Excludes UCL, UEL, and summer tournaments (those use tournament-groups/ files).
+DOMESTIC_LEAGUE_COMPS: set[str] = {
+    "Premier League", "LaLiga", "Serie A", "Bundesliga", "Ligue 1",
+}
 
 # Competitions with two-legged knockout rounds
 TWO_LEGGED_COMPS: set[str] = {"Champions League", "Europa League"}

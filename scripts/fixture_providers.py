@@ -108,47 +108,87 @@ class FixtureProvider:
 
 class FootballDataProvider(FixtureProvider):
     """
-    Fetches FINISHED fixtures from football-data.org for one competition/season.
+    Fetches fixtures from football-data.org for one competition/season.
 
-    Produces the same fixture dict shape as the inline normalization loops that
-    previously lived in fetch_highlights.py and backfill_highlights.py --
-    behaviour is byte-identical.
+    The FD request fetches ALL match statuses (no status=FINISHED filter) so a
+    single request can serve both:
+      - get_fixtures()     → highlights path, FINISHED only, grouped by file stem
+      - get_full_season()  → fixtures-artifact path, all statuses, GroupMatch shape
+
+    The raw FD response is cached in _raw_cache per (code, season) so both callers
+    share one HTTP request -- no double-fetch.
+
+    Produces the same fixture dict shape as before for get_fixtures(); the new
+    get_full_season() / _normalize_artifact() produces the GroupMatch-compatible
+    shape used by the fixtures/{slug}.json artifact.
     """
 
     def __init__(self, fd_key: str) -> None:
-        self._fd_key = fd_key
+        self._fd_key    = fd_key
+        self._raw_cache: dict[tuple, list] = {}  # (code, season) → raw match list
 
-    def get_fixtures(self, code: str, comp_name: str, season: int) -> dict:
+    # ── Internal: single FD request, cached ──────────────────────────────────
+
+    def _fetch_raw(self, code: str, season: int) -> list:
         """
-        Returns {file_stem: [fixture_dict, ...]} or {} on any error.
-        Callers are responsible for pre-request throttling (FD_SLEEP_SECONDS).
+        Fetch all matches for one competition/season from FD (no status filter).
+
+        Caches the result in _raw_cache so get_fixtures() and get_full_season()
+        share one HTTP request when called with the same (code, season).
+        Returns [] on any fetch error.  Callers handle throttling externally.
         """
+        key = (code, season)
+        if key in self._raw_cache:
+            return self._raw_cache[key]
         try:
             resp = fd_get(
                 f"{FD_BASE}/competitions/{code}/matches",
                 self._fd_key,
-                {"status": "FINISHED", "season": str(season)},
+                {"season": str(season)},   # no status= filter → all statuses
             )
         except SystemExit:
             raise
         except Exception as exc:
             log.warning(f"Network error fetching {code}: {exc}")
-            return {}
-
+            self._raw_cache[key] = []
+            return []
         if resp.status_code == 404:
             log.warning(
                 f"Competition {code} season {season} not found (404) -- skipping"
             )
-            return {}
+            self._raw_cache[key] = []
+            return []
         if not resp.ok:
             log.warning(
                 f"football-data.org HTTP {resp.status_code} for {code} -- skipping"
             )
-            return {}
+            self._raw_cache[key] = []
+            return []
+        self._raw_cache[key] = resp.json().get("matches", [])
+        return self._raw_cache[key]
 
-        return self._normalize(resp.json().get("matches", []), comp_name)
+    # ── Highlights path ───────────────────────────────────────────────────────
+
+    def get_fixtures(self, code: str, comp_name: str, season: int) -> dict:
+        """
+        Returns {file_stem: [fixture_dict, ...]} for FINISHED matches only.
+        Callers are responsible for pre-request throttling (FD_SLEEP_SECONDS).
+        Uses the cached raw response — no additional FD call if get_full_season()
+        was already called for the same (code, season).
+        """
+        raw = self._fetch_raw(code, season)
+        if not raw:
+            return {}
+        return self._normalize(raw, comp_name)
 
     def _normalize(self, matches: list, comp_name: str) -> dict:
+        # Only FINISHED matches contribute to highlights (SCHEDULED/IN_PLAY
+        # matches have no highlights yet; POSTPONED/CANCELLED never will).
+        # Pre-scan and main loop both skip non-FINISHED to keep is_gameweek_complete
+        # working correctly: if SCHEDULED fixtures were included, a gameweek would
+        # never be complete (SCHEDULED matches never get a video) → every run would
+        # re-search YouTube for it.
+        #
         # FD sometimes returns the same match twice for stage-aware competitions
         # (UCL/UEL): once with the correct knockout stage and once with
         # LEAGUE_STAGE + leg-number as matchday.  Pre-scan to identify match IDs
@@ -156,6 +196,8 @@ class FootballDataProvider(FixtureProvider):
         # routing for those IDs.
         knockout_ids: set[int] = set()
         for m in matches:
+            if m.get("status") != "FINISHED":
+                continue
             stage    = m.get("stage", "")
             matchday = m.get("matchday")
             if stage not in ("LEAGUE_STAGE", "GROUP_STAGE"):
@@ -164,6 +206,8 @@ class FootballDataProvider(FixtureProvider):
 
         by_stem: dict = {}
         for m in matches:
+            if m.get("status") != "FINISHED":   # highlights only for finished matches
+                continue
             matchday = m.get("matchday")
             stage    = m.get("stage", "")
             utc_str  = m.get("utcDate", "")
@@ -201,6 +245,77 @@ class FootballDataProvider(FixtureProvider):
             f"{comp_name}: {total} finished fixture(s) across {len(by_stem)} file stem(s)"
         )
         return by_stem
+
+    # ── Fixtures-artifact path ────────────────────────────────────────────────
+
+    def get_full_season(self, code: str, comp_name: str, season: int) -> list[dict]:
+        """
+        Returns a flat list of GroupMatch-compatible dicts for ALL match statuses
+        (scheduled, in-play, finished) for the given domestic-league competition.
+
+        Shape matches tournament-groups/ groupMatches:
+            {group, matchday, sourceRound, homeTeam{id,name,shortName,tla,crest},
+             awayTeam{...}, score{fullTime{home,away}}, status, utcDate}
+
+        The Flutter app's GroupMatch.fromJson reads homeTeam['crest'] and
+        score['fullTime']['home'/'away'], so this shape is consumed unchanged.
+        null scores are used for SCHEDULED/TIMED/IN_PLAY matches (no score yet).
+
+        Uses the cached raw response — no additional FD call if get_fixtures() was
+        already called for the same (code, season).
+        """
+        raw = self._fetch_raw(code, season)
+        if not raw:
+            return []
+        return self._normalize_artifact(raw, comp_name, season)
+
+    def _normalize_artifact(self, matches: list, comp_name: str, season: int) -> list[dict]:
+        """Produce GroupMatch-compatible dicts for all match statuses."""
+        result = []
+        for m in matches:
+            matchday = m.get("matchday")
+            if matchday is None:
+                continue
+            utc_str = m.get("utcDate", "")
+            status  = m.get("status", "")
+            home    = m.get("homeTeam", {}) or {}
+            away    = m.get("awayTeam", {}) or {}
+            score   = m.get("score", {}) or {}
+            ft      = score.get("fullTime", {}) or {}
+            result.append({
+                "group":       "",
+                "matchday":    matchday,
+                "sourceRound": f"Gameweek {matchday}",
+                "homeTeam": {
+                    "id":        home.get("id"),
+                    "name":      home.get("name", ""),
+                    "shortName": home.get("shortName") or home.get("name", ""),
+                    "tla":       home.get("tla", ""),
+                    "crest":     home.get("crest", ""),
+                },
+                "awayTeam": {
+                    "id":        away.get("id"),
+                    "name":      away.get("name", ""),
+                    "shortName": away.get("shortName") or away.get("name", ""),
+                    "tla":       away.get("tla", ""),
+                    "crest":     away.get("crest", ""),
+                },
+                "score": {
+                    "fullTime": {
+                        "home": ft.get("home"),   # None when unplayed
+                        "away": ft.get("away"),
+                    }
+                },
+                "status":  status,
+                "utcDate": utc_str,
+            })
+        result.sort(key=lambda x: (x["matchday"], x.get("utcDate", "")))
+        finished = sum(1 for r in result if r["status"] == "FINISHED")
+        log.info(
+            f"{comp_name}: {len(result)} fixture(s) for season {season} artifact "
+            f"({finished} FINISHED, {len(result) - finished} non-finished)"
+        )
+        return result
 
 
 # ── ApiSportsProvider ─────────────────────────────────────────────────────────

@@ -34,7 +34,10 @@ from datetime import datetime, timezone
 from highlights_common import (
     BACKFILL_LOCK_PATH,
     COMPETITION_CODE_MAP,
+    COMPETITION_SLUG_MAP,
+    DOMESTIC_LEAGUE_COMPS,
     FD_BASE,
+    FIXTURES_DIR,
     HIGHLIGHTS_DIR,
     FD_SLEEP_SECONDS,
     INCREMENTAL_CAP,
@@ -53,6 +56,7 @@ from highlights_common import (
     resolve_videos_for_fixture,
     stage_to_file_stem,
     team_tokens,
+    utc_now_iso,
     write_json_atomic,
 )
 from fixture_providers import FootballDataProvider
@@ -173,20 +177,27 @@ def _emit_debug_block(
 # ── Fixture fetching ──────────────────────────────────────────────────────────
 
 
-def fetch_all_fixtures(fd_key: str) -> dict[str, dict[str, list[dict]]]:
+def fetch_all_fixtures(
+    fd_key: str,
+) -> tuple[dict[str, dict[str, list[dict]]], dict[str, list[dict]]]:
     """
-    Fetch all FINISHED fixtures across every configured competition via FootballDataProvider.
+    Fetch fixtures across every configured competition via FootballDataProvider.
 
     Each competition uses its own season year via season_for_competition(): domestic
     leagues / UCL / UEL follow the August-July convention; summer tournaments (World Cup,
     Euro Cup) use the current calendar year.
 
     Sleeps FD_SLEEP_SECONDS between requests to respect football-data.org's 10 req/min limit.
+    The raw FD response is cached inside FootballDataProvider, so get_fixtures() and
+    get_full_season() share one HTTP request per competition — no double-fetch.
 
-    Returns: {competition_name: {file_stem: [fixture_dict, ...]}}
+    Returns a 2-tuple:
+      highlights  — {comp_name: {file_stem: [fixture_dict, ...]}}  (FINISHED only)
+      artifacts   — {comp_name: [GroupMatch-compatible dicts]}     (all statuses, domestic leagues only)
     """
-    provider = FootballDataProvider(fd_key)
-    result: dict[str, dict[str, list[dict]]] = {}
+    provider   = FootballDataProvider(fd_key)
+    highlights: dict[str, dict[str, list[dict]]] = {}
+    artifacts:  dict[str, list[dict]]             = {}
 
     for i, (code, comp_name) in enumerate(COMPETITION_CODE_MAP.items()):
         if i > 0:
@@ -195,9 +206,30 @@ def fetch_all_fixtures(fd_key: str) -> dict[str, dict[str, list[dict]]]:
         season  = season_for_competition(comp_name)
         by_stem = provider.get_fixtures(code, comp_name, season)
         if by_stem:
-            result[comp_name] = by_stem
+            highlights[comp_name] = by_stem
 
-    return result
+        if comp_name in DOMESTIC_LEAGUE_COMPS:
+            full = provider.get_full_season(code, comp_name, season)
+            if full:
+                artifacts[comp_name] = full
+
+    return highlights, artifacts
+
+
+def write_fixtures_artifacts(artifacts: dict[str, list[dict]]) -> None:
+    """Write one fixtures/{slug}.json per domestic league."""
+    FIXTURES_DIR.mkdir(parents=True, exist_ok=True)
+    for comp_name, fixtures in artifacts.items():
+        slug   = COMPETITION_SLUG_MAP[comp_name]
+        season = season_for_competition(comp_name)
+        path   = FIXTURES_DIR / f"{slug}.json"
+        write_json_atomic(path, {
+            "competition":  comp_name,
+            "season":       season,
+            "generated_at": utc_now_iso(),
+            "fixtures":     fixtures,
+        })
+        log.info(f"Wrote fixtures artifact: fixtures/{slug}.json ({len(fixtures)} fixture(s))")
 
 
 # ── Main ──────────────────────────────────────────────────────────────────────
@@ -250,6 +282,14 @@ def main() -> None:
         )
         BACKFILL_LOCK_PATH.unlink(missing_ok=True)
 
+    # ── Fetch FD data: shared by fixtures artifacts + YouTube matching ─────────
+    # Runs before quota/YT-key guards so fixtures/{slug}.json artifacts are always
+    # written (FD-only, no YouTube quota consumed) even when over the daily YouTube
+    # budget.  The raw FD response is cached inside FootballDataProvider so
+    # get_fixtures() and get_full_season() share one HTTP request per competition.
+    all_highlights, all_artifacts = fetch_all_fixtures(fd_key)
+    write_fixtures_artifacts(all_artifacts)
+
     # ── Quota guard: skip YouTube work if daily budget already spent ──────────
     quota = QuotaTracker()
     if quota.over_incremental_cap:
@@ -273,10 +313,9 @@ def main() -> None:
         )
         return
 
-    config       = load_sources()
-    all_fixtures = fetch_all_fixtures(fd_key)
+    config = load_sources()
 
-    if not all_fixtures:
+    if not all_highlights:
         log.info("No finished fixtures found.")
         generate_summary()
         write_json_atomic(
@@ -289,7 +328,7 @@ def main() -> None:
     new_additions: list[dict] = []
     gw_playlist_cache: dict = {}  # shared across all fixtures to avoid redundant playlists.list calls
     try:
-        for comp_name, by_stem in sorted(all_fixtures.items()):
+        for comp_name, by_stem in sorted(all_highlights.items()):
             for stem, fixtures in sorted(by_stem.items()):
                 path     = gw_path(comp_name, stem)
                 existing = load_json_file(path)
