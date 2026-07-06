@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-05T23:39:13.953471Z",
+  "generated_at": "2026-07-06T01:24:47.203621Z",
   "slug": "world-cup",
   "standings": [
     {
@@ -2348,11 +2348,11 @@
       },
       "id": 537378,
       "utcDate": "2026-07-06T01:00:00Z",
-      "status": "2026-07-06 01:00:00Z",
+      "status": "IN_PLAY",
       "matchday": null,
       "stage": "LAST_16",
       "group": null,
-      "lastUpdated": "2026-07-05T23:31:12Z",
+      "lastUpdated": "2026-07-06T01:24:36Z",
       "homeTeam": {
         "id": 769,
         "name": "Mexico",
@@ -2368,11 +2368,11 @@
         "crest": "https://crests.football-data.org/770.svg"
       },
       "score": {
-        "winner": null,
+        "winner": "DRAW",
         "duration": "REGULAR",
         "fullTime": {
-          "home": null,
-          "away": null
+          "home": 0,
+          "away": 0
         },
         "halfTime": {
           "home": null,
