@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-06T01:58:48Z",
+  "generated_at": "2026-07-06T05:55:45Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -16283,8 +16283,8 @@
         {
           "gameweek": "R16",
           "stem": "round-of-16",
-          "total": 3,
-          "covered": 3,
+          "total": 4,
+          "covered": 4,
           "matches": [
             {
               "match_id": 537376,
@@ -16305,6 +16305,13 @@
               "home": "Brazil",
               "away": "Norway",
               "date": "2026-07-05",
+              "covered": true
+            },
+            {
+              "match_id": 537378,
+              "home": "Mexico",
+              "away": "England",
+              "date": "2026-07-06",
               "covered": true
             }
           ]
