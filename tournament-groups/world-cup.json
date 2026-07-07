@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-07T20:04:23.660660Z",
+  "generated_at": "2026-07-07T20:07:29.870397Z",
   "slug": "world-cup",
   "standings": [
     {
@@ -2616,11 +2616,11 @@
       },
       "id": 537382,
       "utcDate": "2026-07-07T20:00:00Z",
-      "status": "TIMED",
+      "status": "IN_PLAY",
       "matchday": null,
       "stage": "LAST_16",
       "group": null,
-      "lastUpdated": "2026-07-07T05:20:11Z",
+      "lastUpdated": "2026-07-07T20:06:24Z",
       "homeTeam": {
         "id": 788,
         "name": "Switzerland",
@@ -2636,11 +2636,11 @@
         "crest": "https://crests.football-data.org/818.svg"
       },
       "score": {
-        "winner": null,
+        "winner": "DRAW",
         "duration": "REGULAR",
         "fullTime": {
-          "home": null,
-          "away": null
+          "home": 0,
+          "away": 0
         },
         "halfTime": {
           "home": null,
