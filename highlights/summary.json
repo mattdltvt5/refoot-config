@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-07T01:22:15Z",
+  "generated_at": "2026-07-07T02:11:57Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -16283,7 +16283,7 @@
         {
           "gameweek": "R16",
           "stem": "round-of-16",
-          "total": 5,
+          "total": 6,
           "covered": 5,
           "matches": [
             {
@@ -16320,6 +16320,13 @@
               "away": "Spain",
               "date": "2026-07-06",
               "covered": true
+            },
+            {
+              "match_id": 537380,
+              "home": "United States",
+              "away": "Belgium",
+              "date": "2026-07-07",
+              "covered": false
             }
           ]
         }

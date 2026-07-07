@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-07T01:22:36.650689Z",
+  "generated_at": "2026-07-07T02:12:17.861514Z",
   "slug": "world-cup",
   "standings": [
     {
@@ -2482,11 +2482,11 @@
       },
       "id": 537380,
       "utcDate": "2026-07-07T00:00:00Z",
-      "status": "IN_PLAY",
+      "status": "FINISHED",
       "matchday": null,
       "stage": "LAST_16",
       "group": null,
-      "lastUpdated": "2026-07-07T01:22:00Z",
+      "lastUpdated": "2026-07-07T02:05:30Z",
       "homeTeam": {
         "id": 771,
         "name": "United States",
@@ -2506,7 +2506,7 @@
         "duration": "REGULAR",
         "fullTime": {
           "home": 1,
-          "away": 2
+          "away": 4
         },
         "halfTime": {
           "home": 1,
