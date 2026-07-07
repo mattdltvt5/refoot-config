@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-07T17:58:30.526898Z",
+  "generated_at": "2026-07-07T18:01:43.681609Z",
   "slug": "world-cup",
   "standings": [
     {
@@ -2553,7 +2553,7 @@
       "matchday": null,
       "stage": "LAST_16",
       "group": null,
-      "lastUpdated": "2026-07-07T17:56:59Z",
+      "lastUpdated": "2026-07-07T18:01:09Z",
       "homeTeam": {
         "id": 762,
         "name": "Argentina",
@@ -2569,10 +2569,10 @@
         "crest": "https://crests.football-data.org/825.svg"
       },
       "score": {
-        "winner": "DRAW",
+        "winner": "HOME_TEAM",
         "duration": "REGULAR",
         "fullTime": {
-          "home": 2,
+          "home": 3,
           "away": 2
         },
         "halfTime": {
@@ -2650,7 +2650,14 @@
       "odds": {
         "msg": "Activate Odds-Package in User-Panel to retrieve odds."
       },
-      "referees": [],
+      "referees": [
+        {
+          "id": 190010,
+          "name": "Ivan Barton",
+          "type": "REFEREE",
+          "nationality": null
+        }
+      ],
       "video_id": null
     },
     {
