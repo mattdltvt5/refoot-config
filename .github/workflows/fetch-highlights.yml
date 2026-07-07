@@ -2,7 +2,7 @@ name: Fetch highlights cache
 
 on:
   schedule:
-    - cron: "*/15 * * * *"   # every 15 minutes (was */30 → was 0 */4 — every 4h)
+    - cron: "*/5 * * * *"    # every 5 minutes (was */15 → was */30 → was 0 */4)
   workflow_dispatch:         # manual trigger from Actions tab
 
 # Prevent overlapping runs by construction.  cancel-in-progress: false means a
