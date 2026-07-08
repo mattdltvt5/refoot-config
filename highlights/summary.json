@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-07T23:58:08Z",
+  "generated_at": "2026-07-08T00:01:53Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -16283,8 +16283,8 @@
         {
           "gameweek": "R16",
           "stem": "round-of-16",
-          "total": 6,
-          "covered": 6,
+          "total": 8,
+          "covered": 8,
           "matches": [
             {
               "match_id": 537376,
@@ -16325,6 +16325,20 @@
               "match_id": 537380,
               "home": "United States",
               "away": "Belgium",
+              "date": "2026-07-07",
+              "covered": true
+            },
+            {
+              "match_id": 537381,
+              "home": "Argentina",
+              "away": "Egypt",
+              "date": "2026-07-07",
+              "covered": true
+            },
+            {
+              "match_id": 537382,
+              "home": "Switzerland",
+              "away": "Colombia",
               "date": "2026-07-07",
               "covered": true
             }
