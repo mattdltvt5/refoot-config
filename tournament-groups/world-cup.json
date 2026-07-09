@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-09T21:28:26.288612Z",
+  "generated_at": "2026-07-09T21:31:32.900099Z",
   "slug": "world-cup",
   "standings": [
     {
@@ -2699,7 +2699,7 @@
       "matchday": null,
       "stage": "QUARTER_FINALS",
       "group": null,
-      "lastUpdated": "2026-07-09T21:27:27Z",
+      "lastUpdated": "2026-07-09T21:31:28Z",
       "homeTeam": {
         "id": 773,
         "name": "France",
@@ -2715,10 +2715,10 @@
         "crest": "https://crests.football-data.org/morocco.svg"
       },
       "score": {
-        "winner": "DRAW",
+        "winner": "HOME_TEAM",
         "duration": "REGULAR",
         "fullTime": {
-          "home": 0,
+          "home": 1,
           "away": 0
         },
         "halfTime": {
