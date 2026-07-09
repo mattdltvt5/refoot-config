@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-09T20:55:28.180207Z",
+  "generated_at": "2026-07-09T20:58:23.489354Z",
   "slug": "world-cup",
   "standings": [
     {
@@ -2695,11 +2695,11 @@
       },
       "id": 537383,
       "utcDate": "2026-07-09T20:00:00Z",
-      "status": "IN_PLAY",
+      "status": "PAUSED",
       "matchday": null,
       "stage": "QUARTER_FINALS",
       "group": null,
-      "lastUpdated": "2026-07-09T20:54:16Z",
+      "lastUpdated": "2026-07-09T20:56:40Z",
       "homeTeam": {
         "id": 773,
         "name": "France",
@@ -2722,8 +2722,8 @@
           "away": 0
         },
         "halfTime": {
-          "home": null,
-          "away": null
+          "home": 0,
+          "away": 0
         }
       },
       "odds": {
