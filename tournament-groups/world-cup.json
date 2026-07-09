@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-09T17:58:26.847572Z",
+  "generated_at": "2026-07-09T18:01:34.350356Z",
   "slug": "world-cup",
   "standings": [
     {
@@ -2729,7 +2729,14 @@
       "odds": {
         "msg": "Activate Odds-Package in User-Panel to retrieve odds."
       },
-      "referees": [],
+      "referees": [
+        {
+          "id": 57301,
+          "name": "Facundo Tello",
+          "type": "REFEREE",
+          "nationality": "Argentina"
+        }
+      ],
       "video_id": null
     },
     {
