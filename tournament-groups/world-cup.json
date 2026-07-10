@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-10T16:58:21.555770Z",
+  "generated_at": "2026-07-10T17:01:34.897878Z",
   "slug": "world-cup",
   "standings": [
     {
@@ -2796,7 +2796,14 @@
       "odds": {
         "msg": "Activate Odds-Package in User-Panel to retrieve odds."
       },
-      "referees": [],
+      "referees": [
+        {
+          "id": 11605,
+          "name": "Michael Oliver",
+          "type": "REFEREE",
+          "nationality": "England"
+        }
+      ],
       "video_id": null
     },
     {
