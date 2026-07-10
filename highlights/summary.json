@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-09T23:58:11Z",
+  "generated_at": "2026-07-10T00:01:53Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -16340,6 +16340,21 @@
               "home": "Switzerland",
               "away": "Colombia",
               "date": "2026-07-07",
+              "covered": true
+            }
+          ]
+        },
+        {
+          "gameweek": "QF",
+          "stem": "quarter-final",
+          "total": 1,
+          "covered": 1,
+          "matches": [
+            {
+              "match_id": 537383,
+              "home": "France",
+              "away": "Morocco",
+              "date": "2026-07-09",
               "covered": true
             }
           ]
