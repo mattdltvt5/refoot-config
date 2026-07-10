@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-10T19:46:32.932688Z",
+  "generated_at": "2026-07-10T19:49:28.949760Z",
   "slug": "world-cup",
   "standings": [
     {
@@ -2766,7 +2766,7 @@
       "matchday": null,
       "stage": "QUARTER_FINALS",
       "group": null,
-      "lastUpdated": "2026-07-10T19:45:18Z",
+      "lastUpdated": "2026-07-10T19:48:18Z",
       "homeTeam": {
         "id": 760,
         "name": "Spain",
@@ -2782,11 +2782,11 @@
         "crest": "https://crests.football-data.org/805.svg"
       },
       "score": {
-        "winner": "HOME_TEAM",
+        "winner": "DRAW",
         "duration": "REGULAR",
         "fullTime": {
           "home": 1,
-          "away": 0
+          "away": 1
         },
         "halfTime": {
           "home": null,
