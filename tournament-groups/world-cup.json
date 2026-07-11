@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-11T18:58:24.023292Z",
+  "generated_at": "2026-07-11T19:01:35.567371Z",
   "slug": "world-cup",
   "standings": [
     {
@@ -2863,7 +2863,14 @@
       "odds": {
         "msg": "Activate Odds-Package in User-Panel to retrieve odds."
       },
-      "referees": [],
+      "referees": [
+        {
+          "id": 9374,
+          "name": "Clément Turpin",
+          "type": "REFEREE",
+          "nationality": "France"
+        }
+      ],
       "video_id": null
     },
     {
