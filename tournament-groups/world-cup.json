@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-11T21:04:28.646839Z",
+  "generated_at": "2026-07-11T21:07:29.491438Z",
   "slug": "world-cup",
   "standings": [
     {
@@ -2829,11 +2829,11 @@
       },
       "id": 537385,
       "utcDate": "2026-07-11T21:00:00Z",
-      "status": "TIMED",
+      "status": "IN_PLAY",
       "matchday": null,
       "stage": "QUARTER_FINALS",
       "group": null,
-      "lastUpdated": "2026-07-11T05:20:09Z",
+      "lastUpdated": "2026-07-11T21:06:10Z",
       "homeTeam": {
         "id": 8872,
         "name": "Norway",
@@ -2849,11 +2849,11 @@
         "crest": "https://crests.football-data.org/770.svg"
       },
       "score": {
-        "winner": null,
+        "winner": "DRAW",
         "duration": "REGULAR",
         "fullTime": {
-          "home": null,
-          "away": null
+          "home": 0,
+          "away": 0
         },
         "halfTime": {
           "home": null,
