@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-11T22:58:23.953123Z",
+  "generated_at": "2026-07-11T23:01:43.194823Z",
   "slug": "world-cup",
   "standings": [
     {
@@ -2833,7 +2833,7 @@
       "matchday": null,
       "stage": "QUARTER_FINALS",
       "group": null,
-      "lastUpdated": "2026-07-11T22:57:15Z",
+      "lastUpdated": "2026-07-11T23:00:16Z",
       "homeTeam": {
         "id": 8872,
         "name": "Norway",
@@ -2930,7 +2930,14 @@
       "odds": {
         "msg": "Activate Odds-Package in User-Panel to retrieve odds."
       },
-      "referees": [],
+      "referees": [
+        {
+          "id": 38806,
+          "name": "João Pinheiro",
+          "type": "REFEREE",
+          "nationality": "Portugal"
+        }
+      ],
       "video_id": null
     },
     {
