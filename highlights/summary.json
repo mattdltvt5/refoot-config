@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-10T23:58:04Z",
+  "generated_at": "2026-07-11T00:01:37Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -16347,14 +16347,21 @@
         {
           "gameweek": "QF",
           "stem": "quarter-final",
-          "total": 1,
-          "covered": 1,
+          "total": 2,
+          "covered": 2,
           "matches": [
             {
               "match_id": 537383,
               "home": "France",
               "away": "Morocco",
               "date": "2026-07-09",
+              "covered": true
+            },
+            {
+              "match_id": 537384,
+              "home": "Spain",
+              "away": "Belgium",
+              "date": "2026-07-10",
               "covered": true
             }
           ]
