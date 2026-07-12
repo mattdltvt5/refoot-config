@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-12T03:52:23Z",
+  "generated_at": "2026-07-12T03:55:25Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -16347,7 +16347,7 @@
         {
           "gameweek": "QF",
           "stem": "quarter-final",
-          "total": 3,
+          "total": 4,
           "covered": 3,
           "matches": [
             {
@@ -16370,6 +16370,13 @@
               "away": "England",
               "date": "2026-07-11",
               "covered": true
+            },
+            {
+              "match_id": 537386,
+              "home": "Argentina",
+              "away": "Switzerland",
+              "date": "2026-07-12",
+              "covered": false
             }
           ]
         }
