@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-12T01:55:39.355603Z",
+  "generated_at": "2026-07-12T01:58:43.183187Z",
   "slug": "world-cup",
   "standings": [
     {
@@ -2904,11 +2904,11 @@
       },
       "id": 537386,
       "utcDate": "2026-07-12T01:00:00Z",
-      "status": "IN_PLAY",
+      "status": "PAUSED",
       "matchday": null,
       "stage": "QUARTER_FINALS",
       "group": null,
-      "lastUpdated": "2026-07-12T01:54:57Z",
+      "lastUpdated": "2026-07-12T01:56:46Z",
       "homeTeam": {
         "id": 762,
         "name": "Argentina",
@@ -2931,8 +2931,8 @@
           "away": 0
         },
         "halfTime": {
-          "home": null,
-          "away": null
+          "home": 1,
+          "away": 0
         }
       },
       "odds": {
