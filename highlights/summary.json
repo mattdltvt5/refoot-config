@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-11T23:58:04Z",
+  "generated_at": "2026-07-12T00:01:46Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -16347,7 +16347,7 @@
         {
           "gameweek": "QF",
           "stem": "quarter-final",
-          "total": 2,
+          "total": 3,
           "covered": 2,
           "matches": [
             {
@@ -16363,6 +16363,13 @@
               "away": "Belgium",
               "date": "2026-07-10",
               "covered": true
+            },
+            {
+              "match_id": 537385,
+              "home": "Norway",
+              "away": "England",
+              "date": "2026-07-11",
+              "covered": false
             }
           ]
         }
