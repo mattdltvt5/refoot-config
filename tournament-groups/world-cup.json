@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-12T02:34:37.869422Z",
+  "generated_at": "2026-07-12T02:37:46.297571Z",
   "slug": "world-cup",
   "standings": [
     {
@@ -2908,7 +2908,7 @@
       "matchday": null,
       "stage": "QUARTER_FINALS",
       "group": null,
-      "lastUpdated": "2026-07-12T02:33:22Z",
+      "lastUpdated": "2026-07-12T02:36:22Z",
       "homeTeam": {
         "id": 762,
         "name": "Argentina",
@@ -2924,11 +2924,11 @@
         "crest": "https://crests.football-data.org/788.svg"
       },
       "score": {
-        "winner": "HOME_TEAM",
+        "winner": "DRAW",
         "duration": "REGULAR",
         "fullTime": {
           "home": 1,
-          "away": 0
+          "away": 1
         },
         "halfTime": {
           "home": 1,
