@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-14T16:58:24.114662Z",
+  "generated_at": "2026-07-14T17:01:45.259470Z",
   "slug": "world-cup",
   "standings": [
     {
@@ -3013,7 +3013,14 @@
       "odds": {
         "msg": "Activate Odds-Package in User-Panel to retrieve odds."
       },
-      "referees": [],
+      "referees": [
+        {
+          "id": 190010,
+          "name": "Ivan Barton",
+          "type": "REFEREE",
+          "nationality": null
+        }
+      ],
       "video_id": null
     },
     {
