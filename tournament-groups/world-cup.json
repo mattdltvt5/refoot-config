@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-14T19:25:24.088980Z",
+  "generated_at": "2026-07-14T19:28:24.924909Z",
   "slug": "world-cup",
   "standings": [
     {
@@ -2983,7 +2983,7 @@
       "matchday": null,
       "stage": "SEMI_FINALS",
       "group": null,
-      "lastUpdated": "2026-07-14T19:24:08Z",
+      "lastUpdated": "2026-07-14T19:28:08Z",
       "homeTeam": {
         "id": 773,
         "name": "France",
@@ -2999,11 +2999,11 @@
         "crest": "https://crests.football-data.org/760.svg"
       },
       "score": {
-        "winner": "DRAW",
+        "winner": "AWAY_TEAM",
         "duration": "REGULAR",
         "fullTime": {
           "home": 0,
-          "away": 0
+          "away": 1
         },
         "halfTime": {
           "home": null,
