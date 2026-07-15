@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-15T20:49:26.917096Z",
+  "generated_at": "2026-07-15T20:52:28.656350Z",
   "slug": "world-cup",
   "standings": [
     {
@@ -3050,7 +3050,7 @@
       "matchday": null,
       "stage": "SEMI_FINALS",
       "group": null,
-      "lastUpdated": "2026-07-15T20:48:58Z",
+      "lastUpdated": "2026-07-15T20:51:27Z",
       "homeTeam": {
         "id": 770,
         "name": "England",
@@ -3066,11 +3066,11 @@
         "crest": "https://crests.football-data.org/762.png"
       },
       "score": {
-        "winner": "HOME_TEAM",
+        "winner": "DRAW",
         "duration": "REGULAR",
         "fullTime": {
           "home": 1,
-          "away": 0
+          "away": 1
         },
         "halfTime": {
           "home": 0,
