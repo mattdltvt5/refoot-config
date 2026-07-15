@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-15T16:58:42.107125Z",
+  "generated_at": "2026-07-15T17:01:46.624156Z",
   "slug": "world-cup",
   "standings": [
     {
@@ -3080,7 +3080,14 @@
       "odds": {
         "msg": "Activate Odds-Package in User-Panel to retrieve odds."
       },
-      "referees": [],
+      "referees": [
+        {
+          "id": 76608,
+          "name": "Ismail Elfath",
+          "type": "REFEREE",
+          "nationality": "United States"
+        }
+      ],
       "video_id": null
     },
     {
