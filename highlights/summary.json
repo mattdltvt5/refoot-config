@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-15T23:58:01Z",
+  "generated_at": "2026-07-16T00:01:40Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -16383,14 +16383,21 @@
         {
           "gameweek": "SF",
           "stem": "semi-final",
-          "total": 1,
-          "covered": 1,
+          "total": 2,
+          "covered": 2,
           "matches": [
             {
               "match_id": 537387,
               "home": "France",
               "away": "Spain",
               "date": "2026-07-14",
+              "covered": true
+            },
+            {
+              "match_id": 537388,
+              "home": "England",
+              "away": "Argentina",
+              "date": "2026-07-15",
               "covered": true
             }
           ]
