@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-18T18:58:26.493098Z",
+  "generated_at": "2026-07-18T19:01:30.453839Z",
   "slug": "world-cup",
   "standings": [
     {
@@ -3147,7 +3147,14 @@
       "odds": {
         "msg": "Activate Odds-Package in User-Panel to retrieve odds."
       },
-      "referees": [],
+      "referees": [
+        {
+          "id": 28805,
+          "name": "Jesús Valenzuela",
+          "type": "REFEREE",
+          "nationality": "Venezuela"
+        }
+      ],
       "video_id": null
     },
     {
