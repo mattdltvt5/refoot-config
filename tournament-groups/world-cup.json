@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-19T19:58:22.633614Z",
+  "generated_at": "2026-07-19T20:01:35.071740Z",
   "slug": "world-cup",
   "standings": [
     {
@@ -3180,11 +3180,11 @@
       },
       "id": 537390,
       "utcDate": "2026-07-19T19:00:00Z",
-      "status": "LIVE",
+      "status": "PAUSED",
       "matchday": null,
       "stage": "FINAL",
       "group": null,
-      "lastUpdated": "2026-07-19T19:56:57Z",
+      "lastUpdated": "2026-07-19T20:00:33Z",
       "homeTeam": {
         "id": 760,
         "name": "Spain",
@@ -3207,8 +3207,8 @@
           "away": 0
         },
         "halfTime": {
-          "home": null,
-          "away": null
+          "home": 0,
+          "away": 0
         }
       },
       "odds": {
