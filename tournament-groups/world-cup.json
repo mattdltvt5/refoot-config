@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-19T16:58:24.196453Z",
+  "generated_at": "2026-07-19T17:01:30.369914Z",
   "slug": "world-cup",
   "standings": [
     {
@@ -3214,7 +3214,14 @@
       "odds": {
         "msg": "Activate Odds-Package in User-Panel to retrieve odds."
       },
-      "referees": [],
+      "referees": [
+        {
+          "id": 9351,
+          "name": "Slavko Vinčič",
+          "type": "REFEREE",
+          "nationality": "Slovenia"
+        }
+      ],
       "video_id": null
     }
   ],
