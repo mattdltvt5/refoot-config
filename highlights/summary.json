@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-18T23:58:11Z",
+  "generated_at": "2026-07-19T00:01:30Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -16398,6 +16398,21 @@
               "home": "England",
               "away": "Argentina",
               "date": "2026-07-15",
+              "covered": true
+            }
+          ]
+        },
+        {
+          "gameweek": "3rd Place",
+          "stem": "third-place",
+          "total": 1,
+          "covered": 1,
+          "matches": [
+            {
+              "match_id": 537389,
+              "home": "France",
+              "away": "England",
+              "date": "2026-07-18",
               "covered": true
             }
           ]
