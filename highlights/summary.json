@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-19T23:58:13Z",
+  "generated_at": "2026-07-20T00:01:29Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -16413,6 +16413,21 @@
               "home": "France",
               "away": "England",
               "date": "2026-07-18",
+              "covered": true
+            }
+          ]
+        },
+        {
+          "gameweek": "Final",
+          "stem": "final",
+          "total": 1,
+          "covered": 1,
+          "matches": [
+            {
+              "match_id": 537390,
+              "home": "Spain",
+              "away": "Argentina",
+              "date": "2026-07-19",
               "covered": true
             }
           ]
