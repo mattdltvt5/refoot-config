@@ -1,7 +1,7 @@
 {
   "competition": "LaLiga",
   "season": 2026,
-  "generated_at": "2026-08-10T05:55:13Z",
+  "generated_at": "2026-08-10T05:58:05Z",
   "fixtures": [
     {
       "match_id": 564634,
@@ -1404,6 +1404,34 @@
       "utcDate": "2026-09-13T15:00:00Z"
     },
     {
+      "match_id": 564682,
+      "group": "",
+      "matchday": 6,
+      "sourceRound": "Gameweek 6",
+      "homeTeam": {
+        "id": 92,
+        "name": "Real Sociedad de Fútbol",
+        "shortName": "Real Sociedad",
+        "tla": "RSO",
+        "crest": "https://crests.football-data.org/92.png"
+      },
+      "awayTeam": {
+        "id": 558,
+        "name": "RC Celta de Vigo",
+        "shortName": "Celta",
+        "tla": "CEL",
+        "crest": "https://crests.football-data.org/558.png"
+      },
+      "score": {
+        "fullTime": {
+          "home": null,
+          "away": null
+        }
+      },
+      "status": "SCHEDULED",
+      "utcDate": "2026-09-03T21:00:00Z"
+    },
+    {
       "match_id": 564678,
       "group": "",
       "matchday": 6,
@@ -1505,34 +1533,6 @@
         "shortName": "Real Madrid",
         "tla": "RMA",
         "crest": "https://crests.football-data.org/86.png"
-      },
-      "score": {
-        "fullTime": {
-          "home": null,
-          "away": null
-        }
-      },
-      "status": "SCHEDULED",
-      "utcDate": "2026-09-16T15:00:00Z"
-    },
-    {
-      "match_id": 564682,
-      "group": "",
-      "matchday": 6,
-      "sourceRound": "Gameweek 6",
-      "homeTeam": {
-        "id": 92,
-        "name": "Real Sociedad de Fútbol",
-        "shortName": "Real Sociedad",
-        "tla": "RSO",
-        "crest": "https://crests.football-data.org/92.png"
-      },
-      "awayTeam": {
-        "id": 558,
-        "name": "RC Celta de Vigo",
-        "shortName": "Celta",
-        "tla": "CEL",
-        "crest": "https://crests.football-data.org/558.png"
       },
       "score": {
         "fullTime": {
