@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-14T08:18:28.043367Z",
+  "generated_at": "2026-08-15T07:33:20.612992Z",
   "competition": "LaLiga",
   "slug": "laliga",
   "season": 2026,
@@ -159,44 +159,6 @@
     {
       "position": 9,
       "team": {
-        "id": 558,
-        "name": "RC Celta de Vigo",
-        "shortName": "Celta",
-        "tla": "CEL",
-        "crest": "https://crests.football-data.org/558.png"
-      },
-      "playedGames": 0,
-      "form": "",
-      "won": 0,
-      "draw": 0,
-      "lost": 0,
-      "points": 0,
-      "goalsFor": 0,
-      "goalsAgainst": 0,
-      "goalDifference": 0
-    },
-    {
-      "position": 10,
-      "team": {
-        "id": 79,
-        "name": "CA Osasuna",
-        "shortName": "Osasuna",
-        "tla": "OSA",
-        "crest": "https://crests.football-data.org/79.png"
-      },
-      "playedGames": 0,
-      "form": "",
-      "won": 0,
-      "draw": 0,
-      "lost": 0,
-      "points": 0,
-      "goalsFor": 0,
-      "goalsAgainst": 0,
-      "goalDifference": 0
-    },
-    {
-      "position": 11,
-      "team": {
         "id": 560,
         "name": "RC Deportivo La Coruña",
         "shortName": "Deportivo",
@@ -214,7 +176,7 @@
       "goalDifference": 0
     },
     {
-      "position": 12,
+      "position": 10,
       "team": {
         "id": 285,
         "name": "Elche CF",
@@ -233,7 +195,7 @@
       "goalDifference": 0
     },
     {
-      "position": 13,
+      "position": 11,
       "team": {
         "id": 78,
         "name": "Club Atlético de Madrid",
@@ -252,7 +214,7 @@
       "goalDifference": 0
     },
     {
-      "position": 14,
+      "position": 12,
       "team": {
         "id": 84,
         "name": "Málaga CF",
@@ -271,7 +233,7 @@
       "goalDifference": 0
     },
     {
-      "position": 15,
+      "position": 13,
       "team": {
         "id": 90,
         "name": "Real Betis Balompié",
@@ -290,7 +252,7 @@
       "goalDifference": 0
     },
     {
-      "position": 16,
+      "position": 14,
       "team": {
         "id": 92,
         "name": "Real Sociedad de Fútbol",
@@ -309,7 +271,7 @@
       "goalDifference": 0
     },
     {
-      "position": 17,
+      "position": 15,
       "team": {
         "id": 77,
         "name": "Athletic Club",
@@ -328,7 +290,7 @@
       "goalDifference": 0
     },
     {
-      "position": 18,
+      "position": 16,
       "team": {
         "id": 95,
         "name": "Valencia CF",
@@ -347,7 +309,26 @@
       "goalDifference": 0
     },
     {
-      "position": 19,
+      "position": 17,
+      "team": {
+        "id": 558,
+        "name": "RC Celta de Vigo",
+        "shortName": "Celta",
+        "tla": "CEL",
+        "crest": "https://crests.football-data.org/558.png"
+      },
+      "playedGames": 0,
+      "form": "",
+      "won": 0,
+      "draw": 0,
+      "lost": 0,
+      "points": 0,
+      "goalsFor": 0,
+      "goalsAgainst": 0,
+      "goalDifference": 0
+    },
+    {
+      "position": 18,
       "team": {
         "id": 86,
         "name": "Real Madrid CF",
@@ -366,13 +347,32 @@
       "goalDifference": 0
     },
     {
-      "position": 20,
+      "position": 19,
       "team": {
         "id": 81,
         "name": "FC Barcelona",
         "shortName": "Barça",
         "tla": "FCB",
         "crest": "https://crests.football-data.org/81.png"
+      },
+      "playedGames": 0,
+      "form": "",
+      "won": 0,
+      "draw": 0,
+      "lost": 0,
+      "points": 0,
+      "goalsFor": 0,
+      "goalsAgainst": 0,
+      "goalDifference": 0
+    },
+    {
+      "position": 20,
+      "team": {
+        "id": 79,
+        "name": "CA Osasuna",
+        "shortName": "Osasuna",
+        "tla": "OSA",
+        "crest": "https://crests.football-data.org/79.png"
       },
       "playedGames": 0,
       "form": "",
