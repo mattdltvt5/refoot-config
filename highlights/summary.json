@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-15T19:43:54Z",
+  "generated_at": "2026-08-15T19:46:04Z",
   "competitions": [
     {
       "competition": "LaLiga",
@@ -9,14 +9,14 @@
           "gameweek": "GW1",
           "stem": "gameweek-1",
           "total": 1,
-          "covered": 0,
+          "covered": 1,
           "matches": [
             {
               "match_id": 564634,
               "home": "Deportivo Alavés",
               "away": "Getafe CF",
               "date": "2026-08-15",
-              "covered": false
+              "covered": true
             }
           ]
         }
