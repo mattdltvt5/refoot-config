@@ -1,7 +1,7 @@
 {
   "competition": "LaLiga",
   "season": 2026,
-  "generated_at": "2026-08-15T06:13:02Z",
+  "generated_at": "2026-08-15T06:16:03Z",
   "fixtures": [
     {
       "match_id": 564634,
@@ -116,34 +116,6 @@
       "utcDate": "2026-08-16T17:00:00Z"
     },
     {
-      "match_id": 564636,
-      "group": "",
-      "matchday": 1,
-      "sourceRound": "Gameweek 1",
-      "homeTeam": {
-        "id": 558,
-        "name": "RC Celta de Vigo",
-        "shortName": "Celta",
-        "tla": "CEL",
-        "crest": "https://crests.football-data.org/558.png"
-      },
-      "awayTeam": {
-        "id": 79,
-        "name": "CA Osasuna",
-        "shortName": "Osasuna",
-        "tla": "OSA",
-        "crest": "https://crests.football-data.org/79.png"
-      },
-      "score": {
-        "fullTime": {
-          "home": null,
-          "away": null
-        }
-      },
-      "status": "2026-08-16 19:30:00Z",
-      "utcDate": "2026-08-16T19:30:00Z"
-    },
-    {
       "match_id": 564635,
       "group": "",
       "matchday": 1,
@@ -254,6 +226,34 @@
       },
       "status": "TIMED",
       "utcDate": "2026-08-26T19:00:00Z"
+    },
+    {
+      "match_id": 564636,
+      "group": "",
+      "matchday": 1,
+      "sourceRound": "Gameweek 1",
+      "homeTeam": {
+        "id": 558,
+        "name": "RC Celta de Vigo",
+        "shortName": "Celta",
+        "tla": "CEL",
+        "crest": "https://crests.football-data.org/558.png"
+      },
+      "awayTeam": {
+        "id": 79,
+        "name": "CA Osasuna",
+        "shortName": "Osasuna",
+        "tla": "OSA",
+        "crest": "https://crests.football-data.org/79.png"
+      },
+      "score": {
+        "fullTime": {
+          "home": null,
+          "away": null
+        }
+      },
+      "status": "TIMED",
+      "utcDate": "2026-08-27T18:30:00Z"
     },
     {
       "match_id": 564630,
