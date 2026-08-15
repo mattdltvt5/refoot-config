@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-15T21:55:22Z",
+  "generated_at": "2026-08-15T21:58:09Z",
   "competitions": [
     {
       "competition": "LaLiga",
@@ -9,7 +9,7 @@
           "gameweek": "GW1",
           "stem": "gameweek-1",
           "total": 2,
-          "covered": 1,
+          "covered": 2,
           "matches": [
             {
               "match_id": 564634,
@@ -23,7 +23,7 @@
               "home": "Sevilla FC",
               "away": "Rayo Vallecano de Madrid",
               "date": "2026-08-15",
-              "covered": false
+              "covered": true
             }
           ]
         }
