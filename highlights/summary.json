@@ -1,6 +1,27 @@
 {
-  "generated_at": "2026-08-15T19:34:02Z",
+  "generated_at": "2026-08-15T19:37:19Z",
   "competitions": [
+    {
+      "competition": "LaLiga",
+      "slug": "laliga",
+      "gameweeks": [
+        {
+          "gameweek": "GW1",
+          "stem": "gameweek-1",
+          "total": 1,
+          "covered": 0,
+          "matches": [
+            {
+              "match_id": 564634,
+              "home": "Deportivo Alavés",
+              "away": "Getafe CF",
+              "date": "2026-08-15",
+              "covered": false
+            }
+          ]
+        }
+      ]
+    },
     {
       "competition": "Euro Cup",
       "slug": "euro-cup",
