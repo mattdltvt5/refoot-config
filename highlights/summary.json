@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-16T19:10:20Z",
+  "generated_at": "2026-08-16T19:13:12Z",
   "competitions": [
     {
       "competition": "LaLiga",
@@ -9,7 +9,7 @@
           "gameweek": "GW1",
           "stem": "gameweek-1",
           "total": 4,
-          "covered": 2,
+          "covered": 3,
           "matches": [
             {
               "match_id": 564634,
@@ -37,7 +37,7 @@
               "home": "RCD Espanyol de Barcelona",
               "away": "Levante UD",
               "date": "2026-08-16",
-              "covered": false
+              "covered": true
             }
           ]
         }
