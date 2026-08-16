@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-16T17:04:03Z",
+  "generated_at": "2026-08-16T17:07:13Z",
   "competitions": [
     {
       "competition": "LaLiga",
@@ -8,7 +8,7 @@
         {
           "gameweek": "GW1",
           "stem": "gameweek-1",
-          "total": 2,
+          "total": 3,
           "covered": 2,
           "matches": [
             {
@@ -24,6 +24,13 @@
               "away": "Rayo Vallecano de Madrid",
               "date": "2026-08-15",
               "covered": true
+            },
+            {
+              "match_id": 564629,
+              "home": "Real Racing Club de Santander",
+              "away": "Villarreal CF",
+              "date": "2026-08-16",
+              "covered": false
             }
           ]
         }
