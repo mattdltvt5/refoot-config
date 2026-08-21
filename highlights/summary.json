@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-20T23:58:05Z",
+  "generated_at": "2026-08-21T00:01:24Z",
   "competitions": [
     {
       "competition": "LaLiga",
@@ -51,6 +51,21 @@
               "home": "Club Atlético de Madrid",
               "away": "Málaga CF",
               "date": "2026-08-19",
+              "covered": true
+            }
+          ]
+        },
+        {
+          "gameweek": "GW2",
+          "stem": "gameweek-2",
+          "total": 1,
+          "covered": 1,
+          "matches": [
+            {
+              "match_id": 564638,
+              "home": "Rayo Vallecano de Madrid",
+              "away": "Deportivo Alavés",
+              "date": "2026-08-20",
               "covered": true
             }
           ]
