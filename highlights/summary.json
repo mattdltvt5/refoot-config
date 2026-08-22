@@ -1,6 +1,27 @@
 {
-  "generated_at": "2026-08-21T23:58:06Z",
+  "generated_at": "2026-08-22T00:01:36Z",
   "competitions": [
+    {
+      "competition": "Premier League",
+      "slug": "premier-league",
+      "gameweeks": [
+        {
+          "gameweek": "GW1",
+          "stem": "gameweek-1",
+          "total": 1,
+          "covered": 0,
+          "matches": [
+            {
+              "match_id": 560542,
+              "home": "Arsenal FC",
+              "away": "Coventry City FC",
+              "date": "2026-08-21",
+              "covered": false
+            }
+          ]
+        }
+      ]
+    },
     {
       "competition": "LaLiga",
       "slug": "laliga",
@@ -58,8 +79,8 @@
         {
           "gameweek": "GW2",
           "stem": "gameweek-2",
-          "total": 1,
-          "covered": 1,
+          "total": 2,
+          "covered": 2,
           "matches": [
             {
               "match_id": 564638,
@@ -67,6 +88,34 @@
               "away": "Deportivo Alavés",
               "date": "2026-08-20",
               "covered": true
+            },
+            {
+              "match_id": 564647,
+              "home": "Real Betis Balompié",
+              "away": "Real Sociedad de Fútbol",
+              "date": "2026-08-21",
+              "covered": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "competition": "Ligue 1",
+      "slug": "ligue-1",
+      "gameweeks": [
+        {
+          "gameweek": "GW1",
+          "stem": "gameweek-1",
+          "total": 1,
+          "covered": 0,
+          "matches": [
+            {
+              "match_id": 559715,
+              "home": "Olympique de Marseille",
+              "away": "RC Strasbourg Alsace",
+              "date": "2026-08-21",
+              "covered": false
             }
           ]
         }
