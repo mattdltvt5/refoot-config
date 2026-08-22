@@ -1,3 +1,9 @@
 ﻿__pycache__/
 *.py[cod]
 .pytest_cache/
+
+# Local tooling / editor config
+.claude/
+
+# Local debug/log dumps (never commit raw Actions logs)
+debug_output.txt
