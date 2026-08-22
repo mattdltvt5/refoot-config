@@ -480,6 +480,17 @@ Files are **never overwritten** — new runs always merge:
 
 Writes are atomic (temp file + rename) to avoid corrupted JSON if the Action is interrupted.
 
+### Concurrent-run push resilience
+
+The `Commit and push if changed` step is self-healing against concurrent runs. If
+another run pushes a competing data commit while this one is committing, a plain
+`git pull --rebase` would conflict on the regenerated JSON and fail the run. The step
+instead retries pull-rebase-push up to 5 times, re-pulling fresh each attempt and, on
+conflict, preferring this run's freshly generated data (`-X theirs`) — regenerated
+files are deterministic outputs, so last-write-wins is acceptable. It never
+force-pushes and keeps `[skip ci]` on the commit. Together with the `concurrency:`
+guard, overlapping runs serialize and recover instead of going red.
+
 ### Quota budget
 
 Only `playlistItems.list` is used (**1 unit per page**). `search.list` (100 units/call) is never called.

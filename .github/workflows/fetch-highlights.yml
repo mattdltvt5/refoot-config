@@ -62,10 +62,24 @@ jobs:
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add highlights/ tournament-groups/ fixtures/
-          git diff --cached --quiet \
-            && echo "No changes — skipping commit" \
-            || (
-                git commit -m "chore: update highlights cache [skip ci]" \
-                && git pull --rebase \
-                && git push
-               )
+          if git diff --cached --quiet; then
+            echo "No changes — skipping commit"
+            exit 0
+          fi
+          git commit -m "chore: update highlights cache [skip ci]"
+          # Self-healing push: a concurrent run can leave a competing data commit on
+          # main, making a plain rebase conflict on the regenerated JSON. Retry up to
+          # 5 times, re-pulling fresh each attempt; on conflict prefer THIS run's
+          # freshly generated data (-X theirs) since regenerated files are
+          # deterministic outputs and last-write-wins is acceptable. Never force-push.
+          for attempt in 1 2 3 4 5; do
+            if git pull --rebase -X theirs origin main && git push; then
+              echo "Pushed on attempt $attempt"
+              exit 0
+            fi
+            echo "Push attempt $attempt hit a race; aborting rebase and retrying..."
+            git rebase --abort 2>/dev/null || true
+            sleep $(( (RANDOM % 4) + 2 ))
+          done
+          echo "ERROR: could not push after 5 attempts (persistent push race)" >&2
+          exit 1
