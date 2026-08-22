@@ -1,9 +1,12 @@
 name: Fetch highlights cache
 
 on:
-  schedule:
-    - cron: "*/5 * * * *"    # every 5 minutes (was */15 → was */30 → was 0 */4)
-  workflow_dispatch:         # manual trigger from Actions tab
+  # Sole trigger: an external reliable scheduler (cron-job.org) calls the
+  # workflow_dispatch API every 5 minutes. GitHub’s own `schedule:` cron was
+  # removed — it fires unreliably (~15–25 min in practice), and running it
+  # alongside the external scheduler caused overlapping runs and push-rebase
+  # conflicts. One scheduler = no dual-scheduler races.
+  workflow_dispatch:   # external cron-job.org every 5 min (and manual from the Actions tab)
 
 # Prevent overlapping runs by construction.  cancel-in-progress: false means a
 # new run queues behind the in-progress one rather than killing it mid-commit.

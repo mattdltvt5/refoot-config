@@ -166,7 +166,7 @@ The highlights pipeline has **two operating modes** for football-data.org compet
 
 | Mode | Script | Trigger | Fixture source | Budget |
 |---|---|---|---|---|
-| **Incremental** | `fetch_highlights.py` | Every 15 minutes (scheduled) | football-data.org | 8,000 YouTube units/day |
+| **Incremental** | `fetch_highlights.py` | Every 5 min via external scheduler (cron-job.org → `workflow_dispatch`; GitHub's own `schedule:` cron was removed as unreliable) | football-data.org | 8,000 YouTube units/day |
 | **Backfill** | `backfill_highlights.py` | Manual only (`workflow_dispatch`) | football-data.org | 9,500 YouTube units/day |
 | **Copa America backfill** | `backfill_copa_america.py` | Manual only (`workflow_dispatch`) | API-Sports free tier | 9,500 YouTube units/day (isolated) |
 
