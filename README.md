@@ -545,6 +545,16 @@ pytest scripts/tests/ -v
 pytest scripts/tests/test_pure_functions.py -x --no-header -q
 ```
 
+### Cross-repo season-boundary contract
+
+`scripts/tests/test_season_boundary_contract.py` pins the canonical August-1 **UTC**
+season rule as explicit `UTC timestamp → season integer` cases. The **identical** table
+also lives in the app repo at `refoot_flutter/test/season_boundary_contract_test.dart`.
+The two are a cross-repo contract with no shared code: `current_season()` here and
+`SeasonDateCalculator.currentSeasonYear()` there must both satisfy it. If you change one
+table you MUST change the other — a mismatch is the drift this guard catches, and it
+turns one repo's CI red.
+
 ### Pre-commit hook
 
 Runs the no-network pure-function tests automatically before every local commit.
