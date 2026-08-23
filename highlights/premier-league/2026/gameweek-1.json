@@ -2,7 +2,7 @@
   "competition": "Premier League",
   "gameweek": "GW1",
   "stem": "gameweek-1",
-  "generated_at": "2026-08-22T00:01:36Z",
+  "generated_at": "2026-08-23T00:02:32Z",
   "matches": [
     {
       "match_id": 560542,
@@ -10,6 +10,82 @@
       "away_team": "Coventry City FC",
       "date": "2026-08-21",
       "videos": []
+    },
+    {
+      "match_id": 560543,
+      "home_team": "Hull City AFC",
+      "away_team": "Manchester United FC",
+      "date": "2026-08-22",
+      "videos": [
+        {
+          "video_id": "n72HGVMWzVE",
+          "title": "Hull City v Man Utd | Highlights",
+          "published_at": "2026-08-22",
+          "tier_used": 1
+        }
+      ]
+    },
+    {
+      "match_id": 560544,
+      "home_team": "Ipswich Town FC",
+      "away_team": "Sunderland AFC",
+      "date": "2026-08-22",
+      "videos": [
+        {
+          "video_id": "OaCFl209QX0",
+          "title": "Extended Premier League Highlights | Ipswich Town 2 - 1 Sunderland AFC",
+          "published_at": "2026-08-22",
+          "tier_used": 1
+        },
+        {
+          "video_id": "hV1_WIGUvHM",
+          "title": "Angulo Scores In Defeat | Ipswich Town 2 - 1 Sunderland AFC | Premier League Highlights",
+          "published_at": "2026-08-22",
+          "tier_used": 1
+        }
+      ]
+    },
+    {
+      "match_id": 560545,
+      "home_team": "Nottingham Forest FC",
+      "away_team": "Leeds United FC",
+      "date": "2026-08-22",
+      "videos": [
+        {
+          "video_id": "cVd7Al7rYa8",
+          "title": "Nottingham Forest 0-1 Leeds United | Premier League Highlights 🎬",
+          "published_at": "2026-08-22",
+          "tier_used": 1
+        }
+      ]
+    },
+    {
+      "match_id": 560546,
+      "home_team": "Everton FC",
+      "away_team": "Crystal Palace FC",
+      "date": "2026-08-22",
+      "videos": [
+        {
+          "video_id": "PYOxC2Xv6pQ",
+          "title": "EVERTON v CRYSTAL PALACE | Premier League highlights",
+          "published_at": "2026-08-22",
+          "tier_used": 1
+        }
+      ]
+    },
+    {
+      "match_id": 560547,
+      "home_team": "Brentford FC",
+      "away_team": "Tottenham Hotspur FC",
+      "date": "2026-08-22",
+      "videos": [
+        {
+          "video_id": "CnXy2ILOXcI",
+          "title": "Brentford 3-0 Tottenham Hotspur | Premier League 2026/27 Highlights",
+          "published_at": "2026-08-22",
+          "tier_used": 1
+        }
+      ]
     }
   ]
 }
