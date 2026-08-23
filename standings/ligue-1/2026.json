@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-23T19:12:11.422445Z",
+  "generated_at": "2026-08-23T20:47:03.381351Z",
   "competition": "Ligue 1",
   "slug": "ligue-1",
   "season": 2026,
@@ -140,6 +140,44 @@
     {
       "position": 8,
       "team": {
+        "id": 524,
+        "name": "Paris Saint-Germain FC",
+        "shortName": "PSG",
+        "tla": "PSG",
+        "crest": "https://crests.football-data.org/524.png"
+      },
+      "playedGames": 1,
+      "form": "D",
+      "won": 0,
+      "draw": 1,
+      "lost": 0,
+      "points": 1,
+      "goalsFor": 2,
+      "goalsAgainst": 2,
+      "goalDifference": 0
+    },
+    {
+      "position": 9,
+      "team": {
+        "id": 529,
+        "name": "Stade Rennais FC 1901",
+        "shortName": "Stade Rennais",
+        "tla": "REN",
+        "crest": "https://crests.football-data.org/529.png"
+      },
+      "playedGames": 1,
+      "form": "D",
+      "won": 0,
+      "draw": 1,
+      "lost": 0,
+      "points": 1,
+      "goalsFor": 2,
+      "goalsAgainst": 2,
+      "goalDifference": 0
+    },
+    {
+      "position": 10,
+      "team": {
         "id": 531,
         "name": "ES Troyes AC",
         "shortName": "Troyes",
@@ -157,7 +195,7 @@
       "goalDifference": 0
     },
     {
-      "position": 9,
+      "position": 11,
       "team": {
         "id": 1045,
         "name": "Paris FC",
@@ -176,7 +214,7 @@
       "goalDifference": 0
     },
     {
-      "position": 10,
+      "position": 12,
       "team": {
         "id": 522,
         "name": "OGC Nice",
@@ -195,7 +233,7 @@
       "goalDifference": 0
     },
     {
-      "position": 11,
+      "position": 13,
       "team": {
         "id": 525,
         "name": "FC Lorient",
@@ -209,44 +247,6 @@
       "draw": 1,
       "lost": 0,
       "points": 1,
-      "goalsFor": 0,
-      "goalsAgainst": 0,
-      "goalDifference": 0
-    },
-    {
-      "position": 12,
-      "team": {
-        "id": 524,
-        "name": "Paris Saint-Germain FC",
-        "shortName": "PSG",
-        "tla": "PSG",
-        "crest": "https://crests.football-data.org/524.png"
-      },
-      "playedGames": 0,
-      "form": "",
-      "won": 0,
-      "draw": 0,
-      "lost": 0,
-      "points": 0,
-      "goalsFor": 0,
-      "goalsAgainst": 0,
-      "goalDifference": 0
-    },
-    {
-      "position": 13,
-      "team": {
-        "id": 529,
-        "name": "Stade Rennais FC 1901",
-        "shortName": "Stade Rennais",
-        "tla": "REN",
-        "crest": "https://crests.football-data.org/529.png"
-      },
-      "playedGames": 0,
-      "form": "",
-      "won": 0,
-      "draw": 0,
-      "lost": 0,
-      "points": 0,
       "goalsFor": 0,
       "goalsAgainst": 0,
       "goalDifference": 0
