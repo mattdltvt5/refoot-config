@@ -603,6 +603,18 @@
                 font-size: 12px;
             }
         }
+        /* Pipeline workflow run-status panel */
+        #workflow-status { padding: 8px 16px; border-bottom: 1px solid var(--border); font-size: 11px; }
+        .wf-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 5px; }
+        .wf-head-label { color: var(--text); font-weight: 600; }
+        .wf-head-label i { color: var(--muted); }
+        .wf-refresh { background: none; border: none; cursor: pointer; color: var(--muted); font-size: 13px; padding: 2px 5px; border-radius: 4px; }
+        .wf-refresh:hover { background: var(--bg); color: var(--text); }
+        .wf-row { display: flex; align-items: center; gap: 8px; padding: 3px 0; color: var(--muted); flex-wrap: wrap; }
+        .wf-row .wf-name { color: var(--text); min-width: 110px; }
+        .wf-fail { color: var(--red); font-weight: 600; }
+        .wf-overdue-badge { background: var(--red); color: #fff; font-weight: 700; font-size: 9px; letter-spacing: .04em; padding: 1px 6px; border-radius: 3px; text-transform: uppercase; }
+        .wf-note { color: var(--muted); font-style: italic; padding: 2px 0; }
     </style>
 </head>
 <body>
@@ -710,6 +722,13 @@
             <span id="fetch-log-next"></span>
         </div>
         <div id="fetch-additions-list" style="display:none"></div>
+        <div id="workflow-status">
+            <div class="wf-head">
+                <span class="wf-head-label"><i class="fi-br-list"></i> Pipeline runs</span>
+                <button class="wf-refresh" id="wf-refresh-btn" title="Refresh run status"><i class="fi-br-refresh"></i></button>
+            </div>
+            <div id="wf-rows"><div class="wf-note">Loading run status…</div></div>
+        </div>
         <div id="coverage-panel">
             <div class="cov-empty">Loading coverage data…</div>
         </div>
@@ -1053,6 +1072,104 @@ function renderNextFetch() {
     const inStr = diffH > 0 ? 'in ' + diffH + 'h ' + diffM + 'm' : 'in ' + diffM + 'm';
     const timeStr = next.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit', timeZone: 'UTC' }) + ' UTC';
     el.textContent = 'Next: ' + inStr + ' (' + timeStr + ')';
+}
+
+// ── Pipeline workflow run status ──────────────────────────────────────────
+// refoot-config is PUBLIC, so the GitHub Actions REST API answers unauthenticated
+// (no token is ever placed in this client). fetch-highlights is triggered by an
+// external cron every ~5 min (workflow_dispatch), so overdue detection here also
+// catches the external dispatcher dying. Grace absorbs runner/scheduling jitter.
+const MONITORED_WORKFLOWS = [
+    { file: 'fetch-highlights.yml',     label: 'Highlights fetch',  cadenceMin: 5,     graceMin: 15   }, // external cron ~5 min
+    { file: 'sync-standings.yml',       label: 'Standings sync',    cadenceMin: 1440,  graceMin: 180  }, // daily 07:00 UTC
+    { file: 'sync-teams.yml',           label: 'Team rosters',      cadenceMin: 10080, graceMin: 1440 }, // weekly Mon 04:00
+    { file: 'sync-copa-tournament.yml', label: 'Copa tournament',   cadenceMin: 10080, graceMin: 1440 }, // weekly Mon 05:00
+];
+let wfStatusCache = null; // last good [{cfg, run}]
+let wfRateLimited = false;
+
+async function loadWorkflowStatus() {
+    const rowsEl = document.getElementById('wf-rows');
+    if (!rowsEl) return;
+    try {
+        const results = await Promise.all(MONITORED_WORKFLOWS.map(async cfg => {
+            const url = 'https://api.github.com/repos/' + GH_OWNER + '/' + GH_REPO
+                      + '/actions/workflows/' + cfg.file + '/runs?per_page=1&_=' + Date.now();
+            const res = await fetch(url);
+            if (res.status === 403) { wfRateLimited = true; throw new Error('rate-limited'); }
+            if (!res.ok) return { cfg, run: null };
+            const data = await res.json();
+            return { cfg, run: (data.workflow_runs && data.workflow_runs[0]) || null };
+        }));
+        wfRateLimited = false;
+        wfStatusCache = results;
+    } catch (e) {
+        // Rate-limited or network error: keep last good cache and flag it in the render.
+    }
+    renderWorkflowStatus();
+}
+
+function wfFmtAgo(ms) {
+    const m = Math.floor(ms / 60000);
+    if (m < 60) return m + 'm';
+    const h = Math.floor(m / 60), rm = m % 60;
+    if (h < 24) return h + 'h ' + rm + 'm';
+    const d = Math.floor(h / 24), rh = h % 24;
+    return d + 'd ' + rh + 'h';
+}
+
+function renderWorkflowStatus() {
+    const rowsEl = document.getElementById('wf-rows');
+    if (!rowsEl) return;
+    if (!wfStatusCache) {
+        rowsEl.innerHTML = wfRateLimited
+            ? '<div class="wf-note">GitHub API rate limit reached — try Refresh in a few minutes.</div>'
+            : '<div class="wf-note">Run status unavailable.</div>';
+        return;
+    }
+    const now = Date.now();
+    rowsEl.innerHTML = '';
+    wfStatusCache.forEach(({ cfg, run }) => {
+        let dot = 'var(--muted)', detail = '';
+        if (!run) {
+            detail = '<span class="wf-note">no runs found</span>';
+        } else {
+            const created = new Date(run.created_at).getTime();
+            const ageMs = now - created;
+            const timeStr = new Date(created).toLocaleTimeString('en-GB',
+                { hour: '2-digit', minute: '2-digit', timeZone: 'UTC' }) + ' UTC';
+            const running = run.status === 'in_progress' || run.status === 'queued';
+            const overdue = !running && ageMs > (cfg.cadenceMin + cfg.graceMin) * 60000;
+            if (overdue) {
+                dot = 'var(--red)';
+                detail = '<span class="wf-overdue-badge">Overdue</span> '
+                    + 'no run in ' + wfFmtAgo(ageMs)
+                    + ' (last: ' + (run.conclusion || run.status) + ')';
+            } else if (run.status === 'queued') {
+                dot = 'var(--yellow)'; detail = 'Queued';
+            } else if (run.status === 'in_progress') {
+                dot = 'var(--blue)'; detail = 'Running…';
+            } else if (run.conclusion === 'success') {
+                dot = 'var(--green)'; detail = 'OK · ' + wfFmtAgo(ageMs) + ' ago (' + timeStr + ')';
+            } else if (run.conclusion === 'failure' || run.conclusion === 'timed_out' || run.conclusion === 'startup_failure') {
+                dot = 'var(--red)';
+                detail = '<span class="wf-fail">Failed</span> · ' + wfFmtAgo(ageMs) + ' ago (' + timeStr + ')';
+            } else {
+                dot = 'var(--muted)'; detail = (run.conclusion || run.status) + ' · ' + wfFmtAgo(ageMs) + ' ago';
+            }
+        }
+        const row = document.createElement('div');
+        row.className = 'wf-row';
+        row.innerHTML = '<span class="status-dot" style="background:' + dot + '"></span>'
+            + '<span class="wf-name">' + cfg.label + '</span><span class="wf-detail">' + detail + '</span>';
+        rowsEl.appendChild(row);
+    });
+    if (wfRateLimited) {
+        const note = document.createElement('div');
+        note.className = 'wf-note';
+        note.textContent = 'GitHub API rate limit reached — showing last known status.';
+        rowsEl.appendChild(note);
+    }
 }
 
 function renderCoverage(data) {
@@ -1871,6 +1988,8 @@ async function loadAll() {
         loadFetchLog();           // async — does not block the main UI
         renderNextFetch();        // sync — computed from cron schedule + current time
         setInterval(renderNextFetch, 60000); // keep countdown live
+        loadWorkflowStatus();     // async: GitHub Actions API (public repo, no token)
+        setInterval(renderWorkflowStatus, 60000); // re-render age/overdue without refetching
     } catch(err) {
         dbg('Fatal: ' + err.message, 'err');
         document.getElementById('loading-state').innerHTML =
@@ -2013,6 +2132,7 @@ document.getElementById('debug-clear-btn').addEventListener('click', () => {
     document.getElementById('debug-empty').style.display = 'block';
 });
 document.getElementById('reload-btn').addEventListener('click', loadAll);
+document.getElementById('wf-refresh-btn').addEventListener('click', loadWorkflowStatus);
 document.getElementById('save-btn').addEventListener('click', saveData);
 
 // ── Accordion — one competition open at a time ────────────

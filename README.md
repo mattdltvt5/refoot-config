@@ -4,6 +4,14 @@ Remote channel configuration for the **ReFoot Highlights** Android app.
 
 ## Recent changes
 
+### Admin: pipeline run-status panel (2026-08-23)
+The Web Admin surfaces the health of the pipeline's recurring GitHub Actions
+workflows — current state (OK / Failed / Running / Queued / **OVERDUE**), last-run
+time, and how long ago — and detects a run that **failed to fire** (newest run older
+than the workflow's cadence + a grace margin). Reads the GitHub Actions REST API
+client-side and **unauthenticated** (public repo; **no token in the admin JS**). See
+[Admin Panel — Pipeline run status](#admin-panel--pipeline-run-status).
+
 ### Group-stage highlights grafted onto group matches (2026-07-06)
 
 Group-stage matches in every `tournament-groups/*.json` now carry `video_id` (the matched YouTube ID) and `match_id` (the FD/API-Sports fixture ID), mirroring the existing knockout graft. Three surfaces — Euro Cup, World Cup, and Copa América group stages — are covered by the same generic code path.
@@ -929,6 +937,43 @@ python diagnostics/apisports_probe.py
 
 **No side effects:** does not modify `fetch_highlights.py`, `backfill_highlights.py`,
 `highlights_common.py`, any competition config, or `quota-tracker.json`.
+
+## Admin Panel — Pipeline run status
+
+The admin status dashboard includes a **Pipeline runs** panel reporting the health of
+the recurring GitHub Actions workflows. `refoot-config` is a **public** repo, so the
+panel reads the GitHub Actions REST API **client-side and unauthenticated** — there is
+**no GitHub token anywhere in the admin JS**:
+
+```
+GET https://api.github.com/repos/mattdltvt5/refoot-config/actions/workflows/{file}/runs?per_page=1
+```
+
+Per workflow it shows a colored status dot + state:
+
+- **OK** (green) — last run succeeded, with how long ago + UTC time.
+- **Failed** (red) — last run conclusion was failure / timed_out / startup_failure.
+- **Running / Queued** (blue / yellow) — a run is in progress or queued.
+- **OVERDUE** (red badge) — the newest run is older than the workflow's expected cadence
+  **plus a grace margin** (for runner scheduling jitter). This catches a run that never
+  fired — not a stale “last known good” readout.
+
+Monitored workflows and overdue thresholds:
+
+| Workflow | Cadence | Grace | Flagged OVERDUE after |
+|---|---|---|---|
+| `fetch-highlights.yml` | ~5 min (external cron via `workflow_dispatch`) | 15 min | 20 min |
+| `sync-standings.yml` | daily (07:00 UTC) | 3 h | 27 h |
+| `sync-teams.yml` | weekly (Mon 04:00 UTC) | 1 day | 8 days |
+| `sync-copa-tournament.yml` | weekly (Mon 05:00 UTC) | 1 day | 8 days |
+
+Because `fetch-highlights` is triggered by the external cron-job.org dispatcher (not a
+GitHub `schedule:` cron), its OVERDUE state doubles as a **dead-dispatcher alarm**. The
+unauthenticated API limit (60/hr per IP) is handled: one request per workflow on load, a
+manual refresh button, the last good response cached, “age” re-rendered every 60 s
+without re-fetching, and a clear note on a 403. Config lives in `MONITORED_WORKFLOWS` in
+`admin.html`. (This supersedes the older `renderNextFetch()` “next in 4h” line, which is
+stale since the GitHub cron was removed.)
 
 ## Admin Panel — Highlights Coverage dashboard
 
