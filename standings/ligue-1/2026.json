@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-23T16:56:55.995209Z",
+  "generated_at": "2026-08-23T17:16:51.689414Z",
   "competition": "Ligue 1",
   "slug": "ligue-1",
   "season": 2026,
@@ -83,6 +83,25 @@
     {
       "position": 5,
       "team": {
+        "id": 548,
+        "name": "AS Monaco FC",
+        "shortName": "Monaco",
+        "tla": "ASM",
+        "crest": "https://crests.football-data.org/548.png"
+      },
+      "playedGames": 1,
+      "form": "W",
+      "won": 1,
+      "draw": 0,
+      "lost": 0,
+      "points": 3,
+      "goalsFor": 1,
+      "goalsAgainst": 0,
+      "goalDifference": 1
+    },
+    {
+      "position": 6,
+      "team": {
         "id": 535,
         "name": "Le Mans FC",
         "shortName": "Le Mans",
@@ -100,7 +119,7 @@
       "goalDifference": 0
     },
     {
-      "position": 6,
+      "position": 7,
       "team": {
         "id": 512,
         "name": "Stade Brestois 29",
@@ -119,7 +138,7 @@
       "goalDifference": 0
     },
     {
-      "position": 7,
+      "position": 8,
       "team": {
         "id": 531,
         "name": "ES Troyes AC",
@@ -138,7 +157,7 @@
       "goalDifference": 0
     },
     {
-      "position": 8,
+      "position": 9,
       "team": {
         "id": 1045,
         "name": "Paris FC",
@@ -157,7 +176,7 @@
       "goalDifference": 0
     },
     {
-      "position": 9,
+      "position": 10,
       "team": {
         "id": 522,
         "name": "OGC Nice",
@@ -176,7 +195,7 @@
       "goalDifference": 0
     },
     {
-      "position": 10,
+      "position": 11,
       "team": {
         "id": 525,
         "name": "FC Lorient",
@@ -195,45 +214,7 @@
       "goalDifference": 0
     },
     {
-      "position": 11,
-      "team": {
-        "id": 533,
-        "name": "Le Havre AC",
-        "shortName": "Le Havre",
-        "tla": "HAC",
-        "crest": "https://crests.football-data.org/533.png"
-      },
-      "playedGames": 0,
-      "form": "",
-      "won": 0,
-      "draw": 0,
-      "lost": 0,
-      "points": 0,
-      "goalsFor": 0,
-      "goalsAgainst": 0,
-      "goalDifference": 0
-    },
-    {
       "position": 12,
-      "team": {
-        "id": 548,
-        "name": "AS Monaco FC",
-        "shortName": "Monaco",
-        "tla": "ASM",
-        "crest": "https://crests.football-data.org/548.png"
-      },
-      "playedGames": 0,
-      "form": "",
-      "won": 0,
-      "draw": 0,
-      "lost": 0,
-      "points": 0,
-      "goalsFor": 0,
-      "goalsAgainst": 0,
-      "goalDifference": 0
-    },
-    {
-      "position": 13,
       "team": {
         "id": 524,
         "name": "Paris Saint-Germain FC",
@@ -252,7 +233,7 @@
       "goalDifference": 0
     },
     {
-      "position": 14,
+      "position": 13,
       "team": {
         "id": 529,
         "name": "Stade Rennais FC 1901",
@@ -269,6 +250,25 @@
       "goalsFor": 0,
       "goalsAgainst": 0,
       "goalDifference": 0
+    },
+    {
+      "position": 14,
+      "team": {
+        "id": 533,
+        "name": "Le Havre AC",
+        "shortName": "Le Havre",
+        "tla": "HAC",
+        "crest": "https://crests.football-data.org/533.png"
+      },
+      "playedGames": 1,
+      "form": "L",
+      "won": 0,
+      "draw": 0,
+      "lost": 1,
+      "points": 0,
+      "goalsFor": 0,
+      "goalsAgainst": 1,
+      "goalDifference": -1
     },
     {
       "position": 15,
