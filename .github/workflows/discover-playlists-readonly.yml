@@ -1,0 +1,48 @@
+name: Discover playlists (read-only diagnostic)
+
+# ONE-OFF, manually-triggered, READ-ONLY diagnostic.
+#
+# Lists the real playlists on the YouTube channels mapped in sources.json so the
+# playlist auto-discovery matching rule can be designed from actual names. It
+# PRINTS everything to this workflow's log and WRITES NOTHING — no repo files, no
+# playlist-owners.json, no quota-tracker.json, no commit. Uses playlists.list
+# only (never search.list). Quota: a few dozen units, estimated at the end of
+# the log.
+#
+# To run: Actions tab -> "Discover playlists (read-only diagnostic)" -> Run
+# workflow. Then copy the log back. Nothing is committed or deployed.
+#
+# Deliberately mirrors verify-playlist-owners.yml MINUS the commit step and
+# MINUS `permissions: contents: write` — this job only reads and prints.
+
+on:
+  workflow_dispatch:
+
+jobs:
+  discover:
+    name: List mapped-channel playlists (read-only)
+    runs-on: ubuntu-latest
+
+    # No `permissions:` block — the default read-only token is sufficient; this
+    # job never writes to the repo.
+
+    env:
+      YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install requests
+
+      - name: Discover playlists (prints to log, writes nothing)
+        run: python scripts/discover_playlists_readonly.py

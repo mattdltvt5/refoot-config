@@ -4,6 +4,25 @@ Remote channel configuration for the **ReFoot Highlights** Android app.
 
 ## Recent changes
 
+### Read-only playlist-discovery diagnostic (2026-08-23)
+`scripts/discover_playlists_readonly.py` + `.github/workflows/discover-playlists-readonly.yml`
+— a **one-off, manually-triggered, READ-ONLY** diagnostic that lists the real playlists on the
+YouTube channels mapped in `sources.json`, to gather actual playlist-name data for designing
+the future auto-discovery matcher. It resolves each mapped playlist's owning channel
+(`fetch_playlist_owner`, reused from `highlights_common.py`), then lists that channel's
+playlists (`playlists.list?part=snippet,contentDetails`), printing title / id / itemCount /
+created-date. Focused sections confirm the **Europa League** mapped playlist's state (and whether
+a newer season playlist exists on that channel), resolve the **Premier League** broadcaster
+playlist's owning channel (candidate Tier-2 seed) and look for a "Club Highlights" playlist,
+dump the **multi-comp broadcaster** channels (CBS Golazo / TUDN / Fox) so competition naming is
+visible, and confirm the truncated **World Cup / Telemundo** id.
+
+**It writes NOTHING** — no repo files, no `playlist-owners.json`, no `quota-tracker.json`, no
+commit; the workflow has **no `contents: write`** and only a `workflow_dispatch` trigger.
+`playlists.list` only — never `search.list`. Quota: a few dozen units, estimated at the end of
+the log. **To run:** Actions tab → "Discover playlists (read-only diagnostic)" → Run workflow,
+then copy the log. Standalone — not wired into any scheduled pipeline.
+
 ### Cross-competition, date-indexed Home artifact (`home-index/`) (2026-08-23)
 The data backbone for the new cross-competition **Home** screen (backlog #8). For any
 date, it lists the competitions that have games that day (in canonical order) and their
