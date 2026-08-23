@@ -4,6 +4,25 @@ Remote channel configuration for the **ReFoot Highlights** Android app.
 
 ## Recent changes
 
+### Copa América per-match events (goals & cards) backfill (2026-08-23)
+Copa América 2024 match events — goal scorer + minute, **regular vs extra-time
+(prórroga)**, and yellow/red cards with recipient — are now backfilled from API-Sports
+`/fixtures/events` into **`events/copa-america/{season}.json`** (keyed by `match_id`) for a
+Flutter match-detail view (feature #5). Copa 2024 is complete, so this is a **one-time**
+fetch (~1 call/fixture, well under the 100/day free-tier cap), run via the manual
+`backfill-copa-america.yml`. **API-Sports only** (no football-data). Per the availability
+audit, Copa is the *only* competition where per-match event data is obtainable — FD's
+current tier returns no event timelines for the club leagues.
+
+Per-match event schema: `[{kind: goal|card, minute, extra, phase: regular|extra, team,
+player, detail: Normal Goal|Penalty|Own Goal|Yellow Card|Red Card}]`. (Penalty-shootout
+aggregate stays on the match's `penaltiesResult`, not per-event.)
+
+**Files:** `scripts/fixture_providers.py` (`ApiSportsProvider.get_events` /
+`_normalize_events`), `scripts/backfill_copa_events.py` (new),
+`.github/workflows/backfill-copa-america.yml` (events step + `git add events/`),
+`scripts/tests/test_copa_events.py` (new). App-side match-detail view is a separate change.
+
 ### League standings refreshed on the ~5-min loop, event-driven (2026-08-23)
 Domestic league standings (`standings/{slug}/{season}.json`) previously refreshed only
 once daily via `sync-standings.yml` (`0 7 * * *`), so the app's standings table lagged a

@@ -413,6 +413,43 @@ class ApiSportsProvider(FixtureProvider):
         )
         return by_stem
 
+    def get_events(self, fixture_id):
+        """Fetch goal & card events for one fixture via API-Sports /fixtures/events.
+        Returns a normalized list (see _normalize_events); [] on error/none. The
+        free-tier season constraint is enforced by get_fixtures in the surrounding
+        backfill, so this is only called for in-range (2022-2024) fixtures."""
+        body = self._get("/fixtures/events", {"fixture": fixture_id})
+        if not body:
+            return []
+        return self._normalize_events(body.get("response", []))
+
+    @staticmethod
+    def _normalize_events(raw):
+        """Map API-Sports event objects to the cache event schema. Keeps only Goal
+        and Card events (feature #5). phase = 'extra' when the clock is past 90'
+        (prorroga); the penalty-shootout aggregate is carried by the match's
+        penaltiesResult, not per-event here. detail preserves Normal Goal / Penalty /
+        Own Goal / Yellow Card / Red Card so the app can render precisely."""
+        out = []
+        for ev in raw or []:
+            etype = ev.get("type")
+            if etype not in ("Goal", "Card"):
+                continue
+            t = ev.get("time") or {}
+            elapsed = t.get("elapsed")
+            out.append({
+                "kind":   "goal" if etype == "Goal" else "card",
+                "minute": elapsed,
+                "extra":  t.get("extra"),
+                "phase":  "extra" if isinstance(elapsed, int) and elapsed > 90 else "regular",
+                "team":   (ev.get("team") or {}).get("name", ""),
+                "player": (ev.get("player") or {}).get("name", ""),
+                "detail": ev.get("detail") or "",
+            })
+        out.sort(key=lambda e: (e["minute"] if isinstance(e["minute"], int) else 999,
+                                e.get("extra") or 0))
+        return out
+
     def _get(self, path: str, params: dict) -> dict | None:
         """
         Throttled GET to API-Sports.
