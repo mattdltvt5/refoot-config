@@ -4,6 +4,25 @@ Remote channel configuration for the **ReFoot Highlights** Android app.
 
 ## Recent changes
 
+### League standings refreshed on the ~5-min loop, event-driven (2026-08-23)
+Domestic league standings (`standings/{slug}/{season}.json`) previously refreshed only
+once daily via `sync-standings.yml` (`0 7 * * *`), so the app's standings table lagged a
+completed match by up to ~24 h even though match scores (fixtures) refresh every ~5 min.
+Standings now also refresh inside the ~5-min `fetch-highlights.yml` loop, **event-driven**:
+a new `sync_standings.py --if-recent-finish` step refreshes a league's standings only when
+its fixtures artifact shows a match `FINISHED` within `RECENT_FINISH_HOURS` (4 h) — reading
+the fixtures just written that run, so **0 extra football-data calls on quiet cycles** and
+only ~1 call per league for a few cycles after a final whistle (well within FD's 600/hr cap).
+Result: match-finish → standings-updated drops from ~24 h to ~one 5-min cycle.
+
+`sync-standings.yml` still runs daily as a **full backstop** (and covers UCL, which has no
+domestic fixtures artifact). football-data only — no API-Sports. The fetch workflow’s
+`git add` now includes `standings/` (commit keeps `[skip ci]`).
+
+**Files changed:** `scripts/sync_standings.py` (`had_recent_finish`, `main_recent`,
+`--if-recent-finish`), `.github/workflows/fetch-highlights.yml` (standings step + `git add
+standings/`), `scripts/tests/test_sync_standings.py` (smart-skip tests).
+
 ### Admin: pipeline run-status panel (2026-08-23)
 The Web Admin surfaces the health of the pipeline's recurring GitHub Actions
 workflows — current state (OK / Failed / Running / Queued / **OVERDUE**), last-run

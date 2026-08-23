@@ -5,16 +5,26 @@ Each file is a flat list of GroupStanding-compatible row objects (one per team),
 matching the football-data.org /standings table row shape so the Flutter app can
 parse them with GroupStanding.fromJson() without any transformation.
 
-Cadence: daily at 07:00 UTC via sync-standings.yml.
+Cadence:
+  - Full refresh (all competitions): daily at 07:00 UTC via sync-standings.yml.
+  - Recent-finish refresh (--if-recent-finish): folded into fetch-highlights.yml
+    (~5 min) so a league's standings refresh within one cycle of a match finishing,
+    making 0 football-data calls on cycles where nothing finished. sync-standings.yml
+    remains the daily full backstop.
 TTL in the Flutter app: 2 days (StandingsCacheService._staleDays = 2).
 """
 
 import json, os, sys, time, urllib.request, urllib.error
-from datetime import datetime, timezone
+from datetime import datetime, timezone, timedelta
 
 from season_utils import current_season  # canonical August-threshold rule (shared with fixtures pipeline)
 
 FD_BASE = "https://api.football-data.org/v4"
+
+# --if-recent-finish only refreshes a league whose fixtures show a match FINISHED
+# within this window. utcDate is kickoff, so ~4h covers a ~2h match + buffer and
+# keeps refreshing for a few cycles after the whistle. Idle cycles = 0 FD calls.
+RECENT_FINISH_HOURS = 4
 
 
 # Competitions that get a standings file. Each entry is (FD id, display name, slug).
@@ -92,9 +102,65 @@ def main(api_key, out_dir="."):
             print(f"✗ {comp_name}: {e} — skipping", file=sys.stderr)
 
 
+def had_recent_finish(slug, season, out_dir=".", now=None):
+    """True if fixtures/{slug}/{season}.json has a FINISHED match whose kickoff
+    (utcDate) is within RECENT_FINISH_HOURS of now. Reads the fixtures artifact
+    that fetch_highlights.py wrote this run (no extra FD call). Missing/unreadable
+    fixtures -> False (the daily full sync is the backstop)."""
+    now = now or datetime.now(timezone.utc)
+    cutoff = now - timedelta(hours=RECENT_FINISH_HOURS)
+    path = os.path.join(out_dir, "fixtures", slug, f"{season}.json")
+    try:
+        with open(path, encoding="utf-8") as f:
+            data = json.load(f)
+    except (OSError, ValueError):
+        return False
+    for fx in data.get("fixtures", []):
+        if fx.get("status") != "FINISHED":
+            continue
+        ko = fx.get("utcDate")
+        if not ko:
+            continue
+        try:
+            dt = datetime.fromisoformat(ko.replace("Z", "+00:00"))
+        except ValueError:
+            continue
+        if dt >= cutoff:
+            return True
+    return False
+
+
+def main_recent(api_key, out_dir=".", now=None):
+    """Smart-skip: refresh standings ONLY for leagues with a recent finish.
+    Competitions without a fixtures artifact (e.g. UCL) are left to the daily job."""
+    season = current_season(now)
+    eligible = [c for c in COMPETITIONS
+                if had_recent_finish(c[2], season, out_dir, now)]
+    if not eligible:
+        print("No competition had a recent finish - skipping standings (0 FD calls).")
+        return
+    for i, (comp_id, comp_name, slug) in enumerate(eligible):
+        if i > 0:
+            time.sleep(7)  # free tier: 10 req/min
+        try:
+            payload = fetch_standings(comp_id, api_key, season=season)
+            rows = []
+            for group in extract_total_table(payload):
+                rows.extend(group.get("table", []))
+            path = write_standings(comp_name, slug, rows, season, out_dir)
+            print(f"✓ {comp_name}: {len(rows)} rows -> {path} (recent finish)")
+        except urllib.error.HTTPError as e:
+            print(f"✗ {comp_name}: HTTP {e.code} - skipping", file=sys.stderr)
+        except Exception as e:
+            print(f"✗ {comp_name}: {e} - skipping", file=sys.stderr)
+
+
 if __name__ == "__main__":
     api_key = os.environ.get("FOOTBALL_DATA_API_KEY", "")
     if not api_key:
         print("ERROR: FOOTBALL_DATA_API_KEY not set", file=sys.stderr)
         sys.exit(1)
-    main(api_key)
+    if "--if-recent-finish" in sys.argv:
+        main_recent(api_key)
+    else:
+        main(api_key)

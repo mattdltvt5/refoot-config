@@ -9,6 +9,7 @@ from unittest.mock import patch, MagicMock
 
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
 from sync_standings import current_season, extract_total_table, fetch_standings, write_standings
+from sync_standings import had_recent_finish, main_recent
 
 
 class TestCurrentSeason(unittest.TestCase):
@@ -183,6 +184,70 @@ class TestFetchStandings(unittest.TestCase):
         req = mock_urlopen.call_args[0][0]
         self.assertNotIn("season", req.get_full_url())
 
+
+
+class TestSmartSkip(unittest.TestCase):
+    """--if-recent-finish: refresh a league's standings only when one of its
+    fixtures finished within RECENT_FINISH_HOURS; skip (0 FD calls) otherwise."""
+
+    _now = datetime(2026, 8, 23, 21, 0, tzinfo=timezone.utc)
+
+    def _write_fixtures(self, d, slug, fixtures):
+        os.makedirs(os.path.join(d, 'fixtures', slug), exist_ok=True)
+        with open(os.path.join(d, 'fixtures', slug, '2025.json'), 'w', encoding='utf-8') as f:
+            json.dump({'fixtures': fixtures}, f)
+
+    def test_recent_finish_is_eligible(self):
+        with tempfile.TemporaryDirectory() as d:
+            self._write_fixtures(d, 'premier-league',
+                [{'status': 'FINISHED', 'utcDate': '2026-08-23T19:00:00Z'}])  # ~2h ago
+            self.assertTrue(had_recent_finish('premier-league', 2025, d, self._now))
+
+    def test_old_finish_is_not_eligible(self):
+        with tempfile.TemporaryDirectory() as d:
+            self._write_fixtures(d, 'laliga',
+                [{'status': 'FINISHED', 'utcDate': '2026-08-21T19:00:00Z'}])  # 2 days ago
+            self.assertFalse(had_recent_finish('laliga', 2025, d, self._now))
+
+    def test_live_only_is_not_eligible(self):
+        with tempfile.TemporaryDirectory() as d:
+            self._write_fixtures(d, 'serie-a',
+                [{'status': 'IN_PLAY', 'utcDate': '2026-08-23T20:00:00Z'}])
+            self.assertFalse(had_recent_finish('serie-a', 2025, d, self._now))
+
+    def test_missing_fixtures_file_is_not_eligible(self):
+        with tempfile.TemporaryDirectory() as d:
+            self.assertFalse(had_recent_finish('bundesliga', 2025, d, self._now))
+
+    def test_unparseable_date_is_skipped(self):
+        with tempfile.TemporaryDirectory() as d:
+            self._write_fixtures(d, 'ligue-1',
+                [{'status': 'FINISHED', 'utcDate': 'not-a-date'}])
+            self.assertFalse(had_recent_finish('ligue-1', 2025, d, self._now))
+
+    @patch('sync_standings.current_season', return_value=2025)
+    @patch('sync_standings.fetch_standings')
+    def test_main_recent_refreshes_only_eligible(self, mock_fetch, _season):
+        mock_fetch.return_value = {'standings': [{'type': 'TOTAL', 'table': [{'position': 1}]}]}
+        with tempfile.TemporaryDirectory() as d:
+            self._write_fixtures(d, 'premier-league',
+                [{'status': 'FINISHED', 'utcDate': '2026-08-23T19:00:00Z'}])   # eligible
+            self._write_fixtures(d, 'laliga',
+                [{'status': 'FINISHED', 'utcDate': '2026-08-20T19:00:00Z'}])   # too old
+            main_recent('fake-key', out_dir=d, now=self._now)
+            called_ids = [c.args[0] for c in mock_fetch.call_args_list]
+            self.assertEqual(called_ids, [2021])  # Premier League only
+            self.assertTrue(os.path.exists(os.path.join(d, 'standings', 'premier-league', '2025.json')))
+            self.assertFalse(os.path.exists(os.path.join(d, 'standings', 'laliga', '2025.json')))
+
+    @patch('sync_standings.current_season', return_value=2025)
+    @patch('sync_standings.fetch_standings')
+    def test_main_recent_no_eligible_makes_no_fd_calls(self, mock_fetch, _season):
+        with tempfile.TemporaryDirectory() as d:
+            self._write_fixtures(d, 'premier-league',
+                [{'status': 'FINISHED', 'utcDate': '2026-08-01T19:00:00Z'}])   # old
+            main_recent('fake-key', out_dir=d, now=self._now)
+            mock_fetch.assert_not_called()
 
 if __name__ == "__main__":
     unittest.main()
