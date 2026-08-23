@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-22T07:33:57.841709Z",
+  "generated_at": "2026-08-23T07:35:42.256792Z",
   "competition": "Serie A",
   "slug": "serie-a",
   "season": 2026,
@@ -7,100 +7,24 @@
     {
       "position": 1,
       "team": {
-        "id": 115,
-        "name": "Udinese Calcio",
-        "shortName": "Udinese",
-        "tla": "UDI",
-        "crest": "https://crests.football-data.org/115.png"
-      },
-      "playedGames": 0,
-      "form": "",
-      "won": 0,
-      "draw": 0,
-      "lost": 0,
-      "points": 0,
-      "goalsFor": 0,
-      "goalsAgainst": 0,
-      "goalDifference": 0
-    },
-    {
-      "position": 2,
-      "team": {
-        "id": 7397,
-        "name": "Como 1907",
-        "shortName": "Como 1907",
-        "tla": "COM",
-        "crest": "https://crests.football-data.org/7397.png"
-      },
-      "playedGames": 0,
-      "form": "",
-      "won": 0,
-      "draw": 0,
-      "lost": 0,
-      "points": 0,
-      "goalsFor": 0,
-      "goalsAgainst": 0,
-      "goalDifference": 0
-    },
-    {
-      "position": 3,
-      "team": {
         "id": 108,
         "name": "FC Internazionale Milano",
         "shortName": "Inter",
         "tla": "INT",
         "crest": "https://crests.football-data.org/108.png"
       },
-      "playedGames": 0,
-      "form": "",
-      "won": 0,
+      "playedGames": 1,
+      "form": "W",
+      "won": 1,
       "draw": 0,
       "lost": 0,
-      "points": 0,
-      "goalsFor": 0,
-      "goalsAgainst": 0,
-      "goalDifference": 0
+      "points": 3,
+      "goalsFor": 4,
+      "goalsAgainst": 1,
+      "goalDifference": 3
     },
     {
-      "position": 4,
-      "team": {
-        "id": 5911,
-        "name": "AC Monza",
-        "shortName": "Monza",
-        "tla": "MON",
-        "crest": "https://crests.football-data.org/5911.png"
-      },
-      "playedGames": 0,
-      "form": "",
-      "won": 0,
-      "draw": 0,
-      "lost": 0,
-      "points": 0,
-      "goalsFor": 0,
-      "goalsAgainst": 0,
-      "goalDifference": 0
-    },
-    {
-      "position": 5,
-      "team": {
-        "id": 107,
-        "name": "Genoa CFC",
-        "shortName": "Genoa",
-        "tla": "GEN",
-        "crest": "https://crests.football-data.org/107.png"
-      },
-      "playedGames": 0,
-      "form": "",
-      "won": 0,
-      "draw": 0,
-      "lost": 0,
-      "points": 0,
-      "goalsFor": 0,
-      "goalsAgainst": 0,
-      "goalDifference": 0
-    },
-    {
-      "position": 6,
+      "position": 2,
       "team": {
         "id": 113,
         "name": "SSC Napoli",
@@ -108,37 +32,18 @@
         "tla": "NAP",
         "crest": "https://crests.football-data.org/113.png"
       },
-      "playedGames": 0,
-      "form": "",
-      "won": 0,
+      "playedGames": 1,
+      "form": "W",
+      "won": 1,
       "draw": 0,
       "lost": 0,
-      "points": 0,
-      "goalsFor": 0,
+      "points": 3,
+      "goalsFor": 2,
       "goalsAgainst": 0,
-      "goalDifference": 0
+      "goalDifference": 2
     },
     {
-      "position": 7,
-      "team": {
-        "id": 112,
-        "name": "Parma Calcio 1913",
-        "shortName": "Parma",
-        "tla": "PAR",
-        "crest": "https://crests.football-data.org/112.png"
-      },
-      "playedGames": 0,
-      "form": "",
-      "won": 0,
-      "draw": 0,
-      "lost": 0,
-      "points": 0,
-      "goalsFor": 0,
-      "goalsAgainst": 0,
-      "goalDifference": 0
-    },
-    {
-      "position": 8,
+      "position": 3,
       "team": {
         "id": 104,
         "name": "Cagliari Calcio",
@@ -146,18 +51,56 @@
         "tla": "CAG",
         "crest": "https://crests.football-data.org/104.png"
       },
-      "playedGames": 0,
-      "form": "",
-      "won": 0,
+      "playedGames": 1,
+      "form": "W",
+      "won": 1,
       "draw": 0,
       "lost": 0,
-      "points": 0,
-      "goalsFor": 0,
+      "points": 3,
+      "goalsFor": 1,
       "goalsAgainst": 0,
+      "goalDifference": 1
+    },
+    {
+      "position": 4,
+      "team": {
+        "id": 115,
+        "name": "Udinese Calcio",
+        "shortName": "Udinese",
+        "tla": "UDI",
+        "crest": "https://crests.football-data.org/115.png"
+      },
+      "playedGames": 1,
+      "form": "D",
+      "won": 0,
+      "draw": 1,
+      "lost": 0,
+      "points": 1,
+      "goalsFor": 1,
+      "goalsAgainst": 1,
       "goalDifference": 0
     },
     {
-      "position": 9,
+      "position": 5,
+      "team": {
+        "id": 7397,
+        "name": "Como 1907",
+        "shortName": "Como 1907",
+        "tla": "COM",
+        "crest": "https://crests.football-data.org/7397.png"
+      },
+      "playedGames": 1,
+      "form": "D",
+      "won": 0,
+      "draw": 1,
+      "lost": 0,
+      "points": 1,
+      "goalsFor": 1,
+      "goalsAgainst": 1,
+      "goalDifference": 0
+    },
+    {
+      "position": 6,
       "team": {
         "id": 470,
         "name": "Frosinone Calcio",
@@ -176,7 +119,7 @@
       "goalDifference": 0
     },
     {
-      "position": 10,
+      "position": 7,
       "team": {
         "id": 109,
         "name": "Juventus FC",
@@ -195,7 +138,7 @@
       "goalDifference": 0
     },
     {
-      "position": 11,
+      "position": 8,
       "team": {
         "id": 454,
         "name": "Venezia FC",
@@ -214,7 +157,7 @@
       "goalDifference": 0
     },
     {
-      "position": 12,
+      "position": 9,
       "team": {
         "id": 5890,
         "name": "US Lecce",
@@ -233,7 +176,7 @@
       "goalDifference": 0
     },
     {
-      "position": 13,
+      "position": 10,
       "team": {
         "id": 102,
         "name": "Atalanta BC",
@@ -252,7 +195,7 @@
       "goalDifference": 0
     },
     {
-      "position": 14,
+      "position": 11,
       "team": {
         "id": 471,
         "name": "US Sassuolo Calcio",
@@ -271,7 +214,7 @@
       "goalDifference": 0
     },
     {
-      "position": 15,
+      "position": 12,
       "team": {
         "id": 586,
         "name": "Torino FC",
@@ -290,7 +233,7 @@
       "goalDifference": 0
     },
     {
-      "position": 16,
+      "position": 13,
       "team": {
         "id": 98,
         "name": "AC Milan",
@@ -309,7 +252,7 @@
       "goalDifference": 0
     },
     {
-      "position": 17,
+      "position": 14,
       "team": {
         "id": 103,
         "name": "Bologna FC 1909",
@@ -328,7 +271,7 @@
       "goalDifference": 0
     },
     {
-      "position": 18,
+      "position": 15,
       "team": {
         "id": 110,
         "name": "SS Lazio",
@@ -347,7 +290,7 @@
       "goalDifference": 0
     },
     {
-      "position": 19,
+      "position": 16,
       "team": {
         "id": 100,
         "name": "AS Roma",
@@ -366,7 +309,7 @@
       "goalDifference": 0
     },
     {
-      "position": 20,
+      "position": 17,
       "team": {
         "id": 99,
         "name": "ACF Fiorentina",
@@ -383,6 +326,63 @@
       "goalsFor": 0,
       "goalsAgainst": 0,
       "goalDifference": 0
+    },
+    {
+      "position": 18,
+      "team": {
+        "id": 112,
+        "name": "Parma Calcio 1913",
+        "shortName": "Parma",
+        "tla": "PAR",
+        "crest": "https://crests.football-data.org/112.png"
+      },
+      "playedGames": 1,
+      "form": "L",
+      "won": 0,
+      "draw": 0,
+      "lost": 1,
+      "points": 0,
+      "goalsFor": 0,
+      "goalsAgainst": 1,
+      "goalDifference": -1
+    },
+    {
+      "position": 19,
+      "team": {
+        "id": 107,
+        "name": "Genoa CFC",
+        "shortName": "Genoa",
+        "tla": "GEN",
+        "crest": "https://crests.football-data.org/107.png"
+      },
+      "playedGames": 1,
+      "form": "L",
+      "won": 0,
+      "draw": 0,
+      "lost": 1,
+      "points": 0,
+      "goalsFor": 0,
+      "goalsAgainst": 2,
+      "goalDifference": -2
+    },
+    {
+      "position": 20,
+      "team": {
+        "id": 5911,
+        "name": "AC Monza",
+        "shortName": "Monza",
+        "tla": "MON",
+        "crest": "https://crests.football-data.org/5911.png"
+      },
+      "playedGames": 1,
+      "form": "L",
+      "won": 0,
+      "draw": 0,
+      "lost": 1,
+      "points": 0,
+      "goalsFor": 1,
+      "goalsAgainst": 4,
+      "goalDifference": -3
     }
   ]
 }
