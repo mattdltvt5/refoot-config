@@ -4,6 +4,51 @@ Remote channel configuration for the **ReFoot Highlights** Android app.
 
 ## Recent changes
 
+### Automatic per-season playlist discovery (2026-08-23)
+Broadcaster/team highlight playlists rotate every season (`2025/26 Champions League Extended
+Highlights` → `2026/27 …`), and the rotating IDs were hardcoded in `sources.json` — so someone
+had to hand-update them each season or highlights silently went stale. This resolves the
+**current-season playlist within an already-known channel automatically** by matching real
+playlist names. (It does *not* find unknown channels — that needs the forbidden `search.list`;
+channels stay the human-seeded input, only the playlist is re-discovered.)
+
+- **Matcher** (`scripts/playlist_discovery.py`, `select_current_season_playlist`): prioritized,
+  grounded in real observed titles — (1) exclude **decoys** (rolling "EVERY…", "Multiple
+  Leagues"/"Scoreline", classic/best-of, full-match replays, interviews/reactions,
+  off-competition); (2) **competition-gate** (reuses `COMPETITION_KEYWORDS`; mandatory on
+  multi-comp broadcaster channels like CBS Golazo/TUDN/Fox, skipped for single-team channels);
+  (3) prefer the title carrying the **current season** — accepts `YYYY/YY`, `YY/YY`, `YYYY-YY`,
+  and tournament **edition year** (season computed from the existing `current_season` /
+  `season_for_competition`, not reimplemented); (4) **no-season rolling fallback** for
+  legitimately rolling sources (e.g. `LALIGA Highlights | ESPN FC`) — a survivor with no season
+  string and a multilingual highlight term (reuses `TITLE_ALLOWLIST`). Highlight terms are a
+  preference/fallback signal, **not** a hard gate (real playlists like `Ligue 1 2026/27` and
+  `UEFA Europa League 2025/26` carry no highlight word).
+- **Availability scoping** (`available_competitions`): discovery runs only for competitions that
+  actually have fixtures to attach highlights to — domestic leagues with a `fixtures/{slug}` file,
+  and tournaments whose `tournament-groups/{slug}.json` has ≥1 **dated** match (utcDate+id, the
+  same notion the home-index uses). Today that **skips Europa League** (no fixtures file) **and
+  Copa América** (0 dated matches); both auto-include if they gain fixtures — no code change.
+- **Orchestrator + workflow** (`scripts/discover_season_playlists.py`,
+  `.github/workflows/discover-season-playlists.yml`, weekly + manual): for each available
+  competition's mapped Tier-4/Tier-1c-d playlist it resolves the owning channel
+  (`fetch_playlist_owner`), lists that channel's playlists (`playlists.list`), runs the matcher,
+  and writes confident matches to **`highlights/discovered-playlists.json`**. `playlists.list`
+  only — never `search.list`; quota is trivial (cached per channel, ≤5 pages/channel, a hard
+  ~600-unit ceiling). The data write is committed `[skip ci]` by `github-actions[bot]`.
+- **Fetch integration**: `fetch_highlights.py` applies `apply_discovered_overrides(config)` after
+  `load_sources()`, so resolved current-season IDs replace the hardcoded rotating ones. No-op
+  until the weekly job has run. The existing per-gameweek Tier-2 discovery (`find_gameweek_playlist`)
+  is unchanged.
+- **Fallback + flags**: on **no confident/verified match** (or a dead/private mapped playlist, like
+  the current PL broadcaster ID), the pipeline **keeps the last-known-good sources.json ID and
+  records a loud, machine-readable flag** in `discovered-playlists.json` (`flags[]`) + the log —
+  never a silent switch to a decoy, never a blank.
+- **Tests**: `scripts/tests/test_playlist_discovery.py` (17) feed synthetic lists built from the
+  real titles — current-over-prior, decoy exclusion, competition-gate cross-pick guard, all three
+  season formats + edition year, rolling fallback, no-highlight-term-by-season, no-match→None,
+  availability scoping (EL/Copa skipped), and the override loader. No API key required.
+
 ### Read-only playlist-discovery diagnostic (2026-08-23)
 `scripts/discover_playlists_readonly.py` + `.github/workflows/discover-playlists-readonly.yml`
 — a **one-off, manually-triggered, READ-ONLY** diagnostic that lists the real playlists on the

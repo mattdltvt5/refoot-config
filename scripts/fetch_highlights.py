@@ -60,6 +60,7 @@ from highlights_common import (
     write_json_atomic,
 )
 from fixture_providers import FootballDataProvider
+from playlist_discovery import apply_discovered_overrides
 import build_home_index
 
 log = logging.getLogger(__name__)
@@ -325,6 +326,11 @@ def main() -> None:
         return
 
     config = load_sources()
+    # Override rotating Tier-4 / Tier-1c-d playlists with auto-discovered
+    # current-season ones (highlights/discovered-playlists.json). No-op until the
+    # weekly discover-season-playlists job has run; where no confident match was
+    # found it leaves the sources.json last-known-good ID in place.
+    config = apply_discovered_overrides(config)
 
     if not all_highlights:
         log.info("No finished fixtures found.")
