@@ -1,0 +1,4346 @@
+{
+  "generated_at": "2026-08-23T20:44:23Z",
+  "month": "2026-02",
+  "dates": {
+    "2026-02-01": [
+      {
+        "competition": "premier-league",
+        "name": "Premier League",
+        "matches": [
+          {
+            "match_id": 538016,
+            "homeTeam": {
+              "name": "Aston Villa FC",
+              "shortName": "Aston Villa",
+              "tla": "AVL",
+              "crest": "https://crests.football-data.org/58.png"
+            },
+            "awayTeam": {
+              "name": "Brentford FC",
+              "shortName": "Brentford",
+              "tla": "BRE",
+              "crest": "https://crests.football-data.org/402.png"
+            },
+            "homeScore": 0,
+            "awayScore": 1,
+            "status": "FINISHED",
+            "utcDate": "2026-02-01T14:00:00Z",
+            "videoId": "JLQWb5hC7Mw"
+          },
+          {
+            "match_id": 538021,
+            "homeTeam": {
+              "name": "Manchester United FC",
+              "shortName": "Man United",
+              "tla": "MUN",
+              "crest": "https://crests.football-data.org/66.png"
+            },
+            "awayTeam": {
+              "name": "Fulham FC",
+              "shortName": "Fulham",
+              "tla": "FUL",
+              "crest": "https://crests.football-data.org/63.png"
+            },
+            "homeScore": 3,
+            "awayScore": 2,
+            "status": "FINISHED",
+            "utcDate": "2026-02-01T14:00:00Z",
+            "videoId": "1o4FnHp5HUE"
+          },
+          {
+            "match_id": 538022,
+            "homeTeam": {
+              "name": "Nottingham Forest FC",
+              "shortName": "Nottingham",
+              "tla": "NOT",
+              "crest": "https://crests.football-data.org/351.png"
+            },
+            "awayTeam": {
+              "name": "Crystal Palace FC",
+              "shortName": "Crystal Palace",
+              "tla": "CRY",
+              "crest": "https://crests.football-data.org/354.png"
+            },
+            "homeScore": 1,
+            "awayScore": 1,
+            "status": "FINISHED",
+            "utcDate": "2026-02-01T14:00:00Z",
+            "videoId": "fTKP8Jiic0A"
+          },
+          {
+            "match_id": 538023,
+            "homeTeam": {
+              "name": "Tottenham Hotspur FC",
+              "shortName": "Tottenham",
+              "tla": "TOT",
+              "crest": "https://crests.football-data.org/73.png"
+            },
+            "awayTeam": {
+              "name": "Manchester City FC",
+              "shortName": "Man City",
+              "tla": "MCI",
+              "crest": "https://crests.football-data.org/65.png"
+            },
+            "homeScore": 2,
+            "awayScore": 2,
+            "status": "FINISHED",
+            "utcDate": "2026-02-01T16:30:00Z",
+            "videoId": "3MXyp49jr6A"
+          }
+        ]
+      },
+      {
+        "competition": "laliga",
+        "name": "LaLiga",
+        "matches": [
+          {
+            "match_id": 544430,
+            "homeTeam": {
+              "name": "Real Madrid CF",
+              "shortName": "Real Madrid",
+              "tla": "RMA",
+              "crest": "https://crests.football-data.org/86.png"
+            },
+            "awayTeam": {
+              "name": "Rayo Vallecano de Madrid",
+              "shortName": "Rayo Vallecano",
+              "tla": "RAY",
+              "crest": "https://crests.football-data.org/87.png"
+            },
+            "homeScore": 2,
+            "awayScore": 1,
+            "status": "FINISHED",
+            "utcDate": "2026-02-01T13:00:00Z",
+            "videoId": "OP9Acqggxyw"
+          },
+          {
+            "match_id": 544422,
+            "homeTeam": {
+              "name": "Real Betis Balompié",
+              "shortName": "Real Betis",
+              "tla": "BET",
+              "crest": "https://crests.football-data.org/90.png"
+            },
+            "awayTeam": {
+              "name": "Valencia CF",
+              "shortName": "Valencia",
+              "tla": "VAL",
+              "crest": "https://crests.football-data.org/95.png"
+            },
+            "homeScore": 2,
+            "awayScore": 1,
+            "status": "FINISHED",
+            "utcDate": "2026-02-01T15:15:00Z",
+            "videoId": "WEB_Vgs_2lY"
+          },
+          {
+            "match_id": 544428,
+            "homeTeam": {
+              "name": "Getafe CF",
+              "shortName": "Getafe",
+              "tla": "GET",
+              "crest": "https://crests.football-data.org/82.png"
+            },
+            "awayTeam": {
+              "name": "RC Celta de Vigo",
+              "shortName": "Celta",
+              "tla": "CEL",
+              "crest": "https://crests.football-data.org/558.png"
+            },
+            "homeScore": 0,
+            "awayScore": 0,
+            "status": "FINISHED",
+            "utcDate": "2026-02-01T17:30:00Z",
+            "videoId": "fmNfQaNvo84"
+          },
+          {
+            "match_id": 544421,
+            "homeTeam": {
+              "name": "Athletic Club",
+              "shortName": "Athletic",
+              "tla": "ATH",
+              "crest": "https://crests.football-data.org/77.png"
+            },
+            "awayTeam": {
+              "name": "Real Sociedad de Fútbol",
+              "shortName": "Real Sociedad",
+              "tla": "RSO",
+              "crest": "https://crests.football-data.org/92.png"
+            },
+            "homeScore": 1,
+            "awayScore": 1,
+            "status": "FINISHED",
+            "utcDate": "2026-02-01T20:00:00Z",
+            "videoId": "tWk4XP6cOe8"
+          }
+        ]
+      },
+      {
+        "competition": "serie-a",
+        "name": "Serie A",
+        "matches": [
+          {
+            "match_id": 537038,
+            "homeTeam": {
+              "name": "Torino FC",
+              "shortName": "Torino",
+              "tla": "TOR",
+              "crest": "https://crests.football-data.org/586.png"
+            },
+            "awayTeam": {
+              "name": "US Lecce",
+              "shortName": "Lecce",
+              "tla": "USL",
+              "crest": "https://crests.football-data.org/5890.png"
+            },
+            "homeScore": 1,
+            "awayScore": 0,
+            "status": "FINISHED",
+            "utcDate": "2026-02-01T11:30:00Z",
+            "videoId": "ueiFccqC13s"
+          },
+          {
+            "match_id": 537036,
+            "homeTeam": {
+              "name": "Como 1907",
+              "shortName": "Como 1907",
+              "tla": "COM",
+              "crest": "https://crests.football-data.org/7397.png"
+            },
+            "awayTeam": {
+              "name": "Atalanta BC",
+              "shortName": "Atalanta",
+              "tla": "ATA",
+              "crest": "https://crests.football-data.org/102.png"
+            },
+            "homeScore": 0,
+            "awayScore": 0,
+            "status": "FINISHED",
+            "utcDate": "2026-02-01T14:00:00Z",
+            "videoId": "ib0-JI3XC8U"
+          },
+          {
+            "match_id": 537044,
+            "homeTeam": {
+              "name": "US Cremonese",
+              "shortName": "Cremonese",
+              "tla": "CRE",
+              "crest": "https://crests.football-data.org/457.png"
+            },
+            "awayTeam": {
+              "name": "FC Internazionale Milano",
+              "shortName": "Inter",
+              "tla": "INT",
+              "crest": "https://crests.football-data.org/108.png"
+            },
+            "homeScore": 0,
+            "awayScore": 2,
+            "status": "FINISHED",
+            "utcDate": "2026-02-01T17:00:00Z",
+            "videoId": "EM7UL6T497A"
+          },
+          {
+            "match_id": 537040,
+            "homeTeam": {
+              "name": "Parma Calcio 1913",
+              "shortName": "Parma",
+              "tla": "PAR",
+              "crest": "https://crests.football-data.org/112.png"
+            },
+            "awayTeam": {
+              "name": "Juventus FC",
+              "shortName": "Juventus",
+              "tla": "JUV",
+              "crest": "https://crests.football-data.org/109.png"
+            },
+            "homeScore": 1,
+            "awayScore": 4,
+            "status": "FINISHED",
+            "utcDate": "2026-02-01T19:45:00Z",
+            "videoId": "eqVX8_kSNYA"
+          }
+        ]
+      },
+      {
+        "competition": "bundesliga",
+        "name": "Bundesliga",
+        "matches": [
+          {
+            "match_id": 540579,
+            "homeTeam": {
+              "name": "VfB Stuttgart",
+              "shortName": "Stuttgart",
+              "tla": "VFB",
+              "crest": "https://crests.football-data.org/10.png"
+            },
+            "awayTeam": {
+              "name": "SC Freiburg",
+              "shortName": "Freiburg",
+              "tla": "SCF",
+              "crest": "https://crests.football-data.org/17.png"
+            },
+            "homeScore": 1,
+            "awayScore": 0,
+            "status": "FINISHED",
+            "utcDate": "2026-02-01T14:30:00Z",
+            "videoId": "x1WuM-DwvAc"
+          },
+          {
+            "match_id": 540585,
+            "homeTeam": {
+              "name": "Borussia Dortmund",
+              "shortName": "Dortmund",
+              "tla": "BVB",
+              "crest": "https://crests.football-data.org/4.png"
+            },
+            "awayTeam": {
+              "name": "1. FC Heidenheim 1846",
+              "shortName": "Heidenheim",
+              "tla": "HEI",
+              "crest": "https://crests.football-data.org/44.png"
+            },
+            "homeScore": 3,
+            "awayScore": 2,
+            "status": "FINISHED",
+            "utcDate": "2026-02-01T16:30:00Z",
+            "videoId": "GxJJl5BY3r4"
+          }
+        ]
+      },
+      {
+        "competition": "ligue-1",
+        "name": "Ligue 1",
+        "matches": [
+          {
+            "match_id": 542582,
+            "homeTeam": {
+              "name": "Olympique Lyonnais",
+              "shortName": "Olympique Lyon",
+              "tla": "LYO",
+              "crest": "https://crests.football-data.org/523.png"
+            },
+            "awayTeam": {
+              "name": "Lille OSC",
+              "shortName": "Lille",
+              "tla": "LIL",
+              "crest": "https://crests.football-data.org/521.png"
+            },
+            "homeScore": 1,
+            "awayScore": 0,
+            "status": "FINISHED",
+            "utcDate": "2026-02-01T14:00:00Z",
+            "videoId": "bbrZ6vnIDTg"
+          },
+          {
+            "match_id": 542580,
+            "homeTeam": {
+              "name": "Toulouse FC",
+              "shortName": "Toulouse",
+              "tla": "TOU",
+              "crest": "https://crests.football-data.org/511.png"
+            },
+            "awayTeam": {
+              "name": "AJ Auxerre",
+              "shortName": "Auxerre",
+              "tla": "AJA",
+              "crest": "https://crests.football-data.org/519.png"
+            },
+            "homeScore": 0,
+            "awayScore": 0,
+            "status": "FINISHED",
+            "utcDate": "2026-02-01T16:15:00Z",
+            "videoId": "wwSVi7c3ZgY"
+          },
+          {
+            "match_id": 542581,
+            "homeTeam": {
+              "name": "OGC Nice",
+              "shortName": "Nice",
+              "tla": "NIC",
+              "crest": "https://crests.football-data.org/522.png"
+            },
+            "awayTeam": {
+              "name": "Stade Brestois 29",
+              "shortName": "Brest",
+              "tla": "BRE",
+              "crest": "https://crests.football-data.org/512.png"
+            },
+            "homeScore": 2,
+            "awayScore": 2,
+            "status": "FINISHED",
+            "utcDate": "2026-02-01T16:15:00Z",
+            "videoId": "PjmGrjBSHxM"
+          },
+          {
+            "match_id": 542585,
+            "homeTeam": {
+              "name": "Angers SCO",
+              "shortName": "Angers SCO",
+              "tla": "ANG",
+              "crest": "https://crests.football-data.org/532.png"
+            },
+            "awayTeam": {
+              "name": "FC Metz",
+              "shortName": "FC Metz",
+              "tla": "FCM",
+              "crest": "https://crests.football-data.org/545.png"
+            },
+            "homeScore": 1,
+            "awayScore": 0,
+            "status": "FINISHED",
+            "utcDate": "2026-02-01T16:15:00Z",
+            "videoId": "vom7LgEkC70"
+          },
+          {
+            "match_id": 542583,
+            "homeTeam": {
+              "name": "RC Strasbourg Alsace",
+              "shortName": "Strasbourg",
+              "tla": "RC ",
+              "crest": "https://crests.football-data.org/576.png"
+            },
+            "awayTeam": {
+              "name": "Paris Saint-Germain FC",
+              "shortName": "PSG",
+              "tla": "PSG",
+              "crest": "https://crests.football-data.org/524.png"
+            },
+            "homeScore": 1,
+            "awayScore": 2,
+            "status": "FINISHED",
+            "utcDate": "2026-02-01T19:45:00Z",
+            "videoId": "GdSgZkkWllI"
+          }
+        ]
+      }
+    ],
+    "2026-02-02": [
+      {
+        "competition": "premier-league",
+        "name": "Premier League",
+        "matches": [
+          {
+            "match_id": 538015,
+            "homeTeam": {
+              "name": "Sunderland AFC",
+              "shortName": "Sunderland",
+              "tla": "SUN",
+              "crest": "https://crests.football-data.org/71.png"
+            },
+            "awayTeam": {
+              "name": "Burnley FC",
+              "shortName": "Burnley",
+              "tla": "BUR",
+              "crest": "https://crests.football-data.org/328.png"
+            },
+            "homeScore": 3,
+            "awayScore": 0,
+            "status": "FINISHED",
+            "utcDate": "2026-02-02T20:00:00Z",
+            "videoId": "dj9CUeHOZLI"
+          }
+        ]
+      },
+      {
+        "competition": "laliga",
+        "name": "LaLiga",
+        "matches": [
+          {
+            "match_id": 544423,
+            "homeTeam": {
+              "name": "RCD Mallorca",
+              "shortName": "Mallorca",
+              "tla": "MAL",
+              "crest": "https://crests.football-data.org/89.png"
+            },
+            "awayTeam": {
+              "name": "Sevilla FC",
+              "shortName": "Sevilla FC",
+              "tla": "SEV",
+              "crest": "https://crests.football-data.org/559.png"
+            },
+            "homeScore": 4,
+            "awayScore": 1,
+            "status": "FINISHED",
+            "utcDate": "2026-02-02T20:00:00Z",
+            "videoId": "51I64YMUSHk"
+          }
+        ]
+      },
+      {
+        "competition": "serie-a",
+        "name": "Serie A",
+        "matches": [
+          {
+            "match_id": 537043,
+            "homeTeam": {
+              "name": "Udinese Calcio",
+              "shortName": "Udinese",
+              "tla": "UDI",
+              "crest": "https://crests.football-data.org/115.png"
+            },
+            "awayTeam": {
+              "name": "AS Roma",
+              "shortName": "Roma",
+              "tla": "ROM",
+              "crest": "https://crests.football-data.org/100.png"
+            },
+            "homeScore": 1,
+            "awayScore": 0,
+            "status": "FINISHED",
+            "utcDate": "2026-02-02T19:45:00Z",
+            "videoId": "IzzpQujmch4"
+          }
+        ]
+      }
+    ],
+    "2026-02-03": [
+      {
+        "competition": "serie-a",
+        "name": "Serie A",
+        "matches": [
+          {
+            "match_id": 537037,
+            "homeTeam": {
+              "name": "Bologna FC 1909",
+              "shortName": "Bologna",
+              "tla": "BOL",
+              "crest": "https://crests.football-data.org/103.png"
+            },
+            "awayTeam": {
+              "name": "AC Milan",
+              "shortName": "Milan",
+              "tla": "MIL",
+              "crest": "https://crests.football-data.org/98.png"
+            },
+            "homeScore": 0,
+            "awayScore": 3,
+            "status": "FINISHED",
+            "utcDate": "2026-02-03T19:45:00Z",
+            "videoId": "3rCUm9_v8ag"
+          }
+        ]
+      }
+    ],
+    "2026-02-06": [
+      {
+        "competition": "premier-league",
+        "name": "Premier League",
+        "matches": [
+          {
+            "match_id": 538031,
+            "homeTeam": {
+              "name": "Leeds United FC",
+              "shortName": "Leeds United",
+              "tla": "LEE",
+              "crest": "https://crests.football-data.org/341.png"
+            },
+            "awayTeam": {
+              "name": "Nottingham Forest FC",
+              "shortName": "Nottingham",
+              "tla": "NOT",
+              "crest": "https://crests.football-data.org/351.png"
+            },
+            "homeScore": 3,
+            "awayScore": 1,
+            "status": "FINISHED",
+            "utcDate": "2026-02-06T20:00:00Z",
+            "videoId": "4mYqt_bD-ek"
+          }
+        ]
+      },
+      {
+        "competition": "laliga",
+        "name": "LaLiga",
+        "matches": [
+          {
+            "match_id": 544435,
+            "homeTeam": {
+              "name": "RC Celta de Vigo",
+              "shortName": "Celta",
+              "tla": "CEL",
+              "crest": "https://crests.football-data.org/558.png"
+            },
+            "awayTeam": {
+              "name": "CA Osasuna",
+              "shortName": "Osasuna",
+              "tla": "OSA",
+              "crest": "https://crests.football-data.org/79.png"
+            },
+            "homeScore": 1,
+            "awayScore": 2,
+            "status": "FINISHED",
+            "utcDate": "2026-02-06T20:00:00Z",
+            "videoId": "J-yvUkbCa8Q"
+          }
+        ]
+      },
+      {
+        "competition": "serie-a",
+        "name": "Serie A",
+        "matches": [
+          {
+            "match_id": 537051,
+            "homeTeam": {
+              "name": "Hellas Verona FC",
+              "shortName": "Verona",
+              "tla": "HVE",
+              "crest": "https://crests.football-data.org/450.png"
+            },
+            "awayTeam": {
+              "name": "AC Pisa 1909",
+              "shortName": "AC Pisa",
+              "tla": "PIS",
+              "crest": "https://crests.football-data.org/487.png"
+            },
+            "homeScore": 0,
+            "awayScore": 0,
+            "status": "FINISHED",
+            "utcDate": "2026-02-06T19:45:00Z",
+            "videoId": "LqI6yA13mG8"
+          }
+        ]
+      },
+      {
+        "competition": "bundesliga",
+        "name": "Bundesliga",
+        "matches": [
+          {
+            "match_id": 540587,
+            "homeTeam": {
+              "name": "1. FC Union Berlin",
+              "shortName": "Union Berlin",
+              "tla": "UNB",
+              "crest": "https://crests.football-data.org/28.png"
+            },
+            "awayTeam": {
+              "name": "Eintracht Frankfurt",
+              "shortName": "Frankfurt",
+              "tla": "SGE",
+              "crest": "https://crests.football-data.org/19.png"
+            },
+            "homeScore": 1,
+            "awayScore": 1,
+            "status": "FINISHED",
+            "utcDate": "2026-02-06T19:30:00Z",
+            "videoId": "2T0YCe6hGNE"
+          }
+        ]
+      },
+      {
+        "competition": "ligue-1",
+        "name": "Ligue 1",
+        "matches": [
+          {
+            "match_id": 542588,
+            "homeTeam": {
+              "name": "FC Metz",
+              "shortName": "FC Metz",
+              "tla": "FCM",
+              "crest": "https://crests.football-data.org/545.png"
+            },
+            "awayTeam": {
+              "name": "Lille OSC",
+              "shortName": "Lille",
+              "tla": "LIL",
+              "crest": "https://crests.football-data.org/521.png"
+            },
+            "homeScore": 0,
+            "awayScore": 0,
+            "status": "FINISHED",
+            "utcDate": "2026-02-06T19:45:00Z",
+            "videoId": "l0AFEwiaEPQ"
+          }
+        ]
+      }
+    ],
+    "2026-02-07": [
+      {
+        "competition": "premier-league",
+        "name": "Premier League",
+        "matches": [
+          {
+            "match_id": 538032,
+            "homeTeam": {
+              "name": "Manchester United FC",
+              "shortName": "Man United",
+              "tla": "MUN",
+              "crest": "https://crests.football-data.org/66.png"
+            },
+            "awayTeam": {
+              "name": "Tottenham Hotspur FC",
+              "shortName": "Tottenham",
+              "tla": "TOT",
+              "crest": "https://crests.football-data.org/73.png"
+            },
+            "homeScore": 2,
+            "awayScore": 0,
+            "status": "FINISHED",
+            "utcDate": "2026-02-07T12:30:00Z",
+            "videoId": "YErVMiqiXM4"
+          },
+          {
+            "match_id": 538025,
+            "homeTeam": {
+              "name": "AFC Bournemouth",
+              "shortName": "Bournemouth",
+              "tla": "BOU",
+              "crest": "https://crests.football-data.org/bournemouth.png"
+            },
+            "awayTeam": {
+              "name": "Aston Villa FC",
+              "shortName": "Aston Villa",
+              "tla": "AVL",
+              "crest": "https://crests.football-data.org/58.png"
+            },
+            "homeScore": 1,
+            "awayScore": 1,
+            "status": "FINISHED",
+            "utcDate": "2026-02-07T15:00:00Z",
+            "videoId": "R8Ks-C8gjdw"
+          },
+          {
+            "match_id": 538027,
+            "homeTeam": {
+              "name": "Arsenal FC",
+              "shortName": "Arsenal",
+              "tla": "ARS",
+              "crest": "https://crests.football-data.org/57.png"
+            },
+            "awayTeam": {
+              "name": "Sunderland AFC",
+              "shortName": "Sunderland",
+              "tla": "SUN",
+              "crest": "https://crests.football-data.org/71.png"
+            },
+            "homeScore": 3,
+            "awayScore": 0,
+            "status": "FINISHED",
+            "utcDate": "2026-02-07T15:00:00Z",
+            "videoId": "U3V1MBZflCE"
+          },
+          {
+            "match_id": 538028,
+            "homeTeam": {
+              "name": "Burnley FC",
+              "shortName": "Burnley",
+              "tla": "BUR",
+              "crest": "https://crests.football-data.org/328.png"
+            },
+            "awayTeam": {
+              "name": "West Ham United FC",
+              "shortName": "West Ham",
+              "tla": "WHU",
+              "crest": "https://crests.football-data.org/563.png"
+            },
+            "homeScore": 0,
+            "awayScore": 2,
+            "status": "FINISHED",
+            "utcDate": "2026-02-07T15:00:00Z",
+            "videoId": "a8dSMZ18giw"
+          },
+          {
+            "match_id": 538029,
+            "homeTeam": {
+              "name": "Fulham FC",
+              "shortName": "Fulham",
+              "tla": "FUL",
+              "crest": "https://crests.football-data.org/63.png"
+            },
+            "awayTeam": {
+              "name": "Everton FC",
+              "shortName": "Everton",
+              "tla": "EVE",
+              "crest": "https://crests.football-data.org/62.png"
+            },
+            "homeScore": 1,
+            "awayScore": 2,
+            "status": "FINISHED",
+            "utcDate": "2026-02-07T15:00:00Z",
+            "videoId": "VgQ_-ifkAno"
+          },
+          {
+            "match_id": 538034,
+            "homeTeam": {
+              "name": "Wolverhampton Wanderers FC",
+              "shortName": "Wolverhampton",
+              "tla": "WOL",
+              "crest": "https://crests.football-data.org/76.png"
+            },
+            "awayTeam": {
+              "name": "Chelsea FC",
+              "shortName": "Chelsea",
+              "tla": "CHE",
+              "crest": "https://crests.football-data.org/61.png"
+            },
+            "homeScore": 1,
+            "awayScore": 3,
+            "status": "FINISHED",
+            "utcDate": "2026-02-07T15:00:00Z",
+            "videoId": "A42FeTHA-Sk"
+          },
+          {
+            "match_id": 538033,
+            "homeTeam": {
+              "name": "Newcastle United FC",
+              "shortName": "Newcastle",
+              "tla": "NEW",
+              "crest": "https://crests.football-data.org/67.png"
+            },
+            "awayTeam": {
+              "name": "Brentford FC",
+              "shortName": "Brentford",
+              "tla": "BRE",
+              "crest": "https://crests.football-data.org/402.png"
+            },
+            "homeScore": 2,
+            "awayScore": 3,
+            "status": "FINISHED",
+            "utcDate": "2026-02-07T17:30:00Z",
+            "videoId": "QgflR38Y_GE"
+          }
+        ]
+      },
+      {
+        "competition": "laliga",
+        "name": "LaLiga",
+        "matches": [
+          {
+            "match_id": 544434,
+            "homeTeam": {
+              "name": "FC Barcelona",
+              "shortName": "Barça",
+              "tla": "FCB",
+              "crest": "https://crests.football-data.org/81.png"
+            },
+            "awayTeam": {
+              "name": "RCD Mallorca",
+              "shortName": "Mallorca",
+              "tla": "MAL",
+              "crest": "https://crests.football-data.org/89.png"
+            },
+            "homeScore": 3,
+            "awayScore": 0,
+            "status": "FINISHED",
+            "utcDate": "2026-02-07T15:15:00Z",
+            "videoId": "ShxTsqKpGT0"
+          },
+          {
+            "match_id": 544436,
+            "homeTeam": {
+              "name": "Real Sociedad de Fútbol",
+              "shortName": "Real Sociedad",
+              "tla": "RSO",
+              "crest": "https://crests.football-data.org/92.png"
+            },
+            "awayTeam": {
+              "name": "Elche CF",
+              "shortName": "Elche",
+              "tla": "ELC",
+              "crest": "https://crests.football-data.org/285.png"
+            },
+            "homeScore": 3,
+            "awayScore": 1,
+            "status": "FINISHED",
+            "utcDate": "2026-02-07T20:00:00Z",
+            "videoId": "ur-idMdTj5c"
+          }
+        ]
+      },
+      {
+        "competition": "serie-a",
+        "name": "Serie A",
+        "matches": [
+          {
+            "match_id": 537049,
+            "homeTeam": {
+              "name": "Genoa CFC",
+              "shortName": "Genoa",
+              "tla": "GEN",
+              "crest": "https://crests.football-data.org/107.png"
+            },
+            "awayTeam": {
+              "name": "SSC Napoli",
+              "shortName": "Napoli",
+              "tla": "NAP",
+              "crest": "https://crests.football-data.org/113.png"
+            },
+            "homeScore": 2,
+            "awayScore": 3,
+            "status": "FINISHED",
+            "utcDate": "2026-02-07T17:00:00Z",
+            "videoId": "geFMqbCIrbw"
+          },
+          {
+            "match_id": 537045,
+            "homeTeam": {
+              "name": "ACF Fiorentina",
+              "shortName": "Fiorentina",
+              "tla": "FIO",
+              "crest": "https://crests.football-data.org/99.png"
+            },
+            "awayTeam": {
+              "name": "Torino FC",
+              "shortName": "Torino",
+              "tla": "TOR",
+              "crest": "https://crests.football-data.org/586.png"
+            },
+            "homeScore": 2,
+            "awayScore": 2,
+            "status": "FINISHED",
+            "utcDate": "2026-02-07T19:45:00Z",
+            "videoId": "zAT4rReRymc"
+          }
+        ]
+      },
+      {
+        "competition": "bundesliga",
+        "name": "Bundesliga",
+        "matches": [
+          {
+            "match_id": 540588,
+            "homeTeam": {
+              "name": "VfL Wolfsburg",
+              "shortName": "Wolfsburg",
+              "tla": "WOB",
+              "crest": "https://crests.football-data.org/11.png"
+            },
+            "awayTeam": {
+              "name": "Borussia Dortmund",
+              "shortName": "Dortmund",
+              "tla": "BVB",
+              "crest": "https://crests.football-data.org/4.png"
+            },
+            "homeScore": 1,
+            "awayScore": 2,
+            "status": "FINISHED",
+            "utcDate": "2026-02-07T14:30:00Z",
+            "videoId": "kzl0qFfd6AY"
+          },
+          {
+            "match_id": 540590,
+            "homeTeam": {
+              "name": "SC Freiburg",
+              "shortName": "Freiburg",
+              "tla": "SCF",
+              "crest": "https://crests.football-data.org/17.png"
+            },
+            "awayTeam": {
+              "name": "SV Werder Bremen",
+              "shortName": "Bremen",
+              "tla": "SVW",
+              "crest": "https://crests.football-data.org/12.png"
+            },
+            "homeScore": 1,
+            "awayScore": 0,
+            "status": "FINISHED",
+            "utcDate": "2026-02-07T14:30:00Z",
+            "videoId": "y4m1IuczjSs"
+          },
+          {
+            "match_id": 540591,
+            "homeTeam": {
+              "name": "FC St. Pauli 1910",
+              "shortName": "St. Pauli",
+              "tla": "STP",
+              "crest": "https://crests.football-data.org/20.png"
+            },
+            "awayTeam": {
+              "name": "VfB Stuttgart",
+              "shortName": "Stuttgart",
+              "tla": "VFB",
+              "crest": "https://crests.football-data.org/10.png"
+            },
+            "homeScore": 2,
+            "awayScore": 1,
+            "status": "FINISHED",
+            "utcDate": "2026-02-07T14:30:00Z",
+            "videoId": "dGNlRGNwggQ"
+          },
+          {
+            "match_id": 540592,
+            "homeTeam": {
+              "name": "1. FSV Mainz 05",
+              "shortName": "Mainz",
+              "tla": "M05",
+              "crest": "https://crests.football-data.org/15.png"
+            },
+            "awayTeam": {
+              "name": "FC Augsburg",
+              "shortName": "Augsburg",
+              "tla": "FCA",
+              "crest": "https://crests.football-data.org/16.png"
+            },
+            "homeScore": 2,
+            "awayScore": 0,
+            "status": "FINISHED",
+            "utcDate": "2026-02-07T14:30:00Z",
+            "videoId": "sw_guioSG-c"
+          },
+          {
+            "match_id": 540594,
+            "homeTeam": {
+              "name": "1. FC Heidenheim 1846",
+              "shortName": "Heidenheim",
+              "tla": "HEI",
+              "crest": "https://crests.football-data.org/44.png"
+            },
+            "awayTeam": {
+              "name": "Hamburger SV",
+              "shortName": "HSV",
+              "tla": "HSV",
+              "crest": "https://crests.football-data.org/7.png"
+            },
+            "homeScore": 0,
+            "awayScore": 2,
+            "status": "FINISHED",
+            "utcDate": "2026-02-07T14:30:00Z",
+            "videoId": "JIuiQ8ITKoo"
+          },
+          {
+            "match_id": 540586,
+            "homeTeam": {
+              "name": "Borussia Mönchengladbach",
+              "shortName": "M'gladbach",
+              "tla": "BMG",
+              "crest": "https://crests.football-data.org/18.png"
+            },
+            "awayTeam": {
+              "name": "Bayer 04 Leverkusen",
+              "shortName": "Leverkusen",
+              "tla": "B04",
+              "crest": "https://crests.football-data.org/3.png"
+            },
+            "homeScore": 1,
+            "awayScore": 1,
+            "status": "FINISHED",
+            "utcDate": "2026-02-07T17:30:00Z",
+            "videoId": "n6Xtk37Hqk4"
+          }
+        ]
+      },
+      {
+        "competition": "ligue-1",
+        "name": "Ligue 1",
+        "matches": [
+          {
+            "match_id": 542592,
+            "homeTeam": {
+              "name": "Racing Club de Lens",
+              "shortName": "RC Lens",
+              "tla": "RCL",
+              "crest": "https://crests.football-data.org/546.png"
+            },
+            "awayTeam": {
+              "name": "Stade Rennais FC 1901",
+              "shortName": "Stade Rennais",
+              "tla": "REN",
+              "crest": "https://crests.football-data.org/529.png"
+            },
+            "homeScore": 3,
+            "awayScore": 1,
+            "status": "FINISHED",
+            "utcDate": "2026-02-07T16:00:00Z",
+            "videoId": "JbiejLbJ1l0"
+          },
+          {
+            "match_id": 542594,
+            "homeTeam": {
+              "name": "Stade Brestois 29",
+              "shortName": "Brest",
+              "tla": "BRE",
+              "crest": "https://crests.football-data.org/512.png"
+            },
+            "awayTeam": {
+              "name": "FC Lorient",
+              "shortName": "Lorient",
+              "tla": "FCL",
+              "crest": "https://crests.football-data.org/525.png"
+            },
+            "homeScore": 2,
+            "awayScore": 0,
+            "status": "FINISHED",
+            "utcDate": "2026-02-07T18:00:00Z",
+            "videoId": "CrSS9tGV3-o"
+          },
+          {
+            "match_id": 542589,
+            "homeTeam": {
+              "name": "FC Nantes",
+              "shortName": "Nantes",
+              "tla": "NAN",
+              "crest": "https://crests.football-data.org/543.png"
+            },
+            "awayTeam": {
+              "name": "Olympique Lyonnais",
+              "shortName": "Olympique Lyon",
+              "tla": "LYO",
+              "crest": "https://crests.football-data.org/523.png"
+            },
+            "homeScore": 0,
+            "awayScore": 1,
+            "status": "FINISHED",
+            "utcDate": "2026-02-07T20:05:00Z",
+            "videoId": "_WDX3kYRZnM"
+          }
+        ]
+      }
+    ],
+    "2026-02-08": [
+      {
+        "competition": "premier-league",
+        "name": "Premier League",
+        "matches": [
+          {
+            "match_id": 538026,
+            "homeTeam": {
+              "name": "Brighton & Hove Albion FC",
+              "shortName": "Brighton Hove",
+              "tla": "BHA",
+              "crest": "https://crests.football-data.org/397.png"
+            },
+            "awayTeam": {
+              "name": "Crystal Palace FC",
+              "shortName": "Crystal Palace",
+              "tla": "CRY",
+              "crest": "https://crests.football-data.org/354.png"
+            },
+            "homeScore": 0,
+            "awayScore": 1,
+            "status": "FINISHED",
+            "utcDate": "2026-02-08T14:00:00Z",
+            "videoId": "c6Ldvl0ulvc"
+          },
+          {
+            "match_id": 538030,
+            "homeTeam": {
+              "name": "Liverpool FC",
+              "shortName": "Liverpool",
+              "tla": "LIV",
+              "crest": "https://crests.football-data.org/64.png"
+            },
+            "awayTeam": {
+              "name": "Manchester City FC",
+              "shortName": "Man City",
+              "tla": "MCI",
+              "crest": "https://crests.football-data.org/65.png"
+            },
+            "homeScore": 1,
+            "awayScore": 2,
+            "status": "FINISHED",
+            "utcDate": "2026-02-08T16:30:00Z",
+            "videoId": "6gfwur17gn0"
+          }
+        ]
+      },
+      {
+        "competition": "laliga",
+        "name": "LaLiga",
+        "matches": [
+          {
+            "match_id": 544431,
+            "homeTeam": {
+              "name": "Deportivo Alavés",
+              "shortName": "Alavés",
+              "tla": "ALA",
+              "crest": "https://crests.football-data.org/263.png"
+            },
+            "awayTeam": {
+              "name": "Getafe CF",
+              "shortName": "Getafe",
+              "tla": "GET",
+              "crest": "https://crests.football-data.org/82.png"
+            },
+            "homeScore": 0,
+            "awayScore": 2,
+            "status": "FINISHED",
+            "utcDate": "2026-02-08T13:00:00Z",
+            "videoId": "fxfvGWgvoRM"
+          },
+          {
+            "match_id": 544432,
+            "homeTeam": {
+              "name": "Athletic Club",
+              "shortName": "Athletic",
+              "tla": "ATH",
+              "crest": "https://crests.football-data.org/77.png"
+            },
+            "awayTeam": {
+              "name": "Levante UD",
+              "shortName": "Levante",
+              "tla": "LEV",
+              "crest": "https://crests.football-data.org/88.png"
+            },
+            "homeScore": 4,
+            "awayScore": 2,
+            "status": "FINISHED",
+            "utcDate": "2026-02-08T15:15:00Z",
+            "videoId": "L9S3djx53sg"
+          },
+          {
+            "match_id": 544438,
+            "homeTeam": {
+              "name": "Sevilla FC",
+              "shortName": "Sevilla FC",
+              "tla": "SEV",
+              "crest": "https://crests.football-data.org/559.png"
+            },
+            "awayTeam": {
+              "name": "Girona FC",
+              "shortName": "Girona",
+              "tla": "GIR",
+              "crest": "https://crests.football-data.org/298.png"
+            },
+            "homeScore": 1,
+            "awayScore": 1,
+            "status": "FINISHED",
+            "utcDate": "2026-02-08T15:15:00Z",
+            "videoId": "CmXITitqzDE"
+          },
+          {
+            "match_id": 544433,
+            "homeTeam": {
+              "name": "Club Atlético de Madrid",
+              "shortName": "Atleti",
+              "tla": "ATL",
+              "crest": "https://crests.football-data.org/78.png"
+            },
+            "awayTeam": {
+              "name": "Real Betis Balompié",
+              "shortName": "Real Betis",
+              "tla": "BET",
+              "crest": "https://crests.football-data.org/90.png"
+            },
+            "homeScore": 0,
+            "awayScore": 1,
+            "status": "FINISHED",
+            "utcDate": "2026-02-08T17:30:00Z",
+            "videoId": "gkwyXI5NMvs"
+          },
+          {
+            "match_id": 544439,
+            "homeTeam": {
+              "name": "Valencia CF",
+              "shortName": "Valencia",
+              "tla": "VAL",
+              "crest": "https://crests.football-data.org/95.png"
+            },
+            "awayTeam": {
+              "name": "Real Madrid CF",
+              "shortName": "Real Madrid",
+              "tla": "RMA",
+              "crest": "https://crests.football-data.org/86.png"
+            },
+            "homeScore": 0,
+            "awayScore": 2,
+            "status": "FINISHED",
+            "utcDate": "2026-02-08T20:00:00Z",
+            "videoId": "-WfvWmQ7LoM"
+          }
+        ]
+      },
+      {
+        "competition": "serie-a",
+        "name": "Serie A",
+        "matches": [
+          {
+            "match_id": 537050,
+            "homeTeam": {
+              "name": "Bologna FC 1909",
+              "shortName": "Bologna",
+              "tla": "BOL",
+              "crest": "https://crests.football-data.org/103.png"
+            },
+            "awayTeam": {
+              "name": "Parma Calcio 1913",
+              "shortName": "Parma",
+              "tla": "PAR",
+              "crest": "https://crests.football-data.org/112.png"
+            },
+            "homeScore": 0,
+            "awayScore": 1,
+            "status": "FINISHED",
+            "utcDate": "2026-02-08T11:30:00Z",
+            "videoId": "Yi77BnB33dk"
+          },
+          {
+            "match_id": 537054,
+            "homeTeam": {
+              "name": "US Lecce",
+              "shortName": "Lecce",
+              "tla": "USL",
+              "crest": "https://crests.football-data.org/5890.png"
+            },
+            "awayTeam": {
+              "name": "Udinese Calcio",
+              "shortName": "Udinese",
+              "tla": "UDI",
+              "crest": "https://crests.football-data.org/115.png"
+            },
+            "homeScore": 2,
+            "awayScore": 1,
+            "status": "FINISHED",
+            "utcDate": "2026-02-08T14:00:00Z",
+            "videoId": "iwrHmTDx6t0"
+          },
+          {
+            "match_id": 537053,
+            "homeTeam": {
+              "name": "US Sassuolo Calcio",
+              "shortName": "Sassuolo",
+              "tla": "SAS",
+              "crest": "https://crests.football-data.org/471.png"
+            },
+            "awayTeam": {
+              "name": "FC Internazionale Milano",
+              "shortName": "Inter",
+              "tla": "INT",
+              "crest": "https://crests.football-data.org/108.png"
+            },
+            "homeScore": 0,
+            "awayScore": 5,
+            "status": "FINISHED",
+            "utcDate": "2026-02-08T17:00:00Z",
+            "videoId": "0ykygiZ5Ox8"
+          },
+          {
+            "match_id": 537052,
+            "homeTeam": {
+              "name": "Juventus FC",
+              "shortName": "Juventus",
+              "tla": "JUV",
+              "crest": "https://crests.football-data.org/109.png"
+            },
+            "awayTeam": {
+              "name": "SS Lazio",
+              "shortName": "Lazio",
+              "tla": "LAZ",
+              "crest": "https://crests.football-data.org/110.png"
+            },
+            "homeScore": 2,
+            "awayScore": 2,
+            "status": "FINISHED",
+            "utcDate": "2026-02-08T19:45:00Z",
+            "videoId": "Az-CEJfvgoo"
+          }
+        ]
+      },
+      {
+        "competition": "bundesliga",
+        "name": "Bundesliga",
+        "matches": [
+          {
+            "match_id": 540589,
+            "homeTeam": {
+              "name": "1. FC Köln",
+              "shortName": "1. FC Köln",
+              "tla": "KOE",
+              "crest": "https://crests.football-data.org/1.png"
+            },
+            "awayTeam": {
+              "name": "RB Leipzig",
+              "shortName": "RB Leipzig",
+              "tla": "RBL",
+              "crest": "https://crests.football-data.org/721.png"
+            },
+            "homeScore": 1,
+            "awayScore": 2,
+            "status": "FINISHED",
+            "utcDate": "2026-02-08T14:30:00Z",
+            "videoId": "Jm2qMPIEIWg"
+          },
+          {
+            "match_id": 540593,
+            "homeTeam": {
+              "name": "FC Bayern München",
+              "shortName": "Bayern",
+              "tla": "FCB",
+              "crest": "https://crests.football-data.org/5.png"
+            },
+            "awayTeam": {
+              "name": "TSG 1899 Hoffenheim",
+              "shortName": "Hoffenheim",
+              "tla": "TSG",
+              "crest": "https://crests.football-data.org/2.png"
+            },
+            "homeScore": 5,
+            "awayScore": 1,
+            "status": "FINISHED",
+            "utcDate": "2026-02-08T16:30:00Z",
+            "videoId": "aEKU58fpCPU"
+          }
+        ]
+      },
+      {
+        "competition": "ligue-1",
+        "name": "Ligue 1",
+        "matches": [
+          {
+            "match_id": 542590,
+            "homeTeam": {
+              "name": "OGC Nice",
+              "shortName": "Nice",
+              "tla": "NIC",
+              "crest": "https://crests.football-data.org/522.png"
+            },
+            "awayTeam": {
+              "name": "AS Monaco FC",
+              "shortName": "Monaco",
+              "tla": "ASM",
+              "crest": "https://crests.football-data.org/548.png"
+            },
+            "homeScore": 0,
+            "awayScore": 0,
+            "status": "FINISHED",
+            "utcDate": "2026-02-08T14:00:00Z",
+            "videoId": "io5WsDfwTig"
+          },
+          {
+            "match_id": 542586,
+            "homeTeam": {
+              "name": "Le Havre AC",
+              "shortName": "Le Havre",
+              "tla": "HAC",
+              "crest": "https://crests.football-data.org/533.png"
+            },
+            "awayTeam": {
+              "name": "RC Strasbourg Alsace",
+              "shortName": "Strasbourg",
+              "tla": "RC ",
+              "crest": "https://crests.football-data.org/576.png"
+            },
+            "homeScore": 2,
+            "awayScore": 1,
+            "status": "FINISHED",
+            "utcDate": "2026-02-08T16:15:00Z",
+            "videoId": "bAV4G6RERDk"
+          },
+          {
+            "match_id": 542587,
+            "homeTeam": {
+              "name": "AJ Auxerre",
+              "shortName": "Auxerre",
+              "tla": "AJA",
+              "crest": "https://crests.football-data.org/519.png"
+            },
+            "awayTeam": {
+              "name": "Paris FC",
+              "shortName": "Paris FC",
+              "tla": "PFC",
+              "crest": "https://crests.football-data.org/1045.png"
+            },
+            "homeScore": 0,
+            "awayScore": 0,
+            "status": "FINISHED",
+            "utcDate": "2026-02-08T16:15:00Z",
+            "videoId": "5Q-A2q97dr0"
+          },
+          {
+            "match_id": 542593,
+            "homeTeam": {
+              "name": "Angers SCO",
+              "shortName": "Angers SCO",
+              "tla": "ANG",
+              "crest": "https://crests.football-data.org/532.png"
+            },
+            "awayTeam": {
+              "name": "Toulouse FC",
+              "shortName": "Toulouse",
+              "tla": "TOU",
+              "crest": "https://crests.football-data.org/511.png"
+            },
+            "homeScore": 1,
+            "awayScore": 0,
+            "status": "FINISHED",
+            "utcDate": "2026-02-08T16:15:00Z",
+            "videoId": "dKAWb21HTSc"
+          },
+          {
+            "match_id": 542591,
+            "homeTeam": {
+              "name": "Paris Saint-Germain FC",
+              "shortName": "PSG",
+              "tla": "PSG",
+              "crest": "https://crests.football-data.org/524.png"
+            },
+            "awayTeam": {
+              "name": "Olympique de Marseille",
+              "shortName": "Marseille",
+              "tla": "MAR",
+              "crest": "https://crests.football-data.org/516.png"
+            },
+            "homeScore": 5,
+            "awayScore": 0,
+            "status": "FINISHED",
+            "utcDate": "2026-02-08T19:45:00Z",
+            "videoId": "kjQEqNqtDFE"
+          }
+        ]
+      }
+    ],
+    "2026-02-09": [
+      {
+        "competition": "laliga",
+        "name": "LaLiga",
+        "matches": [
+          {
+            "match_id": 544437,
+            "homeTeam": {
+              "name": "Villarreal CF",
+              "shortName": "Villarreal",
+              "tla": "VIL",
+              "crest": "https://crests.football-data.org/94.png"
+            },
+            "awayTeam": {
+              "name": "RCD Espanyol de Barcelona",
+              "shortName": "Espanyol",
+              "tla": "ESP",
+              "crest": "https://crests.football-data.org/80.png"
+            },
+            "homeScore": 4,
+            "awayScore": 1,
+            "status": "FINISHED",
+            "utcDate": "2026-02-09T20:00:00Z",
+            "videoId": "7h_vE0NRUgo"
+          }
+        ]
+      },
+      {
+        "competition": "serie-a",
+        "name": "Serie A",
+        "matches": [
+          {
+            "match_id": 537048,
+            "homeTeam": {
+              "name": "Atalanta BC",
+              "shortName": "Atalanta",
+              "tla": "ATA",
+              "crest": "https://crests.football-data.org/102.png"
+            },
+            "awayTeam": {
+              "name": "US Cremonese",
+              "shortName": "Cremonese",
+              "tla": "CRE",
+              "crest": "https://crests.football-data.org/457.png"
+            },
+            "homeScore": 2,
+            "awayScore": 1,
+            "status": "FINISHED",
+            "utcDate": "2026-02-09T17:30:00Z",
+            "videoId": "TytOgTKTYhg"
+          },
+          {
+            "match_id": 537047,
+            "homeTeam": {
+              "name": "AS Roma",
+              "shortName": "Roma",
+              "tla": "ROM",
+              "crest": "https://crests.football-data.org/100.png"
+            },
+            "awayTeam": {
+              "name": "Cagliari Calcio",
+              "shortName": "Cagliari",
+              "tla": "CAG",
+              "crest": "https://crests.football-data.org/104.png"
+            },
+            "homeScore": 2,
+            "awayScore": 0,
+            "status": "FINISHED",
+            "utcDate": "2026-02-09T19:45:00Z",
+            "videoId": "wDPtPhDmTgI"
+          }
+        ]
+      }
+    ],
+    "2026-02-10": [
+      {
+        "competition": "premier-league",
+        "name": "Premier League",
+        "matches": [
+          {
+            "match_id": 538039,
+            "homeTeam": {
+              "name": "Chelsea FC",
+              "shortName": "Chelsea",
+              "tla": "CHE",
+              "crest": "https://crests.football-data.org/61.png"
+            },
+            "awayTeam": {
+              "name": "Leeds United FC",
+              "shortName": "Leeds United",
+              "tla": "LEE",
+              "crest": "https://crests.football-data.org/341.png"
+            },
+            "homeScore": 2,
+            "awayScore": 2,
+            "status": "FINISHED",
+            "utcDate": "2026-02-10T19:30:00Z",
+            "videoId": "k8PqM1GLw_c"
+          },
+          {
+            "match_id": 538040,
+            "homeTeam": {
+              "name": "Everton FC",
+              "shortName": "Everton",
+              "tla": "EVE",
+              "crest": "https://crests.football-data.org/62.png"
+            },
+            "awayTeam": {
+              "name": "AFC Bournemouth",
+              "shortName": "Bournemouth",
+              "tla": "BOU",
+              "crest": "https://crests.football-data.org/bournemouth.png"
+            },
+            "homeScore": 1,
+            "awayScore": 2,
+            "status": "FINISHED",
+            "utcDate": "2026-02-10T19:30:00Z",
+            "videoId": "xe5-9HIRaUk"
+          },
+          {
+            "match_id": 538043,
+            "homeTeam": {
+              "name": "Tottenham Hotspur FC",
+              "shortName": "Tottenham",
+              "tla": "TOT",
+              "crest": "https://crests.football-data.org/73.png"
+            },
+            "awayTeam": {
+              "name": "Newcastle United FC",
+              "shortName": "Newcastle",
+              "tla": "NEW",
+              "crest": "https://crests.football-data.org/67.png"
+            },
+            "homeScore": 1,
+            "awayScore": 2,
+            "status": "FINISHED",
+            "utcDate": "2026-02-10T19:30:00Z",
+            "videoId": "YErVMiqiXM4"
+          },
+          {
+            "match_id": 538044,
+            "homeTeam": {
+              "name": "West Ham United FC",
+              "shortName": "West Ham",
+              "tla": "WHU",
+              "crest": "https://crests.football-data.org/563.png"
+            },
+            "awayTeam": {
+              "name": "Manchester United FC",
+              "shortName": "Man United",
+              "tla": "MUN",
+              "crest": "https://crests.football-data.org/66.png"
+            },
+            "homeScore": 1,
+            "awayScore": 1,
+            "status": "FINISHED",
+            "utcDate": "2026-02-10T20:15:00Z",
+            "videoId": "QrOYpLxz_OM"
+          }
+        ]
+      }
+    ],
+    "2026-02-11": [
+      {
+        "competition": "premier-league",
+        "name": "Premier League",
+        "matches": [
+          {
+            "match_id": 538036,
+            "homeTeam": {
+              "name": "Aston Villa FC",
+              "shortName": "Aston Villa",
+              "tla": "AVL",
+              "crest": "https://crests.football-data.org/58.png"
+            },
+            "awayTeam": {
+              "name": "Brighton & Hove Albion FC",
+              "shortName": "Brighton Hove",
+              "tla": "BHA",
+              "crest": "https://crests.football-data.org/397.png"
+            },
+            "homeScore": 1,
+            "awayScore": 0,
+            "status": "FINISHED",
+            "utcDate": "2026-02-11T19:30:00Z",
+            "videoId": "UZ1OFDQBSTs"
+          },
+          {
+            "match_id": 538041,
+            "homeTeam": {
+              "name": "Manchester City FC",
+              "shortName": "Man City",
+              "tla": "MCI",
+              "crest": "https://crests.football-data.org/65.png"
+            },
+            "awayTeam": {
+              "name": "Fulham FC",
+              "shortName": "Fulham",
+              "tla": "FUL",
+              "crest": "https://crests.football-data.org/63.png"
+            },
+            "homeScore": 3,
+            "awayScore": 0,
+            "status": "FINISHED",
+            "utcDate": "2026-02-11T19:30:00Z",
+            "videoId": "sVGM_loS8z4"
+          },
+          {
+            "match_id": 538042,
+            "homeTeam": {
+              "name": "Nottingham Forest FC",
+              "shortName": "Nottingham",
+              "tla": "NOT",
+              "crest": "https://crests.football-data.org/351.png"
+            },
+            "awayTeam": {
+              "name": "Wolverhampton Wanderers FC",
+              "shortName": "Wolverhampton",
+              "tla": "WOL",
+              "crest": "https://crests.football-data.org/76.png"
+            },
+            "homeScore": 0,
+            "awayScore": 0,
+            "status": "FINISHED",
+            "utcDate": "2026-02-11T19:30:00Z",
+            "videoId": "Jl_mWw9MlD0"
+          },
+          {
+            "match_id": 538037,
+            "homeTeam": {
+              "name": "Crystal Palace FC",
+              "shortName": "Crystal Palace",
+              "tla": "CRY",
+              "crest": "https://crests.football-data.org/354.png"
+            },
+            "awayTeam": {
+              "name": "Burnley FC",
+              "shortName": "Burnley",
+              "tla": "BUR",
+              "crest": "https://crests.football-data.org/328.png"
+            },
+            "homeScore": 2,
+            "awayScore": 3,
+            "status": "FINISHED",
+            "utcDate": "2026-02-11T19:40:00Z",
+            "videoId": "OXWRoRP5riw"
+          },
+          {
+            "match_id": 538035,
+            "homeTeam": {
+              "name": "Sunderland AFC",
+              "shortName": "Sunderland",
+              "tla": "SUN",
+              "crest": "https://crests.football-data.org/71.png"
+            },
+            "awayTeam": {
+              "name": "Liverpool FC",
+              "shortName": "Liverpool",
+              "tla": "LIV",
+              "crest": "https://crests.football-data.org/64.png"
+            },
+            "homeScore": 0,
+            "awayScore": 1,
+            "status": "FINISHED",
+            "utcDate": "2026-02-11T20:15:00Z",
+            "videoId": "5xdGckUZbpg"
+          }
+        ]
+      }
+    ],
+    "2026-02-12": [
+      {
+        "competition": "premier-league",
+        "name": "Premier League",
+        "matches": [
+          {
+            "match_id": 538038,
+            "homeTeam": {
+              "name": "Brentford FC",
+              "shortName": "Brentford",
+              "tla": "BRE",
+              "crest": "https://crests.football-data.org/402.png"
+            },
+            "awayTeam": {
+              "name": "Arsenal FC",
+              "shortName": "Arsenal",
+              "tla": "ARS",
+              "crest": "https://crests.football-data.org/57.png"
+            },
+            "homeScore": 1,
+            "awayScore": 1,
+            "status": "FINISHED",
+            "utcDate": "2026-02-12T20:00:00Z",
+            "videoId": "s_DuKwbh53o"
+          }
+        ]
+      }
+    ],
+    "2026-02-13": [
+      {
+        "competition": "laliga",
+        "name": "LaLiga",
+        "matches": [
+          {
+            "match_id": 544441,
+            "homeTeam": {
+              "name": "Elche CF",
+              "shortName": "Elche",
+              "tla": "ELC",
+              "crest": "https://crests.football-data.org/285.png"
+            },
+            "awayTeam": {
+              "name": "CA Osasuna",
+              "shortName": "Osasuna",
+              "tla": "OSA",
+              "crest": "https://crests.football-data.org/79.png"
+            },
+            "homeScore": 0,
+            "awayScore": 0,
+            "status": "FINISHED",
+            "utcDate": "2026-02-13T20:00:00Z",
+            "videoId": "7FUrLUAUjeI"
+          }
+        ]
+      },
+      {
+        "competition": "serie-a",
+        "name": "Serie A",
+        "matches": [
+          {
+            "match_id": 537061,
+            "homeTeam": {
+              "name": "AC Pisa 1909",
+              "shortName": "AC Pisa",
+              "tla": "PIS",
+              "crest": "https://crests.football-data.org/487.png"
+            },
+            "awayTeam": {
+              "name": "AC Milan",
+              "shortName": "Milan",
+              "tla": "MIL",
+              "crest": "https://crests.football-data.org/98.png"
+            },
+            "homeScore": 1,
+            "awayScore": 2,
+            "status": "FINISHED",
+            "utcDate": "2026-02-13T19:45:00Z",
+            "videoId": "NRAr4uhuD-4"
+          }
+        ]
+      },
+      {
+        "competition": "bundesliga",
+        "name": "Bundesliga",
+        "matches": [
+          {
+            "match_id": 540597,
+            "homeTeam": {
+              "name": "Borussia Dortmund",
+              "shortName": "Dortmund",
+              "tla": "BVB",
+              "crest": "https://crests.football-data.org/4.png"
+            },
+            "awayTeam": {
+              "name": "1. FSV Mainz 05",
+              "shortName": "Mainz",
+              "tla": "M05",
+              "crest": "https://crests.football-data.org/15.png"
+            },
+            "homeScore": 4,
+            "awayScore": 0,
+            "status": "FINISHED",
+            "utcDate": "2026-02-13T19:30:00Z",
+            "videoId": "oEp-wsQXY2I"
+          }
+        ]
+      },
+      {
+        "competition": "ligue-1",
+        "name": "Ligue 1",
+        "matches": [
+          {
+            "match_id": 542603,
+            "homeTeam": {
+              "name": "Stade Rennais FC 1901",
+              "shortName": "Stade Rennais",
+              "tla": "REN",
+              "crest": "https://crests.football-data.org/529.png"
+            },
+            "awayTeam": {
+              "name": "Paris Saint-Germain FC",
+              "shortName": "PSG",
+              "tla": "PSG",
+              "crest": "https://crests.football-data.org/524.png"
+            },
+            "homeScore": 3,
+            "awayScore": 1,
+            "status": "FINISHED",
+            "utcDate": "2026-02-13T18:00:00Z",
+            "videoId": "6NXRTTtoqYc"
+          },
+          {
+            "match_id": 542596,
+            "homeTeam": {
+              "name": "AS Monaco FC",
+              "shortName": "Monaco",
+              "tla": "ASM",
+              "crest": "https://crests.football-data.org/548.png"
+            },
+            "awayTeam": {
+              "name": "FC Nantes",
+              "shortName": "Nantes",
+              "tla": "NAN",
+              "crest": "https://crests.football-data.org/543.png"
+            },
+            "homeScore": 3,
+            "awayScore": 1,
+            "status": "FINISHED",
+            "utcDate": "2026-02-13T20:05:00Z",
+            "videoId": "QIC81X2c3Iw"
+          }
+        ]
+      }
+    ],
+    "2026-02-14": [
+      {
+        "competition": "laliga",
+        "name": "LaLiga",
+        "matches": [
+          {
+            "match_id": 544450,
+            "homeTeam": {
+              "name": "RCD Espanyol de Barcelona",
+              "shortName": "Espanyol",
+              "tla": "ESP",
+              "crest": "https://crests.football-data.org/80.png"
+            },
+            "awayTeam": {
+              "name": "RC Celta de Vigo",
+              "shortName": "Celta",
+              "tla": "CEL",
+              "crest": "https://crests.football-data.org/558.png"
+            },
+            "homeScore": 2,
+            "awayScore": 2,
+            "status": "FINISHED",
+            "utcDate": "2026-02-14T13:00:00Z",
+            "videoId": "bmXEepsIWEU"
+          },
+          {
+            "match_id": 544442,
+            "homeTeam": {
+              "name": "Getafe CF",
+              "shortName": "Getafe",
+              "tla": "GET",
+              "crest": "https://crests.football-data.org/82.png"
+            },
+            "awayTeam": {
+              "name": "Villarreal CF",
+              "shortName": "Villarreal",
+              "tla": "VIL",
+              "crest": "https://crests.football-data.org/94.png"
+            },
+            "homeScore": 2,
+            "awayScore": 1,
+            "status": "FINISHED",
+            "utcDate": "2026-02-14T15:15:00Z",
+            "videoId": "EAW_RKKt8IA"
+          },
+          {
+            "match_id": 544445,
+            "homeTeam": {
+              "name": "Sevilla FC",
+              "shortName": "Sevilla FC",
+              "tla": "SEV",
+              "crest": "https://crests.football-data.org/559.png"
+            },
+            "awayTeam": {
+              "name": "Deportivo Alavés",
+              "shortName": "Alavés",
+              "tla": "ALA",
+              "crest": "https://crests.football-data.org/263.png"
+            },
+            "homeScore": 1,
+            "awayScore": 1,
+            "status": "FINISHED",
+            "utcDate": "2026-02-14T17:30:00Z",
+            "videoId": "N_YxR3dfqq4"
+          },
+          {
+            "match_id": 544444,
+            "homeTeam": {
+              "name": "Real Madrid CF",
+              "shortName": "Real Madrid",
+              "tla": "RMA",
+              "crest": "https://crests.football-data.org/86.png"
+            },
+            "awayTeam": {
+              "name": "Real Sociedad de Fútbol",
+              "shortName": "Real Sociedad",
+              "tla": "RSO",
+              "crest": "https://crests.football-data.org/92.png"
+            },
+            "homeScore": 4,
+            "awayScore": 1,
+            "status": "FINISHED",
+            "utcDate": "2026-02-14T20:00:00Z",
+            "videoId": "9x2hPMGM1po"
+          }
+        ]
+      },
+      {
+        "competition": "serie-a",
+        "name": "Serie A",
+        "matches": [
+          {
+            "match_id": 537056,
+            "homeTeam": {
+              "name": "Como 1907",
+              "shortName": "Como 1907",
+              "tla": "COM",
+              "crest": "https://crests.football-data.org/7397.png"
+            },
+            "awayTeam": {
+              "name": "ACF Fiorentina",
+              "shortName": "Fiorentina",
+              "tla": "FIO",
+              "crest": "https://crests.football-data.org/99.png"
+            },
+            "homeScore": 1,
+            "awayScore": 2,
+            "status": "FINISHED",
+            "utcDate": "2026-02-14T14:00:00Z",
+            "videoId": "xhThsM6Wkdw"
+          },
+          {
+            "match_id": 537059,
+            "homeTeam": {
+              "name": "SS Lazio",
+              "shortName": "Lazio",
+              "tla": "LAZ",
+              "crest": "https://crests.football-data.org/110.png"
+            },
+            "awayTeam": {
+              "name": "Atalanta BC",
+              "shortName": "Atalanta",
+              "tla": "ATA",
+              "crest": "https://crests.football-data.org/102.png"
+            },
+            "homeScore": 0,
+            "awayScore": 2,
+            "status": "FINISHED",
+            "utcDate": "2026-02-14T17:00:00Z",
+            "videoId": "3GOjLKmMHlA"
+          },
+          {
+            "match_id": 537058,
+            "homeTeam": {
+              "name": "FC Internazionale Milano",
+              "shortName": "Inter",
+              "tla": "INT",
+              "crest": "https://crests.football-data.org/108.png"
+            },
+            "awayTeam": {
+              "name": "Juventus FC",
+              "shortName": "Juventus",
+              "tla": "JUV",
+              "crest": "https://crests.football-data.org/109.png"
+            },
+            "homeScore": 3,
+            "awayScore": 2,
+            "status": "FINISHED",
+            "utcDate": "2026-02-14T19:45:00Z",
+            "videoId": "28P7qEJerh8"
+          }
+        ]
+      },
+      {
+        "competition": "bundesliga",
+        "name": "Bundesliga",
+        "matches": [
+          {
+            "match_id": 540595,
+            "homeTeam": {
+              "name": "SV Werder Bremen",
+              "shortName": "Bremen",
+              "tla": "SVW",
+              "crest": "https://crests.football-data.org/12.png"
+            },
+            "awayTeam": {
+              "name": "FC Bayern München",
+              "shortName": "Bayern",
+              "tla": "FCB",
+              "crest": "https://crests.football-data.org/5.png"
+            },
+            "homeScore": 0,
+            "awayScore": 3,
+            "status": "FINISHED",
+            "utcDate": "2026-02-14T14:30:00Z",
+            "videoId": "1OBerknXcys"
+          },
+          {
+            "match_id": 540596,
+            "homeTeam": {
+              "name": "TSG 1899 Hoffenheim",
+              "shortName": "Hoffenheim",
+              "tla": "TSG",
+              "crest": "https://crests.football-data.org/2.png"
+            },
+            "awayTeam": {
+              "name": "SC Freiburg",
+              "shortName": "Freiburg",
+              "tla": "SCF",
+              "crest": "https://crests.football-data.org/17.png"
+            },
+            "homeScore": 3,
+            "awayScore": 0,
+            "status": "FINISHED",
+            "utcDate": "2026-02-14T14:30:00Z",
+            "videoId": "LSy3Wz-J8RI"
+          },
+          {
+            "match_id": 540598,
+            "homeTeam": {
+              "name": "Eintracht Frankfurt",
+              "shortName": "Frankfurt",
+              "tla": "SGE",
+              "crest": "https://crests.football-data.org/19.png"
+            },
+            "awayTeam": {
+              "name": "Borussia Mönchengladbach",
+              "shortName": "M'gladbach",
+              "tla": "BMG",
+              "crest": "https://crests.football-data.org/18.png"
+            },
+            "homeScore": 3,
+            "awayScore": 0,
+            "status": "FINISHED",
+            "utcDate": "2026-02-14T14:30:00Z",
+            "videoId": "92M5F7WO1Ms"
+          },
+          {
+            "match_id": 540600,
+            "homeTeam": {
+              "name": "Hamburger SV",
+              "shortName": "HSV",
+              "tla": "HSV",
+              "crest": "https://crests.football-data.org/7.png"
+            },
+            "awayTeam": {
+              "name": "1. FC Union Berlin",
+              "shortName": "Union Berlin",
+              "tla": "UNB",
+              "crest": "https://crests.football-data.org/28.png"
+            },
+            "homeScore": 3,
+            "awayScore": 2,
+            "status": "FINISHED",
+            "utcDate": "2026-02-14T14:30:00Z",
+            "videoId": "t6FvDulg4Rg"
+          },
+          {
+            "match_id": 540601,
+            "homeTeam": {
+              "name": "Bayer 04 Leverkusen",
+              "shortName": "Leverkusen",
+              "tla": "B04",
+              "crest": "https://crests.football-data.org/3.png"
+            },
+            "awayTeam": {
+              "name": "FC St. Pauli 1910",
+              "shortName": "St. Pauli",
+              "tla": "STP",
+              "crest": "https://crests.football-data.org/20.png"
+            },
+            "homeScore": 4,
+            "awayScore": 0,
+            "status": "FINISHED",
+            "utcDate": "2026-02-14T14:30:00Z",
+            "videoId": "l20Eb_WqpkY"
+          },
+          {
+            "match_id": 540603,
+            "homeTeam": {
+              "name": "VfB Stuttgart",
+              "shortName": "Stuttgart",
+              "tla": "VFB",
+              "crest": "https://crests.football-data.org/10.png"
+            },
+            "awayTeam": {
+              "name": "1. FC Köln",
+              "shortName": "1. FC Köln",
+              "tla": "KOE",
+              "crest": "https://crests.football-data.org/1.png"
+            },
+            "homeScore": 3,
+            "awayScore": 1,
+            "status": "FINISHED",
+            "utcDate": "2026-02-14T17:30:00Z",
+            "videoId": "LshtX3q0PpA"
+          }
+        ]
+      },
+      {
+        "competition": "ligue-1",
+        "name": "Ligue 1",
+        "matches": [
+          {
+            "match_id": 542601,
+            "homeTeam": {
+              "name": "Olympique de Marseille",
+              "shortName": "Marseille",
+              "tla": "MAR",
+              "crest": "https://crests.football-data.org/516.png"
+            },
+            "awayTeam": {
+              "name": "RC Strasbourg Alsace",
+              "shortName": "Strasbourg",
+              "tla": "RC ",
+              "crest": "https://crests.football-data.org/576.png"
+            },
+            "homeScore": 2,
+            "awayScore": 2,
+            "status": "FINISHED",
+            "utcDate": "2026-02-14T16:00:00Z",
+            "videoId": "RKN7OiBI_CQ"
+          },
+          {
+            "match_id": 542602,
+            "homeTeam": {
+              "name": "Lille OSC",
+              "shortName": "Lille",
+              "tla": "LIL",
+              "crest": "https://crests.football-data.org/521.png"
+            },
+            "awayTeam": {
+              "name": "Stade Brestois 29",
+              "shortName": "Brest",
+              "tla": "BRE",
+              "crest": "https://crests.football-data.org/512.png"
+            },
+            "homeScore": 1,
+            "awayScore": 1,
+            "status": "FINISHED",
+            "utcDate": "2026-02-14T18:00:00Z",
+            "videoId": "9bSlbcvoOJ4"
+          },
+          {
+            "match_id": 542599,
+            "homeTeam": {
+              "name": "Paris FC",
+              "shortName": "Paris FC",
+              "tla": "PFC",
+              "crest": "https://crests.football-data.org/1045.png"
+            },
+            "awayTeam": {
+              "name": "Racing Club de Lens",
+              "shortName": "RC Lens",
+              "tla": "RCL",
+              "crest": "https://crests.football-data.org/546.png"
+            },
+            "homeScore": 0,
+            "awayScore": 5,
+            "status": "FINISHED",
+            "utcDate": "2026-02-14T20:05:00Z",
+            "videoId": "NEnEmjTJbi0"
+          }
+        ]
+      }
+    ],
+    "2026-02-15": [
+      {
+        "competition": "laliga",
+        "name": "LaLiga",
+        "matches": [
+          {
+            "match_id": 544446,
+            "homeTeam": {
+              "name": "Real Oviedo",
+              "shortName": "Real Oviedo",
+              "tla": "OVI",
+              "crest": "https://crests.football-data.org/1048.png"
+            },
+            "awayTeam": {
+              "name": "Athletic Club",
+              "shortName": "Athletic",
+              "tla": "ATH",
+              "crest": "https://crests.football-data.org/77.png"
+            },
+            "homeScore": 1,
+            "awayScore": 2,
+            "status": "FINISHED",
+            "utcDate": "2026-02-15T13:00:00Z",
+            "videoId": "C6-KYk27N88"
+          },
+          {
+            "match_id": 544447,
+            "homeTeam": {
+              "name": "Rayo Vallecano de Madrid",
+              "shortName": "Rayo Vallecano",
+              "tla": "RAY",
+              "crest": "https://crests.football-data.org/87.png"
+            },
+            "awayTeam": {
+              "name": "Club Atlético de Madrid",
+              "shortName": "Atleti",
+              "tla": "ATL",
+              "crest": "https://crests.football-data.org/78.png"
+            },
+            "homeScore": 3,
+            "awayScore": 0,
+            "status": "FINISHED",
+            "utcDate": "2026-02-15T15:15:00Z",
+            "videoId": "Xn7Br12C2bA"
+          },
+          {
+            "match_id": 544443,
+            "homeTeam": {
+              "name": "Levante UD",
+              "shortName": "Levante",
+              "tla": "LEV",
+              "crest": "https://crests.football-data.org/88.png"
+            },
+            "awayTeam": {
+              "name": "Valencia CF",
+              "shortName": "Valencia",
+              "tla": "VAL",
+              "crest": "https://crests.football-data.org/95.png"
+            },
+            "homeScore": 0,
+            "awayScore": 2,
+            "status": "FINISHED",
+            "utcDate": "2026-02-15T17:30:00Z",
+            "videoId": "1g7PpF0cYPQ"
+          },
+          {
+            "match_id": 544449,
+            "homeTeam": {
+              "name": "RCD Mallorca",
+              "shortName": "Mallorca",
+              "tla": "MAL",
+              "crest": "https://crests.football-data.org/89.png"
+            },
+            "awayTeam": {
+              "name": "Real Betis Balompié",
+              "shortName": "Real Betis",
+              "tla": "BET",
+              "crest": "https://crests.football-data.org/90.png"
+            },
+            "homeScore": 1,
+            "awayScore": 2,
+            "status": "FINISHED",
+            "utcDate": "2026-02-15T20:00:00Z",
+            "videoId": "Wtsd4itQgXY"
+          }
+        ]
+      },
+      {
+        "competition": "serie-a",
+        "name": "Serie A",
+        "matches": [
+          {
+            "match_id": 537063,
+            "homeTeam": {
+              "name": "Udinese Calcio",
+              "shortName": "Udinese",
+              "tla": "UDI",
+              "crest": "https://crests.football-data.org/115.png"
+            },
+            "awayTeam": {
+              "name": "US Sassuolo Calcio",
+              "shortName": "Sassuolo",
+              "tla": "SAS",
+              "crest": "https://crests.football-data.org/471.png"
+            },
+            "homeScore": 1,
+            "awayScore": 2,
+            "status": "FINISHED",
+            "utcDate": "2026-02-15T11:30:00Z",
+            "videoId": "7Z1ikD5IK9Y"
+          },
+          {
+            "match_id": 537060,
+            "homeTeam": {
+              "name": "Parma Calcio 1913",
+              "shortName": "Parma",
+              "tla": "PAR",
+              "crest": "https://crests.football-data.org/112.png"
+            },
+            "awayTeam": {
+              "name": "Hellas Verona FC",
+              "shortName": "Verona",
+              "tla": "HVE",
+              "crest": "https://crests.football-data.org/450.png"
+            },
+            "homeScore": 2,
+            "awayScore": 1,
+            "status": "FINISHED",
+            "utcDate": "2026-02-15T14:00:00Z",
+            "videoId": "HJDeVJmH5Vg"
+          },
+          {
+            "match_id": 537064,
+            "homeTeam": {
+              "name": "US Cremonese",
+              "shortName": "Cremonese",
+              "tla": "CRE",
+              "crest": "https://crests.football-data.org/457.png"
+            },
+            "awayTeam": {
+              "name": "Genoa CFC",
+              "shortName": "Genoa",
+              "tla": "GEN",
+              "crest": "https://crests.football-data.org/107.png"
+            },
+            "homeScore": 0,
+            "awayScore": 0,
+            "status": "FINISHED",
+            "utcDate": "2026-02-15T14:00:00Z",
+            "videoId": "9OEuKtwGXWo"
+          },
+          {
+            "match_id": 537057,
+            "homeTeam": {
+              "name": "Torino FC",
+              "shortName": "Torino",
+              "tla": "TOR",
+              "crest": "https://crests.football-data.org/586.png"
+            },
+            "awayTeam": {
+              "name": "Bologna FC 1909",
+              "shortName": "Bologna",
+              "tla": "BOL",
+              "crest": "https://crests.football-data.org/103.png"
+            },
+            "homeScore": 1,
+            "awayScore": 2,
+            "status": "FINISHED",
+            "utcDate": "2026-02-15T17:00:00Z",
+            "videoId": "mLUshfrORx4"
+          },
+          {
+            "match_id": 537062,
+            "homeTeam": {
+              "name": "SSC Napoli",
+              "shortName": "Napoli",
+              "tla": "NAP",
+              "crest": "https://crests.football-data.org/113.png"
+            },
+            "awayTeam": {
+              "name": "AS Roma",
+              "shortName": "Roma",
+              "tla": "ROM",
+              "crest": "https://crests.football-data.org/100.png"
+            },
+            "homeScore": 2,
+            "awayScore": 2,
+            "status": "FINISHED",
+            "utcDate": "2026-02-15T19:45:00Z",
+            "videoId": "DnD0I2dqKpA"
+          }
+        ]
+      },
+      {
+        "competition": "bundesliga",
+        "name": "Bundesliga",
+        "matches": [
+          {
+            "match_id": 540602,
+            "homeTeam": {
+              "name": "FC Augsburg",
+              "shortName": "Augsburg",
+              "tla": "FCA",
+              "crest": "https://crests.football-data.org/16.png"
+            },
+            "awayTeam": {
+              "name": "1. FC Heidenheim 1846",
+              "shortName": "Heidenheim",
+              "tla": "HEI",
+              "crest": "https://crests.football-data.org/44.png"
+            },
+            "homeScore": 1,
+            "awayScore": 0,
+            "status": "FINISHED",
+            "utcDate": "2026-02-15T14:30:00Z",
+            "videoId": "R0JOHRGSct8"
+          },
+          {
+            "match_id": 540599,
+            "homeTeam": {
+              "name": "RB Leipzig",
+              "shortName": "RB Leipzig",
+              "tla": "RBL",
+              "crest": "https://crests.football-data.org/721.png"
+            },
+            "awayTeam": {
+              "name": "VfL Wolfsburg",
+              "shortName": "Wolfsburg",
+              "tla": "WOB",
+              "crest": "https://crests.football-data.org/11.png"
+            },
+            "homeScore": 2,
+            "awayScore": 2,
+            "status": "FINISHED",
+            "utcDate": "2026-02-15T16:30:00Z",
+            "videoId": "xcvRbDj_HzI"
+          }
+        ]
+      },
+      {
+        "competition": "ligue-1",
+        "name": "Ligue 1",
+        "matches": [
+          {
+            "match_id": 542595,
+            "homeTeam": {
+              "name": "Le Havre AC",
+              "shortName": "Le Havre",
+              "tla": "HAC",
+              "crest": "https://crests.football-data.org/533.png"
+            },
+            "awayTeam": {
+              "name": "Toulouse FC",
+              "shortName": "Toulouse",
+              "tla": "TOU",
+              "crest": "https://crests.football-data.org/511.png"
+            },
+            "homeScore": 2,
+            "awayScore": 1,
+            "status": "FINISHED",
+            "utcDate": "2026-02-15T14:00:00Z",
+            "videoId": "xcGMdTG8GDg"
+          },
+          {
+            "match_id": 542597,
+            "homeTeam": {
+              "name": "FC Lorient",
+              "shortName": "Lorient",
+              "tla": "FCL",
+              "crest": "https://crests.football-data.org/525.png"
+            },
+            "awayTeam": {
+              "name": "Angers SCO",
+              "shortName": "Angers SCO",
+              "tla": "ANG",
+              "crest": "https://crests.football-data.org/532.png"
+            },
+            "homeScore": 2,
+            "awayScore": 0,
+            "status": "FINISHED",
+            "utcDate": "2026-02-15T16:15:00Z",
+            "videoId": "xWok8Y3O2-Y"
+          },
+          {
+            "match_id": 542598,
+            "homeTeam": {
+              "name": "FC Metz",
+              "shortName": "FC Metz",
+              "tla": "FCM",
+              "crest": "https://crests.football-data.org/545.png"
+            },
+            "awayTeam": {
+              "name": "AJ Auxerre",
+              "shortName": "Auxerre",
+              "tla": "AJA",
+              "crest": "https://crests.football-data.org/519.png"
+            },
+            "homeScore": 1,
+            "awayScore": 3,
+            "status": "FINISHED",
+            "utcDate": "2026-02-15T16:15:00Z",
+            "videoId": "ev-01v0KyRk"
+          },
+          {
+            "match_id": 542600,
+            "homeTeam": {
+              "name": "Olympique Lyonnais",
+              "shortName": "Olympique Lyon",
+              "tla": "LYO",
+              "crest": "https://crests.football-data.org/523.png"
+            },
+            "awayTeam": {
+              "name": "OGC Nice",
+              "shortName": "Nice",
+              "tla": "NIC",
+              "crest": "https://crests.football-data.org/522.png"
+            },
+            "homeScore": 2,
+            "awayScore": 0,
+            "status": "FINISHED",
+            "utcDate": "2026-02-15T19:45:00Z",
+            "videoId": "htllBWciPoY"
+          }
+        ]
+      }
+    ],
+    "2026-02-16": [
+      {
+        "competition": "laliga",
+        "name": "LaLiga",
+        "matches": [
+          {
+            "match_id": 544448,
+            "homeTeam": {
+              "name": "Girona FC",
+              "shortName": "Girona",
+              "tla": "GIR",
+              "crest": "https://crests.football-data.org/298.png"
+            },
+            "awayTeam": {
+              "name": "FC Barcelona",
+              "shortName": "Barça",
+              "tla": "FCB",
+              "crest": "https://crests.football-data.org/81.png"
+            },
+            "homeScore": 2,
+            "awayScore": 1,
+            "status": "FINISHED",
+            "utcDate": "2026-02-16T20:00:00Z",
+            "videoId": "Y2Wxq9aLfCw"
+          }
+        ]
+      },
+      {
+        "competition": "serie-a",
+        "name": "Serie A",
+        "matches": [
+          {
+            "match_id": 537055,
+            "homeTeam": {
+              "name": "Cagliari Calcio",
+              "shortName": "Cagliari",
+              "tla": "CAG",
+              "crest": "https://crests.football-data.org/104.png"
+            },
+            "awayTeam": {
+              "name": "US Lecce",
+              "shortName": "Lecce",
+              "tla": "USL",
+              "crest": "https://crests.football-data.org/5890.png"
+            },
+            "homeScore": 0,
+            "awayScore": 2,
+            "status": "FINISHED",
+            "utcDate": "2026-02-16T19:45:00Z",
+            "videoId": "yFD25uQ0zus"
+          }
+        ]
+      }
+    ],
+    "2026-02-18": [
+      {
+        "competition": "premier-league",
+        "name": "Premier League",
+        "matches": [
+          {
+            "match_id": 538094,
+            "homeTeam": {
+              "name": "Wolverhampton Wanderers FC",
+              "shortName": "Wolverhampton",
+              "tla": "WOL",
+              "crest": "https://crests.football-data.org/76.png"
+            },
+            "awayTeam": {
+              "name": "Arsenal FC",
+              "shortName": "Arsenal",
+              "tla": "ARS",
+              "crest": "https://crests.football-data.org/57.png"
+            },
+            "homeScore": 2,
+            "awayScore": 2,
+            "status": "FINISHED",
+            "utcDate": "2026-02-18T20:00:00Z",
+            "videoId": "CX2TFmxxxOQ"
+          }
+        ]
+      },
+      {
+        "competition": "laliga",
+        "name": "LaLiga",
+        "matches": [
+          {
+            "match_id": 544364,
+            "homeTeam": {
+              "name": "Levante UD",
+              "shortName": "Levante",
+              "tla": "LEV",
+              "crest": "https://crests.football-data.org/88.png"
+            },
+            "awayTeam": {
+              "name": "Villarreal CF",
+              "shortName": "Villarreal",
+              "tla": "VIL",
+              "crest": "https://crests.football-data.org/94.png"
+            },
+            "homeScore": 0,
+            "awayScore": 1,
+            "status": "FINISHED",
+            "utcDate": "2026-02-18T19:00:00Z",
+            "videoId": "iRuUpNiplRU"
+          }
+        ]
+      },
+      {
+        "competition": "serie-a",
+        "name": "Serie A",
+        "matches": [
+          {
+            "match_id": 537046,
+            "homeTeam": {
+              "name": "AC Milan",
+              "shortName": "Milan",
+              "tla": "MIL",
+              "crest": "https://crests.football-data.org/98.png"
+            },
+            "awayTeam": {
+              "name": "Como 1907",
+              "shortName": "Como 1907",
+              "tla": "COM",
+              "crest": "https://crests.football-data.org/7397.png"
+            },
+            "homeScore": 1,
+            "awayScore": 1,
+            "status": "FINISHED",
+            "utcDate": "2026-02-18T19:45:00Z",
+            "videoId": "k_Jbk7jOkw0"
+          }
+        ]
+      }
+    ],
+    "2026-02-20": [
+      {
+        "competition": "laliga",
+        "name": "LaLiga",
+        "matches": [
+          {
+            "match_id": 544452,
+            "homeTeam": {
+              "name": "Athletic Club",
+              "shortName": "Athletic",
+              "tla": "ATH",
+              "crest": "https://crests.football-data.org/77.png"
+            },
+            "awayTeam": {
+              "name": "Elche CF",
+              "shortName": "Elche",
+              "tla": "ELC",
+              "crest": "https://crests.football-data.org/285.png"
+            },
+            "homeScore": 2,
+            "awayScore": 1,
+            "status": "FINISHED",
+            "utcDate": "2026-02-20T20:00:00Z",
+            "videoId": "i2xO1EsCrpI"
+          }
+        ]
+      },
+      {
+        "competition": "serie-a",
+        "name": "Serie A",
+        "matches": [
+          {
+            "match_id": 537073,
+            "homeTeam": {
+              "name": "US Sassuolo Calcio",
+              "shortName": "Sassuolo",
+              "tla": "SAS",
+              "crest": "https://crests.football-data.org/471.png"
+            },
+            "awayTeam": {
+              "name": "Hellas Verona FC",
+              "shortName": "Verona",
+              "tla": "HVE",
+              "crest": "https://crests.football-data.org/450.png"
+            },
+            "homeScore": 3,
+            "awayScore": 0,
+            "status": "FINISHED",
+            "utcDate": "2026-02-20T19:45:00Z",
+            "videoId": "VCiw7RWRGmQ"
+          }
+        ]
+      },
+      {
+        "competition": "bundesliga",
+        "name": "Bundesliga",
+        "matches": [
+          {
+            "match_id": 540612,
+            "homeTeam": {
+              "name": "1. FSV Mainz 05",
+              "shortName": "Mainz",
+              "tla": "M05",
+              "crest": "https://crests.football-data.org/15.png"
+            },
+            "awayTeam": {
+              "name": "Hamburger SV",
+              "shortName": "HSV",
+              "tla": "HSV",
+              "crest": "https://crests.football-data.org/7.png"
+            },
+            "homeScore": 1,
+            "awayScore": 1,
+            "status": "FINISHED",
+            "utcDate": "2026-02-20T19:30:00Z",
+            "videoId": "xZLnrDMHfCI"
+          }
+        ]
+      },
+      {
+        "competition": "ligue-1",
+        "name": "Ligue 1",
+        "matches": [
+          {
+            "match_id": 542612,
+            "homeTeam": {
+              "name": "Stade Brestois 29",
+              "shortName": "Brest",
+              "tla": "BRE",
+              "crest": "https://crests.football-data.org/512.png"
+            },
+            "awayTeam": {
+              "name": "Olympique de Marseille",
+              "shortName": "Marseille",
+              "tla": "MAR",
+              "crest": "https://crests.football-data.org/516.png"
+            },
+            "homeScore": 2,
+            "awayScore": 0,
+            "status": "FINISHED",
+            "utcDate": "2026-02-20T19:45:00Z",
+            "videoId": "OAvKfR_6uNo"
+          }
+        ]
+      }
+    ],
+    "2026-02-21": [
+      {
+        "competition": "premier-league",
+        "name": "Premier League",
+        "matches": [
+          {
+            "match_id": 538046,
+            "homeTeam": {
+              "name": "Aston Villa FC",
+              "shortName": "Aston Villa",
+              "tla": "AVL",
+              "crest": "https://crests.football-data.org/58.png"
+            },
+            "awayTeam": {
+              "name": "Leeds United FC",
+              "shortName": "Leeds United",
+              "tla": "LEE",
+              "crest": "https://crests.football-data.org/341.png"
+            },
+            "homeScore": 1,
+            "awayScore": 1,
+            "status": "FINISHED",
+            "utcDate": "2026-02-21T15:00:00Z",
+            "videoId": "JNvcpjIN3Jw"
+          },
+          {
+            "match_id": 538048,
+            "homeTeam": {
+              "name": "Brentford FC",
+              "shortName": "Brentford",
+              "tla": "BRE",
+              "crest": "https://crests.football-data.org/402.png"
+            },
+            "awayTeam": {
+              "name": "Brighton & Hove Albion FC",
+              "shortName": "Brighton Hove",
+              "tla": "BHA",
+              "crest": "https://crests.football-data.org/397.png"
+            },
+            "homeScore": 0,
+            "awayScore": 2,
+            "status": "FINISHED",
+            "utcDate": "2026-02-21T15:00:00Z",
+            "videoId": "bDw6l6r6Eww"
+          },
+          {
+            "match_id": 538049,
+            "homeTeam": {
+              "name": "Chelsea FC",
+              "shortName": "Chelsea",
+              "tla": "CHE",
+              "crest": "https://crests.football-data.org/61.png"
+            },
+            "awayTeam": {
+              "name": "Burnley FC",
+              "shortName": "Burnley",
+              "tla": "BUR",
+              "crest": "https://crests.football-data.org/328.png"
+            },
+            "homeScore": 1,
+            "awayScore": 1,
+            "status": "FINISHED",
+            "utcDate": "2026-02-21T15:00:00Z",
+            "videoId": "OTnoTeA9LWg"
+          },
+          {
+            "match_id": 538054,
+            "homeTeam": {
+              "name": "West Ham United FC",
+              "shortName": "West Ham",
+              "tla": "WHU",
+              "crest": "https://crests.football-data.org/563.png"
+            },
+            "awayTeam": {
+              "name": "AFC Bournemouth",
+              "shortName": "Bournemouth",
+              "tla": "BOU",
+              "crest": "https://crests.football-data.org/bournemouth.png"
+            },
+            "homeScore": 0,
+            "awayScore": 0,
+            "status": "FINISHED",
+            "utcDate": "2026-02-21T17:30:00Z",
+            "videoId": "old5gN5bATc"
+          },
+          {
+            "match_id": 538051,
+            "homeTeam": {
+              "name": "Manchester City FC",
+              "shortName": "Man City",
+              "tla": "MCI",
+              "crest": "https://crests.football-data.org/65.png"
+            },
+            "awayTeam": {
+              "name": "Newcastle United FC",
+              "shortName": "Newcastle",
+              "tla": "NEW",
+              "crest": "https://crests.football-data.org/67.png"
+            },
+            "homeScore": 2,
+            "awayScore": 1,
+            "status": "FINISHED",
+            "utcDate": "2026-02-21T20:00:00Z",
+            "videoId": "HV2B7U9VgfA"
+          }
+        ]
+      },
+      {
+        "competition": "laliga",
+        "name": "LaLiga",
+        "matches": [
+          {
+            "match_id": 544460,
+            "homeTeam": {
+              "name": "Real Sociedad de Fútbol",
+              "shortName": "Real Sociedad",
+              "tla": "RSO",
+              "crest": "https://crests.football-data.org/92.png"
+            },
+            "awayTeam": {
+              "name": "Real Oviedo",
+              "shortName": "Real Oviedo",
+              "tla": "OVI",
+              "crest": "https://crests.football-data.org/1048.png"
+            },
+            "homeScore": 3,
+            "awayScore": 3,
+            "status": "FINISHED",
+            "utcDate": "2026-02-21T13:00:00Z",
+            "videoId": "Gr5nFg20WTg"
+          },
+          {
+            "match_id": 544455,
+            "homeTeam": {
+              "name": "Real Betis Balompié",
+              "shortName": "Real Betis",
+              "tla": "BET",
+              "crest": "https://crests.football-data.org/90.png"
+            },
+            "awayTeam": {
+              "name": "Rayo Vallecano de Madrid",
+              "shortName": "Rayo Vallecano",
+              "tla": "RAY",
+              "crest": "https://crests.football-data.org/87.png"
+            },
+            "homeScore": 1,
+            "awayScore": 1,
+            "status": "FINISHED",
+            "utcDate": "2026-02-21T15:15:00Z",
+            "videoId": "qlH5XhPd9Uo"
+          },
+          {
+            "match_id": 544458,
+            "homeTeam": {
+              "name": "CA Osasuna",
+              "shortName": "Osasuna",
+              "tla": "OSA",
+              "crest": "https://crests.football-data.org/79.png"
+            },
+            "awayTeam": {
+              "name": "Real Madrid CF",
+              "shortName": "Real Madrid",
+              "tla": "RMA",
+              "crest": "https://crests.football-data.org/86.png"
+            },
+            "homeScore": 2,
+            "awayScore": 1,
+            "status": "FINISHED",
+            "utcDate": "2026-02-21T17:30:00Z",
+            "videoId": "dV5GgsnKZlI"
+          },
+          {
+            "match_id": 544453,
+            "homeTeam": {
+              "name": "Club Atlético de Madrid",
+              "shortName": "Atleti",
+              "tla": "ATL",
+              "crest": "https://crests.football-data.org/78.png"
+            },
+            "awayTeam": {
+              "name": "RCD Espanyol de Barcelona",
+              "shortName": "Espanyol",
+              "tla": "ESP",
+              "crest": "https://crests.football-data.org/80.png"
+            },
+            "homeScore": 4,
+            "awayScore": 2,
+            "status": "FINISHED",
+            "utcDate": "2026-02-21T20:00:00Z",
+            "videoId": "SOAfmbV7jEY"
+          }
+        ]
+      },
+      {
+        "competition": "serie-a",
+        "name": "Serie A",
+        "matches": [
+          {
+            "match_id": 537072,
+            "homeTeam": {
+              "name": "Juventus FC",
+              "shortName": "Juventus",
+              "tla": "JUV",
+              "crest": "https://crests.football-data.org/109.png"
+            },
+            "awayTeam": {
+              "name": "Como 1907",
+              "shortName": "Como 1907",
+              "tla": "COM",
+              "crest": "https://crests.football-data.org/7397.png"
+            },
+            "homeScore": 0,
+            "awayScore": 2,
+            "status": "FINISHED",
+            "utcDate": "2026-02-21T14:00:00Z",
+            "videoId": "qzWIQFaCrkk"
+          },
+          {
+            "match_id": 537074,
+            "homeTeam": {
+              "name": "US Lecce",
+              "shortName": "Lecce",
+              "tla": "USL",
+              "crest": "https://crests.football-data.org/5890.png"
+            },
+            "awayTeam": {
+              "name": "FC Internazionale Milano",
+              "shortName": "Inter",
+              "tla": "INT",
+              "crest": "https://crests.football-data.org/108.png"
+            },
+            "homeScore": 0,
+            "awayScore": 2,
+            "status": "FINISHED",
+            "utcDate": "2026-02-21T17:00:00Z",
+            "videoId": "-fkwGSs7wlY"
+          },
+          {
+            "match_id": 537069,
+            "homeTeam": {
+              "name": "Cagliari Calcio",
+              "shortName": "Cagliari",
+              "tla": "CAG",
+              "crest": "https://crests.football-data.org/104.png"
+            },
+            "awayTeam": {
+              "name": "SS Lazio",
+              "shortName": "Lazio",
+              "tla": "LAZ",
+              "crest": "https://crests.football-data.org/110.png"
+            },
+            "homeScore": 0,
+            "awayScore": 0,
+            "status": "FINISHED",
+            "utcDate": "2026-02-21T19:45:00Z",
+            "videoId": "sjkC1pMXlsw"
+          }
+        ]
+      },
+      {
+        "competition": "bundesliga",
+        "name": "Bundesliga",
+        "matches": [
+          {
+            "match_id": 540604,
+            "homeTeam": {
+              "name": "1. FC Union Berlin",
+              "shortName": "Union Berlin",
+              "tla": "UNB",
+              "crest": "https://crests.football-data.org/28.png"
+            },
+            "awayTeam": {
+              "name": "Bayer 04 Leverkusen",
+              "shortName": "Leverkusen",
+              "tla": "B04",
+              "crest": "https://crests.football-data.org/3.png"
+            },
+            "homeScore": 1,
+            "awayScore": 0,
+            "status": "FINISHED",
+            "utcDate": "2026-02-21T14:30:00Z",
+            "videoId": "30PCCFv6G88"
+          },
+          {
+            "match_id": 540605,
+            "homeTeam": {
+              "name": "FC Bayern München",
+              "shortName": "Bayern",
+              "tla": "FCB",
+              "crest": "https://crests.football-data.org/5.png"
+            },
+            "awayTeam": {
+              "name": "Eintracht Frankfurt",
+              "shortName": "Frankfurt",
+              "tla": "SGE",
+              "crest": "https://crests.football-data.org/19.png"
+            },
+            "homeScore": 3,
+            "awayScore": 2,
+            "status": "FINISHED",
+            "utcDate": "2026-02-21T14:30:00Z",
+            "videoId": "sTDo8JtuwmE"
+          },
+          {
+            "match_id": 540610,
+            "homeTeam": {
+              "name": "VfL Wolfsburg",
+              "shortName": "Wolfsburg",
+              "tla": "WOB",
+              "crest": "https://crests.football-data.org/11.png"
+            },
+            "awayTeam": {
+              "name": "FC Augsburg",
+              "shortName": "Augsburg",
+              "tla": "FCA",
+              "crest": "https://crests.football-data.org/16.png"
+            },
+            "homeScore": 2,
+            "awayScore": 3,
+            "status": "FINISHED",
+            "utcDate": "2026-02-21T14:30:00Z",
+            "videoId": "fqX5zoyrku4"
+          },
+          {
+            "match_id": 540611,
+            "homeTeam": {
+              "name": "1. FC Köln",
+              "shortName": "1. FC Köln",
+              "tla": "KOE",
+              "crest": "https://crests.football-data.org/1.png"
+            },
+            "awayTeam": {
+              "name": "TSG 1899 Hoffenheim",
+              "shortName": "Hoffenheim",
+              "tla": "TSG",
+              "crest": "https://crests.football-data.org/2.png"
+            },
+            "homeScore": 2,
+            "awayScore": 2,
+            "status": "FINISHED",
+            "utcDate": "2026-02-21T14:30:00Z",
+            "videoId": "zWmU6qw3gcg"
+          },
+          {
+            "match_id": 540606,
+            "homeTeam": {
+              "name": "RB Leipzig",
+              "shortName": "RB Leipzig",
+              "tla": "RBL",
+              "crest": "https://crests.football-data.org/721.png"
+            },
+            "awayTeam": {
+              "name": "Borussia Dortmund",
+              "shortName": "Dortmund",
+              "tla": "BVB",
+              "crest": "https://crests.football-data.org/4.png"
+            },
+            "homeScore": 2,
+            "awayScore": 2,
+            "status": "FINISHED",
+            "utcDate": "2026-02-21T17:30:00Z",
+            "videoId": "92c-uylEZSI"
+          }
+        ]
+      },
+      {
+        "competition": "ligue-1",
+        "name": "Ligue 1",
+        "matches": [
+          {
+            "match_id": 542610,
+            "homeTeam": {
+              "name": "Racing Club de Lens",
+              "shortName": "RC Lens",
+              "tla": "RCL",
+              "crest": "https://crests.football-data.org/546.png"
+            },
+            "awayTeam": {
+              "name": "AS Monaco FC",
+              "shortName": "Monaco",
+              "tla": "ASM",
+              "crest": "https://crests.football-data.org/548.png"
+            },
+            "homeScore": 2,
+            "awayScore": 3,
+            "status": "FINISHED",
+            "utcDate": "2026-02-21T16:00:00Z",
+            "videoId": "ms54lISjKLM"
+          },
+          {
+            "match_id": 542606,
+            "homeTeam": {
+              "name": "Toulouse FC",
+              "shortName": "Toulouse",
+              "tla": "TOU",
+              "crest": "https://crests.football-data.org/511.png"
+            },
+            "awayTeam": {
+              "name": "Paris FC",
+              "shortName": "Paris FC",
+              "tla": "PFC",
+              "crest": "https://crests.football-data.org/1045.png"
+            },
+            "homeScore": 1,
+            "awayScore": 1,
+            "status": "FINISHED",
+            "utcDate": "2026-02-21T18:00:00Z",
+            "videoId": "-WUWxnx5G8U"
+          },
+          {
+            "match_id": 542608,
+            "homeTeam": {
+              "name": "Paris Saint-Germain FC",
+              "shortName": "PSG",
+              "tla": "PSG",
+              "crest": "https://crests.football-data.org/524.png"
+            },
+            "awayTeam": {
+              "name": "FC Metz",
+              "shortName": "FC Metz",
+              "tla": "FCM",
+              "crest": "https://crests.football-data.org/545.png"
+            },
+            "homeScore": 3,
+            "awayScore": 0,
+            "status": "FINISHED",
+            "utcDate": "2026-02-21T20:05:00Z",
+            "videoId": "_mcnwkrWBJM"
+          }
+        ]
+      }
+    ],
+    "2026-02-22": [
+      {
+        "competition": "premier-league",
+        "name": "Premier League",
+        "matches": [
+          {
+            "match_id": 538045,
+            "homeTeam": {
+              "name": "Sunderland AFC",
+              "shortName": "Sunderland",
+              "tla": "SUN",
+              "crest": "https://crests.football-data.org/71.png"
+            },
+            "awayTeam": {
+              "name": "Fulham FC",
+              "shortName": "Fulham",
+              "tla": "FUL",
+              "crest": "https://crests.football-data.org/63.png"
+            },
+            "homeScore": 1,
+            "awayScore": 3,
+            "status": "FINISHED",
+            "utcDate": "2026-02-22T14:00:00Z",
+            "videoId": "uXjHSrsejWs"
+          },
+          {
+            "match_id": 538047,
+            "homeTeam": {
+              "name": "Crystal Palace FC",
+              "shortName": "Crystal Palace",
+              "tla": "CRY",
+              "crest": "https://crests.football-data.org/354.png"
+            },
+            "awayTeam": {
+              "name": "Wolverhampton Wanderers FC",
+              "shortName": "Wolverhampton",
+              "tla": "WOL",
+              "crest": "https://crests.football-data.org/76.png"
+            },
+            "homeScore": 1,
+            "awayScore": 0,
+            "status": "FINISHED",
+            "utcDate": "2026-02-22T14:00:00Z",
+            "videoId": "rnSY4ask7N0"
+          },
+          {
+            "match_id": 538052,
+            "homeTeam": {
+              "name": "Nottingham Forest FC",
+              "shortName": "Nottingham",
+              "tla": "NOT",
+              "crest": "https://crests.football-data.org/351.png"
+            },
+            "awayTeam": {
+              "name": "Liverpool FC",
+              "shortName": "Liverpool",
+              "tla": "LIV",
+              "crest": "https://crests.football-data.org/64.png"
+            },
+            "homeScore": 0,
+            "awayScore": 1,
+            "status": "FINISHED",
+            "utcDate": "2026-02-22T14:00:00Z",
+            "videoId": "mZvTP-hlWP8"
+          },
+          {
+            "match_id": 538053,
+            "homeTeam": {
+              "name": "Tottenham Hotspur FC",
+              "shortName": "Tottenham",
+              "tla": "TOT",
+              "crest": "https://crests.football-data.org/73.png"
+            },
+            "awayTeam": {
+              "name": "Arsenal FC",
+              "shortName": "Arsenal",
+              "tla": "ARS",
+              "crest": "https://crests.football-data.org/57.png"
+            },
+            "homeScore": 1,
+            "awayScore": 4,
+            "status": "FINISHED",
+            "utcDate": "2026-02-22T16:30:00Z",
+            "videoId": "KUOLPDRjxQU"
+          }
+        ]
+      },
+      {
+        "competition": "laliga",
+        "name": "LaLiga",
+        "matches": [
+          {
+            "match_id": 544457,
+            "homeTeam": {
+              "name": "Getafe CF",
+              "shortName": "Getafe",
+              "tla": "GET",
+              "crest": "https://crests.football-data.org/82.png"
+            },
+            "awayTeam": {
+              "name": "Sevilla FC",
+              "shortName": "Sevilla FC",
+              "tla": "SEV",
+              "crest": "https://crests.football-data.org/559.png"
+            },
+            "homeScore": 0,
+            "awayScore": 1,
+            "status": "FINISHED",
+            "utcDate": "2026-02-22T13:00:00Z",
+            "videoId": "z6GwUgpEDf8"
+          },
+          {
+            "match_id": 544454,
+            "homeTeam": {
+              "name": "FC Barcelona",
+              "shortName": "Barça",
+              "tla": "FCB",
+              "crest": "https://crests.football-data.org/81.png"
+            },
+            "awayTeam": {
+              "name": "Levante UD",
+              "shortName": "Levante",
+              "tla": "LEV",
+              "crest": "https://crests.football-data.org/88.png"
+            },
+            "homeScore": 3,
+            "awayScore": 0,
+            "status": "FINISHED",
+            "utcDate": "2026-02-22T15:15:00Z",
+            "videoId": "02aZGqDw1xo"
+          },
+          {
+            "match_id": 544456,
+            "homeTeam": {
+              "name": "RC Celta de Vigo",
+              "shortName": "Celta",
+              "tla": "CEL",
+              "crest": "https://crests.football-data.org/558.png"
+            },
+            "awayTeam": {
+              "name": "RCD Mallorca",
+              "shortName": "Mallorca",
+              "tla": "MAL",
+              "crest": "https://crests.football-data.org/89.png"
+            },
+            "homeScore": 2,
+            "awayScore": 0,
+            "status": "FINISHED",
+            "utcDate": "2026-02-22T17:30:00Z",
+            "videoId": "U7JZ1a66J0E"
+          },
+          {
+            "match_id": 544459,
+            "homeTeam": {
+              "name": "Villarreal CF",
+              "shortName": "Villarreal",
+              "tla": "VIL",
+              "crest": "https://crests.football-data.org/94.png"
+            },
+            "awayTeam": {
+              "name": "Valencia CF",
+              "shortName": "Valencia",
+              "tla": "VAL",
+              "crest": "https://crests.football-data.org/95.png"
+            },
+            "homeScore": 2,
+            "awayScore": 1,
+            "status": "FINISHED",
+            "utcDate": "2026-02-22T20:00:00Z",
+            "videoId": "jEn3XRrPalI"
+          }
+        ]
+      },
+      {
+        "competition": "serie-a",
+        "name": "Serie A",
+        "matches": [
+          {
+            "match_id": 537070,
+            "homeTeam": {
+              "name": "Genoa CFC",
+              "shortName": "Genoa",
+              "tla": "GEN",
+              "crest": "https://crests.football-data.org/107.png"
+            },
+            "awayTeam": {
+              "name": "Torino FC",
+              "shortName": "Torino",
+              "tla": "TOR",
+              "crest": "https://crests.football-data.org/586.png"
+            },
+            "homeScore": 3,
+            "awayScore": 0,
+            "status": "FINISHED",
+            "utcDate": "2026-02-22T11:30:00Z",
+            "videoId": "TCAHYh3ZtDA"
+          },
+          {
+            "match_id": 537068,
+            "homeTeam": {
+              "name": "Atalanta BC",
+              "shortName": "Atalanta",
+              "tla": "ATA",
+              "crest": "https://crests.football-data.org/102.png"
+            },
+            "awayTeam": {
+              "name": "SSC Napoli",
+              "shortName": "Napoli",
+              "tla": "NAP",
+              "crest": "https://crests.football-data.org/113.png"
+            },
+            "homeScore": 2,
+            "awayScore": 1,
+            "status": "FINISHED",
+            "utcDate": "2026-02-22T14:00:00Z",
+            "videoId": "pADh6WUxaYM"
+          },
+          {
+            "match_id": 537066,
+            "homeTeam": {
+              "name": "AC Milan",
+              "shortName": "Milan",
+              "tla": "MIL",
+              "crest": "https://crests.football-data.org/98.png"
+            },
+            "awayTeam": {
+              "name": "Parma Calcio 1913",
+              "shortName": "Parma",
+              "tla": "PAR",
+              "crest": "https://crests.football-data.org/112.png"
+            },
+            "homeScore": 0,
+            "awayScore": 1,
+            "status": "FINISHED",
+            "utcDate": "2026-02-22T17:00:00Z",
+            "videoId": "j8rrGAO0ZdE"
+          },
+          {
+            "match_id": 537067,
+            "homeTeam": {
+              "name": "AS Roma",
+              "shortName": "Roma",
+              "tla": "ROM",
+              "crest": "https://crests.football-data.org/100.png"
+            },
+            "awayTeam": {
+              "name": "US Cremonese",
+              "shortName": "Cremonese",
+              "tla": "CRE",
+              "crest": "https://crests.football-data.org/457.png"
+            },
+            "homeScore": 3,
+            "awayScore": 0,
+            "status": "FINISHED",
+            "utcDate": "2026-02-22T19:45:00Z",
+            "videoId": "-SN3cfAZaoE"
+          }
+        ]
+      },
+      {
+        "competition": "bundesliga",
+        "name": "Bundesliga",
+        "matches": [
+          {
+            "match_id": 540609,
+            "homeTeam": {
+              "name": "SC Freiburg",
+              "shortName": "Freiburg",
+              "tla": "SCF",
+              "crest": "https://crests.football-data.org/17.png"
+            },
+            "awayTeam": {
+              "name": "Borussia Mönchengladbach",
+              "shortName": "M'gladbach",
+              "tla": "BMG",
+              "crest": "https://crests.football-data.org/18.png"
+            },
+            "homeScore": 2,
+            "awayScore": 1,
+            "status": "FINISHED",
+            "utcDate": "2026-02-22T14:30:00Z",
+            "videoId": "H9q1jAfg7n8"
+          },
+          {
+            "match_id": 540607,
+            "homeTeam": {
+              "name": "FC St. Pauli 1910",
+              "shortName": "St. Pauli",
+              "tla": "STP",
+              "crest": "https://crests.football-data.org/20.png"
+            },
+            "awayTeam": {
+              "name": "SV Werder Bremen",
+              "shortName": "Bremen",
+              "tla": "SVW",
+              "crest": "https://crests.football-data.org/12.png"
+            },
+            "homeScore": 2,
+            "awayScore": 1,
+            "status": "FINISHED",
+            "utcDate": "2026-02-22T16:30:00Z",
+            "videoId": "P3K7JBtAFW8"
+          },
+          {
+            "match_id": 540608,
+            "homeTeam": {
+              "name": "1. FC Heidenheim 1846",
+              "shortName": "Heidenheim",
+              "tla": "HEI",
+              "crest": "https://crests.football-data.org/44.png"
+            },
+            "awayTeam": {
+              "name": "VfB Stuttgart",
+              "shortName": "Stuttgart",
+              "tla": "VFB",
+              "crest": "https://crests.football-data.org/10.png"
+            },
+            "homeScore": 3,
+            "awayScore": 3,
+            "status": "FINISHED",
+            "utcDate": "2026-02-22T18:30:00Z",
+            "videoId": "64UcDODqzEs"
+          }
+        ]
+      },
+      {
+        "competition": "ligue-1",
+        "name": "Ligue 1",
+        "matches": [
+          {
+            "match_id": 542604,
+            "homeTeam": {
+              "name": "AJ Auxerre",
+              "shortName": "Auxerre",
+              "tla": "AJA",
+              "crest": "https://crests.football-data.org/519.png"
+            },
+            "awayTeam": {
+              "name": "Stade Rennais FC 1901",
+              "shortName": "Stade Rennais",
+              "tla": "REN",
+              "crest": "https://crests.football-data.org/529.png"
+            },
+            "homeScore": 0,
+            "awayScore": 3,
+            "status": "FINISHED",
+            "utcDate": "2026-02-22T14:00:00Z",
+            "videoId": "cJN8v94TBUE"
+          },
+          {
+            "match_id": 542605,
+            "homeTeam": {
+              "name": "FC Nantes",
+              "shortName": "Nantes",
+              "tla": "NAN",
+              "crest": "https://crests.football-data.org/543.png"
+            },
+            "awayTeam": {
+              "name": "Le Havre AC",
+              "shortName": "Le Havre",
+              "tla": "HAC",
+              "crest": "https://crests.football-data.org/533.png"
+            },
+            "homeScore": 2,
+            "awayScore": 0,
+            "status": "FINISHED",
+            "utcDate": "2026-02-22T16:15:00Z",
+            "videoId": "wcXm-cVh-Fo"
+          },
+          {
+            "match_id": 542607,
+            "homeTeam": {
+              "name": "OGC Nice",
+              "shortName": "Nice",
+              "tla": "NIC",
+              "crest": "https://crests.football-data.org/522.png"
+            },
+            "awayTeam": {
+              "name": "FC Lorient",
+              "shortName": "Lorient",
+              "tla": "FCL",
+              "crest": "https://crests.football-data.org/525.png"
+            },
+            "homeScore": 3,
+            "awayScore": 3,
+            "status": "FINISHED",
+            "utcDate": "2026-02-22T16:15:00Z",
+            "videoId": "wZe821eUxcc"
+          },
+          {
+            "match_id": 542611,
+            "homeTeam": {
+              "name": "Angers SCO",
+              "shortName": "Angers SCO",
+              "tla": "ANG",
+              "crest": "https://crests.football-data.org/532.png"
+            },
+            "awayTeam": {
+              "name": "Lille OSC",
+              "shortName": "Lille",
+              "tla": "LIL",
+              "crest": "https://crests.football-data.org/521.png"
+            },
+            "homeScore": 0,
+            "awayScore": 1,
+            "status": "FINISHED",
+            "utcDate": "2026-02-22T16:15:00Z",
+            "videoId": "qOn39cOHKDk"
+          },
+          {
+            "match_id": 542609,
+            "homeTeam": {
+              "name": "RC Strasbourg Alsace",
+              "shortName": "Strasbourg",
+              "tla": "RC ",
+              "crest": "https://crests.football-data.org/576.png"
+            },
+            "awayTeam": {
+              "name": "Olympique Lyonnais",
+              "shortName": "Olympique Lyon",
+              "tla": "LYO",
+              "crest": "https://crests.football-data.org/523.png"
+            },
+            "homeScore": 3,
+            "awayScore": 1,
+            "status": "FINISHED",
+            "utcDate": "2026-02-22T19:45:00Z",
+            "videoId": "qnneMFAjMBU"
+          }
+        ]
+      }
+    ],
+    "2026-02-23": [
+      {
+        "competition": "premier-league",
+        "name": "Premier League",
+        "matches": [
+          {
+            "match_id": 538050,
+            "homeTeam": {
+              "name": "Everton FC",
+              "shortName": "Everton",
+              "tla": "EVE",
+              "crest": "https://crests.football-data.org/62.png"
+            },
+            "awayTeam": {
+              "name": "Manchester United FC",
+              "shortName": "Man United",
+              "tla": "MUN",
+              "crest": "https://crests.football-data.org/66.png"
+            },
+            "homeScore": 0,
+            "awayScore": 1,
+            "status": "FINISHED",
+            "utcDate": "2026-02-23T20:00:00Z",
+            "videoId": "d7gGmWuemJc"
+          }
+        ]
+      },
+      {
+        "competition": "laliga",
+        "name": "LaLiga",
+        "matches": [
+          {
+            "match_id": 544451,
+            "homeTeam": {
+              "name": "Deportivo Alavés",
+              "shortName": "Alavés",
+              "tla": "ALA",
+              "crest": "https://crests.football-data.org/263.png"
+            },
+            "awayTeam": {
+              "name": "Girona FC",
+              "shortName": "Girona",
+              "tla": "GIR",
+              "crest": "https://crests.football-data.org/298.png"
+            },
+            "homeScore": 2,
+            "awayScore": 2,
+            "status": "FINISHED",
+            "utcDate": "2026-02-23T20:00:00Z",
+            "videoId": "TLqdYMpWFdg"
+          }
+        ]
+      },
+      {
+        "competition": "serie-a",
+        "name": "Serie A",
+        "matches": [
+          {
+            "match_id": 537065,
+            "homeTeam": {
+              "name": "ACF Fiorentina",
+              "shortName": "Fiorentina",
+              "tla": "FIO",
+              "crest": "https://crests.football-data.org/99.png"
+            },
+            "awayTeam": {
+              "name": "AC Pisa 1909",
+              "shortName": "AC Pisa",
+              "tla": "PIS",
+              "crest": "https://crests.football-data.org/487.png"
+            },
+            "homeScore": 1,
+            "awayScore": 0,
+            "status": "FINISHED",
+            "utcDate": "2026-02-23T17:30:00Z",
+            "videoId": "fogH1ryYvXY"
+          },
+          {
+            "match_id": 537071,
+            "homeTeam": {
+              "name": "Bologna FC 1909",
+              "shortName": "Bologna",
+              "tla": "BOL",
+              "crest": "https://crests.football-data.org/103.png"
+            },
+            "awayTeam": {
+              "name": "Udinese Calcio",
+              "shortName": "Udinese",
+              "tla": "UDI",
+              "crest": "https://crests.football-data.org/115.png"
+            },
+            "homeScore": 1,
+            "awayScore": 0,
+            "status": "FINISHED",
+            "utcDate": "2026-02-23T19:45:00Z",
+            "videoId": "L3vtR1Gxr50"
+          }
+        ]
+      }
+    ],
+    "2026-02-27": [
+      {
+        "competition": "premier-league",
+        "name": "Premier League",
+        "matches": [
+          {
+            "match_id": 538064,
+            "homeTeam": {
+              "name": "Wolverhampton Wanderers FC",
+              "shortName": "Wolverhampton",
+              "tla": "WOL",
+              "crest": "https://crests.football-data.org/76.png"
+            },
+            "awayTeam": {
+              "name": "Aston Villa FC",
+              "shortName": "Aston Villa",
+              "tla": "AVL",
+              "crest": "https://crests.football-data.org/58.png"
+            },
+            "homeScore": 2,
+            "awayScore": 0,
+            "status": "FINISHED",
+            "utcDate": "2026-02-27T20:00:00Z",
+            "videoId": "LbyMhRQy5eE"
+          }
+        ]
+      },
+      {
+        "competition": "laliga",
+        "name": "LaLiga",
+        "matches": [
+          {
+            "match_id": 544465,
+            "homeTeam": {
+              "name": "Levante UD",
+              "shortName": "Levante",
+              "tla": "LEV",
+              "crest": "https://crests.football-data.org/88.png"
+            },
+            "awayTeam": {
+              "name": "Deportivo Alavés",
+              "shortName": "Alavés",
+              "tla": "ALA",
+              "crest": "https://crests.football-data.org/263.png"
+            },
+            "homeScore": 2,
+            "awayScore": 0,
+            "status": "FINISHED",
+            "utcDate": "2026-02-27T20:00:00Z",
+            "videoId": "e31dl-AeKXE"
+          }
+        ]
+      },
+      {
+        "competition": "serie-a",
+        "name": "Serie A",
+        "matches": [
+          {
+            "match_id": 537080,
+            "homeTeam": {
+              "name": "Parma Calcio 1913",
+              "shortName": "Parma",
+              "tla": "PAR",
+              "crest": "https://crests.football-data.org/112.png"
+            },
+            "awayTeam": {
+              "name": "Cagliari Calcio",
+              "shortName": "Cagliari",
+              "tla": "CAG",
+              "crest": "https://crests.football-data.org/104.png"
+            },
+            "homeScore": 1,
+            "awayScore": 1,
+            "status": "FINISHED",
+            "utcDate": "2026-02-27T19:45:00Z",
+            "videoId": "idxFp-mkayg"
+          }
+        ]
+      },
+      {
+        "competition": "bundesliga",
+        "name": "Bundesliga",
+        "matches": [
+          {
+            "match_id": 540621,
+            "homeTeam": {
+              "name": "FC Augsburg",
+              "shortName": "Augsburg",
+              "tla": "FCA",
+              "crest": "https://crests.football-data.org/16.png"
+            },
+            "awayTeam": {
+              "name": "1. FC Köln",
+              "shortName": "1. FC Köln",
+              "tla": "KOE",
+              "crest": "https://crests.football-data.org/1.png"
+            },
+            "homeScore": 2,
+            "awayScore": 0,
+            "status": "FINISHED",
+            "utcDate": "2026-02-27T19:30:00Z",
+            "videoId": "z8D7ccGsIMM"
+          }
+        ]
+      },
+      {
+        "competition": "ligue-1",
+        "name": "Ligue 1",
+        "matches": [
+          {
+            "match_id": 542620,
+            "homeTeam": {
+              "name": "RC Strasbourg Alsace",
+              "shortName": "Strasbourg",
+              "tla": "RC ",
+              "crest": "https://crests.football-data.org/576.png"
+            },
+            "awayTeam": {
+              "name": "Racing Club de Lens",
+              "shortName": "RC Lens",
+              "tla": "RCL",
+              "crest": "https://crests.football-data.org/546.png"
+            },
+            "homeScore": 1,
+            "awayScore": 1,
+            "status": "FINISHED",
+            "utcDate": "2026-02-27T19:45:00Z",
+            "videoId": "JYTo2YQ_G8I"
+          }
+        ]
+      }
+    ],
+    "2026-02-28": [
+      {
+        "competition": "premier-league",
+        "name": "Premier League",
+        "matches": [
+          {
+            "match_id": 538055,
+            "homeTeam": {
+              "name": "AFC Bournemouth",
+              "shortName": "Bournemouth",
+              "tla": "BOU",
+              "crest": "https://crests.football-data.org/bournemouth.png"
+            },
+            "awayTeam": {
+              "name": "Sunderland AFC",
+              "shortName": "Sunderland",
+              "tla": "SUN",
+              "crest": "https://crests.football-data.org/71.png"
+            },
+            "homeScore": 1,
+            "awayScore": 1,
+            "status": "FINISHED",
+            "utcDate": "2026-02-28T12:30:00Z",
+            "videoId": "ndL7lcGoAjg"
+          },
+          {
+            "match_id": 538058,
+            "homeTeam": {
+              "name": "Burnley FC",
+              "shortName": "Burnley",
+              "tla": "BUR",
+              "crest": "https://crests.football-data.org/328.png"
+            },
+            "awayTeam": {
+              "name": "Brentford FC",
+              "shortName": "Brentford",
+              "tla": "BRE",
+              "crest": "https://crests.football-data.org/402.png"
+            },
+            "homeScore": 3,
+            "awayScore": 4,
+            "status": "FINISHED",
+            "utcDate": "2026-02-28T15:00:00Z",
+            "videoId": "HfekzO_4p7E"
+          },
+          {
+            "match_id": 538060,
+            "homeTeam": {
+              "name": "Liverpool FC",
+              "shortName": "Liverpool",
+              "tla": "LIV",
+              "crest": "https://crests.football-data.org/64.png"
+            },
+            "awayTeam": {
+              "name": "West Ham United FC",
+              "shortName": "West Ham",
+              "tla": "WHU",
+              "crest": "https://crests.football-data.org/563.png"
+            },
+            "homeScore": 5,
+            "awayScore": 2,
+            "status": "FINISHED",
+            "utcDate": "2026-02-28T15:00:00Z",
+            "videoId": "UvcWSOQjiG4"
+          },
+          {
+            "match_id": 538063,
+            "homeTeam": {
+              "name": "Newcastle United FC",
+              "shortName": "Newcastle",
+              "tla": "NEW",
+              "crest": "https://crests.football-data.org/67.png"
+            },
+            "awayTeam": {
+              "name": "Everton FC",
+              "shortName": "Everton",
+              "tla": "EVE",
+              "crest": "https://crests.football-data.org/62.png"
+            },
+            "homeScore": 2,
+            "awayScore": 3,
+            "status": "FINISHED",
+            "utcDate": "2026-02-28T15:00:00Z",
+            "videoId": "CPjZYDwl7HU"
+          },
+          {
+            "match_id": 538061,
+            "homeTeam": {
+              "name": "Leeds United FC",
+              "shortName": "Leeds United",
+              "tla": "LEE",
+              "crest": "https://crests.football-data.org/341.png"
+            },
+            "awayTeam": {
+              "name": "Manchester City FC",
+              "shortName": "Man City",
+              "tla": "MCI",
+              "crest": "https://crests.football-data.org/65.png"
+            },
+            "homeScore": 0,
+            "awayScore": 1,
+            "status": "FINISHED",
+            "utcDate": "2026-02-28T17:30:00Z",
+            "videoId": "M6whpkyt1oQ"
+          }
+        ]
+      },
+      {
+        "competition": "laliga",
+        "name": "LaLiga",
+        "matches": [
+          {
+            "match_id": 544466,
+            "homeTeam": {
+              "name": "Rayo Vallecano de Madrid",
+              "shortName": "Rayo Vallecano",
+              "tla": "RAY",
+              "crest": "https://crests.football-data.org/87.png"
+            },
+            "awayTeam": {
+              "name": "Athletic Club",
+              "shortName": "Athletic",
+              "tla": "ATH",
+              "crest": "https://crests.football-data.org/77.png"
+            },
+            "homeScore": 1,
+            "awayScore": 1,
+            "status": "FINISHED",
+            "utcDate": "2026-02-28T13:00:00Z",
+            "videoId": "CPoPtO5LOH4"
+          },
+          {
+            "match_id": 544461,
+            "homeTeam": {
+              "name": "FC Barcelona",
+              "shortName": "Barça",
+              "tla": "FCB",
+              "crest": "https://crests.football-data.org/81.png"
+            },
+            "awayTeam": {
+              "name": "Villarreal CF",
+              "shortName": "Villarreal",
+              "tla": "VIL",
+              "crest": "https://crests.football-data.org/94.png"
+            },
+            "homeScore": 4,
+            "awayScore": 1,
+            "status": "FINISHED",
+            "utcDate": "2026-02-28T15:15:00Z",
+            "videoId": "rQkhuT7-R14"
+          },
+          {
+            "match_id": 544464,
+            "homeTeam": {
+              "name": "RCD Mallorca",
+              "shortName": "Mallorca",
+              "tla": "MAL",
+              "crest": "https://crests.football-data.org/89.png"
+            },
+            "awayTeam": {
+              "name": "Real Sociedad de Fútbol",
+              "shortName": "Real Sociedad",
+              "tla": "RSO",
+              "crest": "https://crests.football-data.org/92.png"
+            },
+            "homeScore": 0,
+            "awayScore": 1,
+            "status": "FINISHED",
+            "utcDate": "2026-02-28T17:30:00Z",
+            "videoId": "PeT3jdcXeI4"
+          },
+          {
+            "match_id": 544467,
+            "homeTeam": {
+              "name": "Real Oviedo",
+              "shortName": "Real Oviedo",
+              "tla": "OVI",
+              "crest": "https://crests.football-data.org/1048.png"
+            },
+            "awayTeam": {
+              "name": "Club Atlético de Madrid",
+              "shortName": "Atleti",
+              "tla": "ATL",
+              "crest": "https://crests.football-data.org/78.png"
+            },
+            "homeScore": 0,
+            "awayScore": 1,
+            "status": "FINISHED",
+            "utcDate": "2026-02-28T20:00:00Z",
+            "videoId": "QpN6pTXqnh0"
+          }
+        ]
+      },
+      {
+        "competition": "serie-a",
+        "name": "Serie A",
+        "matches": [
+          {
+            "match_id": 537076,
+            "homeTeam": {
+              "name": "Como 1907",
+              "shortName": "Como 1907",
+              "tla": "COM",
+              "crest": "https://crests.football-data.org/7397.png"
+            },
+            "awayTeam": {
+              "name": "US Lecce",
+              "shortName": "Lecce",
+              "tla": "USL",
+              "crest": "https://crests.football-data.org/5890.png"
+            },
+            "homeScore": 3,
+            "awayScore": 1,
+            "status": "FINISHED",
+            "utcDate": "2026-02-28T14:00:00Z",
+            "videoId": "mzaPfJANZiE"
+          },
+          {
+            "match_id": 537078,
+            "homeTeam": {
+              "name": "Hellas Verona FC",
+              "shortName": "Verona",
+              "tla": "HVE",
+              "crest": "https://crests.football-data.org/450.png"
+            },
+            "awayTeam": {
+              "name": "SSC Napoli",
+              "shortName": "Napoli",
+              "tla": "NAP",
+              "crest": "https://crests.football-data.org/113.png"
+            },
+            "homeScore": 1,
+            "awayScore": 2,
+            "status": "FINISHED",
+            "utcDate": "2026-02-28T17:00:00Z",
+            "videoId": "RAcr0teDPX0"
+          },
+          {
+            "match_id": 537079,
+            "homeTeam": {
+              "name": "FC Internazionale Milano",
+              "shortName": "Inter",
+              "tla": "INT",
+              "crest": "https://crests.football-data.org/108.png"
+            },
+            "awayTeam": {
+              "name": "Genoa CFC",
+              "shortName": "Genoa",
+              "tla": "GEN",
+              "crest": "https://crests.football-data.org/107.png"
+            },
+            "homeScore": 2,
+            "awayScore": 0,
+            "status": "FINISHED",
+            "utcDate": "2026-02-28T19:45:00Z",
+            "videoId": "OgV5PsowuJw"
+          }
+        ]
+      },
+      {
+        "competition": "bundesliga",
+        "name": "Bundesliga",
+        "matches": [
+          {
+            "match_id": 540615,
+            "homeTeam": {
+              "name": "Bayer 04 Leverkusen",
+              "shortName": "Leverkusen",
+              "tla": "B04",
+              "crest": "https://crests.football-data.org/3.png"
+            },
+            "awayTeam": {
+              "name": "1. FSV Mainz 05",
+              "shortName": "Mainz",
+              "tla": "M05",
+              "crest": "https://crests.football-data.org/15.png"
+            },
+            "homeScore": 1,
+            "awayScore": 1,
+            "status": "FINISHED",
+            "utcDate": "2026-02-28T14:30:00Z",
+            "videoId": "qbJgZ-8Shzk"
+          },
+          {
+            "match_id": 540618,
+            "homeTeam": {
+              "name": "Borussia Mönchengladbach",
+              "shortName": "M'gladbach",
+              "tla": "BMG",
+              "crest": "https://crests.football-data.org/18.png"
+            },
+            "awayTeam": {
+              "name": "1. FC Union Berlin",
+              "shortName": "Union Berlin",
+              "tla": "UNB",
+              "crest": "https://crests.football-data.org/28.png"
+            },
+            "homeScore": 1,
+            "awayScore": 0,
+            "status": "FINISHED",
+            "utcDate": "2026-02-28T14:30:00Z",
+            "videoId": "5036XBSnU_A"
+          },
+          {
+            "match_id": 540619,
+            "homeTeam": {
+              "name": "TSG 1899 Hoffenheim",
+              "shortName": "Hoffenheim",
+              "tla": "TSG",
+              "crest": "https://crests.football-data.org/2.png"
+            },
+            "awayTeam": {
+              "name": "FC St. Pauli 1910",
+              "shortName": "St. Pauli",
+              "tla": "STP",
+              "crest": "https://crests.football-data.org/20.png"
+            },
+            "homeScore": 0,
+            "awayScore": 1,
+            "status": "FINISHED",
+            "utcDate": "2026-02-28T14:30:00Z",
+            "videoId": "WlqwnIEUAr0"
+          },
+          {
+            "match_id": 540620,
+            "homeTeam": {
+              "name": "SV Werder Bremen",
+              "shortName": "Bremen",
+              "tla": "SVW",
+              "crest": "https://crests.football-data.org/12.png"
+            },
+            "awayTeam": {
+              "name": "1. FC Heidenheim 1846",
+              "shortName": "Heidenheim",
+              "tla": "HEI",
+              "crest": "https://crests.football-data.org/44.png"
+            },
+            "homeScore": 2,
+            "awayScore": 0,
+            "status": "FINISHED",
+            "utcDate": "2026-02-28T14:30:00Z",
+            "videoId": "CeaBNCWTDrs"
+          },
+          {
+            "match_id": 540613,
+            "homeTeam": {
+              "name": "Borussia Dortmund",
+              "shortName": "Dortmund",
+              "tla": "BVB",
+              "crest": "https://crests.football-data.org/4.png"
+            },
+            "awayTeam": {
+              "name": "FC Bayern München",
+              "shortName": "Bayern",
+              "tla": "FCB",
+              "crest": "https://crests.football-data.org/5.png"
+            },
+            "homeScore": 2,
+            "awayScore": 3,
+            "status": "FINISHED",
+            "utcDate": "2026-02-28T17:30:00Z",
+            "videoId": "ZDbZ9xssHCI"
+          }
+        ]
+      },
+      {
+        "competition": "ligue-1",
+        "name": "Ligue 1",
+        "matches": [
+          {
+            "match_id": 542621,
+            "homeTeam": {
+              "name": "Stade Rennais FC 1901",
+              "shortName": "Stade Rennais",
+              "tla": "REN",
+              "crest": "https://crests.football-data.org/529.png"
+            },
+            "awayTeam": {
+              "name": "Toulouse FC",
+              "shortName": "Toulouse",
+              "tla": "TOU",
+              "crest": "https://crests.football-data.org/511.png"
+            },
+            "homeScore": 1,
+            "awayScore": 0,
+            "status": "FINISHED",
+            "utcDate": "2026-02-28T16:00:00Z",
+            "videoId": "M2BsSy7r6lU"
+          },
+          {
+            "match_id": 542614,
+            "homeTeam": {
+              "name": "AS Monaco FC",
+              "shortName": "Monaco",
+              "tla": "ASM",
+              "crest": "https://crests.football-data.org/548.png"
+            },
+            "awayTeam": {
+              "name": "Angers SCO",
+              "shortName": "Angers SCO",
+              "tla": "ANG",
+              "crest": "https://crests.football-data.org/532.png"
+            },
+            "homeScore": 2,
+            "awayScore": 0,
+            "status": "FINISHED",
+            "utcDate": "2026-02-28T18:00:00Z",
+            "videoId": "DRL7bg65upI"
+          },
+          {
+            "match_id": 542613,
+            "homeTeam": {
+              "name": "Le Havre AC",
+              "shortName": "Le Havre",
+              "tla": "HAC",
+              "crest": "https://crests.football-data.org/533.png"
+            },
+            "awayTeam": {
+              "name": "Paris Saint-Germain FC",
+              "shortName": "PSG",
+              "tla": "PSG",
+              "crest": "https://crests.football-data.org/524.png"
+            },
+            "homeScore": 0,
+            "awayScore": 1,
+            "status": "FINISHED",
+            "utcDate": "2026-02-28T20:05:00Z",
+            "videoId": "dIVFQKZ-Azs"
+          }
+        ]
+      }
+    ]
+  }
+}

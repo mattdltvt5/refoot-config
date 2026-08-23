@@ -1,0 +1,3029 @@
+{
+  "generated_at": "2026-08-23T20:44:23Z",
+  "month": "2027-03",
+  "dates": {
+    "2027-03-03": [
+      {
+        "competition": "premier-league",
+        "name": "Premier League",
+        "matches": [
+          {
+            "match_id": 560812,
+            "homeTeam": {
+              "name": "Nottingham Forest FC",
+              "shortName": "Nottingham",
+              "tla": "NOT",
+              "crest": "https://crests.football-data.org/351.png"
+            },
+            "awayTeam": {
+              "name": "Newcastle United FC",
+              "shortName": "Newcastle",
+              "tla": "NEW",
+              "crest": "https://crests.football-data.org/67.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "TIMED",
+            "utcDate": "2027-03-03T20:00:00Z"
+          },
+          {
+            "match_id": 560813,
+            "homeTeam": {
+              "name": "AFC Bournemouth",
+              "shortName": "Bournemouth",
+              "tla": "BOU",
+              "crest": "https://crests.football-data.org/bournemouth.png"
+            },
+            "awayTeam": {
+              "name": "Tottenham Hotspur FC",
+              "shortName": "Tottenham",
+              "tla": "TOT",
+              "crest": "https://crests.football-data.org/73.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "TIMED",
+            "utcDate": "2027-03-03T20:00:00Z"
+          },
+          {
+            "match_id": 560814,
+            "homeTeam": {
+              "name": "Manchester City FC",
+              "shortName": "Man City",
+              "tla": "MCI",
+              "crest": "https://crests.football-data.org/65.png"
+            },
+            "awayTeam": {
+              "name": "Everton FC",
+              "shortName": "Everton",
+              "tla": "EVE",
+              "crest": "https://crests.football-data.org/62.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "TIMED",
+            "utcDate": "2027-03-03T20:00:00Z"
+          },
+          {
+            "match_id": 560815,
+            "homeTeam": {
+              "name": "Arsenal FC",
+              "shortName": "Arsenal",
+              "tla": "ARS",
+              "crest": "https://crests.football-data.org/57.png"
+            },
+            "awayTeam": {
+              "name": "Crystal Palace FC",
+              "shortName": "Crystal Palace",
+              "tla": "CRY",
+              "crest": "https://crests.football-data.org/354.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "TIMED",
+            "utcDate": "2027-03-03T20:00:00Z"
+          },
+          {
+            "match_id": 560816,
+            "homeTeam": {
+              "name": "Leeds United FC",
+              "shortName": "Leeds United",
+              "tla": "LEE",
+              "crest": "https://crests.football-data.org/341.png"
+            },
+            "awayTeam": {
+              "name": "Hull City AFC",
+              "shortName": "Hull City",
+              "tla": "HUL",
+              "crest": "https://crests.football-data.org/322.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "TIMED",
+            "utcDate": "2027-03-03T20:00:00Z"
+          },
+          {
+            "match_id": 560817,
+            "homeTeam": {
+              "name": "Sunderland AFC",
+              "shortName": "Sunderland",
+              "tla": "SUN",
+              "crest": "https://crests.football-data.org/71.png"
+            },
+            "awayTeam": {
+              "name": "Manchester United FC",
+              "shortName": "Man United",
+              "tla": "MUN",
+              "crest": "https://crests.football-data.org/66.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "TIMED",
+            "utcDate": "2027-03-03T20:00:00Z"
+          },
+          {
+            "match_id": 560818,
+            "homeTeam": {
+              "name": "Liverpool FC",
+              "shortName": "Liverpool",
+              "tla": "LIV",
+              "crest": "https://crests.football-data.org/64.png"
+            },
+            "awayTeam": {
+              "name": "Aston Villa FC",
+              "shortName": "Aston Villa",
+              "tla": "AVL",
+              "crest": "https://crests.football-data.org/58.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "TIMED",
+            "utcDate": "2027-03-03T20:00:00Z"
+          },
+          {
+            "match_id": 560819,
+            "homeTeam": {
+              "name": "Brighton & Hove Albion FC",
+              "shortName": "Brighton Hove",
+              "tla": "BHA",
+              "crest": "https://crests.football-data.org/397.png"
+            },
+            "awayTeam": {
+              "name": "Fulham FC",
+              "shortName": "Fulham",
+              "tla": "FUL",
+              "crest": "https://crests.football-data.org/63.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "TIMED",
+            "utcDate": "2027-03-03T20:00:00Z"
+          },
+          {
+            "match_id": 560820,
+            "homeTeam": {
+              "name": "Brentford FC",
+              "shortName": "Brentford",
+              "tla": "BRE",
+              "crest": "https://crests.football-data.org/402.png"
+            },
+            "awayTeam": {
+              "name": "Ipswich Town FC",
+              "shortName": "Ipswich Town",
+              "tla": "IPS",
+              "crest": "https://crests.football-data.org/349.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "TIMED",
+            "utcDate": "2027-03-03T20:00:00Z"
+          },
+          {
+            "match_id": 560821,
+            "homeTeam": {
+              "name": "Chelsea FC",
+              "shortName": "Chelsea",
+              "tla": "CHE",
+              "crest": "https://crests.football-data.org/61.png"
+            },
+            "awayTeam": {
+              "name": "Coventry City FC",
+              "shortName": "Coventry City",
+              "tla": "COV",
+              "crest": "https://crests.football-data.org/1076.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "TIMED",
+            "utcDate": "2027-03-03T20:00:00Z"
+          }
+        ]
+      },
+      {
+        "competition": "bundesliga",
+        "name": "Bundesliga",
+        "matches": [
+          {
+            "match_id": 565983,
+            "homeTeam": {
+              "name": "Eintracht Frankfurt",
+              "shortName": "Frankfurt",
+              "tla": "SGE",
+              "crest": "https://crests.football-data.org/19.png"
+            },
+            "awayTeam": {
+              "name": "Borussia Dortmund",
+              "shortName": "Dortmund",
+              "tla": "BVB",
+              "crest": "https://crests.football-data.org/4.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "SCHEDULED",
+            "utcDate": "2027-03-03T00:00:00Z"
+          },
+          {
+            "match_id": 565984,
+            "homeTeam": {
+              "name": "FC Schalke 04",
+              "shortName": "Schalke",
+              "tla": "S04",
+              "crest": "https://crests.football-data.org/6.png"
+            },
+            "awayTeam": {
+              "name": "1. FC Köln",
+              "shortName": "1. FC Köln",
+              "tla": "KOE",
+              "crest": "https://crests.football-data.org/1.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "SCHEDULED",
+            "utcDate": "2027-03-03T00:00:00Z"
+          },
+          {
+            "match_id": 565985,
+            "homeTeam": {
+              "name": "Bayer 04 Leverkusen",
+              "shortName": "Leverkusen",
+              "tla": "B04",
+              "crest": "https://crests.football-data.org/3.png"
+            },
+            "awayTeam": {
+              "name": "TSG 1899 Hoffenheim",
+              "shortName": "Hoffenheim",
+              "tla": "TSG",
+              "crest": "https://crests.football-data.org/2.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "SCHEDULED",
+            "utcDate": "2027-03-03T00:00:00Z"
+          },
+          {
+            "match_id": 565986,
+            "homeTeam": {
+              "name": "FC Bayern München",
+              "shortName": "Bayern",
+              "tla": "FCB",
+              "crest": "https://crests.football-data.org/5.png"
+            },
+            "awayTeam": {
+              "name": "SC Freiburg",
+              "shortName": "Freiburg",
+              "tla": "SCF",
+              "crest": "https://crests.football-data.org/17.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "SCHEDULED",
+            "utcDate": "2027-03-03T00:00:00Z"
+          },
+          {
+            "match_id": 565987,
+            "homeTeam": {
+              "name": "SV Werder Bremen",
+              "shortName": "Bremen",
+              "tla": "SVW",
+              "crest": "https://crests.football-data.org/12.png"
+            },
+            "awayTeam": {
+              "name": "1. FSV Mainz 05",
+              "shortName": "Mainz",
+              "tla": "M05",
+              "crest": "https://crests.football-data.org/15.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "SCHEDULED",
+            "utcDate": "2027-03-03T00:00:00Z"
+          },
+          {
+            "match_id": 565988,
+            "homeTeam": {
+              "name": "1. FC Union Berlin",
+              "shortName": "Union Berlin",
+              "tla": "UNB",
+              "crest": "https://crests.football-data.org/28.png"
+            },
+            "awayTeam": {
+              "name": "FC Augsburg",
+              "shortName": "Augsburg",
+              "tla": "FCA",
+              "crest": "https://crests.football-data.org/16.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "SCHEDULED",
+            "utcDate": "2027-03-03T00:00:00Z"
+          },
+          {
+            "match_id": 565989,
+            "homeTeam": {
+              "name": "SV 07 Elversberg",
+              "shortName": "Elversberg",
+              "tla": "ELV",
+              "crest": "https://crests.football-data.org/719.png"
+            },
+            "awayTeam": {
+              "name": "RB Leipzig",
+              "shortName": "RB Leipzig",
+              "tla": "RBL",
+              "crest": "https://crests.football-data.org/721.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "SCHEDULED",
+            "utcDate": "2027-03-03T00:00:00Z"
+          },
+          {
+            "match_id": 565990,
+            "homeTeam": {
+              "name": "Borussia Mönchengladbach",
+              "shortName": "M'gladbach",
+              "tla": "BMG",
+              "crest": "https://crests.football-data.org/18.png"
+            },
+            "awayTeam": {
+              "name": "VfB Stuttgart",
+              "shortName": "Stuttgart",
+              "tla": "VFB",
+              "crest": "https://crests.football-data.org/10.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "SCHEDULED",
+            "utcDate": "2027-03-03T00:00:00Z"
+          },
+          {
+            "match_id": 565991,
+            "homeTeam": {
+              "name": "Hamburger SV",
+              "shortName": "HSV",
+              "tla": "HSV",
+              "crest": "https://crests.football-data.org/7.png"
+            },
+            "awayTeam": {
+              "name": "SC Paderborn 07",
+              "shortName": "SC Paderborn",
+              "tla": "SCP",
+              "crest": "https://crests.football-data.org/29.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "SCHEDULED",
+            "utcDate": "2027-03-03T00:00:00Z"
+          }
+        ]
+      }
+    ],
+    "2027-03-06": [
+      {
+        "competition": "bundesliga",
+        "name": "Bundesliga",
+        "matches": [
+          {
+            "match_id": 565992,
+            "homeTeam": {
+              "name": "Borussia Dortmund",
+              "shortName": "Dortmund",
+              "tla": "BVB",
+              "crest": "https://crests.football-data.org/4.png"
+            },
+            "awayTeam": {
+              "name": "FC Bayern München",
+              "shortName": "Bayern",
+              "tla": "FCB",
+              "crest": "https://crests.football-data.org/5.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "SCHEDULED",
+            "utcDate": "2027-03-06T00:00:00Z"
+          },
+          {
+            "match_id": 565993,
+            "homeTeam": {
+              "name": "SC Freiburg",
+              "shortName": "Freiburg",
+              "tla": "SCF",
+              "crest": "https://crests.football-data.org/17.png"
+            },
+            "awayTeam": {
+              "name": "FC Augsburg",
+              "shortName": "Augsburg",
+              "tla": "FCA",
+              "crest": "https://crests.football-data.org/16.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "SCHEDULED",
+            "utcDate": "2027-03-06T00:00:00Z"
+          },
+          {
+            "match_id": 565994,
+            "homeTeam": {
+              "name": "1. FSV Mainz 05",
+              "shortName": "Mainz",
+              "tla": "M05",
+              "crest": "https://crests.football-data.org/15.png"
+            },
+            "awayTeam": {
+              "name": "SV 07 Elversberg",
+              "shortName": "Elversberg",
+              "tla": "ELV",
+              "crest": "https://crests.football-data.org/719.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "SCHEDULED",
+            "utcDate": "2027-03-06T00:00:00Z"
+          },
+          {
+            "match_id": 565995,
+            "homeTeam": {
+              "name": "Hamburger SV",
+              "shortName": "HSV",
+              "tla": "HSV",
+              "crest": "https://crests.football-data.org/7.png"
+            },
+            "awayTeam": {
+              "name": "Eintracht Frankfurt",
+              "shortName": "Frankfurt",
+              "tla": "SGE",
+              "crest": "https://crests.football-data.org/19.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "SCHEDULED",
+            "utcDate": "2027-03-06T00:00:00Z"
+          },
+          {
+            "match_id": 565996,
+            "homeTeam": {
+              "name": "VfB Stuttgart",
+              "shortName": "Stuttgart",
+              "tla": "VFB",
+              "crest": "https://crests.football-data.org/10.png"
+            },
+            "awayTeam": {
+              "name": "Bayer 04 Leverkusen",
+              "shortName": "Leverkusen",
+              "tla": "B04",
+              "crest": "https://crests.football-data.org/3.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "SCHEDULED",
+            "utcDate": "2027-03-06T00:00:00Z"
+          },
+          {
+            "match_id": 565997,
+            "homeTeam": {
+              "name": "RB Leipzig",
+              "shortName": "RB Leipzig",
+              "tla": "RBL",
+              "crest": "https://crests.football-data.org/721.png"
+            },
+            "awayTeam": {
+              "name": "FC Schalke 04",
+              "shortName": "Schalke",
+              "tla": "S04",
+              "crest": "https://crests.football-data.org/6.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "SCHEDULED",
+            "utcDate": "2027-03-06T00:00:00Z"
+          },
+          {
+            "match_id": 565998,
+            "homeTeam": {
+              "name": "SC Paderborn 07",
+              "shortName": "SC Paderborn",
+              "tla": "SCP",
+              "crest": "https://crests.football-data.org/29.png"
+            },
+            "awayTeam": {
+              "name": "Borussia Mönchengladbach",
+              "shortName": "M'gladbach",
+              "tla": "BMG",
+              "crest": "https://crests.football-data.org/18.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "SCHEDULED",
+            "utcDate": "2027-03-06T00:00:00Z"
+          },
+          {
+            "match_id": 565999,
+            "homeTeam": {
+              "name": "1. FC Köln",
+              "shortName": "1. FC Köln",
+              "tla": "KOE",
+              "crest": "https://crests.football-data.org/1.png"
+            },
+            "awayTeam": {
+              "name": "1. FC Union Berlin",
+              "shortName": "Union Berlin",
+              "tla": "UNB",
+              "crest": "https://crests.football-data.org/28.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "SCHEDULED",
+            "utcDate": "2027-03-06T00:00:00Z"
+          },
+          {
+            "match_id": 566000,
+            "homeTeam": {
+              "name": "TSG 1899 Hoffenheim",
+              "shortName": "Hoffenheim",
+              "tla": "TSG",
+              "crest": "https://crests.football-data.org/2.png"
+            },
+            "awayTeam": {
+              "name": "SV Werder Bremen",
+              "shortName": "Bremen",
+              "tla": "SVW",
+              "crest": "https://crests.football-data.org/12.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "SCHEDULED",
+            "utcDate": "2027-03-06T00:00:00Z"
+          }
+        ]
+      },
+      {
+        "competition": "ligue-1",
+        "name": "Ligue 1",
+        "matches": [
+          {
+            "match_id": 559513,
+            "homeTeam": {
+              "name": "Le Havre AC",
+              "shortName": "Le Havre",
+              "tla": "HAC",
+              "crest": "https://crests.football-data.org/533.png"
+            },
+            "awayTeam": {
+              "name": "OGC Nice",
+              "shortName": "Nice",
+              "tla": "NIC",
+              "crest": "https://crests.football-data.org/522.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "SCHEDULED",
+            "utcDate": "2027-03-06T00:00:00Z"
+          },
+          {
+            "match_id": 559514,
+            "homeTeam": {
+              "name": "Stade Rennais FC 1901",
+              "shortName": "Stade Rennais",
+              "tla": "REN",
+              "crest": "https://crests.football-data.org/529.png"
+            },
+            "awayTeam": {
+              "name": "Paris Saint-Germain FC",
+              "shortName": "PSG",
+              "tla": "PSG",
+              "crest": "https://crests.football-data.org/524.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "SCHEDULED",
+            "utcDate": "2027-03-06T00:00:00Z"
+          },
+          {
+            "match_id": 559515,
+            "homeTeam": {
+              "name": "Racing Club de Lens",
+              "shortName": "RC Lens",
+              "tla": "RCL",
+              "crest": "https://crests.football-data.org/546.png"
+            },
+            "awayTeam": {
+              "name": "RC Strasbourg Alsace",
+              "shortName": "Strasbourg",
+              "tla": "RC ",
+              "crest": "https://crests.football-data.org/576.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "SCHEDULED",
+            "utcDate": "2027-03-06T00:00:00Z"
+          },
+          {
+            "match_id": 559516,
+            "homeTeam": {
+              "name": "Toulouse FC",
+              "shortName": "Toulouse",
+              "tla": "TOU",
+              "crest": "https://crests.football-data.org/511.png"
+            },
+            "awayTeam": {
+              "name": "Le Mans FC",
+              "shortName": "Le Mans",
+              "tla": "LMF",
+              "crest": "https://upload.wikimedia.org/wikipedia/en/5/57/Le_Mans_FC_logo.svg"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "SCHEDULED",
+            "utcDate": "2027-03-06T00:00:00Z"
+          },
+          {
+            "match_id": 559517,
+            "homeTeam": {
+              "name": "ES Troyes AC",
+              "shortName": "Troyes",
+              "tla": "ETR",
+              "crest": "https://crests.football-data.org/531.png"
+            },
+            "awayTeam": {
+              "name": "FC Lorient",
+              "shortName": "Lorient",
+              "tla": "FCL",
+              "crest": "https://crests.football-data.org/525.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "SCHEDULED",
+            "utcDate": "2027-03-06T00:00:00Z"
+          },
+          {
+            "match_id": 559518,
+            "homeTeam": {
+              "name": "Angers SCO",
+              "shortName": "Angers SCO",
+              "tla": "ANG",
+              "crest": "https://crests.football-data.org/532.png"
+            },
+            "awayTeam": {
+              "name": "AJ Auxerre",
+              "shortName": "Auxerre",
+              "tla": "AJA",
+              "crest": "https://crests.football-data.org/519.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "SCHEDULED",
+            "utcDate": "2027-03-06T00:00:00Z"
+          },
+          {
+            "match_id": 559519,
+            "homeTeam": {
+              "name": "AS Monaco FC",
+              "shortName": "Monaco",
+              "tla": "ASM",
+              "crest": "https://crests.football-data.org/548.png"
+            },
+            "awayTeam": {
+              "name": "Olympique Lyonnais",
+              "shortName": "Olympique Lyon",
+              "tla": "LYO",
+              "crest": "https://crests.football-data.org/523.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "SCHEDULED",
+            "utcDate": "2027-03-06T00:00:00Z"
+          },
+          {
+            "match_id": 559520,
+            "homeTeam": {
+              "name": "Paris FC",
+              "shortName": "Paris FC",
+              "tla": "PFC",
+              "crest": "https://crests.football-data.org/1045.png"
+            },
+            "awayTeam": {
+              "name": "Stade Brestois 29",
+              "shortName": "Brest",
+              "tla": "BRE",
+              "crest": "https://crests.football-data.org/512.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "SCHEDULED",
+            "utcDate": "2027-03-06T00:00:00Z"
+          },
+          {
+            "match_id": 559521,
+            "homeTeam": {
+              "name": "Lille OSC",
+              "shortName": "Lille",
+              "tla": "LIL",
+              "crest": "https://crests.football-data.org/521.png"
+            },
+            "awayTeam": {
+              "name": "Olympique de Marseille",
+              "shortName": "Marseille",
+              "tla": "MAR",
+              "crest": "https://crests.football-data.org/516.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "SCHEDULED",
+            "utcDate": "2027-03-06T00:00:00Z"
+          }
+        ]
+      }
+    ],
+    "2027-03-07": [
+      {
+        "competition": "laliga",
+        "name": "LaLiga",
+        "matches": [
+          {
+            "match_id": 564888,
+            "homeTeam": {
+              "name": "FC Barcelona",
+              "shortName": "Barça",
+              "tla": "FCB",
+              "crest": "https://crests.football-data.org/81.png"
+            },
+            "awayTeam": {
+              "name": "Real Betis Balompié",
+              "shortName": "Real Betis",
+              "tla": "BET",
+              "crest": "https://crests.football-data.org/90.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "SCHEDULED",
+            "utcDate": "2027-03-07T00:00:00Z"
+          },
+          {
+            "match_id": 564889,
+            "homeTeam": {
+              "name": "Elche CF",
+              "shortName": "Elche",
+              "tla": "ELC",
+              "crest": "https://crests.football-data.org/285.png"
+            },
+            "awayTeam": {
+              "name": "Málaga CF",
+              "shortName": "Málaga",
+              "tla": "MAL",
+              "crest": "https://crests.football-data.org/84.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "SCHEDULED",
+            "utcDate": "2027-03-07T00:00:00Z"
+          },
+          {
+            "match_id": 564890,
+            "homeTeam": {
+              "name": "Deportivo Alavés",
+              "shortName": "Alavés",
+              "tla": "ALA",
+              "crest": "https://crests.football-data.org/263.png"
+            },
+            "awayTeam": {
+              "name": "Athletic Club",
+              "shortName": "Athletic",
+              "tla": "ATH",
+              "crest": "https://crests.football-data.org/77.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "SCHEDULED",
+            "utcDate": "2027-03-07T00:00:00Z"
+          },
+          {
+            "match_id": 564891,
+            "homeTeam": {
+              "name": "Rayo Vallecano de Madrid",
+              "shortName": "Rayo Vallecano",
+              "tla": "RAY",
+              "crest": "https://crests.football-data.org/87.png"
+            },
+            "awayTeam": {
+              "name": "CA Osasuna",
+              "shortName": "Osasuna",
+              "tla": "OSA",
+              "crest": "https://crests.football-data.org/79.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "SCHEDULED",
+            "utcDate": "2027-03-07T00:00:00Z"
+          },
+          {
+            "match_id": 564892,
+            "homeTeam": {
+              "name": "Sevilla FC",
+              "shortName": "Sevilla FC",
+              "tla": "SEV",
+              "crest": "https://crests.football-data.org/559.png"
+            },
+            "awayTeam": {
+              "name": "Real Sociedad de Fútbol",
+              "shortName": "Real Sociedad",
+              "tla": "RSO",
+              "crest": "https://crests.football-data.org/92.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "SCHEDULED",
+            "utcDate": "2027-03-07T00:00:00Z"
+          },
+          {
+            "match_id": 564893,
+            "homeTeam": {
+              "name": "Club Atlético de Madrid",
+              "shortName": "Atleti",
+              "tla": "ATL",
+              "crest": "https://crests.football-data.org/78.png"
+            },
+            "awayTeam": {
+              "name": "RC Celta de Vigo",
+              "shortName": "Celta",
+              "tla": "CEL",
+              "crest": "https://crests.football-data.org/558.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "SCHEDULED",
+            "utcDate": "2027-03-07T00:00:00Z"
+          },
+          {
+            "match_id": 564894,
+            "homeTeam": {
+              "name": "Villarreal CF",
+              "shortName": "Villarreal",
+              "tla": "VIL",
+              "crest": "https://crests.football-data.org/94.png"
+            },
+            "awayTeam": {
+              "name": "Real Madrid CF",
+              "shortName": "Real Madrid",
+              "tla": "RMA",
+              "crest": "https://crests.football-data.org/86.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "SCHEDULED",
+            "utcDate": "2027-03-07T00:00:00Z"
+          },
+          {
+            "match_id": 564895,
+            "homeTeam": {
+              "name": "Valencia CF",
+              "shortName": "Valencia",
+              "tla": "VAL",
+              "crest": "https://crests.football-data.org/95.png"
+            },
+            "awayTeam": {
+              "name": "Levante UD",
+              "shortName": "Levante",
+              "tla": "LEV",
+              "crest": "https://crests.football-data.org/88.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "SCHEDULED",
+            "utcDate": "2027-03-07T00:00:00Z"
+          },
+          {
+            "match_id": 564896,
+            "homeTeam": {
+              "name": "RC Deportivo La Coruña",
+              "shortName": "Deportivo",
+              "tla": "DEP",
+              "crest": "https://crests.football-data.org/560.png"
+            },
+            "awayTeam": {
+              "name": "Getafe CF",
+              "shortName": "Getafe",
+              "tla": "GET",
+              "crest": "https://crests.football-data.org/82.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "SCHEDULED",
+            "utcDate": "2027-03-07T00:00:00Z"
+          },
+          {
+            "match_id": 564897,
+            "homeTeam": {
+              "name": "RCD Espanyol de Barcelona",
+              "shortName": "Espanyol",
+              "tla": "ESP",
+              "crest": "https://crests.football-data.org/80.png"
+            },
+            "awayTeam": {
+              "name": "Real Racing Club de Santander",
+              "shortName": "Santander",
+              "tla": "SAN",
+              "crest": "https://crests.football-data.org/5335.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "SCHEDULED",
+            "utcDate": "2027-03-07T00:00:00Z"
+          }
+        ]
+      },
+      {
+        "competition": "serie-a",
+        "name": "Serie A",
+        "matches": [
+          {
+            "match_id": 558369,
+            "homeTeam": {
+              "name": "Udinese Calcio",
+              "shortName": "Udinese",
+              "tla": "UDI",
+              "crest": "https://crests.football-data.org/115.png"
+            },
+            "awayTeam": {
+              "name": "FC Internazionale Milano",
+              "shortName": "Inter",
+              "tla": "INT",
+              "crest": "https://crests.football-data.org/108.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "SCHEDULED",
+            "utcDate": "2027-03-07T00:00:00Z"
+          },
+          {
+            "match_id": 558370,
+            "homeTeam": {
+              "name": "Atalanta BC",
+              "shortName": "Atalanta",
+              "tla": "ATA",
+              "crest": "https://crests.football-data.org/102.png"
+            },
+            "awayTeam": {
+              "name": "Torino FC",
+              "shortName": "Torino",
+              "tla": "TOR",
+              "crest": "https://crests.football-data.org/586.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "SCHEDULED",
+            "utcDate": "2027-03-07T00:00:00Z"
+          },
+          {
+            "match_id": 558371,
+            "homeTeam": {
+              "name": "SSC Napoli",
+              "shortName": "Napoli",
+              "tla": "NAP",
+              "crest": "https://crests.football-data.org/113.png"
+            },
+            "awayTeam": {
+              "name": "Parma Calcio 1913",
+              "shortName": "Parma",
+              "tla": "PAR",
+              "crest": "https://crests.football-data.org/112.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "SCHEDULED",
+            "utcDate": "2027-03-07T00:00:00Z"
+          },
+          {
+            "match_id": 558372,
+            "homeTeam": {
+              "name": "US Lecce",
+              "shortName": "Lecce",
+              "tla": "USL",
+              "crest": "https://crests.football-data.org/5890.png"
+            },
+            "awayTeam": {
+              "name": "Como 1907",
+              "shortName": "Como 1907",
+              "tla": "COM",
+              "crest": "https://crests.football-data.org/7397.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "SCHEDULED",
+            "utcDate": "2027-03-07T00:00:00Z"
+          },
+          {
+            "match_id": 558373,
+            "homeTeam": {
+              "name": "SS Lazio",
+              "shortName": "Lazio",
+              "tla": "LAZ",
+              "crest": "https://crests.football-data.org/110.png"
+            },
+            "awayTeam": {
+              "name": "Frosinone Calcio",
+              "shortName": "Frosinone",
+              "tla": "FRO",
+              "crest": "https://crests.football-data.org/470.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "SCHEDULED",
+            "utcDate": "2027-03-07T00:00:00Z"
+          },
+          {
+            "match_id": 558374,
+            "homeTeam": {
+              "name": "US Sassuolo Calcio",
+              "shortName": "Sassuolo",
+              "tla": "SAS",
+              "crest": "https://crests.football-data.org/471.png"
+            },
+            "awayTeam": {
+              "name": "Bologna FC 1909",
+              "shortName": "Bologna",
+              "tla": "BOL",
+              "crest": "https://crests.football-data.org/103.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "SCHEDULED",
+            "utcDate": "2027-03-07T00:00:00Z"
+          },
+          {
+            "match_id": 558375,
+            "homeTeam": {
+              "name": "AC Monza",
+              "shortName": "Monza",
+              "tla": "MON",
+              "crest": "https://crests.football-data.org/5911.png"
+            },
+            "awayTeam": {
+              "name": "Genoa CFC",
+              "shortName": "Genoa",
+              "tla": "GEN",
+              "crest": "https://crests.football-data.org/107.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "SCHEDULED",
+            "utcDate": "2027-03-07T00:00:00Z"
+          },
+          {
+            "match_id": 558376,
+            "homeTeam": {
+              "name": "ACF Fiorentina",
+              "shortName": "Fiorentina",
+              "tla": "FIO",
+              "crest": "https://crests.football-data.org/99.png"
+            },
+            "awayTeam": {
+              "name": "Venezia FC",
+              "shortName": "Venezia FC",
+              "tla": "VEN",
+              "crest": "https://crests.football-data.org/454.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "SCHEDULED",
+            "utcDate": "2027-03-07T00:00:00Z"
+          },
+          {
+            "match_id": 558377,
+            "homeTeam": {
+              "name": "AC Milan",
+              "shortName": "Milan",
+              "tla": "MIL",
+              "crest": "https://crests.football-data.org/98.png"
+            },
+            "awayTeam": {
+              "name": "Cagliari Calcio",
+              "shortName": "Cagliari",
+              "tla": "CAG",
+              "crest": "https://crests.football-data.org/104.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "SCHEDULED",
+            "utcDate": "2027-03-07T00:00:00Z"
+          },
+          {
+            "match_id": 558378,
+            "homeTeam": {
+              "name": "Juventus FC",
+              "shortName": "Juventus",
+              "tla": "JUV",
+              "crest": "https://crests.football-data.org/109.png"
+            },
+            "awayTeam": {
+              "name": "AS Roma",
+              "shortName": "Roma",
+              "tla": "ROM",
+              "crest": "https://crests.football-data.org/100.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "SCHEDULED",
+            "utcDate": "2027-03-07T00:00:00Z"
+          }
+        ]
+      }
+    ],
+    "2027-03-13": [
+      {
+        "competition": "premier-league",
+        "name": "Premier League",
+        "matches": [
+          {
+            "match_id": 560822,
+            "homeTeam": {
+              "name": "Leeds United FC",
+              "shortName": "Leeds United",
+              "tla": "LEE",
+              "crest": "https://crests.football-data.org/341.png"
+            },
+            "awayTeam": {
+              "name": "Brighton & Hove Albion FC",
+              "shortName": "Brighton Hove",
+              "tla": "BHA",
+              "crest": "https://crests.football-data.org/397.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "TIMED",
+            "utcDate": "2027-03-13T15:00:00Z"
+          },
+          {
+            "match_id": 560823,
+            "homeTeam": {
+              "name": "Tottenham Hotspur FC",
+              "shortName": "Tottenham",
+              "tla": "TOT",
+              "crest": "https://crests.football-data.org/73.png"
+            },
+            "awayTeam": {
+              "name": "Nottingham Forest FC",
+              "shortName": "Nottingham",
+              "tla": "NOT",
+              "crest": "https://crests.football-data.org/351.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "TIMED",
+            "utcDate": "2027-03-13T15:00:00Z"
+          },
+          {
+            "match_id": 560824,
+            "homeTeam": {
+              "name": "Crystal Palace FC",
+              "shortName": "Crystal Palace",
+              "tla": "CRY",
+              "crest": "https://crests.football-data.org/354.png"
+            },
+            "awayTeam": {
+              "name": "Fulham FC",
+              "shortName": "Fulham",
+              "tla": "FUL",
+              "crest": "https://crests.football-data.org/63.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "TIMED",
+            "utcDate": "2027-03-13T15:00:00Z"
+          },
+          {
+            "match_id": 560825,
+            "homeTeam": {
+              "name": "Liverpool FC",
+              "shortName": "Liverpool",
+              "tla": "LIV",
+              "crest": "https://crests.football-data.org/64.png"
+            },
+            "awayTeam": {
+              "name": "Ipswich Town FC",
+              "shortName": "Ipswich Town",
+              "tla": "IPS",
+              "crest": "https://crests.football-data.org/349.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "TIMED",
+            "utcDate": "2027-03-13T15:00:00Z"
+          },
+          {
+            "match_id": 560826,
+            "homeTeam": {
+              "name": "Coventry City FC",
+              "shortName": "Coventry City",
+              "tla": "COV",
+              "crest": "https://crests.football-data.org/1076.png"
+            },
+            "awayTeam": {
+              "name": "Manchester City FC",
+              "shortName": "Man City",
+              "tla": "MCI",
+              "crest": "https://crests.football-data.org/65.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "TIMED",
+            "utcDate": "2027-03-13T15:00:00Z"
+          },
+          {
+            "match_id": 560827,
+            "homeTeam": {
+              "name": "AFC Bournemouth",
+              "shortName": "Bournemouth",
+              "tla": "BOU",
+              "crest": "https://crests.football-data.org/bournemouth.png"
+            },
+            "awayTeam": {
+              "name": "Newcastle United FC",
+              "shortName": "Newcastle",
+              "tla": "NEW",
+              "crest": "https://crests.football-data.org/67.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "TIMED",
+            "utcDate": "2027-03-13T15:00:00Z"
+          },
+          {
+            "match_id": 560828,
+            "homeTeam": {
+              "name": "Chelsea FC",
+              "shortName": "Chelsea",
+              "tla": "CHE",
+              "crest": "https://crests.football-data.org/61.png"
+            },
+            "awayTeam": {
+              "name": "Arsenal FC",
+              "shortName": "Arsenal",
+              "tla": "ARS",
+              "crest": "https://crests.football-data.org/57.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "TIMED",
+            "utcDate": "2027-03-13T15:00:00Z"
+          },
+          {
+            "match_id": 560829,
+            "homeTeam": {
+              "name": "Aston Villa FC",
+              "shortName": "Aston Villa",
+              "tla": "AVL",
+              "crest": "https://crests.football-data.org/58.png"
+            },
+            "awayTeam": {
+              "name": "Hull City AFC",
+              "shortName": "Hull City",
+              "tla": "HUL",
+              "crest": "https://crests.football-data.org/322.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "TIMED",
+            "utcDate": "2027-03-13T15:00:00Z"
+          },
+          {
+            "match_id": 560830,
+            "homeTeam": {
+              "name": "Manchester United FC",
+              "shortName": "Man United",
+              "tla": "MUN",
+              "crest": "https://crests.football-data.org/66.png"
+            },
+            "awayTeam": {
+              "name": "Everton FC",
+              "shortName": "Everton",
+              "tla": "EVE",
+              "crest": "https://crests.football-data.org/62.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "TIMED",
+            "utcDate": "2027-03-13T15:00:00Z"
+          },
+          {
+            "match_id": 560831,
+            "homeTeam": {
+              "name": "Sunderland AFC",
+              "shortName": "Sunderland",
+              "tla": "SUN",
+              "crest": "https://crests.football-data.org/71.png"
+            },
+            "awayTeam": {
+              "name": "Brentford FC",
+              "shortName": "Brentford",
+              "tla": "BRE",
+              "crest": "https://crests.football-data.org/402.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "TIMED",
+            "utcDate": "2027-03-13T15:00:00Z"
+          }
+        ]
+      },
+      {
+        "competition": "bundesliga",
+        "name": "Bundesliga",
+        "matches": [
+          {
+            "match_id": 566001,
+            "homeTeam": {
+              "name": "1. FC Union Berlin",
+              "shortName": "Union Berlin",
+              "tla": "UNB",
+              "crest": "https://crests.football-data.org/28.png"
+            },
+            "awayTeam": {
+              "name": "SC Freiburg",
+              "shortName": "Freiburg",
+              "tla": "SCF",
+              "crest": "https://crests.football-data.org/17.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "SCHEDULED",
+            "utcDate": "2027-03-13T00:00:00Z"
+          },
+          {
+            "match_id": 566002,
+            "homeTeam": {
+              "name": "SV 07 Elversberg",
+              "shortName": "Elversberg",
+              "tla": "ELV",
+              "crest": "https://crests.football-data.org/719.png"
+            },
+            "awayTeam": {
+              "name": "Borussia Dortmund",
+              "shortName": "Dortmund",
+              "tla": "BVB",
+              "crest": "https://crests.football-data.org/4.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "SCHEDULED",
+            "utcDate": "2027-03-13T00:00:00Z"
+          },
+          {
+            "match_id": 566003,
+            "homeTeam": {
+              "name": "Eintracht Frankfurt",
+              "shortName": "Frankfurt",
+              "tla": "SGE",
+              "crest": "https://crests.football-data.org/19.png"
+            },
+            "awayTeam": {
+              "name": "SC Paderborn 07",
+              "shortName": "SC Paderborn",
+              "tla": "SCP",
+              "crest": "https://crests.football-data.org/29.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "SCHEDULED",
+            "utcDate": "2027-03-13T00:00:00Z"
+          },
+          {
+            "match_id": 566004,
+            "homeTeam": {
+              "name": "FC Augsburg",
+              "shortName": "Augsburg",
+              "tla": "FCA",
+              "crest": "https://crests.football-data.org/16.png"
+            },
+            "awayTeam": {
+              "name": "RB Leipzig",
+              "shortName": "RB Leipzig",
+              "tla": "RBL",
+              "crest": "https://crests.football-data.org/721.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "SCHEDULED",
+            "utcDate": "2027-03-13T00:00:00Z"
+          },
+          {
+            "match_id": 566005,
+            "homeTeam": {
+              "name": "Borussia Mönchengladbach",
+              "shortName": "M'gladbach",
+              "tla": "BMG",
+              "crest": "https://crests.football-data.org/18.png"
+            },
+            "awayTeam": {
+              "name": "Hamburger SV",
+              "shortName": "HSV",
+              "tla": "HSV",
+              "crest": "https://crests.football-data.org/7.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "SCHEDULED",
+            "utcDate": "2027-03-13T00:00:00Z"
+          },
+          {
+            "match_id": 566006,
+            "homeTeam": {
+              "name": "SV Werder Bremen",
+              "shortName": "Bremen",
+              "tla": "SVW",
+              "crest": "https://crests.football-data.org/12.png"
+            },
+            "awayTeam": {
+              "name": "VfB Stuttgart",
+              "shortName": "Stuttgart",
+              "tla": "VFB",
+              "crest": "https://crests.football-data.org/10.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "SCHEDULED",
+            "utcDate": "2027-03-13T00:00:00Z"
+          },
+          {
+            "match_id": 566007,
+            "homeTeam": {
+              "name": "FC Schalke 04",
+              "shortName": "Schalke",
+              "tla": "S04",
+              "crest": "https://crests.football-data.org/6.png"
+            },
+            "awayTeam": {
+              "name": "TSG 1899 Hoffenheim",
+              "shortName": "Hoffenheim",
+              "tla": "TSG",
+              "crest": "https://crests.football-data.org/2.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "SCHEDULED",
+            "utcDate": "2027-03-13T00:00:00Z"
+          },
+          {
+            "match_id": 566008,
+            "homeTeam": {
+              "name": "FC Bayern München",
+              "shortName": "Bayern",
+              "tla": "FCB",
+              "crest": "https://crests.football-data.org/5.png"
+            },
+            "awayTeam": {
+              "name": "1. FSV Mainz 05",
+              "shortName": "Mainz",
+              "tla": "M05",
+              "crest": "https://crests.football-data.org/15.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "SCHEDULED",
+            "utcDate": "2027-03-13T00:00:00Z"
+          },
+          {
+            "match_id": 566009,
+            "homeTeam": {
+              "name": "Bayer 04 Leverkusen",
+              "shortName": "Leverkusen",
+              "tla": "B04",
+              "crest": "https://crests.football-data.org/3.png"
+            },
+            "awayTeam": {
+              "name": "1. FC Köln",
+              "shortName": "1. FC Köln",
+              "tla": "KOE",
+              "crest": "https://crests.football-data.org/1.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "SCHEDULED",
+            "utcDate": "2027-03-13T00:00:00Z"
+          }
+        ]
+      },
+      {
+        "competition": "ligue-1",
+        "name": "Ligue 1",
+        "matches": [
+          {
+            "match_id": 559504,
+            "homeTeam": {
+              "name": "OGC Nice",
+              "shortName": "Nice",
+              "tla": "NIC",
+              "crest": "https://crests.football-data.org/522.png"
+            },
+            "awayTeam": {
+              "name": "Toulouse FC",
+              "shortName": "Toulouse",
+              "tla": "TOU",
+              "crest": "https://crests.football-data.org/511.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "SCHEDULED",
+            "utcDate": "2027-03-13T00:00:00Z"
+          },
+          {
+            "match_id": 559505,
+            "homeTeam": {
+              "name": "Paris FC",
+              "shortName": "Paris FC",
+              "tla": "PFC",
+              "crest": "https://crests.football-data.org/1045.png"
+            },
+            "awayTeam": {
+              "name": "FC Lorient",
+              "shortName": "Lorient",
+              "tla": "FCL",
+              "crest": "https://crests.football-data.org/525.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "SCHEDULED",
+            "utcDate": "2027-03-13T00:00:00Z"
+          },
+          {
+            "match_id": 559506,
+            "homeTeam": {
+              "name": "RC Strasbourg Alsace",
+              "shortName": "Strasbourg",
+              "tla": "RC ",
+              "crest": "https://crests.football-data.org/576.png"
+            },
+            "awayTeam": {
+              "name": "Angers SCO",
+              "shortName": "Angers SCO",
+              "tla": "ANG",
+              "crest": "https://crests.football-data.org/532.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "SCHEDULED",
+            "utcDate": "2027-03-13T00:00:00Z"
+          },
+          {
+            "match_id": 559507,
+            "homeTeam": {
+              "name": "Le Mans FC",
+              "shortName": "Le Mans",
+              "tla": "LMF",
+              "crest": "https://upload.wikimedia.org/wikipedia/en/5/57/Le_Mans_FC_logo.svg"
+            },
+            "awayTeam": {
+              "name": "Stade Rennais FC 1901",
+              "shortName": "Stade Rennais",
+              "tla": "REN",
+              "crest": "https://crests.football-data.org/529.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "SCHEDULED",
+            "utcDate": "2027-03-13T00:00:00Z"
+          },
+          {
+            "match_id": 559508,
+            "homeTeam": {
+              "name": "Stade Brestois 29",
+              "shortName": "Brest",
+              "tla": "BRE",
+              "crest": "https://crests.football-data.org/512.png"
+            },
+            "awayTeam": {
+              "name": "Lille OSC",
+              "shortName": "Lille",
+              "tla": "LIL",
+              "crest": "https://crests.football-data.org/521.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "SCHEDULED",
+            "utcDate": "2027-03-13T00:00:00Z"
+          },
+          {
+            "match_id": 559509,
+            "homeTeam": {
+              "name": "Le Havre AC",
+              "shortName": "Le Havre",
+              "tla": "HAC",
+              "crest": "https://crests.football-data.org/533.png"
+            },
+            "awayTeam": {
+              "name": "Racing Club de Lens",
+              "shortName": "RC Lens",
+              "tla": "RCL",
+              "crest": "https://crests.football-data.org/546.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "SCHEDULED",
+            "utcDate": "2027-03-13T00:00:00Z"
+          },
+          {
+            "match_id": 559510,
+            "homeTeam": {
+              "name": "Olympique de Marseille",
+              "shortName": "Marseille",
+              "tla": "MAR",
+              "crest": "https://crests.football-data.org/516.png"
+            },
+            "awayTeam": {
+              "name": "AS Monaco FC",
+              "shortName": "Monaco",
+              "tla": "ASM",
+              "crest": "https://crests.football-data.org/548.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "SCHEDULED",
+            "utcDate": "2027-03-13T00:00:00Z"
+          },
+          {
+            "match_id": 559511,
+            "homeTeam": {
+              "name": "AJ Auxerre",
+              "shortName": "Auxerre",
+              "tla": "AJA",
+              "crest": "https://crests.football-data.org/519.png"
+            },
+            "awayTeam": {
+              "name": "Paris Saint-Germain FC",
+              "shortName": "PSG",
+              "tla": "PSG",
+              "crest": "https://crests.football-data.org/524.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "SCHEDULED",
+            "utcDate": "2027-03-13T00:00:00Z"
+          },
+          {
+            "match_id": 559512,
+            "homeTeam": {
+              "name": "Olympique Lyonnais",
+              "shortName": "Olympique Lyon",
+              "tla": "LYO",
+              "crest": "https://crests.football-data.org/523.png"
+            },
+            "awayTeam": {
+              "name": "ES Troyes AC",
+              "shortName": "Troyes",
+              "tla": "ETR",
+              "crest": "https://crests.football-data.org/531.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "SCHEDULED",
+            "utcDate": "2027-03-13T00:00:00Z"
+          }
+        ]
+      }
+    ],
+    "2027-03-14": [
+      {
+        "competition": "laliga",
+        "name": "LaLiga",
+        "matches": [
+          {
+            "match_id": 564898,
+            "homeTeam": {
+              "name": "CA Osasuna",
+              "shortName": "Osasuna",
+              "tla": "OSA",
+              "crest": "https://crests.football-data.org/79.png"
+            },
+            "awayTeam": {
+              "name": "RC Celta de Vigo",
+              "shortName": "Celta",
+              "tla": "CEL",
+              "crest": "https://crests.football-data.org/558.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "SCHEDULED",
+            "utcDate": "2027-03-14T00:00:00Z"
+          },
+          {
+            "match_id": 564899,
+            "homeTeam": {
+              "name": "Elche CF",
+              "shortName": "Elche",
+              "tla": "ELC",
+              "crest": "https://crests.football-data.org/285.png"
+            },
+            "awayTeam": {
+              "name": "Villarreal CF",
+              "shortName": "Villarreal",
+              "tla": "VIL",
+              "crest": "https://crests.football-data.org/94.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "SCHEDULED",
+            "utcDate": "2027-03-14T00:00:00Z"
+          },
+          {
+            "match_id": 564900,
+            "homeTeam": {
+              "name": "Deportivo Alavés",
+              "shortName": "Alavés",
+              "tla": "ALA",
+              "crest": "https://crests.football-data.org/263.png"
+            },
+            "awayTeam": {
+              "name": "Sevilla FC",
+              "shortName": "Sevilla FC",
+              "tla": "SEV",
+              "crest": "https://crests.football-data.org/559.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "SCHEDULED",
+            "utcDate": "2027-03-14T00:00:00Z"
+          },
+          {
+            "match_id": 564901,
+            "homeTeam": {
+              "name": "Athletic Club",
+              "shortName": "Athletic",
+              "tla": "ATH",
+              "crest": "https://crests.football-data.org/77.png"
+            },
+            "awayTeam": {
+              "name": "Valencia CF",
+              "shortName": "Valencia",
+              "tla": "VAL",
+              "crest": "https://crests.football-data.org/95.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "SCHEDULED",
+            "utcDate": "2027-03-14T00:00:00Z"
+          },
+          {
+            "match_id": 564902,
+            "homeTeam": {
+              "name": "Real Betis Balompié",
+              "shortName": "Real Betis",
+              "tla": "BET",
+              "crest": "https://crests.football-data.org/90.png"
+            },
+            "awayTeam": {
+              "name": "Levante UD",
+              "shortName": "Levante",
+              "tla": "LEV",
+              "crest": "https://crests.football-data.org/88.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "SCHEDULED",
+            "utcDate": "2027-03-14T00:00:00Z"
+          },
+          {
+            "match_id": 564903,
+            "homeTeam": {
+              "name": "Real Racing Club de Santander",
+              "shortName": "Santander",
+              "tla": "SAN",
+              "crest": "https://crests.football-data.org/5335.png"
+            },
+            "awayTeam": {
+              "name": "Club Atlético de Madrid",
+              "shortName": "Atleti",
+              "tla": "ATL",
+              "crest": "https://crests.football-data.org/78.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "SCHEDULED",
+            "utcDate": "2027-03-14T00:00:00Z"
+          },
+          {
+            "match_id": 564904,
+            "homeTeam": {
+              "name": "Málaga CF",
+              "shortName": "Málaga",
+              "tla": "MAL",
+              "crest": "https://crests.football-data.org/84.png"
+            },
+            "awayTeam": {
+              "name": "Rayo Vallecano de Madrid",
+              "shortName": "Rayo Vallecano",
+              "tla": "RAY",
+              "crest": "https://crests.football-data.org/87.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "SCHEDULED",
+            "utcDate": "2027-03-14T00:00:00Z"
+          },
+          {
+            "match_id": 564905,
+            "homeTeam": {
+              "name": "Getafe CF",
+              "shortName": "Getafe",
+              "tla": "GET",
+              "crest": "https://crests.football-data.org/82.png"
+            },
+            "awayTeam": {
+              "name": "Real Sociedad de Fútbol",
+              "shortName": "Real Sociedad",
+              "tla": "RSO",
+              "crest": "https://crests.football-data.org/92.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "SCHEDULED",
+            "utcDate": "2027-03-14T00:00:00Z"
+          },
+          {
+            "match_id": 564906,
+            "homeTeam": {
+              "name": "FC Barcelona",
+              "shortName": "Barça",
+              "tla": "FCB",
+              "crest": "https://crests.football-data.org/81.png"
+            },
+            "awayTeam": {
+              "name": "RC Deportivo La Coruña",
+              "shortName": "Deportivo",
+              "tla": "DEP",
+              "crest": "https://crests.football-data.org/560.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "SCHEDULED",
+            "utcDate": "2027-03-14T00:00:00Z"
+          },
+          {
+            "match_id": 564907,
+            "homeTeam": {
+              "name": "Real Madrid CF",
+              "shortName": "Real Madrid",
+              "tla": "RMA",
+              "crest": "https://crests.football-data.org/86.png"
+            },
+            "awayTeam": {
+              "name": "RCD Espanyol de Barcelona",
+              "shortName": "Espanyol",
+              "tla": "ESP",
+              "crest": "https://crests.football-data.org/80.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "SCHEDULED",
+            "utcDate": "2027-03-14T00:00:00Z"
+          }
+        ]
+      },
+      {
+        "competition": "serie-a",
+        "name": "Serie A",
+        "matches": [
+          {
+            "match_id": 558359,
+            "homeTeam": {
+              "name": "Bologna FC 1909",
+              "shortName": "Bologna",
+              "tla": "BOL",
+              "crest": "https://crests.football-data.org/103.png"
+            },
+            "awayTeam": {
+              "name": "SSC Napoli",
+              "shortName": "Napoli",
+              "tla": "NAP",
+              "crest": "https://crests.football-data.org/113.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "SCHEDULED",
+            "utcDate": "2027-03-14T00:00:00Z"
+          },
+          {
+            "match_id": 558360,
+            "homeTeam": {
+              "name": "Cagliari Calcio",
+              "shortName": "Cagliari",
+              "tla": "CAG",
+              "crest": "https://crests.football-data.org/104.png"
+            },
+            "awayTeam": {
+              "name": "ACF Fiorentina",
+              "shortName": "Fiorentina",
+              "tla": "FIO",
+              "crest": "https://crests.football-data.org/99.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "SCHEDULED",
+            "utcDate": "2027-03-14T00:00:00Z"
+          },
+          {
+            "match_id": 558361,
+            "homeTeam": {
+              "name": "AC Milan",
+              "shortName": "Milan",
+              "tla": "MIL",
+              "crest": "https://crests.football-data.org/98.png"
+            },
+            "awayTeam": {
+              "name": "US Sassuolo Calcio",
+              "shortName": "Sassuolo",
+              "tla": "SAS",
+              "crest": "https://crests.football-data.org/471.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "SCHEDULED",
+            "utcDate": "2027-03-14T00:00:00Z"
+          },
+          {
+            "match_id": 558362,
+            "homeTeam": {
+              "name": "Genoa CFC",
+              "shortName": "Genoa",
+              "tla": "GEN",
+              "crest": "https://crests.football-data.org/107.png"
+            },
+            "awayTeam": {
+              "name": "AS Roma",
+              "shortName": "Roma",
+              "tla": "ROM",
+              "crest": "https://crests.football-data.org/100.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "SCHEDULED",
+            "utcDate": "2027-03-14T00:00:00Z"
+          },
+          {
+            "match_id": 558363,
+            "homeTeam": {
+              "name": "Parma Calcio 1913",
+              "shortName": "Parma",
+              "tla": "PAR",
+              "crest": "https://crests.football-data.org/112.png"
+            },
+            "awayTeam": {
+              "name": "US Lecce",
+              "shortName": "Lecce",
+              "tla": "USL",
+              "crest": "https://crests.football-data.org/5890.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "SCHEDULED",
+            "utcDate": "2027-03-14T00:00:00Z"
+          },
+          {
+            "match_id": 558364,
+            "homeTeam": {
+              "name": "Torino FC",
+              "shortName": "Torino",
+              "tla": "TOR",
+              "crest": "https://crests.football-data.org/586.png"
+            },
+            "awayTeam": {
+              "name": "FC Internazionale Milano",
+              "shortName": "Inter",
+              "tla": "INT",
+              "crest": "https://crests.football-data.org/108.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "SCHEDULED",
+            "utcDate": "2027-03-14T00:00:00Z"
+          },
+          {
+            "match_id": 558365,
+            "homeTeam": {
+              "name": "Frosinone Calcio",
+              "shortName": "Frosinone",
+              "tla": "FRO",
+              "crest": "https://crests.football-data.org/470.png"
+            },
+            "awayTeam": {
+              "name": "AC Monza",
+              "shortName": "Monza",
+              "tla": "MON",
+              "crest": "https://crests.football-data.org/5911.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "SCHEDULED",
+            "utcDate": "2027-03-14T00:00:00Z"
+          },
+          {
+            "match_id": 558366,
+            "homeTeam": {
+              "name": "Como 1907",
+              "shortName": "Como 1907",
+              "tla": "COM",
+              "crest": "https://crests.football-data.org/7397.png"
+            },
+            "awayTeam": {
+              "name": "Udinese Calcio",
+              "shortName": "Udinese",
+              "tla": "UDI",
+              "crest": "https://crests.football-data.org/115.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "SCHEDULED",
+            "utcDate": "2027-03-14T00:00:00Z"
+          },
+          {
+            "match_id": 558367,
+            "homeTeam": {
+              "name": "SS Lazio",
+              "shortName": "Lazio",
+              "tla": "LAZ",
+              "crest": "https://crests.football-data.org/110.png"
+            },
+            "awayTeam": {
+              "name": "Juventus FC",
+              "shortName": "Juventus",
+              "tla": "JUV",
+              "crest": "https://crests.football-data.org/109.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "SCHEDULED",
+            "utcDate": "2027-03-14T00:00:00Z"
+          },
+          {
+            "match_id": 558368,
+            "homeTeam": {
+              "name": "Venezia FC",
+              "shortName": "Venezia FC",
+              "tla": "VEN",
+              "crest": "https://crests.football-data.org/454.png"
+            },
+            "awayTeam": {
+              "name": "Atalanta BC",
+              "shortName": "Atalanta",
+              "tla": "ATA",
+              "crest": "https://crests.football-data.org/102.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "SCHEDULED",
+            "utcDate": "2027-03-14T00:00:00Z"
+          }
+        ]
+      }
+    ],
+    "2027-03-20": [
+      {
+        "competition": "premier-league",
+        "name": "Premier League",
+        "matches": [
+          {
+            "match_id": 560832,
+            "homeTeam": {
+              "name": "Brentford FC",
+              "shortName": "Brentford",
+              "tla": "BRE",
+              "crest": "https://crests.football-data.org/402.png"
+            },
+            "awayTeam": {
+              "name": "AFC Bournemouth",
+              "shortName": "Bournemouth",
+              "tla": "BOU",
+              "crest": "https://crests.football-data.org/bournemouth.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "TIMED",
+            "utcDate": "2027-03-20T15:00:00Z"
+          },
+          {
+            "match_id": 560833,
+            "homeTeam": {
+              "name": "Brighton & Hove Albion FC",
+              "shortName": "Brighton Hove",
+              "tla": "BHA",
+              "crest": "https://crests.football-data.org/397.png"
+            },
+            "awayTeam": {
+              "name": "Coventry City FC",
+              "shortName": "Coventry City",
+              "tla": "COV",
+              "crest": "https://crests.football-data.org/1076.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "TIMED",
+            "utcDate": "2027-03-20T15:00:00Z"
+          },
+          {
+            "match_id": 560834,
+            "homeTeam": {
+              "name": "Manchester City FC",
+              "shortName": "Man City",
+              "tla": "MCI",
+              "crest": "https://crests.football-data.org/65.png"
+            },
+            "awayTeam": {
+              "name": "Manchester United FC",
+              "shortName": "Man United",
+              "tla": "MUN",
+              "crest": "https://crests.football-data.org/66.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "TIMED",
+            "utcDate": "2027-03-20T15:00:00Z"
+          },
+          {
+            "match_id": 560835,
+            "homeTeam": {
+              "name": "Ipswich Town FC",
+              "shortName": "Ipswich Town",
+              "tla": "IPS",
+              "crest": "https://crests.football-data.org/349.png"
+            },
+            "awayTeam": {
+              "name": "Crystal Palace FC",
+              "shortName": "Crystal Palace",
+              "tla": "CRY",
+              "crest": "https://crests.football-data.org/354.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "TIMED",
+            "utcDate": "2027-03-20T15:00:00Z"
+          },
+          {
+            "match_id": 560836,
+            "homeTeam": {
+              "name": "Arsenal FC",
+              "shortName": "Arsenal",
+              "tla": "ARS",
+              "crest": "https://crests.football-data.org/57.png"
+            },
+            "awayTeam": {
+              "name": "Sunderland AFC",
+              "shortName": "Sunderland",
+              "tla": "SUN",
+              "crest": "https://crests.football-data.org/71.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "TIMED",
+            "utcDate": "2027-03-20T15:00:00Z"
+          },
+          {
+            "match_id": 560837,
+            "homeTeam": {
+              "name": "Fulham FC",
+              "shortName": "Fulham",
+              "tla": "FUL",
+              "crest": "https://crests.football-data.org/63.png"
+            },
+            "awayTeam": {
+              "name": "Liverpool FC",
+              "shortName": "Liverpool",
+              "tla": "LIV",
+              "crest": "https://crests.football-data.org/64.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "TIMED",
+            "utcDate": "2027-03-20T15:00:00Z"
+          },
+          {
+            "match_id": 560838,
+            "homeTeam": {
+              "name": "Hull City AFC",
+              "shortName": "Hull City",
+              "tla": "HUL",
+              "crest": "https://crests.football-data.org/322.png"
+            },
+            "awayTeam": {
+              "name": "Chelsea FC",
+              "shortName": "Chelsea",
+              "tla": "CHE",
+              "crest": "https://crests.football-data.org/61.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "TIMED",
+            "utcDate": "2027-03-20T15:00:00Z"
+          },
+          {
+            "match_id": 560839,
+            "homeTeam": {
+              "name": "Nottingham Forest FC",
+              "shortName": "Nottingham",
+              "tla": "NOT",
+              "crest": "https://crests.football-data.org/351.png"
+            },
+            "awayTeam": {
+              "name": "Aston Villa FC",
+              "shortName": "Aston Villa",
+              "tla": "AVL",
+              "crest": "https://crests.football-data.org/58.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "TIMED",
+            "utcDate": "2027-03-20T15:00:00Z"
+          },
+          {
+            "match_id": 560840,
+            "homeTeam": {
+              "name": "Everton FC",
+              "shortName": "Everton",
+              "tla": "EVE",
+              "crest": "https://crests.football-data.org/62.png"
+            },
+            "awayTeam": {
+              "name": "Tottenham Hotspur FC",
+              "shortName": "Tottenham",
+              "tla": "TOT",
+              "crest": "https://crests.football-data.org/73.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "TIMED",
+            "utcDate": "2027-03-20T15:00:00Z"
+          },
+          {
+            "match_id": 560841,
+            "homeTeam": {
+              "name": "Newcastle United FC",
+              "shortName": "Newcastle",
+              "tla": "NEW",
+              "crest": "https://crests.football-data.org/67.png"
+            },
+            "awayTeam": {
+              "name": "Leeds United FC",
+              "shortName": "Leeds United",
+              "tla": "LEE",
+              "crest": "https://crests.football-data.org/341.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "TIMED",
+            "utcDate": "2027-03-20T15:00:00Z"
+          }
+        ]
+      },
+      {
+        "competition": "bundesliga",
+        "name": "Bundesliga",
+        "matches": [
+          {
+            "match_id": 566010,
+            "homeTeam": {
+              "name": "1. FSV Mainz 05",
+              "shortName": "Mainz",
+              "tla": "M05",
+              "crest": "https://crests.football-data.org/15.png"
+            },
+            "awayTeam": {
+              "name": "FC Augsburg",
+              "shortName": "Augsburg",
+              "tla": "FCA",
+              "crest": "https://crests.football-data.org/16.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "SCHEDULED",
+            "utcDate": "2027-03-20T00:00:00Z"
+          },
+          {
+            "match_id": 566011,
+            "homeTeam": {
+              "name": "VfB Stuttgart",
+              "shortName": "Stuttgart",
+              "tla": "VFB",
+              "crest": "https://crests.football-data.org/10.png"
+            },
+            "awayTeam": {
+              "name": "FC Schalke 04",
+              "shortName": "Schalke",
+              "tla": "S04",
+              "crest": "https://crests.football-data.org/6.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "SCHEDULED",
+            "utcDate": "2027-03-20T00:00:00Z"
+          },
+          {
+            "match_id": 566012,
+            "homeTeam": {
+              "name": "RB Leipzig",
+              "shortName": "RB Leipzig",
+              "tla": "RBL",
+              "crest": "https://crests.football-data.org/721.png"
+            },
+            "awayTeam": {
+              "name": "1. FC Union Berlin",
+              "shortName": "Union Berlin",
+              "tla": "UNB",
+              "crest": "https://crests.football-data.org/28.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "SCHEDULED",
+            "utcDate": "2027-03-20T00:00:00Z"
+          },
+          {
+            "match_id": 566013,
+            "homeTeam": {
+              "name": "SC Freiburg",
+              "shortName": "Freiburg",
+              "tla": "SCF",
+              "crest": "https://crests.football-data.org/17.png"
+            },
+            "awayTeam": {
+              "name": "SV 07 Elversberg",
+              "shortName": "Elversberg",
+              "tla": "ELV",
+              "crest": "https://crests.football-data.org/719.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "SCHEDULED",
+            "utcDate": "2027-03-20T00:00:00Z"
+          },
+          {
+            "match_id": 566014,
+            "homeTeam": {
+              "name": "Hamburger SV",
+              "shortName": "HSV",
+              "tla": "HSV",
+              "crest": "https://crests.football-data.org/7.png"
+            },
+            "awayTeam": {
+              "name": "SV Werder Bremen",
+              "shortName": "Bremen",
+              "tla": "SVW",
+              "crest": "https://crests.football-data.org/12.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "SCHEDULED",
+            "utcDate": "2027-03-20T00:00:00Z"
+          },
+          {
+            "match_id": 566015,
+            "homeTeam": {
+              "name": "SC Paderborn 07",
+              "shortName": "SC Paderborn",
+              "tla": "SCP",
+              "crest": "https://crests.football-data.org/29.png"
+            },
+            "awayTeam": {
+              "name": "Bayer 04 Leverkusen",
+              "shortName": "Leverkusen",
+              "tla": "B04",
+              "crest": "https://crests.football-data.org/3.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "SCHEDULED",
+            "utcDate": "2027-03-20T00:00:00Z"
+          },
+          {
+            "match_id": 566016,
+            "homeTeam": {
+              "name": "1. FC Köln",
+              "shortName": "1. FC Köln",
+              "tla": "KOE",
+              "crest": "https://crests.football-data.org/1.png"
+            },
+            "awayTeam": {
+              "name": "FC Bayern München",
+              "shortName": "Bayern",
+              "tla": "FCB",
+              "crest": "https://crests.football-data.org/5.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "SCHEDULED",
+            "utcDate": "2027-03-20T00:00:00Z"
+          },
+          {
+            "match_id": 566017,
+            "homeTeam": {
+              "name": "TSG 1899 Hoffenheim",
+              "shortName": "Hoffenheim",
+              "tla": "TSG",
+              "crest": "https://crests.football-data.org/2.png"
+            },
+            "awayTeam": {
+              "name": "Eintracht Frankfurt",
+              "shortName": "Frankfurt",
+              "tla": "SGE",
+              "crest": "https://crests.football-data.org/19.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "SCHEDULED",
+            "utcDate": "2027-03-20T00:00:00Z"
+          },
+          {
+            "match_id": 566018,
+            "homeTeam": {
+              "name": "Borussia Dortmund",
+              "shortName": "Dortmund",
+              "tla": "BVB",
+              "crest": "https://crests.football-data.org/4.png"
+            },
+            "awayTeam": {
+              "name": "Borussia Mönchengladbach",
+              "shortName": "M'gladbach",
+              "tla": "BMG",
+              "crest": "https://crests.football-data.org/18.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "SCHEDULED",
+            "utcDate": "2027-03-20T00:00:00Z"
+          }
+        ]
+      },
+      {
+        "competition": "ligue-1",
+        "name": "Ligue 1",
+        "matches": [
+          {
+            "match_id": 559496,
+            "homeTeam": {
+              "name": "Angers SCO",
+              "shortName": "Angers SCO",
+              "tla": "ANG",
+              "crest": "https://crests.football-data.org/532.png"
+            },
+            "awayTeam": {
+              "name": "Le Mans FC",
+              "shortName": "Le Mans",
+              "tla": "LMF",
+              "crest": "https://upload.wikimedia.org/wikipedia/en/5/57/Le_Mans_FC_logo.svg"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "SCHEDULED",
+            "utcDate": "2027-03-20T00:00:00Z"
+          },
+          {
+            "match_id": 559497,
+            "homeTeam": {
+              "name": "Toulouse FC",
+              "shortName": "Toulouse",
+              "tla": "TOU",
+              "crest": "https://crests.football-data.org/511.png"
+            },
+            "awayTeam": {
+              "name": "Stade Brestois 29",
+              "shortName": "Brest",
+              "tla": "BRE",
+              "crest": "https://crests.football-data.org/512.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "SCHEDULED",
+            "utcDate": "2027-03-20T00:00:00Z"
+          },
+          {
+            "match_id": 559498,
+            "homeTeam": {
+              "name": "ES Troyes AC",
+              "shortName": "Troyes",
+              "tla": "ETR",
+              "crest": "https://crests.football-data.org/531.png"
+            },
+            "awayTeam": {
+              "name": "AJ Auxerre",
+              "shortName": "Auxerre",
+              "tla": "AJA",
+              "crest": "https://crests.football-data.org/519.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "SCHEDULED",
+            "utcDate": "2027-03-20T00:00:00Z"
+          },
+          {
+            "match_id": 559499,
+            "homeTeam": {
+              "name": "Stade Rennais FC 1901",
+              "shortName": "Stade Rennais",
+              "tla": "REN",
+              "crest": "https://crests.football-data.org/529.png"
+            },
+            "awayTeam": {
+              "name": "Paris FC",
+              "shortName": "Paris FC",
+              "tla": "PFC",
+              "crest": "https://crests.football-data.org/1045.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "SCHEDULED",
+            "utcDate": "2027-03-20T00:00:00Z"
+          },
+          {
+            "match_id": 559500,
+            "homeTeam": {
+              "name": "AS Monaco FC",
+              "shortName": "Monaco",
+              "tla": "ASM",
+              "crest": "https://crests.football-data.org/548.png"
+            },
+            "awayTeam": {
+              "name": "Le Havre AC",
+              "shortName": "Le Havre",
+              "tla": "HAC",
+              "crest": "https://crests.football-data.org/533.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "SCHEDULED",
+            "utcDate": "2027-03-20T00:00:00Z"
+          },
+          {
+            "match_id": 559501,
+            "homeTeam": {
+              "name": "Paris Saint-Germain FC",
+              "shortName": "PSG",
+              "tla": "PSG",
+              "crest": "https://crests.football-data.org/524.png"
+            },
+            "awayTeam": {
+              "name": "RC Strasbourg Alsace",
+              "shortName": "Strasbourg",
+              "tla": "RC ",
+              "crest": "https://crests.football-data.org/576.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "SCHEDULED",
+            "utcDate": "2027-03-20T00:00:00Z"
+          },
+          {
+            "match_id": 559502,
+            "homeTeam": {
+              "name": "Racing Club de Lens",
+              "shortName": "RC Lens",
+              "tla": "RCL",
+              "crest": "https://crests.football-data.org/546.png"
+            },
+            "awayTeam": {
+              "name": "Lille OSC",
+              "shortName": "Lille",
+              "tla": "LIL",
+              "crest": "https://crests.football-data.org/521.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "SCHEDULED",
+            "utcDate": "2027-03-20T00:00:00Z"
+          },
+          {
+            "match_id": 559503,
+            "homeTeam": {
+              "name": "FC Lorient",
+              "shortName": "Lorient",
+              "tla": "FCL",
+              "crest": "https://crests.football-data.org/525.png"
+            },
+            "awayTeam": {
+              "name": "OGC Nice",
+              "shortName": "Nice",
+              "tla": "NIC",
+              "crest": "https://crests.football-data.org/522.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "SCHEDULED",
+            "utcDate": "2027-03-20T00:00:00Z"
+          }
+        ]
+      }
+    ],
+    "2027-03-21": [
+      {
+        "competition": "laliga",
+        "name": "LaLiga",
+        "matches": [
+          {
+            "match_id": 564908,
+            "homeTeam": {
+              "name": "Villarreal CF",
+              "shortName": "Villarreal",
+              "tla": "VIL",
+              "crest": "https://crests.football-data.org/94.png"
+            },
+            "awayTeam": {
+              "name": "Málaga CF",
+              "shortName": "Málaga",
+              "tla": "MAL",
+              "crest": "https://crests.football-data.org/84.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "SCHEDULED",
+            "utcDate": "2027-03-21T00:00:00Z"
+          },
+          {
+            "match_id": 564909,
+            "homeTeam": {
+              "name": "Sevilla FC",
+              "shortName": "Sevilla FC",
+              "tla": "SEV",
+              "crest": "https://crests.football-data.org/559.png"
+            },
+            "awayTeam": {
+              "name": "Elche CF",
+              "shortName": "Elche",
+              "tla": "ELC",
+              "crest": "https://crests.football-data.org/285.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "SCHEDULED",
+            "utcDate": "2027-03-21T00:00:00Z"
+          },
+          {
+            "match_id": 564910,
+            "homeTeam": {
+              "name": "Levante UD",
+              "shortName": "Levante",
+              "tla": "LEV",
+              "crest": "https://crests.football-data.org/88.png"
+            },
+            "awayTeam": {
+              "name": "CA Osasuna",
+              "shortName": "Osasuna",
+              "tla": "OSA",
+              "crest": "https://crests.football-data.org/79.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "SCHEDULED",
+            "utcDate": "2027-03-21T00:00:00Z"
+          },
+          {
+            "match_id": 564911,
+            "homeTeam": {
+              "name": "RC Celta de Vigo",
+              "shortName": "Celta",
+              "tla": "CEL",
+              "crest": "https://crests.football-data.org/558.png"
+            },
+            "awayTeam": {
+              "name": "Real Madrid CF",
+              "shortName": "Real Madrid",
+              "tla": "RMA",
+              "crest": "https://crests.football-data.org/86.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "SCHEDULED",
+            "utcDate": "2027-03-21T00:00:00Z"
+          },
+          {
+            "match_id": 564912,
+            "homeTeam": {
+              "name": "Rayo Vallecano de Madrid",
+              "shortName": "Rayo Vallecano",
+              "tla": "RAY",
+              "crest": "https://crests.football-data.org/87.png"
+            },
+            "awayTeam": {
+              "name": "FC Barcelona",
+              "shortName": "Barça",
+              "tla": "FCB",
+              "crest": "https://crests.football-data.org/81.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "SCHEDULED",
+            "utcDate": "2027-03-21T00:00:00Z"
+          },
+          {
+            "match_id": 564913,
+            "homeTeam": {
+              "name": "Real Sociedad de Fútbol",
+              "shortName": "Real Sociedad",
+              "tla": "RSO",
+              "crest": "https://crests.football-data.org/92.png"
+            },
+            "awayTeam": {
+              "name": "Deportivo Alavés",
+              "shortName": "Alavés",
+              "tla": "ALA",
+              "crest": "https://crests.football-data.org/263.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "SCHEDULED",
+            "utcDate": "2027-03-21T00:00:00Z"
+          },
+          {
+            "match_id": 564914,
+            "homeTeam": {
+              "name": "RCD Espanyol de Barcelona",
+              "shortName": "Espanyol",
+              "tla": "ESP",
+              "crest": "https://crests.football-data.org/80.png"
+            },
+            "awayTeam": {
+              "name": "Athletic Club",
+              "shortName": "Athletic",
+              "tla": "ATH",
+              "crest": "https://crests.football-data.org/77.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "SCHEDULED",
+            "utcDate": "2027-03-21T00:00:00Z"
+          },
+          {
+            "match_id": 564915,
+            "homeTeam": {
+              "name": "Real Racing Club de Santander",
+              "shortName": "Santander",
+              "tla": "SAN",
+              "crest": "https://crests.football-data.org/5335.png"
+            },
+            "awayTeam": {
+              "name": "Real Betis Balompié",
+              "shortName": "Real Betis",
+              "tla": "BET",
+              "crest": "https://crests.football-data.org/90.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "SCHEDULED",
+            "utcDate": "2027-03-21T00:00:00Z"
+          },
+          {
+            "match_id": 564916,
+            "homeTeam": {
+              "name": "Valencia CF",
+              "shortName": "Valencia",
+              "tla": "VAL",
+              "crest": "https://crests.football-data.org/95.png"
+            },
+            "awayTeam": {
+              "name": "RC Deportivo La Coruña",
+              "shortName": "Deportivo",
+              "tla": "DEP",
+              "crest": "https://crests.football-data.org/560.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "SCHEDULED",
+            "utcDate": "2027-03-21T00:00:00Z"
+          },
+          {
+            "match_id": 564917,
+            "homeTeam": {
+              "name": "Club Atlético de Madrid",
+              "shortName": "Atleti",
+              "tla": "ATL",
+              "crest": "https://crests.football-data.org/78.png"
+            },
+            "awayTeam": {
+              "name": "Getafe CF",
+              "shortName": "Getafe",
+              "tla": "GET",
+              "crest": "https://crests.football-data.org/82.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "SCHEDULED",
+            "utcDate": "2027-03-21T00:00:00Z"
+          }
+        ]
+      },
+      {
+        "competition": "serie-a",
+        "name": "Serie A",
+        "matches": [
+          {
+            "match_id": 558349,
+            "homeTeam": {
+              "name": "SSC Napoli",
+              "shortName": "Napoli",
+              "tla": "NAP",
+              "crest": "https://crests.football-data.org/113.png"
+            },
+            "awayTeam": {
+              "name": "Venezia FC",
+              "shortName": "Venezia FC",
+              "tla": "VEN",
+              "crest": "https://crests.football-data.org/454.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "SCHEDULED",
+            "utcDate": "2027-03-21T00:00:00Z"
+          },
+          {
+            "match_id": 558350,
+            "homeTeam": {
+              "name": "Udinese Calcio",
+              "shortName": "Udinese",
+              "tla": "UDI",
+              "crest": "https://crests.football-data.org/115.png"
+            },
+            "awayTeam": {
+              "name": "Torino FC",
+              "shortName": "Torino",
+              "tla": "TOR",
+              "crest": "https://crests.football-data.org/586.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "SCHEDULED",
+            "utcDate": "2027-03-21T00:00:00Z"
+          },
+          {
+            "match_id": 558351,
+            "homeTeam": {
+              "name": "Juventus FC",
+              "shortName": "Juventus",
+              "tla": "JUV",
+              "crest": "https://crests.football-data.org/109.png"
+            },
+            "awayTeam": {
+              "name": "Como 1907",
+              "shortName": "Como 1907",
+              "tla": "COM",
+              "crest": "https://crests.football-data.org/7397.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "SCHEDULED",
+            "utcDate": "2027-03-21T00:00:00Z"
+          },
+          {
+            "match_id": 558352,
+            "homeTeam": {
+              "name": "ACF Fiorentina",
+              "shortName": "Fiorentina",
+              "tla": "FIO",
+              "crest": "https://crests.football-data.org/99.png"
+            },
+            "awayTeam": {
+              "name": "Genoa CFC",
+              "shortName": "Genoa",
+              "tla": "GEN",
+              "crest": "https://crests.football-data.org/107.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "SCHEDULED",
+            "utcDate": "2027-03-21T00:00:00Z"
+          },
+          {
+            "match_id": 558353,
+            "homeTeam": {
+              "name": "Parma Calcio 1913",
+              "shortName": "Parma",
+              "tla": "PAR",
+              "crest": "https://crests.football-data.org/112.png"
+            },
+            "awayTeam": {
+              "name": "SS Lazio",
+              "shortName": "Lazio",
+              "tla": "LAZ",
+              "crest": "https://crests.football-data.org/110.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "SCHEDULED",
+            "utcDate": "2027-03-21T00:00:00Z"
+          },
+          {
+            "match_id": 558354,
+            "homeTeam": {
+              "name": "US Sassuolo Calcio",
+              "shortName": "Sassuolo",
+              "tla": "SAS",
+              "crest": "https://crests.football-data.org/471.png"
+            },
+            "awayTeam": {
+              "name": "Cagliari Calcio",
+              "shortName": "Cagliari",
+              "tla": "CAG",
+              "crest": "https://crests.football-data.org/104.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "SCHEDULED",
+            "utcDate": "2027-03-21T00:00:00Z"
+          },
+          {
+            "match_id": 558355,
+            "homeTeam": {
+              "name": "AC Monza",
+              "shortName": "Monza",
+              "tla": "MON",
+              "crest": "https://crests.football-data.org/5911.png"
+            },
+            "awayTeam": {
+              "name": "Bologna FC 1909",
+              "shortName": "Bologna",
+              "tla": "BOL",
+              "crest": "https://crests.football-data.org/103.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "SCHEDULED",
+            "utcDate": "2027-03-21T00:00:00Z"
+          },
+          {
+            "match_id": 558356,
+            "homeTeam": {
+              "name": "FC Internazionale Milano",
+              "shortName": "Inter",
+              "tla": "INT",
+              "crest": "https://crests.football-data.org/108.png"
+            },
+            "awayTeam": {
+              "name": "Frosinone Calcio",
+              "shortName": "Frosinone",
+              "tla": "FRO",
+              "crest": "https://crests.football-data.org/470.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "SCHEDULED",
+            "utcDate": "2027-03-21T00:00:00Z"
+          },
+          {
+            "match_id": 558357,
+            "homeTeam": {
+              "name": "AS Roma",
+              "shortName": "Roma",
+              "tla": "ROM",
+              "crest": "https://crests.football-data.org/100.png"
+            },
+            "awayTeam": {
+              "name": "US Lecce",
+              "shortName": "Lecce",
+              "tla": "USL",
+              "crest": "https://crests.football-data.org/5890.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "SCHEDULED",
+            "utcDate": "2027-03-21T00:00:00Z"
+          },
+          {
+            "match_id": 558358,
+            "homeTeam": {
+              "name": "Atalanta BC",
+              "shortName": "Atalanta",
+              "tla": "ATA",
+              "crest": "https://crests.football-data.org/102.png"
+            },
+            "awayTeam": {
+              "name": "AC Milan",
+              "shortName": "Milan",
+              "tla": "MIL",
+              "crest": "https://crests.football-data.org/98.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "SCHEDULED",
+            "utcDate": "2027-03-21T00:00:00Z"
+          }
+        ]
+      },
+      {
+        "competition": "ligue-1",
+        "name": "Ligue 1",
+        "matches": [
+          {
+            "match_id": 559495,
+            "homeTeam": {
+              "name": "Olympique de Marseille",
+              "shortName": "Marseille",
+              "tla": "MAR",
+              "crest": "https://crests.football-data.org/516.png"
+            },
+            "awayTeam": {
+              "name": "Olympique Lyonnais",
+              "shortName": "Olympique Lyon",
+              "tla": "LYO",
+              "crest": "https://crests.football-data.org/523.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "SCHEDULED",
+            "utcDate": "2027-03-21T00:00:00Z"
+          }
+        ]
+      }
+    ]
+  }
+}

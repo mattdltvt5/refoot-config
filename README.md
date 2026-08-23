@@ -4,6 +4,60 @@ Remote channel configuration for the **ReFoot Highlights** Android app.
 
 ## Recent changes
 
+### Cross-competition, date-indexed Home artifact (`home-index/`) (2026-08-23)
+The data backbone for the new cross-competition **Home** screen (backlog #8). For any
+date, it lists the competitions that have games that day (in canonical order) and their
+matches with every field a Home match card needs — so the client does **zero** extra
+fetching per match.
+
+**Derive-only — no new API calls.** `scripts/build_home_index.py` reads data the
+pipeline has *already* cached and writes a new derived artifact. It reads
+`fixtures/{slug}/{season}.json` (5 domestic leagues), `highlights/{slug}/{season}/*.json`
+(to join `match_id → video_id`, since domestic fixtures carry no `video_id`), and
+`tournament-groups/{slug}.json` (UCL/UEL/Euro/WC/Copa, `video_id` embedded). No
+football-data, API-Sports, or YouTube calls.
+
+**File layout — scalable, per-month (no monolithic file):**
+- `home-index/{YYYY-MM}.json` → `{ generated_at, month, dates: { "YYYY-MM-DD": [ { competition: slug, name, matches: [ … ] } ] } }`
+- `home-index/index.json` → manifest `{ generated_at, current_season, months: […], competitions: [{slug,name}] }`
+
+A client loads only the month(s) it needs; a `404` on a month or the absence of a date
+means "no games" (empty day). Competitions with no games on a date are omitted.
+
+**Per-match schema** (all home-card fields): `match_id`, `homeTeam{name,shortName,tla,crest}`,
+`awayTeam{…}`, `homeScore`, `awayScore`, `status` (**raw token**, e.g.
+`TIMED`/`IN_PLAY`/`PAUSED`/`FINISHED` — never collapsed or renamed), `utcDate`, and
+`videoId` (omitted when none). **No server-side "live" flag** — the client owns the strict
+`{IN_PLAY, PAUSED}` gate.
+
+**UTC bucketing (documented limitation).** Matches bucket by their **UTC** calendar date
+(`utcDate[:10]`); the pipeline can't know a client's timezone. The full `utcDate` is kept
+on every match, and the client labels Today/Tomorrow in local time (shipped previously).
+A match near the local/UTC midnight boundary can therefore appear under an adjacent local
+date for some users — a known phase-1 limitation, not a bug.
+
+**Season boundary.** All present season files per league are loaded, so any date near the
+UTC August boundary is covered from whichever season file holds it. The canonical August
+rule stays in `season_utils.current_season()` (reused, not reimplemented).
+
+**Faithful to data.** A match is indexed only if it has both a match id **and** a
+`utcDate`. Discovery found the tournament artifacts are largely undated: **all**
+`groupMatches` and **Copa knockout** matches lack `utcDate`/`id`, so today only domestic
+leagues + dated tournament **knockout** rounds (UCL fully; WC/Euro knockout) appear. Undated
+matches are skipped (never given a fabricated date) and will light up automatically if the
+tournament pipeline later backfills `utcDate`/`id`.
+
+**Cadence & hygiene.** Regenerated inside the existing fixtures write path
+(`fetch_highlights.py::main()`, right after `write_fixtures_artifacts()`) — **no new cron**.
+Writes are content-driven (a month is rewritten only when its data changes; `generated_at`
+is bumped only then), so re-runs are diff-free; stale month files are removed. The
+`fetch-highlights.yml` `git add` now includes `home-index/` (commit keeps `[skip ci]`,
+`github-actions[bot]` identity, rebase-retry push, never force-push).
+
+**Tests added:** `scripts/tests/test_home_index.py` — 19 tests (UTC bucketing incl. offset
+conversion, raw-status passthrough, video_id join/embed, skip-undated, canonical order,
+per-month layout, presence/absence, idempotency, stale removal).
+
 ### Copa América per-match events (goals & cards) backfill (2026-08-23)
 Copa América 2024 match events — goal scorer + minute, **regular vs extra-time
 (prórroga)**, and yellow/red cards with recipient — are now backfilled from API-Sports
@@ -144,6 +198,7 @@ Added a dedicated `fixtures/{slug}.json` artifact for all five domestic leagues 
 | `uicons/` | Flaticon UIcons Bold Rounded webfont (used by the admin panel) |
 | `highlights/` | Pre-built video metadata written by the fetch-highlights Action (`{slug}/{season}/{stem}.json`) |
 | `fixtures/` | Per-league fixture artifacts (`{slug}/{season}.json`) — all match statuses, GroupMatch shape, written every ~4 hours |
+| `home-index/` | Cross-competition, date-indexed Home artifact — per-month files (`{YYYY-MM}.json`) + `index.json` manifest; derived from `fixtures/`, `highlights/`, `tournament-groups/` (no new API calls); regenerated with the fixtures write |
 | `standings/` | Pre-built standings cache (`{slug}/{season}.json`) — written daily by sync-standings |
 | `scripts/season_utils.py` | Canonical `current_season(now=None)` — the shared August-boundary rule used by both the standings and fixtures pipelines |
 | `scripts/highlights_common.py` | Shared utilities, title filter constants, `is_highlight_title()`, `_normalize()`, `team_tokens()`, `DOMESTIC_LEAGUE_COMPS`, `TEAM_TITLE_ALIASES`, and `season_for_competition()` |

@@ -60,6 +60,7 @@ from highlights_common import (
     write_json_atomic,
 )
 from fixture_providers import FootballDataProvider
+import build_home_index
 
 log = logging.getLogger(__name__)
 
@@ -289,6 +290,16 @@ def main() -> None:
     # get_fixtures() and get_full_season() share one HTTP request per competition.
     all_highlights, all_artifacts = fetch_all_fixtures(fd_key)
     write_fixtures_artifacts(all_artifacts)
+
+    # Regenerate the cross-competition, date-indexed Home artifact (home-index/).
+    # Derives purely from the just-written fixtures + existing cached highlights and
+    # tournament-groups files — NO external API calls. Ties index freshness to the
+    # existing fixtures cadence rather than adding a new cron. Content-driven writes
+    # keep re-runs diff-free.
+    try:
+        build_home_index.regenerate()
+    except Exception as e:  # never let a derived-artifact failure block highlights
+        log.warning(f"home-index regeneration failed (non-fatal): {e}")
 
     # ── Quota guard: skip YouTube work if daily budget already spent ──────────
     quota = QuotaTracker()
