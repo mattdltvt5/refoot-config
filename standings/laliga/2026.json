@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-23T21:26:43.513419Z",
+  "generated_at": "2026-08-23T21:36:47.768201Z",
   "competition": "LaLiga",
   "slug": "laliga",
   "season": 2026,
@@ -64,6 +64,25 @@
     {
       "position": 4,
       "team": {
+        "id": 81,
+        "name": "FC Barcelona",
+        "shortName": "Barça",
+        "tla": "FCB",
+        "crest": "https://crests.football-data.org/81.png"
+      },
+      "playedGames": 1,
+      "form": "W",
+      "won": 1,
+      "draw": 0,
+      "lost": 0,
+      "points": 3,
+      "goalsFor": 5,
+      "goalsAgainst": 0,
+      "goalDifference": 5
+    },
+    {
+      "position": 5,
+      "team": {
         "id": 80,
         "name": "RCD Espanyol de Barcelona",
         "shortName": "Espanyol",
@@ -81,7 +100,7 @@
       "goalDifference": 2
     },
     {
-      "position": 5,
+      "position": 6,
       "team": {
         "id": 86,
         "name": "Real Madrid CF",
@@ -100,7 +119,7 @@
       "goalDifference": 1
     },
     {
-      "position": 6,
+      "position": 7,
       "team": {
         "id": 90,
         "name": "Real Betis Balompié",
@@ -119,7 +138,7 @@
       "goalDifference": 1
     },
     {
-      "position": 7,
+      "position": 8,
       "team": {
         "id": 82,
         "name": "Getafe CF",
@@ -138,7 +157,7 @@
       "goalDifference": -2
     },
     {
-      "position": 8,
+      "position": 9,
       "team": {
         "id": 94,
         "name": "Villarreal CF",
@@ -157,32 +176,13 @@
       "goalDifference": 0
     },
     {
-      "position": 9,
+      "position": 10,
       "team": {
         "id": 560,
         "name": "RC Deportivo La Coruña",
         "shortName": "Deportivo",
         "tla": "DEP",
         "crest": "https://crests.football-data.org/560.png"
-      },
-      "playedGames": 1,
-      "form": "D",
-      "won": 0,
-      "draw": 1,
-      "lost": 0,
-      "points": 1,
-      "goalsFor": 1,
-      "goalsAgainst": 1,
-      "goalDifference": 0
-    },
-    {
-      "position": 10,
-      "team": {
-        "id": 285,
-        "name": "Elche CF",
-        "shortName": "Elche",
-        "tla": "ELC",
-        "crest": "https://crests.football-data.org/285.png"
       },
       "playedGames": 1,
       "form": "D",
@@ -273,21 +273,21 @@
     {
       "position": 15,
       "team": {
-        "id": 81,
-        "name": "FC Barcelona",
-        "shortName": "Barça",
-        "tla": "FCB",
-        "crest": "https://crests.football-data.org/81.png"
+        "id": 285,
+        "name": "Elche CF",
+        "shortName": "Elche",
+        "tla": "ELC",
+        "crest": "https://crests.football-data.org/285.png"
       },
-      "playedGames": 0,
-      "form": "",
+      "playedGames": 2,
+      "form": "L,D",
       "won": 0,
-      "draw": 0,
-      "lost": 0,
-      "points": 0,
-      "goalsFor": 0,
-      "goalsAgainst": 0,
-      "goalDifference": 0
+      "draw": 1,
+      "lost": 1,
+      "points": 1,
+      "goalsFor": 1,
+      "goalsAgainst": 6,
+      "goalDifference": -5
     },
     {
       "position": 16,
