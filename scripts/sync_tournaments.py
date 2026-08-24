@@ -66,6 +66,56 @@ KNOCKOUT_STAGES = {
 # a tournament-groups slug back to a competition name for season lookup.
 _SLUG_TO_COMP_NAME: dict = {v: k for k, v in COMPETITION_SLUG_MAP.items()}
 
+# ── National-team crest normalization (padded-PNG → edge-to-edge flag SVG) ──────
+#
+# football-data.org serves some national-team crests as 200×200 .png files with
+# the flag letterboxed and transparent top/bottom padding; BoxFit.cover then
+# renders those bands as white stripes in the app. The fix is at the DATA layer:
+# for NATIONAL-team tournaments only, swap a padded .png crest for an edge-to-edge
+# flag-CDN SVG by ISO-3166 alpha-2 code. Already-.svg crests are left untouched,
+# and any unmapped .png keeps its existing crest (never a broken/empty URL) and is
+# reported so its country code can be added here. Club crests (UCL) are NEVER
+# touched. This is a single uniform code path — no per-team hardcoding.
+NATIONAL_TOURNAMENT_SLUGS = {"world-cup", "euro-cup"}
+
+FLAG_CDN = "https://flagcdn.com/{iso2}.svg"
+
+# football-data team name → ISO-3166 alpha-2. Extend as future tournaments add
+# national teams whose FD crest is a padded .png.
+_COUNTRY_ISO2 = {
+    "Argentina":   "ar",
+    "Jordan":      "jo",
+    "Uzbekistan":  "uz",
+    "South Korea": "kr",
+}
+
+# National teams with a padded .png crest but no ISO2 mapping — reported after a
+# run so they can be added to _COUNTRY_ISO2 (their crest is left unchanged).
+_unmapped_png_crests: set = set()
+
+
+def normalize_national_crest(name: str, crest: str) -> str:
+    """Return an edge-to-edge flag-CDN SVG for a national team whose crest is a
+    padded football-data .png; otherwise return the crest unchanged.
+
+    Only rewrites .png crests (the padded case). Already-.svg crests, empty
+    crests, and teams missing from _COUNTRY_ISO2 are returned as-is; unmapped
+    .png teams are recorded in _unmapped_png_crests for later mapping. Never
+    emits an empty/broken URL.
+    """
+    c = (crest or "").strip()
+    if not c.lower().endswith(".png"):
+        return crest  # already edge-to-edge (.svg) or empty — leave untouched
+    iso2 = _COUNTRY_ISO2.get((name or "").strip())
+    if not iso2:
+        _unmapped_png_crests.add((name or "").strip())
+        return crest  # keep the existing FD crest; never break a crest
+    return FLAG_CDN.format(iso2=iso2)
+
+
+def _identity_crest(name: str, crest: str) -> str:
+    return crest
+
 
 # ── football-data.org fetch (urllib; base_url/season overridable for tests) ────
 
@@ -98,13 +148,16 @@ def fetch_standings(comp_id, api_key, base_url=FD_BASE, season=None):
 # ── Cache construction (pure functions) ────────────────────────────────────────
 
 
-def build_group_matches(matches_payload):
+def build_group_matches(matches_payload, normalize_crest=_identity_crest):
     """Re-project group-stage fixtures into the `groupMatches` array shape.
 
     Group matches are those with a non-null "group" field that are NOT in a
     knockout stage.  Score is copied faithfully via score.fullTime and the FD
     status is carried through unchanged (a TIMED group game stays null).
     UCL league-phase matches have group=None, so they produce an empty list.
+
+    ``normalize_crest(name, crest) -> crest`` rewrites national-team padded-PNG
+    crests to flag-CDN SVGs (identity for club tournaments).
     """
     group_matches = []
     for m in matches_payload.get("matches", []):
@@ -135,13 +188,13 @@ def build_group_matches(matches_payload):
                 "id":    ht.get("id"),
                 "name":  ht.get("name", ""),
                 "tla":   ht.get("tla", ""),
-                "crest": ht.get("crest", ""),
+                "crest": normalize_crest(ht.get("name", ""), ht.get("crest", "")),
             },
             "awayTeam": {
                 "id":    at.get("id"),
                 "name":  at.get("name", ""),
                 "tla":   at.get("tla", ""),
-                "crest": at.get("crest", ""),
+                "crest": normalize_crest(at.get("name", ""), at.get("crest", "")),
             },
             "score": {
                 "fullTime": {"home": ft.get("home"), "away": ft.get("away")},
@@ -161,21 +214,50 @@ def build_tournament_data(slug, standings_payload, matches_payload,
     exact shape the Flutter app parses.  No score is transformed.
     """
     existing_video_ids = existing_video_ids or {}
+    # National-team tournaments (WC/Euro) get padded-PNG → flag-SVG crest
+    # normalization; club tournaments (UCL) keep FD crests verbatim.
+    is_national = slug in NATIONAL_TOURNAMENT_SLUGS
+    ncrest = normalize_national_crest if is_national else _identity_crest
+
+    def _knockout(m):
+        base = {**m, "video_id": existing_video_ids.get(m.get("id"))}
+        if not is_national:
+            return base
+        for side in ("homeTeam", "awayTeam"):
+            t = base.get(side)
+            if isinstance(t, dict):
+                base[side] = {**t, "crest": ncrest(t.get("name", ""), t.get("crest", ""))}
+        return base
+
+    def _standings():
+        rows = [s for s in standings_payload.get("standings", [])
+                if s.get("type") == "TOTAL"]
+        if not is_national:
+            return rows
+        out = []
+        for s in rows:
+            table = []
+            for row in s.get("table", []) or []:
+                tm = row.get("team")
+                if isinstance(tm, dict):
+                    row = {**row, "team": {**tm,
+                            "crest": ncrest(tm.get("name", ""), tm.get("crest", ""))}}
+                table.append(row)
+            out.append({**s, "table": table})
+        return out
+
     return {
         "generated_at": datetime.now(timezone.utc).isoformat().replace("+00:00", "Z"),
         "slug": slug,
-        "standings": [
-            s for s in standings_payload.get("standings", [])
-            if s.get("type") == "TOTAL"
-        ],
+        "standings": _standings(),
         "matches": [
-            {**m, "video_id": existing_video_ids.get(m.get("id"))}
+            _knockout(m)
             for m in matches_payload.get("matches", [])
             if m.get("stage") in KNOCKOUT_STAGES
         ],
         "groupMatches": [
             {**gm, "video_id": existing_video_ids.get(gm.get("match_id"))}
-            for gm in build_group_matches(matches_payload)
+            for gm in build_group_matches(matches_payload, normalize_crest=ncrest)
         ],
     }
 
@@ -351,6 +433,12 @@ def main(api_key, out_dir="."):
     # 2) Graft matched video_ids into every tournament cache (incl. Copa) from
     #    the freshly-written local highlights.  No API calls.
     graft_video_ids(out_dir)
+
+    # 3) Report national teams with padded-PNG crests we couldn't map to a country
+    #    code (their crest was left unchanged) so _COUNTRY_ISO2 can be extended.
+    if _unmapped_png_crests:
+        print(f"⚠ national teams with unmapped padded-PNG crests (kept FD crest; "
+              f"add to _COUNTRY_ISO2): {sorted(_unmapped_png_crests)}", file=sys.stderr)
 
 
 if __name__ == "__main__":

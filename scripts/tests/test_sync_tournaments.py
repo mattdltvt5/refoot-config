@@ -26,6 +26,7 @@ from sync_tournaments import (  # noqa: E402
     fetch_matches,
     fetch_standings,
     graft_video_ids,
+    normalize_national_crest,
     read_existing_video_ids,
     write_tournament,
 )
@@ -264,6 +265,61 @@ class TestVideoIdGraftIntoBuild(unittest.TestCase):
             existing_video_ids={600001: "PREV_VID"},
         )
         self.assertEqual(data["groupMatches"][0]["video_id"], "PREV_VID")
+
+
+# ── national-team crest normalization (padded PNG → flag-CDN SVG) ───────────────
+
+
+class TestNationalCrestNormalization(unittest.TestCase):
+    def test_padded_png_mapped_to_flag_svg(self):
+        for name, iso in [("Argentina", "ar"), ("Jordan", "jo"),
+                          ("Uzbekistan", "uz"), ("South Korea", "kr")]:
+            self.assertEqual(
+                normalize_national_crest(name, f"https://crests.football-data.org/1.png"),
+                f"https://flagcdn.com/{iso}.svg")
+
+    def test_svg_crest_left_untouched(self):
+        url = "https://crests.football-data.org/764.svg"
+        self.assertEqual(normalize_national_crest("Brazil", url), url)
+
+    def test_unmapped_png_keeps_existing_crest(self):
+        url = "https://crests.football-data.org/9999.png"
+        # A national team not in the ISO2 map keeps its FD crest (never broken).
+        self.assertEqual(normalize_national_crest("Neverland", url), url)
+
+    def test_empty_crest_untouched(self):
+        self.assertEqual(normalize_national_crest("Argentina", ""), "")
+
+    def test_world_cup_group_normalizes_png_not_svg(self):
+        # WC (national) group match: a .png home crest is swapped, a .svg away kept.
+        m = {
+            "id": 1, "stage": "GROUP_STAGE", "group": "Group A", "matchday": 1,
+            "homeTeam": {"id": 762, "name": "Argentina", "tla": "ARG",
+                         "crest": "https://crests.football-data.org/762.png"},
+            "awayTeam": {"id": 764, "name": "Brazil", "tla": "BRA",
+                         "crest": "https://crests.football-data.org/764.svg"},
+            "score": {"fullTime": {"home": 1, "away": 0}}, "status": "FINISHED",
+        }
+        data = build_tournament_data("world-cup", {}, {"matches": [m]})
+        gm = data["groupMatches"][0]
+        self.assertEqual(gm["homeTeam"]["crest"], "https://flagcdn.com/ar.svg")
+        self.assertEqual(gm["awayTeam"]["crest"],
+                         "https://crests.football-data.org/764.svg")
+
+    def test_club_tournament_never_normalized(self):
+        # UCL (clubs): a .png crest must be passed through verbatim (no flag swap).
+        m = {
+            "id": 2, "stage": "GROUP_STAGE", "group": "Group A", "matchday": 1,
+            "homeTeam": {"id": 999, "name": "Some Club FC", "tla": "SCF",
+                         "crest": "https://crests.football-data.org/999.png"},
+            "awayTeam": {"id": 998, "name": "Other Club", "tla": "OCL",
+                         "crest": "https://crests.football-data.org/998.png"},
+            "score": {"fullTime": {"home": 0, "away": 0}}, "status": "FINISHED",
+        }
+        data = build_tournament_data("ucl", {}, {"matches": [m]})
+        gm = data["groupMatches"][0]
+        self.assertEqual(gm["homeTeam"]["crest"],
+                         "https://crests.football-data.org/999.png")
 
 
 # ── group matches ───────────────────────────────────────────────────────────────

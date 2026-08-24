@@ -4,6 +4,23 @@ Remote channel configuration for the **ReFoot Highlights** Android app.
 
 ## Recent changes
 
+### National-team crest normalization: padded PNG → flag-CDN SVG (2026-08-24)
+Some football-data.org national-team crests are 200×200 `.png` files with the flag letterboxed and
+transparent top/bottom padding; `BoxFit.cover` renders those bands as white stripes in the app
+(Argentina, Jordan, Uzbekistan, South Korea in the World Cup). This is fixed at the **data layer** —
+the Flutter `TeamCrest` widget is correct and untouched. `sync_tournaments.py` now normalizes crests
+for **national-team tournaments only** (`NATIONAL_TOURNAMENT_SLUGS = {world-cup, euro-cup}` — never
+clubs/UCL): if a national team's crest is a `.png`, it's swapped for an edge-to-edge flag-CDN SVG
+(`https://flagcdn.com/<iso2>.svg`) via a small, extensible `_COUNTRY_ISO2` name→code map; already-`.svg`
+crests are left untouched. A single uniform code path covers group matches, knockout matches, and
+standings. **Safe fallback:** a national `.png` crest with no ISO2 mapping keeps its existing crest
+(never a broken/empty URL) and is reported so the map can be extended. All four substituted flags were
+verified HTTP 200 and edge-to-edge before committing. `tournament-groups/world-cup.json` and the WC
+months of `home-index/` were regenerated (only the four teams' crest URLs changed); Euro groups and
+all club crests are unchanged. Changing a crest **image URL** is contract-neutral — the no-live-calls
+rule governs fixture/highlight data, not static image assets. **Files:** `scripts/sync_tournaments.py`
+(+ `test_sync_tournaments.py`), `tournament-groups/world-cup.json`, `home-index/2026-06|07.json`.
+
 ### Automatic per-season playlist discovery (2026-08-23)
 Broadcaster/team highlight playlists rotate every season (`2025/26 Champions League Extended
 Highlights` → `2026/27 …`), and the rotating IDs were hardcoded in `sources.json` — so someone
