@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-24T01:06:58Z",
+  "generated_at": "2026-08-24T07:00:20Z",
   "current_season": 2026,
   "resolved": {
     "2026": {
@@ -132,7 +132,7 @@
         },
         "Club Atlético de Madrid": {
           "format": "undetermined",
-          "playlist_id": "PLem6BBedbLfIOk_fiBqv64VFLch9pJx8u"
+          "playlist_id": "PLem6BBedbLfKM0e7sGS-iBisJor-t9smo"
         },
         "Deportivo Alavés": {
           "format": "undetermined",
@@ -275,7 +275,7 @@
       }
     }
   },
-  "team_matcher_version": 3,
+  "team_matcher_version": 4,
   "flags": [
     {
       "competition": "Premier League",
@@ -386,6 +386,108 @@
       "source": "team:Paris FC",
       "mapped_id": "PLhfmS0vX1jNxvr0J6-IKE41C3bRe816sx",
       "reason": "channel_unresolvable_reseed"
+    }
+  ],
+  "missing_channels": [
+    {
+      "competition": "Bundesliga",
+      "team": "FC Schalke 04",
+      "covered_via_other_tier": true
+    },
+    {
+      "competition": "Bundesliga",
+      "team": "SC Paderborn 07",
+      "covered_via_other_tier": true
+    },
+    {
+      "competition": "Bundesliga",
+      "team": "SV 07 Elversberg",
+      "covered_via_other_tier": true
+    },
+    {
+      "competition": "Champions League",
+      "team": "FK Kairat",
+      "covered_via_other_tier": true
+    },
+    {
+      "competition": "Champions League",
+      "team": "PAE Olympiakos SFP",
+      "covered_via_other_tier": true
+    },
+    {
+      "competition": "Champions League",
+      "team": "Qarabağ Ağdam FK",
+      "covered_via_other_tier": true
+    },
+    {
+      "competition": "Champions League",
+      "team": "Sporting Clube de Portugal",
+      "covered_via_other_tier": true
+    },
+    {
+      "competition": "LaLiga",
+      "team": "Málaga CF",
+      "covered_via_other_tier": true
+    },
+    {
+      "competition": "LaLiga",
+      "team": "RC Deportivo La Coruña",
+      "covered_via_other_tier": true
+    },
+    {
+      "competition": "LaLiga",
+      "team": "Real Racing Club de Santander",
+      "covered_via_other_tier": true
+    },
+    {
+      "competition": "Ligue 1",
+      "team": "AJ Auxerre",
+      "covered_via_other_tier": true
+    },
+    {
+      "competition": "Ligue 1",
+      "team": "ES Troyes AC",
+      "covered_via_other_tier": true
+    },
+    {
+      "competition": "Ligue 1",
+      "team": "Le Mans FC",
+      "covered_via_other_tier": true
+    },
+    {
+      "competition": "Premier League",
+      "team": "Coventry City FC",
+      "covered_via_other_tier": false
+    },
+    {
+      "competition": "Premier League",
+      "team": "Hull City AFC",
+      "covered_via_other_tier": false
+    },
+    {
+      "competition": "Premier League",
+      "team": "Ipswich Town FC",
+      "covered_via_other_tier": false
+    },
+    {
+      "competition": "Serie A",
+      "team": "AC Monza",
+      "covered_via_other_tier": true
+    },
+    {
+      "competition": "Serie A",
+      "team": "Frosinone Calcio",
+      "covered_via_other_tier": true
+    },
+    {
+      "competition": "Serie A",
+      "team": "Udinese Calcio",
+      "covered_via_other_tier": true
+    },
+    {
+      "competition": "Serie A",
+      "team": "Venezia FC",
+      "covered_via_other_tier": true
     }
   ],
   "estimated_units": 201
