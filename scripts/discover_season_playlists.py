@@ -34,15 +34,19 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 from highlights_common import (
     SOURCES_JSON,
     fetch_playlist_owner,
+    load_json_file,
+    season_for_competition,
     utc_now_iso,
-    write_json_atomic,
 )
 from season_utils import current_season
 from playlist_discovery import (
     DISCOVERED_PATH,
     available_competitions,
     list_channel_playlists,
+    merge_discovered_seasons,
+    migrate_flat_discovered,
     select_current_season_playlist,
+    write_discovered_if_changed,
 )
 
 logging.basicConfig(level=logging.INFO,
@@ -73,8 +77,11 @@ def main() -> None:
     owner_cache: dict = {}     # playlist_id -> owner dict | None
     channel_cache: dict = {}   # channel_id  -> [playlists]
 
-    resolved: dict = {}        # comp -> {broadcaster -> playlist_id}
-    team_resolved: dict = {}   # comp -> {team -> playlist_id}
+    # Season-nested this-run resolutions: {season -> {comp -> {source -> id}}}.
+    # Keyed by each competition's OWN season (season_for_competition) so tournament
+    # editions land under their edition year, not the run's league season.
+    run_resolved: dict = {}
+    run_team: dict = {}
     flags: list = []
 
     def over_budget() -> bool:
@@ -136,7 +143,8 @@ def main() -> None:
                     continue
                 new_id = resolve_one(comp, broadcaster, pid, require_gate=True)
                 if new_id:
-                    resolved.setdefault(comp, {})[broadcaster] = new_id
+                    s = str(season_for_competition(comp))
+                    run_resolved.setdefault(s, {}).setdefault(comp, {})[broadcaster] = new_id
 
     # ── Tier 1c/1d team playlists (single-team channels → no competition-gate) ──
     for comp, tmap in team_pls.items():
@@ -147,22 +155,30 @@ def main() -> None:
                 continue
             new_id = resolve_one(comp, f"team:{team}", pid, require_gate=False)
             if new_id:
-                team_resolved.setdefault(comp, {})[team] = new_id
+                s = str(season_for_competition(comp))
+                run_team.setdefault(s, {}).setdefault(comp, {})[team] = new_id
+
+    # Load existing store (migrating the old flat shape) and MERGE this run's
+    # resolutions in — preserving all prior seasons and any same-season entries
+    # this run didn't re-resolve. Never a fresh empty overwrite.
+    existing = migrate_flat_discovered(load_json_file(DISCOVERED_PATH))
+    merged = merge_discovered_seasons(existing, run_resolved, run_team)
 
     payload = {
         "generated_at":    utc_now_iso(),
         "current_season":  current_season(),
-        "resolved":        resolved,
-        "team":            team_resolved,
+        "resolved":        merged["resolved"],
+        "team":            merged["team"],
         "flags":           flags,
         "estimated_units": counter[0],
     }
-    write_json_atomic(DISCOVERED_PATH, payload)
+    wrote = write_discovered_if_changed(DISCOVERED_PATH, payload)
 
-    log.info("Wrote %s: %d comp overrides, %d team overrides, %d flags, ~%d units",
-             DISCOVERED_PATH.name,
-             sum(len(v) for v in resolved.values()),
-             sum(len(v) for v in team_resolved.values()),
+    log.info("%s %s: %d comp overrides this run, %d team overrides this run, "
+             "%d flags, ~%d units",
+             "Wrote" if wrote else "Unchanged (skipped write)", DISCOVERED_PATH.name,
+             sum(len(v) for comps in run_resolved.values() for v in comps.values()),
+             sum(len(v) for comps in run_team.values() for v in comps.values()),
              len(flags), counter[0])
     if flags:
         log.warning("FLAGS for human review (%d): %s", len(flags),

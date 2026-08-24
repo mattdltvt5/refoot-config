@@ -43,6 +43,7 @@ from highlights_common import (
     YT_PLAYLISTS,
     load_json_file,
     season_for_competition,
+    write_json_atomic,
 )
 from season_utils import current_season
 
@@ -258,36 +259,143 @@ def list_channel_playlists(
     return out
 
 
+# ── Season-keyed additive store: schema, migration, merge, write ────────────────
+#
+# discovered-playlists.json (season-nested, additive):
+#   {
+#     generated_at, current_season, flags, estimated_units,   # run metadata
+#     resolved: { "<season>": { comp: { broadcaster: playlist_id } } },
+#     team:     { "<season>": { comp: { team:        playlist_id } } },
+#   }
+# Each run MERGES its resolutions into the existing file (deep-merge that only
+# adds/updates leaves — never deletes), so prior seasons AND same-season prior
+# resolutions the current run didn't re-resolve are preserved.
+
+_SEASON_KEY_RE = re.compile(r"^\d{4}$")
+
+
+def _is_season_nested(mapping: dict) -> bool:
+    """True if a resolved/team mapping is already season-nested (top keys are years).
+
+    An empty mapping counts as new-shape (nothing to migrate). The OLD flat shape
+    has competition names as top keys, which never match ^\\d{4}$.
+    """
+    if not mapping:
+        return True
+    return all(_SEASON_KEY_RE.fullmatch(str(k)) for k in mapping)
+
+
+def migrate_flat_discovered(data: "dict | None") -> dict:
+    """Return {resolved, team} in season-nested shape, migrating the OLD flat shape.
+
+    Old flat shape ({resolved:{comp:{...}}}) is nested under the season named by
+    the file's own `current_season` stamp — the honest season it represented (no
+    guessing). Missing/corrupt/None → empty. Already-nested → returned as-is.
+    """
+    if not isinstance(data, dict):
+        return {"resolved": {}, "team": {}}
+    res = data.get("resolved") or {}
+    tm  = data.get("team") or {}
+    if _is_season_nested(res) and _is_season_nested(tm):
+        return {"resolved": dict(res), "team": dict(tm)}
+    season = str(data.get("current_season") or "").strip()
+    if not season:
+        # Flat shape with no season stamp → cannot place honestly; treat as empty.
+        return {"resolved": {}, "team": {}}
+    out = {"resolved": {}, "team": {}}
+    if not _is_season_nested(res):
+        out["resolved"] = {season: dict(res)}
+    elif res:
+        out["resolved"] = dict(res)
+    if not _is_season_nested(tm):
+        out["team"] = {season: dict(tm)}
+    elif tm:
+        out["team"] = dict(tm)
+    return out
+
+
+def _deep_merge_seasons(base: dict, incoming: dict) -> dict:
+    """Deep-merge season→comp→source→id: add/update leaves, never delete."""
+    for season, comps in incoming.items():
+        b_comps = base.setdefault(str(season), {})
+        for comp, srcs in comps.items():
+            b_comps.setdefault(comp, {}).update(srcs)
+    return base
+
+
+def merge_discovered_seasons(existing: dict, run_resolved: dict, run_team: dict) -> dict:
+    """Merge this run's season-nested resolutions into the existing store.
+
+    [existing] is the migrated {resolved, team}. Returns a NEW {resolved, team}
+    with this run's entries added/updated and all other seasons/comps preserved.
+    """
+    merged = {
+        "resolved": {s: {c: dict(v) for c, v in comps.items()}
+                     for s, comps in (existing.get("resolved") or {}).items()},
+        "team":     {s: {c: dict(v) for c, v in comps.items()}
+                     for s, comps in (existing.get("team") or {}).items()},
+    }
+    _deep_merge_seasons(merged["resolved"], run_resolved)
+    _deep_merge_seasons(merged["team"], run_team)
+    return merged
+
+
+def write_discovered_if_changed(path: Path, payload: dict) -> bool:
+    """Write payload only if the meaningful content changed (ignoring run metadata).
+
+    Keeps same-input re-runs diff-free: generated_at / estimated_units churn every
+    run, so they are excluded from the comparison. Returns True if written.
+    """
+    existing = load_json_file(path)
+    if isinstance(existing, dict):
+        strip = lambda d: {k: v for k, v in d.items()
+                           if k not in ("generated_at", "estimated_units")}
+        if strip(existing) == strip(payload):
+            return False
+    write_json_atomic(path, payload)
+    return True
+
+
 # ── Override loader (used by the fetch path) ────────────────────────────────────
 
 
-def apply_discovered_overrides(config: dict, *, path: Path = DISCOVERED_PATH) -> dict:
+def apply_discovered_overrides(config: dict, *, path: Path = DISCOVERED_PATH,
+                               season: "int | None" = None, now=None) -> dict:
     """Override sources.json rotating playlists with auto-discovered current ones.
 
-    Reads discovered-playlists.json (written by discover_season_playlists.py):
-      {generated_at, resolved:{comp:{broadcaster:playlist_id}},
-       team:{comp:{team:playlist_id}}, flags:[...]}
-    Where a confident current-season playlist was resolved, it replaces the
-    hardcoded Tier-4 / Tier-1c-d ID; where absent (no confident match), the
-    sources.json last-known-good ID is left untouched. No-op if the file is
-    missing, so the pipeline is unchanged until discovery has run.
+    Season-aware: for each competition it looks up the resolution under the season
+    it is actually processing — season_for_competition(comp) by default (the same
+    per-competition season the fetch uses to pick fixtures), or an explicit
+    [season] override (e.g. a backfill of a specific season). An entry is applied
+    ONLY when it exists for that competition's target season; otherwise the
+    sources.json last-known-good ID is left untouched — a different season's ID is
+    never cross-applied. Tolerates the OLD flat file shape (migrated on read) and a
+    missing/corrupt file (no-op).
     """
     data = load_json_file(path)
     if not isinstance(data, dict):
         return config
+    nested = migrate_flat_discovered(data)
+    res_by_season = nested.get("resolved") or {}
+    team_by_season = nested.get("team") or {}
+
+    def _target_season(comp: str) -> str:
+        return str(season if season is not None else season_for_competition(comp, now))
 
     comp_pl = config.get("competition_playlists", {})
-    for comp, bmap in (data.get("resolved") or {}).items():
-        if not isinstance(bmap, dict):
-            continue
+    for comp in {c for comps in res_by_season.values() for c in comps}:
+        bmap = res_by_season.get(_target_season(comp), {}).get(comp, {})
+        if not isinstance(bmap, dict) or not bmap:
+            continue  # no entry for this comp's target season → last-known-good
         dest = comp_pl.setdefault(comp, {})
         for broadcaster, pid in bmap.items():
             if pid:
                 dest[broadcaster] = [pid]
 
     team_pl = config.get("team_playlists", {})
-    for comp, tmap in (data.get("team") or {}).items():
-        if not isinstance(tmap, dict):
+    for comp in {c for comps in team_by_season.values() for c in comps}:
+        tmap = team_by_season.get(_target_season(comp), {}).get(comp, {})
+        if not isinstance(tmap, dict) or not tmap:
             continue
         dest = team_pl.setdefault(comp, {})
         for team, pid in tmap.items():

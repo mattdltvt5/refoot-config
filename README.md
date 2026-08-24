@@ -36,10 +36,24 @@ channels stay the human-seeded input, only the playlist is re-discovered.)
   and writes confident matches to **`highlights/discovered-playlists.json`**. `playlists.list`
   only — never `search.list`; quota is trivial (cached per channel, ≤5 pages/channel, a hard
   ~600-unit ceiling). The data write is committed `[skip ci]` by `github-actions[bot]`.
+- **Season-keyed additive store**: `discovered-playlists.json` nests resolutions by season —
+  `resolved: { "<season>": { comp: { broadcaster: id } } }` and `team: { "<season>": { comp: {
+  team: id } } }`, each competition keyed by its OWN season (`season_for_competition`, so
+  tournament editions land under their edition year). Every run **loads-and-merges** the existing
+  file (deep-merge that only adds/updates leaves, never deletes) so **prior seasons — and any
+  same-season entry the current run didn't re-resolve — are preserved**; it never does the old
+  empty-init full-overwrite. Writes are content-driven (generated_at/estimated_units excluded from
+  the diff) so an unchanged re-run is byte-identical (no noisy `[skip ci]` commits). An old
+  flat-shaped file is migrated on read/write by nesting it under its own `current_season` stamp
+  (missing/corrupt → treated as empty; no crash).
 - **Fetch integration**: `fetch_highlights.py` applies `apply_discovered_overrides(config)` after
-  `load_sources()`, so resolved current-season IDs replace the hardcoded rotating ones. No-op
-  until the weekly job has run. The existing per-gameweek Tier-2 discovery (`find_gameweek_playlist`)
-  is unchanged.
+  `load_sources()`. The override is **season-aware** — per competition it looks up the resolution
+  under the season it is processing (`season_for_competition(comp)`, the same season the fetch uses
+  to pick fixtures; an explicit `season=` is accepted for a backfill). An entry is applied only for
+  that competition's target season; absent → the sources.json last-known-good ID stays (a different
+  season's ID is never cross-applied). No-op until the weekly job has run; the per-gameweek Tier-2
+  discovery (`find_gameweek_playlist`) and the availability scoping are unchanged. Per-season
+  highlight OUTPUT (`highlights/{slug}/{season}/…`) is not touched by discovery.
 - **Fallback + flags**: on **no confident/verified match** (or a dead/private mapped playlist, like
   the current PL broadcaster ID), the pipeline **keeps the last-known-good sources.json ID and
   records a loud, machine-readable flag** in `discovered-playlists.json` (`flags[]`) + the log —

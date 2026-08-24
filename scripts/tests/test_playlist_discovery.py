@@ -19,6 +19,9 @@ from playlist_discovery import (
     is_competition_available,
     available_competitions,
     apply_discovered_overrides,
+    migrate_flat_discovered,
+    merge_discovered_seasons,
+    write_discovered_if_changed,
 )
 
 NOW = datetime(2026, 9, 1)
@@ -151,13 +154,72 @@ def test_availability_signal(tmp_path):
     assert {"Premier League", "Champions League"} <= avail
 
 
-# ── Override loader ──────────────────────────────────────────────────────────
+# ── Season-nested store: migrate / merge / write ─────────────────────────────
 
-def test_apply_discovered_overrides(tmp_path):
+def test_merge_preserves_prior_seasons():
+    existing = {"resolved": {"2025": {"Champions League": {"CBS": "CL25"}}},
+                "team":     {"2025": {"Premier League": {"Arsenal FC": "ARS25"}}}}
+    merged = merge_discovered_seasons(
+        existing,
+        {"2026": {"Champions League": {"CBS": "CL26"}}},   # new season this run
+        {"2026": {"Premier League": {"Arsenal FC": "ARS26"}}})
+    # Both seasons present; prior season untouched.
+    assert merged["resolved"]["2025"]["Champions League"]["CBS"] == "CL25"
+    assert merged["resolved"]["2026"]["Champions League"]["CBS"] == "CL26"
+    assert merged["team"]["2025"]["Premier League"]["Arsenal FC"] == "ARS25"
+    assert merged["team"]["2026"]["Premier League"]["Arsenal FC"] == "ARS26"
+
+def test_merge_same_season_updates_leaf_keeps_others():
+    existing = {"resolved": {"2026": {"Champions League": {"CBS": "OLD", "TUDN": "KEEP"}}},
+                "team": {}}
+    merged = merge_discovered_seasons(
+        existing, {"2026": {"Champions League": {"CBS": "NEW"}}}, {})
+    assert merged["resolved"]["2026"]["Champions League"]["CBS"] == "NEW"   # updated
+    assert merged["resolved"]["2026"]["Champions League"]["TUDN"] == "KEEP" # preserved
+
+def test_migrate_flat_uses_current_season_stamp():
+    flat = {"current_season": 2025,
+            "resolved": {"Champions League": {"CBS": "CL"}},
+            "team": {"Premier League": {"Arsenal FC": "ARS"}}}
+    m = migrate_flat_discovered(flat)
+    assert m["resolved"] == {"2025": {"Champions League": {"CBS": "CL"}}}
+    assert m["team"] == {"2025": {"Premier League": {"Arsenal FC": "ARS"}}}
+
+def test_migrate_flat_without_stamp_is_empty_not_crash():
+    m = migrate_flat_discovered({"resolved": {"Champions League": {"CBS": "CL"}}})
+    assert m == {"resolved": {}, "team": {}}
+
+def test_migrate_none_and_already_nested():
+    assert migrate_flat_discovered(None) == {"resolved": {}, "team": {}}
+    nested = {"resolved": {"2026": {"X": {"b": "i"}}}, "team": {}}
+    assert migrate_flat_discovered(nested)["resolved"] == {"2026": {"X": {"b": "i"}}}
+
+def test_write_discovered_is_idempotent(tmp_path):
+    path = tmp_path / "discovered-playlists.json"
+    base = {"current_season": 2026, "flags": [],
+            "resolved": {"2026": {"Champions League": {"CBS": "CL26"}}}, "team": {}}
+    assert write_discovered_if_changed(path, {**base, "generated_at": "T1",
+                                              "estimated_units": 10}) is True
+    bytes1 = path.read_bytes()
+    # Same content, different run metadata → no rewrite, byte-identical file.
+    assert write_discovered_if_changed(path, {**base, "generated_at": "T2",
+                                              "estimated_units": 99}) is False
+    assert path.read_bytes() == bytes1
+    # Changed content → rewrite.
+    changed = {**base, "resolved": {"2026": {"Champions League": {"CBS": "CL26b"}}},
+               "generated_at": "T3", "estimated_units": 11}
+    assert write_discovered_if_changed(path, changed) is True
+
+
+# ── Season-aware override loader ─────────────────────────────────────────────
+
+def test_apply_discovered_overrides_season_correct(tmp_path):
+    # now=2026 → season_for_competition = 2026 for CL and PL.
     path = tmp_path / "discovered-playlists.json"
     path.write_text(json.dumps({
-        "resolved": {"Champions League": {"CBS Sport Golazo": "NEW_CL"}},
-        "team":     {"Premier League": {"Arsenal FC": "NEW_ARS"}},
+        "resolved": {"2026": {"Champions League": {"CBS Sport Golazo": "NEW_CL"}},
+                     "2025": {"Champions League": {"CBS Sport Golazo": "OLD_CL_PRIOR"}}},
+        "team":     {"2026": {"Premier League": {"Arsenal FC": "NEW_ARS"}}},
     }), encoding="utf-8")
     config = {
         "competition_playlists": {"Champions League": {"CBS Sport Golazo": ["OLD_CL"],
@@ -165,11 +227,38 @@ def test_apply_discovered_overrides(tmp_path):
         "team_playlists":        {"Premier League": {"Arsenal FC": "OLD_ARS",
                                                      "Chelsea FC": "KEEP2"}},
     }
-    out = apply_discovered_overrides(config, path=path)
+    out = apply_discovered_overrides(config, path=path, now=NOW)
+    # Applies the 2026 (target-season) id, NOT the 2025 one.
     assert out["competition_playlists"]["Champions League"]["CBS Sport Golazo"] == ["NEW_CL"]
-    assert out["competition_playlists"]["Champions League"]["TUDN USA"] == ["KEEP"]  # untouched
+    assert out["competition_playlists"]["Champions League"]["TUDN USA"] == ["KEEP"]
     assert out["team_playlists"]["Premier League"]["Arsenal FC"] == "NEW_ARS"
-    assert out["team_playlists"]["Premier League"]["Chelsea FC"] == "KEEP2"          # untouched
+    assert out["team_playlists"]["Premier League"]["Chelsea FC"] == "KEEP2"
+
+def test_apply_discovered_overrides_absent_season_keeps_last_known_good(tmp_path):
+    # Only a PRIOR-season (2025) entry exists; target season 2026 has none →
+    # no override, sources.json last-known-good retained.
+    path = tmp_path / "discovered-playlists.json"
+    path.write_text(json.dumps({
+        "resolved": {"2025": {"Champions League": {"CBS Sport Golazo": "PRIOR"}}},
+        "team": {},
+    }), encoding="utf-8")
+    config = {"competition_playlists": {"Champions League": {"CBS Sport Golazo": ["OLD_CL"]}},
+              "team_playlists": {}}
+    out = apply_discovered_overrides(config, path=path, now=NOW)
+    assert out["competition_playlists"]["Champions League"]["CBS Sport Golazo"] == ["OLD_CL"]
+
+def test_apply_discovered_overrides_old_flat_shape_compat(tmp_path):
+    # Old flat file with a 2026 stamp → migrated on read → applied for season 2026.
+    path = tmp_path / "discovered-playlists.json"
+    path.write_text(json.dumps({
+        "current_season": 2026,
+        "resolved": {"Champions League": {"CBS Sport Golazo": "FLAT_CL"}},
+        "team": {},
+    }), encoding="utf-8")
+    config = {"competition_playlists": {"Champions League": {"CBS Sport Golazo": ["OLD_CL"]}},
+              "team_playlists": {}}
+    out = apply_discovered_overrides(config, path=path, now=NOW)
+    assert out["competition_playlists"]["Champions League"]["CBS Sport Golazo"] == ["FLAT_CL"]
 
 def test_apply_discovered_overrides_noop_when_absent(tmp_path):
     config = {"competition_playlists": {"X": {"b": ["ID"]}}, "team_playlists": {}}
