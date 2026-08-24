@@ -219,7 +219,9 @@ def test_write_discovered_is_idempotent(tmp_path):
 def test_apply_discovered_overrides_season_correct(tmp_path):
     # now=2026 → season_for_competition = 2026 for CL and PL.
     path = tmp_path / "discovered-playlists.json"
+    from playlist_discovery import TEAM_MATCHER_VERSION
     path.write_text(json.dumps({
+        "team_matcher_version": TEAM_MATCHER_VERSION,   # team overrides trusted
         "resolved": {"2026": {"Champions League": {"CBS Sport Golazo": "NEW_CL"}},
                      "2025": {"Champions League": {"CBS Sport Golazo": "OLD_CL_PRIOR"}}},
         "team":     {"2026": {"Premier League": {"Arsenal FC": "NEW_ARS"}}},
@@ -267,6 +269,86 @@ def test_apply_discovered_overrides_noop_when_absent(tmp_path):
     config = {"competition_playlists": {"X": {"b": ["ID"]}}, "team_playlists": {}}
     out = apply_discovered_overrides(config, path=tmp_path / "missing.json")
     assert out["competition_playlists"]["X"]["b"] == ["ID"]
+
+
+# ── Team matcher: positive highlights gate + non-first-team exclusions ────────
+
+def _teampick(titles):
+    pls = [_pl(t, f"ID{i}") for i, t in enumerate(titles)]
+    r = select_current_season_playlist("Premier League", pls, now=NOW,
+                                       require_competition_gate=False, team_mode=True)
+    return r["id"] if r else None
+
+def test_team_matcher_rejects_non_first_team_noise():
+    # Real bad picks from the discovery run — each must resolve to None (keep LKG).
+    for bad in [
+        "BENCH CAM 26/27",
+        "PRE-SEASON 2026/27",
+        "Academy Highlights 2026/27",
+        "Player Signings 26/27",
+        "Women's Team Highlights 2026/27",
+        "AS ROMA WOMEN | SEASON 2026-27",
+        "Juventus Pre-Season 2026/27",
+        "Bundesliga 2 | Highlights 2026/27",
+        "Antoine Griezmann | Goals & Records 2026/27",  # individual / record
+        "Saison 2026/27",                                # generic, no highlight term
+    ]:
+        assert _teampick([bad]) is None, f"should reject: {bad!r}"
+
+def test_team_matcher_accepts_real_highlights_titles():
+    # Season-stringed and terse (no-season) correct titles must pass.
+    for good in [
+        "Highlights 2026/27", "HIGHLIGHTS 26/27", "SSCN | Highlights Serie A 26/27",
+        "Match Highlights 2026/27", "Extended Highlights | Chelsea FC | 2026/27",
+        "Highlights", "BUTS", "RÉSUMÉ DE MATCH", "RESUMEN PARTIDOS", "Top buts",
+    ]:
+        assert _teampick([good]) == "ID0", f"should accept: {good!r}"
+
+def test_team_matcher_first_team_wins_over_womens():
+    # Channel with BOTH a women's and a first-team "Highlights 2026/27": the
+    # women's one is excluded, so the first-team one is chosen.
+    got = _teampick(["Women's Team Highlights 2026/27", "Highlights 2026/27"])
+    assert got == "ID1"
+
+def test_team_matcher_prefers_current_season_over_terse():
+    # Season string is a preference: current-season pick beats a terse rolling one.
+    got = _teampick(["Highlights", "HIGHLIGHTS 26/27"])
+    assert got == "ID1"
+
+def test_team_matcher_season_string_alone_is_insufficient():
+    # The greedy bug: a season string with NO highlight term must NOT be adopted.
+    assert _teampick(["Squad Numbers 2026/27"]) is None
+
+
+# ── Interim team-override guard (version-gated consumption) ───────────────────
+
+def test_team_overrides_ignored_without_version_stamp(tmp_path):
+    # A file from the OLD greedy matcher (no team_matcher_version) → team ignored,
+    # competition still applied.
+    path = tmp_path / "discovered-playlists.json"
+    path.write_text(json.dumps({
+        "resolved": {"2026": {"Champions League": {"CBS": season_leaf("CL_NEW")}}},
+        "team":     {"2026": {"Premier League": {"Arsenal FC": season_leaf("BAD_BENCH")}}},
+    }), encoding="utf-8")
+    config = {
+        "competition_playlists": {"Champions League": {"CBS": ["CL_OLD"]}},
+        "team_playlists":        {"Premier League": {"Arsenal FC": "ARS_OLD"}},
+    }
+    out = apply_discovered_overrides(config, path=path, now=NOW)
+    assert out["competition_playlists"]["Champions League"]["CBS"] == ["CL_NEW"]  # applied
+    assert out["team_playlists"]["Premier League"]["Arsenal FC"] == "ARS_OLD"     # ignored
+
+def test_team_overrides_applied_with_current_version(tmp_path):
+    from playlist_discovery import TEAM_MATCHER_VERSION
+    path = tmp_path / "discovered-playlists.json"
+    path.write_text(json.dumps({
+        "team_matcher_version": TEAM_MATCHER_VERSION,
+        "resolved": {},
+        "team": {"2026": {"Premier League": {"Arsenal FC": season_leaf("ARS_GOOD")}}},
+    }), encoding="utf-8")
+    config = {"competition_playlists": {}, "team_playlists": {"Premier League": {"Arsenal FC": "ARS_OLD"}}}
+    out = apply_discovered_overrides(config, path=path, now=NOW)
+    assert out["team_playlists"]["Premier League"]["Arsenal FC"] == "ARS_GOOD"
 
 
 # ── Both-shapes leaf: season playlist OR per-gameweek collection + format ─────

@@ -64,6 +64,24 @@ channels stay the human-seeded input, only the playlist is re-discovered.)
   "Jornada 5 … 2026/27" titles). The store now **reserves** the format field + both-shapes leaf so
   that logic drops in without another reshape; until then `format` stays `"undetermined"` and
   discovery runs weekly for every source (quota is trivial, so no correctness cost).
+- **Team matcher is strict (Tier-1c/1d)** — the first discovery run picked wrong team playlists
+  (bench cam, pre-season, academy, women's, second division, signings, player-tribute) because a
+  season string alone passed. The team branch (`select_current_season_playlist(..., team_mode=True)`)
+  now requires a **positive first-team highlights/match term** (multilingual `TITLE_ALLOWLIST`;
+  a season string is a preference, not a requirement, so terse titles like `BUTS` / `RÉSUMÉ DE MATCH`
+  / `RESUMEN PARTIDOS` still pass) **and** applies a **non-first-team exclusion** (`_is_team_noise`:
+  bench cam, pre/friendly, academy/youth/U16-23, women/femenino/féminin/Frauen/femminile, reserves/
+  Castilla/B-team, `2. Bundesliga`/Serie B/Segunda/Ligue 2/Championship, signings/transfers,
+  record/tribute/best-goals, press/post-match/tour/journey). When a channel has both a women's and a
+  first-team "Highlights 2026/27", the women's is excluded so the first-team wins. No confident
+  first-team match → keep last-known-good + flag. The **competition (Tier-4) matcher is unchanged**.
+- **Interim team-override guard**: team overrides are versioned (`TEAM_MATCHER_VERSION`) and
+  `apply_discovered_overrides` applies them **only** from a file stamped with the current version.
+  The already-committed `discovered-playlists.json` from the old greedy run has no stamp, so its
+  bad team entries are **ignored** (teams fall back to sources.json last-known-good) while its
+  **correct competition overrides stay active**. Re-running the discovery workflow with the fixed
+  matcher writes a stamped file, re-activating good team overrides. (User-triggered — not
+  auto-dispatched.)
 - **Fetch integration**: `fetch_highlights.py` applies `apply_discovered_overrides(config)` after
   `load_sources()`. The override is **season-aware** — per competition it looks up the resolution
   under the season it is processing (`season_for_competition(comp)`, the same season the fetch uses

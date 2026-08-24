@@ -48,6 +48,7 @@ from playlist_discovery import (
     season_leaf,
     select_current_season_playlist,
     write_discovered_if_changed,
+    TEAM_MATCHER_VERSION,
 )
 
 logging.basicConfig(level=logging.INFO,
@@ -106,7 +107,7 @@ def main() -> None:
                 channel_id, api_key, session=session, counter=counter)
         return channel_cache[channel_id]
 
-    def resolve_one(comp, source_label, pid, *, require_gate):
+    def resolve_one(comp, source_label, pid, *, require_gate, team_mode=False):
         """Resolve the current-season playlist for one mapped source; returns pid|None."""
         owner = resolve_owner(pid)
         if owner is None:
@@ -116,7 +117,8 @@ def main() -> None:
                         comp, source_label, pid)
             return None
         pls = channel_playlists(owner["channel_id"])
-        match = select_current_season_playlist(comp, pls, require_competition_gate=require_gate)
+        match = select_current_season_playlist(
+            comp, pls, require_competition_gate=require_gate, team_mode=team_mode)
         if match and match.get("id"):
             if match["id"] == pid:
                 log.info("[%s/%s] already current: %r (%s)",
@@ -157,7 +159,8 @@ def main() -> None:
         for team, pid in tmap.items():
             if not pid or over_budget():
                 continue
-            new_id = resolve_one(comp, f"team:{team}", pid, require_gate=False)
+            new_id = resolve_one(comp, f"team:{team}", pid, require_gate=False,
+                                 team_mode=True)
             if new_id:
                 s = str(season_for_competition(comp))
                 run_team.setdefault(s, {}).setdefault(comp, {})[team] = season_leaf(new_id)
@@ -173,6 +176,7 @@ def main() -> None:
         "current_season":  current_season(),
         "resolved":        merged["resolved"],
         "team":            merged["team"],
+        "team_matcher_version": TEAM_MATCHER_VERSION,
         "flags":           flags,
         "estimated_units": counter[0],
     }

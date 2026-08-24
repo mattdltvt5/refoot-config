@@ -50,6 +50,14 @@ from season_utils import current_season
 # Where the resolved current-season playlists + flags are persisted.
 DISCOVERED_PATH = HIGHLIGHTS_DIR / "discovered-playlists.json"
 
+# Bumped whenever the TEAM (Tier-1c/1d) matcher changes materially. The consumer
+# applies team overrides ONLY from files stamped with the current version, so a
+# file written by an OLDER/greedier team matcher (e.g. the first run that picked
+# bench-cam/pre-season/women's playlists) is IGNORED for team overrides — teams
+# fall back to sources.json last-known-good until discovery is re-run with the
+# fixed matcher. Competition (Tier-4) overrides are unaffected by this gate.
+TEAM_MATCHER_VERSION = 2
+
 # ── Season tokens ──────────────────────────────────────────────────────────────
 
 
@@ -105,6 +113,48 @@ def _is_decoy(title: str) -> bool:
     return any(term in low for term in _DECOY_TERMS)
 
 
+# Team-channel NOISE: season-stringed playlists on a club channel that are NOT
+# first-team match highlights. Built from the real bad picks in the discovery run
+# (bench cam, pre-season, academy, women's, second division, signings,
+# individual-player/tribute) plus obvious multilingual siblings. Matched on the
+# accent-folded title so "Féminines"/"femenino"/"femminile" all hit. Applied ONLY
+# in team_mode — the competition matcher is unaffected.
+_TEAM_NOISE_FOLDED = (
+    "bench cam",
+    # pre-season / friendlies
+    "pre-season", "preseason", "pre season", "pretemporada", "vorbereitung",
+    "friendly", "friendlies", "amistoso", "amichevoli", "amichevole",
+    # academy / youth
+    "academy", "youth", "cantera", "primavera", "juvenil", "jugend", "nachwuchs",
+    " u16", " u17", " u18", " u19", " u21", " u23", "under-18", "under-19",
+    "under-21", "under-23",
+    # women
+    "women", "femenin", "feminin", "femmin", "frauen", "damen",
+    # reserves / B teams
+    "castilla", " ii ", " ii|", "b team", "b-team", "reserve",
+    # signings / transfers / unveilings
+    "signing", "fichaje", "transfer", "unveil", "presentacion",
+    # individual-player / tribute / best-of compilations
+    "record", "tribute", "best goals", "top 10", "top 5", "iconic",
+    "every goal", "greatest",
+    # talk / press / behind-the-scenes / tours
+    "press conference", "post-match", "post match", "post partita",
+    "postpartita", "mic'd", "micd", " tour", "journey", "behind the scenes",
+)
+# Collision-prone second-division names via regex (so "Bundesliga 2026" is NOT
+# caught, but "2. Bundesliga" / "Bundesliga 2 |" is).
+_TEAM_NOISE_RE = re.compile(
+    r"\b2\.\s*bundesliga\b|\bbundesliga\s+2\b(?!\d)|\bserie\s+b\b|\bsegunda\b|"
+    r"\bligue\s+2\b|\bchampionship\b")
+
+
+def _is_team_noise(title: str) -> bool:
+    folded = _fold(title)
+    if any(term in folded for term in _TEAM_NOISE_FOLDED):
+        return True
+    return bool(_TEAM_NOISE_RE.search(folded))
+
+
 def _recency_key(p: dict):
     return (p.get("publishedAt") or "", int(p.get("itemCount") or 0))
 
@@ -118,6 +168,7 @@ def select_current_season_playlist(
     *,
     now=None,
     require_competition_gate: bool = True,
+    team_mode: bool = False,
 ) -> "dict | None":
     """Pick the current-season highlights playlist from a channel's playlist list.
 
@@ -146,7 +197,17 @@ def select_current_season_playlist(
         title = p.get("title") or ""
         if _is_decoy(title):
             continue
+        # TEAM channels carry many season-stringed non-first-team playlists (bench
+        # cam, pre-season, academy, women's, reserves, second division, signings,
+        # player tributes). In team_mode: reject that noise AND require a positive
+        # highlights/match term — a season string alone is NOT sufficient (that was
+        # the greedy bug). Season string stays a preference (current/rolling below),
+        # so terse correct titles ("BUTS", "RÉSUMÉ DE MATCH") still pass.
+        if team_mode and _is_team_noise(title):
+            continue
         if require_competition_gate and kws and not any(k in title.lower() for k in kws):
+            continue
+        if team_mode and not _has_highlight_term(title):
             continue
         survivors.append(p)
     if not survivors:
@@ -431,15 +492,20 @@ def apply_discovered_overrides(config: dict, *, path: Path = DISCOVERED_PATH,
             if pid:
                 dest[broadcaster] = [pid]
 
-    team_pl = config.get("team_playlists", {})
-    for comp in {c for comps in team_by_season.values() for c in comps}:
-        tmap = team_by_season.get(_target_season(comp), {}).get(comp, {})
-        if not isinstance(tmap, dict) or not tmap:
-            continue
-        dest = team_pl.setdefault(comp, {})
-        for team, leaf in tmap.items():
-            pid = leaf_playlist_id(leaf)
-            if pid:
-                dest[team] = pid
+    # TEAM overrides apply ONLY when the file was written by the current team
+    # matcher. A file from the old greedy matcher (no/old version stamp) is
+    # ignored for teams → sources.json last-known-good is used instead. Competition
+    # overrides above are always applied.
+    if data.get("team_matcher_version") == TEAM_MATCHER_VERSION:
+        team_pl = config.get("team_playlists", {})
+        for comp in {c for comps in team_by_season.values() for c in comps}:
+            tmap = team_by_season.get(_target_season(comp), {}).get(comp, {})
+            if not isinstance(tmap, dict) or not tmap:
+                continue
+            dest = team_pl.setdefault(comp, {})
+            for team, leaf in tmap.items():
+                pid = leaf_playlist_id(leaf)
+                if pid:
+                    dest[team] = pid
 
     return config
