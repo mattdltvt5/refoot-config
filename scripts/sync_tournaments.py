@@ -123,6 +123,11 @@ def build_group_matches(matches_payload):
         ft    = score.get("fullTime", {}) or {}
         group_matches.append({
             "match_id":    m.get("id"),
+            # utcDate is present on every FD /matches object (knockout siblings carry
+            # it verbatim); copy it here so group games get a date and appear on the
+            # date-driven Home feed. Null-safe: an unscheduled fixture with no date
+            # yields None, which normalize_match treats as "don't place on Home".
+            "utcDate":     m.get("utcDate"),
             "group":       group_key,
             "matchday":    matchday,
             "sourceRound": f"Matchday {matchday}",

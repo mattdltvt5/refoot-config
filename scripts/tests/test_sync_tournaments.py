@@ -288,6 +288,42 @@ class TestBuildGroupMatches(unittest.TestCase):
         gms = build_group_matches(_matches_payload(no_id))
         self.assertIsNone(gms[0]["match_id"])
 
+    def test_group_match_carries_utcDate(self):
+        # The extraction fix: utcDate must be copied from the FD match object so
+        # group games get a date and appear on the date-driven Home feed.
+        gms = build_group_matches(_matches_payload(_MATCH_GROUP))
+        self.assertEqual(gms[0]["utcDate"], "2026-06-14T19:00:00Z")
+
+    def test_group_match_missing_utcDate_is_null_not_error(self):
+        # An unscheduled fixture with no date must not crash — None degrades
+        # gracefully (normalize_match keeps it off Home).
+        no_date = {k: v for k, v in _MATCH_GROUP.items() if k != "utcDate"}
+        gms = build_group_matches(_matches_payload(no_date))
+        self.assertIsNone(gms[0]["utcDate"])
+
+    def test_group_match_preserves_other_fields_with_utcDate_added(self):
+        # Adding utcDate must not disturb the existing projection.
+        gm = build_group_matches(_matches_payload(_MATCH_GROUP))[0]
+        self.assertEqual(gm["match_id"], 600001)
+        self.assertEqual(gm["group"], "GROUP_A")
+        self.assertEqual(gm["matchday"], 1)
+        self.assertEqual(gm["sourceRound"], "Matchday 1")
+        self.assertEqual(gm["homeTeam"]["tla"], "MEX")
+        self.assertEqual(gm["awayTeam"]["tla"], "ECU")
+        self.assertEqual(gm["score"]["fullTime"], {"home": 2, "away": 0})
+        self.assertEqual(gm["status"], "FINISHED")
+
+    def test_group_match_utcDate_flows_through_build_tournament_data(self):
+        # End-to-end: the assembled artifact's groupMatches carry utcDate + video_id.
+        data = build_tournament_data(
+            "world-cup", {}, _matches_payload(_MATCH_GROUP),
+            existing_video_ids={600001: "VID123"},
+        )
+        gm = data["groupMatches"][0]
+        self.assertEqual(gm["utcDate"], "2026-06-14T19:00:00Z")
+        self.assertEqual(gm["match_id"], 600001)
+        self.assertEqual(gm["video_id"], "VID123")
+
     def test_knockout_excluded_from_group_matches(self):
         self.assertEqual(build_group_matches(_matches_payload(_MATCH_REGULAR)), [])
 

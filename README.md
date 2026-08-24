@@ -240,11 +240,19 @@ UTC August boundary is covered from whichever season file holds it. The canonica
 rule stays in `season_utils.current_season()` (reused, not reimplemented).
 
 **Faithful to data.** A match is indexed only if it has both a match id **and** a
-`utcDate`. Discovery found the tournament artifacts are largely undated: **all**
-`groupMatches` and **Copa knockout** matches lack `utcDate`/`id`, so today only domestic
-leagues + dated tournament **knockout** rounds (UCL fully; WC/Euro knockout) appear. Undated
-matches are skipped (never given a fabricated date) and will light up automatically if the
-tournament pipeline later backfills `utcDate`/`id`.
+`utcDate`. Undated matches are skipped (never given a fabricated date).
+
+**Group-stage `utcDate` fix (2026-08-24).** The FD tournaments' group matches were undated
+because `sync_tournaments.py::build_group_matches()` hand-projected the group dict and
+**omitted `utcDate`** (knockout matches, spread `{**m}` verbatim, kept it). The date was
+present on the same FD `/matches` objects all along — a pure extraction gap, no new fetch/tier
+issue (this is football-data.org, not Copa's paywalled API-Sports path). Adding one line —
+`"utcDate": m.get("utcDate")` (null-safe: an unscheduled fixture stays off Home, no crash) —
+makes **Euro 2024 (36) + WC 2026 (72) = 108 group matches** carry `utcDate`; `match_id` and
+`video_id` were already present on 100 %, and `normalize_match` already reads `utcDate`, so
+**no consumer change** is needed — the 108 bucket onto Home **with their highlights attached**
+once the artifacts regenerate. (Copa remains undated/paywalled and out of scope.) Takes effect
+after the next `sync_tournaments` run rewrites the group artifacts and the home-index rebuilds.
 
 **Cadence & hygiene.** Regenerated inside the existing fixtures write path
 (`fetch_highlights.py::main()`, right after `write_fixtures_artifacts()`) — **no new cron**.
