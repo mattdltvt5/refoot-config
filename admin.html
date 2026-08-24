@@ -615,6 +615,61 @@
         .wf-fail { color: var(--red); font-weight: 600; }
         .wf-overdue-badge { background: var(--red); color: #fff; font-weight: 700; font-size: 9px; letter-spacing: .04em; padding: 1px 6px; border-radius: 3px; text-transform: uppercase; }
         .wf-note { color: var(--muted); font-style: italic; padding: 2px 0; }
+
+        /* ── Channel Candidates (review & approve) ─────────────── */
+        #candidates-section { display: none; margin-bottom: 16px; }
+        .cand-head { display: flex; align-items: center; gap: 10px; padding: 12px 16px;
+            background: var(--white); border: 1px solid var(--border); border-radius: 8px 8px 0 0;
+            border-bottom: none; }
+        .cand-head-label { font-weight: 700; font-size: 14px; display: flex; align-items: center; gap: 8px; }
+        .cand-head-label i { color: var(--blue); }
+        .cand-head-meta { color: var(--muted); font-size: 12px; margin-left: auto; }
+        .cand-refresh { background: none; border: none; cursor: pointer; color: var(--muted);
+            font-size: 13px; padding: 2px 6px; border-radius: 4px; }
+        .cand-refresh:hover { background: var(--bg); color: var(--text); }
+        .cand-body { background: var(--white); border: 1px solid var(--border); border-radius: 0 0 8px 8px;
+            padding: 8px 12px 12px; }
+        .cand-empty { color: var(--muted); font-size: 13px; padding: 14px; text-align: center; line-height: 1.5; }
+        .cand-empty code { background: var(--bg); border: 1px solid var(--border); border-radius: 4px;
+            padding: 1px 6px; font-size: 12px; }
+        .cand-group-label { font-size: 11px; font-weight: 700; letter-spacing: .05em; text-transform: uppercase;
+            color: var(--muted); padding: 12px 4px 6px; }
+        .cand-card { border: 1px solid var(--border); border-radius: 8px; margin-bottom: 10px; overflow: hidden; }
+        .cand-card.approved { border-color: var(--green); }
+        .cand-card.skipped  { opacity: .55; }
+        .cand-card-head { display: flex; align-items: center; gap: 10px; padding: 10px 14px; background: var(--bg); }
+        .cand-team-flag { width: 20px; height: 20px; object-fit: contain; border-radius: 3px; }
+        .cand-team-name { font-weight: 600; font-size: 14px; }
+        .cand-team-comp { color: var(--muted); font-size: 12px; }
+        .cand-team-actions { margin-left: auto; display: flex; gap: 8px; align-items: center; }
+        .cand-approved-badge { background: var(--green); color: #fff; font-weight: 700; font-size: 10px;
+            letter-spacing: .04em; padding: 2px 8px; border-radius: 4px; text-transform: uppercase; }
+        .cand-skip-btn { background: none; border: 1px solid var(--border); color: var(--muted); cursor: pointer;
+            font-size: 12px; padding: 4px 10px; border-radius: 6px; }
+        .cand-skip-btn:hover { background: var(--white); color: var(--text); border-color: #bdbdbd; }
+        .cand-row { display: flex; align-items: center; gap: 12px; padding: 10px 14px; border-top: 1px solid var(--border); }
+        .cand-row.primary { background: #FafffB; }
+        .cand-avatar { width: 44px; height: 44px; border-radius: 50%; object-fit: cover; flex-shrink: 0;
+            background: var(--bg); border: 1px solid var(--border); }
+        .cand-avatar-ph { display: flex; align-items: center; justify-content: center; color: var(--muted); font-size: 18px; }
+        .cand-info { flex: 1; min-width: 0; }
+        .cand-title-line { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+        .cand-ch-title { font-weight: 600; font-size: 13px; }
+        .cand-rank-badge { background: var(--blue-bg); color: var(--blue-dark); font-weight: 700; font-size: 10px;
+            padding: 1px 6px; border-radius: 3px; }
+        .cand-verified { color: var(--blue); font-size: 12px; }
+        .cand-sub-line { color: var(--muted); font-size: 12px; margin-top: 2px; display: flex; gap: 10px; flex-wrap: wrap; }
+        .cand-evidence { color: var(--text); font-size: 11.5px; margin-top: 4px; line-height: 1.4;
+            background: var(--bg); border-radius: 5px; padding: 5px 8px; }
+        .cand-row-actions { display: flex; flex-direction: column; gap: 6px; align-items: stretch; flex-shrink: 0; }
+        .cand-yt-link { text-decoration: none; text-align: center; font-size: 12px; color: var(--blue-dark);
+            border: 1px solid var(--border); border-radius: 6px; padding: 5px 10px; white-space: nowrap; }
+        .cand-yt-link:hover { background: var(--blue-bg); }
+        .cand-approve-btn { background: var(--green); color: #fff; border: none; cursor: pointer; font-weight: 600;
+            font-size: 12px; padding: 6px 14px; border-radius: 6px; white-space: nowrap; }
+        .cand-approve-btn:hover { filter: brightness(0.95); }
+        .cand-approve-btn:disabled { opacity: .5; cursor: not-allowed; }
+        .cand-flag-note { color: var(--muted); font-size: 12px; padding: 4px 4px 10px; line-height: 1.5; }
     </style>
 </head>
 <body>
@@ -731,6 +786,18 @@
         </div>
         <div id="coverage-panel">
             <div class="cov-empty">Loading coverage data…</div>
+        </div>
+    </div>
+
+    <!-- Channel Candidates review & approve (reads highlights/channel-candidates.json) -->
+    <div id="candidates-section">
+        <div class="cand-head">
+            <span class="cand-head-label"><i class="fi-br-search"></i> Channel Candidates</span>
+            <span class="cand-head-meta" id="cand-meta"></span>
+            <button class="cand-refresh" id="cand-refresh-btn" title="Reload candidates"><i class="fi-br-refresh"></i></button>
+        </div>
+        <div class="cand-body" id="cand-body">
+            <div class="cand-empty">Loading candidates…</div>
         </div>
     </div>
 
@@ -905,8 +972,8 @@ async function fetchSources() {
     return JSON.parse(b64Decode(data.content));
 }
 
-async function writeSources(data) {
-    const body = { message: 'Update channel IDs — ' + today(), content: b64Encode(JSON.stringify(data, null, 2)) };
+async function writeSources(data, message) {
+    const body = { message: message || ('Update channel IDs — ' + today()), content: b64Encode(JSON.stringify(data, null, 2)) };
     if (fileSha) body.sha = fileSha;
     const res = await fetch(
         'https://api.github.com/repos/' + GH_OWNER + '/' + GH_REPO + '/contents/' + GH_FILE,
@@ -1017,6 +1084,249 @@ async function loadFetchLog() {
         if (!res.ok) return;
         renderFetchLog(await res.json());
     } catch {}
+}
+
+// ── Channel Candidates: review & approve ─────────────────
+// Reads highlights/channel-candidates.json (public raw read — no auth to VIEW).
+// Approving writes the chosen channel into sources.json via the SAME BYO-PAT
+// commit path the editor uses (fetchSources → set teams[name] → writeSources).
+// Human-in-the-loop: nothing is written without an explicit per-team Approve click.
+const CAND_FILE     = 'highlights/channel-candidates.json';
+const CAND_WORKFLOW = 'find-channel-candidates.yml';
+let candidatesData  = null;
+const candSkipped   = new Set();   // session-only "comp::team" dismissals (writes nothing)
+const candApproved  = new Set();   // teams approved this session (for UI state)
+
+function fmtSubs(n) {
+    if (n == null) return 'subs hidden';
+    if (n >= 1e6) return (n / 1e6).toFixed(1).replace(/\.0$/, '') + 'M subs';
+    if (n >= 1e3) return (n / 1e3).toFixed(1).replace(/\.0$/, '') + 'K subs';
+    return n.toLocaleString() + ' subs';
+}
+
+async function loadCandidates() {
+    const body = document.getElementById('cand-body');
+    if (!body) return;
+    const section = document.getElementById('candidates-section');
+    if (section) section.style.display = 'block';
+    try {
+        const url = 'https://raw.githubusercontent.com/' + GH_OWNER + '/' + GH_REPO
+                  + '/main/' + CAND_FILE + '?_=' + Date.now();
+        const res = await fetch(url);
+        if (res.status === 404) { candidatesData = null; renderCandidates(null); return; }
+        if (!res.ok) { body.innerHTML = '<div class="cand-empty">Could not load candidates (' + res.status + ').</div>'; return; }
+        candidatesData = await res.json();
+        const meta = document.getElementById('cand-meta');
+        if (meta && candidatesData.generated_at)
+            meta.textContent = 'generated ' + candidatesData.generated_at.split('T')[0];
+        renderCandidates(candidatesData);
+    } catch {
+        body.innerHTML = '<div class="cand-empty">Could not load candidates.</div>';
+    }
+}
+
+function renderCandidates(report) {
+    const body = document.getElementById('cand-body');
+    body.innerHTML = '';
+    const cands = (report && report.candidates) || {};
+    const comps = Object.keys(cands).sort();
+    const totalTeams = comps.reduce((n, c) => n + Object.keys(cands[c]).length, 0);
+    if (!report || totalTeams === 0) {
+        const d = document.createElement('div');
+        d.className = 'cand-empty';
+        d.innerHTML = 'No channel candidates to review.<br>Run the <code>' + CAND_WORKFLOW
+            + '</code> workflow (off-season, manual) to search for official channels for teams '
+            + 'missing one, then reload here.';
+        body.appendChild(d);
+        return;
+    }
+    comps.forEach(comp => {
+        const teams = cands[comp];
+        const teamNames = Object.keys(teams).sort();
+        if (!teamNames.some(t => !candSkipped.has(comp + '::' + t))) return;  // all skipped this comp
+        const lbl = document.createElement('div');
+        lbl.className = 'cand-group-label';
+        lbl.textContent = comp;
+        body.appendChild(lbl);
+        teamNames.forEach(team => {
+            if (candSkipped.has(comp + '::' + team)) return;
+            body.appendChild(makeCandCard(comp, team, teams[team]));
+        });
+    });
+    // Flags: teams searched with no plausible candidate, or not searched (cap reached).
+    const flags = report.flags || [];
+    const none = flags.filter(f => f.reason === 'no_plausible_candidate').map(f => f.team);
+    const capped = flags.filter(f => f.reason === 'search_cap_reached_not_searched').map(f => f.team);
+    if (none.length || capped.length) {
+        const n = document.createElement('div');
+        n.className = 'cand-flag-note';
+        if (none.length)   n.appendChild(flagLine('No plausible official channel found (searched): ', none));
+        if (capped.length) n.appendChild(flagLine('Not searched this run (search cap reached): ', capped));
+        body.appendChild(n);
+    }
+}
+
+function flagLine(prefix, teams) {
+    const el = document.createElement('div');
+    const b = document.createElement('strong'); b.textContent = prefix;
+    el.appendChild(b);
+    el.appendChild(document.createTextNode(teams.sort().join(', ')));
+    return el;
+}
+
+function makeCandCard(comp, team, list) {
+    const card = document.createElement('div');
+    card.className = 'cand-card';
+    card.dataset.team = team;
+
+    const head = document.createElement('div');
+    head.className = 'cand-card-head';
+    if (FLAGS[comp]) {
+        const flag = document.createElement('img');
+        flag.className = 'cand-team-flag'; flag.src = FLAGS[comp]; flag.alt = comp;
+        head.appendChild(flag);
+    }
+    const nameWrap = document.createElement('div');
+    const nm = document.createElement('div'); nm.className = 'cand-team-name'; nm.textContent = team;
+    const cm = document.createElement('div'); cm.className = 'cand-team-comp'; cm.textContent = comp + ' · writes to teams["' + team + '"]';
+    nameWrap.appendChild(nm); nameWrap.appendChild(cm);
+    head.appendChild(nameWrap);
+
+    const actions = document.createElement('div');
+    actions.className = 'cand-team-actions';
+    const skip = document.createElement('button');
+    skip.className = 'cand-skip-btn'; skip.textContent = 'None of these / skip';
+    skip.title = 'Dismiss for this session — writes nothing';
+    skip.addEventListener('click', () => { candSkipped.add(comp + '::' + team); renderCandidates(candidatesData); });
+    actions.appendChild(skip);
+    head.appendChild(actions);
+    card.appendChild(head);
+
+    (list || []).forEach((cand, i) => card.appendChild(makeCandRow(comp, team, cand, i, card)));
+    return card;
+}
+
+function makeCandRow(comp, team, cand, index, card) {
+    const row = document.createElement('div');
+    row.className = 'cand-row' + (index === 0 ? ' primary' : '');
+
+    // Avatar
+    if (cand.thumbnail) {
+        const img = document.createElement('img');
+        img.className = 'cand-avatar'; img.src = cand.thumbnail; img.alt = cand.channelTitle || '';
+        img.referrerPolicy = 'no-referrer';
+        img.onerror = () => { img.replaceWith(avatarPlaceholder()); };
+        row.appendChild(img);
+    } else {
+        row.appendChild(avatarPlaceholder());
+    }
+
+    // Info
+    const info = document.createElement('div');
+    info.className = 'cand-info';
+    const titleLine = document.createElement('div');
+    titleLine.className = 'cand-title-line';
+    if (index === 0) {
+        const rb = document.createElement('span'); rb.className = 'cand-rank-badge'; rb.textContent = 'TOP PICK';
+        titleLine.appendChild(rb);
+    }
+    const t = document.createElement('span'); t.className = 'cand-ch-title'; t.textContent = cand.channelTitle || '(untitled channel)';
+    titleLine.appendChild(t);
+    if (cand.verified === true) {
+        const v = document.createElement('span'); v.className = 'cand-verified'; v.textContent = '✓ verified'; titleLine.appendChild(v);
+    }
+    info.appendChild(titleLine);
+
+    const subLine = document.createElement('div');
+    subLine.className = 'cand-sub-line';
+    const s1 = document.createElement('span'); s1.textContent = fmtSubs(cand.subscriberCount); subLine.appendChild(s1);
+    const s2 = document.createElement('span'); s2.textContent = 'score ' + (cand.score != null ? cand.score : '—'); subLine.appendChild(s2);
+    const s3 = document.createElement('span'); s3.textContent = cand.channelId || ''; subLine.appendChild(s3);
+    info.appendChild(subLine);
+
+    if (cand.evidence) {
+        const ev = document.createElement('div');
+        ev.className = 'cand-evidence'; ev.textContent = cand.evidence;   // WHY it ranked here — never hidden
+        info.appendChild(ev);
+    }
+    row.appendChild(info);
+
+    // Actions: open on YouTube (human check) + approve
+    const acts = document.createElement('div');
+    acts.className = 'cand-row-actions';
+    const link = document.createElement('a');
+    link.className = 'cand-yt-link';
+    link.href = cand.url || ('https://youtube.com/channel/' + (cand.channelId || ''));
+    link.target = '_blank'; link.rel = 'noopener'; link.textContent = 'Open on YouTube ↗';
+    acts.appendChild(link);
+    const btn = document.createElement('button');
+    btn.className = 'cand-approve-btn'; btn.textContent = 'Approve';
+    btn.addEventListener('click', () => approveCandidate(comp, team, cand, card, btn));
+    acts.appendChild(btn);
+    row.appendChild(acts);
+
+    return row;
+}
+
+function avatarPlaceholder() {
+    const d = document.createElement('div');
+    d.className = 'cand-avatar cand-avatar-ph';
+    d.innerHTML = '<i class="fi-br-user"></i>';
+    return d;
+}
+
+async function approveCandidate(comp, team, cand, card, btn) {
+    const channelId = parseChannelId((cand.channelId || '').trim());
+    if (!validCh(channelId)) { toast('Candidate channel id looks invalid (' + channelId + ')', 'error'); return; }
+    // Reuse the existing PAT flow: if no token, prompt exactly as the editor does.
+    if (!ghPat) { toast('Enter your GitHub token to approve', 'error'); openDrawer('credentials'); return; }
+
+    card.querySelectorAll('.cand-approve-btn').forEach(b => b.disabled = true);
+    btn.textContent = 'Approving…';
+
+    const commitMsg = 'Approve channel: ' + team + ' → ' + channelId + ' [' + comp + ']';
+    // Fresh load + write, with a single re-fetch/retry on sha optimistic-concurrency
+    // conflict — mirrors how the editor's save path uses the captured sha.
+    const doWrite = async () => {
+        const data = await fetchSources();               // refreshes global fileSha
+        if (!data.teams) data.teams = {};
+        data.teams[team] = channelId;
+        await writeSources(data, commitMsg);             // PUT with the just-captured sha
+    };
+    try {
+        try { await doWrite(); }
+        catch (e) {
+            if (/sha|does not match|409|422/i.test(e.message || '')) { await doWrite(); }  // re-fetch + retry once
+            else throw e;
+        }
+        // Keep the in-memory editor + DOM consistent so a later editor Save won't clobber it.
+        if (!sourcesData.teams) sourcesData.teams = {};
+        sourcesData.teams[team] = channelId;
+        document.querySelectorAll('.ch-input[data-team]').forEach(inp => {
+            if (inp.dataset.team === team) { inp.value = channelId; styleInp(inp); }
+        });
+        const dot = document.getElementById('dot-' + sid(team));
+        if (dot) { dot.classList.remove('dot-red'); dot.classList.add('dot-yellow'); }
+
+        candApproved.add(comp + '::' + team);
+        card.classList.add('approved');
+        const actions = card.querySelector('.cand-team-actions');
+        if (actions) {
+            actions.innerHTML = '';
+            const badge = document.createElement('span');
+            badge.className = 'cand-approved-badge'; badge.textContent = 'Approved ✓';
+            actions.appendChild(badge);
+            const map = document.createElement('span');
+            map.className = 'cand-team-comp'; map.textContent = 'teams["' + team + '"] = ' + channelId;
+            actions.appendChild(map);
+        }
+        toast('Approved ' + team + ' → ' + channelId, 'success');
+        dbg('Approved channel for ' + team + ': ' + channelId + ' (committed to sources.json)', 'ok');
+    } catch (err) {
+        toast('Approve failed: ' + err.message, 'error');
+        card.querySelectorAll('.cand-approve-btn').forEach(b => b.disabled = false);
+        btn.textContent = 'Approve';
+    }
 }
 
 function renderFetchLog(log) {
@@ -1985,6 +2295,7 @@ async function loadAll() {
         buildUI();
         showContent();
         loadHighlightsCoverage(); // async — does not block the main UI
+        loadCandidates();         // async — channel candidates review panel
         loadFetchLog();           // async — does not block the main UI
         renderNextFetch();        // sync — computed from cron schedule + current time
         setInterval(renderNextFetch, 60000); // keep countdown live
@@ -2133,6 +2444,7 @@ document.getElementById('debug-clear-btn').addEventListener('click', () => {
 });
 document.getElementById('reload-btn').addEventListener('click', loadAll);
 document.getElementById('wf-refresh-btn').addEventListener('click', loadWorkflowStatus);
+document.getElementById('cand-refresh-btn').addEventListener('click', loadCandidates);
 document.getElementById('save-btn').addEventListener('click', saveData);
 
 // ── Accordion — one competition open at a time ────────────

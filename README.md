@@ -425,6 +425,27 @@ Requirements:
 
 The admin panel uses the [UIcons Bold Rounded](https://www.flaticon.com/uicons) icon set, hosted locally in `uicons/` so it works without an internet connection to Flaticon.
 
+### Channel Candidates (review & approve)
+
+The admin has a **Channel Candidates** panel that reads `highlights/channel-candidates.json`
+(the finder's output — see *Channel candidate finder* above) over `raw.githubusercontent.com`
+(public, no auth to VIEW). For each team missing an own channel it shows the finder's **ranked**
+candidate channels — avatar, title, subscriber count, verified badge, the **`evidence`** string (why
+it ranked there, including likely-fake down-ranks), score, and an **Open on YouTube** link so you can
+eyeball the channel before deciding. Human-in-the-loop is the point:
+
+- **Approve** writes the chosen channel into `sources.json` under `teams["<exact team name>"]` via the
+  admin's **existing BYO-PAT commit path** (`fetchSources` → set the value → `writeSources` PUT with
+  the captured `sha` for optimistic concurrency; commit message `Approve channel: <team> → <id>`). It
+  reuses your runtime GitHub PAT from `localStorage` — **no token is baked into the page**; if none is
+  set it prompts exactly as the editor does. On the next detector run that team clears its
+  missing-channel flag, and playlist discovery resolves the season playlist *within* the approved
+  channel (approve is channel-level; playlist-level approval is out of scope).
+- **None of these / skip** dismisses a team for the session and **writes nothing**.
+- Nothing is auto-approved and nothing is written on load — every write is one explicit Approve click.
+  If the candidates file is absent/empty the panel says so and names the `find-channel-candidates.yml`
+  workflow to run.
+
 ## sources.json schema
 
 ```json
