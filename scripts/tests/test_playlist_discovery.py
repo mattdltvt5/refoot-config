@@ -22,6 +22,9 @@ from playlist_discovery import (
     migrate_flat_discovered,
     merge_discovered_seasons,
     write_discovered_if_changed,
+    season_leaf,
+    gameweek_leaf,
+    leaf_playlist_id,
 )
 
 NOW = datetime(2026, 9, 1)
@@ -264,3 +267,63 @@ def test_apply_discovered_overrides_noop_when_absent(tmp_path):
     config = {"competition_playlists": {"X": {"b": ["ID"]}}, "team_playlists": {}}
     out = apply_discovered_overrides(config, path=tmp_path / "missing.json")
     assert out["competition_playlists"]["X"]["b"] == ["ID"]
+
+
+# ── Both-shapes leaf: season playlist OR per-gameweek collection + format ─────
+
+def test_leaf_helpers_and_id_extraction():
+    assert season_leaf("PLx") == {"format": "undetermined", "playlist_id": "PLx"}
+    assert gameweek_leaf({"5": "PLa"}) == {"format": "gameweek", "gameweeks": {"5": "PLa"}}
+    assert leaf_playlist_id("PLstr") == "PLstr"                 # bare-string tolerated
+    assert leaf_playlist_id(season_leaf("PLo")) == "PLo"        # season object
+    assert leaf_playlist_id(gameweek_leaf({"5": "PLa"})) is None  # gameweek-only → no single id
+    assert leaf_playlist_id(None) is None
+
+def test_store_round_trips_both_shapes(tmp_path):
+    # A store can hold, in the same season, a season-playlist leaf AND a
+    # per-gameweek collection leaf, each with its format field — round-trip intact.
+    path = tmp_path / "discovered-playlists.json"
+    payload = {
+        "generated_at": "T", "current_season": 2026, "flags": [], "estimated_units": 0,
+        "resolved": {"2026": {
+            "Serie A":          {"CBS": season_leaf("PLseason", fmt="season")},
+            "Champions League": {"TUDN": gameweek_leaf({"1": "PLgw1", "2": "PLgw2"})},
+        }},
+        "team": {},
+    }
+    write_discovered_if_changed(path, payload)
+    back = json.loads(path.read_text(encoding="utf-8"))
+    sa = back["resolved"]["2026"]["Serie A"]["CBS"]
+    cl = back["resolved"]["2026"]["Champions League"]["TUDN"]
+    assert sa == {"format": "season", "playlist_id": "PLseason"}
+    assert cl["format"] == "gameweek" and cl["gameweeks"] == {"1": "PLgw1", "2": "PLgw2"}
+
+def test_apply_overrides_object_leaf_and_gameweek_shape(tmp_path):
+    # Season-format object leaf → applied; gameweek-only leaf → NO override + no crash.
+    path = tmp_path / "discovered-playlists.json"
+    path.write_text(json.dumps({
+        "resolved": {"2026": {
+            "Serie A":          {"CBS Sport Golazo": season_leaf("SA_NEW")},
+            "Champions League": {"TUDN USA": gameweek_leaf({"1": "GW1"})},
+        }},
+        "team": {},
+    }), encoding="utf-8")
+    config = {
+        "competition_playlists": {
+            "Serie A":          {"CBS Sport Golazo": ["SA_OLD"]},
+            "Champions League": {"TUDN USA": ["CL_OLD"]},
+        },
+        "team_playlists": {},
+    }
+    out = apply_discovered_overrides(config, path=path, now=NOW)
+    assert out["competition_playlists"]["Serie A"]["CBS Sport Golazo"] == ["SA_NEW"]
+    # gameweek-only leaf applies no Tier-4 override → last-known-good retained.
+    assert out["competition_playlists"]["Champions League"]["TUDN USA"] == ["CL_OLD"]
+
+def test_merge_preserves_both_shape_leaves():
+    existing = {"resolved": {"2025": {"Serie A": {"CBS": season_leaf("SA25")}}}, "team": {}}
+    merged = merge_discovered_seasons(
+        existing,
+        {"2026": {"Champions League": {"TUDN": gameweek_leaf({"1": "GW1"})}}}, {})
+    assert merged["resolved"]["2025"]["Serie A"]["CBS"]["playlist_id"] == "SA25"
+    assert merged["resolved"]["2026"]["Champions League"]["TUDN"]["format"] == "gameweek"

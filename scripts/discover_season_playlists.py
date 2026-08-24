@@ -45,6 +45,7 @@ from playlist_discovery import (
     list_channel_playlists,
     merge_discovered_seasons,
     migrate_flat_discovered,
+    season_leaf,
     select_current_season_playlist,
     write_discovered_if_changed,
 )
@@ -144,7 +145,10 @@ def main() -> None:
                 new_id = resolve_one(comp, broadcaster, pid, require_gate=True)
                 if new_id:
                     s = str(season_for_competition(comp))
-                    run_resolved.setdefault(s, {}).setdefault(comp, {})[broadcaster] = new_id
+                    # Single season playlist today; format reserved 'undetermined'
+                    # (season-vs-gameweek detection is a separate concern).
+                    run_resolved.setdefault(s, {}).setdefault(comp, {})[broadcaster] = \
+                        season_leaf(new_id)
 
     # ── Tier 1c/1d team playlists (single-team channels → no competition-gate) ──
     for comp, tmap in team_pls.items():
@@ -156,7 +160,7 @@ def main() -> None:
             new_id = resolve_one(comp, f"team:{team}", pid, require_gate=False)
             if new_id:
                 s = str(season_for_competition(comp))
-                run_team.setdefault(s, {}).setdefault(comp, {})[team] = new_id
+                run_team.setdefault(s, {}).setdefault(comp, {})[team] = season_leaf(new_id)
 
     # Load existing store (migrating the old flat shape) and MERGE this run's
     # resolutions in — preserving all prior seasons and any same-season entries

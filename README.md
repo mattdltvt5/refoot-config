@@ -37,8 +37,8 @@ channels stay the human-seeded input, only the playlist is re-discovered.)
   only — never `search.list`; quota is trivial (cached per channel, ≤5 pages/channel, a hard
   ~600-unit ceiling). The data write is committed `[skip ci]` by `github-actions[bot]`.
 - **Season-keyed additive store**: `discovered-playlists.json` nests resolutions by season —
-  `resolved: { "<season>": { comp: { broadcaster: id } } }` and `team: { "<season>": { comp: {
-  team: id } } }`, each competition keyed by its OWN season (`season_for_competition`, so
+  `resolved: { "<season>": { comp: { broadcaster: leaf } } }` and `team: { "<season>": { comp: {
+  team: leaf } } }`, each competition keyed by its OWN season (`season_for_competition`, so
   tournament editions land under their edition year). Every run **loads-and-merges** the existing
   file (deep-merge that only adds/updates leaves, never deletes) so **prior seasons — and any
   same-season entry the current run didn't re-resolve — are preserved**; it never does the old
@@ -46,6 +46,24 @@ channels stay the human-seeded input, only the playlist is re-discovered.)
   the diff) so an unchanged re-run is byte-identical (no noisy `[skip ci]` commits). An old
   flat-shaped file is migrated on read/write by nesting it under its own `current_season` stamp
   (missing/corrupt → treated as empty; no crash).
+- **Leaf holds BOTH source formats + a reserved `format` field**: each source leaf can represent
+  EITHER a single season playlist OR a per-gameweek collection —
+  `{"format": "season"|"gameweek"|"undetermined", "playlist_id": "PL…", "gameweeks": {"5": "PL…"}}`
+  — so no reshape is needed when format detection lands. Discovery currently writes the
+  single-playlist shape with `format:"undetermined"` (the season-vs-gameweek **detection** that
+  would set it is a deliberate follow-up — see below). `apply_discovered_overrides` tolerates a
+  bare-string leaf (the pre-reshape / migrated shape) and the object leaf, applies `playlist_id`
+  for season-format, and for a gameweek-only leaf applies **no** Tier-4 override (per-gameweek
+  fetching stays with the existing Tier-2 `find_gameweek_playlist`) — it never crashes on the
+  gameweek shape.
+- **Format detection + scheduling is a deferred follow-up (not in this change).** Inferring a
+  source's format from playlist titles (season playlist present → resolve-once; only gameweek
+  playlists → weekly) and differentiating the schedule is substantial, overlaps the existing
+  per-fixture `find_gameweek_playlist` (regression risk), and has real edge cases (a channel with
+  BOTH a season playlist and gameweek playlists; a first run that finds neither; ambiguous
+  "Jornada 5 … 2026/27" titles). The store now **reserves** the format field + both-shapes leaf so
+  that logic drops in without another reshape; until then `format` stays `"undetermined"` and
+  discovery runs weekly for every source (quota is trivial, so no correctness cost).
 - **Fetch integration**: `fetch_highlights.py` applies `apply_discovered_overrides(config)` after
   `load_sources()`. The override is **season-aware** — per competition it looks up the resolution
   under the season it is processing (`season_for_competition(comp)`, the same season the fetch uses

@@ -356,6 +356,44 @@ def write_discovered_if_changed(path: Path, payload: dict) -> bool:
     return True
 
 
+# ── Source-entry leaf shape (holds BOTH formats + reserved format field) ────────
+#
+# Each (season → comp → source) leaf can represent EITHER a single season playlist
+# OR a per-gameweek collection, tagged by a reserved "format" field:
+#   {"format": "season" | "gameweek" | "undetermined",
+#    "playlist_id": "PL…",             # season-format: one playlist for the season
+#    "gameweeks": {"5": "PL…", ...}}   # gameweek-format: a playlist per gameweek
+# Format DETECTION (which one a source is) is a separate concern — writers reserve
+# it as "undetermined" unless trivially known, so detection drops in later without
+# reshaping the store. A bare-string leaf is ALSO accepted on read (the shape that
+# shipped before this reshape, and migrated flat entries) and treated as a
+# season playlist_id.
+
+def season_leaf(playlist_id: str, fmt: str = "undetermined") -> dict:
+    """Build a single-season-playlist leaf (format reserved, default undetermined)."""
+    return {"format": fmt, "playlist_id": playlist_id}
+
+
+def gameweek_leaf(gameweeks: dict, fmt: str = "gameweek") -> dict:
+    """Build a per-gameweek collection leaf: {gw_number(str): playlist_id}."""
+    return {"format": fmt, "gameweeks": dict(gameweeks)}
+
+
+def leaf_playlist_id(leaf) -> "str | None":
+    """Extract the single override playlist id from a leaf, tolerating BOTH the
+    bare-string shape and the object shape. Returns None for a gameweek-only leaf
+    (no single season id — per-gameweek consumption is handled by the existing
+    Tier-2 find_gameweek_playlist path, not this override), so the caller applies
+    no Tier-4 override and never crashes on the gameweek shape.
+    """
+    if isinstance(leaf, str):
+        return leaf or None
+    if isinstance(leaf, dict):
+        pid = leaf.get("playlist_id")
+        return pid if isinstance(pid, str) and pid else None
+    return None
+
+
 # ── Override loader (used by the fetch path) ────────────────────────────────────
 
 
@@ -388,7 +426,8 @@ def apply_discovered_overrides(config: dict, *, path: Path = DISCOVERED_PATH,
         if not isinstance(bmap, dict) or not bmap:
             continue  # no entry for this comp's target season → last-known-good
         dest = comp_pl.setdefault(comp, {})
-        for broadcaster, pid in bmap.items():
+        for broadcaster, leaf in bmap.items():
+            pid = leaf_playlist_id(leaf)   # None for gameweek-only leaves → skip
             if pid:
                 dest[broadcaster] = [pid]
 
@@ -398,7 +437,8 @@ def apply_discovered_overrides(config: dict, *, path: Path = DISCOVERED_PATH,
         if not isinstance(tmap, dict) or not tmap:
             continue
         dest = team_pl.setdefault(comp, {})
-        for team, pid in tmap.items():
+        for team, leaf in tmap.items():
+            pid = leaf_playlist_id(leaf)
             if pid:
                 dest[team] = pid
 
