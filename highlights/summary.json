@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-24T08:11:34Z",
+  "generated_at": "2026-08-24T08:16:19Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -136,7 +136,7 @@
           "gameweek": "GW2",
           "stem": "gameweek-2",
           "total": 8,
-          "covered": 7,
+          "covered": 8,
           "matches": [
             {
               "match_id": 564638,
@@ -185,7 +185,7 @@
               "home": "Getafe CF",
               "away": "Real Racing Club de Santander",
               "date": "2026-08-23",
-              "covered": false
+              "covered": true
             },
             {
               "match_id": 564642,
