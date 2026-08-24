@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-24T21:21:55.001712Z",
+  "generated_at": "2026-08-24T21:26:55.335317Z",
   "competition": "LaLiga",
   "slug": "laliga",
   "season": 2026,
@@ -184,14 +184,14 @@
         "tla": "DEP",
         "crest": "https://crests.football-data.org/560.png"
       },
-      "playedGames": 1,
-      "form": "D",
+      "playedGames": 2,
+      "form": "D,D",
       "won": 0,
-      "draw": 1,
+      "draw": 2,
       "lost": 0,
-      "points": 1,
-      "goalsFor": 1,
-      "goalsAgainst": 1,
+      "points": 2,
+      "goalsFor": 2,
+      "goalsAgainst": 2,
       "goalDifference": 0
     },
     {
@@ -292,6 +292,25 @@
     {
       "position": 16,
       "team": {
+        "id": 84,
+        "name": "Málaga CF",
+        "shortName": "Málaga",
+        "tla": "MAL",
+        "crest": "https://crests.football-data.org/84.png"
+      },
+      "playedGames": 2,
+      "form": "D,L",
+      "won": 0,
+      "draw": 1,
+      "lost": 1,
+      "points": 1,
+      "goalsFor": 1,
+      "goalsAgainst": 3,
+      "goalDifference": -2
+    },
+    {
+      "position": 17,
+      "team": {
         "id": 88,
         "name": "Levante UD",
         "shortName": "Levante",
@@ -309,7 +328,7 @@
       "goalDifference": -3
     },
     {
-      "position": 17,
+      "position": 18,
       "team": {
         "id": 285,
         "name": "Elche CF",
@@ -328,7 +347,7 @@
       "goalDifference": -5
     },
     {
-      "position": 18,
+      "position": 19,
       "team": {
         "id": 92,
         "name": "Real Sociedad de Fútbol",
@@ -347,7 +366,7 @@
       "goalDifference": -1
     },
     {
-      "position": 19,
+      "position": 20,
       "team": {
         "id": 77,
         "name": "Athletic Club",
@@ -363,25 +382,6 @@
       "points": 0,
       "goalsFor": 1,
       "goalsAgainst": 3,
-      "goalDifference": -2
-    },
-    {
-      "position": 20,
-      "team": {
-        "id": 84,
-        "name": "Málaga CF",
-        "shortName": "Málaga",
-        "tla": "MAL",
-        "crest": "https://crests.football-data.org/84.png"
-      },
-      "playedGames": 1,
-      "form": "L",
-      "won": 0,
-      "draw": 0,
-      "lost": 1,
-      "points": 0,
-      "goalsFor": 0,
-      "goalsAgainst": 2,
       "goalDifference": -2
     }
   ]
