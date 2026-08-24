@@ -1,7 +1,7 @@
 {
   "competition": "LaLiga",
   "season": 2026,
-  "generated_at": "2026-08-24T19:36:12Z",
+  "generated_at": "2026-08-24T19:41:12Z",
   "fixtures": [
     {
       "match_id": 564634,
@@ -556,11 +556,11 @@
       },
       "score": {
         "fullTime": {
-          "home": null,
-          "away": null
+          "home": 0,
+          "away": 0
         }
       },
-      "status": "TIMED",
+      "status": "IN_PLAY",
       "utcDate": "2026-08-24T19:30:00Z"
     },
     {
