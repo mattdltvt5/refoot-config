@@ -1,0 +1,67 @@
+name: Find channel candidates (off-season, manual — sanctioned search.list)
+
+# ⚠ THE ONE sanctioned YouTube search.list user in this pipeline.
+#
+# search.list costs 100 units/call and returns a ranked guess full of fan/
+# re-uploader/pirate channels — so this job PROPOSES ranked candidates for HUMAN
+# approval (in the admin) and NEVER writes sources.json or auto-adopts a channel.
+#
+# MANUAL / OFF-SEASON ONLY: workflow_dispatch is the SOLE trigger. There is
+# deliberately NO `schedule:` — this must never fire during the season and is never
+# wired into fetch-highlights (4-hour incremental) or discover-season-playlists.
+# It searches ONLY teams the missing-channel detector flagged for AVAILABLE
+# competitions, under a hard search cap (default 50, clamped to a safe quota
+# fraction). Writes highlights/channel-candidates.json only.
+
+on:
+  workflow_dispatch:
+    inputs:
+      max_searches:
+        description: "Hard cap on search.list calls (100 units each)"
+        required: false
+        default: "50"
+      actionable_only:
+        description: "Search only actionable (uncovered) teams? true/false"
+        required: false
+        default: "false"
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: 'true'
+
+jobs:
+  find-candidates:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write       # needed to commit highlights/channel-candidates.json
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install requests
+
+      - name: Find channel candidates (search.list — off-season manual only)
+        env:
+          YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
+        run: |
+          python3 scripts/find_channel_candidates.py \
+            --max-searches "${{ github.event.inputs.max_searches }}" \
+            $([ "${{ github.event.inputs.actionable_only }}" = "true" ] && echo "--actionable-only")
+
+      - name: Commit if changed
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add highlights/channel-candidates.json
+          git diff --cached --quiet \
+            && echo "No changes to commit." \
+            || (
+                git commit -m "data: refresh channel candidates [skip ci]" \
+                && git pull --rebase -X ours origin main \
+                && git push
+               )

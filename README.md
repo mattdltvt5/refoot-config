@@ -144,6 +144,37 @@ channels stay the human-seeded input, only the playlist is re-discovered.)
   (approving/adding a channel needs `search.list` + a human, a separate future feature). Example
   today: PL's newly-promoted Coventry/Hull/Ipswich are flagged actionable (no own channel, PL has no
   Tier-2 and its Tier-4 is dead); league/UCL missing-own teams show `covered_via_other_tier: true`.
+- **Channel candidate finder** (`scripts/find_channel_candidates.py` + `find-channel-candidates.yml`)
+  — the **SINGLE sanctioned `search.list` caller** in the whole pipeline. `search.list` is FORBIDDEN
+  everywhere else (100 units/call vs 1 for `playlistItems.list`/`playlists.list`, and it returns a
+  ranked guess full of fan/re-uploader/pirate channels). It is allowed here *only* because finding an
+  **unknown** channel is the one thing the cheap list calls can't do (they need a known id), and it
+  runs under strict guardrails:
+    - **Off-season, MANUAL only** — `workflow_dispatch` is the sole trigger (no `schedule:`); it is
+      **never** imported by `fetch_highlights` (the 4-hour incremental) or `discover_season_playlists`
+      (an `_assert_not_incremental()` guard trips if it ever is).
+    - **Flagged teams only** — searches only the missing-own teams from the detector's
+      `missing_channels[]` (falls back to `compute_missing_channels`), scoped to **available**
+      competitions (EL/Copa skipped); never a sweep, never already-mapped teams. `--actionable-only`
+      narrows to uncovered teams; default is **all** missing-own (own channels everywhere).
+    - **Hard cap + quota estimate** — at most `--max-searches` (default 50) `search.list` calls,
+      additionally clamped to 50 % of the daily quota (≤ 50 searches = ≤ 5 000 units). It prints the
+      pre-run estimate and, if the cap/quota would be exceeded, **aborts cleanly and writes partial
+      results** (unsearched teams recorded in `flags[]` as `search_cap_reached_not_searched`).
+    - **Proposes, never adopts** — writes **only** `highlights/channel-candidates.json`
+      (github-actions[bot], `[skip ci]`, atomic, no force-push); it **never** touches `sources.json`
+      and **never** auto-picks. Candidates are **ranked** by club-name token match, subscriber count,
+      verification, and fan/re-uploader down-ranks, each with an **`evidence`** string that surfaces
+      *why* (including why a likely fake was down-ranked — the ambiguity is shown, not hidden). Teams
+      with no plausible candidate (best score < 0.30) go to `flags[]`. Report shape:
+      `{generated_at, estimated_search_units, candidates:{<comp>:{<exact team key>:[{channelId,
+      channelTitle, url, thumbnail, subscriberCount, verified, score, evidence}]}}, flags[]}`, keyed
+      by the **exact `teamLists`/`teams` name** so a later Approve writes back cleanly. **Approval
+      happens in the admin** (a human confirms a candidate before it ever reaches `sources.json`) —
+      that UI is the next build; this job only produces the proposals. Tests:
+      `scripts/tests/test_find_channel_candidates.py` (8) — official-over-lookalike ranking, cap
+      enforcement + partial write, schema/exact-keying, no-candidate→flags, scope
+      (mapped/unavailable excluded), and the incremental-import guard.
 - **Fallback + flags**: on **no confident/verified match** (or a dead/private mapped playlist, like
   the current PL broadcaster ID), the pipeline **keeps the last-known-good sources.json ID and
   records a loud, machine-readable flag** in `discovered-playlists.json` (`flags[]`) + the log —
