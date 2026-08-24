@@ -75,6 +75,23 @@ channels stay the human-seeded input, only the playlist is re-discovered.)
   record/tribute/best-goals, press/post-match/tour/journey). When a channel has both a women's and a
   first-team "Highlights 2026/27", the women's is excluded so the first-team wins. No confident
   first-team match → keep last-known-good + flag. The **competition (Tier-4) matcher is unchanged**.
+- **Second-run exclusion refinements** (closing the remaining leaks): (1) **second division at the
+  COMPETITION branch** — `_SECOND_DIV_RE` (`2. Bundesliga`/`Bundesliga 2`/`2 Bundesliga`/`Serie B`/
+  `Segunda`/`Ligue 2`/`Championship`) now runs on both branches for **domestic leagues only**, so
+  Bundesliga TV can't resolve `Bundesliga 2 | Highlights 2026/27` while top-flight `Bundesliga |
+  Highlights 2026/27` still passes (it targets the division token, not any "2"/year); domestic-only
+  scoping keeps Euro Cup's "European Championship" safe. (2) **throwback/archive** (throwback,
+  archive, retro, vintage, on-this-day, flashback) added to the shared decoy list. (3)
+  **individual-player tribute/record** — the Griezmann leak slipped because the exclusion listed
+  `record`/`tribute`/`best goals` but not the real phrasing; now keys on the record/tribute signal
+  multilingually (`top scorer`, `all-time`, `máximo goleador`, `goleador de la historia`, `homenaje`,
+  `leyenda`, `hall of fame`, `most goals`). (4) **reserve/youth** — added `Fortuna` (Celta reserve)
+  and `Centre de Formation`/`Centro de Formación`. Men's/first-team + terse titles still pass.
+  **`TEAM_MATCHER_VERSION` bumped 2→3** so the committed team section (from the v2 run, which still
+  had these leaks) stays gated off until a fresh run regenerates it. Competition overrides aren't
+  version-gated, so the committed bad `Bundesliga 2` competition override was **quarantined** (that
+  one entry removed from `discovered-playlists.json`, other comp resolutions like UCL kept live) —
+  re-running discovery regenerates the whole file cleanly.
 - **Interim team-override guard**: team overrides are versioned (`TEAM_MATCHER_VERSION`) and
   `apply_discovered_overrides` applies them **only** from a file stamped with the current version.
   The already-committed `discovered-playlists.json` from the old greedy run has no stamp, so its

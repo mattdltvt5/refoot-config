@@ -320,6 +320,56 @@ def test_team_matcher_season_string_alone_is_insufficient():
     assert _teampick(["Squad Numbers 2026/27"]) is None
 
 
+# ── Second discovery run: remaining exclusion gaps closed ────────────────────
+
+def _comp_pick(comp, titles):
+    pls = [_pl(t, f"ID{i}") for i, t in enumerate(titles)]
+    r = select_current_season_playlist(comp, pls, now=NOW,
+                                       require_competition_gate=True, team_mode=False)
+    return r["id"] if r else None
+
+def test_second_division_rejected_at_competition_branch():
+    # CRITICAL: competition overrides ARE applied, so the top-flight Bundesliga
+    # source must never resolve its own second division.
+    assert _comp_pick("Bundesliga", ["Bundesliga 2 | Highlights 2026/27"]) is None
+    assert _comp_pick("Bundesliga", ["2. Bundesliga | Highlights 2026/27"]) is None
+    assert _comp_pick("Serie A",    ["Serie B 2026/27 Highlights"]) is None
+
+def test_top_flight_with_year_still_passes_at_competition_branch():
+    # Must NOT reject a top-flight title merely containing a year/"2".
+    assert _comp_pick("Bundesliga", ["Bundesliga | Highlights 2026/27"]) == "ID0"
+    assert _comp_pick("Champions League", ["2026/27 Champions League Extended Highlights"]) == "ID0"
+    assert _comp_pick("Ligue 1", ["Ligue 1 2026-27"]) == "ID0"
+    assert _comp_pick("LaLiga", ["2026-27 LALIGA | ESPN FC"]) == "ID0"
+
+def test_euro_championship_not_mistaken_for_second_division():
+    # "Championship" (English 2nd tier) must NOT reject Euro Cup's "European
+    # Championship" — the 2nd-division check is domestic-only.
+    assert _comp_pick("Euro Cup", ["UEFA European Championship 2024 Highlights"]) == "ID0"
+
+def test_throwback_and_tribute_and_reserve_rejected():
+    # The real leaks from the second run.
+    assert _teampick(["Throwback Highlights"]) is None
+    assert _teampick(["Antoine Griezmann, Atleti's all-time top scorer | "
+                      "máximo goleador de la historia del Atlético de Madrid"]) is None
+    assert _teampick(["RESÚMENES | Celta Fortuna 2026/27"]) is None
+    assert _teampick(["Les résumés des matchs des équipes du Centre de Formation"]) is None
+
+def test_first_team_and_terse_titles_still_pass():
+    for good in [
+        "Highlights 2026/27 | Men's First Team", "Men's First Team Highlights 2026/27",
+        "FIRST TEAM HIGHLIGHTS", "Extended Highlights | Chelsea FC | 2026/27",
+        "2026/27 Extended Highlights", "SSCN | Highlights Serie A 26/27",
+        "SERIE A 2026/27 | HIGHLIGHTS", "HIGHLIGHTS 26/27",
+        "BUTS", "RÉSUMÉ DE MATCH", "RESUMEN PARTIDOS", "Top buts", "Highlights",
+    ]:
+        assert _teampick([good]) == "ID0", f"should still accept: {good!r}"
+
+def test_team_matcher_version_bumped_to_3():
+    from playlist_discovery import TEAM_MATCHER_VERSION
+    assert TEAM_MATCHER_VERSION == 3
+
+
 # ── Interim team-override guard (version-gated consumption) ───────────────────
 
 def test_team_overrides_ignored_without_version_stamp(tmp_path):

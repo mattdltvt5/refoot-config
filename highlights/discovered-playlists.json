@@ -15,12 +15,6 @@
           "playlist_id": "PLcS6KNbFQ63k"
         }
       },
-      "Bundesliga": {
-        "Bundesliga TV": {
-          "format": "undetermined",
-          "playlist_id": "PLaSyPfb6dJpw"
-        }
-      },
       "Ligue 1": {
         "Bein Sport US": {
           "format": "undetermined",
@@ -379,6 +373,12 @@
       "source": "team:Paris FC",
       "mapped_id": "PLhfmS0vX1jNxvr0J6-IKE41C3bRe816sx",
       "reason": "channel_unresolvable_reseed"
+    },
+    {
+      "competition": "Bundesliga",
+      "source": "Bundesliga TV",
+      "reason": "quarantined_second_division_override_pending_rerun",
+      "note": "removed 'Bundesliga 2 | Highlights 2026/27' (PLaSyPfb6dJpw); re-run discovery to regenerate"
     }
   ],
   "estimated_units": 201

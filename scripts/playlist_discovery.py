@@ -56,7 +56,7 @@ DISCOVERED_PATH = HIGHLIGHTS_DIR / "discovered-playlists.json"
 # bench-cam/pre-season/women's playlists) is IGNORED for team overrides — teams
 # fall back to sources.json last-known-good until discovery is re-run with the
 # fixed matcher. Competition (Tier-4) overrides are unaffected by this gate.
-TEAM_MATCHER_VERSION = 2
+TEAM_MATCHER_VERSION = 3
 
 # ── Season tokens ──────────────────────────────────────────────────────────────
 
@@ -98,6 +98,9 @@ _DECOY_TERMS = (
     "and more", "interview", "reaction", "analysis",    # non-highlight formats
     "watch along", "matchday live", "vlog", "mini resumen",
     "u.s. open cup",
+    # Throwback / archive (old highlights, not current-season match highlights).
+    # Applied on BOTH branches — no legit current playlist carries these.
+    "throwback", "archive", "retro", "vintage", "on this day", "flashback",
 )
 
 _FOLDED_ALLOWLIST = tuple(_fold(t) for t in TITLE_ALLOWLIST)
@@ -130,29 +133,36 @@ _TEAM_NOISE_FOLDED = (
     "under-21", "under-23",
     # women
     "women", "femenin", "feminin", "femmin", "frauen", "damen",
-    # reserves / B teams
+    # reserves / B teams / youth training centres
     "castilla", " ii ", " ii|", "b team", "b-team", "reserve",
+    "fortuna",                                    # Celta Fortuna (reserve/B team)
+    "centre de formation", "centro de formacion", "youth academy",
     # signings / transfers / unveilings
     "signing", "fichaje", "transfer", "unveil", "presentacion",
-    # individual-player / tribute / best-of compilations
+    # individual-player tribute / record compilations — key on the RECORD/TRIBUTE
+    # signal (names are unbounded), accent-folded + multilingual. This is what the
+    # Griezmann "all-time top scorer | máximo goleador de la historia" leak needed.
     "record", "tribute", "best goals", "top 10", "top 5", "iconic",
-    "every goal", "greatest",
+    "every goal", "greatest", "top scorer", "all-time", "all time",
+    "maximo goleador", "goleador de la historia", "homenaje", "leyenda",
+    "legend", "hall of fame", "most goals", "record breaker",
     # talk / press / behind-the-scenes / tours
     "press conference", "post-match", "post match", "post partita",
     "postpartita", "mic'd", "micd", " tour", "journey", "behind the scenes",
 )
-# Collision-prone second-division names via regex (so "Bundesliga 2026" is NOT
-# caught, but "2. Bundesliga" / "Bundesliga 2 |" is).
-_TEAM_NOISE_RE = re.compile(
-    r"\b2\.\s*bundesliga\b|\bbundesliga\s+2\b(?!\d)|\bserie\s+b\b|\bsegunda\b|"
-    r"\bligue\s+2\b|\bchampionship\b")
+
+# Second-division tokens (collision-prone → regex so "Bundesliga 2026" is NOT
+# caught, but "2. Bundesliga" / "Bundesliga 2 |" / "2 Bundesliga" is). Applied on
+# BOTH branches for DOMESTIC leagues (the top-flight source must never resolve its
+# own second division). Deliberately NOT applied to tournaments so "European
+# Championship" (Euro Cup) is never mistaken for the English Championship.
+_SECOND_DIV_RE = re.compile(
+    r"\b2\.\s*bundesliga\b|\bbundesliga\s+2\b(?!\d)|\b2\s+bundesliga\b|"
+    r"\bserie\s+b\b|\bsegunda\b|\bligue\s+2\b|\bchampionship\b")
 
 
 def _is_team_noise(title: str) -> bool:
-    folded = _fold(title)
-    if any(term in folded for term in _TEAM_NOISE_FOLDED):
-        return True
-    return bool(_TEAM_NOISE_RE.search(folded))
+    return any(term in _fold(title) for term in _TEAM_NOISE_FOLDED)
 
 
 def _recency_key(p: dict):
@@ -192,10 +202,18 @@ def select_current_season_playlist(
     mode, tokens = current_season_tokens(comp_name, now)
     kws = [k.lower() for k in COMPETITION_KEYWORDS.get(comp_name, [])]
 
+    is_domestic = comp_name in DOMESTIC_LEAGUE_COMPS
     survivors = []
     for p in playlists:
         title = p.get("title") or ""
         if _is_decoy(title):
+            continue
+        # Second-division leak (COMPETITION and team branches): a top-flight
+        # domestic source must never resolve its own second division
+        # ("2. Bundesliga", "Serie B", "Segunda", "Ligue 2", "Championship").
+        # Targets the division TOKEN, so "Bundesliga | Highlights 2026/27" (top
+        # flight, mere year) still passes. Skipped for tournaments (no 2nd tier).
+        if is_domestic and _SECOND_DIV_RE.search(_fold(title)):
             continue
         # TEAM channels carry many season-stringed non-first-team playlists (bench
         # cam, pre-season, academy, women's, reserves, second division, signings,
