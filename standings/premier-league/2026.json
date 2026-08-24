@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-24T07:58:58.808810Z",
+  "generated_at": "2026-08-24T21:01:55.669355Z",
   "competition": "Premier League",
   "slug": "premier-league",
   "season": 2026,
@@ -102,6 +102,25 @@
     {
       "position": 6,
       "team": {
+        "id": 61,
+        "name": "Chelsea FC",
+        "shortName": "Chelsea",
+        "tla": "CHE",
+        "crest": "https://crests.football-data.org/61.png"
+      },
+      "playedGames": 1,
+      "form": "W",
+      "won": 1,
+      "draw": 0,
+      "lost": 0,
+      "points": 3,
+      "goalsFor": 3,
+      "goalsAgainst": 2,
+      "goalDifference": 1
+    },
+    {
+      "position": 7,
+      "team": {
         "id": 349,
         "name": "Ipswich Town FC",
         "shortName": "Ipswich Town",
@@ -119,7 +138,7 @@
       "goalDifference": 1
     },
     {
-      "position": 7,
+      "position": 8,
       "team": {
         "id": 65,
         "name": "Manchester City FC",
@@ -138,7 +157,7 @@
       "goalDifference": 1
     },
     {
-      "position": 8,
+      "position": 9,
       "team": {
         "id": 341,
         "name": "Leeds United FC",
@@ -157,7 +176,7 @@
       "goalDifference": 1
     },
     {
-      "position": 9,
+      "position": 10,
       "team": {
         "id": 67,
         "name": "Newcastle United FC",
@@ -176,7 +195,7 @@
       "goalDifference": 0
     },
     {
-      "position": 10,
+      "position": 11,
       "team": {
         "id": 64,
         "name": "Liverpool FC",
@@ -195,7 +214,7 @@
       "goalDifference": 0
     },
     {
-      "position": 11,
+      "position": 12,
       "team": {
         "id": 63,
         "name": "Fulham FC",
@@ -203,34 +222,15 @@
         "tla": "FUL",
         "crest": "https://crests.football-data.org/63.png"
       },
-      "playedGames": 0,
-      "form": "",
+      "playedGames": 1,
+      "form": "L",
       "won": 0,
       "draw": 0,
-      "lost": 0,
+      "lost": 1,
       "points": 0,
-      "goalsFor": 0,
-      "goalsAgainst": 0,
-      "goalDifference": 0
-    },
-    {
-      "position": 12,
-      "team": {
-        "id": 61,
-        "name": "Chelsea FC",
-        "shortName": "Chelsea",
-        "tla": "CHE",
-        "crest": "https://crests.football-data.org/61.png"
-      },
-      "playedGames": 0,
-      "form": "",
-      "won": 0,
-      "draw": 0,
-      "lost": 0,
-      "points": 0,
-      "goalsFor": 0,
-      "goalsAgainst": 0,
-      "goalDifference": 0
+      "goalsFor": 2,
+      "goalsAgainst": 3,
+      "goalDifference": -1
     },
     {
       "position": 13,
