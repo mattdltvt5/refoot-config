@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-24T00:39:43Z",
+  "generated_at": "2026-08-24T00:53:53Z",
   "current_season": 2026,
   "resolved": {
     "2026": {
@@ -86,7 +86,7 @@
         },
         "Everton FC": {
           "format": "undetermined",
-          "playlist_id": "PLbAn24ijfYA4"
+          "playlist_id": "PLkB7IpRClaTK-kd_RjYKmaYpwMscjfK7X"
         },
         "Fulham FC": {
           "format": "undetermined",
@@ -114,7 +114,7 @@
         },
         "West Ham United FC": {
           "format": "undetermined",
-          "playlist_id": "PLdtWHqbPEqvU"
+          "playlist_id": "PLYHkL_gap6hw"
         },
         "Wolverhampton Wanderers FC": {
           "format": "undetermined",
@@ -186,7 +186,7 @@
       "Serie A": {
         "AC Milan": {
           "format": "undetermined",
-          "playlist_id": "PLN0O4418fr28"
+          "playlist_id": "PLW7Xs51ob1LI"
         },
         "AS Roma": {
           "format": "undetermined",
@@ -206,11 +206,11 @@
         },
         "Hellas Verona FC": {
           "format": "undetermined",
-          "playlist_id": "PLLA-bz04iuxs"
+          "playlist_id": "PLmdTTVlnCmEL7yO4arbJWFQqpfhkHwIPR"
         },
         "Juventus FC": {
           "format": "undetermined",
-          "playlist_id": "PLRlPtFQnMhYw"
+          "playlist_id": "PLamQuNkRTV0f0w99Q5gZf4uUf8BfQWlZe"
         },
         "Parma Calcio 1913": {
           "format": "undetermined",
@@ -240,7 +240,7 @@
         },
         "Eintracht Frankfurt": {
           "format": "undetermined",
-          "playlist_id": "PLdRh5R-kZ9f4"
+          "playlist_id": "PLsF7i70ofzRmsm_0bM3ir9xgpsWm73EWl"
         }
       },
       "Ligue 1": {
@@ -275,12 +275,34 @@
       }
     }
   },
+  "team_matcher_version": 2,
   "flags": [
     {
       "competition": "Premier League",
       "source": "Premier League",
       "mapped_id": "PLQ_voP4Q3cfetksvjNLOrMr3h8xtViMuP",
       "reason": "channel_unresolvable_reseed"
+    },
+    {
+      "competition": "Premier League",
+      "source": "team:AFC Bournemouth",
+      "mapped_id": "PLDSAlkBZMWj5N7tdhX2uI5YkLFnD3V7VI",
+      "reason": "no_confident_match_kept_last_known_good",
+      "owner_channel": "AFC Bournemouth"
+    },
+    {
+      "competition": "Premier League",
+      "source": "team:Arsenal FC",
+      "mapped_id": "PLvuwbYTkUzHcWbmTUwc_TDprJHvpOZQCV",
+      "reason": "no_confident_match_kept_last_known_good",
+      "owner_channel": "Arsenal"
+    },
+    {
+      "competition": "Premier League",
+      "source": "team:Aston Villa FC",
+      "mapped_id": "PLiR0-7AEE2Hotf1U_U7a2rO53BgZUjcNq",
+      "reason": "no_confident_match_kept_last_known_good",
+      "owner_channel": "Aston Villa Football Club"
     },
     {
       "competition": "Premier League",
@@ -305,10 +327,31 @@
     },
     {
       "competition": "LaLiga",
+      "source": "team:FC Barcelona",
+      "mapped_id": "PLkksCTsYZQhH-D0GKq2QVJd1NBKZNUsRs",
+      "reason": "no_confident_match_kept_last_known_good",
+      "owner_channel": "FC Barcelona"
+    },
+    {
+      "competition": "LaLiga",
       "source": "team:Getafe CF",
       "mapped_id": "PLZAduiL3Fz7acbVYqMg8R-96k_j5yxi67",
       "reason": "no_confident_match_kept_last_known_good",
       "owner_channel": "Getafe C.F."
+    },
+    {
+      "competition": "Serie A",
+      "source": "team:AS Roma",
+      "mapped_id": "PLWDYmb1zjcb4NBrWcg5_9MXh2ry65z7Nr",
+      "reason": "no_confident_match_kept_last_known_good",
+      "owner_channel": "AS Roma"
+    },
+    {
+      "competition": "Serie A",
+      "source": "team:Atalanta BC",
+      "mapped_id": "PLIR0_rtON6moGIa4fd6f8VdPmH9lt7tgA",
+      "reason": "no_confident_match_kept_last_known_good",
+      "owner_channel": "Atalanta Bergamasca Calcio"
     },
     {
       "competition": "Ligue 1",
