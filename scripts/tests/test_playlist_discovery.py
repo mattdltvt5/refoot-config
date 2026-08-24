@@ -18,6 +18,7 @@ from playlist_discovery import (
     current_season_tokens,
     is_competition_available,
     available_competitions,
+    compute_missing_channels,
     apply_discovered_overrides,
     migrate_flat_discovered,
     merge_discovered_seasons,
@@ -318,6 +319,67 @@ def test_team_matcher_prefers_current_season_over_terse():
 def test_team_matcher_season_string_alone_is_insufficient():
     # The greedy bug: a season string with NO highlight term must NOT be adopted.
     assert _teampick(["Squad Numbers 2026/27"]) is None
+
+
+# ── Missing-channel detector (pure config, no API) ───────────────────────────
+
+def _sources(**over):
+    base = {
+        "teamLists": {
+            "Premier League": [{"name": "Arsenal FC"}, {"name": "Coventry City FC"}],
+            "LaLiga":         [{"name": "Real Madrid"}],
+            "Europa League":  [{"name": "Some EL Team"}],  # unavailable → skipped
+        },
+        "teams": {"Arsenal FC": "UC_arsenal"},              # Coventry unmapped
+        "teamPlaylists": {"Premier League": {"Arsenal FC": ""}},
+        "competitions": {"Premier League": "", "LaLiga": "UC_laliga_ch"},  # LaLiga=Tier-2
+        "playlists": {"Premier League": {"Premier League": ["PLxxx"]}},    # PL Tier-4 mapped
+    }
+    base.update(over)
+    return base
+
+_AVAIL = {"Premier League", "LaLiga"}
+
+def test_missing_zero_when_fully_mapped():
+    raw = _sources(teamLists={"Premier League": [{"name": "Arsenal FC"}]})
+    assert compute_missing_channels(raw, _AVAIL) == []
+
+def test_missing_reports_exactly_the_unmapped_team():
+    raw = _sources(teamLists={"Premier League": [{"name": "Arsenal FC"},
+                                                 {"name": "Coventry City FC"}]})
+    got = compute_missing_channels(raw, {"Premier League"})
+    assert [m["team"] for m in got] == ["Coventry City FC"]
+
+def test_missing_name_normalization_no_false_positive():
+    # Roster carries stray whitespace; must still match the "Arsenal FC" mapping.
+    raw = _sources(teamLists={"Premier League": [{"name": "  Arsenal FC  "}]})
+    assert compute_missing_channels(raw, {"Premier League"}) == []
+
+def test_missing_skips_unavailable_competition():
+    raw = _sources()
+    got = compute_missing_channels(raw, _AVAIL)  # EL not in _AVAIL
+    assert all(m["competition"] != "Europa League" for m in got)
+
+def test_missing_covered_via_tier2_channel():
+    # LaLiga has a Tier-2 competition channel → Real Madrid missing-own is covered.
+    got = compute_missing_channels(_sources(), {"LaLiga"})
+    assert got == [{"competition": "LaLiga", "team": "Real Madrid",
+                    "covered_via_other_tier": True}]
+
+def test_missing_actionable_when_tier4_flagged_dead():
+    # PL: no Tier-2; its only Tier-4 broadcaster is flagged dead this run →
+    # Coventry is NOT covered = actionable.
+    flags = [{"competition": "Premier League", "source": "Premier League",
+              "reason": "channel_unresolvable_reseed"}]
+    got = compute_missing_channels(_sources(), {"Premier League"}, flags)
+    cov = next(m for m in got if m["team"] == "Coventry City FC")
+    assert cov["covered_via_other_tier"] is False
+
+def test_missing_covered_when_tier4_present_and_not_dead():
+    # Same PL setup but no dead flag → the mapped Tier-4 counts as coverage.
+    got = compute_missing_channels(_sources(), {"Premier League"})
+    cov = next(m for m in got if m["team"] == "Coventry City FC")
+    assert cov["covered_via_other_tier"] is True
 
 
 # ── Second discovery run: remaining exclusion gaps closed ────────────────────

@@ -107,6 +107,21 @@ channels stay the human-seeded input, only the playlist is re-discovered.)
   season's ID is never cross-applied). No-op until the weekly job has run; the per-gameweek Tier-2
   discovery (`find_gameweek_playlist`) and the availability scoping are unchanged. Per-season
   highlight OUTPUT (`highlights/{slug}/{season}/…`) is not touched by discovery.
+- **Standing "missing channel" detector** (`compute_missing_channels`, runs every discovery run —
+  no new schedule): pure config set-difference (NO API, NO `search.list`, no writes to sources.json)
+  that reports, per **available** competition, which roster teams (`teamLists`) have **no own mapped
+  channel** — a club channel (`teams[name]`) or competition-scoped team playlist
+  (`teamPlaylists[comp][name]`). Names match on the shared full-name key (the identical `name` used
+  by all three structures), whitespace-trimmed — no fuzzy matching, so no false "missing" from
+  format differences. Each entry carries `covered_via_other_tier`: whether the competition still has
+  a Tier-2 competition channel or a Tier-4 broadcaster playlist **not flagged dead this run** — so
+  the report separates "missing own channel but covered" from the **actionable** set (no own channel
+  AND no working tier). EL/Copa are skipped (unavailable). Output is both **loud logs** (per-comp
+  summary + an ACTIONABLE warning) and a machine-readable **`missing_channels`** array in
+  `discovered-playlists.json`. It only SURFACES the gap — it never fetches or adds channels
+  (approving/adding a channel needs `search.list` + a human, a separate future feature). Example
+  today: PL's newly-promoted Coventry/Hull/Ipswich are flagged actionable (no own channel, PL has no
+  Tier-2 and its Tier-4 is dead); league/UCL missing-own teams show `covered_via_other_tier: true`.
 - **Fallback + flags**: on **no confident/verified match** (or a dead/private mapped playlist, like
   the current PL broadcaster ID), the pipeline **keeps the last-known-good sources.json ID and
   records a loud, machine-readable flag** in `discovered-playlists.json` (`flags[]`) + the log —

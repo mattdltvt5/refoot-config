@@ -294,6 +294,75 @@ def available_competitions(*, repo_root: Path = REPO_ROOT) -> "set[str]":
             if is_competition_available(c, repo_root=repo_root)}
 
 
+# ── Missing-channel detector (pure config; no API) ──────────────────────────────
+
+
+def _own_channel_mapped(sources_raw: dict, comp: str, name: str) -> bool:
+    """True if the team has an OWN source mapped: a club channel (teams[name]) or a
+    competition-scoped team playlist (teamPlaylists[comp][name]). Empty string =
+    unmapped."""
+    if ((sources_raw.get("teams") or {}).get(name) or "").strip():
+        return True
+    if (((sources_raw.get("teamPlaylists") or {}).get(comp) or {}).get(name) or "").strip():
+        return True
+    return False
+
+
+def _covered_via_other_tier(sources_raw: dict, comp: str,
+                            dead_broadcasters: "dict[str, set]") -> bool:
+    """Config-level (no API) signal: does the competition have a tier that would
+    still cover a team lacking its own channel? True if it has a Tier-2 competition
+    channel (find_gameweek_playlist) OR ≥1 Tier-4 broadcaster playlist that was NOT
+    flagged dead in this run. (Config can't prove liveness, so a broadcaster this
+    run flagged channel_unresolvable_reseed is treated as not-working.)"""
+    if ((sources_raw.get("competitions") or {}).get(comp) or "").strip():
+        return True
+    bmap = (sources_raw.get("playlists") or {}).get(comp) or {}
+    dead = dead_broadcasters.get(comp, set())
+    for bcast, ids in bmap.items():
+        id_list = ids if isinstance(ids, list) else [ids]
+        if any((i or "").strip() for i in id_list) and bcast not in dead:
+            return True
+    return False
+
+
+def compute_missing_channels(sources_raw: dict, available: "set[str]",
+                             flags: "list | tuple" = ()) -> "list[dict]":
+    """Per AVAILABLE competition, list roster teams (teamLists) with NO own mapped
+    channel/playlist. Pure set-difference on config — no API, no writes.
+
+    Name matching: exact on the shared full-name key (the same ``name`` used by
+    teamLists, teams, and teamPlaylists), whitespace-trimmed. No fuzzy matching is
+    needed because all three structures key teams by that identical full name; a
+    trim guards against stray-whitespace mismatch.
+
+    Each entry carries ``covered_via_other_tier`` — whether the competition has a
+    Tier-2/Tier-4 tier (not flagged dead this run) that would still cover the
+    team's matches. The ACTIONABLE set is entries where that is False (no own
+    channel AND no working competition tier). Returns a deterministic (comp, team)
+    sorted list.
+    """
+    dead: "dict[str, set]" = {}
+    for f in flags or ():
+        if isinstance(f, dict) and f.get("reason") == "channel_unresolvable_reseed":
+            dead.setdefault(f.get("competition"), set()).add(f.get("source"))
+
+    rosters = sources_raw.get("teamLists") or {}
+    out: list[dict] = []
+    for comp in available:
+        roster = rosters.get(comp)
+        if not roster:
+            continue
+        cov = _covered_via_other_tier(sources_raw, comp, dead)
+        for t in roster:
+            name = (t.get("name") or "").strip()
+            if name and not _own_channel_mapped(sources_raw, comp, name):
+                out.append({"competition": comp, "team": name,
+                            "covered_via_other_tier": cov})
+    out.sort(key=lambda e: (e["competition"], e["team"]))
+    return out
+
+
 # ── Channel playlist listing (network; used by the orchestrator only) ───────────
 
 

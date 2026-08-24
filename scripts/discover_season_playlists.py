@@ -42,6 +42,7 @@ from season_utils import current_season
 from playlist_discovery import (
     DISCOVERED_PATH,
     available_competitions,
+    compute_missing_channels,
     list_channel_playlists,
     merge_discovered_seasons,
     migrate_flat_discovered,
@@ -57,6 +58,30 @@ log = logging.getLogger("discover_season_playlists")
 
 # Safety ceiling so a pathological channel list can never blow the daily budget.
 _UNIT_CEILING = 600
+
+
+def _log_missing_channels(missing: "list[dict]") -> None:
+    """Loud, structured per-competition summary of roster teams with no own channel.
+    Always logs (even 0 missing) so the signal is current every run. The ACTIONABLE
+    subset (no own channel AND no working competition tier) is warned separately."""
+    if not missing:
+        log.info("Missing-channel detector: 0 teams without an own channel. ✓")
+        return
+    by_comp: "dict[str, list[dict]]" = {}
+    for m in missing:
+        by_comp.setdefault(m["competition"], []).append(m)
+    for comp in sorted(by_comp):
+        teams = [m["team"] for m in by_comp[comp]]
+        log.info("Missing own channel — %s (%d): %s", comp, len(teams),
+                 ", ".join(sorted(teams)))
+    actionable = [m for m in missing if not m["covered_via_other_tier"]]
+    if actionable:
+        log.warning("ACTIONABLE missing channels (no own channel AND no working "
+                    "competition tier) — %d: %s", len(actionable),
+                    json.dumps(actionable, ensure_ascii=False))
+    else:
+        log.info("All missing-own-channel teams are covered via a competition/"
+                 "broadcaster tier (none actionable).")
 
 
 def main() -> None:
@@ -165,6 +190,12 @@ def main() -> None:
                 s = str(season_for_competition(comp))
                 run_team.setdefault(s, {}).setdefault(comp, {})[team] = season_leaf(new_id)
 
+    # Standing "missing channel" detector — pure config, no API. Runs every run
+    # (even a no-op) so newly-promoted/added clubs surface automatically. It only
+    # FLAGS; it never fetches or adds channels.
+    missing = compute_missing_channels(raw, avail, flags)
+    _log_missing_channels(missing)
+
     # Load existing store (migrating the old flat shape) and MERGE this run's
     # resolutions in — preserving all prior seasons and any same-season entries
     # this run didn't re-resolve. Never a fresh empty overwrite.
@@ -178,6 +209,7 @@ def main() -> None:
         "team":            merged["team"],
         "team_matcher_version": TEAM_MATCHER_VERSION,
         "flags":           flags,
+        "missing_channels": missing,
         "estimated_units": counter[0],
     }
     wrote = write_discovered_if_changed(DISCOVERED_PATH, payload)
