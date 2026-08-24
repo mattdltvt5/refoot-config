@@ -31,6 +31,7 @@ from highlights_common import (
     HIGHLIGHTS_DIR,
     fd_get,
     load_json_file,
+    override_crest,
     season_for_competition,
     stage_to_file_stem,
     utc_now_iso,
@@ -292,14 +293,14 @@ class FootballDataProvider(FixtureProvider):
                     "name":      home.get("name", ""),
                     "shortName": home.get("shortName") or home.get("name", ""),
                     "tla":       home.get("tla", ""),
-                    "crest":     home.get("crest", ""),
+                    "crest":     override_crest(home.get("id"), home.get("crest", "")),
                 },
                 "awayTeam": {
                     "id":        away.get("id"),
                     "name":      away.get("name", ""),
                     "shortName": away.get("shortName") or away.get("name", ""),
                     "tla":       away.get("tla", ""),
-                    "crest":     away.get("crest", ""),
+                    "crest":     override_crest(away.get("id"), away.get("crest", "")),
                 },
                 "score": {
                     "fullTime": {

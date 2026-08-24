@@ -44,6 +44,28 @@ YT_VIDEOS    = "https://www.googleapis.com/youtube/v3/videos"
 YT_PLAYLISTS = "https://www.googleapis.com/youtube/v3/playlists"
 MIN_VIDEO_DURATION_SECONDS = 55    # reject clips shorter than 55s (Shorts, social clips)
 
+# ── Manual crest overrides (per football-data team id) ──────────────────────────
+#
+# For teams whose football-data crest is broken IN THE APP, map the FD team id to a
+# verified-renderable replacement, applied wherever crests are ingested from FD
+# (fixtures, standings, rosters). NOT a global sweep — only known-broken crests.
+#
+# Le Mans FC (535): FD has no hosted crest, so it hotlinks a Wikipedia SVG whose 14
+# paths take their fills ONLY from a <style> block (class-based + gradient url()
+# refs), with zero inline fill= attributes. flutter_svg 2.3.0 can't resolve
+# style-block/gradient fills, so every path defaults to black → solid black
+# silhouette. Replacement is Wikimedia's server-rendered COLOUR PNG of the same
+# crest (verified HTTP 200, real colours, not a silhouette) — a raster the app
+# loads via Image, bypassing flutter_svg entirely.
+CREST_OVERRIDES = {
+    535: "https://upload.wikimedia.org/wikipedia/en/thumb/5/57/Le_Mans_FC_logo.svg/330px-Le_Mans_FC_logo.svg.png",
+}
+
+
+def override_crest(team_id, crest):
+    """Return the override crest for a football-data team id, else the given crest."""
+    return CREST_OVERRIDES.get(team_id, crest)
+
 # ── Tuning constants ──────────────────────────────────────────────────────────
 
 VIDEO_WINDOW_DAYS = 3    # accept videos published up to N days after fixture date

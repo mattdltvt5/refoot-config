@@ -18,6 +18,7 @@ import json, os, sys, time, urllib.request, urllib.error
 from datetime import datetime, timezone, timedelta
 
 from season_utils import current_season  # canonical August-threshold rule (shared with fixtures pipeline)
+from highlights_common import override_crest  # manual crest overrides (per FD team id)
 
 FD_BASE = "https://api.football-data.org/v4"
 
@@ -54,11 +55,20 @@ def fetch_standings(comp_id, api_key, base_url=FD_BASE, season=None):
 
 
 def extract_total_table(standings_payload):
-    """Return only the TOTAL-type standings groups from a /standings payload."""
-    return [
+    """Return only the TOTAL-type standings groups from a /standings payload,
+    applying manual per-team crest overrides (see highlights_common.CREST_OVERRIDES)
+    so a team whose FD crest is broken in the app (e.g. Le Mans) shows the fixed
+    crest here too."""
+    groups = [
         s for s in standings_payload.get("standings", [])
         if s.get("type") == "TOTAL"
     ]
+    for g in groups:
+        for row in g.get("table", []) or []:
+            team = row.get("team")
+            if isinstance(team, dict):
+                team["crest"] = override_crest(team.get("id"), team.get("crest", ""))
+    return groups
 
 
 def write_standings(comp_name, slug, rows, season, out_dir="."):

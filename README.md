@@ -4,6 +4,25 @@ Remote channel configuration for the **ReFoot Highlights** Android app.
 
 ## Recent changes
 
+### Le Mans FC crest fix: flutter_svg-incompatible SVG → colour PNG (2026-08-24)
+Le Mans FC (Ligue 1) rendered as a solid black silhouette. football-data.org has no hosted crest for
+Le Mans (id 535), so it hotlinks a Wikipedia SVG whose 14 paths take their fills ONLY from a `<style>`
+block (class-based + gradient `url()` refs) with zero inline `fill=` attributes. **flutter_svg 2.3.0
+cannot resolve style-block/gradient fills**, so every path defaults to black. That FD crest flows
+verbatim into fixtures, standings, the roster (`teamLists`), and the derived `home-index`, so the
+silhouette appeared everywhere Le Mans is shown. The TeamCrest widget is correct — this is a
+data-layer fix (no Flutter/flutter_svg change). A small **per-FD-id override map**
+(`highlights_common.CREST_OVERRIDES`, applied via `override_crest(id, crest)`) maps Le Mans (535) to
+Wikimedia's **server-rendered colour PNG** of the same crest (`…/thumb/…/330px-…svg.png`) — verified
+HTTP 200, real colours, not a silhouette, and loaded by the app as a raster (bypassing flutter_svg).
+The override is applied at every FD-crest ingestion point — `fixture_providers.py` (fixtures →
+home-index), `sync_standings.py` (standings), and `sync-teams.yml` (roster) — so it survives future
+resyncs. **Not a global sweep** — only known-broken ids; extend `CREST_OVERRIDES` as needed. Only Le
+Mans's crest URL changed; every other crest is untouched. Juventus (renders correctly) was not
+touched. **Files:** `scripts/highlights_common.py`, `scripts/fixture_providers.py`,
+`scripts/sync_standings.py`, `.github/workflows/sync-teams.yml` (+ `test_crest_override.py`),
+`sources.json`, `fixtures/ligue-1/2026.json`, `standings/ligue-1/2026.json`, `home-index/*`.
+
 ### National-team crest normalization: padded PNG → flag-CDN SVG (2026-08-24)
 Some football-data.org national-team crests are 200×200 `.png` files with the flag letterboxed and
 transparent top/bottom padding; `BoxFit.cover` renders those bands as white stripes in the app

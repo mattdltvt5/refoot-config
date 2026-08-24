@@ -22,8 +22,14 @@ jobs:
           FOOTBALL_DATA_API_KEY: ${{ secrets.FOOTBALL_DATA_API_KEY }}
         run: |
           python3 << 'PYEOF'
-          import json, os, pathlib, time, urllib.request, urllib.error
+          import json, os, pathlib, sys, time, urllib.request, urllib.error
           from datetime import date, datetime
+
+          # Manual crest overrides (per FD team id) — e.g. Le Mans (535), whose FD
+          # crest is a flutter_svg-incompatible Wikipedia SVG. Keeps the roster
+          # crestUrl fixed across resyncs. Single source of truth in scripts/.
+          sys.path.insert(0, "scripts")
+          from highlights_common import override_crest
 
           API_KEY = os.environ["FOOTBALL_DATA_API_KEY"]
 
@@ -60,7 +66,7 @@ jobs:
                                   "name":     t["name"],
                                   "id":       t["id"],
                                   "tla":      t.get("tla", ""),
-                                  "crestUrl": t.get("crest", ""),
+                                  "crestUrl": override_crest(t["id"], t.get("crest", "")),
                               }
                               for t in payload.get("teams", [])
                           ],
