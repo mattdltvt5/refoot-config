@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-24T10:46:15Z",
+  "generated_at": "2026-08-24T10:51:28Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -9,14 +9,14 @@
           "gameweek": "GW1",
           "stem": "gameweek-1",
           "total": 9,
-          "covered": 8,
+          "covered": 9,
           "matches": [
             {
               "match_id": 560542,
               "home": "Arsenal FC",
               "away": "Coventry City FC",
               "date": "2026-08-21",
-              "covered": false
+              "covered": true
             },
             {
               "match_id": 560543,

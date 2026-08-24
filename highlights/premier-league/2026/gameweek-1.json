@@ -2,14 +2,27 @@
   "competition": "Premier League",
   "gameweek": "GW1",
   "stem": "gameweek-1",
-  "generated_at": "2026-08-24T00:01:53Z",
+  "generated_at": "2026-08-24T10:51:28Z",
   "matches": [
     {
       "match_id": 560542,
       "home_team": "Arsenal FC",
       "away_team": "Coventry City FC",
       "date": "2026-08-21",
-      "videos": []
+      "videos": [
+        {
+          "video_id": "3B8img2AC00",
+          "title": "Arsenal 3-0 Coventry City | Extended Premier League Highlights",
+          "published_at": "2026-08-22",
+          "tier_used": 1
+        },
+        {
+          "video_id": "eev4aa-cCOU",
+          "title": "Arsenal 3-0 Coventry City | Premier League Highlights",
+          "published_at": "2026-08-21",
+          "tier_used": 1
+        }
+      ]
     },
     {
       "match_id": 560543,
