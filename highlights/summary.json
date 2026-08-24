@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-23T23:56:12Z",
+  "generated_at": "2026-08-24T00:01:57Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -8,8 +8,8 @@
         {
           "gameweek": "GW1",
           "stem": "gameweek-1",
-          "total": 6,
-          "covered": 5,
+          "total": 9,
+          "covered": 8,
           "matches": [
             {
               "match_id": 560542,
@@ -51,6 +51,27 @@
               "home": "Brentford FC",
               "away": "Tottenham Hotspur FC",
               "date": "2026-08-22",
+              "covered": true
+            },
+            {
+              "match_id": 560548,
+              "home": "Manchester City FC",
+              "away": "AFC Bournemouth",
+              "date": "2026-08-23",
+              "covered": true
+            },
+            {
+              "match_id": 560549,
+              "home": "Brighton & Hove Albion FC",
+              "away": "Aston Villa FC",
+              "date": "2026-08-23",
+              "covered": true
+            },
+            {
+              "match_id": 560550,
+              "home": "Newcastle United FC",
+              "away": "Liverpool FC",
+              "date": "2026-08-23",
               "covered": true
             }
           ]
@@ -114,8 +135,8 @@
         {
           "gameweek": "GW2",
           "stem": "gameweek-2",
-          "total": 5,
-          "covered": 5,
+          "total": 8,
+          "covered": 7,
           "matches": [
             {
               "match_id": 564638,
@@ -151,6 +172,27 @@
               "away": "Real Madrid CF",
               "date": "2026-08-22",
               "covered": true
+            },
+            {
+              "match_id": 564646,
+              "home": "Club Atlético de Madrid",
+              "away": "Villarreal CF",
+              "date": "2026-08-23",
+              "covered": true
+            },
+            {
+              "match_id": 564644,
+              "home": "Getafe CF",
+              "away": "Real Racing Club de Santander",
+              "date": "2026-08-23",
+              "covered": false
+            },
+            {
+              "match_id": 564642,
+              "home": "Elche CF",
+              "away": "FC Barcelona",
+              "date": "2026-08-23",
+              "covered": true
             }
           ]
         }
@@ -163,8 +205,8 @@
         {
           "gameweek": "GW1",
           "stem": "gameweek-1",
-          "total": 4,
-          "covered": 4,
+          "total": 8,
+          "covered": 8,
           "matches": [
             {
               "match_id": 558629,
@@ -193,6 +235,34 @@
               "away": "Cagliari Calcio",
               "date": "2026-08-22",
               "covered": true
+            },
+            {
+              "match_id": 558635,
+              "home": "Frosinone Calcio",
+              "away": "Juventus FC",
+              "date": "2026-08-23",
+              "covered": true
+            },
+            {
+              "match_id": 558637,
+              "home": "Venezia FC",
+              "away": "US Lecce",
+              "date": "2026-08-23",
+              "covered": true
+            },
+            {
+              "match_id": 558633,
+              "home": "Atalanta BC",
+              "away": "US Sassuolo Calcio",
+              "date": "2026-08-23",
+              "covered": true
+            },
+            {
+              "match_id": 558634,
+              "home": "Torino FC",
+              "away": "AC Milan",
+              "date": "2026-08-23",
+              "covered": true
             }
           ]
         }
@@ -205,50 +275,71 @@
         {
           "gameweek": "GW1",
           "stem": "gameweek-1",
-          "total": 6,
-          "covered": 0,
+          "total": 9,
+          "covered": 9,
           "matches": [
             {
               "match_id": 559715,
               "home": "Olympique de Marseille",
               "away": "RC Strasbourg Alsace",
               "date": "2026-08-21",
-              "covered": false
+              "covered": true
             },
             {
               "match_id": 559712,
               "home": "Racing Club de Lens",
               "away": "AJ Auxerre",
               "date": "2026-08-22",
-              "covered": false
+              "covered": true
             },
             {
               "match_id": 559711,
               "home": "Le Mans FC",
               "away": "Stade Brestois 29",
               "date": "2026-08-22",
-              "covered": false
+              "covered": true
             },
             {
               "match_id": 559714,
               "home": "ES Troyes AC",
               "away": "Paris FC",
               "date": "2026-08-22",
-              "covered": false
+              "covered": true
             },
             {
               "match_id": 559716,
               "home": "OGC Nice",
               "away": "FC Lorient",
               "date": "2026-08-22",
-              "covered": false
+              "covered": true
             },
             {
               "match_id": 559718,
               "home": "Toulouse FC",
               "away": "Olympique Lyonnais",
               "date": "2026-08-22",
-              "covered": false
+              "covered": true
+            },
+            {
+              "match_id": 559717,
+              "home": "Angers SCO",
+              "away": "Lille OSC",
+              "date": "2026-08-23",
+              "covered": true
+            },
+            {
+              "match_id": 559719,
+              "home": "Le Havre AC",
+              "away": "AS Monaco FC",
+              "date": "2026-08-23",
+              "covered": true
+            },
+            {
+              "match_id": 559713,
+              "home": "Paris Saint-Germain FC",
+              "away": "Stade Rennais FC 1901",
+              "date": "2026-08-23",
+              "covered": true
             }
           ]
         }
