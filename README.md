@@ -92,6 +92,28 @@ channels stay the human-seeded input, only the playlist is re-discovered.)
   version-gated, so the committed bad `Bundesliga 2` competition override was **quarantined** (that
   one entry removed from `discovered-playlists.json`, other comp resolutions like UCL kept live) —
   re-running discovery regenerates the whole file cleanly.
+- **Root fix for the recurring Griezmann leak — word-bounded positive gate + goal-compilation
+  exclusion** (`TEAM_MATCHER_VERSION` bumped 3→4): Atlético leaked to a Griezmann tribute on three
+  consecutive runs (different wording each time) because the fix kept chasing the *negative* list.
+  The real cause was the **positive** highlight-term gate: it matched short goal tokens as
+  **substrings**, so `gol` ⊂ `goleador` and `goles` inside a montage title falsely signalled
+  "highlights", after which only the wording-specific negative list could save it. Two changes:
+  (a) `_has_highlight_term` now matches **short latin goal tokens** (`gol`, `goles`, `gols`, `buts`,
+  `tore`, `resum`, `ozet`) as **whole words** (`\b…\b`) instead of substrings — terse legit titles
+  (`BUTS`, `Top buts`, standalone `goles`) still pass, but `goleador`/`golazo` no longer light the
+  gate. Long/non-latin terms keep substring matching so plurals still hit (`resumen` ⊂ `resúmenes`).
+  (b) a **goal-compilation exclusion** — `_GOAL_COMPILATION_RE` (`\b\d+\s+(goles|goals|buts|gols|
+  tore)\b`, i.e. a player goal *count* like "200 goles"/"200 goals") plus bare all-goals phrases
+  (`todos los goles`, `tous les buts`, `all goals`, `alle Tore`) — catches the ALL/EVERY/COUNT-of-a-
+  player's-goals montage regardless of the name or number. It deliberately does **not** fire on legit
+  per-matchday roundups: `Goals & Highlights 26/27`, `Resúmenes y goles`, and TUDN's
+  `RESÚMENES Y GOLES UEFA CHAMPIONS LEAGUE` (no count before the goal word) all still pass. Both real
+  leaking titles — run 1/2 (`all-time top scorer | máximo goleador de la historia`) and run 3
+  (`All of Griezmann's 200 goals | Los 200 goles de Antoine Griezmann`) — are now rejected, verified
+  in tests against the **actual** log titles (not synthetic). The committed team section (v3) is
+  gated off by the v4 bump, so Atlético's stale override no longer applies — re-run discovery to
+  regenerate a clean v4-stamped file, at which point Atlético resolves to a real highlights playlist
+  or cleanly flags + keeps last-known-good.
 - **Interim team-override guard**: team overrides are versioned (`TEAM_MATCHER_VERSION`) and
   `apply_discovered_overrides` applies them **only** from a file stamped with the current version.
   The already-committed `discovered-playlists.json` from the old greedy run has no stamp, so its

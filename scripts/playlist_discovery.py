@@ -56,7 +56,7 @@ DISCOVERED_PATH = HIGHLIGHTS_DIR / "discovered-playlists.json"
 # bench-cam/pre-season/women's playlists) is IGNORED for team overrides — teams
 # fall back to sources.json last-known-good until discovery is re-run with the
 # fixed matcher. Competition (Tier-4) overrides are unaffected by this gate.
-TEAM_MATCHER_VERSION = 3
+TEAM_MATCHER_VERSION = 4
 
 # ── Season tokens ──────────────────────────────────────────────────────────────
 
@@ -105,10 +105,27 @@ _DECOY_TERMS = (
 
 _FOLDED_ALLOWLIST = tuple(_fold(t) for t in TITLE_ALLOWLIST)
 
+# Split the positive vocabulary by substring-safety. SHORT latin goal tokens
+# ("gol", "goles", "buts", "tore"…) must match as WHOLE WORDS — otherwise "gol"
+# lights up inside "goleador"/"golazo" and a player-goal-compilation title
+# ("máximo goleador…", "los 200 goles de Griezmann") falsely passes the positive
+# highlight gate. This is the ROOT of the recurring Atlético/Griezmann leak. Longer
+# / non-latin terms ("highlights", "resumen", "résumé", "골") keep substring
+# matching so legit inflections still hit (e.g. "resumen" ⊂ "resúmenes").
+_ALLOW_WORD_TOKENS = tuple(
+    t for t in _FOLDED_ALLOWLIST if len(t) <= 5 and re.fullmatch(r"[a-z]+", t))
+_ALLOW_SUBSTR_TOKENS = tuple(
+    t for t in _FOLDED_ALLOWLIST if t not in _ALLOW_WORD_TOKENS)
+_ALLOW_WORD_RE = (
+    re.compile(r"\b(?:" + "|".join(re.escape(t) for t in _ALLOW_WORD_TOKENS) + r")\b")
+    if _ALLOW_WORD_TOKENS else None)
+
 
 def _has_highlight_term(title: str) -> bool:
     folded = _fold(title)
-    return any(term in folded for term in _FOLDED_ALLOWLIST)
+    if any(term in folded for term in _ALLOW_SUBSTR_TOKENS):
+        return True
+    return bool(_ALLOW_WORD_RE and _ALLOW_WORD_RE.search(folded))
 
 
 def _is_decoy(title: str) -> bool:
@@ -146,6 +163,11 @@ _TEAM_NOISE_FOLDED = (
     "every goal", "greatest", "top scorer", "all-time", "all time",
     "maximo goleador", "goleador de la historia", "homenaje", "leyenda",
     "legend", "hall of fame", "most goals", "record breaker",
+    # ALL/EVERY-of-a-player's-goals compilations (bare-phrase form; the goal-COUNT
+    # form "N goles"/"N goals" is caught by _GOAL_COMPILATION_RE below). Keyed on
+    # the compilation signal, not the name/number, so run-3 "Los 200 goles de
+    # Griezmann" and its siblings can't slip through on new wording.
+    "todos los goles", "tous les buts", "all goals", "alle tore",
     # talk / press / behind-the-scenes / tours
     "press conference", "post-match", "post match", "post partita",
     "postpartita", "mic'd", "micd", " tour", "journey", "behind the scenes",
@@ -160,9 +182,21 @@ _SECOND_DIV_RE = re.compile(
     r"\b2\.\s*bundesliga\b|\bbundesliga\s+2\b(?!\d)|\b2\s+bundesliga\b|"
     r"\bserie\s+b\b|\bsegunda\b|\bligue\s+2\b|\bchampionship\b")
 
+# Player goal-COUNT compilations: a number immediately before a goal word
+# ("200 goles", "200 goals", "100 buts") — the strongest signal of an all-time /
+# career goals montage, which team channels title tersely with the count. Keyed on
+# the count, NOT the player name, so every re-phrasing is caught. Deliberately does
+# NOT fire on legit per-matchday roundups: "Goals & Highlights 26/27" (no number
+# before the goal word) and "Resúmenes y goles" / TUDN "RESÚMENES Y GOLES …" (no
+# count) all pass. The season string "26/27" is not "<n> goles/goals" so it's safe.
+_GOAL_COMPILATION_RE = re.compile(r"\b\d+\s+(?:goles|goals|buts|gols|tore)\b")
+
 
 def _is_team_noise(title: str) -> bool:
-    return any(term in _fold(title) for term in _TEAM_NOISE_FOLDED)
+    folded = _fold(title)
+    if any(term in folded for term in _TEAM_NOISE_FOLDED):
+        return True
+    return bool(_GOAL_COMPILATION_RE.search(folded))
 
 
 def _recency_key(p: dict):

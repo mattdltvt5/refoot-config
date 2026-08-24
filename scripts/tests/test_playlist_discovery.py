@@ -427,9 +427,65 @@ def test_first_team_and_terse_titles_still_pass():
     ]:
         assert _teampick([good]) == "ID0", f"should still accept: {good!r}"
 
-def test_team_matcher_version_bumped_to_3():
+def test_team_matcher_version_bumped_to_4():
     from playlist_discovery import TEAM_MATCHER_VERSION
-    assert TEAM_MATCHER_VERSION == 3
+    assert TEAM_MATCHER_VERSION == 4
+
+
+# ── Root-cause fix: word-bounded positive gate + goal-compilation exclusion ───
+# The recurring Atlético→Griezmann leak. Substring "gol"⊂"goleador" falsely lit
+# the positive highlight gate; then the wording-specific negative list let each new
+# phrasing slip. Fix = word-bound short goal tokens (root) + a goal-COUNT / ALL-
+# goals-of-a-player exclusion (catches the compilation regardless of number/name).
+# These use the REAL titles from the three discovery runs, not synthetic ones.
+
+# Real Atlético/Griezmann titles observed leaking across three runs.
+_GRIEZMANN_RUN12 = ("Antoine Griezmann, Atleti's all-time top scorer | "
+                    "máximo goleador de la historia del Atlético de Madrid")
+_GRIEZMANN_RUN3 = ("All of Griezmann's 200 goals as an Atlético de Madrid player | "
+                   "Los 200 goles de Antoine Griezmann como jugador del "
+                   "Atlético de Madrid")
+
+def test_root_positive_gate_word_bounds_short_goal_tokens():
+    from playlist_discovery import _has_highlight_term
+    # "gol"/"goles" no longer match as a SUBSTRING inside a player-goal word →
+    # a tribute title can't pass the positive gate on that false signal alone.
+    assert _has_highlight_term("El goleador histórico del club") is False
+    assert _has_highlight_term("Golazo histórico de Griezmann") is False
+    # run 1/2 leaked ONLY because "gol"⊂"goleador" passed the positive gate; the
+    # word-bounded gate now rejects it outright (belt-and-braces with the noise list).
+    assert _has_highlight_term(_GRIEZMANN_RUN12) is False
+
+def test_root_positive_gate_still_accepts_terse_and_plural_terms():
+    from playlist_discovery import _has_highlight_term
+    # Word-bounded short tokens still match standalone; long tokens keep substring
+    # matching so plurals/inflections ("resumen"⊂"resúmenes") still light up.
+    for good in ["BUTS", "Top buts", "goles", "Highlights 26/27",
+                 "RÉSUMÉ DE MATCH", "RESÚMENES J5 | LALIGA EA SPORTS",
+                 "Goals & Highlights 26/27",
+                 "RESÚMENES Y GOLES UEFA CHAMPIONS LEAGUE 2026/27"]:
+        assert _has_highlight_term(good) is True, f"should still signal: {good!r}"
+
+def test_griezmann_all_three_run_phrasings_rejected():
+    # Both real leaking titles (run 1/2 tribute wording AND run 3 goal-count
+    # wording) must resolve to None (keep last-known-good) in team_mode.
+    assert _teampick([_GRIEZMANN_RUN12]) is None
+    assert _teampick([_GRIEZMANN_RUN3]) is None
+
+def test_goal_compilation_exclusion_targets_player_montages_not_roundups():
+    from playlist_discovery import _is_team_noise
+    # Goal-COUNT / all-goals-of-a-player compilations are noise…
+    for bad in [_GRIEZMANN_RUN3,
+                "Los 200 goles de Antoine Griezmann",
+                "All of Messi's 100 goals",
+                "Todos los goles de Suárez con el Atlético",
+                "Tous les buts de Mbappé au PSG"]:
+        assert _is_team_noise(bad) is True, f"should be noise: {bad!r}"
+    # …but legit per-matchday roundups with NO player goal-count are NOT excluded.
+    for ok in ["Goals & Highlights 26/27", "Resúmenes y goles - Jornada 5",
+               "RESÚMENES Y GOLES UEFA CHAMPIONS LEAGUE 2026/27",
+               "Match Highlights 2026/27", "Highlights 26/27"]:
+        assert _is_team_noise(ok) is False, f"should NOT be noise: {ok!r}"
 
 
 # ── Interim team-override guard (version-gated consumption) ───────────────────
