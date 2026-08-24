@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-24T00:53:53Z",
+  "generated_at": "2026-08-24T01:06:58Z",
   "current_season": 2026,
   "resolved": {
     "2026": {
@@ -39,6 +39,12 @@
         "Telemundo": {
           "format": "undetermined",
           "playlist_id": "PLXHZm5xDlEdQ"
+        }
+      },
+      "Bundesliga": {
+        "Bundesliga TV": {
+          "format": "undetermined",
+          "playlist_id": "PLSGSg3FPIe4A"
         }
       }
     },
@@ -112,7 +118,7 @@
         },
         "Wolverhampton Wanderers FC": {
           "format": "undetermined",
-          "playlist_id": "PL7bxCYhjCueTJHKz7tM60SnUovWruMwoK"
+          "playlist_id": "PL7bxCYhjCueSFLbObV9Oeq3j6T0kfTinv"
         }
       },
       "LaLiga": {
@@ -126,7 +132,7 @@
         },
         "Club Atlético de Madrid": {
           "format": "undetermined",
-          "playlist_id": "PLem6BBedbLfJmBR4UxXrLzqTynMQhetk0"
+          "playlist_id": "PLem6BBedbLfIOk_fiBqv64VFLch9pJx8u"
         },
         "Deportivo Alavés": {
           "format": "undetermined",
@@ -204,7 +210,7 @@
         },
         "Juventus FC": {
           "format": "undetermined",
-          "playlist_id": "PLamQuNkRTV0f0w99Q5gZf4uUf8BfQWlZe"
+          "playlist_id": "PLamQuNkRTV0cdZeXYYirTxNoiNPJHSVWp"
         },
         "Parma Calcio 1913": {
           "format": "undetermined",
@@ -264,12 +270,12 @@
         },
         "Toulouse FC": {
           "format": "undetermined",
-          "playlist_id": "PL1jRGSJYMC950X5Rg-8rtVPajgQVPGpLL"
+          "playlist_id": "PL1jRGSJYMC97sX-zhEYoo0eDbLXDgsd8u"
         }
       }
     }
   },
-  "team_matcher_version": 2,
+  "team_matcher_version": 3,
   "flags": [
     {
       "competition": "Premier League",
@@ -334,6 +340,13 @@
       "owner_channel": "Getafe C.F."
     },
     {
+      "competition": "LaLiga",
+      "source": "team:RC Celta de Vigo",
+      "mapped_id": "PLViRVq4QRYNGIn4oNDknC6iuTd4Dnm2_l",
+      "reason": "no_confident_match_kept_last_known_good",
+      "owner_channel": "RC Celta"
+    },
+    {
       "competition": "Serie A",
       "source": "team:AS Roma",
       "mapped_id": "PLWDYmb1zjcb4NBrWcg5_9MXh2ry65z7Nr",
@@ -373,12 +386,6 @@
       "source": "team:Paris FC",
       "mapped_id": "PLhfmS0vX1jNxvr0J6-IKE41C3bRe816sx",
       "reason": "channel_unresolvable_reseed"
-    },
-    {
-      "competition": "Bundesliga",
-      "source": "Bundesliga TV",
-      "reason": "quarantined_second_division_override_pending_rerun",
-      "note": "removed 'Bundesliga 2 | Highlights 2026/27' (PLaSyPfb6dJpw); re-run discovery to regenerate"
     }
   ],
   "estimated_units": 201
