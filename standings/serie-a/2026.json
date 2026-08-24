@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-24T07:59:13.620641Z",
+  "generated_at": "2026-08-24T18:41:50.863919Z",
   "competition": "Serie A",
   "slug": "serie-a",
   "season": 2026,
@@ -140,6 +140,25 @@
     {
       "position": 8,
       "team": {
+        "id": 110,
+        "name": "SS Lazio",
+        "shortName": "Lazio",
+        "tla": "LAZ",
+        "crest": "https://crests.football-data.org/110.png"
+      },
+      "playedGames": 1,
+      "form": "W",
+      "won": 1,
+      "draw": 0,
+      "lost": 0,
+      "points": 3,
+      "goalsFor": 1,
+      "goalsAgainst": 0,
+      "goalDifference": 1
+    },
+    {
+      "position": 9,
+      "team": {
         "id": 115,
         "name": "Udinese Calcio",
         "shortName": "Udinese",
@@ -157,7 +176,7 @@
       "goalDifference": 0
     },
     {
-      "position": 9,
+      "position": 10,
       "team": {
         "id": 7397,
         "name": "Como 1907",
@@ -176,45 +195,7 @@
       "goalDifference": 0
     },
     {
-      "position": 10,
-      "team": {
-        "id": 103,
-        "name": "Bologna FC 1909",
-        "shortName": "Bologna",
-        "tla": "BOL",
-        "crest": "https://crests.football-data.org/103.png"
-      },
-      "playedGames": 0,
-      "form": "",
-      "won": 0,
-      "draw": 0,
-      "lost": 0,
-      "points": 0,
-      "goalsFor": 0,
-      "goalsAgainst": 0,
-      "goalDifference": 0
-    },
-    {
       "position": 11,
-      "team": {
-        "id": 110,
-        "name": "SS Lazio",
-        "shortName": "Lazio",
-        "tla": "LAZ",
-        "crest": "https://crests.football-data.org/110.png"
-      },
-      "playedGames": 0,
-      "form": "",
-      "won": 0,
-      "draw": 0,
-      "lost": 0,
-      "points": 0,
-      "goalsFor": 0,
-      "goalsAgainst": 0,
-      "goalDifference": 0
-    },
-    {
-      "position": 12,
       "team": {
         "id": 100,
         "name": "AS Roma",
@@ -233,7 +214,7 @@
       "goalDifference": 0
     },
     {
-      "position": 13,
+      "position": 12,
       "team": {
         "id": 99,
         "name": "ACF Fiorentina",
@@ -252,7 +233,7 @@
       "goalDifference": 0
     },
     {
-      "position": 14,
+      "position": 13,
       "team": {
         "id": 471,
         "name": "US Sassuolo Calcio",
@@ -271,7 +252,7 @@
       "goalDifference": -1
     },
     {
-      "position": 15,
+      "position": 14,
       "team": {
         "id": 586,
         "name": "Torino FC",
@@ -290,7 +271,7 @@
       "goalDifference": -1
     },
     {
-      "position": 16,
+      "position": 15,
       "team": {
         "id": 112,
         "name": "Parma Calcio 1913",
@@ -309,13 +290,32 @@
       "goalDifference": -1
     },
     {
-      "position": 17,
+      "position": 16,
       "team": {
         "id": 470,
         "name": "Frosinone Calcio",
         "shortName": "Frosinone",
         "tla": "FRO",
         "crest": "https://crests.football-data.org/470.png"
+      },
+      "playedGames": 1,
+      "form": "L",
+      "won": 0,
+      "draw": 0,
+      "lost": 1,
+      "points": 0,
+      "goalsFor": 0,
+      "goalsAgainst": 1,
+      "goalDifference": -1
+    },
+    {
+      "position": 17,
+      "team": {
+        "id": 103,
+        "name": "Bologna FC 1909",
+        "shortName": "Bologna",
+        "tla": "BOL",
+        "crest": "https://crests.football-data.org/103.png"
       },
       "playedGames": 1,
       "form": "L",
