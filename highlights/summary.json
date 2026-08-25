@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-24T23:56:13Z",
+  "generated_at": "2026-08-25T00:01:28Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -8,8 +8,8 @@
         {
           "gameweek": "GW1",
           "stem": "gameweek-1",
-          "total": 9,
-          "covered": 9,
+          "total": 10,
+          "covered": 10,
           "matches": [
             {
               "match_id": 560542,
@@ -73,6 +73,13 @@
               "away": "Liverpool FC",
               "date": "2026-08-23",
               "covered": true
+            },
+            {
+              "match_id": 560551,
+              "home": "Fulham FC",
+              "away": "Chelsea FC",
+              "date": "2026-08-24",
+              "covered": true
             }
           ]
         }
@@ -135,8 +142,8 @@
         {
           "gameweek": "GW2",
           "stem": "gameweek-2",
-          "total": 8,
-          "covered": 8,
+          "total": 10,
+          "covered": 10,
           "matches": [
             {
               "match_id": 564638,
@@ -193,6 +200,20 @@
               "away": "FC Barcelona",
               "date": "2026-08-23",
               "covered": true
+            },
+            {
+              "match_id": 564639,
+              "home": "CA Osasuna",
+              "away": "Levante UD",
+              "date": "2026-08-24",
+              "covered": true
+            },
+            {
+              "match_id": 564640,
+              "home": "Málaga CF",
+              "away": "RC Deportivo La Coruña",
+              "date": "2026-08-24",
+              "covered": true
             }
           ]
         }
@@ -205,8 +226,8 @@
         {
           "gameweek": "GW1",
           "stem": "gameweek-1",
-          "total": 8,
-          "covered": 8,
+          "total": 10,
+          "covered": 10,
           "matches": [
             {
               "match_id": 558629,
@@ -262,6 +283,20 @@
               "home": "Torino FC",
               "away": "AC Milan",
               "date": "2026-08-23",
+              "covered": true
+            },
+            {
+              "match_id": 558630,
+              "home": "Bologna FC 1909",
+              "away": "SS Lazio",
+              "date": "2026-08-24",
+              "covered": true
+            },
+            {
+              "match_id": 558638,
+              "home": "AS Roma",
+              "away": "ACF Fiorentina",
+              "date": "2026-08-24",
               "covered": true
             }
           ]
