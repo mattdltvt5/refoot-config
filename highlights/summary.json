@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-25T21:01:32Z",
+  "generated_at": "2026-08-25T21:06:30Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -92,7 +92,7 @@
         {
           "gameweek": "GW1",
           "stem": "gameweek-1",
-          "total": 6,
+          "total": 7,
           "covered": 5,
           "matches": [
             {
@@ -136,6 +136,13 @@
               "away": "Málaga CF",
               "date": "2026-08-19",
               "covered": true
+            },
+            {
+              "match_id": 564637,
+              "home": "Valencia CF",
+              "away": "Real Betis Balompié",
+              "date": "2026-08-25",
+              "covered": false
             }
           ]
         },
