@@ -1,7 +1,7 @@
 {
   "competition": "Ligue 1",
   "season": 2026,
-  "generated_at": "2026-08-25T06:11:14Z",
+  "generated_at": "2026-08-25T06:16:14Z",
   "fixtures": [
     {
       "match_id": 559715,
@@ -233,18 +233,18 @@
       "matchday": 1,
       "sourceRound": "Gameweek 1",
       "homeTeam": {
-        "id": 524,
-        "name": "Paris Saint-Germain FC",
-        "shortName": "PSG",
-        "tla": "PSG",
-        "crest": "https://crests.football-data.org/524.png"
-      },
-      "awayTeam": {
         "id": 529,
         "name": "Stade Rennais FC 1901",
         "shortName": "Stade Rennais",
         "tla": "REN",
         "crest": "https://crests.football-data.org/529.png"
+      },
+      "awayTeam": {
+        "id": 524,
+        "name": "Paris Saint-Germain FC",
+        "shortName": "PSG",
+        "tla": "PSG",
+        "crest": "https://crests.football-data.org/524.png"
       },
       "score": {
         "fullTime": {
@@ -5581,18 +5581,18 @@
       "matchday": 23,
       "sourceRound": "Gameweek 23",
       "homeTeam": {
-        "id": 529,
-        "name": "Stade Rennais FC 1901",
-        "shortName": "Stade Rennais",
-        "tla": "REN",
-        "crest": "https://crests.football-data.org/529.png"
-      },
-      "awayTeam": {
         "id": 524,
         "name": "Paris Saint-Germain FC",
         "shortName": "PSG",
         "tla": "PSG",
         "crest": "https://crests.football-data.org/524.png"
+      },
+      "awayTeam": {
+        "id": 529,
+        "name": "Stade Rennais FC 1901",
+        "shortName": "Stade Rennais",
+        "tla": "REN",
+        "crest": "https://crests.football-data.org/529.png"
       },
       "score": {
         "fullTime": {

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-25T00:06:12Z",
+  "generated_at": "2026-08-25T06:16:14Z",
   "month": "2026-08",
   "dates": {
     "2026-08-15": [
@@ -893,16 +893,16 @@
           {
             "match_id": 559713,
             "homeTeam": {
-              "name": "Paris Saint-Germain FC",
-              "shortName": "PSG",
-              "tla": "PSG",
-              "crest": "https://crests.football-data.org/524.png"
-            },
-            "awayTeam": {
               "name": "Stade Rennais FC 1901",
               "shortName": "Stade Rennais",
               "tla": "REN",
               "crest": "https://crests.football-data.org/529.png"
+            },
+            "awayTeam": {
+              "name": "Paris Saint-Germain FC",
+              "shortName": "PSG",
+              "tla": "PSG",
+              "crest": "https://crests.football-data.org/524.png"
             },
             "homeScore": 2,
             "awayScore": 2,
