@@ -40,9 +40,9 @@ class TestNormalizeMatch:
     def _domestic(self, **kw):
         base = {
             "match_id": 1001,
-            "homeTeam": {"name": "Arsenal FC", "shortName": "Arsenal", "tla": "ARS",
+            "homeTeam": {"id": 57, "name": "Arsenal FC", "shortName": "Arsenal", "tla": "ARS",
                          "crest": "https://crests.football-data.org/57.png"},
-            "awayTeam": {"name": "Chelsea FC", "shortName": "Chelsea", "tla": "CHE",
+            "awayTeam": {"id": 61, "name": "Chelsea FC", "shortName": "Chelsea", "tla": "CHE",
                          "crest": "https://crests.football-data.org/61.png"},
             "score": {"fullTime": {"home": 2, "away": 1}},
             "status": "FINISHED",
@@ -54,12 +54,25 @@ class TestNormalizeMatch:
     def test_full_domestic_fields(self):
         m = bhi.normalize_match(self._domestic(), "VID123")
         assert m["match_id"] == 1001
-        assert m["homeTeam"] == {"name": "Arsenal FC", "shortName": "Arsenal",
+        # Team object carries the FD numeric id alongside name/shortName/tla/crest
+        # (the cross-competition favorite-team join key), additively.
+        assert m["homeTeam"] == {"id": 57, "name": "Arsenal FC", "shortName": "Arsenal",
                                  "tla": "ARS", "crest": "https://crests.football-data.org/57.png"}
+        assert m["awayTeam"]["id"] == 61
         assert m["homeScore"] == 2 and m["awayScore"] == 1
         assert m["status"] == "FINISHED"
         assert m["utcDate"] == "2026-03-01T14:00:00Z"
         assert m["videoId"] == "VID123"
+
+    def test_team_id_null_safe(self):
+        # A fixture missing a team id (or a partially-populated side) must not crash;
+        # the id is emitted as null, other fields intact.
+        raw = self._domestic()
+        raw["homeTeam"] = {"name": "No Id FC", "tla": "NIF", "crest": "c"}  # no id
+        m = bhi.normalize_match(raw, None)
+        assert m["homeTeam"]["id"] is None
+        assert m["homeTeam"]["name"] == "No Id FC"
+        assert m["awayTeam"]["id"] == 61  # other side unaffected
 
     def test_raw_status_not_collapsed(self):
         for tok in ("TIMED", "IN_PLAY", "PAUSED", "SCHEDULED", "AWARDED"):

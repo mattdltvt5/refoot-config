@@ -90,6 +90,12 @@ def canonical_competitions() -> list[tuple[str, str]]:
 def _team(raw: dict | None) -> dict:
     raw = raw or {}
     return {
+        # football-data.org numeric team id — the stable cross-competition join key
+        # (same id for a club in its domestic league and in UCL/UEL). Additive: the
+        # client still renders from name/tla/crest; the id enables favorite-team
+        # filtering on the home screen. null when the raw fixture lacks it (null-safe;
+        # a missing/partial side never crashes the build).
+        "id": raw.get("id"),
         "name": raw.get("name", ""),
         "shortName": raw.get("shortName", raw.get("name", "")),
         "tla": raw.get("tla", ""),
