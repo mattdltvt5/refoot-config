@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-26T21:01:25Z",
+  "generated_at": "2026-08-26T21:06:25Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -92,7 +92,7 @@
         {
           "gameweek": "GW1",
           "stem": "gameweek-1",
-          "total": 7,
+          "total": 8,
           "covered": 6,
           "matches": [
             {
@@ -143,6 +143,13 @@
               "away": "Real Betis Balompié",
               "date": "2026-08-25",
               "covered": true
+            },
+            {
+              "match_id": 564631,
+              "home": "Real Madrid CF",
+              "away": "Real Sociedad de Fútbol",
+              "date": "2026-08-26",
+              "covered": false
             }
           ]
         },
