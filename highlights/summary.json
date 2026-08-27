@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-27T20:36:35Z",
+  "generated_at": "2026-08-27T20:41:23Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -93,7 +93,7 @@
           "gameweek": "GW1",
           "stem": "gameweek-1",
           "total": 9,
-          "covered": 7,
+          "covered": 8,
           "matches": [
             {
               "match_id": 564634,
@@ -156,7 +156,7 @@
               "home": "RC Celta de Vigo",
               "away": "CA Osasuna",
               "date": "2026-08-27",
-              "covered": false
+              "covered": true
             }
           ]
         },
