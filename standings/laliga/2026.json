@@ -1,11 +1,30 @@
 {
-  "generated_at": "2026-08-27T21:02:07.864279Z",
+  "generated_at": "2026-08-27T21:06:54.719257Z",
   "competition": "LaLiga",
   "slug": "laliga",
   "season": 2026,
   "standings": [
     {
       "position": 1,
+      "team": {
+        "id": 81,
+        "name": "FC Barcelona",
+        "shortName": "Barça",
+        "tla": "FCB",
+        "crest": "https://crests.football-data.org/81.png"
+      },
+      "playedGames": 2,
+      "form": "W,W",
+      "won": 2,
+      "draw": 0,
+      "lost": 0,
+      "points": 6,
+      "goalsFor": 7,
+      "goalsAgainst": 0,
+      "goalDifference": 7
+    },
+    {
+      "position": 2,
       "team": {
         "id": 86,
         "name": "Real Madrid CF",
@@ -24,7 +43,7 @@
       "goalDifference": 4
     },
     {
-      "position": 2,
+      "position": 3,
       "team": {
         "id": 559,
         "name": "Sevilla FC",
@@ -43,7 +62,7 @@
       "goalDifference": 3
     },
     {
-      "position": 3,
+      "position": 4,
       "team": {
         "id": 90,
         "name": "Real Betis Balompié",
@@ -62,7 +81,7 @@
       "goalDifference": 2
     },
     {
-      "position": 4,
+      "position": 5,
       "team": {
         "id": 263,
         "name": "Deportivo Alavés",
@@ -81,7 +100,7 @@
       "goalDifference": 3
     },
     {
-      "position": 5,
+      "position": 6,
       "team": {
         "id": 78,
         "name": "Club Atlético de Madrid",
@@ -100,7 +119,7 @@
       "goalDifference": 2
     },
     {
-      "position": 6,
+      "position": 7,
       "team": {
         "id": 79,
         "name": "CA Osasuna",
@@ -117,25 +136,6 @@
       "goalsFor": 2,
       "goalsAgainst": 1,
       "goalDifference": 1
-    },
-    {
-      "position": 7,
-      "team": {
-        "id": 81,
-        "name": "FC Barcelona",
-        "shortName": "Barça",
-        "tla": "FCB",
-        "crest": "https://crests.football-data.org/81.png"
-      },
-      "playedGames": 1,
-      "form": "W",
-      "won": 1,
-      "draw": 0,
-      "lost": 0,
-      "points": 3,
-      "goalsFor": 5,
-      "goalsAgainst": 0,
-      "goalDifference": 5
     },
     {
       "position": 8,
@@ -349,30 +349,30 @@
     {
       "position": 19,
       "team": {
-        "id": 77,
-        "name": "Athletic Club",
-        "shortName": "Athletic",
-        "tla": "ATH",
-        "crest": "https://crests.football-data.org/77.png"
-      },
-      "playedGames": 1,
-      "form": "L",
-      "won": 0,
-      "draw": 0,
-      "lost": 1,
-      "points": 0,
-      "goalsFor": 1,
-      "goalsAgainst": 3,
-      "goalDifference": -2
-    },
-    {
-      "position": 20,
-      "team": {
         "id": 92,
         "name": "Real Sociedad de Fútbol",
         "shortName": "Real Sociedad",
         "tla": "RSO",
         "crest": "https://crests.football-data.org/92.png"
+      },
+      "playedGames": 2,
+      "form": "L,L",
+      "won": 0,
+      "draw": 0,
+      "lost": 2,
+      "points": 0,
+      "goalsFor": 1,
+      "goalsAgainst": 5,
+      "goalDifference": -4
+    },
+    {
+      "position": 20,
+      "team": {
+        "id": 77,
+        "name": "Athletic Club",
+        "shortName": "Athletic",
+        "tla": "ATH",
+        "crest": "https://crests.football-data.org/77.png"
       },
       "playedGames": 2,
       "form": "L,L",
