@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-28T19:01:31Z",
+  "generated_at": "2026-08-28T19:06:32Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -242,6 +242,21 @@
               "away": "RC Deportivo La Coruña",
               "date": "2026-08-24",
               "covered": true
+            }
+          ]
+        },
+        {
+          "gameweek": "GW3",
+          "stem": "gameweek-3",
+          "total": 1,
+          "covered": 0,
+          "matches": [
+            {
+              "match_id": 564654,
+              "home": "Real Racing Club de Santander",
+              "away": "Elche CF",
+              "date": "2026-08-28",
+              "covered": false
             }
           ]
         }
