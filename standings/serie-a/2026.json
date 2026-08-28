@@ -1,11 +1,30 @@
 {
-  "generated_at": "2026-08-28T19:19:17.856607Z",
+  "generated_at": "2026-08-28T20:57:02.925737Z",
   "competition": "Serie A",
   "slug": "serie-a",
   "season": 2026,
   "standings": [
     {
       "position": 1,
+      "team": {
+        "id": 98,
+        "name": "AC Milan",
+        "shortName": "Milan",
+        "tla": "MIL",
+        "crest": "https://crests.football-data.org/98.png"
+      },
+      "playedGames": 2,
+      "form": "W,W",
+      "won": 2,
+      "draw": 0,
+      "lost": 0,
+      "points": 6,
+      "goalsFor": 4,
+      "goalsAgainst": 1,
+      "goalDifference": 3
+    },
+    {
+      "position": 2,
       "team": {
         "id": 100,
         "name": "AS Roma",
@@ -24,7 +43,7 @@
       "goalDifference": 4
     },
     {
-      "position": 2,
+      "position": 3,
       "team": {
         "id": 108,
         "name": "FC Internazionale Milano",
@@ -43,7 +62,7 @@
       "goalDifference": 3
     },
     {
-      "position": 3,
+      "position": 4,
       "team": {
         "id": 113,
         "name": "SSC Napoli",
@@ -62,7 +81,7 @@
       "goalDifference": 2
     },
     {
-      "position": 4,
+      "position": 5,
       "team": {
         "id": 5890,
         "name": "US Lecce",
@@ -81,32 +100,13 @@
       "goalDifference": 2
     },
     {
-      "position": 5,
+      "position": 6,
       "team": {
         "id": 102,
         "name": "Atalanta BC",
         "shortName": "Atalanta",
         "tla": "ATA",
         "crest": "https://crests.football-data.org/102.png"
-      },
-      "playedGames": 1,
-      "form": "W",
-      "won": 1,
-      "draw": 0,
-      "lost": 0,
-      "points": 3,
-      "goalsFor": 2,
-      "goalsAgainst": 1,
-      "goalDifference": 1
-    },
-    {
-      "position": 6,
-      "team": {
-        "id": 98,
-        "name": "AC Milan",
-        "shortName": "Milan",
-        "tla": "MIL",
-        "crest": "https://crests.football-data.org/98.png"
       },
       "playedGames": 1,
       "form": "W",
@@ -330,25 +330,6 @@
     {
       "position": 18,
       "team": {
-        "id": 454,
-        "name": "Venezia FC",
-        "shortName": "Venezia FC",
-        "tla": "VEN",
-        "crest": "https://crests.football-data.org/454.png"
-      },
-      "playedGames": 1,
-      "form": "L",
-      "won": 0,
-      "draw": 0,
-      "lost": 1,
-      "points": 0,
-      "goalsFor": 0,
-      "goalsAgainst": 2,
-      "goalDifference": -2
-    },
-    {
-      "position": 19,
-      "team": {
         "id": 5911,
         "name": "AC Monza",
         "shortName": "Monza",
@@ -364,6 +345,25 @@
       "goalsFor": 1,
       "goalsAgainst": 4,
       "goalDifference": -3
+    },
+    {
+      "position": 19,
+      "team": {
+        "id": 454,
+        "name": "Venezia FC",
+        "shortName": "Venezia FC",
+        "tla": "VEN",
+        "crest": "https://crests.football-data.org/454.png"
+      },
+      "playedGames": 2,
+      "form": "L,L",
+      "won": 0,
+      "draw": 0,
+      "lost": 2,
+      "points": 0,
+      "goalsFor": 0,
+      "goalsAgainst": 4,
+      "goalDifference": -4
     },
     {
       "position": 20,

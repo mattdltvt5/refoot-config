@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-28T20:51:27Z",
+  "generated_at": "2026-08-28T20:56:26Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -341,6 +341,21 @@
               "away": "ACF Fiorentina",
               "date": "2026-08-24",
               "covered": true
+            }
+          ]
+        },
+        {
+          "gameweek": "GW2",
+          "stem": "gameweek-2",
+          "total": 1,
+          "covered": 0,
+          "matches": [
+            {
+              "match_id": 558625,
+              "home": "AC Milan",
+              "away": "Venezia FC",
+              "date": "2026-08-28",
+              "covered": false
             }
           ]
         }
