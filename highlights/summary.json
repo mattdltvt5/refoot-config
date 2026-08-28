@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-28T21:31:48Z",
+  "generated_at": "2026-08-28T21:36:43Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -264,7 +264,7 @@
           "gameweek": "GW3",
           "stem": "gameweek-3",
           "total": 2,
-          "covered": 0,
+          "covered": 1,
           "matches": [
             {
               "match_id": 564654,
@@ -278,7 +278,7 @@
               "home": "Deportivo Alavés",
               "away": "Villarreal CF",
               "date": "2026-08-28",
-              "covered": false
+              "covered": true
             }
           ]
         }
