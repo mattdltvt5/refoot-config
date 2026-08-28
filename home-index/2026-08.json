@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-28T18:51:26Z",
+  "generated_at": "2026-08-28T19:01:24Z",
   "month": "2026-08",
   "dates": {
     "2026-08-15": [
@@ -1358,9 +1358,9 @@
               "tla": "VFB",
               "crest": "https://crests.football-data.org/10.png"
             },
-            "homeScore": 0,
-            "awayScore": 0,
-            "status": "IN_PLAY",
+            "homeScore": null,
+            "awayScore": null,
+            "status": "TIMED",
             "utcDate": "2026-08-28T18:30:00Z"
           }
         ]
@@ -1385,9 +1385,9 @@
               "tla": "PSG",
               "crest": "https://crests.football-data.org/524.png"
             },
-            "homeScore": 0,
-            "awayScore": 0,
-            "status": "IN_PLAY",
+            "homeScore": null,
+            "awayScore": null,
+            "status": "TIMED",
             "utcDate": "2026-08-28T18:45:00Z"
           }
         ]
