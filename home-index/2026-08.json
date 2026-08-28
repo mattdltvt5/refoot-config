@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-28T19:51:23Z",
+  "generated_at": "2026-08-28T19:56:10Z",
   "month": "2026-08",
   "dates": {
     "2026-08-15": [
@@ -1258,7 +1258,7 @@
             },
             "homeScore": 0,
             "awayScore": 1,
-            "status": "IN_PLAY",
+            "status": "PAUSED",
             "utcDate": "2026-08-28T19:00:00Z"
           }
         ]
@@ -1283,9 +1283,9 @@
               "tla": "ELC",
               "crest": "https://crests.football-data.org/285.png"
             },
-            "homeScore": 3,
-            "awayScore": 2,
-            "status": "FINISHED",
+            "homeScore": null,
+            "awayScore": null,
+            "status": "TIMED",
             "utcDate": "2026-08-28T17:00:00Z"
           },
           {
@@ -1358,9 +1358,9 @@
               "tla": "VFB",
               "crest": "https://crests.football-data.org/10.png"
             },
-            "homeScore": 2,
-            "awayScore": 1,
-            "status": "IN_PLAY",
+            "homeScore": null,
+            "awayScore": null,
+            "status": "TIMED",
             "utcDate": "2026-08-28T18:30:00Z"
           }
         ]
@@ -1387,7 +1387,7 @@
             },
             "homeScore": 1,
             "awayScore": 0,
-            "status": "IN_PLAY",
+            "status": "PAUSED",
             "utcDate": "2026-08-28T18:45:00Z"
           }
         ]
