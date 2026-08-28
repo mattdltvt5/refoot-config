@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-28T21:06:17Z",
+  "generated_at": "2026-08-28T21:11:11Z",
   "month": "2026-08",
   "dates": {
     "2026-08-15": [
@@ -1283,9 +1283,9 @@
               "tla": "ELC",
               "crest": "https://crests.football-data.org/285.png"
             },
-            "homeScore": 3,
-            "awayScore": 2,
-            "status": "FINISHED",
+            "homeScore": null,
+            "awayScore": null,
+            "status": "TIMED",
             "utcDate": "2026-08-28T17:00:00Z"
           },
           {
@@ -1334,7 +1334,8 @@
             "homeScore": 2,
             "awayScore": 0,
             "status": "FINISHED",
-            "utcDate": "2026-08-28T18:45:00Z"
+            "utcDate": "2026-08-28T18:45:00Z",
+            "videoId": "2hZTxhyXeII"
           }
         ]
       },
