@@ -2,14 +2,21 @@
   "competition": "Bundesliga",
   "gameweek": "GW1",
   "stem": "gameweek-1",
-  "generated_at": "2026-08-28T20:36:24Z",
+  "generated_at": "2026-08-28T20:41:20Z",
   "matches": [
     {
       "match_id": 565776,
       "home_team": "FC Bayern München",
       "away_team": "VfB Stuttgart",
       "date": "2026-08-28",
-      "videos": []
+      "videos": [
+        {
+          "video_id": "ZW0Ro781HlA",
+          "title": "FC Bayern München vs. VfB Stuttgart | Matchday 1 - Bundesliga 2026/27",
+          "published_at": "2026-08-28",
+          "tier_used": 2
+        }
+      ]
     }
   ]
 }

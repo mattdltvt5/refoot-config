@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-28T20:36:32Z",
+  "generated_at": "2026-08-28T20:41:31Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -354,14 +354,14 @@
           "gameweek": "GW1",
           "stem": "gameweek-1",
           "total": 1,
-          "covered": 0,
+          "covered": 1,
           "matches": [
             {
               "match_id": 565776,
               "home": "FC Bayern München",
               "away": "VfB Stuttgart",
               "date": "2026-08-28",
-              "covered": false
+              "covered": true
             }
           ]
         }
