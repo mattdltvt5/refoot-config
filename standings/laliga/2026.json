@@ -1,11 +1,30 @@
 {
-  "generated_at": "2026-08-28T20:52:03.051950Z",
+  "generated_at": "2026-08-28T21:32:30.415842Z",
   "competition": "LaLiga",
   "slug": "laliga",
   "season": 2026,
   "standings": [
     {
       "position": 1,
+      "team": {
+        "id": 263,
+        "name": "Deportivo Alavés",
+        "shortName": "Alavés",
+        "tla": "ALA",
+        "crest": "https://crests.football-data.org/263.png"
+      },
+      "playedGames": 3,
+      "form": "W,D,W",
+      "won": 2,
+      "draw": 1,
+      "lost": 0,
+      "points": 7,
+      "goalsFor": 5,
+      "goalsAgainst": 1,
+      "goalDifference": 4
+    },
+    {
+      "position": 2,
       "team": {
         "id": 81,
         "name": "FC Barcelona",
@@ -24,7 +43,7 @@
       "goalDifference": 7
     },
     {
-      "position": 2,
+      "position": 3,
       "team": {
         "id": 86,
         "name": "Real Madrid CF",
@@ -43,7 +62,7 @@
       "goalDifference": 4
     },
     {
-      "position": 3,
+      "position": 4,
       "team": {
         "id": 559,
         "name": "Sevilla FC",
@@ -62,7 +81,7 @@
       "goalDifference": 3
     },
     {
-      "position": 4,
+      "position": 5,
       "team": {
         "id": 90,
         "name": "Real Betis Balompié",
@@ -79,25 +98,6 @@
       "goalsFor": 2,
       "goalsAgainst": 0,
       "goalDifference": 2
-    },
-    {
-      "position": 5,
-      "team": {
-        "id": 263,
-        "name": "Deportivo Alavés",
-        "shortName": "Alavés",
-        "tla": "ALA",
-        "crest": "https://crests.football-data.org/263.png"
-      },
-      "playedGames": 2,
-      "form": "D,W",
-      "won": 1,
-      "draw": 1,
-      "lost": 0,
-      "points": 4,
-      "goalsFor": 4,
-      "goalsAgainst": 1,
-      "goalDifference": 3
     },
     {
       "position": 6,
@@ -197,25 +197,6 @@
     {
       "position": 11,
       "team": {
-        "id": 94,
-        "name": "Villarreal CF",
-        "shortName": "Villarreal",
-        "tla": "VIL",
-        "crest": "https://crests.football-data.org/94.png"
-      },
-      "playedGames": 2,
-      "form": "D,D",
-      "won": 0,
-      "draw": 2,
-      "lost": 0,
-      "points": 2,
-      "goalsFor": 4,
-      "goalsAgainst": 4,
-      "goalDifference": 0
-    },
-    {
-      "position": 12,
-      "team": {
         "id": 560,
         "name": "RC Deportivo La Coruña",
         "shortName": "Deportivo",
@@ -231,6 +212,25 @@
       "goalsFor": 2,
       "goalsAgainst": 2,
       "goalDifference": 0
+    },
+    {
+      "position": 12,
+      "team": {
+        "id": 94,
+        "name": "Villarreal CF",
+        "shortName": "Villarreal",
+        "tla": "VIL",
+        "crest": "https://crests.football-data.org/94.png"
+      },
+      "playedGames": 3,
+      "form": "L,D,D",
+      "won": 0,
+      "draw": 2,
+      "lost": 1,
+      "points": 2,
+      "goalsFor": 4,
+      "goalsAgainst": 5,
+      "goalDifference": -1
     },
     {
       "position": 13,
