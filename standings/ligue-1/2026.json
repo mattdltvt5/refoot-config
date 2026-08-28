@@ -1,30 +1,11 @@
 {
-  "generated_at": "2026-08-28T21:02:55.775993Z",
+  "generated_at": "2026-08-28T21:07:41.176264Z",
   "competition": "Ligue 1",
   "slug": "ligue-1",
   "season": 2026,
   "standings": [
     {
       "position": 1,
-      "team": {
-        "id": 521,
-        "name": "Lille OSC",
-        "shortName": "Lille",
-        "tla": "LIL",
-        "crest": "https://crests.football-data.org/521.png"
-      },
-      "playedGames": 2,
-      "form": "D,W",
-      "won": 1,
-      "draw": 1,
-      "lost": 0,
-      "points": 4,
-      "goalsFor": 4,
-      "goalsAgainst": 2,
-      "goalDifference": 2
-    },
-    {
-      "position": 2,
       "team": {
         "id": 516,
         "name": "Olympique de Marseille",
@@ -43,7 +24,7 @@
       "goalDifference": 4
     },
     {
-      "position": 3,
+      "position": 2,
       "team": {
         "id": 546,
         "name": "Racing Club de Lens",
@@ -62,13 +43,32 @@
       "goalDifference": 3
     },
     {
-      "position": 4,
+      "position": 3,
       "team": {
         "id": 523,
         "name": "Olympique Lyonnais",
         "shortName": "Olympique Lyon",
         "tla": "LYO",
         "crest": "https://crests.football-data.org/523.png"
+      },
+      "playedGames": 1,
+      "form": "W",
+      "won": 1,
+      "draw": 0,
+      "lost": 0,
+      "points": 3,
+      "goalsFor": 2,
+      "goalsAgainst": 0,
+      "goalDifference": 2
+    },
+    {
+      "position": 4,
+      "team": {
+        "id": 521,
+        "name": "Lille OSC",
+        "shortName": "Lille",
+        "tla": "LIL",
+        "crest": "https://crests.football-data.org/521.png"
       },
       "playedGames": 1,
       "form": "W",
@@ -102,25 +102,6 @@
     {
       "position": 6,
       "team": {
-        "id": 524,
-        "name": "Paris Saint-Germain FC",
-        "shortName": "PSG",
-        "tla": "PSG",
-        "crest": "https://crests.football-data.org/524.png"
-      },
-      "playedGames": 2,
-      "form": "D,D",
-      "won": 0,
-      "draw": 2,
-      "lost": 0,
-      "points": 2,
-      "goalsFor": 4,
-      "goalsAgainst": 4,
-      "goalDifference": 0
-    },
-    {
-      "position": 7,
-      "team": {
         "id": 535,
         "name": "Le Mans FC",
         "shortName": "Le Mans",
@@ -138,7 +119,7 @@
       "goalDifference": 0
     },
     {
-      "position": 8,
+      "position": 7,
       "team": {
         "id": 512,
         "name": "Stade Brestois 29",
@@ -157,13 +138,32 @@
       "goalDifference": 0
     },
     {
-      "position": 9,
+      "position": 8,
       "team": {
         "id": 529,
         "name": "Stade Rennais FC 1901",
         "shortName": "Stade Rennais",
         "tla": "REN",
         "crest": "https://crests.football-data.org/529.png"
+      },
+      "playedGames": 1,
+      "form": "D",
+      "won": 0,
+      "draw": 1,
+      "lost": 0,
+      "points": 1,
+      "goalsFor": 2,
+      "goalsAgainst": 2,
+      "goalDifference": 0
+    },
+    {
+      "position": 9,
+      "team": {
+        "id": 524,
+        "name": "Paris Saint-Germain FC",
+        "shortName": "PSG",
+        "tla": "PSG",
+        "crest": "https://crests.football-data.org/524.png"
       },
       "playedGames": 1,
       "form": "D",
