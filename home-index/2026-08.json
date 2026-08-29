@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-29T12:01:24Z",
+  "generated_at": "2026-08-29T12:06:14Z",
   "month": "2026-08",
   "dates": {
     "2026-08-15": [
@@ -1361,9 +1361,9 @@
               "tla": "VFB",
               "crest": "https://crests.football-data.org/10.png"
             },
-            "homeScore": 5,
-            "awayScore": 1,
-            "status": "FINISHED",
+            "homeScore": null,
+            "awayScore": null,
+            "status": "IN_PLAY",
             "utcDate": "2026-08-28T18:30:00Z",
             "videoId": "ZW0Ro781HlA"
           }
@@ -1389,9 +1389,9 @@
               "tla": "PSG",
               "crest": "https://crests.football-data.org/524.png"
             },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "TIMED",
+            "homeScore": 2,
+            "awayScore": 2,
+            "status": "FINISHED",
             "utcDate": "2026-08-28T18:45:00Z",
             "videoId": "nMCCjPUTgg8"
           }
@@ -1420,7 +1420,7 @@
               "crest": "https://crests.football-data.org/351.png"
             },
             "homeScore": 0,
-            "awayScore": 0,
+            "awayScore": 1,
             "status": "IN_PLAY",
             "utcDate": "2026-08-29T11:30:00Z"
           },
