@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-29T19:31:13Z",
+  "generated_at": "2026-08-29T19:41:11Z",
   "month": "2026-08",
   "dates": {
     "2026-08-15": [
@@ -1551,9 +1551,9 @@
               "tla": "ATL",
               "crest": "https://crests.football-data.org/78.png"
             },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "TIMED",
+            "homeScore": 0,
+            "awayScore": 0,
+            "status": "IN_PLAY",
             "utcDate": "2026-08-29T19:30:00Z"
           }
         ]
@@ -1823,7 +1823,7 @@
             },
             "homeScore": 0,
             "awayScore": 2,
-            "status": "IN_PLAY",
+            "status": "PAUSED",
             "utcDate": "2026-08-29T18:45:00Z"
           },
           {
@@ -1844,7 +1844,7 @@
             },
             "homeScore": 0,
             "awayScore": 0,
-            "status": "IN_PLAY",
+            "status": "PAUSED",
             "utcDate": "2026-08-29T18:45:00Z"
           },
           {
@@ -1886,7 +1886,7 @@
             },
             "homeScore": 1,
             "awayScore": 1,
-            "status": "IN_PLAY",
+            "status": "PAUSED",
             "utcDate": "2026-08-29T18:45:00Z"
           }
         ]
