@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-28T22:41:54.001438Z",
+  "generated_at": "2026-08-29T17:21:50.401429Z",
   "competition": "Ligue 1",
   "slug": "ligue-1",
   "season": 2026,
@@ -51,15 +51,15 @@
         "tla": "RCL",
         "crest": "https://crests.football-data.org/546.png"
       },
-      "playedGames": 1,
-      "form": "W",
+      "playedGames": 2,
+      "form": "L,W",
       "won": 1,
       "draw": 0,
-      "lost": 0,
+      "lost": 1,
       "points": 3,
-      "goalsFor": 5,
-      "goalsAgainst": 2,
-      "goalDifference": 3
+      "goalsFor": 6,
+      "goalsAgainst": 4,
+      "goalDifference": 2
     },
     {
       "position": 4,
@@ -102,6 +102,25 @@
     {
       "position": 6,
       "team": {
+        "id": 576,
+        "name": "RC Strasbourg Alsace",
+        "shortName": "Strasbourg",
+        "tla": "RC ",
+        "crest": "https://crests.football-data.org/576.png"
+      },
+      "playedGames": 2,
+      "form": "W,L",
+      "won": 1,
+      "draw": 0,
+      "lost": 1,
+      "points": 3,
+      "goalsFor": 2,
+      "goalsAgainst": 5,
+      "goalDifference": -3
+    },
+    {
+      "position": 7,
+      "team": {
         "id": 524,
         "name": "Paris Saint-Germain FC",
         "shortName": "PSG",
@@ -119,7 +138,7 @@
       "goalDifference": 0
     },
     {
-      "position": 7,
+      "position": 8,
       "team": {
         "id": 535,
         "name": "Le Mans FC",
@@ -138,7 +157,7 @@
       "goalDifference": 0
     },
     {
-      "position": 8,
+      "position": 9,
       "team": {
         "id": 512,
         "name": "Stade Brestois 29",
@@ -157,7 +176,7 @@
       "goalDifference": 0
     },
     {
-      "position": 9,
+      "position": 10,
       "team": {
         "id": 529,
         "name": "Stade Rennais FC 1901",
@@ -176,7 +195,7 @@
       "goalDifference": 0
     },
     {
-      "position": 10,
+      "position": 11,
       "team": {
         "id": 531,
         "name": "ES Troyes AC",
@@ -195,7 +214,7 @@
       "goalDifference": 0
     },
     {
-      "position": 11,
+      "position": 12,
       "team": {
         "id": 1045,
         "name": "Paris FC",
@@ -214,7 +233,7 @@
       "goalDifference": 0
     },
     {
-      "position": 12,
+      "position": 13,
       "team": {
         "id": 522,
         "name": "OGC Nice",
@@ -233,7 +252,7 @@
       "goalDifference": 0
     },
     {
-      "position": 13,
+      "position": 14,
       "team": {
         "id": 525,
         "name": "FC Lorient",
@@ -252,7 +271,7 @@
       "goalDifference": 0
     },
     {
-      "position": 14,
+      "position": 15,
       "team": {
         "id": 533,
         "name": "Le Havre AC",
@@ -271,7 +290,7 @@
       "goalDifference": -1
     },
     {
-      "position": 15,
+      "position": 16,
       "team": {
         "id": 511,
         "name": "Toulouse FC",
@@ -290,7 +309,7 @@
       "goalDifference": -2
     },
     {
-      "position": 16,
+      "position": 17,
       "team": {
         "id": 532,
         "name": "Angers SCO",
@@ -309,7 +328,7 @@
       "goalDifference": -2
     },
     {
-      "position": 17,
+      "position": 18,
       "team": {
         "id": 519,
         "name": "AJ Auxerre",
@@ -326,25 +345,6 @@
       "goalsFor": 2,
       "goalsAgainst": 5,
       "goalDifference": -3
-    },
-    {
-      "position": 18,
-      "team": {
-        "id": 576,
-        "name": "RC Strasbourg Alsace",
-        "shortName": "Strasbourg",
-        "tla": "RC ",
-        "crest": "https://crests.football-data.org/576.png"
-      },
-      "playedGames": 1,
-      "form": "L",
-      "won": 0,
-      "draw": 0,
-      "lost": 1,
-      "points": 0,
-      "goalsFor": 0,
-      "goalsAgainst": 4,
-      "goalDifference": -4
     }
   ]
 }
