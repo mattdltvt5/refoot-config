@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-29T15:26:39.764151Z",
+  "generated_at": "2026-08-29T16:02:02.621521Z",
   "competition": "Premier League",
   "slug": "premier-league",
   "season": 2026,
@@ -26,6 +26,44 @@
     {
       "position": 2,
       "team": {
+        "id": 322,
+        "name": "Hull City AFC",
+        "shortName": "Hull City",
+        "tla": "HUL",
+        "crest": "https://crests.football-data.org/322.png"
+      },
+      "playedGames": 2,
+      "form": "W,W",
+      "won": 2,
+      "draw": 0,
+      "lost": 0,
+      "points": 6,
+      "goalsFor": 3,
+      "goalsAgainst": 0,
+      "goalDifference": 3
+    },
+    {
+      "position": 3,
+      "team": {
+        "id": 62,
+        "name": "Everton FC",
+        "shortName": "Everton",
+        "tla": "EVE",
+        "crest": "https://crests.football-data.org/62.png"
+      },
+      "playedGames": 2,
+      "form": "D,W",
+      "won": 1,
+      "draw": 1,
+      "lost": 0,
+      "points": 4,
+      "goalsFor": 3,
+      "goalsAgainst": 1,
+      "goalDifference": 2
+    },
+    {
+      "position": 4,
+      "team": {
         "id": 397,
         "name": "Brighton & Hove Albion FC",
         "shortName": "Brighton Hove",
@@ -43,7 +81,7 @@
       "goalDifference": 4
     },
     {
-      "position": 3,
+      "position": 5,
       "team": {
         "id": 57,
         "name": "Arsenal FC",
@@ -62,7 +100,7 @@
       "goalDifference": 3
     },
     {
-      "position": 4,
+      "position": 6,
       "team": {
         "id": 402,
         "name": "Brentford FC",
@@ -79,44 +117,6 @@
       "goalsFor": 3,
       "goalsAgainst": 0,
       "goalDifference": 3
-    },
-    {
-      "position": 5,
-      "team": {
-        "id": 322,
-        "name": "Hull City AFC",
-        "shortName": "Hull City",
-        "tla": "HUL",
-        "crest": "https://crests.football-data.org/322.png"
-      },
-      "playedGames": 1,
-      "form": "W",
-      "won": 1,
-      "draw": 0,
-      "lost": 0,
-      "points": 3,
-      "goalsFor": 2,
-      "goalsAgainst": 0,
-      "goalDifference": 2
-    },
-    {
-      "position": 6,
-      "team": {
-        "id": 62,
-        "name": "Everton FC",
-        "shortName": "Everton",
-        "tla": "EVE",
-        "crest": "https://crests.football-data.org/62.png"
-      },
-      "playedGames": 1,
-      "form": "W",
-      "won": 1,
-      "draw": 0,
-      "lost": 0,
-      "points": 3,
-      "goalsFor": 2,
-      "goalsAgainst": 0,
-      "goalDifference": 2
     },
     {
       "position": 7,
@@ -235,6 +235,25 @@
     {
       "position": 13,
       "team": {
+        "id": 1044,
+        "name": "AFC Bournemouth",
+        "shortName": "Bournemouth",
+        "tla": "BOU",
+        "crest": "https://crests.football-data.org/bournemouth.png"
+      },
+      "playedGames": 2,
+      "form": "D,L",
+      "won": 0,
+      "draw": 1,
+      "lost": 1,
+      "points": 1,
+      "goalsFor": 2,
+      "goalsAgainst": 3,
+      "goalDifference": -1
+    },
+    {
+      "position": 14,
+      "team": {
         "id": 63,
         "name": "Fulham FC",
         "shortName": "Fulham",
@@ -252,32 +271,13 @@
       "goalDifference": -1
     },
     {
-      "position": 14,
+      "position": 15,
       "team": {
         "id": 71,
         "name": "Sunderland AFC",
         "shortName": "Sunderland",
         "tla": "SUN",
         "crest": "https://crests.football-data.org/71.png"
-      },
-      "playedGames": 1,
-      "form": "L",
-      "won": 0,
-      "draw": 0,
-      "lost": 1,
-      "points": 0,
-      "goalsFor": 1,
-      "goalsAgainst": 2,
-      "goalDifference": -1
-    },
-    {
-      "position": 15,
-      "team": {
-        "id": 1044,
-        "name": "AFC Bournemouth",
-        "shortName": "Bournemouth",
-        "tla": "BOU",
-        "crest": "https://crests.football-data.org/bournemouth.png"
       },
       "playedGames": 1,
       "form": "L",
@@ -311,25 +311,6 @@
     {
       "position": 17,
       "team": {
-        "id": 1076,
-        "name": "Coventry City FC",
-        "shortName": "Coventry City",
-        "tla": "COV",
-        "crest": "https://crests.football-data.org/1076.png"
-      },
-      "playedGames": 1,
-      "form": "L",
-      "won": 0,
-      "draw": 0,
-      "lost": 1,
-      "points": 0,
-      "goalsFor": 0,
-      "goalsAgainst": 3,
-      "goalDifference": -3
-    },
-    {
-      "position": 18,
-      "team": {
         "id": 73,
         "name": "Tottenham Hotspur FC",
         "shortName": "Tottenham",
@@ -345,6 +326,25 @@
       "goalsFor": 0,
       "goalsAgainst": 3,
       "goalDifference": -3
+    },
+    {
+      "position": 18,
+      "team": {
+        "id": 1076,
+        "name": "Coventry City FC",
+        "shortName": "Coventry City",
+        "tla": "COV",
+        "crest": "https://crests.football-data.org/1076.png"
+      },
+      "playedGames": 2,
+      "form": "L,L",
+      "won": 0,
+      "draw": 0,
+      "lost": 2,
+      "points": 0,
+      "goalsFor": 0,
+      "goalsAgainst": 4,
+      "goalDifference": -4
     },
     {
       "position": 19,
