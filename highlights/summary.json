@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-29T13:31:28Z",
+  "generated_at": "2026-08-29T13:36:29Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -86,7 +86,7 @@
         {
           "gameweek": "GW2",
           "stem": "gameweek-2",
-          "total": 1,
+          "total": 2,
           "covered": 1,
           "matches": [
             {
@@ -95,6 +95,13 @@
               "away": "Manchester City FC",
               "date": "2026-08-28",
               "covered": true
+            },
+            {
+              "match_id": 560552,
+              "home": "Liverpool FC",
+              "away": "Nottingham Forest FC",
+              "date": "2026-08-29",
+              "covered": false
             }
           ]
         }
