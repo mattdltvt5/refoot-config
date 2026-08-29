@@ -1,11 +1,30 @@
 {
-  "generated_at": "2026-08-29T20:56:22.097693Z",
+  "generated_at": "2026-08-29T21:41:25.725202Z",
   "competition": "LaLiga",
   "slug": "laliga",
   "season": 2026,
   "standings": [
     {
       "position": 1,
+      "team": {
+        "id": 78,
+        "name": "Club Atlético de Madrid",
+        "shortName": "Atleti",
+        "tla": "ATL",
+        "crest": "https://crests.football-data.org/78.png"
+      },
+      "playedGames": 3,
+      "form": "W,D,W",
+      "won": 2,
+      "draw": 1,
+      "lost": 0,
+      "points": 7,
+      "goalsFor": 7,
+      "goalsAgainst": 3,
+      "goalDifference": 4
+    },
+    {
+      "position": 2,
       "team": {
         "id": 263,
         "name": "Deportivo Alavés",
@@ -24,7 +43,7 @@
       "goalDifference": 4
     },
     {
-      "position": 2,
+      "position": 3,
       "team": {
         "id": 81,
         "name": "FC Barcelona",
@@ -43,7 +62,7 @@
       "goalDifference": 7
     },
     {
-      "position": 3,
+      "position": 4,
       "team": {
         "id": 86,
         "name": "Real Madrid CF",
@@ -62,7 +81,7 @@
       "goalDifference": 4
     },
     {
-      "position": 4,
+      "position": 5,
       "team": {
         "id": 559,
         "name": "Sevilla FC",
@@ -70,18 +89,18 @@
         "tla": "SEV",
         "crest": "https://crests.football-data.org/559.png"
       },
-      "playedGames": 2,
-      "form": "W,W",
+      "playedGames": 3,
+      "form": "L,W,W",
       "won": 2,
       "draw": 0,
-      "lost": 0,
+      "lost": 1,
       "points": 6,
-      "goalsFor": 5,
-      "goalsAgainst": 2,
-      "goalDifference": 3
+      "goalsFor": 6,
+      "goalsAgainst": 5,
+      "goalDifference": 1
     },
     {
-      "position": 5,
+      "position": 6,
       "team": {
         "id": 90,
         "name": "Real Betis Balompié",
@@ -98,25 +117,6 @@
       "goalsFor": 4,
       "goalsAgainst": 5,
       "goalDifference": -1
-    },
-    {
-      "position": 6,
-      "team": {
-        "id": 78,
-        "name": "Club Atlético de Madrid",
-        "shortName": "Atleti",
-        "tla": "ATL",
-        "crest": "https://crests.football-data.org/78.png"
-      },
-      "playedGames": 2,
-      "form": "D,W",
-      "won": 1,
-      "draw": 1,
-      "lost": 0,
-      "points": 4,
-      "goalsFor": 4,
-      "goalsAgainst": 2,
-      "goalDifference": 2
     },
     {
       "position": 7,
