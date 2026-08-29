@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-29T20:26:36.185055Z",
+  "generated_at": "2026-08-29T20:56:29.478958Z",
   "competition": "Serie A",
   "slug": "serie-a",
   "season": 2026,
@@ -26,6 +26,25 @@
     {
       "position": 2,
       "team": {
+        "id": 109,
+        "name": "Juventus FC",
+        "shortName": "Juventus",
+        "tla": "JUV",
+        "crest": "https://crests.football-data.org/109.png"
+      },
+      "playedGames": 2,
+      "form": "W,W",
+      "won": 2,
+      "draw": 0,
+      "lost": 0,
+      "points": 6,
+      "goalsFor": 3,
+      "goalsAgainst": 0,
+      "goalDifference": 3
+    },
+    {
+      "position": 3,
+      "team": {
         "id": 115,
         "name": "Udinese Calcio",
         "shortName": "Udinese",
@@ -43,7 +62,7 @@
       "goalDifference": 1
     },
     {
-      "position": 3,
+      "position": 4,
       "team": {
         "id": 100,
         "name": "AS Roma",
@@ -62,7 +81,7 @@
       "goalDifference": 4
     },
     {
-      "position": 4,
+      "position": 5,
       "team": {
         "id": 108,
         "name": "FC Internazionale Milano",
@@ -81,7 +100,7 @@
       "goalDifference": 3
     },
     {
-      "position": 5,
+      "position": 6,
       "team": {
         "id": 470,
         "name": "Frosinone Calcio",
@@ -100,7 +119,7 @@
       "goalDifference": 2
     },
     {
-      "position": 6,
+      "position": 7,
       "team": {
         "id": 113,
         "name": "SSC Napoli",
@@ -119,7 +138,7 @@
       "goalDifference": 2
     },
     {
-      "position": 7,
+      "position": 8,
       "team": {
         "id": 5890,
         "name": "US Lecce",
@@ -138,7 +157,7 @@
       "goalDifference": 2
     },
     {
-      "position": 8,
+      "position": 9,
       "team": {
         "id": 102,
         "name": "Atalanta BC",
@@ -157,32 +176,13 @@
       "goalDifference": 1
     },
     {
-      "position": 9,
+      "position": 10,
       "team": {
         "id": 104,
         "name": "Cagliari Calcio",
         "shortName": "Cagliari",
         "tla": "CAG",
         "crest": "https://crests.football-data.org/104.png"
-      },
-      "playedGames": 1,
-      "form": "W",
-      "won": 1,
-      "draw": 0,
-      "lost": 0,
-      "points": 3,
-      "goalsFor": 1,
-      "goalsAgainst": 0,
-      "goalDifference": 1
-    },
-    {
-      "position": 10,
-      "team": {
-        "id": 109,
-        "name": "Juventus FC",
-        "shortName": "Juventus",
-        "tla": "JUV",
-        "crest": "https://crests.football-data.org/109.png"
       },
       "playedGames": 1,
       "form": "W",
@@ -254,25 +254,6 @@
     {
       "position": 14,
       "team": {
-        "id": 112,
-        "name": "Parma Calcio 1913",
-        "shortName": "Parma",
-        "tla": "PAR",
-        "crest": "https://crests.football-data.org/112.png"
-      },
-      "playedGames": 1,
-      "form": "L",
-      "won": 0,
-      "draw": 0,
-      "lost": 1,
-      "points": 0,
-      "goalsFor": 0,
-      "goalsAgainst": 1,
-      "goalDifference": -1
-    },
-    {
-      "position": 15,
-      "team": {
         "id": 103,
         "name": "Bologna FC 1909",
         "shortName": "Bologna",
@@ -290,7 +271,7 @@
       "goalDifference": -1
     },
     {
-      "position": 16,
+      "position": 15,
       "team": {
         "id": 586,
         "name": "Torino FC",
@@ -309,7 +290,7 @@
       "goalDifference": -2
     },
     {
-      "position": 17,
+      "position": 16,
       "team": {
         "id": 107,
         "name": "Genoa CFC",
@@ -326,6 +307,25 @@
       "goalsFor": 0,
       "goalsAgainst": 2,
       "goalDifference": -2
+    },
+    {
+      "position": 17,
+      "team": {
+        "id": 112,
+        "name": "Parma Calcio 1913",
+        "shortName": "Parma",
+        "tla": "PAR",
+        "crest": "https://crests.football-data.org/112.png"
+      },
+      "playedGames": 2,
+      "form": "L,L",
+      "won": 0,
+      "draw": 0,
+      "lost": 2,
+      "points": 0,
+      "goalsFor": 0,
+      "goalsAgainst": 3,
+      "goalDifference": -3
     },
     {
       "position": 18,
