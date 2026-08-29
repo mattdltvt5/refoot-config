@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-25T12:51:04Z",
+  "generated_at": "2026-08-29T12:51:15Z",
   "month": "2026-05",
   "dates": {
     "2026-05-01": [
@@ -1158,66 +1158,6 @@
             "status": "FINISHED",
             "utcDate": "2026-05-04T18:45:00Z",
             "videoId": "stQ3XO6Evbw"
-          }
-        ]
-      }
-    ],
-    "2026-05-05": [
-      {
-        "competition": "ucl",
-        "name": "Champions League",
-        "matches": [
-          {
-            "match_id": 552095,
-            "homeTeam": {
-              "id": 57,
-              "name": "Arsenal FC",
-              "shortName": "Arsenal",
-              "tla": "ARS",
-              "crest": "https://crests.football-data.org/57.png"
-            },
-            "awayTeam": {
-              "id": 78,
-              "name": "Club Atlético de Madrid",
-              "shortName": "Atleti",
-              "tla": "ATL",
-              "crest": "https://crests.football-data.org/78.png"
-            },
-            "homeScore": 1,
-            "awayScore": 0,
-            "status": "FINISHED",
-            "utcDate": "2026-05-05T19:00:00Z",
-            "videoId": "wHlYnPSlsLw"
-          }
-        ]
-      }
-    ],
-    "2026-05-06": [
-      {
-        "competition": "ucl",
-        "name": "Champions League",
-        "matches": [
-          {
-            "match_id": 552094,
-            "homeTeam": {
-              "id": 5,
-              "name": "FC Bayern München",
-              "shortName": "Bayern",
-              "tla": "FCB",
-              "crest": "https://crests.football-data.org/5.png"
-            },
-            "awayTeam": {
-              "id": 524,
-              "name": "Paris Saint-Germain FC",
-              "shortName": "PSG",
-              "tla": "PSG",
-              "crest": "https://crests.football-data.org/524.png"
-            },
-            "homeScore": 1,
-            "awayScore": 1,
-            "status": "FINISHED",
-            "utcDate": "2026-05-06T19:00:00Z",
-            "videoId": "e3W8CIgGP-c"
           }
         ]
       }
@@ -4515,36 +4455,6 @@
             "status": "FINISHED",
             "utcDate": "2026-05-24T19:45:00Z",
             "videoId": "W0o1nz9QqJ4"
-          }
-        ]
-      }
-    ],
-    "2026-05-30": [
-      {
-        "competition": "ucl",
-        "name": "Champions League",
-        "matches": [
-          {
-            "match_id": 552096,
-            "homeTeam": {
-              "id": 524,
-              "name": "Paris Saint-Germain FC",
-              "shortName": "PSG",
-              "tla": "PSG",
-              "crest": "https://crests.football-data.org/524.png"
-            },
-            "awayTeam": {
-              "id": 57,
-              "name": "Arsenal FC",
-              "shortName": "Arsenal",
-              "tla": "ARS",
-              "crest": "https://crests.football-data.org/57.png"
-            },
-            "homeScore": 5,
-            "awayScore": 4,
-            "status": "FINISHED",
-            "utcDate": "2026-05-30T16:00:00Z",
-            "videoId": "FxzXqNdMTuk"
           }
         ]
       }
