@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-29T17:01:23Z",
+  "generated_at": "2026-08-29T17:16:16Z",
   "month": "2026-08",
   "dates": {
     "2026-08-15": [
@@ -1509,9 +1509,9 @@
               "tla": "BET",
               "crest": "https://crests.football-data.org/90.png"
             },
-            "homeScore": 4,
+            "homeScore": 5,
             "awayScore": 2,
-            "status": "IN_PLAY",
+            "status": "FINISHED",
             "utcDate": "2026-08-29T15:00:00Z"
           },
           {
@@ -1530,9 +1530,9 @@
               "tla": "ESP",
               "crest": "https://crests.football-data.org/80.png"
             },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "TIMED",
+            "homeScore": 1,
+            "awayScore": 0,
+            "status": "IN_PLAY",
             "utcDate": "2026-08-29T17:00:00Z"
           },
           {
@@ -1578,7 +1578,7 @@
               "tla": "TOR",
               "crest": "https://crests.football-data.org/586.png"
             },
-            "homeScore": 0,
+            "homeScore": 1,
             "awayScore": 0,
             "status": "IN_PLAY",
             "utcDate": "2026-08-29T16:30:00Z"
@@ -1599,8 +1599,8 @@
               "tla": "UDI",
               "crest": "https://crests.football-data.org/115.png"
             },
-            "homeScore": 0,
-            "awayScore": 0,
+            "homeScore": 1,
+            "awayScore": 1,
             "status": "IN_PLAY",
             "utcDate": "2026-08-29T16:30:00Z"
           },
@@ -1620,8 +1620,8 @@
               "tla": "FRO",
               "crest": "https://crests.football-data.org/470.png"
             },
-            "homeScore": 1,
-            "awayScore": 0,
+            "homeScore": 0,
+            "awayScore": 1,
             "status": "IN_PLAY",
             "utcDate": "2026-08-29T16:30:00Z"
           },
