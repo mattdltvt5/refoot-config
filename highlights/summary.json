@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-29T00:01:42Z",
+  "generated_at": "2026-08-29T00:06:23Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -87,14 +87,14 @@
           "gameweek": "GW2",
           "stem": "gameweek-2",
           "total": 1,
-          "covered": 0,
+          "covered": 1,
           "matches": [
             {
               "match_id": 560555,
               "home": "Crystal Palace FC",
               "away": "Manchester City FC",
               "date": "2026-08-28",
-              "covered": false
+              "covered": true
             }
           ]
         }
