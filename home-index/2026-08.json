@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-29T15:31:16Z",
+  "generated_at": "2026-08-29T15:36:10Z",
   "month": "2026-08",
   "dates": {
     "2026-08-15": [
@@ -1509,7 +1509,7 @@
               "tla": "BET",
               "crest": "https://crests.football-data.org/90.png"
             },
-            "homeScore": 0,
+            "homeScore": 1,
             "awayScore": 0,
             "status": "IN_PLAY",
             "utcDate": "2026-08-29T15:00:00Z"
@@ -1669,8 +1669,8 @@
               "crest": "https://crests.football-data.org/18.png"
             },
             "homeScore": 3,
-            "awayScore": 0,
-            "status": "IN_PLAY",
+            "awayScore": 1,
+            "status": "FINISHED",
             "utcDate": "2026-08-29T13:30:00Z"
           },
           {
@@ -1710,7 +1710,7 @@
               "tla": "SGE",
               "crest": "https://crests.football-data.org/19.png"
             },
-            "homeScore": 2,
+            "homeScore": 3,
             "awayScore": 3,
             "status": "IN_PLAY",
             "utcDate": "2026-08-29T13:30:00Z"
@@ -1733,7 +1733,7 @@
             },
             "homeScore": 3,
             "awayScore": 2,
-            "status": "IN_PLAY",
+            "status": "FINISHED",
             "utcDate": "2026-08-29T13:30:00Z"
           },
           {
@@ -1754,7 +1754,7 @@
             },
             "homeScore": 3,
             "awayScore": 2,
-            "status": "IN_PLAY",
+            "status": "FINISHED",
             "utcDate": "2026-08-29T13:30:00Z"
           },
           {
