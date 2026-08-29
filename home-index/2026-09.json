@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-29T03:51:12Z",
+  "generated_at": "2026-08-29T06:01:28Z",
   "month": "2026-09",
   "dates": {
     "2026-09-03": [
@@ -2646,6 +2646,27 @@
             "utcDate": "2026-09-19T14:00:00Z"
           },
           {
+            "match_id": 560590,
+            "homeTeam": {
+              "id": 65,
+              "name": "Manchester City FC",
+              "shortName": "Man City",
+              "tla": "MCI",
+              "crest": "https://crests.football-data.org/65.png"
+            },
+            "awayTeam": {
+              "id": 71,
+              "name": "Sunderland AFC",
+              "shortName": "Sunderland",
+              "tla": "SUN",
+              "crest": "https://crests.football-data.org/71.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "TIMED",
+            "utcDate": "2026-09-19T14:00:00Z"
+          },
+          {
             "match_id": 560589,
             "homeTeam": {
               "id": 351,
@@ -3064,27 +3085,6 @@
               "shortName": "Liverpool",
               "tla": "LIV",
               "crest": "https://crests.football-data.org/64.png"
-            },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "TIMED",
-            "utcDate": "2026-09-20T13:00:00Z"
-          },
-          {
-            "match_id": 560590,
-            "homeTeam": {
-              "id": 65,
-              "name": "Manchester City FC",
-              "shortName": "Man City",
-              "tla": "MCI",
-              "crest": "https://crests.football-data.org/65.png"
-            },
-            "awayTeam": {
-              "id": 71,
-              "name": "Sunderland AFC",
-              "shortName": "Sunderland",
-              "tla": "SUN",
-              "crest": "https://crests.football-data.org/71.png"
             },
             "homeScore": null,
             "awayScore": null,
