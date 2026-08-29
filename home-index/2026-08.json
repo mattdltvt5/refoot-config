@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-29T16:36:10Z",
+  "generated_at": "2026-08-29T16:41:16Z",
   "month": "2026-08",
   "dates": {
     "2026-08-15": [
@@ -1482,9 +1482,9 @@
               "tla": "NEW",
               "crest": "https://crests.football-data.org/67.png"
             },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "TIMED",
+            "homeScore": 0,
+            "awayScore": 0,
+            "status": "IN_PLAY",
             "utcDate": "2026-08-29T16:30:00Z"
           }
         ]
@@ -1578,9 +1578,9 @@
               "tla": "TOR",
               "crest": "https://crests.football-data.org/586.png"
             },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "TIMED",
+            "homeScore": 0,
+            "awayScore": 0,
+            "status": "IN_PLAY",
             "utcDate": "2026-08-29T16:30:00Z"
           },
           {
@@ -1599,9 +1599,9 @@
               "tla": "UDI",
               "crest": "https://crests.football-data.org/115.png"
             },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "TIMED",
+            "homeScore": 0,
+            "awayScore": 0,
+            "status": "IN_PLAY",
             "utcDate": "2026-08-29T16:30:00Z"
           },
           {
@@ -1620,9 +1620,9 @@
               "tla": "FRO",
               "crest": "https://crests.football-data.org/470.png"
             },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "TIMED",
+            "homeScore": 0,
+            "awayScore": 0,
+            "status": "IN_PLAY",
             "utcDate": "2026-08-29T16:30:00Z"
           },
           {
@@ -1773,9 +1773,9 @@
               "tla": "HSV",
               "crest": "https://crests.football-data.org/7.png"
             },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "TIMED",
+            "homeScore": 0,
+            "awayScore": 0,
+            "status": "IN_PLAY",
             "utcDate": "2026-08-29T16:30:00Z"
           }
         ]
@@ -1800,7 +1800,7 @@
               "tla": "RCL",
               "crest": "https://crests.football-data.org/546.png"
             },
-            "homeScore": 1,
+            "homeScore": 2,
             "awayScore": 1,
             "status": "IN_PLAY",
             "utcDate": "2026-08-29T15:15:00Z"
