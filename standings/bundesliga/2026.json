@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-30T12:40:18.808804Z",
+  "generated_at": "2026-08-30T15:31:41.690667Z",
   "competition": "Bundesliga",
   "slug": "bundesliga",
   "season": 2026,
@@ -26,6 +26,25 @@
     {
       "position": 2,
       "team": {
+        "id": 17,
+        "name": "SC Freiburg",
+        "shortName": "Freiburg",
+        "tla": "SCF",
+        "crest": "https://crests.football-data.org/17.png"
+      },
+      "playedGames": 1,
+      "form": "W",
+      "won": 1,
+      "draw": 0,
+      "lost": 0,
+      "points": 3,
+      "goalsFor": 4,
+      "goalsAgainst": 1,
+      "goalDifference": 3
+    },
+    {
+      "position": 3,
+      "team": {
         "id": 721,
         "name": "RB Leipzig",
         "shortName": "RB Leipzig",
@@ -43,7 +62,7 @@
       "goalDifference": 3
     },
     {
-      "position": 3,
+      "position": 4,
       "team": {
         "id": 4,
         "name": "Borussia Dortmund",
@@ -62,7 +81,7 @@
       "goalDifference": 2
     },
     {
-      "position": 4,
+      "position": 5,
       "team": {
         "id": 719,
         "name": "SV 07 Elversberg",
@@ -81,7 +100,7 @@
       "goalDifference": 1
     },
     {
-      "position": 5,
+      "position": 6,
       "team": {
         "id": 1,
         "name": "1. FC Köln",
@@ -100,7 +119,7 @@
       "goalDifference": 1
     },
     {
-      "position": 6,
+      "position": 7,
       "team": {
         "id": 28,
         "name": "1. FC Union Berlin",
@@ -119,7 +138,7 @@
       "goalDifference": 0
     },
     {
-      "position": 7,
+      "position": 8,
       "team": {
         "id": 19,
         "name": "Eintracht Frankfurt",
@@ -138,7 +157,7 @@
       "goalDifference": 0
     },
     {
-      "position": 8,
+      "position": 9,
       "team": {
         "id": 15,
         "name": "1. FSV Mainz 05",
@@ -157,7 +176,7 @@
       "goalDifference": 0
     },
     {
-      "position": 9,
+      "position": 10,
       "team": {
         "id": 29,
         "name": "SC Paderborn 07",
@@ -176,45 +195,7 @@
       "goalDifference": 0
     },
     {
-      "position": 10,
-      "team": {
-        "id": 17,
-        "name": "SC Freiburg",
-        "shortName": "Freiburg",
-        "tla": "SCF",
-        "crest": "https://crests.football-data.org/17.png"
-      },
-      "playedGames": 0,
-      "form": "",
-      "won": 0,
-      "draw": 0,
-      "lost": 0,
-      "points": 0,
-      "goalsFor": 0,
-      "goalsAgainst": 0,
-      "goalDifference": 0
-    },
-    {
       "position": 11,
-      "team": {
-        "id": 12,
-        "name": "SV Werder Bremen",
-        "shortName": "Bremen",
-        "tla": "SVW",
-        "crest": "https://crests.football-data.org/12.png"
-      },
-      "playedGames": 0,
-      "form": "",
-      "won": 0,
-      "draw": 0,
-      "lost": 0,
-      "points": 0,
-      "goalsFor": 0,
-      "goalsAgainst": 0,
-      "goalDifference": 0
-    },
-    {
-      "position": 12,
       "team": {
         "id": 16,
         "name": "FC Augsburg",
@@ -233,7 +214,7 @@
       "goalDifference": 0
     },
     {
-      "position": 13,
+      "position": 12,
       "team": {
         "id": 6,
         "name": "FC Schalke 04",
@@ -252,7 +233,7 @@
       "goalDifference": 0
     },
     {
-      "position": 14,
+      "position": 13,
       "team": {
         "id": 3,
         "name": "Bayer 04 Leverkusen",
@@ -271,7 +252,7 @@
       "goalDifference": -1
     },
     {
-      "position": 15,
+      "position": 14,
       "team": {
         "id": 2,
         "name": "TSG 1899 Hoffenheim",
@@ -290,7 +271,7 @@
       "goalDifference": -1
     },
     {
-      "position": 16,
+      "position": 15,
       "team": {
         "id": 7,
         "name": "Hamburger SV",
@@ -307,6 +288,25 @@
       "goalsFor": 0,
       "goalsAgainst": 2,
       "goalDifference": -2
+    },
+    {
+      "position": 16,
+      "team": {
+        "id": 12,
+        "name": "SV Werder Bremen",
+        "shortName": "Bremen",
+        "tla": "SVW",
+        "crest": "https://crests.football-data.org/12.png"
+      },
+      "playedGames": 1,
+      "form": "L",
+      "won": 0,
+      "draw": 0,
+      "lost": 1,
+      "points": 0,
+      "goalsFor": 1,
+      "goalsAgainst": 4,
+      "goalDifference": -3
     },
     {
       "position": 17,
