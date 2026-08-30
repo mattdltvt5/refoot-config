@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-30T19:41:16Z",
+  "generated_at": "2026-08-30T19:46:13Z",
   "month": "2026-08",
   "dates": {
     "2026-08-15": [
@@ -2048,7 +2048,7 @@
             },
             "homeScore": 3,
             "awayScore": 1,
-            "status": "FINISHED",
+            "status": "IN_PLAY",
             "utcDate": "2026-08-30T17:30:00Z"
           },
           {
@@ -2067,9 +2067,9 @@
               "tla": "ATH",
               "crest": "https://crests.football-data.org/77.png"
             },
-            "homeScore": 0,
-            "awayScore": 0,
-            "status": "IN_PLAY",
+            "homeScore": null,
+            "awayScore": null,
+            "status": "TIMED",
             "utcDate": "2026-08-30T19:30:00Z"
           }
         ]
@@ -2117,7 +2117,7 @@
             },
             "homeScore": 1,
             "awayScore": 0,
-            "status": "IN_PLAY",
+            "status": "PAUSED",
             "utcDate": "2026-08-30T18:45:00Z"
           },
           {
@@ -2138,7 +2138,7 @@
             },
             "homeScore": 0,
             "awayScore": 1,
-            "status": "PAUSED",
+            "status": "IN_PLAY",
             "utcDate": "2026-08-30T18:45:00Z"
           }
         ]
