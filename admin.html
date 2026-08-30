@@ -624,6 +624,12 @@
         .cand-head-label { font-weight: 700; font-size: 14px; display: flex; align-items: center; gap: 8px; }
         .cand-head-label i { color: var(--blue); }
         .cand-head-meta { color: var(--muted); font-size: 12px; margin-left: auto; }
+        .cand-tabs { display: inline-flex; border: 1px solid var(--border); border-radius: 6px; overflow: hidden; }
+        .cand-tab { background: var(--white); border: none; padding: 5px 12px; font-size: 12px; font-weight: 600;
+            color: var(--muted); cursor: pointer; }
+        .cand-tab + .cand-tab { border-left: 1px solid var(--border); }
+        .cand-tab:not(.active):hover { background: var(--bg); color: var(--text); }
+        .cand-tab.active { background: var(--blue); color: #fff; }
         .cand-refresh { background: none; border: none; cursor: pointer; color: var(--muted);
             font-size: 13px; padding: 2px 6px; border-radius: 4px; }
         .cand-refresh:hover { background: var(--bg); color: var(--text); }
@@ -794,6 +800,10 @@
     <div id="candidates-section">
         <div class="cand-head">
             <span class="cand-head-label"><i class="fi-br-search"></i> Channel Candidates</span>
+            <div class="cand-tabs" id="cand-tabs" role="tablist">
+                <button class="cand-tab active" id="cand-tab-pending" data-tab="pending" role="tab">Pending</button>
+                <button class="cand-tab" id="cand-tab-approved" data-tab="approved" role="tab">Approved</button>
+            </div>
             <span class="cand-head-meta" id="cand-meta"></span>
             <button class="cand-refresh" id="cand-refresh-btn" title="Reload candidates"><i class="fi-br-refresh"></i></button>
         </div>
@@ -1000,6 +1010,15 @@ function parseChannelId(v) {
     const m = v.match(/(?:youtube\.com|youtu\.be)\/channel\/(UC[\w-]{22})/);
     return m ? m[1] : v;
 }
+// Shared approval predicate — the single source of truth for "is this team approved?".
+// A team is approved once sources.json holds a valid channel id for it. Used by both
+// the candidate-card reconciliation (makeCandCard) and the Pending/Approved tab filter,
+// so the two surfaces can never disagree.
+function teamApprovedChannel(team) {
+    const id = parseChannelId(String((sourcesData.teams || {})[team] || '').trim());
+    return (id && validCh(id)) ? id : '';
+}
+function isTeamApproved(team) { return !!teamApprovedChannel(team); }
 function parsePlaylistId(v) {
     if (!v) return v;
     const m = v.match(/[?&]list=((?:PL|UU)[\w-]+)/);
@@ -1097,6 +1116,36 @@ const CAND_WORKFLOW = 'find-channel-candidates.yml';
 let candidatesData  = null;
 const candSkipped   = new Set();   // session-only "comp::team" dismissals (writes nothing)
 const candApproved  = new Set();   // teams approved this session (for UI state)
+let candActiveTab   = 'pending';   // 'pending' | 'approved' — which group set is shown
+
+function candEmpty(html) {
+    const d = document.createElement('div');
+    d.className = 'cand-empty'; d.innerHTML = html;
+    return d;
+}
+
+// Recompute the Pending/Approved counts from the same predicate the filter uses.
+function updateCandTabCounts() {
+    const cands = (candidatesData && candidatesData.candidates) || {};
+    let pending = 0, approved = 0;
+    Object.keys(cands).forEach(comp => {
+        Object.keys(cands[comp]).forEach(team => {
+            if (candSkipped.has(comp + '::' + team)) return;
+            if (isTeamApproved(team)) approved++; else pending++;
+        });
+    });
+    const p = document.getElementById('cand-tab-pending');
+    const a = document.getElementById('cand-tab-approved');
+    if (p) p.textContent = 'Pending (' + pending + ')';
+    if (a) a.textContent = 'Approved (' + approved + ')';
+}
+
+function setCandTab(tab) {
+    candActiveTab = tab;
+    document.querySelectorAll('.cand-tab').forEach(b =>
+        b.classList.toggle('active', b.dataset.tab === tab));
+    renderCandidates(candidatesData);
+}
 
 function fmtSubs(n) {
     if (n == null) return 'subs hidden';
@@ -1132,38 +1181,54 @@ function renderCandidates(report) {
     const cands = (report && report.candidates) || {};
     const comps = Object.keys(cands).sort();
     const totalTeams = comps.reduce((n, c) => n + Object.keys(cands[c]).length, 0);
+    updateCandTabCounts();
     if (!report || totalTeams === 0) {
-        const d = document.createElement('div');
-        d.className = 'cand-empty';
-        d.innerHTML = 'No channel candidates to review.<br>Run the <code>' + CAND_WORKFLOW
+        body.appendChild(candEmpty('No channel candidates to review.<br>Run the <code>' + CAND_WORKFLOW
             + '</code> workflow (off-season, manual) to search for official channels for teams '
-            + 'missing one, then reload here.';
-        body.appendChild(d);
+            + 'missing one, then reload here.'));
         return;
     }
+
+    // Tab filter composes on top of the existing per-session skip filter and comp grouping.
+    // Pending = teams with no channel in sources.json; Approved = teams that have one.
+    const approvedTab = candActiveTab === 'approved';
+    let shown = 0;
     comps.forEach(comp => {
         const teams = cands[comp];
-        const teamNames = Object.keys(teams).sort();
-        if (!teamNames.some(t => !candSkipped.has(comp + '::' + t))) return;  // all skipped this comp
+        const teamNames = Object.keys(teams).sort().filter(t =>
+            !candSkipped.has(comp + '::' + t) &&
+            (approvedTab ? isTeamApproved(t) : !isTeamApproved(t)));
+        if (teamNames.length === 0) return;
         const lbl = document.createElement('div');
         lbl.className = 'cand-group-label';
         lbl.textContent = comp;
         body.appendChild(lbl);
         teamNames.forEach(team => {
-            if (candSkipped.has(comp + '::' + team)) return;
             body.appendChild(makeCandCard(comp, team, teams[team]));
+            shown++;
         });
     });
-    // Flags: teams searched with no plausible candidate, or not searched (cap reached).
-    const flags = report.flags || [];
-    const none = flags.filter(f => f.reason === 'no_plausible_candidate').map(f => f.team);
-    const capped = flags.filter(f => f.reason === 'search_cap_reached_not_searched').map(f => f.team);
-    if (none.length || capped.length) {
-        const n = document.createElement('div');
-        n.className = 'cand-flag-note';
-        if (none.length)   n.appendChild(flagLine('No plausible official channel found (searched): ', none));
-        if (capped.length) n.appendChild(flagLine('Not searched this run (search cap reached): ', capped));
-        body.appendChild(n);
+
+    // Flags (teams with no/absent candidate) describe teams still needing a channel —
+    // they belong to the Pending view only.
+    if (!approvedTab) {
+        const flags = report.flags || [];
+        const none = flags.filter(f => f.reason === 'no_plausible_candidate').map(f => f.team);
+        const capped = flags.filter(f => f.reason === 'search_cap_reached_not_searched').map(f => f.team);
+        if (none.length || capped.length) {
+            const n = document.createElement('div');
+            n.className = 'cand-flag-note';
+            if (none.length)   n.appendChild(flagLine('No plausible official channel found (searched): ', none));
+            if (capped.length) n.appendChild(flagLine('Not searched this run (search cap reached): ', capped));
+            body.appendChild(n);
+            shown++;
+        }
+    }
+
+    if (shown === 0) {
+        body.appendChild(candEmpty(approvedTab
+            ? 'No approved channels yet.'
+            : 'No pending approvals — all caught up.'));
     }
 }
 
@@ -1193,11 +1258,10 @@ function makeCandCard(comp, team, list) {
     nameWrap.appendChild(nm); nameWrap.appendChild(cm);
     head.appendChild(nameWrap);
 
-    // Reconcile against sources.json: a team that already has a channel id
-    // assigned was already approved (and persisted). candApproved is session-only,
-    // so without this an already-approved team renders as un-approved after reload.
-    const assignedRaw = parseChannelId(String((sourcesData.teams || {})[team] || '').trim());
-    const assigned = (assignedRaw && validCh(assignedRaw)) ? assignedRaw : '';
+    // Reconcile against sources.json via the shared approval predicate: a team that
+    // already has a channel id assigned was already approved (and persisted). Same
+    // predicate the Pending/Approved tab filter uses, so the surfaces never diverge.
+    const assigned = teamApprovedChannel(team);
 
     const actions = document.createElement('div');
     actions.className = 'cand-team-actions';
@@ -1350,6 +1414,9 @@ async function approveCandidate(comp, team, cand, card, btn) {
         }
         toast('Approved ' + team + ' → ' + channelId, 'success');
         dbg('Approved channel for ' + team + ': ' + channelId + ' (committed to sources.json)', 'ok');
+        // Re-render so the just-approved team leaves Pending and appears under Approved
+        // immediately (and both tab counts update), with no reload needed.
+        renderCandidates(candidatesData);
     } catch (err) {
         toast('Approve failed: ' + err.message, 'error');
         card.querySelectorAll('.cand-approve-btn').forEach(b => b.disabled = false);
@@ -2473,6 +2540,8 @@ document.getElementById('debug-clear-btn').addEventListener('click', () => {
 document.getElementById('reload-btn').addEventListener('click', loadAll);
 document.getElementById('wf-refresh-btn').addEventListener('click', loadWorkflowStatus);
 document.getElementById('cand-refresh-btn').addEventListener('click', loadCandidates);
+document.querySelectorAll('.cand-tab').forEach(btn =>
+    btn.addEventListener('click', () => setCandTab(btn.dataset.tab)));
 document.getElementById('save-btn').addEventListener('click', saveData);
 
 // ── Accordion — one competition open at a time ────────────
