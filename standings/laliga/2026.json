@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-30T18:56:39.225188Z",
+  "generated_at": "2026-08-30T19:41:30.568884Z",
   "competition": "LaLiga",
   "slug": "laliga",
   "season": 2026,
@@ -121,6 +121,25 @@
     {
       "position": 7,
       "team": {
+        "id": 560,
+        "name": "RC Deportivo La Coruña",
+        "shortName": "Deportivo",
+        "tla": "DEP",
+        "crest": "https://crests.football-data.org/560.png"
+      },
+      "playedGames": 3,
+      "form": "W,D,D",
+      "won": 1,
+      "draw": 2,
+      "lost": 0,
+      "points": 5,
+      "goalsFor": 5,
+      "goalsAgainst": 3,
+      "goalDifference": 2
+    },
+    {
+      "position": 8,
+      "team": {
         "id": 79,
         "name": "CA Osasuna",
         "shortName": "Osasuna",
@@ -138,7 +157,7 @@
       "goalDifference": 1
     },
     {
-      "position": 8,
+      "position": 9,
       "team": {
         "id": 5335,
         "name": "Real Racing Club de Santander",
@@ -157,7 +176,7 @@
       "goalDifference": 0
     },
     {
-      "position": 9,
+      "position": 10,
       "team": {
         "id": 88,
         "name": "Levante UD",
@@ -176,7 +195,7 @@
       "goalDifference": 0
     },
     {
-      "position": 10,
+      "position": 11,
       "team": {
         "id": 80,
         "name": "RCD Espanyol de Barcelona",
@@ -195,7 +214,7 @@
       "goalDifference": 1
     },
     {
-      "position": 11,
+      "position": 12,
       "team": {
         "id": 82,
         "name": "Getafe CF",
@@ -214,7 +233,7 @@
       "goalDifference": -2
     },
     {
-      "position": 12,
+      "position": 13,
       "team": {
         "id": 92,
         "name": "Real Sociedad de Fútbol",
@@ -231,25 +250,6 @@
       "goalsFor": 3,
       "goalsAgainst": 6,
       "goalDifference": -3
-    },
-    {
-      "position": 13,
-      "team": {
-        "id": 560,
-        "name": "RC Deportivo La Coruña",
-        "shortName": "Deportivo",
-        "tla": "DEP",
-        "crest": "https://crests.football-data.org/560.png"
-      },
-      "playedGames": 2,
-      "form": "D,D",
-      "won": 0,
-      "draw": 2,
-      "lost": 0,
-      "points": 2,
-      "goalsFor": 2,
-      "goalsAgainst": 2,
-      "goalDifference": 0
     },
     {
       "position": 14,
@@ -317,15 +317,15 @@
         "tla": "VAL",
         "crest": "https://crests.football-data.org/95.png"
       },
-      "playedGames": 2,
-      "form": "L,D",
+      "playedGames": 3,
+      "form": "L,L,D",
       "won": 0,
       "draw": 1,
-      "lost": 1,
+      "lost": 2,
       "points": 1,
-      "goalsFor": 0,
-      "goalsAgainst": 1,
-      "goalDifference": -1
+      "goalsFor": 1,
+      "goalsAgainst": 4,
+      "goalDifference": -3
     },
     {
       "position": 18,
