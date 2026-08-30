@@ -31,6 +31,7 @@ REPO_ROOT              = Path(__file__).resolve().parent.parent
 SOURCES_JSON           = REPO_ROOT / "sources.json"
 HIGHLIGHTS_DIR         = REPO_ROOT / "highlights"
 FIXTURES_DIR           = REPO_ROOT / "fixtures"
+RESULTS_DIR            = REPO_ROOT / "results"   # durable results ledger (self-healing)
 QUOTA_TRACKER_PATH     = HIGHLIGHTS_DIR / "quota-tracker.json"
 PLAYLIST_OWNERS_PATH   = HIGHLIGHTS_DIR / "playlist-owners.json"
 BACKFILL_PROGRESS_PATH = HIGHLIGHTS_DIR / "backfill-progress.json"
