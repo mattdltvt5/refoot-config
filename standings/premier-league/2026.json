@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-30T16:46:22.990839Z",
+  "generated_at": "2026-08-30T17:36:23.743999Z",
   "competition": "Premier League",
   "slug": "premier-league",
   "season": 2026,
@@ -178,20 +178,20 @@
     {
       "position": 10,
       "team": {
-        "id": 349,
-        "name": "Ipswich Town FC",
-        "shortName": "Ipswich Town",
-        "tla": "IPS",
-        "crest": "https://crests.football-data.org/349.png"
+        "id": 66,
+        "name": "Manchester United FC",
+        "shortName": "Man United",
+        "tla": "MUN",
+        "crest": "https://crests.football-data.org/66.png"
       },
-      "playedGames": 1,
-      "form": "W",
+      "playedGames": 2,
+      "form": "W,L",
       "won": 1,
       "draw": 0,
-      "lost": 0,
+      "lost": 1,
       "points": 3,
-      "goalsFor": 2,
-      "goalsAgainst": 1,
+      "goalsFor": 5,
+      "goalsAgainst": 4,
       "goalDifference": 1
     },
     {
@@ -216,6 +216,25 @@
     {
       "position": 12,
       "team": {
+        "id": 349,
+        "name": "Ipswich Town FC",
+        "shortName": "Ipswich Town",
+        "tla": "IPS",
+        "crest": "https://crests.football-data.org/349.png"
+      },
+      "playedGames": 2,
+      "form": "L,W",
+      "won": 1,
+      "draw": 0,
+      "lost": 1,
+      "points": 3,
+      "goalsFor": 4,
+      "goalsAgainst": 6,
+      "goalDifference": -2
+    },
+    {
+      "position": 13,
+      "team": {
         "id": 64,
         "name": "Liverpool FC",
         "shortName": "Liverpool",
@@ -233,7 +252,7 @@
       "goalDifference": 0
     },
     {
-      "position": 13,
+      "position": 14,
       "team": {
         "id": 351,
         "name": "Nottingham Forest FC",
@@ -252,7 +271,7 @@
       "goalDifference": -1
     },
     {
-      "position": 14,
+      "position": 15,
       "team": {
         "id": 1044,
         "name": "AFC Bournemouth",
@@ -271,7 +290,7 @@
       "goalDifference": -1
     },
     {
-      "position": 15,
+      "position": 16,
       "team": {
         "id": 63,
         "name": "Fulham FC",
@@ -287,25 +306,6 @@
       "points": 0,
       "goalsFor": 2,
       "goalsAgainst": 4,
-      "goalDifference": -2
-    },
-    {
-      "position": 16,
-      "team": {
-        "id": 66,
-        "name": "Manchester United FC",
-        "shortName": "Man United",
-        "tla": "MUN",
-        "crest": "https://crests.football-data.org/66.png"
-      },
-      "playedGames": 1,
-      "form": "L",
-      "won": 0,
-      "draw": 0,
-      "lost": 1,
-      "points": 0,
-      "goalsFor": 0,
-      "goalsAgainst": 2,
       "goalDifference": -2
     },
     {
