@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-30T13:51:19Z",
+  "generated_at": "2026-08-30T13:56:11Z",
   "month": "2026-08",
   "dates": {
     "2026-08-15": [
@@ -1389,9 +1389,9 @@
               "tla": "PSG",
               "crest": "https://crests.football-data.org/524.png"
             },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "TIMED",
+            "homeScore": 2,
+            "awayScore": 2,
+            "status": "FINISHED",
             "utcDate": "2026-08-28T18:45:00Z",
             "videoId": "nMCCjPUTgg8"
           }
@@ -1937,7 +1937,7 @@
             },
             "homeScore": 0,
             "awayScore": 0,
-            "status": "IN_PLAY",
+            "status": "PAUSED",
             "utcDate": "2026-08-30T13:00:00Z"
           },
           {
@@ -1958,7 +1958,7 @@
             },
             "homeScore": 3,
             "awayScore": 1,
-            "status": "IN_PLAY",
+            "status": "PAUSED",
             "utcDate": "2026-08-30T13:00:00Z"
           },
           {
@@ -1979,7 +1979,7 @@
             },
             "homeScore": 0,
             "awayScore": 1,
-            "status": "IN_PLAY",
+            "status": "PAUSED",
             "utcDate": "2026-08-30T13:00:00Z"
           },
           {
@@ -2213,7 +2213,7 @@
             },
             "homeScore": 1,
             "awayScore": 0,
-            "status": "IN_PLAY",
+            "status": "PAUSED",
             "utcDate": "2026-08-30T13:00:00Z"
           },
           {
