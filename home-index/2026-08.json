@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-30T15:46:11Z",
+  "generated_at": "2026-08-30T15:51:16Z",
   "month": "2026-08",
   "dates": {
     "2026-08-15": [
@@ -1256,9 +1256,9 @@
               "tla": "MCI",
               "crest": "https://crests.football-data.org/65.png"
             },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "TIMED",
+            "homeScore": 1,
+            "awayScore": 4,
+            "status": "FINISHED",
             "utcDate": "2026-08-28T19:00:00Z",
             "videoId": "LuVCELWM0BM"
           }
@@ -1487,7 +1487,7 @@
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "PAUSED",
+            "status": "TIMED",
             "utcDate": "2026-08-29T16:30:00Z",
             "videoId": "caf1Ypv6tqo"
           }
@@ -2232,7 +2232,7 @@
               "tla": "LMF",
               "crest": "https://upload.wikimedia.org/wikipedia/en/thumb/5/57/Le_Mans_FC_logo.svg/330px-Le_Mans_FC_logo.svg.png"
             },
-            "homeScore": 1,
+            "homeScore": 2,
             "awayScore": 0,
             "status": "IN_PLAY",
             "utcDate": "2026-08-30T15:15:00Z"
