@@ -637,6 +637,7 @@
         .cand-card { border: 1px solid var(--border); border-radius: 8px; margin-bottom: 10px; overflow: hidden; }
         .cand-card.approved { border-color: var(--green); }
         .cand-card.skipped  { opacity: .55; }
+        .cand-row.approved  { background: rgba(76,175,80,0.08); }
         .cand-card-head { display: flex; align-items: center; gap: 10px; padding: 10px 14px; background: var(--bg); }
         .cand-team-flag { width: 20px; height: 20px; object-fit: contain; border-radius: 3px; }
         .cand-team-name { font-weight: 600; font-size: 14px; }
@@ -1192,21 +1193,37 @@ function makeCandCard(comp, team, list) {
     nameWrap.appendChild(nm); nameWrap.appendChild(cm);
     head.appendChild(nameWrap);
 
+    // Reconcile against sources.json: a team that already has a channel id
+    // assigned was already approved (and persisted). candApproved is session-only,
+    // so without this an already-approved team renders as un-approved after reload.
+    const assignedRaw = parseChannelId(String((sourcesData.teams || {})[team] || '').trim());
+    const assigned = (assignedRaw && validCh(assignedRaw)) ? assignedRaw : '';
+
     const actions = document.createElement('div');
     actions.className = 'cand-team-actions';
-    const skip = document.createElement('button');
-    skip.className = 'cand-skip-btn'; skip.textContent = 'None of these / skip';
-    skip.title = 'Dismiss for this session — writes nothing';
-    skip.addEventListener('click', () => { candSkipped.add(comp + '::' + team); renderCandidates(candidatesData); });
-    actions.appendChild(skip);
+    if (assigned) {
+        card.classList.add('approved');
+        const badge = document.createElement('span');
+        badge.className = 'cand-approved-badge'; badge.textContent = 'Approved ✓';
+        actions.appendChild(badge);
+        const map = document.createElement('span');
+        map.className = 'cand-team-comp'; map.textContent = 'teams["' + team + '"] = ' + assigned;
+        actions.appendChild(map);
+    } else {
+        const skip = document.createElement('button');
+        skip.className = 'cand-skip-btn'; skip.textContent = 'None of these / skip';
+        skip.title = 'Dismiss for this session — writes nothing';
+        skip.addEventListener('click', () => { candSkipped.add(comp + '::' + team); renderCandidates(candidatesData); });
+        actions.appendChild(skip);
+    }
     head.appendChild(actions);
     card.appendChild(head);
 
-    (list || []).forEach((cand, i) => card.appendChild(makeCandRow(comp, team, cand, i, card)));
+    (list || []).forEach((cand, i) => card.appendChild(makeCandRow(comp, team, cand, i, card, assigned)));
     return card;
 }
 
-function makeCandRow(comp, team, cand, index, card) {
+function makeCandRow(comp, team, cand, index, card, assigned) {
     const row = document.createElement('div');
     row.className = 'cand-row' + (index === 0 ? ' primary' : '');
 
@@ -1259,10 +1276,21 @@ function makeCandRow(comp, team, cand, index, card) {
     link.href = cand.url || ('https://youtube.com/channel/' + (cand.channelId || ''));
     link.target = '_blank'; link.rel = 'noopener'; link.textContent = 'Open on YouTube ↗';
     acts.appendChild(link);
-    const btn = document.createElement('button');
-    btn.className = 'cand-approve-btn'; btn.textContent = 'Approve';
-    btn.addEventListener('click', () => approveCandidate(comp, team, cand, card, btn));
-    acts.appendChild(btn);
+    const thisId = parseChannelId((cand.channelId || '').trim());
+    if (assigned && thisId === assigned) {
+        // This is the candidate that is already assigned in sources.json.
+        row.classList.add('approved');
+        const pill = document.createElement('span');
+        pill.className = 'cand-approved-badge'; pill.textContent = 'Approved ✓';
+        acts.appendChild(pill);
+    } else {
+        const btn = document.createElement('button');
+        btn.className = 'cand-approve-btn';
+        // If the team is already assigned to a different channel, approving here switches it.
+        btn.textContent = assigned ? 'Use this instead' : 'Approve';
+        btn.addEventListener('click', () => approveCandidate(comp, team, cand, card, btn));
+        acts.appendChild(btn);
+    }
     row.appendChild(acts);
 
     return row;
