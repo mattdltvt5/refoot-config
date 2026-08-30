@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-30T13:11:11Z",
+  "generated_at": "2026-08-30T13:16:10Z",
   "month": "2026-08",
   "dates": {
     "2026-08-15": [
@@ -1256,9 +1256,9 @@
               "tla": "MCI",
               "crest": "https://crests.football-data.org/65.png"
             },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "TIMED",
+            "homeScore": 1,
+            "awayScore": 4,
+            "status": "FINISHED",
             "utcDate": "2026-08-28T19:00:00Z",
             "videoId": "LuVCELWM0BM"
           }
@@ -1487,7 +1487,7 @@
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "PAUSED",
+            "status": "TIMED",
             "utcDate": "2026-08-29T16:30:00Z",
             "videoId": "caf1Ypv6tqo"
           }
@@ -1956,7 +1956,7 @@
               "tla": "BHA",
               "crest": "https://crests.football-data.org/397.png"
             },
-            "homeScore": 0,
+            "homeScore": 1,
             "awayScore": 0,
             "status": "IN_PLAY",
             "utcDate": "2026-08-30T13:00:00Z"

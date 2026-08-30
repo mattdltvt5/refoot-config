@@ -1,7 +1,7 @@
 {
   "competition": "Premier League",
   "season": 2026,
-  "generated_at": "2026-08-30T13:11:11Z",
+  "generated_at": "2026-08-30T13:16:10Z",
   "fixtures": [
     {
       "match_id": 560542,
@@ -304,11 +304,11 @@
       },
       "score": {
         "fullTime": {
-          "home": null,
-          "away": null
+          "home": 1,
+          "away": 4
         }
       },
-      "status": "TIMED",
+      "status": "FINISHED",
       "utcDate": "2026-08-28T19:00:00Z"
     },
     {
@@ -420,7 +420,7 @@
           "away": null
         }
       },
-      "status": "PAUSED",
+      "status": "TIMED",
       "utcDate": "2026-08-29T16:30:00Z"
     },
     {
@@ -472,7 +472,7 @@
       },
       "score": {
         "fullTime": {
-          "home": 0,
+          "home": 1,
           "away": 0
         }
       },
