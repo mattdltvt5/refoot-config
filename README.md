@@ -23,6 +23,45 @@ update) with no reload. Empty states render per tab (*"No pending approvals — 
 *"No approved channels yet"*). The tab filter composes on top of the existing competition grouping and
 per-session skip filter; the search-for-candidates workflow and the human-approval-before-adoption flow
 are unchanged. **Files:** `admin.html`.
+### Durable results ledger — self-healing recovery of finished scores (2026-08-30)
+Builds on the FINISHED-preservation guard below to make an upstream
+`FINISHED→TIMED/null` reversion **self-healing** and, crucially, **recoverable**. The guard stops a
+good result from being *overwritten*, but it cannot restore a score that was already lost (nulled
+before the guard shipped, or a from-scratch cache rebuild) — it has no FD-independent memory of the
+result. The ledger fixes that.
+
+**What it is.** `results/{slug}/{season}.json` — an append-only, football-data-independent record of
+every final score the pipeline has ever observed, keyed by `match_id`. Once a match is seen `FINISHED`
+with a resolved score it is written here and **never downgraded**. Invariant: *finished once → finished
+forever, with the score we recorded.*
+
+**How the fixtures write works now** (`write_fixtures_artifacts()`, three layers, all keyed by
+`match_id`, all five leagues):
+1. **Overwrite guard** — merge incoming against the on-disk cache (`merge_fixtures_preserving_finished`)
+   so a scored `FINISHED` is never clobbered by a scoreless incoming record.
+2. **Ledger update** — record/refresh every `FINISHED`+score into `results/{slug}/{season}.json`
+   (`update_results_ledger`). A `FINISHED` with a *different* score updates it; a terminal non-played
+   status (`POSTPONED`/`CANCELLED`/`SUSPENDED`/`AWARDED`) clears the entry so a genuine postponement is
+   honoured; a real **0-0** counts as a resolved score (`is not None`, never truthiness).
+3. **Self-heal overlay** — re-assert any ledgered `FINISHED` onto the outgoing fixtures
+   (`apply_results_ledger`) whenever the current payload lacks a resolved score and isn't a terminal
+   correction. Fresh crests/kickoff times still flow through; only `status`+`score` are re-asserted.
+
+So if football-data.org serves an already-played match as `TIMED`/`PAUSED`/null, the real score is
+restored automatically on the very next run — no manual restore, ever. `home-index/` (the Home
+date-strip feed) rebuilds from the healed fixtures, so scores and highlights reappear in the app.
+
+**Recovery of already-lost results.** `scripts/seed_results_ledger.py` reconstructs the ledger from git
+history — it folds every recent revision of `fixtures/{slug}/{season}.json` through the same
+`update_results_ledger` rules (oldest→newest: latest `FINISHED` score wins, later terminal status
+clears, `TIMED` never downgrades). This distils the good scores that were committed while healthy back
+into the ledger; the overlay then re-asserts them on the next run. Idempotent and re-runnable:
+`python scripts/seed_results_ledger.py [--depth N] [--dry-run]`.
+
+Season/competition-code resolution is unchanged. Pipeline-only — no Firebase redeploy. **Files:**
+`scripts/fixture_providers.py`, `scripts/fetch_highlights.py`, `scripts/highlights_common.py`
+(`RESULTS_DIR`), `scripts/seed_results_ledger.py`, `scripts/tests/test_results_ledger.py`, and the
+seeded `results/{slug}/2026.json` for the five domestic leagues.
 
 ### FINISHED-preservation merge guard on the fixtures write path (2026-08-30)
 The fixtures cache is now protected by a **score-presence invariant** so a transient upstream data

@@ -129,6 +129,85 @@ def merge_fixtures_preserving_finished(
     return merged
 
 
+# ── Durable results ledger (self-healing) ─────────────────────────────────────
+#
+# The FINISHED-preservation guard above protects the *cache* from a good→bad
+# overwrite, but it cannot recover a result that was already lost — a score nulled
+# before the guard shipped, or a from-scratch cache rebuild.  The results ledger
+# is an FD-independent, append-only record of every final score the pipeline has
+# ever observed: once a match is seen FINISHED with a resolved score, its result
+# is recorded in results/{slug}/{season}.json and re-asserted on every subsequent
+# run.  An upstream FINISHED→TIMED/null reversion therefore self-heals — the real
+# score is restored automatically on the next run, with no manual intervention.
+#
+# Corrections still flow: an incoming FINISHED with a *different* score updates
+# the ledger, and a terminal non-played status (POSTPONED/CANCELLED/SUSPENDED/
+# AWARDED) clears the FINISHED entry so a genuine postponement is honoured.
+
+
+def _is_terminal_unplayed(record: dict) -> bool:
+    return (record or {}).get("status") in TERMINAL_UNPLAYED_STATUSES
+
+
+def update_results_ledger(ledger: dict, fixtures: list[dict]) -> dict:
+    """Return an updated ledger given the outgoing fixtures for one {slug}/{season}.
+
+    - A fixture that is FINISHED with a resolved score is recorded, or its score
+      updated on a correction; ``first_finished_at`` is set once and preserved.
+    - A fixture with a terminal non-played status removes any FINISHED entry, so a
+      genuine postponement/abandonment is not force-restored to FINISHED.
+
+    Keyed by str(match_id); fixtures with a None match_id are ignored.  The input
+    ledger is not mutated.
+    """
+    out = dict(ledger or {})
+    for fx in fixtures:
+        mid = fx.get("match_id")
+        if mid is None:
+            continue
+        key = str(mid)
+        if fx.get("status") == FINISHED_STATUS and _has_resolved_score(fx):
+            ft = (fx.get("score") or {}).get("fullTime") or {}
+            prev = out.get(key) or {}
+            out[key] = {
+                "status":            FINISHED_STATUS,
+                "score":             {"fullTime": {"home": ft.get("home"), "away": ft.get("away")}},
+                "utcDate":           fx.get("utcDate", prev.get("utcDate", "")),
+                "first_finished_at": prev.get("first_finished_at") or utc_now_iso(),
+            }
+        elif _is_terminal_unplayed(fx):
+            out.pop(key, None)   # genuine forward correction — stop asserting FINISHED
+    return out
+
+
+def apply_results_ledger(fixtures: list[dict], ledger: dict) -> list[dict]:
+    """Overlay the ledger onto fixtures, re-asserting a known FINISHED result.
+
+    For each fixture whose match_id the ledger records as FINISHED, force
+    status=FINISHED + the ledger score UNLESS the current fixture already carries
+    a resolved score (a real re-write / correction) or reports a terminal
+    non-played status (a genuine postponement).  All other fields are taken from
+    the current fixture, so fresh crests/teams/kickoff times still flow through.
+
+    Returns a new list; incoming order is preserved.
+    """
+    out: list[dict] = []
+    for fx in fixtures:
+        mid = fx.get("match_id")
+        rec = ledger.get(str(mid)) if (ledger and mid is not None) else None
+        if (rec and rec.get("status") == FINISHED_STATUS
+                and not _has_resolved_score(fx)
+                and not _is_terminal_unplayed(fx)):
+            healed = dict(fx)
+            ft = (rec.get("score") or {}).get("fullTime") or {}
+            healed["status"] = FINISHED_STATUS
+            healed["score"]  = {"fullTime": {"home": ft.get("home"), "away": ft.get("away")}}
+            out.append(healed)
+        else:
+            out.append(fx)
+    return out
+
+
 # ── API-Sports quota constants ────────────────────────────────────────────────
 
 APISPORTS_QUOTA_PATH = HIGHLIGHTS_DIR / "apisports-quota-tracker.json"
