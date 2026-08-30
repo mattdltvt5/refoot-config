@@ -59,7 +59,10 @@ from highlights_common import (
     utc_now_iso,
     write_json_atomic,
 )
-from fixture_providers import FootballDataProvider
+from fixture_providers import (
+    FootballDataProvider,
+    merge_fixtures_preserving_finished,
+)
 from playlist_discovery import apply_discovered_overrides
 import build_home_index
 
@@ -219,19 +222,43 @@ def fetch_all_fixtures(
 
 
 def write_fixtures_artifacts(artifacts: dict[str, list[dict]]) -> None:
-    """Write one fixtures/{slug}/{season}.json per domestic league."""
+    """Write one fixtures/{slug}/{season}.json per domestic league.
+
+    Each incoming list is merged against the on-disk cache with
+    merge_fixtures_preserving_finished() so a transient upstream
+    FINISHED→TIMED/null regression can never clobber a good, scored FINISHED
+    result.  The merge is keyed by match_id and runs for every league the job
+    writes (all entries in ``artifacts``).
+    """
     for comp_name, fixtures in artifacts.items():
         slug   = COMPETITION_SLUG_MAP[comp_name]
         season = season_for_competition(comp_name)
         path   = FIXTURES_DIR / slug / f"{season}.json"
         path.parent.mkdir(parents=True, exist_ok=True)
+
+        cached = (load_json_file(path) or {}).get("fixtures", []) or []
+        merged = merge_fixtures_preserving_finished(cached, fixtures)
+
+        # A merged element is the *cached* object (identity differs from incoming)
+        # only when the guard rejected a scoreless incoming record — count those.
+        incoming_by_id = {r.get("match_id"): r for r in fixtures}
+        preserved = sum(
+            1 for r in merged
+            if incoming_by_id.get(r.get("match_id")) is not r
+        )
+        if preserved:
+            log.warning(
+                f"{comp_name}: preserved {preserved} cached FINISHED result(s) "
+                "against a scoreless incoming payload (upstream FINISHED→TIMED/null)"
+            )
+
         write_json_atomic(path, {
             "competition":  comp_name,
             "season":       season,
             "generated_at": utc_now_iso(),
-            "fixtures":     fixtures,
+            "fixtures":     merged,
         })
-        log.info(f"Wrote fixtures artifact: fixtures/{slug}/{season}.json ({len(fixtures)} fixture(s))")
+        log.info(f"Wrote fixtures artifact: fixtures/{slug}/{season}.json ({len(merged)} fixture(s))")
 
 
 # ── Main ──────────────────────────────────────────────────────────────────────

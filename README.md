@@ -4,6 +4,36 @@ Remote channel configuration for the **ReFoot Highlights** Android app.
 
 ## Recent changes
 
+### FINISHED-preservation merge guard on the fixtures write path (2026-08-30)
+The fixtures cache is now protected by a **score-presence invariant** so a transient upstream data
+glitch can no longer erase already-played results. football-data.org intermittently re-serves an
+already-played match as `status:"TIMED"` with a **null score**; because `write_fixtures_artifacts()`
+overwrites `fixtures/{slug}/{season}.json` on every ~5-minute run, an unguarded write mirrored that
+regression straight into the cache — and the app renders a null score as *not started*, hiding **both**
+the score and the still-cached highlight. The regression hit all five domestic leagues at once (one
+job) and flickered every few minutes.
+
+**The invariant.** For a given `match_id`, if the **cached** record is `FINISHED` with a **non-null**
+full-time score, an incoming record that lacks a resolved outcome is **rejected** — the cache is kept.
+The incoming record is accepted only when it carries a **non-null score** (real re-write / correction,
+and normal `TIMED → FINISHED` progression) **or** a **terminal non-played status** —
+`POSTPONED` / `CANCELLED` / `SUSPENDED` / `AWARDED` — a genuine forward correction (postponement /
+abandonment). It is a score-presence rule, **not** a status-rank ordering; status is consulted only to
+let the terminal corrections through. A real **0-0** counts as a resolved score (checked with
+`is not None`, never truthiness), so a legitimate goalless FINISHED is preserved too. Pairing is
+**strictly by `match_id`** (stable across the regression) — never by team name or list position — and
+the merge operates within a single `{slug}/{season}` file; new fixtures with no cached counterpart are
+written unchanged. Applied for **every league the job writes**, not just the Premier League.
+
+Season/competition-code resolution is unchanged (confirmed correct: `season_for_competition` →
+`current_season()`; FD code + `?season=` untouched) — the bug was purely the unconditional overwrite.
+Pipeline-only, so **no Firebase redeploy**. Implemented as pure functions
+(`merge_preserve_finished` / `merge_fixtures_preserving_finished` +
+`TERMINAL_UNPLAYED_STATUSES`) in `scripts/fixture_providers.py`, applied in
+`fetch_highlights.py::write_fixtures_artifacts()` (reads the on-disk cache via `load_json_file` before
+each atomic write and logs how many results it preserved). **Files:** `scripts/fixture_providers.py`,
+`scripts/fetch_highlights.py`, `scripts/tests/test_fixtures_finished_merge.py`.
+
 ### home-index team objects now carry the FD team id (2026-08-24)
 Each `homeTeam`/`awayTeam` in `home-index/{YYYY-MM}.json` now includes the football-data.org
 **numeric team `id`** alongside the existing `name`/`shortName`/`tla`/`crest` (additive — no field

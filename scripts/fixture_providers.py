@@ -40,6 +40,95 @@ from highlights_common import (
 
 log = logging.getLogger(__name__)
 
+
+# ── FINISHED-preservation merge guard ─────────────────────────────────────────
+#
+# football-data.org intermittently re-serves an already-played match as
+# status="TIMED" with a null score (an upstream data-quality flicker seen on the
+# 2026-27 season).  Because write_fixtures_artifacts() overwrites
+# fixtures/{slug}/{season}.json on every ~5-minute run, an unguarded write would
+# clobber a good FINISHED result with that regressed, scoreless record — and the
+# app renders a null score as "not started", hiding both the score and the
+# still-cached highlight.
+#
+# The guard is a SCORE-PRESENCE invariant, not a status-rank ordering: a cached
+# FINISHED record carrying a real score is never replaced by an incoming record
+# that lacks a resolved outcome, UNLESS the incoming record announces a genuine
+# terminal non-played correction (postponement / abandonment).  Normal
+# progression (TIMED → FINISHED) and real re-writes (incoming with a score) are
+# always allowed through.
+
+FINISHED_STATUS = "FINISHED"
+
+# Terminal non-played statuses: a legitimate forward correction that SHOULD
+# overwrite a previously-FINISHED cache even though it carries no score.  Spelled
+# exactly as football-data.org emits them (see FD v4 match `status` vocabulary).
+TERMINAL_UNPLAYED_STATUSES = frozenset({
+    "POSTPONED", "CANCELLED", "SUSPENDED", "AWARDED",
+})
+
+
+def _has_resolved_score(record: dict) -> bool:
+    """True when both full-time goal fields are genuinely present.
+
+    Uses `is not None` so a real 0-0 (home=0, away=0) counts as resolved rather
+    than being mistaken for an empty/unplayed score.
+    """
+    ft = ((record or {}).get("score") or {}).get("fullTime") or {}
+    return ft.get("home") is not None and ft.get("away") is not None
+
+
+def merge_preserve_finished(cached: dict, incoming: dict) -> dict:
+    """Decide which of two records for the SAME match_id to keep.
+
+    Blocks the FINISHED→TIMED/null regression: if the cached record is FINISHED
+    with a resolved (non-null) score and the incoming record has no resolved
+    score, keep the cached record — UNLESS the incoming record is a terminal
+    non-played correction (POSTPONED/CANCELLED/SUSPENDED/AWARDED), which is a
+    genuine forward change and is allowed through.
+
+    In every other case (incoming carries a real score, or the cache was not a
+    scored FINISHED to begin with) the incoming record wins, so normal
+    progression and real corrections are never blocked.
+    """
+    if not cached:
+        return incoming
+    cached_is_scored_finished = (
+        cached.get("status") == FINISHED_STATUS and _has_resolved_score(cached)
+    )
+    if not cached_is_scored_finished:
+        return incoming
+    if _has_resolved_score(incoming):
+        return incoming
+    if incoming.get("status") in TERMINAL_UNPLAYED_STATUSES:
+        return incoming
+    return cached
+
+
+def merge_fixtures_preserving_finished(
+    cached_fixtures: list[dict], incoming_fixtures: list[dict]
+) -> list[dict]:
+    """Merge an incoming fixtures list against the cached list, keyed by match_id.
+
+    Applies merge_preserve_finished() per match.  The returned list preserves the
+    incoming ordering and length; new match_ids (absent from the cache) pass
+    through unchanged.  Records with a None match_id are passed through unmerged
+    (no stable key to pair on).  Pairing is strictly by match_id — never by team
+    name or list position — because match_ids are stable across the regression.
+    """
+    cached_by_id = {
+        r.get("match_id"): r
+        for r in (cached_fixtures or [])
+        if r.get("match_id") is not None
+    }
+    merged: list[dict] = []
+    for inc in incoming_fixtures:
+        mid = inc.get("match_id")
+        cached = cached_by_id.get(mid) if mid is not None else None
+        merged.append(merge_preserve_finished(cached, inc) if cached else inc)
+    return merged
+
+
 # ── API-Sports quota constants ────────────────────────────────────────────────
 
 APISPORTS_QUOTA_PATH = HIGHLIGHTS_DIR / "apisports-quota-tracker.json"
