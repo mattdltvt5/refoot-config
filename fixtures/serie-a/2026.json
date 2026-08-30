@@ -1,7 +1,7 @@
 {
   "competition": "Serie A",
   "season": 2026,
-  "generated_at": "2026-08-30T16:46:09Z",
+  "generated_at": "2026-08-30T17:01:17Z",
   "fixtures": [
     {
       "match_id": 558629,
@@ -332,11 +332,11 @@
       },
       "score": {
         "fullTime": {
-          "home": null,
-          "away": null
+          "home": 2,
+          "away": 1
         }
       },
-      "status": "TIMED",
+      "status": "FINISHED",
       "utcDate": "2026-08-29T16:30:00Z"
     },
     {
@@ -360,11 +360,11 @@
       },
       "score": {
         "fullTime": {
-          "home": null,
-          "away": null
+          "home": 2,
+          "away": 3
         }
       },
-      "status": "TIMED",
+      "status": "FINISHED",
       "utcDate": "2026-08-29T16:30:00Z"
     },
     {
@@ -388,11 +388,11 @@
       },
       "score": {
         "fullTime": {
-          "home": null,
-          "away": null
+          "home": 0,
+          "away": 3
         }
       },
-      "status": "TIMED",
+      "status": "FINISHED",
       "utcDate": "2026-08-29T16:30:00Z"
     },
     {
@@ -416,11 +416,11 @@
       },
       "score": {
         "fullTime": {
-          "home": null,
-          "away": null
+          "home": 2,
+          "away": 0
         }
       },
-      "status": "TIMED",
+      "status": "FINISHED",
       "utcDate": "2026-08-29T18:45:00Z"
     },
     {
@@ -445,7 +445,7 @@
       "score": {
         "fullTime": {
           "home": 0,
-          "away": 0
+          "away": 1
         }
       },
       "status": "IN_PLAY",
