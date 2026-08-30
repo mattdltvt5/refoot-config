@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-30T16:21:12Z",
+  "generated_at": "2026-08-30T16:26:07Z",
   "month": "2026-08",
   "dates": {
     "2026-08-15": [
@@ -1515,7 +1515,7 @@
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "TIMED",
+            "status": "IN_PLAY",
             "utcDate": "2026-08-29T15:00:00Z",
             "videoId": "wlZrMN00EEI"
           },
@@ -1653,7 +1653,7 @@
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "TIMED",
+            "status": "IN_PLAY",
             "utcDate": "2026-08-29T18:45:00Z",
             "videoId": "0c-wpIQS6Yc"
           }
@@ -2186,7 +2186,7 @@
             },
             "homeScore": 1,
             "awayScore": 0,
-            "status": "IN_PLAY",
+            "status": "PAUSED",
             "utcDate": "2026-08-30T15:30:00Z"
           }
         ]
@@ -2234,7 +2234,7 @@
             },
             "homeScore": 2,
             "awayScore": 1,
-            "status": "PAUSED",
+            "status": "IN_PLAY",
             "utcDate": "2026-08-30T15:15:00Z"
           },
           {
