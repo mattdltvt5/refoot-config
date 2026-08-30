@@ -170,6 +170,7 @@ class TestWriteFixturesArtifactsGuard:
         # so the find_channel_candidates pipeline-isolation guard stays green.
         import fetch_highlights
         monkeypatch.setattr(fetch_highlights, "FIXTURES_DIR", tmp_path)
+        monkeypatch.setattr(fetch_highlights, "RESULTS_DIR", tmp_path / "results")
 
         artifacts = {}
         for comp in DOMESTIC_LEAGUE_COMPS:
@@ -199,6 +200,7 @@ class TestWriteFixturesArtifactsGuard:
     def test_forward_correction_and_new_fixture_still_written(self, tmp_path, monkeypatch):
         import fetch_highlights
         monkeypatch.setattr(fetch_highlights, "FIXTURES_DIR", tmp_path)
+        monkeypatch.setattr(fetch_highlights, "RESULTS_DIR", tmp_path / "results")
         comp   = "Premier League"
         slug   = COMPETITION_SLUG_MAP[comp]
         season = season_for_competition(comp)

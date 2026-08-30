@@ -60,6 +60,7 @@ class TestWriteFixturesArtifacts:
     def test_writes_per_season_path(self, tmp_path, monkeypatch):
         import fetch_highlights as fh
         monkeypatch.setattr(fh, "FIXTURES_DIR", tmp_path / "fixtures")
+        monkeypatch.setattr(fh, "RESULTS_DIR", tmp_path / "results")
 
         now = datetime(2026, 7, 1, tzinfo=timezone.utc)
         monkeypatch.setattr(
@@ -75,6 +76,7 @@ class TestWriteFixturesArtifacts:
     def test_json_season_matches_path(self, tmp_path, monkeypatch):
         import fetch_highlights as fh
         monkeypatch.setattr(fh, "FIXTURES_DIR", tmp_path / "fixtures")
+        monkeypatch.setattr(fh, "RESULTS_DIR", tmp_path / "results")
         now = datetime(2026, 7, 1, tzinfo=timezone.utc)
         monkeypatch.setattr(
             fh, "season_for_competition",
@@ -90,6 +92,7 @@ class TestWriteFixturesArtifacts:
         """Writing 2026-27 fixtures must NOT overwrite 2025-26 file."""
         import fetch_highlights as fh
         monkeypatch.setattr(fh, "FIXTURES_DIR", tmp_path / "fixtures")
+        monkeypatch.setattr(fh, "RESULTS_DIR", tmp_path / "results")
 
         prior = tmp_path / "fixtures" / "premier-league" / "2025.json"
         prior.parent.mkdir(parents=True)
@@ -142,6 +145,7 @@ class TestWriteStandings:
         from sync_standings import write_standings, current_season as standings_season
 
         monkeypatch.setattr(fh, "FIXTURES_DIR", tmp_path / "fixtures")
+        monkeypatch.setattr(fh, "RESULTS_DIR", tmp_path / "results")
         now = datetime(2026, 7, 6, tzinfo=timezone.utc)
         monkeypatch.setattr(
             fh, "season_for_competition",

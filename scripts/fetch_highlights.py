@@ -38,6 +38,7 @@ from highlights_common import (
     DOMESTIC_LEAGUE_COMPS,
     FD_BASE,
     FIXTURES_DIR,
+    RESULTS_DIR,
     HIGHLIGHTS_DIR,
     FD_SLEEP_SECONDS,
     INCREMENTAL_CAP,
@@ -62,6 +63,8 @@ from highlights_common import (
 from fixture_providers import (
     FootballDataProvider,
     merge_fixtures_preserving_finished,
+    update_results_ledger,
+    apply_results_ledger,
 )
 from playlist_discovery import apply_discovered_overrides
 import build_home_index
@@ -224,41 +227,68 @@ def fetch_all_fixtures(
 def write_fixtures_artifacts(artifacts: dict[str, list[dict]]) -> None:
     """Write one fixtures/{slug}/{season}.json per domestic league.
 
-    Each incoming list is merged against the on-disk cache with
-    merge_fixtures_preserving_finished() so a transient upstream
-    FINISHED→TIMED/null regression can never clobber a good, scored FINISHED
-    result.  The merge is keyed by match_id and runs for every league the job
-    writes (all entries in ``artifacts``).
+    Three layers protect already-played results from an upstream
+    FINISHED→TIMED/null reversion:
+
+      1. Overwrite guard — merge the incoming list against the on-disk cache
+         (merge_fixtures_preserving_finished) so a good, scored FINISHED result
+         is never clobbered by a scoreless incoming record.
+      2. Durable ledger — record every FINISHED result in
+         results/{slug}/{season}.json (update_results_ledger); an FD-independent
+         memory that is never downgraded.
+      3. Self-heal — overlay the ledger onto the outgoing fixtures
+         (apply_results_ledger) so a result lost earlier (or nulled this run) is
+         re-asserted automatically, with no manual restore.
+
+    All three are keyed by match_id and run for every league the job writes.
     """
     for comp_name, fixtures in artifacts.items():
         slug   = COMPETITION_SLUG_MAP[comp_name]
         season = season_for_competition(comp_name)
         path   = FIXTURES_DIR / slug / f"{season}.json"
+        led_path = RESULTS_DIR / slug / f"{season}.json"
         path.parent.mkdir(parents=True, exist_ok=True)
+        led_path.parent.mkdir(parents=True, exist_ok=True)
 
+        # 1. Guard against a good→bad overwrite using the on-disk cache.
         cached = (load_json_file(path) or {}).get("fixtures", []) or []
         merged = merge_fixtures_preserving_finished(cached, fixtures)
 
-        # A merged element is the *cached* object (identity differs from incoming)
-        # only when the guard rejected a scoreless incoming record — count those.
-        incoming_by_id = {r.get("match_id"): r for r in fixtures}
-        preserved = sum(
-            1 for r in merged
-            if incoming_by_id.get(r.get("match_id")) is not r
+        # 2. Update the durable, FD-independent results ledger.
+        ledger = (load_json_file(led_path) or {}).get("results", {}) or {}
+        ledger = update_results_ledger(ledger, merged)
+
+        # 3. Self-heal: re-assert any known FINISHED result the current payload lost.
+        healed = apply_results_ledger(merged, ledger)
+
+        # Observability: how many results the ledger had to re-assert this run.
+        merged_by_id = {r.get("match_id"): r for r in merged}
+        restored = sum(
+            1 for r in healed
+            if merged_by_id.get(r.get("match_id")) is not r
         )
-        if preserved:
+        if restored:
             log.warning(
-                f"{comp_name}: preserved {preserved} cached FINISHED result(s) "
-                "against a scoreless incoming payload (upstream FINISHED→TIMED/null)"
+                f"{comp_name}: re-asserted {restored} FINISHED result(s) from the "
+                "results ledger (upstream served them as unplayed)"
             )
 
+        write_json_atomic(led_path, {
+            "competition":  comp_name,
+            "season":       season,
+            "generated_at": utc_now_iso(),
+            "results":      ledger,
+        })
         write_json_atomic(path, {
             "competition":  comp_name,
             "season":       season,
             "generated_at": utc_now_iso(),
-            "fixtures":     merged,
+            "fixtures":     healed,
         })
-        log.info(f"Wrote fixtures artifact: fixtures/{slug}/{season}.json ({len(merged)} fixture(s))")
+        log.info(
+            f"Wrote fixtures artifact: fixtures/{slug}/{season}.json "
+            f"({len(healed)} fixture(s); {len(ledger)} ledgered result(s))"
+        )
 
 
 # ── Main ──────────────────────────────────────────────────────────────────────
