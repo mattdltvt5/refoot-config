@@ -1,11 +1,30 @@
 {
-  "generated_at": "2026-08-30T12:40:03.282430Z",
+  "generated_at": "2026-08-30T17:06:23.941778Z",
   "competition": "LaLiga",
   "slug": "laliga",
   "season": 2026,
   "standings": [
     {
       "position": 1,
+      "team": {
+        "id": 86,
+        "name": "Real Madrid CF",
+        "shortName": "Real Madrid",
+        "tla": "RMA",
+        "crest": "https://crests.football-data.org/86.png"
+      },
+      "playedGames": 3,
+      "form": "W,W,W",
+      "won": 3,
+      "draw": 0,
+      "lost": 0,
+      "points": 9,
+      "goalsFor": 10,
+      "goalsAgainst": 2,
+      "goalDifference": 8
+    },
+    {
+      "position": 2,
       "team": {
         "id": 78,
         "name": "Club Atlético de Madrid",
@@ -24,7 +43,7 @@
       "goalDifference": 4
     },
     {
-      "position": 2,
+      "position": 3,
       "team": {
         "id": 263,
         "name": "Deportivo Alavés",
@@ -43,7 +62,7 @@
       "goalDifference": 4
     },
     {
-      "position": 3,
+      "position": 4,
       "team": {
         "id": 81,
         "name": "FC Barcelona",
@@ -60,25 +79,6 @@
       "goalsFor": 7,
       "goalsAgainst": 0,
       "goalDifference": 7
-    },
-    {
-      "position": 4,
-      "team": {
-        "id": 86,
-        "name": "Real Madrid CF",
-        "shortName": "Real Madrid",
-        "tla": "RMA",
-        "crest": "https://crests.football-data.org/86.png"
-      },
-      "playedGames": 2,
-      "form": "W,W",
-      "won": 2,
-      "draw": 0,
-      "lost": 0,
-      "points": 6,
-      "goalsFor": 6,
-      "goalsAgainst": 2,
-      "goalDifference": 4
     },
     {
       "position": 5,
@@ -330,25 +330,6 @@
     {
       "position": 18,
       "team": {
-        "id": 84,
-        "name": "Málaga CF",
-        "shortName": "Málaga",
-        "tla": "MAL",
-        "crest": "https://crests.football-data.org/84.png"
-      },
-      "playedGames": 2,
-      "form": "D,L",
-      "won": 0,
-      "draw": 1,
-      "lost": 1,
-      "points": 1,
-      "goalsFor": 1,
-      "goalsAgainst": 3,
-      "goalDifference": -2
-    },
-    {
-      "position": 19,
-      "team": {
         "id": 285,
         "name": "Elche CF",
         "shortName": "Elche",
@@ -363,6 +344,25 @@
       "points": 1,
       "goalsFor": 3,
       "goalsAgainst": 9,
+      "goalDifference": -6
+    },
+    {
+      "position": 19,
+      "team": {
+        "id": 84,
+        "name": "Málaga CF",
+        "shortName": "Málaga",
+        "tla": "MAL",
+        "crest": "https://crests.football-data.org/84.png"
+      },
+      "playedGames": 3,
+      "form": "L,D,L",
+      "won": 0,
+      "draw": 1,
+      "lost": 2,
+      "points": 1,
+      "goalsFor": 1,
+      "goalsAgainst": 7,
       "goalDifference": -6
     },
     {
