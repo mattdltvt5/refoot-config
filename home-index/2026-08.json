@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-30T11:56:10Z",
+  "generated_at": "2026-08-30T12:16:14Z",
   "month": "2026-08",
   "dates": {
     "2026-08-15": [
@@ -1333,9 +1333,9 @@
               "tla": "VEN",
               "crest": "https://crests.football-data.org/454.png"
             },
-            "homeScore": 2,
-            "awayScore": 0,
-            "status": "FINISHED",
+            "homeScore": null,
+            "awayScore": null,
+            "status": "TIMED",
             "utcDate": "2026-08-28T18:45:00Z",
             "videoId": "2hZTxhyXeII"
           }
@@ -1653,7 +1653,7 @@
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "TIMED",
+            "status": "IN_PLAY",
             "utcDate": "2026-08-29T18:45:00Z",
             "videoId": "0c-wpIQS6Yc"
           }
