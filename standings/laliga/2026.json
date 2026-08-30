@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-30T21:16:24.496234Z",
+  "generated_at": "2026-08-30T21:26:20.517023Z",
   "competition": "LaLiga",
   "slug": "laliga",
   "season": 2026,
@@ -216,6 +216,25 @@
     {
       "position": 12,
       "team": {
+        "id": 77,
+        "name": "Athletic Club",
+        "shortName": "Athletic",
+        "tla": "ATH",
+        "crest": "https://crests.football-data.org/77.png"
+      },
+      "playedGames": 3,
+      "form": "W,L,L",
+      "won": 1,
+      "draw": 0,
+      "lost": 2,
+      "points": 3,
+      "goalsFor": 3,
+      "goalsAgainst": 5,
+      "goalDifference": -2
+    },
+    {
+      "position": 13,
+      "team": {
         "id": 82,
         "name": "Getafe CF",
         "shortName": "Getafe",
@@ -233,7 +252,7 @@
       "goalDifference": -2
     },
     {
-      "position": 13,
+      "position": 14,
       "team": {
         "id": 92,
         "name": "Real Sociedad de Fútbol",
@@ -252,7 +271,7 @@
       "goalDifference": -3
     },
     {
-      "position": 14,
+      "position": 15,
       "team": {
         "id": 94,
         "name": "Villarreal CF",
@@ -271,7 +290,7 @@
       "goalDifference": -1
     },
     {
-      "position": 15,
+      "position": 16,
       "team": {
         "id": 87,
         "name": "Rayo Vallecano de Madrid",
@@ -287,25 +306,6 @@
       "points": 1,
       "goalsFor": 2,
       "goalsAgainst": 3,
-      "goalDifference": -1
-    },
-    {
-      "position": 16,
-      "team": {
-        "id": 558,
-        "name": "RC Celta de Vigo",
-        "shortName": "Celta",
-        "tla": "CEL",
-        "crest": "https://crests.football-data.org/558.png"
-      },
-      "playedGames": 2,
-      "form": "L,D",
-      "won": 0,
-      "draw": 1,
-      "lost": 1,
-      "points": 1,
-      "goalsFor": 1,
-      "goalsAgainst": 2,
       "goalDifference": -1
     },
     {
@@ -330,6 +330,25 @@
     {
       "position": 18,
       "team": {
+        "id": 558,
+        "name": "RC Celta de Vigo",
+        "shortName": "Celta",
+        "tla": "CEL",
+        "crest": "https://crests.football-data.org/558.png"
+      },
+      "playedGames": 3,
+      "form": "L,L,D",
+      "won": 0,
+      "draw": 1,
+      "lost": 2,
+      "points": 1,
+      "goalsFor": 1,
+      "goalsAgainst": 4,
+      "goalDifference": -3
+    },
+    {
+      "position": 19,
+      "team": {
         "id": 285,
         "name": "Elche CF",
         "shortName": "Elche",
@@ -347,7 +366,7 @@
       "goalDifference": -6
     },
     {
-      "position": 19,
+      "position": 20,
       "team": {
         "id": 84,
         "name": "Málaga CF",
@@ -364,25 +383,6 @@
       "goalsFor": 1,
       "goalsAgainst": 7,
       "goalDifference": -6
-    },
-    {
-      "position": 20,
-      "team": {
-        "id": 77,
-        "name": "Athletic Club",
-        "shortName": "Athletic",
-        "tla": "ATH",
-        "crest": "https://crests.football-data.org/77.png"
-      },
-      "playedGames": 2,
-      "form": "L,L",
-      "won": 0,
-      "draw": 0,
-      "lost": 2,
-      "points": 0,
-      "goalsFor": 1,
-      "goalsAgainst": 5,
-      "goalDifference": -4
     }
   ]
 }
