@@ -1,11 +1,30 @@
 {
-  "generated_at": "2026-08-30T19:11:53.250232Z",
+  "generated_at": "2026-08-30T20:51:44.213538Z",
   "competition": "Ligue 1",
   "slug": "ligue-1",
   "season": 2026,
   "standings": [
     {
       "position": 1,
+      "team": {
+        "id": 548,
+        "name": "AS Monaco FC",
+        "shortName": "Monaco",
+        "tla": "ASM",
+        "crest": "https://crests.football-data.org/548.png"
+      },
+      "playedGames": 2,
+      "form": "W,W",
+      "won": 2,
+      "draw": 0,
+      "lost": 0,
+      "points": 6,
+      "goalsFor": 3,
+      "goalsAgainst": 0,
+      "goalDifference": 3
+    },
+    {
+      "position": 2,
       "team": {
         "id": 1045,
         "name": "Paris FC",
@@ -24,7 +43,7 @@
       "goalDifference": 3
     },
     {
-      "position": 2,
+      "position": 3,
       "team": {
         "id": 521,
         "name": "Lille OSC",
@@ -43,7 +62,7 @@
       "goalDifference": 2
     },
     {
-      "position": 3,
+      "position": 4,
       "team": {
         "id": 523,
         "name": "Olympique Lyonnais",
@@ -62,7 +81,7 @@
       "goalDifference": 2
     },
     {
-      "position": 4,
+      "position": 5,
       "team": {
         "id": 529,
         "name": "Stade Rennais FC 1901",
@@ -81,7 +100,7 @@
       "goalDifference": 1
     },
     {
-      "position": 5,
+      "position": 6,
       "team": {
         "id": 531,
         "name": "ES Troyes AC",
@@ -98,25 +117,6 @@
       "goalsFor": 2,
       "goalsAgainst": 1,
       "goalDifference": 1
-    },
-    {
-      "position": 6,
-      "team": {
-        "id": 516,
-        "name": "Olympique de Marseille",
-        "shortName": "Marseille",
-        "tla": "MAR",
-        "crest": "https://crests.football-data.org/516.png"
-      },
-      "playedGames": 1,
-      "form": "W",
-      "won": 1,
-      "draw": 0,
-      "lost": 0,
-      "points": 3,
-      "goalsFor": 4,
-      "goalsAgainst": 0,
-      "goalDifference": 4
     },
     {
       "position": 7,
@@ -140,21 +140,21 @@
     {
       "position": 8,
       "team": {
-        "id": 548,
-        "name": "AS Monaco FC",
-        "shortName": "Monaco",
-        "tla": "ASM",
-        "crest": "https://crests.football-data.org/548.png"
+        "id": 516,
+        "name": "Olympique de Marseille",
+        "shortName": "Marseille",
+        "tla": "MAR",
+        "crest": "https://crests.football-data.org/516.png"
       },
-      "playedGames": 1,
-      "form": "W",
+      "playedGames": 2,
+      "form": "L,W",
       "won": 1,
       "draw": 0,
-      "lost": 0,
+      "lost": 1,
       "points": 3,
-      "goalsFor": 1,
-      "goalsAgainst": 0,
-      "goalDifference": 1
+      "goalsFor": 4,
+      "goalsAgainst": 2,
+      "goalDifference": 2
     },
     {
       "position": 9,
