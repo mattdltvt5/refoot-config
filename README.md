@@ -4,6 +4,25 @@ Remote channel configuration for the **ReFoot Highlights** Android app.
 
 ## Recent changes
 
+### Admin Channel Candidates: Pending/Approved tab toggle (2026-08-30)
+The **Channel Candidates** panel in `admin.html` now has a segmented **Pending / Approved** toggle in
+its header, defaulting to **Pending** so only teams that still need a channel are shown; already-approved
+teams are tucked behind the **Approved** tab. Each segment shows a live count (e.g. `Pending (12)` /
+`Approved (10)`).
+
+Approval state is read from **`sources.json`** — a team is "approved" once `sourcesData.teams[team]`
+holds a valid channel id. This is the *same* predicate the card reconciliation uses (added previously),
+now factored into a single shared helper (`teamApprovedChannel` / `isTeamApproved`) called by both the
+card rendering and the tab filter, so the two can never disagree. Because the state comes from
+`sources.json`, the split **persists across refresh** with no extra storage.
+
+Behaviour: the Pending tab lists teams with no channel yet; the Approved tab lists teams that have one,
+each with the green approved treatment and the ability to switch channel via **Use this instead**.
+Approving a team in Pending re-renders immediately, so it **moves to Approved live** (and both counts
+update) with no reload. Empty states render per tab (*"No pending approvals — all caught up"* /
+*"No approved channels yet"*). The tab filter composes on top of the existing competition grouping and
+per-session skip filter; the search-for-candidates workflow and the human-approval-before-adoption flow
+are unchanged. **Files:** `admin.html`.
 ### Durable results ledger — self-healing recovery of finished scores (2026-08-30)
 Builds on the FINISHED-preservation guard below to make an upstream
 `FINISHED→TIMED/null` reversion **self-healing** and, crucially, **recoverable**. The guard stops a
