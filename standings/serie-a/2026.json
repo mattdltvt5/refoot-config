@@ -1,11 +1,30 @@
 {
-  "generated_at": "2026-08-31T14:56:01.730380Z",
+  "generated_at": "2026-08-31T18:41:52.107117Z",
   "competition": "Serie A",
   "slug": "serie-a",
   "season": 2026,
   "standings": [
     {
       "position": 1,
+      "team": {
+        "id": 100,
+        "name": "AS Roma",
+        "shortName": "Roma",
+        "tla": "ROM",
+        "crest": "https://crests.football-data.org/100.png"
+      },
+      "playedGames": 2,
+      "form": "W,W",
+      "won": 2,
+      "draw": 0,
+      "lost": 0,
+      "points": 6,
+      "goalsFor": 8,
+      "goalsAgainst": 0,
+      "goalDifference": 8
+    },
+    {
+      "position": 2,
       "team": {
         "id": 108,
         "name": "FC Internazionale Milano",
@@ -24,7 +43,7 @@
       "goalDifference": 4
     },
     {
-      "position": 2,
+      "position": 3,
       "team": {
         "id": 98,
         "name": "AC Milan",
@@ -43,7 +62,7 @@
       "goalDifference": 3
     },
     {
-      "position": 3,
+      "position": 4,
       "team": {
         "id": 109,
         "name": "Juventus FC",
@@ -62,7 +81,7 @@
       "goalDifference": 3
     },
     {
-      "position": 4,
+      "position": 5,
       "team": {
         "id": 110,
         "name": "SS Lazio",
@@ -81,7 +100,7 @@
       "goalDifference": 2
     },
     {
-      "position": 5,
+      "position": 6,
       "team": {
         "id": 115,
         "name": "Udinese Calcio",
@@ -100,7 +119,7 @@
       "goalDifference": 1
     },
     {
-      "position": 6,
+      "position": 7,
       "team": {
         "id": 7397,
         "name": "Como 1907",
@@ -117,25 +136,6 @@
       "goalsFor": 3,
       "goalsAgainst": 2,
       "goalDifference": 1
-    },
-    {
-      "position": 7,
-      "team": {
-        "id": 100,
-        "name": "AS Roma",
-        "shortName": "Roma",
-        "tla": "ROM",
-        "crest": "https://crests.football-data.org/100.png"
-      },
-      "playedGames": 1,
-      "form": "W",
-      "won": 1,
-      "draw": 0,
-      "lost": 0,
-      "points": 3,
-      "goalsFor": 4,
-      "goalsAgainst": 0,
-      "goalDifference": 4
     },
     {
       "position": 8,
@@ -159,25 +159,6 @@
     {
       "position": 9,
       "team": {
-        "id": 5890,
-        "name": "US Lecce",
-        "shortName": "Lecce",
-        "tla": "USL",
-        "crest": "https://crests.football-data.org/5890.png"
-      },
-      "playedGames": 1,
-      "form": "W",
-      "won": 1,
-      "draw": 0,
-      "lost": 0,
-      "points": 3,
-      "goalsFor": 2,
-      "goalsAgainst": 0,
-      "goalDifference": 2
-    },
-    {
-      "position": 10,
-      "team": {
         "id": 113,
         "name": "SSC Napoli",
         "shortName": "Napoli",
@@ -195,7 +176,7 @@
       "goalDifference": 1
     },
     {
-      "position": 11,
+      "position": 10,
       "team": {
         "id": 102,
         "name": "Atalanta BC",
@@ -214,7 +195,7 @@
       "goalDifference": 1
     },
     {
-      "position": 12,
+      "position": 11,
       "team": {
         "id": 471,
         "name": "US Sassuolo Calcio",
@@ -233,7 +214,7 @@
       "goalDifference": 0
     },
     {
-      "position": 13,
+      "position": 12,
       "team": {
         "id": 104,
         "name": "Cagliari Calcio",
@@ -250,6 +231,25 @@
       "goalsFor": 1,
       "goalsAgainst": 1,
       "goalDifference": 0
+    },
+    {
+      "position": 13,
+      "team": {
+        "id": 5890,
+        "name": "US Lecce",
+        "shortName": "Lecce",
+        "tla": "USL",
+        "crest": "https://crests.football-data.org/5890.png"
+      },
+      "playedGames": 2,
+      "form": "L,W",
+      "won": 1,
+      "draw": 0,
+      "lost": 1,
+      "points": 3,
+      "goalsFor": 2,
+      "goalsAgainst": 4,
+      "goalDifference": -2
     },
     {
       "position": 14,
