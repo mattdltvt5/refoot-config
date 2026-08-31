@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-24T07:00:20Z",
+  "generated_at": "2026-08-31T12:57:26Z",
   "current_season": 2026,
   "resolved": {
     "2026": {
@@ -62,7 +62,7 @@
       "Premier League": {
         "AFC Bournemouth": {
           "format": "undetermined",
-          "playlist_id": "PLP8orY6u8tYw"
+          "playlist_id": "PLPlwOqFzLvaI"
         },
         "Arsenal FC": {
           "format": "undetermined",
@@ -78,7 +78,7 @@
         },
         "Chelsea FC": {
           "format": "undetermined",
-          "playlist_id": "PLJjmPrAHzguI"
+          "playlist_id": "PLQJ5kGscknok"
         },
         "Crystal Palace FC": {
           "format": "undetermined",
@@ -119,6 +119,10 @@
         "Wolverhampton Wanderers FC": {
           "format": "undetermined",
           "playlist_id": "PL7bxCYhjCueSFLbObV9Oeq3j6T0kfTinv"
+        },
+        "Brentford FC": {
+          "format": "undetermined",
+          "playlist_id": "PLOgEJiz3jFuc"
         }
       },
       "LaLiga": {
@@ -181,6 +185,10 @@
         "Villarreal CF": {
           "format": "undetermined",
           "playlist_id": "PLFgwV0psy3mk"
+        },
+        "CA Osasuna": {
+          "format": "undetermined",
+          "playlist_id": "PLADVgF5CJn8Q"
         }
       },
       "Serie A": {
@@ -198,7 +206,7 @@
         },
         "Cagliari Calcio": {
           "format": "undetermined",
-          "playlist_id": "PLUB_ttZnepZA"
+          "playlist_id": "PLdO72HNR8prw"
         },
         "FC Internazionale Milano": {
           "format": "undetermined",
@@ -210,7 +218,7 @@
         },
         "Juventus FC": {
           "format": "undetermined",
-          "playlist_id": "PLamQuNkRTV0cdZeXYYirTxNoiNPJHSVWp"
+          "playlist_id": "PLVuEWoNX08GA"
         },
         "Parma Calcio 1913": {
           "format": "undetermined",
@@ -285,13 +293,6 @@
     },
     {
       "competition": "Premier League",
-      "source": "team:AFC Bournemouth",
-      "mapped_id": "PLDSAlkBZMWj5N7tdhX2uI5YkLFnD3V7VI",
-      "reason": "no_confident_match_kept_last_known_good",
-      "owner_channel": "AFC Bournemouth"
-    },
-    {
-      "competition": "Premier League",
       "source": "team:Arsenal FC",
       "mapped_id": "PLvuwbYTkUzHcWbmTUwc_TDprJHvpOZQCV",
       "reason": "no_confident_match_kept_last_known_good",
@@ -306,24 +307,10 @@
     },
     {
       "competition": "Premier League",
-      "source": "team:Brentford FC",
-      "mapped_id": "PL62gtN0myLZYvjKuGPObM3sMeWml3FbQp",
-      "reason": "no_confident_match_kept_last_known_good",
-      "owner_channel": "Brentford Football Club"
-    },
-    {
-      "competition": "Premier League",
       "source": "team:Tottenham Hotspur FC",
       "mapped_id": "PLCQm3OPgov-if9jjzK-aoOLZ7C79b18k1",
       "reason": "no_confident_match_kept_last_known_good",
       "owner_channel": "Tottenham Hotspur"
-    },
-    {
-      "competition": "LaLiga",
-      "source": "team:CA Osasuna",
-      "mapped_id": "PLC8yIePN5xJ7B89RvvrUEOVVmZzyL1VBi",
-      "reason": "no_confident_match_kept_last_known_good",
-      "owner_channel": "Club Atlético Osasuna"
     },
     {
       "competition": "LaLiga",
@@ -391,104 +378,9 @@
   "missing_channels": [
     {
       "competition": "Bundesliga",
-      "team": "FC Schalke 04",
-      "covered_via_other_tier": true
-    },
-    {
-      "competition": "Bundesliga",
-      "team": "SC Paderborn 07",
-      "covered_via_other_tier": true
-    },
-    {
-      "competition": "Bundesliga",
       "team": "SV 07 Elversberg",
-      "covered_via_other_tier": true
-    },
-    {
-      "competition": "Champions League",
-      "team": "FK Kairat",
-      "covered_via_other_tier": true
-    },
-    {
-      "competition": "Champions League",
-      "team": "PAE Olympiakos SFP",
-      "covered_via_other_tier": true
-    },
-    {
-      "competition": "Champions League",
-      "team": "Qarabağ Ağdam FK",
-      "covered_via_other_tier": true
-    },
-    {
-      "competition": "Champions League",
-      "team": "Sporting Clube de Portugal",
-      "covered_via_other_tier": true
-    },
-    {
-      "competition": "LaLiga",
-      "team": "Málaga CF",
-      "covered_via_other_tier": true
-    },
-    {
-      "competition": "LaLiga",
-      "team": "RC Deportivo La Coruña",
-      "covered_via_other_tier": true
-    },
-    {
-      "competition": "LaLiga",
-      "team": "Real Racing Club de Santander",
-      "covered_via_other_tier": true
-    },
-    {
-      "competition": "Ligue 1",
-      "team": "AJ Auxerre",
-      "covered_via_other_tier": true
-    },
-    {
-      "competition": "Ligue 1",
-      "team": "ES Troyes AC",
-      "covered_via_other_tier": true
-    },
-    {
-      "competition": "Ligue 1",
-      "team": "Le Mans FC",
-      "covered_via_other_tier": true
-    },
-    {
-      "competition": "Premier League",
-      "team": "Coventry City FC",
-      "covered_via_other_tier": false
-    },
-    {
-      "competition": "Premier League",
-      "team": "Hull City AFC",
-      "covered_via_other_tier": false
-    },
-    {
-      "competition": "Premier League",
-      "team": "Ipswich Town FC",
-      "covered_via_other_tier": false
-    },
-    {
-      "competition": "Serie A",
-      "team": "AC Monza",
-      "covered_via_other_tier": true
-    },
-    {
-      "competition": "Serie A",
-      "team": "Frosinone Calcio",
-      "covered_via_other_tier": true
-    },
-    {
-      "competition": "Serie A",
-      "team": "Udinese Calcio",
-      "covered_via_other_tier": true
-    },
-    {
-      "competition": "Serie A",
-      "team": "Venezia FC",
       "covered_via_other_tier": true
     }
   ],
-  "estimated_units": 201
+  "estimated_units": 195
 }
