@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-31T21:36:25Z",
+  "generated_at": "2026-08-31T21:41:25Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -326,8 +326,8 @@
         {
           "gameweek": "GW3",
           "stem": "gameweek-3",
-          "total": 9,
-          "covered": 9,
+          "total": 10,
+          "covered": 10,
           "matches": [
             {
               "match_id": 564654,
@@ -389,6 +389,13 @@
               "match_id": 564657,
               "home": "CA Osasuna",
               "away": "Getafe CF",
+              "date": "2026-08-31",
+              "covered": true
+            },
+            {
+              "match_id": 564650,
+              "home": "FC Barcelona",
+              "away": "Rayo Vallecano de Madrid",
               "date": "2026-08-31",
               "covered": true
             }
