@@ -970,7 +970,7 @@ def fetch_video_details(
     IDs in one API call.
 
     Returns {video_id: {"duration_seconds": int, "is_portrait": bool,
-    "is_embeddable": bool}}.
+    "is_embeddable": bool, "is_region_restricted": bool}}.
     Videos missing from the response are omitted — callers should treat absent
     entries as "unknown, do not filter".
     ``is_embeddable`` reflects status.embeddable: a clip whose owner disabled
@@ -978,6 +978,10 @@ def fetch_video_details(
     (YouTube error 101/150 → a dead "Video unavailable" card), so callers
     prefer embeddable clips. Absent status defaults to True (don't penalise
     missing metadata, consistent with the duration/portrait filters).
+    ``is_region_restricted`` reflects contentDetails.regionRestriction: True when
+    the clip carries an allowed- or blocked-country list (e.g. US-only broadcaster
+    highlights), so it will NOT play for viewers elsewhere (a silent black box in
+    the app). Callers prefer globally-available clips. Absent → False (global).
     Costs 1 quota unit regardless of the number of IDs (up to the 50-ID batch limit).
     Raises QuotaCapReached on HTTP 403.
     """
@@ -990,8 +994,9 @@ def fetch_video_details(
                 "part":   "contentDetails,snippet,status",
                 "id":     ",".join(video_ids[:50]),
                 "key":    yt_key,
-                "fields": "items(id,contentDetails/duration,snippet/thumbnails,"
-                          "status/embeddable)",
+                "fields": "items(id,contentDetails/duration,"
+                          "contentDetails/regionRestriction,"
+                          "snippet/thumbnails,status/embeddable)",
             },
             timeout=15,
         )
@@ -1024,11 +1029,16 @@ def fetch_video_details(
         # status.embeddable is absent only when the status part is unavailable;
         # default True so an unknown never gets penalised (see docstring).
         embeddable = item.get("status", {}).get("embeddable", True)
+        # regionRestriction carries an "allowed" or "blocked" country list when
+        # the clip is geo-locked; its absence means the clip plays worldwide.
+        region = item.get("contentDetails", {}).get("regionRestriction", {})
+        region_restricted = bool(region.get("allowed") or region.get("blocked"))
         if vid_id:
             out[vid_id] = {
-                "duration_seconds": duration,
-                "is_portrait":      portrait,
-                "is_embeddable":    embeddable,
+                "duration_seconds":     duration,
+                "is_portrait":          portrait,
+                "is_embeddable":        embeddable,
+                "is_region_restricted": region_restricted,
             }
     return out
 
@@ -1058,6 +1068,36 @@ def prefer_embeddable(
         return videos, []
     dropped = [v for v in videos if not _ok(v)]
     return embeddable, dropped
+
+
+def prefer_unrestricted(
+    videos: list[dict],
+    details: dict[str, dict],
+) -> tuple[list[dict], list[dict]]:
+    """Split quality-passed candidates into (kept, dropped) by region availability.
+
+    A geo-locked clip (e.g. a US-only broadcaster upload) does not play for
+    viewers outside its allowed region — in the app it is a silent black box that
+    YouTube doesn't even flag, so no "Watch on YouTube" fallback fires. When a
+    batch contains at least one globally-available clip we keep ONLY those and drop
+    the region-locked ones. When EVERY candidate is region-locked we keep them all
+    (a locked clip that plays for some viewers beats no highlight). A video absent
+    from [details] has unknown status and is treated as unrestricted (never
+    penalise missing metadata, matching the embeddability/quality filters).
+
+    Region availability is the more severe block (a locked clip is dead with no
+    fallback), so callers apply this BEFORE the embeddability preference.
+
+    Pure so it can be unit-tested without the YouTube API.
+    """
+    def _global(v: dict) -> bool:
+        return not details.get(v["video_id"], {}).get("is_region_restricted", False)
+
+    unrestricted = [v for v in videos if _global(v)]
+    if not unrestricted:
+        return videos, []
+    dropped = [v for v in videos if not _global(v)]
+    return unrestricted, dropped
 
 
 def find_gameweek_playlist(
@@ -1920,6 +1960,28 @@ def resolve_videos_for_fixture(
                     )
                     continue
             filtered.append(v)
+
+        # Region preference (applied FIRST — a geo-locked clip is a silent black
+        # box with no fallback, the most severe block): when this batch has any
+        # globally-available clip, drop the region-locked ones. If every clip is
+        # region-locked, keep them (better than no highlight). Uses the details
+        # already fetched above.
+        kept, dropped = prefer_unrestricted(filtered, details)
+        for v in dropped:
+            if debug_sink is not None:
+                debug_sink.append({
+                    "video_id":    v["video_id"],
+                    "title":       v["title"],
+                    "norm_title":  _normalize(v["title"]),
+                    "reason":      "region-restricted",
+                    "playlist_id": playlist_id,
+                    "tier":        tier,
+                })
+            log.info(
+                f"  Region: skipping geo-locked clip "
+                f"(a globally-available candidate exists): {v['title']!r}"
+            )
+        filtered = kept
 
         # Embeddability preference: when this batch has any embeddable clip, drop
         # the non-embeddable ones so the app never picks a clip that can't load in
