@@ -111,6 +111,14 @@ class TestApplyLedger:
         healed = apply_results_ledger([_rec(1, "PAUSED")], self._ledger())
         assert healed[0]["status"] == "FINISHED"
 
+    def test_reasserts_over_stale_inplay_with_score(self):
+        # The newer regression: a played match stuck IN_PLAY while KEEPING a score.
+        # The ledger must still re-assert FINISHED (a played match never un-finishes)
+        # and restore its authoritative final score.
+        healed = apply_results_ledger([_rec(1, "IN_PLAY", 3, 1)], self._ledger())
+        assert healed[0]["status"] == "FINISHED"
+        assert healed[0]["score"]["fullTime"] == {"home": 2, "away": 2}  # ledger's
+
     def test_incoming_with_real_score_wins(self):
         # A genuine correction (incoming carries its own resolved score) is kept.
         healed = apply_results_ledger([_rec(1, "FINISHED", 3, 1)], self._ledger())

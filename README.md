@@ -4,6 +4,32 @@ Remote channel configuration for the **ReFoot Highlights** Android app.
 
 ## Recent changes
 
+### Fix: matches stuck "live" long after kickoff (FINISHED→IN_PLAY reversion) (2026-08-30)
+
+A regression let already-played matches show as **LIVE** in the app hours after kickoff (e.g. on
+2026-08-30, four matches were still `IN_PLAY` in `home-index` at 01:00 UTC the next day). Root cause: the
+FINISHED-preservation guard and the results-ledger self-heal both gated on **score presence**, so they only
+caught the `FINISHED→TIMED/null` (scoreless) flicker. This regression is `FINISHED→IN_PLAY/PAUSED` where
+football-data.org **keeps the final score** but flips the status back to in-play — which slipped through both
+(a resolved score was present), and for matches never previously recorded FINISHED, nothing corrected them.
+
+Three changes in `scripts/fixture_providers.py` (applied on the fixtures write path in
+`fetch_highlights.py`, then carried into `home-index` unchanged):
+
+1. **Terminality guard** — `merge_preserve_finished` now treats a scored FINISHED as terminal: only an
+   incoming FINISHED (score correction) or a terminal non-played status (POSTPONED/CANCELLED/SUSPENDED/
+   AWARDED) may replace it. A stale `IN_PLAY/PAUSED` that still carries the score no longer clobbers it.
+2. **Ledger heals any non-terminal status** — `apply_results_ledger` re-asserts a recorded FINISHED whenever
+   the current record is neither FINISHED nor terminal-unplayed (previously only when it was scoreless), so a
+   stale in-play-with-score is healed too.
+3. **Stale-live finalize** — new `coerce_stale_live_to_finished`: any `IN_PLAY/PAUSED` record whose kickoff
+   is older than `STALE_LIVE_AFTER` (4h — longer than any real match incl. ET/pens/stoppage) is coerced to
+   FINISHED (keeping its score). This is the FD-independent guarantee that a match can't display live forever,
+   and it heals matches the pipeline never observed as FINISHED. Coerced results flow into the durable ledger.
+
+Tests: `scripts/tests/test_fixtures_finished_merge.py` (terminality vs scored in-play; `coerce_stale_live_to_finished`
+threshold/score/kickoff cases) and `scripts/tests/test_results_ledger.py` (heal over stale in-play-with-score).
+
 ### Admin Channel Candidates: Pending/Approved tab toggle (2026-08-30)
 The **Channel Candidates** panel in `admin.html` now has a segmented **Pending / Approved** toggle in
 its header, defaulting to **Pending** so only teams that still need a channel are shown; already-approved

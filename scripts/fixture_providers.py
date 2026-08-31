@@ -21,7 +21,7 @@ Free-tier constraint:
 import logging
 import os
 import time
-from datetime import datetime, timezone
+from datetime import datetime, timezone, timedelta
 
 import requests
 
@@ -51,14 +51,24 @@ log = logging.getLogger(__name__)
 # app renders a null score as "not started", hiding both the score and the
 # still-cached highlight.
 #
-# The guard is a SCORE-PRESENCE invariant, not a status-rank ordering: a cached
-# FINISHED record carrying a real score is never replaced by an incoming record
-# that lacks a resolved outcome, UNLESS the incoming record announces a genuine
-# terminal non-played correction (postponement / abandonment).  Normal
-# progression (TIMED → FINISHED) and real re-writes (incoming with a score) are
-# always allowed through.
+# The guard is a TERMINALITY invariant: a cached FINISHED record carrying a real
+# score is never replaced by an incoming record with a NON-terminal status, UNLESS
+# the incoming record announces a genuine terminal non-played correction
+# (postponement / abandonment).  A played match never un-finishes, so this rejects
+# BOTH the scoreless TIMED/null flicker AND a stale IN_PLAY/PAUSED that still
+# carries the final score (football-data.org sometimes leaves a played match stuck
+# in-play).  Normal progression (TIMED → FINISHED) and real re-writes (an incoming
+# FINISHED with a corrected score) are always allowed through.
 
 FINISHED_STATUS = "FINISHED"
+
+# The in-progress statuses football-data.org emits (also the app's live gate).
+LIVE_STATUSES = frozenset({"IN_PLAY", "PAUSED"})
+
+# A match cannot stay live indefinitely.  Once its kickoff is older than this —
+# comfortably longer than any real match including extra time, penalties and
+# stoppage — an IN_PLAY/PAUSED status is no longer credible and is finalized.
+STALE_LIVE_AFTER = timedelta(hours=4)
 
 # Terminal non-played statuses: a legitimate forward correction that SHOULD
 # overwrite a previously-FINISHED cache even though it carries no score.  Spelled
@@ -81,15 +91,17 @@ def _has_resolved_score(record: dict) -> bool:
 def merge_preserve_finished(cached: dict, incoming: dict) -> dict:
     """Decide which of two records for the SAME match_id to keep.
 
-    Blocks the FINISHED→TIMED/null regression: if the cached record is FINISHED
-    with a resolved (non-null) score and the incoming record has no resolved
-    score, keep the cached record — UNLESS the incoming record is a terminal
-    non-played correction (POSTPONED/CANCELLED/SUSPENDED/AWARDED), which is a
-    genuine forward change and is allowed through.
+    Treats a scored FINISHED as TERMINAL: if the cached record is FINISHED with a
+    resolved (non-null) score, only two incoming records may replace it —
+      * another FINISHED (a genuine score correction / re-write), or
+      * a terminal non-played correction (POSTPONED/CANCELLED/SUSPENDED/AWARDED).
+    Any other incoming status is rejected, because a played match never
+    un-finishes.  This blocks BOTH the FINISHED→TIMED/null (scoreless) flicker and
+    the FINISHED→IN_PLAY/PAUSED reversion where upstream keeps the final score but
+    flips the status back to in-play.
 
-    In every other case (incoming carries a real score, or the cache was not a
-    scored FINISHED to begin with) the incoming record wins, so normal
-    progression and real corrections are never blocked.
+    When the cache was not a scored FINISHED to begin with, the incoming record
+    wins, so normal progression (TIMED → IN_PLAY → FINISHED) is never blocked.
     """
     if not cached:
         return incoming
@@ -98,11 +110,48 @@ def merge_preserve_finished(cached: dict, incoming: dict) -> dict:
     )
     if not cached_is_scored_finished:
         return incoming
-    if _has_resolved_score(incoming):
+    if incoming.get("status") == FINISHED_STATUS:
         return incoming
     if incoming.get("status") in TERMINAL_UNPLAYED_STATUSES:
         return incoming
     return cached
+
+
+def _parse_utc(value: str):
+    """Parse an ISO-8601 UTC kickoff string to an aware datetime, or None."""
+    if not value:
+        return None
+    try:
+        return datetime.fromisoformat(value.replace("Z", "+00:00")).astimezone(
+            timezone.utc
+        )
+    except (ValueError, TypeError):
+        return None
+
+
+def coerce_stale_live_to_finished(
+    fixtures: list[dict], now: datetime | None = None
+) -> list[dict]:
+    """Finalize any match left LIVE long after kickoff.
+
+    football-data.org occasionally leaves a played match stuck at IN_PLAY/PAUSED
+    (its status never advances to FINISHED), which the client renders as a
+    perpetual LIVE badge.  Once kickoff is older than STALE_LIVE_AFTER a live
+    status is no longer credible, so the record is coerced to FINISHED — keeping
+    whatever score it carries.  Only records with a resolved score are coerced (a
+    scoreless stuck-live record is left for the guard/ledger to handle) and only
+    when a kickoff time is present.  Returns a new list; input records are not
+    mutated; incoming order is preserved.
+    """
+    ref = now or datetime.now(timezone.utc)
+    out: list[dict] = []
+    for fx in fixtures:
+        if fx.get("status") in LIVE_STATUSES and _has_resolved_score(fx):
+            ko = _parse_utc(fx.get("utcDate"))
+            if ko is not None and (ref - ko) > STALE_LIVE_AFTER:
+                fx = {**fx, "status": FINISHED_STATUS}
+        out.append(fx)
+    return out
 
 
 def merge_fixtures_preserving_finished(
@@ -184,10 +233,12 @@ def apply_results_ledger(fixtures: list[dict], ledger: dict) -> list[dict]:
     """Overlay the ledger onto fixtures, re-asserting a known FINISHED result.
 
     For each fixture whose match_id the ledger records as FINISHED, force
-    status=FINISHED + the ledger score UNLESS the current fixture already carries
-    a resolved score (a real re-write / correction) or reports a terminal
-    non-played status (a genuine postponement).  All other fields are taken from
-    the current fixture, so fresh crests/teams/kickoff times still flow through.
+    status=FINISHED + the ledger score UNLESS the current fixture is ITSELF
+    FINISHED (a real re-write / score correction is left to flow) or reports a
+    terminal non-played status (a genuine postponement).  This re-asserts a lost
+    result whether the current record regressed to a scoreless TIMED/null OR to a
+    stale IN_PLAY/PAUSED that still carries a score.  All other fields are taken
+    from the current fixture, so fresh crests/teams/kickoff times still flow.
 
     Returns a new list; incoming order is preserved.
     """
@@ -196,7 +247,7 @@ def apply_results_ledger(fixtures: list[dict], ledger: dict) -> list[dict]:
         mid = fx.get("match_id")
         rec = ledger.get(str(mid)) if (ledger and mid is not None) else None
         if (rec and rec.get("status") == FINISHED_STATUS
-                and not _has_resolved_score(fx)
+                and fx.get("status") != FINISHED_STATUS
                 and not _is_terminal_unplayed(fx)):
             healed = dict(fx)
             ft = (rec.get("score") or {}).get("fullTime") or {}
