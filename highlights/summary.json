@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-31T18:46:24Z",
+  "generated_at": "2026-08-31T18:51:24Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -468,7 +468,7 @@
           "gameweek": "GW2",
           "stem": "gameweek-2",
           "total": 9,
-          "covered": 8,
+          "covered": 9,
           "matches": [
             {
               "match_id": 558625,
@@ -531,7 +531,7 @@
               "home": "US Lecce",
               "away": "AS Roma",
               "date": "2026-08-31",
-              "covered": false
+              "covered": true
             }
           ]
         }
