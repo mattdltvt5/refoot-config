@@ -935,11 +935,18 @@ def fetch_video_details(
     cap: int,
 ) -> dict[str, dict]:
     """
-    Fetch duration and thumbnail orientation for up to 50 video IDs in one API call.
+    Fetch duration, thumbnail orientation, and embeddability for up to 50 video
+    IDs in one API call.
 
-    Returns {video_id: {"duration_seconds": int, "is_portrait": bool}}.
+    Returns {video_id: {"duration_seconds": int, "is_portrait": bool,
+    "is_embeddable": bool}}.
     Videos missing from the response are omitted — callers should treat absent
     entries as "unknown, do not filter".
+    ``is_embeddable`` reflects status.embeddable: a clip whose owner disabled
+    embedding plays on youtube.com but cannot load in the app's IFrame player
+    (YouTube error 101/150 → a dead "Video unavailable" card), so callers
+    prefer embeddable clips. Absent status defaults to True (don't penalise
+    missing metadata, consistent with the duration/portrait filters).
     Costs 1 quota unit regardless of the number of IDs (up to the 50-ID batch limit).
     Raises QuotaCapReached on HTTP 403.
     """
@@ -949,10 +956,11 @@ def fetch_video_details(
         resp = requests.get(
             YT_VIDEOS,
             params={
-                "part":   "contentDetails,snippet",
+                "part":   "contentDetails,snippet,status",
                 "id":     ",".join(video_ids[:50]),
                 "key":    yt_key,
-                "fields": "items(id,contentDetails/duration,snippet/thumbnails)",
+                "fields": "items(id,contentDetails/duration,snippet/thumbnails,"
+                          "status/embeddable)",
             },
             timeout=15,
         )
@@ -982,9 +990,43 @@ def fetch_video_details(
             if w > 0 and h > 0:
                 portrait = h > w
                 break
+        # status.embeddable is absent only when the status part is unavailable;
+        # default True so an unknown never gets penalised (see docstring).
+        embeddable = item.get("status", {}).get("embeddable", True)
         if vid_id:
-            out[vid_id] = {"duration_seconds": duration, "is_portrait": portrait}
+            out[vid_id] = {
+                "duration_seconds": duration,
+                "is_portrait":      portrait,
+                "is_embeddable":    embeddable,
+            }
     return out
+
+
+def prefer_embeddable(
+    videos: list[dict],
+    details: dict[str, dict],
+) -> tuple[list[dict], list[dict]]:
+    """Split quality-passed candidates into (kept, dropped) by embeddability.
+
+    A clip whose owner disabled embedding cannot load in the app's IFrame player
+    (it shows a "Watch on YouTube" fallback instead), so when a batch contains at
+    least one embeddable clip we keep ONLY the embeddable ones and drop the rest.
+    When every candidate is non-embeddable we keep them all — a non-embeddable
+    clip that still plays on youtube.com beats no highlight at all, and the app's
+    fallback keeps it reachable. A video absent from [details] has unknown status
+    and is treated as embeddable (never penalise missing metadata, matching the
+    duration/portrait filters).
+
+    Pure so it can be unit-tested without the YouTube API.
+    """
+    def _ok(v: dict) -> bool:
+        return details.get(v["video_id"], {}).get("is_embeddable", True)
+
+    embeddable = [v for v in videos if _ok(v)]
+    if not embeddable:
+        return videos, []
+    dropped = [v for v in videos if not _ok(v)]
+    return embeddable, dropped
 
 
 def find_gameweek_playlist(
@@ -1823,6 +1865,28 @@ def resolve_videos_for_fixture(
                     )
                     continue
             filtered.append(v)
+
+        # Embeddability preference: when this batch has any embeddable clip, drop
+        # the non-embeddable ones so the app never picks a clip that can't load in
+        # its IFrame player. If every clip is non-embeddable, keep them (a clip
+        # that still plays on youtube.com — via the app's "Watch on YouTube"
+        # fallback — beats no highlight). Uses the details already fetched above.
+        kept, dropped = prefer_embeddable(filtered, details)
+        for v in dropped:
+            if debug_sink is not None:
+                debug_sink.append({
+                    "video_id":    v["video_id"],
+                    "title":       v["title"],
+                    "norm_title":  _normalize(v["title"]),
+                    "reason":      "not-embeddable",
+                    "playlist_id": playlist_id,
+                    "tier":        tier,
+                })
+            log.info(
+                f"  Embed: skipping embedding-disabled clip "
+                f"(an embeddable candidate exists): {v['title']!r}"
+            )
+        filtered = kept
 
         return [{**v, "tier_used": tier} for v in filtered] if filtered else None
 
