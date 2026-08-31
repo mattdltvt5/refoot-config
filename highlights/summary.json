@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-31T21:06:20Z",
+  "generated_at": "2026-08-31T21:11:27Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -86,7 +86,7 @@
         {
           "gameweek": "GW2",
           "stem": "gameweek-2",
-          "total": 9,
+          "total": 10,
           "covered": 8,
           "matches": [
             {
@@ -150,6 +150,13 @@
               "home": "Manchester United FC",
               "away": "Ipswich Town FC",
               "date": "2026-08-30",
+              "covered": false
+            },
+            {
+              "match_id": 560557,
+              "home": "Aston Villa FC",
+              "away": "Arsenal FC",
+              "date": "2026-08-31",
               "covered": false
             }
           ]
