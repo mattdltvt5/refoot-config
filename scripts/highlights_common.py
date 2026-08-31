@@ -235,6 +235,37 @@ def _normalize(s: str) -> str:
     ).casefold()
 
 
+# Titles for YOUTH / RESERVE / ACADEMY fixtures — never the senior competition,
+# even when they name both senior clubs (e.g. "Leeds United U21 2-2 Brighton U21",
+# "Fulham 1-2 Nottingham Forest B-Team", "Monaco 3-5 Man City - Youth League").
+# These slip past the both-teams and competition-keyword gates ("Premier League 2"
+# contains "Premier League"), so they are filtered by these markers on EVERY tier.
+# Kept deliberately specific — age groups, B-team, reserves, and youth-competition
+# names — to avoid excluding a senior clip (e.g. "Premier League 2025/26" is NOT
+# matched; "academy" is omitted as a senior title may mention an academy product).
+_YOUTH_RESERVE_KWS: tuple[str, ...] = (
+    "u-18", "u18", "under 18", "under-18",
+    "u-19", "u19",
+    "u-20", "u20",
+    "u-21", "u21", "under 21", "under-21",
+    "u-23", "u23", "under 23", "under-23",
+    "b-team", "b team",
+    "reserves", "reserve team",
+    "youth league", "youth cup", "youth highlights", "youth match",
+)
+
+
+def is_youth_reserve_title(title: str) -> bool:
+    """True if [title] is for a youth/reserve/academy fixture (see _YOUTH_RESERVE_KWS).
+
+    Pure + substring-based on the normalised title, so it is unit-testable without
+    the YouTube API. Used to drop such clips before they can be linked to a senior
+    fixture that shares both club names.
+    """
+    nt = _normalize(title)
+    return any(kw in nt for kw in _YOUTH_RESERVE_KWS)
+
+
 # ── Smart auto-alias derivation (fallback for teams not in TEAM_TITLE_ALIASES) ─
 #
 # Newly promoted / relegated teams that have no explicit entry still get a
@@ -1824,6 +1855,30 @@ def resolve_videos_for_fixture(
                 else:
                     kept.append(v)
             vids = kept
+        if not vids:
+            return None
+
+        # Youth / reserve / academy filter: drop clips for a DIFFERENT (youth or
+        # reserve) fixture that name both senior clubs — e.g. "... U21 ...",
+        # "... B-Team ...", "Youth League". Title-only (no API cost), applied on
+        # every tier so no source can leak one in.
+        kept_senior = []
+        for v in vids:
+            if is_youth_reserve_title(v["title"]):
+                if debug_sink is not None:
+                    debug_sink.append({
+                        "video_id":    v["video_id"],
+                        "title":       v["title"],
+                        "norm_title":  _normalize(v["title"]),
+                        "reason":      "youth-reserve",
+                        "playlist_id": playlist_id,
+                        "tier":        tier,
+                    })
+                log.info(
+                    f"  Youth/reserve: skipping non-senior clip: {v['title']!r}")
+            else:
+                kept_senior.append(v)
+        vids = kept_senior
         if not vids:
             return None
 
