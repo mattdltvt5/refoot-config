@@ -19,10 +19,14 @@ sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent.parent))
 
 import pytest
 
+from datetime import datetime, timezone, timedelta
+
 from fixture_providers import (
     TERMINAL_UNPLAYED_STATUSES,
+    STALE_LIVE_AFTER,
     merge_preserve_finished,
     merge_fixtures_preserving_finished,
+    coerce_stale_live_to_finished,
     _has_resolved_score,
 )
 from highlights_common import (
@@ -219,3 +223,79 @@ class TestWriteFixturesArtifactsGuard:
         by_id = {r["match_id"]: r for r in data["fixtures"]}
         assert by_id[600]["status"] == "POSTPONED"   # forward correction applied
         assert by_id[601]["status"] == "TIMED"       # new fixture written
+
+
+# ── FINISHED→IN_PLAY reversion (score retained) + stale-live finalize ──────────
+#
+# The newer regression: football-data.org leaves a played match at IN_PLAY/PAUSED
+# while KEEPING the final score, so the score-presence guard alone let it through
+# and the client showed a match "live" hours after kickoff. A scored FINISHED is
+# now terminal, and any match stuck live past STALE_LIVE_AFTER is finalized.
+
+class TestFinishedTerminalVsStaleLive:
+    def test_scored_finished_cache_survives_incoming_inplay_with_score(self):
+        # The exact production case: cached 3-1 FINISHED, upstream re-serves the
+        # same match IN_PLAY still carrying 3-1. A played match never un-finishes.
+        cached   = _rec(1, "FINISHED", 3, 1)
+        incoming = _rec(1, "IN_PLAY", 3, 1)
+        assert merge_preserve_finished(cached, incoming) is cached
+
+    def test_scored_finished_cache_survives_incoming_paused_with_score(self):
+        cached   = _rec(1, "FINISHED", 0, 0)
+        incoming = _rec(1, "PAUSED", 0, 0)
+        assert merge_preserve_finished(cached, incoming) is cached
+
+    def test_incoming_finished_correction_still_wins(self):
+        cached   = _rec(1, "FINISHED", 1, 0)
+        incoming = _rec(1, "FINISHED", 2, 0)  # genuine score correction
+        assert merge_preserve_finished(cached, incoming) is incoming
+
+
+class TestCoerceStaleLive:
+    def _at(self, hours_after_ko):
+        # utcDate in _rec is 2026-08-29T14:00:00Z.
+        ko = datetime(2026, 8, 29, 14, 0, tzinfo=timezone.utc)
+        return ko + timedelta(hours=hours_after_ko)
+
+    def test_stale_inplay_with_score_becomes_finished(self):
+        out = coerce_stale_live_to_finished([_rec(1, "IN_PLAY", 3, 1)],
+                                            now=self._at(6))
+        assert out[0]["status"] == "FINISHED"
+        assert out[0]["score"]["fullTime"] == {"home": 3, "away": 1}
+
+    def test_stale_paused_with_score_becomes_finished(self):
+        out = coerce_stale_live_to_finished([_rec(1, "PAUSED", 0, 0)],
+                                            now=self._at(5))
+        assert out[0]["status"] == "FINISHED"
+
+    def test_recent_live_is_left_alone(self):
+        out = coerce_stale_live_to_finished([_rec(1, "IN_PLAY", 1, 0)],
+                                            now=self._at(1))  # 1h in — still live
+        assert out[0]["status"] == "IN_PLAY"
+
+    def test_boundary_just_over_threshold_finalizes(self):
+        secs = STALE_LIVE_AFTER.total_seconds() / 3600
+        out = coerce_stale_live_to_finished([_rec(1, "IN_PLAY", 2, 2)],
+                                            now=self._at(secs + 0.1))
+        assert out[0]["status"] == "FINISHED"
+
+    def test_scoreless_stuck_live_left_for_guard_ledger(self):
+        # No resolved score → nothing to finalize with; leave as-is.
+        rec = _rec(1, "IN_PLAY")  # home/away None
+        out = coerce_stale_live_to_finished([rec], now=self._at(6))
+        assert out[0]["status"] == "IN_PLAY"
+
+    def test_finished_and_scheduled_untouched(self):
+        fixtures = [_rec(1, "FINISHED", 1, 0), _rec(2, "TIMED")]
+        out = coerce_stale_live_to_finished(fixtures, now=self._at(6))
+        assert [f["status"] for f in out] == ["FINISHED", "TIMED"]
+
+    def test_missing_kickoff_is_not_finalized(self):
+        rec = _rec(1, "IN_PLAY", 1, 0); rec["utcDate"] = ""
+        out = coerce_stale_live_to_finished([rec], now=self._at(6))
+        assert out[0]["status"] == "IN_PLAY"
+
+    def test_does_not_mutate_input(self):
+        rec = _rec(1, "IN_PLAY", 3, 1)
+        coerce_stale_live_to_finished([rec], now=self._at(6))
+        assert rec["status"] == "IN_PLAY"  # original untouched

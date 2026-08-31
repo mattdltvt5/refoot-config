@@ -63,6 +63,7 @@ from highlights_common import (
 from fixture_providers import (
     FootballDataProvider,
     merge_fixtures_preserving_finished,
+    coerce_stale_live_to_finished,
     update_results_ledger,
     apply_results_ledger,
 )
@@ -227,12 +228,16 @@ def fetch_all_fixtures(
 def write_fixtures_artifacts(artifacts: dict[str, list[dict]]) -> None:
     """Write one fixtures/{slug}/{season}.json per domestic league.
 
-    Three layers protect already-played results from an upstream
-    FINISHED→TIMED/null reversion:
+    Layers that protect already-played results from an upstream reversion
+    (FINISHED→TIMED/null OR a match left stuck IN_PLAY/PAUSED after it ended):
 
       1. Overwrite guard — merge the incoming list against the on-disk cache
-         (merge_fixtures_preserving_finished) so a good, scored FINISHED result
-         is never clobbered by a scoreless incoming record.
+         (merge_fixtures_preserving_finished) so a scored FINISHED result is
+         terminal: never clobbered by a scoreless flicker or a stale in-play
+         record.
+      1b. Stale-live finalize — coerce any IN_PLAY/PAUSED record whose kickoff is
+         older than STALE_LIVE_AFTER to FINISHED (coerce_stale_live_to_finished),
+         so an upstream status that never advances can't show as live forever.
       2. Durable ledger — record every FINISHED result in
          results/{slug}/{season}.json (update_results_ledger); an FD-independent
          memory that is never downgraded.
@@ -253,6 +258,11 @@ def write_fixtures_artifacts(artifacts: dict[str, list[dict]]) -> None:
         # 1. Guard against a good→bad overwrite using the on-disk cache.
         cached = (load_json_file(path) or {}).get("fixtures", []) or []
         merged = merge_fixtures_preserving_finished(cached, fixtures)
+
+        # 1b. Finalize any match stuck LIVE long after kickoff (upstream never
+        #     advanced it to FINISHED) so it is recorded + healed below rather
+        #     than shown live forever.
+        merged = coerce_stale_live_to_finished(merged)
 
         # 2. Update the durable, FD-independent results ledger.
         ledger = (load_json_file(led_path) or {}).get("results", {}) or {}
