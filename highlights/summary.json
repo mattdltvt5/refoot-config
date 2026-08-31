@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-31T20:41:20Z",
+  "generated_at": "2026-08-31T20:46:14Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -474,8 +474,8 @@
         {
           "gameweek": "GW2",
           "stem": "gameweek-2",
-          "total": 9,
-          "covered": 9,
+          "total": 10,
+          "covered": 10,
           "matches": [
             {
               "match_id": 558625,
@@ -537,6 +537,13 @@
               "match_id": 558621,
               "home": "US Lecce",
               "away": "AS Roma",
+              "date": "2026-08-31",
+              "covered": true
+            },
+            {
+              "match_id": 558628,
+              "home": "Atalanta BC",
+              "away": "Bologna FC 1909",
               "date": "2026-08-31",
               "covered": true
             }
