@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-31T14:55:54.242740Z",
+  "generated_at": "2026-08-31T19:41:53.907720Z",
   "competition": "LaLiga",
   "slug": "laliga",
   "season": 2026,
@@ -64,6 +64,25 @@
     {
       "position": 4,
       "team": {
+        "id": 79,
+        "name": "CA Osasuna",
+        "shortName": "Osasuna",
+        "tla": "OSA",
+        "crest": "https://crests.football-data.org/79.png"
+      },
+      "playedGames": 3,
+      "form": "W,W,D",
+      "won": 2,
+      "draw": 1,
+      "lost": 0,
+      "points": 7,
+      "goalsFor": 3,
+      "goalsAgainst": 1,
+      "goalDifference": 2
+    },
+    {
+      "position": 5,
+      "team": {
         "id": 81,
         "name": "FC Barcelona",
         "shortName": "Barça",
@@ -81,7 +100,7 @@
       "goalDifference": 7
     },
     {
-      "position": 5,
+      "position": 6,
       "team": {
         "id": 559,
         "name": "Sevilla FC",
@@ -100,7 +119,7 @@
       "goalDifference": 1
     },
     {
-      "position": 6,
+      "position": 7,
       "team": {
         "id": 90,
         "name": "Real Betis Balompié",
@@ -119,7 +138,7 @@
       "goalDifference": -1
     },
     {
-      "position": 7,
+      "position": 8,
       "team": {
         "id": 560,
         "name": "RC Deportivo La Coruña",
@@ -136,25 +155,6 @@
       "goalsFor": 5,
       "goalsAgainst": 3,
       "goalDifference": 2
-    },
-    {
-      "position": 8,
-      "team": {
-        "id": 79,
-        "name": "CA Osasuna",
-        "shortName": "Osasuna",
-        "tla": "OSA",
-        "crest": "https://crests.football-data.org/79.png"
-      },
-      "playedGames": 2,
-      "form": "W,D",
-      "won": 1,
-      "draw": 1,
-      "lost": 0,
-      "points": 4,
-      "goalsFor": 2,
-      "goalsAgainst": 1,
-      "goalDifference": 1
     },
     {
       "position": 9,
@@ -235,25 +235,6 @@
     {
       "position": 13,
       "team": {
-        "id": 82,
-        "name": "Getafe CF",
-        "shortName": "Getafe",
-        "tla": "GET",
-        "crest": "https://crests.football-data.org/82.png"
-      },
-      "playedGames": 2,
-      "form": "W,L",
-      "won": 1,
-      "draw": 0,
-      "lost": 1,
-      "points": 3,
-      "goalsFor": 1,
-      "goalsAgainst": 3,
-      "goalDifference": -2
-    },
-    {
-      "position": 14,
-      "team": {
         "id": 92,
         "name": "Real Sociedad de Fútbol",
         "shortName": "Real Sociedad",
@@ -268,6 +249,25 @@
       "points": 3,
       "goalsFor": 3,
       "goalsAgainst": 6,
+      "goalDifference": -3
+    },
+    {
+      "position": 14,
+      "team": {
+        "id": 82,
+        "name": "Getafe CF",
+        "shortName": "Getafe",
+        "tla": "GET",
+        "crest": "https://crests.football-data.org/82.png"
+      },
+      "playedGames": 3,
+      "form": "L,W,L",
+      "won": 1,
+      "draw": 0,
+      "lost": 2,
+      "points": 3,
+      "goalsFor": 1,
+      "goalsAgainst": 4,
       "goalDifference": -3
     },
     {
