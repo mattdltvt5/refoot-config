@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-31T18:51:14Z",
+  "generated_at": "2026-08-31T18:56:08Z",
   "month": "2026-08",
   "dates": {
     "2026-08-15": [
@@ -2326,7 +2326,7 @@
               "crest": "https://crests.football-data.org/82.png"
             },
             "homeScore": 1,
-            "awayScore": 0,
+            "awayScore": 1,
             "status": "IN_PLAY",
             "utcDate": "2026-08-31T17:30:00Z"
           },
@@ -2376,7 +2376,8 @@
             "homeScore": 0,
             "awayScore": 4,
             "status": "FINISHED",
-            "utcDate": "2026-08-31T16:30:00Z"
+            "utcDate": "2026-08-31T16:30:00Z",
+            "videoId": "pd-4Lp8c6zg"
           },
           {
             "match_id": 558628,
@@ -2394,9 +2395,9 @@
               "tla": "BOL",
               "crest": "https://crests.football-data.org/103.png"
             },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "TIMED",
+            "homeScore": 0,
+            "awayScore": 0,
+            "status": "IN_PLAY",
             "utcDate": "2026-08-31T18:45:00Z"
           }
         ]
