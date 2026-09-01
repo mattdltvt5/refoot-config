@@ -4,6 +4,15 @@ Remote channel configuration for the **ReFoot Highlights** Android app.
 
 ## Recent changes
 
+### Web Admin: dev component gallery (2026-08-31)
+
+Added **`gallery.html`** — a dev-only preview of the admin's shared roles/components (buttons, inputs, chips,
+tabs, badges, dots, empty-states, toast, banners, the competition card) in both the light and `.surface-dark`
+surfaces. It is **not linked from `admin.html`**; open it directly at `/gallery.html`. It **fetches
+`admin.html`'s `<style>` at load** and injects it, so the gallery always reflects the real, current admin CSS —
+no copied stylesheet, no drift — and `admin.html` itself is untouched. Completes the design-system sequence
+(audit → tokens → dark-surface twins → button roles → tabs/inputs/empty-state roles → gallery).
+
 ### Web Admin: two-surface design-token layer (2026-08-31)
 
 Introduced a CSS custom-property token layer into `admin.html`'s inline `<style>` and replaced the hardcoded
