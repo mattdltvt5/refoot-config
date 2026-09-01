@@ -1,7 +1,7 @@
 {
   "competition": "Serie A",
   "season": 2026,
-  "generated_at": "2026-09-01T00:11:11Z",
+  "generated_at": "2026-09-01T00:16:12Z",
   "fixtures": [
     {
       "match_id": 558629,
@@ -813,7 +813,7 @@
         }
       },
       "status": "TIMED",
-      "utcDate": "2026-09-07T16:30:00Z"
+      "utcDate": "2026-09-07T16:00:00Z"
     },
     {
       "match_id": 558617,
@@ -900,23 +900,23 @@
       "utcDate": "2026-09-12T13:00:00Z"
     },
     {
-      "match_id": 558600,
+      "match_id": 558608,
       "group": "",
       "matchday": 4,
       "sourceRound": "Gameweek 4",
       "homeTeam": {
-        "id": 110,
-        "name": "SS Lazio",
-        "shortName": "Lazio",
-        "tla": "LAZ",
-        "crest": "https://crests.football-data.org/110.png"
+        "id": 471,
+        "name": "US Sassuolo Calcio",
+        "shortName": "Sassuolo",
+        "tla": "SAS",
+        "crest": "https://crests.football-data.org/471.png"
       },
       "awayTeam": {
-        "id": 98,
-        "name": "AC Milan",
-        "shortName": "Milan",
-        "tla": "MIL",
-        "crest": "https://crests.football-data.org/98.png"
+        "id": 109,
+        "name": "Juventus FC",
+        "shortName": "Juventus",
+        "tla": "JUV",
+        "crest": "https://crests.football-data.org/109.png"
       },
       "score": {
         "fullTime": {
@@ -954,6 +954,62 @@
       },
       "status": "TIMED",
       "utcDate": "2026-09-12T18:45:00Z"
+    },
+    {
+      "match_id": 558603,
+      "group": "",
+      "matchday": 4,
+      "sourceRound": "Gameweek 4",
+      "homeTeam": {
+        "id": 586,
+        "name": "Torino FC",
+        "shortName": "Torino",
+        "tla": "TOR",
+        "crest": "https://crests.football-data.org/586.png"
+      },
+      "awayTeam": {
+        "id": 100,
+        "name": "AS Roma",
+        "shortName": "Roma",
+        "tla": "ROM",
+        "crest": "https://crests.football-data.org/100.png"
+      },
+      "score": {
+        "fullTime": {
+          "home": null,
+          "away": null
+        }
+      },
+      "status": "TIMED",
+      "utcDate": "2026-09-13T10:30:00Z"
+    },
+    {
+      "match_id": 558602,
+      "group": "",
+      "matchday": 4,
+      "sourceRound": "Gameweek 4",
+      "homeTeam": {
+        "id": 7397,
+        "name": "Como 1907",
+        "shortName": "Como 1907",
+        "tla": "COM",
+        "crest": "https://crests.football-data.org/7397.png"
+      },
+      "awayTeam": {
+        "id": 112,
+        "name": "Parma Calcio 1913",
+        "shortName": "Parma",
+        "tla": "PAR",
+        "crest": "https://crests.football-data.org/112.png"
+      },
+      "score": {
+        "fullTime": {
+          "home": null,
+          "away": null
+        }
+      },
+      "status": "TIMED",
+      "utcDate": "2026-09-13T13:00:00Z"
     },
     {
       "match_id": 558605,
@@ -1012,23 +1068,23 @@
       "utcDate": "2026-09-13T16:00:00Z"
     },
     {
-      "match_id": 558608,
+      "match_id": 558600,
       "group": "",
       "matchday": 4,
       "sourceRound": "Gameweek 4",
       "homeTeam": {
-        "id": 471,
-        "name": "US Sassuolo Calcio",
-        "shortName": "Sassuolo",
-        "tla": "SAS",
-        "crest": "https://crests.football-data.org/471.png"
+        "id": 110,
+        "name": "SS Lazio",
+        "shortName": "Lazio",
+        "tla": "LAZ",
+        "crest": "https://crests.football-data.org/110.png"
       },
       "awayTeam": {
-        "id": 109,
-        "name": "Juventus FC",
-        "shortName": "Juventus",
-        "tla": "JUV",
-        "crest": "https://crests.football-data.org/109.png"
+        "id": 98,
+        "name": "AC Milan",
+        "shortName": "Milan",
+        "tla": "MIL",
+        "crest": "https://crests.football-data.org/98.png"
       },
       "score": {
         "fullTime": {
@@ -1038,62 +1094,6 @@
       },
       "status": "TIMED",
       "utcDate": "2026-09-13T18:45:00Z"
-    },
-    {
-      "match_id": 558602,
-      "group": "",
-      "matchday": 4,
-      "sourceRound": "Gameweek 4",
-      "homeTeam": {
-        "id": 7397,
-        "name": "Como 1907",
-        "shortName": "Como 1907",
-        "tla": "COM",
-        "crest": "https://crests.football-data.org/7397.png"
-      },
-      "awayTeam": {
-        "id": 112,
-        "name": "Parma Calcio 1913",
-        "shortName": "Parma",
-        "tla": "PAR",
-        "crest": "https://crests.football-data.org/112.png"
-      },
-      "score": {
-        "fullTime": {
-          "home": null,
-          "away": null
-        }
-      },
-      "status": "TIMED",
-      "utcDate": "2026-09-14T16:30:00Z"
-    },
-    {
-      "match_id": 558603,
-      "group": "",
-      "matchday": 4,
-      "sourceRound": "Gameweek 4",
-      "homeTeam": {
-        "id": 586,
-        "name": "Torino FC",
-        "shortName": "Torino",
-        "tla": "TOR",
-        "crest": "https://crests.football-data.org/586.png"
-      },
-      "awayTeam": {
-        "id": 100,
-        "name": "AS Roma",
-        "shortName": "Roma",
-        "tla": "ROM",
-        "crest": "https://crests.football-data.org/100.png"
-      },
-      "score": {
-        "fullTime": {
-          "home": null,
-          "away": null
-        }
-      },
-      "status": "TIMED",
-      "utcDate": "2026-09-14T16:30:00Z"
     },
     {
       "match_id": 558601,
