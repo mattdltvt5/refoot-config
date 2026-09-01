@@ -124,19 +124,8 @@
             border: 1px solid var(--on-dark-40);
         }
         .btn-ghost:hover:not(:disabled) { background: var(--on-dark-28); }
-        .btn-icon {
-            background: transparent; color: var(--white);
-            width: 36px; height: 36px; border-radius: 50%; font-size: 18px;
-            display: flex; align-items: center; justify-content: center;
-            padding: 0;
-        }
-        .btn-icon:hover { background: var(--on-dark-15); }
-        .btn-blue {
-            background: var(--blue); color: var(--white);
-            box-shadow: 0 2px 6px var(--accent-shadow);
-            padding: 9px 22px; font-size: 14px;
-        }
-        .btn-blue:hover:not(:disabled) { background: var(--blue-dark); }
+        .btn-icon { font-size: 18px; }
+        .btn-blue { box-shadow: 0 2px 6px var(--accent-shadow); padding: 9px 22px; font-size: 14px; }
 
         /* Bare icon / text button role — no fill or border, muted, subtle hover.
            Shared reset for the coverage / pipeline / broadcaster icon buttons; each
@@ -148,6 +137,23 @@
             padding: var(--space-1) 6px; display: inline-flex; align-items: center;
             transition: color 0.15s, background 0.15s;
         }
+        /* Outline / secondary button role — bordered, muted, non-uppercase. */
+        .btn-outline, .btn-cred-clear, .debug-clear-btn, .cand-skip-btn {
+            background: none; border: 1px solid var(--border); color: var(--muted);
+            border-radius: var(--radius-sm); font-size: 12px; font-weight: 500;
+            padding: var(--space-1) 10px; text-transform: none; letter-spacing: 0;
+            cursor: pointer; transition: color 0.15s, border-color 0.15s, background 0.15s;
+        }
+        /* Filled primary (blue) button role. */
+        .btn-primary, .btn-blue, .btn-cred-save { background: var(--blue); color: var(--white); }
+        .btn-primary:hover, .btn-blue:hover:not(:disabled), .btn-cred-save:hover { background: var(--blue-dark); }
+        /* Icon-circle button role (blue header / drawer header). */
+        .btn-icon, .drawer-close-btn {
+            background: transparent; color: var(--white);
+            width: 36px; height: 36px; border-radius: 50%; padding: 0;
+            display: flex; align-items: center; justify-content: center;
+        }
+        .btn-icon:hover, .drawer-close-btn:hover { background: var(--on-dark-15); }
 
         /* ── Main ────────────────────────────────────────── */
         main { max-width: 720px; margin: 0 auto; padding: var(--space-4); }
@@ -382,12 +388,7 @@
             display: flex; align-items: center; justify-content: space-between; flex-shrink: 0;
         }
         .drawer-header-title { font-size: 16px; font-weight: 500; }
-        .drawer-close-btn {
-            background: transparent; color: var(--white); width: 36px; height: 36px;
-            border-radius: 50%; padding: 0; display: flex; align-items: center;
-            justify-content: center; font-size: 15px; text-transform: none; letter-spacing: 0;
-        }
-        .drawer-close-btn:hover { background: var(--on-dark-15); }
+        .drawer-close-btn { font-size: 15px; text-transform: none; letter-spacing: 0; }
         .drawer-tabs { display: flex; border-bottom: 1px solid var(--border); flex-shrink: 0; }
         .drawer-tab {
             flex: 1; padding: var(--space-3) var(--space-2); font-size: 13px; font-weight: 500;
@@ -409,11 +410,7 @@
         .log-err  { color: var(--danger); }
         .log-info { color: var(--accent); }
         .debug-empty { color: var(--muted); font-size: 13px; font-style: italic; }
-        .debug-clear-btn {
-            align-self: flex-start; margin-bottom: var(--space-3); color: var(--muted);
-            font-size: 12px; background: none; border: 1px solid var(--border);
-            padding: var(--space-1) 10px; text-transform: none; letter-spacing: 0; border-radius: var(--radius-sm);
-        }
+        .debug-clear-btn { align-self: flex-start; margin-bottom: var(--space-3); }
         .debug-clear-btn:hover { color: var(--text); border-color: var(--muted); background: var(--bg); }
 
         /* ── Credentials form ────────────────────────────── */
@@ -472,19 +469,7 @@
         .btn-reveal:hover { color: var(--text); }
         .btn-reveal:focus { outline: none; }
         .cred-key-actions { display: flex; gap: var(--space-2); margin-top: var(--space-2); }
-        .btn-cred-save {
-            background: var(--blue); color: var(--white); border-radius: var(--radius-sm);
-            padding: 6px 14px; font-size: 12px; font-weight: 500;
-            text-transform: none; letter-spacing: 0; transition: background 0.15s;
-        }
-        .btn-cred-save:hover { background: var(--blue-dark); }
-        .btn-cred-clear {
-            background: none; color: var(--muted); border-radius: var(--radius-sm);
-            border: 1px solid var(--border); padding: 6px 14px;
-            font-size: 12px; font-weight: 500;
-            text-transform: none; letter-spacing: 0;
-            transition: color 0.15s, border-color 0.15s;
-        }
+        .btn-cred-save { padding: 6px 14px; font-size: 12px; font-weight: 500; text-transform: none; letter-spacing: 0; transition: background 0.15s; }
         .btn-cred-clear:hover { color: var(--red); border-color: var(--red); }
         .settings-btn-wrap { position: relative; }
         .settings-badge {
@@ -706,8 +691,6 @@
         .cand-team-actions { margin-left: auto; display: flex; gap: var(--space-2); align-items: center; }
         .cand-approved-badge { background: var(--green); color: var(--white); font-weight: 700; font-size: 10px;
             letter-spacing: .04em; padding: 2px var(--space-2); border-radius: var(--radius-sm); text-transform: uppercase; }
-        .cand-skip-btn { background: none; border: 1px solid var(--border); color: var(--muted); cursor: pointer;
-            font-size: 12px; padding: var(--space-1) 10px; border-radius: var(--radius-md); }
         .cand-skip-btn:hover { background: var(--white); color: var(--text); border-color: var(--muted); }
         .cand-row { display: flex; align-items: center; gap: var(--space-3); padding: 10px 14px; border-top: 1px solid var(--border); }
         .cand-row.primary { background: var(--bg-subtle); }
