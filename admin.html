@@ -138,6 +138,17 @@
         }
         .btn-blue:hover:not(:disabled) { background: var(--blue-dark); }
 
+        /* Bare icon / text button role — no fill or border, muted, subtle hover.
+           Shared reset for the coverage / pipeline / broadcaster icon buttons; each
+           keeps only its own font-size + hover accent below. (Call sites migrate to
+           the .icon-btn name in the later component step.) */
+        .icon-btn, .cov-goto-btn, .wf-refresh, .cand-refresh, .bcast-del-btn, .bcast-pl-del {
+            background: none; border: none; cursor: pointer; font-family: inherit;
+            color: var(--muted); border-radius: var(--radius-sm);
+            padding: var(--space-1) 6px; display: inline-flex; align-items: center;
+            transition: color 0.15s, background 0.15s;
+        }
+
         /* ── Main ────────────────────────────────────────── */
         main { max-width: 720px; margin: 0 auto; padding: var(--space-4); }
 
@@ -237,12 +248,7 @@
         .cov-match-row:last-child { border-bottom: none; }
         .cov-match-icon { flex-shrink: 0; width: 14px; font-size: 12px; display: flex; align-items: center; }
         .cov-match-teams { flex: 1; color: var(--text); }
-        .cov-goto-btn {
-            background: none; border: none; cursor: pointer; font-family: inherit;
-            font-size: 11px; font-weight: 500; color: var(--blue);
-            padding: 2px 6px; border-radius: var(--radius-sm); flex-shrink: 0;
-            transition: background 0.1s;
-        }
+        .cov-goto-btn { color: var(--blue); font-size: 11px; font-weight: 500; flex-shrink: 0; }
         .cov-goto-btn:hover { background: var(--blue-bg); }
         .dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
         .dot-green { background: var(--green); }
@@ -554,11 +560,7 @@
         }
         .bcast-name-input:focus { border-color: var(--muted); }
         .bcast-name-input::placeholder { color: var(--muted); }
-        .bcast-del-btn {
-            background: none; border: none; cursor: pointer; color: var(--muted);
-            font-size: 14px; padding: var(--space-1) 6px; border-radius: var(--radius-sm); flex-shrink: 0;
-            display: flex; align-items: center; transition: color 0.15s, background 0.15s;
-        }
+        .bcast-del-btn { font-size: 14px; flex-shrink: 0; }
         .bcast-del-btn:hover { color: var(--red); background: var(--danger-soft); }
         .add-bcast-btn {
             display: flex; align-items: center; gap: 6px;
@@ -611,11 +613,7 @@
         .bcast-pl-list { display: flex; flex-direction: column; gap: var(--space-1); }
         .bcast-pl-entry { display: flex; align-items: center; gap: 6px; }
         .bcast-pl-entry .pl-input { flex: 1; min-width: 0; width: auto; }
-        .bcast-pl-del {
-            background: none; border: none; cursor: pointer; color: var(--muted);
-            padding: 3px 5px; border-radius: var(--radius-sm); flex-shrink: 0; display: flex; align-items: center;
-            transition: color 0.15s;
-        }
+        .bcast-pl-del { flex-shrink: 0; }
         .bcast-pl-del:hover { color: var(--red); }
         .bcast-pl-add {
             background: none; border: 1px dashed var(--border); border-radius: var(--radius-sm);
@@ -666,7 +664,7 @@
         .wf-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 5px; }
         .wf-head-label { color: var(--text); font-weight: 600; }
         .wf-head-label i { color: var(--muted); }
-        .wf-refresh { background: none; border: none; cursor: pointer; color: var(--muted); font-size: 13px; padding: 2px 5px; border-radius: var(--radius-sm); }
+        .wf-refresh { font-size: 13px; }
         .wf-refresh:hover { background: var(--bg); color: var(--text); }
         .wf-row { display: flex; align-items: center; gap: var(--space-2); padding: 3px 0; color: var(--muted); flex-wrap: wrap; }
         .wf-row .wf-name { color: var(--text); min-width: 110px; }
@@ -688,8 +686,7 @@
         .cand-tab + .cand-tab { border-left: 1px solid var(--border); }
         .cand-tab:not(.active):hover { background: var(--bg); color: var(--text); }
         .cand-tab.active { background: var(--blue); color: var(--white); }
-        .cand-refresh { background: none; border: none; cursor: pointer; color: var(--muted);
-            font-size: 13px; padding: 2px 6px; border-radius: var(--radius-sm); }
+        .cand-refresh { font-size: 13px; }
         .cand-refresh:hover { background: var(--bg); color: var(--text); }
         .cand-body { background: var(--white); border: 1px solid var(--border); border-radius: 0 0 var(--radius-md) var(--radius-md);
             padding: var(--space-2) var(--space-3) var(--space-3); }
