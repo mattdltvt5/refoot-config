@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-01T13:26:13Z",
+  "generated_at": "2026-09-01T22:31:13Z",
   "month": "2026-09",
   "dates": {
     "2026-09-03": [
@@ -2671,27 +2671,6 @@
             "utcDate": "2026-09-19T14:00:00Z"
           },
           {
-            "match_id": 560585,
-            "homeTeam": {
-              "id": 341,
-              "name": "Leeds United FC",
-              "shortName": "Leeds United",
-              "tla": "LEE",
-              "crest": "https://crests.football-data.org/341.png"
-            },
-            "awayTeam": {
-              "id": 354,
-              "name": "Crystal Palace FC",
-              "shortName": "Crystal Palace",
-              "tla": "CRY",
-              "crest": "https://crests.football-data.org/354.png"
-            },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "TIMED",
-            "utcDate": "2026-09-19T14:00:00Z"
-          },
-          {
             "match_id": 560586,
             "homeTeam": {
               "id": 397,
@@ -3179,6 +3158,27 @@
               "shortName": "Liverpool",
               "tla": "LIV",
               "crest": "https://crests.football-data.org/64.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "TIMED",
+            "utcDate": "2026-09-20T13:00:00Z"
+          },
+          {
+            "match_id": 560585,
+            "homeTeam": {
+              "id": 341,
+              "name": "Leeds United FC",
+              "shortName": "Leeds United",
+              "tla": "LEE",
+              "crest": "https://crests.football-data.org/341.png"
+            },
+            "awayTeam": {
+              "id": 354,
+              "name": "Crystal Palace FC",
+              "shortName": "Crystal Palace",
+              "tla": "CRY",
+              "crest": "https://crests.football-data.org/354.png"
             },
             "homeScore": null,
             "awayScore": null,

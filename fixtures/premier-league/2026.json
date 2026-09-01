@@ -1,7 +1,7 @@
 {
   "competition": "Premier League",
   "season": 2026,
-  "generated_at": "2026-09-01T22:26:12Z",
+  "generated_at": "2026-09-01T22:31:13Z",
   "fixtures": [
     {
       "match_id": 560542,
@@ -1208,34 +1208,6 @@
       "utcDate": "2026-09-19T14:00:00Z"
     },
     {
-      "match_id": 560585,
-      "group": "",
-      "matchday": 5,
-      "sourceRound": "Gameweek 5",
-      "homeTeam": {
-        "id": 341,
-        "name": "Leeds United FC",
-        "shortName": "Leeds United",
-        "tla": "LEE",
-        "crest": "https://crests.football-data.org/341.png"
-      },
-      "awayTeam": {
-        "id": 354,
-        "name": "Crystal Palace FC",
-        "shortName": "Crystal Palace",
-        "tla": "CRY",
-        "crest": "https://crests.football-data.org/354.png"
-      },
-      "score": {
-        "fullTime": {
-          "home": null,
-          "away": null
-        }
-      },
-      "status": "TIMED",
-      "utcDate": "2026-09-19T14:00:00Z"
-    },
-    {
       "match_id": 560586,
       "group": "",
       "matchday": 5,
@@ -1337,6 +1309,34 @@
         "shortName": "Liverpool",
         "tla": "LIV",
         "crest": "https://crests.football-data.org/64.png"
+      },
+      "score": {
+        "fullTime": {
+          "home": null,
+          "away": null
+        }
+      },
+      "status": "TIMED",
+      "utcDate": "2026-09-20T13:00:00Z"
+    },
+    {
+      "match_id": 560585,
+      "group": "",
+      "matchday": 5,
+      "sourceRound": "Gameweek 5",
+      "homeTeam": {
+        "id": 341,
+        "name": "Leeds United FC",
+        "shortName": "Leeds United",
+        "tla": "LEE",
+        "crest": "https://crests.football-data.org/341.png"
+      },
+      "awayTeam": {
+        "id": 354,
+        "name": "Crystal Palace FC",
+        "shortName": "Crystal Palace",
+        "tla": "CRY",
+        "crest": "https://crests.football-data.org/354.png"
       },
       "score": {
         "fullTime": {
