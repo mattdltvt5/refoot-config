@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Admin — Component Gallery (dev)</title>
+
+    <!-- Dev-only preview of admin.html's shared roles/components. Not linked from
+         the admin. It fetches admin.html's <style> at load and injects it below,
+         so the gallery ALWAYS reflects the real, current admin CSS — no copy, no
+         drift. admin.html itself is untouched. Open at /gallery.html. -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="uicons/css/uicons-bold-rounded.css" rel="stylesheet">
+
+    <!-- filled at load from admin.html's <style> -->
+    <style id="admin-styles"></style>
+
+    <!-- gallery chrome only (gx- prefixed so it can't collide with admin styles) -->
+    <style>
+        body { background: var(--bg, #F5F5F5); color: var(--text, #212121);
+               font-family: Roboto, sans-serif; font-size: 14px; margin: 0; }
+        .gx-head { background: var(--blue, #2196F3); color: #fff; padding: 14px 20px;
+                   font-size: 16px; font-weight: 700; position: sticky; top: 0; z-index: 10; }
+        .gx-head small { font-weight: 400; opacity: .85; font-size: 12px; display: block; margin-top: 2px; }
+        main { max-width: 860px; margin: 0 auto; padding: 20px; }
+        .gx-sec { margin-bottom: 28px; }
+        .gx-sec > h2 { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: .6px;
+                       color: var(--muted, #757575); margin: 0 0 4px; }
+        .gx-sec > p { font-size: 12px; color: var(--muted, #757575); margin: 0 0 10px; }
+        .gx-row { display: flex; flex-wrap: wrap; align-items: center; gap: 12px;
+                  padding: 14px; border-radius: 8px; background: #fff;
+                  box-shadow: 0 1px 3px rgba(0,0,0,0.12); }
+        .gx-row + .gx-row { margin-top: 8px; }
+        .gx-row.gx-onblue { background: var(--blue, #2196F3); }
+        .gx-row.gx-ondark { background: var(--black, #000); }
+        .gx-label { flex-basis: 100%; font-size: 10px; font-weight: 600; text-transform: uppercase;
+                    letter-spacing: .5px; color: var(--muted, #757575); margin-bottom: -4px; }
+        .gx-row.gx-onblue .gx-label, .gx-row.gx-ondark .gx-label { color: rgba(255,255,255,0.7); }
+        .gx-toast-host { position: relative; }
+        .gx-toast-host #toast { position: static; transform: none; opacity: 1; }
+    </style>
+</head>
+<body>
+    <div class="gx-head">Web Admin — Component Gallery <small>dev preview · reflects admin.html's live styles</small></div>
+    <main id="g"><div class="gx-sec"><p>Loading admin.html styles…</p></div></main>
+
+<script>
+const el = (html) => { const t = document.createElement('template'); t.innerHTML = html.trim(); return t.content.firstChild; };
+const sec = (title, desc, rowsHtml) =>
+    `<div class="gx-sec"><h2>${title}</h2>${desc ? `<p>${desc}</p>` : ''}${rowsHtml}</div>`;
+const row = (label, inner, cls = '') =>
+    `<div class="gx-row ${cls}">${label ? `<span class="gx-label">${label}</span>` : ''}${inner}</div>`;
+
+// A .field-chip's inner markup (dot + label + pencil), matching makeChip().
+const chip = (label, on) =>
+    `<span class="field-chip"><span class="dot ${on ? 'dot-green' : 'dot-red'}"></span><span>${label}</span><i class="fi-br-pencil chip-edit-icon"></i></span>`;
+
+function render() {
+    const g = document.getElementById('g');
+    g.innerHTML = [
+
+        sec('Buttons — primary', 'The filled blue role (.btn-primary). btn-blue is the large CTA; btn-cred-save the small variant.',
+            row('', `<button class="btn-blue">Save &amp; Load</button>
+                     <button class="btn-cred-save">Save token</button>
+                     <button class="cand-approve-btn">Approve</button>
+                     <button class="btn-blue" disabled>Disabled</button>`)),
+
+        sec('Buttons — outline', 'The bordered/muted role (.btn-outline).',
+            row('', `<button class="btn-cred-clear">Clear</button>
+                     <button class="cand-skip-btn">Skip</button>
+                     <button class="debug-clear-btn">Clear log</button>`)),
+
+        sec('Buttons — icon / text (.icon-btn)', 'Bare icon buttons: neutral, accent (blue), and danger (red) hovers.',
+            row('', `<button class="wf-refresh"><i class="fi-br-refresh"></i></button>
+                     <button class="cand-refresh"><i class="fi-br-refresh"></i></button>
+                     <button class="cov-goto-btn">Go to</button>
+                     <button class="bcast-del-btn"><i class="fi-br-trash"></i></button>
+                     <button class="bcast-pl-del"><i class="fi-br-cross"></i></button>`)),
+
+        sec('Buttons — ghost / icon-circle (on the blue header)', 'White-on-blue header controls.',
+            row('', `<button class="btn-ghost"><i class="fi-br-disk"></i> GitHub</button>
+                     <button class="btn-ghost"><i class="fi-br-refresh"></i> Reload</button>
+                     <button class="btn-icon"><i class="fi-br-home-settings"></i></button>
+                     <button class="drawer-close-btn"><i class="fi-br-cross"></i></button>`, 'gx-onblue')),
+
+        sec('Inputs', 'Compact role (.input-compact) with width modifiers, plus the distinct .form-input.',
+            row('Light (default)', `<input class="ch-input" placeholder="Channel (UCxxxx)">
+                     <input class="ch-input sm" placeholder="ch-input.sm">
+                     <input class="pl-input" placeholder="Playlist (PLxxxx)">
+                     <input class="bcast-name-input" placeholder="Name">`) +
+            row('form-input (credentials)', `<div style="width:100%"><input class="form-input" placeholder="github_pat_xxxx"></div>`) +
+            row('Dark (.surface-dark)', `<input class="ch-input" placeholder="Official channel (UCxxxx)" value="UC123">`, 'surface-dark gx-ondark')),
+
+        sec('Field chips', 'Same .field-chip in light and dark surfaces (the retired twin).',
+            row('Light', `${chip('Channel', true)} ${chip('Playlist', false)}`) +
+            row('Dark (.surface-dark)', `${chip('Official Channel', true)}`, 'surface-dark gx-ondark')),
+
+        sec('Tabs — one underline role', 'Settings-drawer tabs and candidate tabs now share the underline treatment.',
+            row('drawer-tabs', `<div class="drawer-tabs" style="width:320px"><button class="drawer-tab active">Credentials</button><button class="drawer-tab">Debug Log</button></div>`) +
+            row('cand-tabs', `<div class="cand-tabs"><button class="cand-tab active">Pending</button><button class="cand-tab">Approved</button></div>`)),
+
+        sec('Badges / pills',
+            'Status + count pills across surfaces.',
+            row('', `<span class="cand-approved-badge">Approved</span>
+                     <span class="cand-rank-badge">#1</span>
+                     <span class="wf-overdue-badge">Overdue</span>`) +
+            row('On dark (comp-badge)', `<span class="comp-badge">20 teams</span>`, 'gx-ondark')),
+
+        sec('Status dots',
+            'Semantic dots (.dot-*) and cred status dots.',
+            row('', `<span class="dot dot-green"></span><span class="dot dot-yellow"></span><span class="dot dot-red"></span>
+                     &nbsp;&nbsp;<span class="status-dot status-dot-set"></span><span class="status-dot status-dot-unset"></span>`)),
+
+        sec('Empty-state notes (.empty-state + kin)',
+            'Muted italic notes (cov-empty / empty-note) and the non-italic candidate note.',
+            row('', `<div class="cov-empty">No coverage data yet.</div>`) +
+            row('', `<div class="empty-note">This competition has no teams.</div>`) +
+            row('', `<div class="cand-empty">No candidates. Add <code>channel-candidates.json</code>.</div>`)),
+
+        sec('Toast',
+            'Neutral / success / error (position overridden to inline for preview).',
+            row('', `<div class="gx-toast-host"><div id="toast" class="show">Saved</div></div>
+                     <div class="gx-toast-host"><div id="toast" class="show success">Saved to GitHub</div></div>
+                     <div class="gx-toast-host"><div id="toast" class="show error">Save failed</div></div>`)),
+
+        sec('Banners / alerts',
+            'Warning + error surface tints.',
+            row('', `<div id="cors-banner" style="display:block"><strong>&#9888; Tip:</strong> host on GitHub Pages for teams to load.</div>`) +
+            row('', `<div class="cred-missing-banner" style="display:block">GitHub token is required to load and save data.</div>`) +
+            row('', `<div class="comp-error">Failed to load teams for this competition.</div>`)),
+
+        sec('Cards — competition block',
+            'The status-accented comp-block, with its dark comp-header (surface-dark) inside.',
+            `<div class="comp-block status-green">
+                <div class="comp-header surface-dark">
+                    <div class="comp-header-top"><span class="chevron"><i class="fi-br-angle-right"></i></span>
+                        <span class="comp-name">PREMIER LEAGUE</span><span class="comp-badge">20 teams</span></div>
+                    <div class="comp-ch-inline">${chip('Official Channel', true)}
+                        <a class="yt-btn" href="#"><i class="fi-br-play"></i> Open</a></div>
+                </div>
+                <div class="team-list open"><div class="team-row"><span class="team-name">Arsenal FC</span>
+                    <div class="team-indicators">${chip('Channel', true)}
+                        <a class="yt-btn" href="#"><i class="fi-br-play"></i> Open</a></div></div></div>
+             </div>`),
+
+    ].join('');
+}
+
+fetch('admin.html')
+    .then(r => r.text())
+    .then(html => {
+        const m = html.match(/<style>([\s\S]*?)<\/style>/);
+        if (m) document.getElementById('admin-styles').textContent = m[1];
+        render();
+    })
+    .catch(e => { document.getElementById('g').innerHTML =
+        '<div class="gx-sec"><p>Could not load admin.html styles: ' + e + '</p></div>'; });
+</script>
+</body>
+</html>
