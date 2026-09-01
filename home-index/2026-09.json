@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-01T00:16:12Z",
+  "generated_at": "2026-09-01T01:11:14Z",
   "month": "2026-09",
   "dates": {
     "2026-09-03": [
@@ -2567,6 +2567,33 @@
             "utcDate": "2026-09-18T18:30:00Z"
           }
         ]
+      },
+      {
+        "competition": "ligue-1",
+        "name": "Ligue 1",
+        "matches": [
+          {
+            "match_id": 559682,
+            "homeTeam": {
+              "id": 548,
+              "name": "AS Monaco FC",
+              "shortName": "Monaco",
+              "tla": "ASM",
+              "crest": "https://crests.football-data.org/548.png"
+            },
+            "awayTeam": {
+              "id": 546,
+              "name": "Racing Club de Lens",
+              "shortName": "RC Lens",
+              "tla": "RCL",
+              "crest": "https://crests.football-data.org/546.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "TIMED",
+            "utcDate": "2026-09-18T18:45:00Z"
+          }
+        ]
       }
     ],
     "2026-09-19": [
@@ -3061,27 +3088,6 @@
             "utcDate": "2026-09-19T00:00:00Z"
           },
           {
-            "match_id": 559679,
-            "homeTeam": {
-              "id": 1045,
-              "name": "Paris FC",
-              "shortName": "Paris FC",
-              "tla": "PFC",
-              "crest": "https://crests.football-data.org/1045.png"
-            },
-            "awayTeam": {
-              "id": 576,
-              "name": "RC Strasbourg Alsace",
-              "shortName": "Strasbourg",
-              "tla": "RC ",
-              "crest": "https://crests.football-data.org/576.png"
-            },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "SCHEDULED",
-            "utcDate": "2026-09-19T00:00:00Z"
-          },
-          {
             "match_id": 559680,
             "homeTeam": {
               "id": 511,
@@ -3124,27 +3130,6 @@
             "utcDate": "2026-09-19T00:00:00Z"
           },
           {
-            "match_id": 559682,
-            "homeTeam": {
-              "id": 548,
-              "name": "AS Monaco FC",
-              "shortName": "Monaco",
-              "tla": "ASM",
-              "crest": "https://crests.football-data.org/548.png"
-            },
-            "awayTeam": {
-              "id": 546,
-              "name": "Racing Club de Lens",
-              "shortName": "RC Lens",
-              "tla": "RCL",
-              "crest": "https://crests.football-data.org/546.png"
-            },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "SCHEDULED",
-            "utcDate": "2026-09-19T00:00:00Z"
-          },
-          {
             "match_id": 559683,
             "homeTeam": {
               "id": 523,
@@ -3164,6 +3149,27 @@
             "awayScore": null,
             "status": "SCHEDULED",
             "utcDate": "2026-09-19T00:00:00Z"
+          },
+          {
+            "match_id": 559679,
+            "homeTeam": {
+              "id": 1045,
+              "name": "Paris FC",
+              "shortName": "Paris FC",
+              "tla": "PFC",
+              "crest": "https://crests.football-data.org/1045.png"
+            },
+            "awayTeam": {
+              "id": 576,
+              "name": "RC Strasbourg Alsace",
+              "shortName": "Strasbourg",
+              "tla": "RC ",
+              "crest": "https://crests.football-data.org/576.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "TIMED",
+            "utcDate": "2026-09-19T15:15:00Z"
           }
         ]
       }
