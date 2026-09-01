@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-01T03:51:16Z",
+  "generated_at": "2026-09-01T13:26:13Z",
   "month": "2026-09",
   "dates": {
     "2026-09-03": [
@@ -2515,6 +2515,33 @@
         ]
       },
       {
+        "competition": "laliga",
+        "name": "LaLiga",
+        "matches": [
+          {
+            "match_id": 564692,
+            "homeTeam": {
+              "id": 80,
+              "name": "RCD Espanyol de Barcelona",
+              "shortName": "Espanyol",
+              "tla": "ESP",
+              "crest": "https://crests.football-data.org/80.png"
+            },
+            "awayTeam": {
+              "id": 285,
+              "name": "Elche CF",
+              "shortName": "Elche",
+              "tla": "ELC",
+              "crest": "https://crests.football-data.org/285.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "TIMED",
+            "utcDate": "2026-09-18T19:00:00Z"
+          }
+        ]
+      },
+      {
         "competition": "serie-a",
         "name": "Serie A",
         "matches": [
@@ -3207,48 +3234,6 @@
         "name": "LaLiga",
         "matches": [
           {
-            "match_id": 564689,
-            "homeTeam": {
-              "id": 95,
-              "name": "Valencia CF",
-              "shortName": "Valencia",
-              "tla": "VAL",
-              "crest": "https://crests.football-data.org/95.png"
-            },
-            "awayTeam": {
-              "id": 92,
-              "name": "Real Sociedad de Fútbol",
-              "shortName": "Real Sociedad",
-              "tla": "RSO",
-              "crest": "https://crests.football-data.org/92.png"
-            },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "SCHEDULED",
-            "utcDate": "2026-09-20T00:00:00Z"
-          },
-          {
-            "match_id": 564692,
-            "homeTeam": {
-              "id": 80,
-              "name": "RCD Espanyol de Barcelona",
-              "shortName": "Espanyol",
-              "tla": "ESP",
-              "crest": "https://crests.football-data.org/80.png"
-            },
-            "awayTeam": {
-              "id": 285,
-              "name": "Elche CF",
-              "shortName": "Elche",
-              "tla": "ELC",
-              "crest": "https://crests.football-data.org/285.png"
-            },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "SCHEDULED",
-            "utcDate": "2026-09-20T00:00:00Z"
-          },
-          {
             "match_id": 564697,
             "homeTeam": {
               "id": 82,
@@ -3331,6 +3316,27 @@
             "awayScore": null,
             "status": "TIMED",
             "utcDate": "2026-09-20T16:30:00Z"
+          },
+          {
+            "match_id": 564689,
+            "homeTeam": {
+              "id": 95,
+              "name": "Valencia CF",
+              "shortName": "Valencia",
+              "tla": "VAL",
+              "crest": "https://crests.football-data.org/95.png"
+            },
+            "awayTeam": {
+              "id": 92,
+              "name": "Real Sociedad de Fútbol",
+              "shortName": "Real Sociedad",
+              "tla": "RSO",
+              "crest": "https://crests.football-data.org/92.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "TIMED",
+            "utcDate": "2026-09-20T19:00:00Z"
           }
         ]
       },
