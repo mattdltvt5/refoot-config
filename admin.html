@@ -2604,7 +2604,7 @@ window.addEventListener('beforeunload', e => { if(unsaved){e.preventDefault();e.
 // ── Init ─────────────────────────────────────────────────
 if (loadCreds()) { loadAll(); }
 else {
-    document.getElementById('loading-state').innerHTML = '<div style="color:#757575">Enter your credentials to get started.</div>';
+    document.getElementById('loading-state').innerHTML = '<div style="color:var(--muted)">Enter your credentials to get started.</div>';
     openDrawer('credentials');
 }
 </script>
