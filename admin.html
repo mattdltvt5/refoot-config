@@ -65,7 +65,8 @@
 
             /* ── Dark surface ramp — on-black foreground. Replaces the 17 ad-hoc
                   rgba(255,255,255,alpha) values; one token per distinct audited alpha.
-                  (No .surface-dark scope / twin-collapse yet — that is the next step.) ── */
+                  Consumed by the `.surface-dark` scope (the black comp-header) that backs
+                  the former ch-input-dark / field-chip-dark / yt-btn-dark twins. ── */
             --surface-dark-bg: var(--black);
             --on-dark:         var(--white);
             --on-dark-08: rgba(255,255,255,0.08);
@@ -286,24 +287,24 @@
         }
         .chevron { color: var(--on-dark-50); font-size: 10px; transition: transform 0.2s; flex-shrink: 0; }
         .chevron.open { transform: rotate(90deg); }
-        .ch-input-dark {
+        /* Dark surface: the base input / button / chip on the black comp-header,
+           via the on-dark ramp. A `.surface-dark` ancestor (the comp-header) is the
+           only difference — no separate "-dark" component class. */
+        .surface-dark .ch-input {
             background: var(--on-dark-10); border: 1px solid var(--on-dark-25);
             border-radius: var(--radius-sm); color: var(--white); font-family: inherit; font-size: 12px;
             padding: 6px var(--space-2); width: 220px; outline: none; transition: border-color 0.15s;
         }
-        .ch-input-dark:focus { border-color: var(--on-dark-60); box-shadow: 0 0 0 2px var(--on-dark-12); }
-        .ch-input-dark::placeholder { color: var(--on-dark-35); }
-        .ch-input-dark.valid { border-color: var(--green); }
-        .ch-input-dark.bad   { border-color: var(--red); }
-        .yt-btn-dark {
-            display: inline-flex; align-items: center; gap: var(--space-1);
-            text-decoration: none; font-size: 11px; font-weight: 500;
+        .surface-dark .ch-input:focus { border-color: var(--on-dark-60); box-shadow: 0 0 0 2px var(--on-dark-12); }
+        .surface-dark .ch-input::placeholder { color: var(--on-dark-35); }
+        .surface-dark .ch-input.valid { border-color: var(--green); }
+        .surface-dark .ch-input.bad   { border-color: var(--red); }
+        .surface-dark .yt-btn {
             color: var(--on-dark-55); background: var(--on-dark-08);
-            border: 1px solid var(--on-dark-20); border-radius: var(--radius-sm);
-            padding: 5px var(--space-2); transition: color 0.15s, border-color 0.15s, background 0.15s;
-            white-space: nowrap; text-transform: uppercase; letter-spacing: 0.2px;
+            border: 1px solid var(--on-dark-20);
+            transition: color 0.15s, border-color 0.15s, background 0.15s;
         }
-        .yt-btn-dark:hover { color: var(--white); border-color: var(--on-dark-50); background: var(--on-dark-15); }
+        .surface-dark .yt-btn:hover { color: var(--white); border-color: var(--on-dark-50); background: var(--on-dark-15); }
 
         /* Team list / rows */
         .team-list { display: none; }
@@ -343,7 +344,7 @@
             flex-shrink: 0;
         }
         .yt-btn:hover { color: var(--danger); border-color: var(--danger); }
-        .yt-btn.disabled, .yt-btn-dark.disabled {
+        .yt-btn.disabled {
             opacity: 0.35; pointer-events: none; cursor: default;
         }
 
@@ -499,8 +500,7 @@
         .debug-header [class^="fi-br-"]::before { font-size: 13px; margin-right: var(--space-1); }
         .add-team-btn [class^="fi-br-"]::before,
         .add-bcast-btn [class^="fi-br-"]::before { font-size: 14px; }
-        .yt-btn [class^="fi-br-"]::before,
-        .yt-btn-dark [class^="fi-br-"]::before { font-size: 11px; }
+        .yt-btn [class^="fi-br-"]::before { font-size: 11px; }
         .bcast-del-btn [class^="fi-br-"]::before,
         .bcast-pl-del [class^="fi-br-"]::before  { font-size: 11px; }
         .bcast-pl-add [class^="fi-br-"]::before  { font-size: 10px; }
@@ -592,16 +592,11 @@
         .field-chip:hover { background: var(--border); border-color: var(--muted); }
         .field-chip .dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
 
-        .field-chip-dark {
-            display: inline-flex; align-items: center; gap: 5px;
-            padding: var(--space-1) 9px var(--space-1) 7px; border-radius: var(--radius-pill); cursor: pointer;
-            font-size: 12px; font-weight: 500;
+        .surface-dark .field-chip {
             background: var(--on-dark-10); border: 1px solid var(--on-dark-22);
-            color: var(--on-dark-88); user-select: none; white-space: nowrap;
-            transition: background 0.1s, border-color 0.1s;
+            color: var(--on-dark-88);
         }
-        .field-chip-dark:hover { background: var(--on-dark-18); border-color: var(--on-dark-40); }
-        .field-chip-dark .dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+        .surface-dark .field-chip:hover { background: var(--on-dark-18); border-color: var(--on-dark-40); }
         .chip-edit-icon { font-size: 9px; opacity: 0.4; margin-left: 1px; }
 
         /* Compact inputs inside a team row */
@@ -1821,7 +1816,7 @@ function markUnsaved() {
 // ── Chip helpers ─────────────────────────────────────────
 function makeChip(label, isSet, dark, iconClass) {
     const chip = document.createElement('span');
-    chip.className = dark ? 'field-chip-dark' : 'field-chip';
+    chip.className = 'field-chip';   // dark variant now comes from a .surface-dark ancestor
     const dot = document.createElement('span');
     dot.className = 'dot ' + (isSet ? 'dot-green' : 'dot-red');
     chip.appendChild(dot);
@@ -2025,7 +2020,7 @@ function buildUI() {
 
             // ── Header (single row) ──────────────────────────
             const hdr = document.createElement('div');
-            hdr.className = 'comp-header';
+            hdr.className = 'comp-header surface-dark';
 
             const hdrTop = document.createElement('div');
             hdrTop.className = 'comp-header-top';
@@ -2046,7 +2041,7 @@ function buildUI() {
             const cdotEl = cchip.querySelector('.dot');
 
             const ci = document.createElement('input');
-            ci.className = 'ch-input-dark' + (compCh&&validCh(compCh)?' valid':compCh?' bad':'');
+            ci.className = 'ch-input' + (compCh&&validCh(compCh)?' valid':compCh?' bad':'');
             ci.id = 'cinp-' + comp.slug;
             ci.dataset.comp = comp.name;
             ci.value = compCh;
@@ -2054,7 +2049,7 @@ function buildUI() {
             ci.style.display = 'none';
 
             const searchA = document.createElement('a');
-            searchA.className = 'yt-btn-dark' + (compCh && validCh(compCh) ? '' : ' disabled');
+            searchA.className = 'yt-btn' + (compCh && validCh(compCh) ? '' : ' disabled');
             searchA.href = compCh && validCh(compCh) ? 'https://www.youtube.com/channel/' + compCh : '#';
             searchA.target = '_blank';
             searchA.innerHTML = '<i class="fi-br-play"></i> Open';
@@ -2392,7 +2387,7 @@ function addTeam(slug, compName, list, addBtn) {
 function collectData() {
     // Spread all existing keys first so sync-managed fields (teamLists, etc.) survive a save.
     const data = { ...sourcesData, competitions:{}, teams:{}, playlists:{}, teamPlaylists:{} };
-    document.querySelectorAll('.ch-input-dark[data-comp]').forEach(inp => {
+    document.querySelectorAll('.ch-input[data-comp]').forEach(inp => {
         data.competitions[inp.dataset.comp] = inp.value.trim();
     });
     document.querySelectorAll('.bcast-section').forEach(section => {
