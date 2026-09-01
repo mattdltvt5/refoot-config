@@ -4,6 +4,26 @@ Remote channel configuration for the **ReFoot Highlights** Android app.
 
 ## Recent changes
 
+### Web Admin: two-surface design-token layer (2026-08-31)
+
+Introduced a CSS custom-property token layer into `admin.html`'s inline `<style>` and replaced the hardcoded
+color / radius / spacing literals in the rule bodies with `var()` references — the first step toward a shared
+Web-Admin stylesheet. The companion inventory that justifies it, **`DESIGN_AUDIT.md`**, lands in the same change.
+
+- **Two surfaces.** A *light* surface (default) keeps the existing 12 `:root` tokens (names unchanged) and adds
+  canonical semantic colors (`--accent`/`--success`/`--danger`/`--warning`), surface tints, a 3-step radius
+  scale (`--radius-sm|md|pill`), a 4px spacing scale (`--space-1…6`), and elevation/overlay/accent-alpha tokens.
+  A named *dark* ramp (`--surface-dark-bg`, `--on-dark`, `--on-dark-08 … --on-dark-88`) replaces the 17 ad-hoc
+  `rgba(255,255,255,α)` values and backs the existing `-dark` twin classes.
+- **Deliberate consolidation only.** Former also-ran greens/reds/blues (`#388E3C`/`#2E7D32`, `#D32F2F`/`#C62828`/
+  `#cc0000`, `#1565C0`) now resolve to their canonical semantic token, off-scale radii snap to the scale, and the
+  stray greys (`#BDBDBD`, tint one-offs) fold into the ramp. Spacing swaps are value-preserving. Everything else
+  renders identically.
+- **Scope.** `<style>` values only — no markup, JavaScript, class names, or call sites changed; no `.surface-dark`
+  scope and no twin-class collapse yet (those, plus reducing the 21 button treatments and a component gallery,
+  are later steps). Off-scale one-off paddings (e.g. button `9px 22px`) are intentionally left for the
+  component-consolidation step. Served directly via GitHub Pages — no build/deploy step.
+
 ### Fix: matches stuck "live" long after kickoff (FINISHED→IN_PLAY reversion) (2026-08-30)
 
 A regression let already-played matches show as **LIVE** in the app hours after kickoff (e.g. on
