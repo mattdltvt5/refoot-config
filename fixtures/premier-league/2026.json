@@ -1,7 +1,7 @@
 {
   "competition": "Premier League",
   "season": 2026,
-  "generated_at": "2026-09-02T13:26:13Z",
+  "generated_at": "2026-09-02T13:31:20Z",
   "fixtures": [
     {
       "match_id": 560542,
@@ -2020,34 +2020,6 @@
       "utcDate": "2026-10-24T11:30:00Z"
     },
     {
-      "match_id": 560612,
-      "group": "",
-      "matchday": 8,
-      "sourceRound": "Gameweek 8",
-      "homeTeam": {
-        "id": 64,
-        "name": "Liverpool FC",
-        "shortName": "Liverpool",
-        "tla": "LIV",
-        "crest": "https://crests.football-data.org/64.png"
-      },
-      "awayTeam": {
-        "id": 397,
-        "name": "Brighton & Hove Albion FC",
-        "shortName": "Brighton Hove",
-        "tla": "BHA",
-        "crest": "https://crests.football-data.org/397.png"
-      },
-      "score": {
-        "fullTime": {
-          "home": null,
-          "away": null
-        }
-      },
-      "status": "2026-10-24 13:00:00Z",
-      "utcDate": "2026-10-24T14:00:00Z"
-    },
-    {
       "match_id": 560616,
       "group": "",
       "matchday": 8,
@@ -2130,6 +2102,34 @@
       },
       "status": "TIMED",
       "utcDate": "2026-10-24T16:30:00Z"
+    },
+    {
+      "match_id": 560612,
+      "group": "",
+      "matchday": 8,
+      "sourceRound": "Gameweek 8",
+      "homeTeam": {
+        "id": 64,
+        "name": "Liverpool FC",
+        "shortName": "Liverpool",
+        "tla": "LIV",
+        "crest": "https://crests.football-data.org/64.png"
+      },
+      "awayTeam": {
+        "id": 397,
+        "name": "Brighton & Hove Albion FC",
+        "shortName": "Brighton Hove",
+        "tla": "BHA",
+        "crest": "https://crests.football-data.org/397.png"
+      },
+      "score": {
+        "fullTime": {
+          "home": null,
+          "away": null
+        }
+      },
+      "status": "2026-10-24 13:00:00Z",
+      "utcDate": "2026-10-25T14:00:00Z"
     },
     {
       "match_id": 560613,
@@ -2465,7 +2465,7 @@
         }
       },
       "status": "2026-11-01 14:00:00Z",
-      "utcDate": "2026-11-01T14:00:00Z"
+      "utcDate": "2026-10-31T20:00:00Z"
     },
     {
       "match_id": 560631,
