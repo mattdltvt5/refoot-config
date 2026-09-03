@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-03T11:59:35.297354Z",
+  "generated_at": "2026-09-03T21:06:58.486722Z",
   "competition": "LaLiga",
   "slug": "laliga",
   "season": 2026,
@@ -197,6 +197,25 @@
     {
       "position": 11,
       "team": {
+        "id": 92,
+        "name": "Real Sociedad de Fútbol",
+        "shortName": "Real Sociedad",
+        "tla": "RSO",
+        "crest": "https://crests.football-data.org/92.png"
+      },
+      "playedGames": 4,
+      "form": "D,W,L,L",
+      "won": 1,
+      "draw": 1,
+      "lost": 2,
+      "points": 4,
+      "goalsFor": 3,
+      "goalsAgainst": 6,
+      "goalDifference": -3
+    },
+    {
+      "position": 12,
+      "team": {
         "id": 80,
         "name": "RCD Espanyol de Barcelona",
         "shortName": "Espanyol",
@@ -214,7 +233,7 @@
       "goalDifference": 1
     },
     {
-      "position": 12,
+      "position": 13,
       "team": {
         "id": 77,
         "name": "Athletic Club",
@@ -231,25 +250,6 @@
       "goalsFor": 3,
       "goalsAgainst": 5,
       "goalDifference": -2
-    },
-    {
-      "position": 13,
-      "team": {
-        "id": 92,
-        "name": "Real Sociedad de Fútbol",
-        "shortName": "Real Sociedad",
-        "tla": "RSO",
-        "crest": "https://crests.football-data.org/92.png"
-      },
-      "playedGames": 3,
-      "form": "W,L,L",
-      "won": 1,
-      "draw": 0,
-      "lost": 2,
-      "points": 3,
-      "goalsFor": 3,
-      "goalsAgainst": 6,
-      "goalDifference": -3
     },
     {
       "position": 14,
@@ -292,18 +292,18 @@
     {
       "position": 16,
       "team": {
-        "id": 95,
-        "name": "Valencia CF",
-        "shortName": "Valencia",
-        "tla": "VAL",
-        "crest": "https://crests.football-data.org/95.png"
+        "id": 558,
+        "name": "RC Celta de Vigo",
+        "shortName": "Celta",
+        "tla": "CEL",
+        "crest": "https://crests.football-data.org/558.png"
       },
-      "playedGames": 3,
-      "form": "L,L,D",
+      "playedGames": 4,
+      "form": "D,L,L,D",
       "won": 0,
-      "draw": 1,
+      "draw": 2,
       "lost": 2,
-      "points": 1,
+      "points": 2,
       "goalsFor": 1,
       "goalsAgainst": 4,
       "goalDifference": -3
@@ -311,11 +311,11 @@
     {
       "position": 17,
       "team": {
-        "id": 558,
-        "name": "RC Celta de Vigo",
-        "shortName": "Celta",
-        "tla": "CEL",
-        "crest": "https://crests.football-data.org/558.png"
+        "id": 95,
+        "name": "Valencia CF",
+        "shortName": "Valencia",
+        "tla": "VAL",
+        "crest": "https://crests.football-data.org/95.png"
       },
       "playedGames": 3,
       "form": "L,L,D",

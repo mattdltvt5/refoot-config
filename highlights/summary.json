@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-03T21:01:37Z",
+  "generated_at": "2026-09-03T21:06:43Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -398,6 +398,21 @@
               "away": "Rayo Vallecano de Madrid",
               "date": "2026-08-31",
               "covered": true
+            }
+          ]
+        },
+        {
+          "gameweek": "GW6",
+          "stem": "gameweek-6",
+          "total": 1,
+          "covered": 0,
+          "matches": [
+            {
+              "match_id": 564682,
+              "home": "Real Sociedad de Fútbol",
+              "away": "RC Celta de Vigo",
+              "date": "2026-09-03",
+              "covered": false
             }
           ]
         }
