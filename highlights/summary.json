@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-03T20:41:16Z",
+  "generated_at": "2026-09-03T20:46:21Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -785,6 +785,21 @@
               "away": "Olympique de Marseille",
               "date": "2026-08-30",
               "covered": true
+            }
+          ]
+        },
+        {
+          "gameweek": "GW3",
+          "stem": "gameweek-3",
+          "total": 1,
+          "covered": 0,
+          "matches": [
+            {
+              "match_id": 559696,
+              "home": "Toulouse FC",
+              "away": "Lille OSC",
+              "date": "2026-09-03",
+              "covered": false
             }
           ]
         }
