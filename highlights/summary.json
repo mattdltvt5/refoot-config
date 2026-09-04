@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-04T20:26:18Z",
+  "generated_at": "2026-09-04T20:31:17Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -807,7 +807,7 @@
           "gameweek": "GW3",
           "stem": "gameweek-3",
           "total": 2,
-          "covered": 1,
+          "covered": 2,
           "matches": [
             {
               "match_id": 559696,
@@ -821,7 +821,7 @@
               "home": "Olympique Lyonnais",
               "away": "AJ Auxerre",
               "date": "2026-09-04",
-              "covered": false
+              "covered": true
             }
           ]
         }
