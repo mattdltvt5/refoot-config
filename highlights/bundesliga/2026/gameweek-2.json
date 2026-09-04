@@ -2,14 +2,21 @@
   "competition": "Bundesliga",
   "gameweek": "GW2",
   "stem": "gameweek-2",
-  "generated_at": "2026-09-04T20:36:20Z",
+  "generated_at": "2026-09-04T20:46:14Z",
   "matches": [
     {
       "match_id": 565791,
       "home_team": "VfB Stuttgart",
       "away_team": "1. FC Köln",
       "date": "2026-09-04",
-      "videos": []
+      "videos": [
+        {
+          "video_id": "AnzmrvBdVvE",
+          "title": "VfB Stuttgart vs. 1. FC Köln | Matchday 2 - Bundesliga 2026/27",
+          "published_at": "2026-09-04",
+          "tier_used": 2
+        }
+      ]
     }
   ]
 }

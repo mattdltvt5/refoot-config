@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-04T20:41:22Z",
+  "generated_at": "2026-09-04T20:46:14Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -659,14 +659,14 @@
           "gameweek": "GW2",
           "stem": "gameweek-2",
           "total": 1,
-          "covered": 0,
+          "covered": 1,
           "matches": [
             {
               "match_id": 565791,
               "home": "VfB Stuttgart",
               "away": "1. FC Köln",
               "date": "2026-09-04",
-              "covered": false
+              "covered": true
             }
           ]
         }
