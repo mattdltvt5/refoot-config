@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-03T22:56:33.328070Z",
+  "generated_at": "2026-09-04T21:17:10.836816Z",
   "competition": "LaLiga",
   "slug": "laliga",
   "season": 2026,
@@ -32,18 +32,37 @@
         "tla": "RMA",
         "crest": "https://crests.football-data.org/86.png"
       },
-      "playedGames": 3,
-      "form": "W,W,W",
+      "playedGames": 4,
+      "form": "L,W,W,W",
       "won": 3,
       "draw": 0,
-      "lost": 0,
+      "lost": 1,
       "points": 9,
       "goalsFor": 10,
-      "goalsAgainst": 2,
-      "goalDifference": 8
+      "goalsAgainst": 3,
+      "goalDifference": 7
     },
     {
       "position": 3,
+      "team": {
+        "id": 90,
+        "name": "Real Betis Balompié",
+        "shortName": "Real Betis",
+        "tla": "BET",
+        "crest": "https://crests.football-data.org/90.png"
+      },
+      "playedGames": 4,
+      "form": "W,L,W,W",
+      "won": 3,
+      "draw": 0,
+      "lost": 1,
+      "points": 9,
+      "goalsFor": 5,
+      "goalsAgainst": 5,
+      "goalDifference": 0
+    },
+    {
+      "position": 4,
       "team": {
         "id": 78,
         "name": "Club Atlético de Madrid",
@@ -62,7 +81,7 @@
       "goalDifference": 4
     },
     {
-      "position": 4,
+      "position": 5,
       "team": {
         "id": 263,
         "name": "Deportivo Alavés",
@@ -81,7 +100,7 @@
       "goalDifference": 4
     },
     {
-      "position": 5,
+      "position": 6,
       "team": {
         "id": 79,
         "name": "CA Osasuna",
@@ -100,7 +119,7 @@
       "goalDifference": 2
     },
     {
-      "position": 6,
+      "position": 7,
       "team": {
         "id": 559,
         "name": "Sevilla FC",
@@ -117,25 +136,6 @@
       "goalsFor": 6,
       "goalsAgainst": 5,
       "goalDifference": 1
-    },
-    {
-      "position": 7,
-      "team": {
-        "id": 90,
-        "name": "Real Betis Balompié",
-        "shortName": "Real Betis",
-        "tla": "BET",
-        "crest": "https://crests.football-data.org/90.png"
-      },
-      "playedGames": 3,
-      "form": "L,W,W",
-      "won": 2,
-      "draw": 0,
-      "lost": 1,
-      "points": 6,
-      "goalsFor": 4,
-      "goalsAgainst": 5,
-      "goalDifference": -1
     },
     {
       "position": 8,

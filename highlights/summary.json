@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-04T21:11:49Z",
+  "generated_at": "2026-09-04T21:16:49Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -413,6 +413,21 @@
               "away": "Rayo Vallecano de Madrid",
               "date": "2026-08-31",
               "covered": true
+            }
+          ]
+        },
+        {
+          "gameweek": "GW4",
+          "stem": "gameweek-4",
+          "total": 1,
+          "covered": 0,
+          "matches": [
+            {
+              "match_id": 564667,
+              "home": "Real Betis Balompié",
+              "away": "Real Madrid CF",
+              "date": "2026-09-04",
+              "covered": false
             }
           ]
         },
