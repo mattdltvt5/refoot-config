@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-04T21:16:49Z",
+  "generated_at": "2026-09-04T21:21:36Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -420,14 +420,14 @@
           "gameweek": "GW4",
           "stem": "gameweek-4",
           "total": 1,
-          "covered": 0,
+          "covered": 1,
           "matches": [
             {
               "match_id": 564667,
               "home": "Real Betis Balompié",
               "away": "Real Madrid CF",
               "date": "2026-09-04",
-              "covered": false
+              "covered": true
             }
           ]
         },
