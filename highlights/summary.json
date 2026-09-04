@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-04T22:01:35Z",
+  "generated_at": "2026-09-04T22:06:34Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -867,7 +867,7 @@
           "gameweek": "GW3",
           "stem": "gameweek-3",
           "total": 3,
-          "covered": 2,
+          "covered": 3,
           "matches": [
             {
               "match_id": 559696,
@@ -888,7 +888,7 @@
               "home": "Paris Saint-Germain FC",
               "away": "AS Monaco FC",
               "date": "2026-09-04",
-              "covered": false
+              "covered": true
             }
           ]
         }
