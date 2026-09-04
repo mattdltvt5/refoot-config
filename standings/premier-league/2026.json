@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-03T11:59:27.722061Z",
+  "generated_at": "2026-09-04T21:06:36.856805Z",
   "competition": "Premier League",
   "slug": "premier-league",
   "season": 2026,
@@ -83,6 +83,25 @@
     {
       "position": 5,
       "team": {
+        "id": 64,
+        "name": "Liverpool FC",
+        "shortName": "Liverpool",
+        "tla": "LIV",
+        "crest": "https://crests.football-data.org/64.png"
+      },
+      "playedGames": 3,
+      "form": "W,D,D",
+      "won": 1,
+      "draw": 2,
+      "lost": 0,
+      "points": 5,
+      "goalsFor": 6,
+      "goalsAgainst": 4,
+      "goalDifference": 2
+    },
+    {
+      "position": 6,
+      "team": {
         "id": 402,
         "name": "Brentford FC",
         "shortName": "Brentford",
@@ -100,7 +119,7 @@
       "goalDifference": 3
     },
     {
-      "position": 6,
+      "position": 7,
       "team": {
         "id": 67,
         "name": "Newcastle United FC",
@@ -119,7 +138,7 @@
       "goalDifference": 2
     },
     {
-      "position": 7,
+      "position": 8,
       "team": {
         "id": 62,
         "name": "Everton FC",
@@ -138,7 +157,7 @@
       "goalDifference": 2
     },
     {
-      "position": 8,
+      "position": 9,
       "team": {
         "id": 341,
         "name": "Leeds United FC",
@@ -157,7 +176,7 @@
       "goalDifference": 1
     },
     {
-      "position": 9,
+      "position": 10,
       "team": {
         "id": 397,
         "name": "Brighton & Hove Albion FC",
@@ -176,7 +195,7 @@
       "goalDifference": 3
     },
     {
-      "position": 10,
+      "position": 11,
       "team": {
         "id": 66,
         "name": "Manchester United FC",
@@ -195,7 +214,7 @@
       "goalDifference": 1
     },
     {
-      "position": 11,
+      "position": 12,
       "team": {
         "id": 71,
         "name": "Sunderland AFC",
@@ -214,7 +233,7 @@
       "goalDifference": 0
     },
     {
-      "position": 12,
+      "position": 13,
       "team": {
         "id": 349,
         "name": "Ipswich Town FC",
@@ -222,34 +241,15 @@
         "tla": "IPS",
         "crest": "https://crests.football-data.org/349.png"
       },
-      "playedGames": 2,
-      "form": "L,W",
+      "playedGames": 3,
+      "form": "L,L,W",
       "won": 1,
       "draw": 0,
-      "lost": 1,
+      "lost": 2,
       "points": 3,
       "goalsFor": 4,
-      "goalsAgainst": 6,
-      "goalDifference": -2
-    },
-    {
-      "position": 13,
-      "team": {
-        "id": 64,
-        "name": "Liverpool FC",
-        "shortName": "Liverpool",
-        "tla": "LIV",
-        "crest": "https://crests.football-data.org/64.png"
-      },
-      "playedGames": 2,
-      "form": "D,D",
-      "won": 0,
-      "draw": 2,
-      "lost": 0,
-      "points": 2,
-      "goalsFor": 4,
-      "goalsAgainst": 4,
-      "goalDifference": 0
+      "goalsAgainst": 8,
+      "goalDifference": -4
     },
     {
       "position": 14,

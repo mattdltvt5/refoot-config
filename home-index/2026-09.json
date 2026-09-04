@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-04T21:01:18Z",
+  "generated_at": "2026-09-04T21:06:11Z",
   "month": "2026-09",
   "dates": {
     "2026-09-03": [
@@ -83,7 +83,7 @@
             },
             "homeScore": 0,
             "awayScore": 2,
-            "status": "IN_PLAY",
+            "status": "FINISHED",
             "utcDate": "2026-09-04T19:00:00Z"
           }
         ]
@@ -465,7 +465,7 @@
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "2026-09-05 12:00:00Z",
+            "status": "TIMED",
             "utcDate": "2026-09-05T13:00:00Z"
           },
           {
@@ -486,7 +486,7 @@
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "2026-09-05 15:00:00Z",
+            "status": "TIMED",
             "utcDate": "2026-09-05T16:00:00Z"
           },
           {
@@ -507,7 +507,7 @@
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "2026-09-05 17:45:00Z",
+            "status": "TIMED",
             "utcDate": "2026-09-05T18:45:00Z"
           }
         ]
@@ -666,7 +666,7 @@
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "2026-09-05 14:15:00Z",
+            "status": "TIMED",
             "utcDate": "2026-09-05T15:15:00Z"
           },
           {
@@ -687,7 +687,7 @@
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "2026-09-05 17:45:00Z",
+            "status": "TIMED",
             "utcDate": "2026-09-05T18:45:00Z"
           },
           {
@@ -708,7 +708,7 @@
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "2026-09-05 17:45:00Z",
+            "status": "TIMED",
             "utcDate": "2026-09-05T18:45:00Z"
           }
         ]
@@ -875,7 +875,7 @@
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "2026-09-06 12:00:00Z",
+            "status": "TIMED",
             "utcDate": "2026-09-06T13:00:00Z"
           },
           {
@@ -896,7 +896,7 @@
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "2026-09-06 12:00:00Z",
+            "status": "TIMED",
             "utcDate": "2026-09-06T13:00:00Z"
           },
           {
@@ -917,7 +917,7 @@
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "2026-09-06 15:00:00Z",
+            "status": "TIMED",
             "utcDate": "2026-09-06T16:00:00Z"
           },
           {
@@ -938,7 +938,7 @@
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "2026-09-06 17:45:00Z",
+            "status": "TIMED",
             "utcDate": "2026-09-06T18:45:00Z"
           }
         ]
@@ -1013,7 +1013,7 @@
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "2026-09-06 12:00:00Z",
+            "status": "TIMED",
             "utcDate": "2026-09-06T13:00:00Z"
           },
           {
@@ -1034,7 +1034,7 @@
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "2026-09-06 14:15:00Z",
+            "status": "TIMED",
             "utcDate": "2026-09-06T15:15:00Z"
           },
           {
@@ -1055,7 +1055,7 @@
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "2026-09-06 17:45:00Z",
+            "status": "TIMED",
             "utcDate": "2026-09-06T18:45:00Z"
           }
         ]
@@ -1132,7 +1132,7 @@
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "2026-09-07 15:30:00Z",
+            "status": "TIMED",
             "utcDate": "2026-09-07T16:30:00Z"
           },
           {
@@ -1153,7 +1153,7 @@
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "2026-09-07 17:45:00Z",
+            "status": "TIMED",
             "utcDate": "2026-09-07T18:45:00Z"
           }
         ]
@@ -1209,7 +1209,7 @@
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "2026-09-11 17:45:00Z",
+            "status": "TIMED",
             "utcDate": "2026-09-11T18:45:00Z"
           }
         ]
@@ -1263,7 +1263,7 @@
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "2026-09-11 17:45:00Z",
+            "status": "TIMED",
             "utcDate": "2026-09-11T18:45:00Z"
           }
         ]
@@ -1535,7 +1535,7 @@
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "2026-09-12 12:00:00Z",
+            "status": "TIMED",
             "utcDate": "2026-09-12T13:00:00Z"
           },
           {
@@ -1556,7 +1556,7 @@
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "2026-09-12 15:00:00Z",
+            "status": "TIMED",
             "utcDate": "2026-09-12T16:00:00Z"
           },
           {
@@ -1577,7 +1577,7 @@
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "2026-09-12 17:45:00Z",
+            "status": "TIMED",
             "utcDate": "2026-09-12T18:45:00Z"
           }
         ]
@@ -1736,7 +1736,7 @@
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "2026-09-12 14:15:00Z",
+            "status": "TIMED",
             "utcDate": "2026-09-12T15:15:00Z"
           },
           {
@@ -1757,7 +1757,7 @@
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "2026-09-12 17:45:00Z",
+            "status": "TIMED",
             "utcDate": "2026-09-12T18:45:00Z"
           },
           {
@@ -1778,7 +1778,7 @@
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "2026-09-12 17:45:00Z",
+            "status": "TIMED",
             "utcDate": "2026-09-12T18:45:00Z"
           },
           {
@@ -1799,7 +1799,7 @@
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "2026-09-12 17:45:00Z",
+            "status": "TIMED",
             "utcDate": "2026-09-12T18:45:00Z"
           },
           {
@@ -1820,7 +1820,7 @@
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "2026-09-12 17:45:00Z",
+            "status": "TIMED",
             "utcDate": "2026-09-12T18:45:00Z"
           }
         ]
@@ -1987,7 +1987,7 @@
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "2026-09-13 12:00:00Z",
+            "status": "TIMED",
             "utcDate": "2026-09-13T13:00:00Z"
           },
           {
@@ -2008,7 +2008,7 @@
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "2026-09-13 15:00:00Z",
+            "status": "TIMED",
             "utcDate": "2026-09-13T16:00:00Z"
           },
           {
@@ -2029,7 +2029,7 @@
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "2026-09-13 17:45:00Z",
+            "status": "TIMED",
             "utcDate": "2026-09-13T18:45:00Z"
           }
         ]
@@ -2104,7 +2104,7 @@
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "2026-09-13 12:00:00Z",
+            "status": "TIMED",
             "utcDate": "2026-09-13T13:00:00Z"
           },
           {
@@ -2125,7 +2125,7 @@
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "2026-09-13 14:15:00Z",
+            "status": "TIMED",
             "utcDate": "2026-09-13T15:15:00Z"
           },
           {
@@ -2146,7 +2146,7 @@
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "2026-09-13 17:45:00Z",
+            "status": "TIMED",
             "utcDate": "2026-09-13T18:45:00Z"
           }
         ]
@@ -2229,7 +2229,7 @@
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "2026-09-14 15:30:00Z",
+            "status": "TIMED",
             "utcDate": "2026-09-14T16:30:00Z"
           },
           {
@@ -2250,7 +2250,7 @@
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "2026-09-14 15:30:00Z",
+            "status": "TIMED",
             "utcDate": "2026-09-14T16:30:00Z"
           },
           {
@@ -2271,7 +2271,7 @@
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "2026-09-14 17:45:00Z",
+            "status": "TIMED",
             "utcDate": "2026-09-14T18:45:00Z"
           }
         ]
@@ -2567,7 +2567,7 @@
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "2026-09-18 17:45:00Z",
+            "status": "TIMED",
             "utcDate": "2026-09-18T18:45:00Z"
           }
         ]
@@ -2621,7 +2621,7 @@
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "2026-09-18 17:45:00Z",
+            "status": "TIMED",
             "utcDate": "2026-09-18T18:45:00Z"
           }
         ]
@@ -2851,7 +2851,7 @@
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "2026-09-19 12:00:00Z",
+            "status": "TIMED",
             "utcDate": "2026-09-19T13:00:00Z"
           },
           {
@@ -2872,7 +2872,7 @@
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "2026-09-19 12:00:00Z",
+            "status": "TIMED",
             "utcDate": "2026-09-19T13:00:00Z"
           },
           {
@@ -2893,7 +2893,7 @@
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "2026-09-19 15:00:00Z",
+            "status": "TIMED",
             "utcDate": "2026-09-19T16:00:00Z"
           },
           {
@@ -2914,7 +2914,7 @@
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "2026-09-19 17:45:00Z",
+            "status": "TIMED",
             "utcDate": "2026-09-19T18:45:00Z"
           }
         ]
@@ -3052,7 +3052,7 @@
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "2026-09-19 14:15:00Z",
+            "status": "TIMED",
             "utcDate": "2026-09-19T15:15:00Z"
           },
           {
@@ -3073,7 +3073,7 @@
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "2026-09-19 17:45:00Z",
+            "status": "TIMED",
             "utcDate": "2026-09-19T18:45:00Z"
           },
           {
@@ -3094,7 +3094,7 @@
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "2026-09-19 17:45:00Z",
+            "status": "TIMED",
             "utcDate": "2026-09-19T18:45:00Z"
           },
           {
@@ -3115,7 +3115,7 @@
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "2026-09-19 17:45:00Z",
+            "status": "TIMED",
             "utcDate": "2026-09-19T18:45:00Z"
           },
           {
@@ -3136,7 +3136,7 @@
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "2026-09-19 17:45:00Z",
+            "status": "TIMED",
             "utcDate": "2026-09-19T18:45:00Z"
           }
         ]
@@ -3366,7 +3366,7 @@
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "2026-09-20 09:30:00Z",
+            "status": "TIMED",
             "utcDate": "2026-09-20T10:30:00Z"
           },
           {
@@ -3387,7 +3387,7 @@
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "2026-09-20 12:00:00Z",
+            "status": "TIMED",
             "utcDate": "2026-09-20T13:00:00Z"
           },
           {
@@ -3408,7 +3408,7 @@
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "2026-09-20 12:00:00Z",
+            "status": "TIMED",
             "utcDate": "2026-09-20T13:00:00Z"
           },
           {
@@ -3429,7 +3429,7 @@
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "2026-09-20 15:00:00Z",
+            "status": "TIMED",
             "utcDate": "2026-09-20T16:00:00Z"
           },
           {
@@ -3450,7 +3450,7 @@
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "2026-09-20 17:45:00Z",
+            "status": "TIMED",
             "utcDate": "2026-09-20T18:45:00Z"
           }
         ]
@@ -3546,7 +3546,7 @@
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "2026-09-20 12:00:00Z",
+            "status": "TIMED",
             "utcDate": "2026-09-20T13:00:00Z"
           },
           {
@@ -3567,7 +3567,7 @@
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "2026-09-20 14:15:00Z",
+            "status": "TIMED",
             "utcDate": "2026-09-20T15:15:00Z"
           },
           {
@@ -3588,7 +3588,7 @@
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "2026-09-20 17:45:00Z",
+            "status": "TIMED",
             "utcDate": "2026-09-20T18:45:00Z"
           }
         ]
