@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-04T20:11:11Z",
+  "generated_at": "2026-09-04T20:16:17Z",
   "month": "2026-09",
   "dates": {
     "2026-09-03": [
@@ -110,7 +110,7 @@
             },
             "homeScore": 0,
             "awayScore": 0,
-            "status": "IN_PLAY",
+            "status": "PAUSED",
             "utcDate": "2026-09-04T19:00:00Z"
           }
         ]
@@ -162,7 +162,7 @@
               "tla": "KOE",
               "crest": "https://crests.football-data.org/1.png"
             },
-            "homeScore": 2,
+            "homeScore": 3,
             "awayScore": 0,
             "status": "IN_PLAY",
             "utcDate": "2026-09-04T18:30:00Z"
@@ -212,7 +212,7 @@
             },
             "homeScore": 1,
             "awayScore": 0,
-            "status": "PAUSED",
+            "status": "IN_PLAY",
             "utcDate": "2026-09-04T19:05:00Z"
           }
         ]
