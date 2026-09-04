@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-04T21:06:21Z",
+  "generated_at": "2026-09-04T21:11:49Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -851,7 +851,7 @@
         {
           "gameweek": "GW3",
           "stem": "gameweek-3",
-          "total": 2,
+          "total": 3,
           "covered": 2,
           "matches": [
             {
@@ -867,6 +867,13 @@
               "away": "AJ Auxerre",
               "date": "2026-09-04",
               "covered": true
+            },
+            {
+              "match_id": 559697,
+              "home": "Paris Saint-Germain FC",
+              "away": "AS Monaco FC",
+              "date": "2026-09-04",
+              "covered": false
             }
           ]
         }
