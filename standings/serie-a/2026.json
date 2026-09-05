@@ -1,11 +1,30 @@
 {
-  "generated_at": "2026-09-05T19:56:39.968346Z",
+  "generated_at": "2026-09-05T20:51:23.910809Z",
   "competition": "Serie A",
   "slug": "serie-a",
   "season": 2026,
   "standings": [
     {
       "position": 1,
+      "team": {
+        "id": 100,
+        "name": "AS Roma",
+        "shortName": "Roma",
+        "tla": "ROM",
+        "crest": "https://crests.football-data.org/100.png"
+      },
+      "playedGames": 3,
+      "form": "W,W,W",
+      "won": 3,
+      "draw": 0,
+      "lost": 0,
+      "points": 9,
+      "goalsFor": 10,
+      "goalsAgainst": 1,
+      "goalDifference": 9
+    },
+    {
+      "position": 2,
       "team": {
         "id": 108,
         "name": "FC Internazionale Milano",
@@ -24,7 +43,7 @@
       "goalDifference": 5
     },
     {
-      "position": 2,
+      "position": 3,
       "team": {
         "id": 7397,
         "name": "Como 1907",
@@ -41,25 +60,6 @@
       "goalsFor": 7,
       "goalsAgainst": 3,
       "goalDifference": 4
-    },
-    {
-      "position": 3,
-      "team": {
-        "id": 100,
-        "name": "AS Roma",
-        "shortName": "Roma",
-        "tla": "ROM",
-        "crest": "https://crests.football-data.org/100.png"
-      },
-      "playedGames": 2,
-      "form": "W,W",
-      "won": 2,
-      "draw": 0,
-      "lost": 0,
-      "points": 6,
-      "goalsFor": 8,
-      "goalsAgainst": 0,
-      "goalDifference": 8
     },
     {
       "position": 4,
@@ -102,25 +102,6 @@
     {
       "position": 6,
       "team": {
-        "id": 102,
-        "name": "Atalanta BC",
-        "shortName": "Atalanta",
-        "tla": "ATA",
-        "crest": "https://crests.football-data.org/102.png"
-      },
-      "playedGames": 2,
-      "form": "W,W",
-      "won": 2,
-      "draw": 0,
-      "lost": 0,
-      "points": 6,
-      "goalsFor": 3,
-      "goalsAgainst": 1,
-      "goalDifference": 2
-    },
-    {
-      "position": 7,
-      "team": {
         "id": 110,
         "name": "SS Lazio",
         "shortName": "Lazio",
@@ -136,6 +117,25 @@
       "goalsFor": 2,
       "goalsAgainst": 0,
       "goalDifference": 2
+    },
+    {
+      "position": 7,
+      "team": {
+        "id": 102,
+        "name": "Atalanta BC",
+        "shortName": "Atalanta",
+        "tla": "ATA",
+        "crest": "https://crests.football-data.org/102.png"
+      },
+      "playedGames": 3,
+      "form": "L,W,W",
+      "won": 2,
+      "draw": 0,
+      "lost": 1,
+      "points": 6,
+      "goalsFor": 4,
+      "goalsAgainst": 3,
+      "goalDifference": 1
     },
     {
       "position": 8,
