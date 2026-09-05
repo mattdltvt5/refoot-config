@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-05T13:56:33.129579Z",
+  "generated_at": "2026-09-05T14:01:45.690391Z",
   "competition": "Premier League",
   "slug": "premier-league",
   "season": 2026,
@@ -83,25 +83,6 @@
     {
       "position": 5,
       "team": {
-        "id": 67,
-        "name": "Newcastle United FC",
-        "shortName": "Newcastle",
-        "tla": "NEW",
-        "crest": "https://crests.football-data.org/67.png"
-      },
-      "playedGames": 3,
-      "form": "D,W,D",
-      "won": 1,
-      "draw": 2,
-      "lost": 0,
-      "points": 5,
-      "goalsFor": 6,
-      "goalsAgainst": 4,
-      "goalDifference": 2
-    },
-    {
-      "position": 6,
-      "team": {
         "id": 64,
         "name": "Liverpool FC",
         "shortName": "Liverpool",
@@ -119,7 +100,7 @@
       "goalDifference": 2
     },
     {
-      "position": 7,
+      "position": 6,
       "team": {
         "id": 402,
         "name": "Brentford FC",
@@ -136,6 +117,25 @@
       "goalsFor": 4,
       "goalsAgainst": 1,
       "goalDifference": 3
+    },
+    {
+      "position": 7,
+      "team": {
+        "id": 67,
+        "name": "Newcastle United FC",
+        "shortName": "Newcastle",
+        "tla": "NEW",
+        "crest": "https://crests.football-data.org/67.png"
+      },
+      "playedGames": 2,
+      "form": "W,D",
+      "won": 1,
+      "draw": 1,
+      "lost": 0,
+      "points": 4,
+      "goalsFor": 4,
+      "goalsAgainst": 2,
+      "goalDifference": 2
     },
     {
       "position": 8,
@@ -254,30 +254,30 @@
     {
       "position": 14,
       "team": {
-        "id": 1044,
-        "name": "AFC Bournemouth",
-        "shortName": "Bournemouth",
-        "tla": "BOU",
-        "crest": "https://crests.football-data.org/bournemouth.png"
-      },
-      "playedGames": 3,
-      "form": "D,D,L",
-      "won": 0,
-      "draw": 2,
-      "lost": 1,
-      "points": 2,
-      "goalsFor": 4,
-      "goalsAgainst": 5,
-      "goalDifference": -1
-    },
-    {
-      "position": 15,
-      "team": {
         "id": 351,
         "name": "Nottingham Forest FC",
         "shortName": "Nottingham",
         "tla": "NOT",
         "crest": "https://crests.football-data.org/351.png"
+      },
+      "playedGames": 2,
+      "form": "D,L",
+      "won": 0,
+      "draw": 1,
+      "lost": 1,
+      "points": 1,
+      "goalsFor": 2,
+      "goalsAgainst": 3,
+      "goalDifference": -1
+    },
+    {
+      "position": 15,
+      "team": {
+        "id": 1044,
+        "name": "AFC Bournemouth",
+        "shortName": "Bournemouth",
+        "tla": "BOU",
+        "crest": "https://crests.football-data.org/bournemouth.png"
       },
       "playedGames": 2,
       "form": "D,L",
