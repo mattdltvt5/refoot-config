@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-05T18:41:12Z",
+  "generated_at": "2026-09-05T18:56:06Z",
   "month": "2026-09",
   "dates": {
     "2026-09-03": [
@@ -508,9 +508,9 @@
               "tla": "ATA",
               "crest": "https://crests.football-data.org/102.png"
             },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "TIMED",
+            "homeScore": 0,
+            "awayScore": 0,
+            "status": "IN_PLAY",
             "utcDate": "2026-09-05T18:45:00Z"
           }
         ]
@@ -688,9 +688,9 @@
               "tla": "BRE",
               "crest": "https://crests.football-data.org/512.png"
             },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "TIMED",
+            "homeScore": 0,
+            "awayScore": 0,
+            "status": "IN_PLAY",
             "utcDate": "2026-09-05T18:45:00Z"
           },
           {
@@ -709,9 +709,9 @@
               "tla": "LMF",
               "crest": "https://upload.wikimedia.org/wikipedia/en/thumb/5/57/Le_Mans_FC_logo.svg/330px-Le_Mans_FC_logo.svg.png"
             },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "TIMED",
+            "homeScore": 0,
+            "awayScore": 0,
+            "status": "IN_PLAY",
             "utcDate": "2026-09-05T18:45:00Z"
           }
         ]
