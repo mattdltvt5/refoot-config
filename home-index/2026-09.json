@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-05T17:21:12Z",
+  "generated_at": "2026-09-05T17:26:07Z",
   "month": "2026-09",
   "dates": {
     "2026-09-03": [
@@ -372,7 +372,7 @@
             },
             "homeScore": 0,
             "awayScore": 0,
-            "status": "IN_PLAY",
+            "status": "PAUSED",
             "utcDate": "2026-09-05T16:30:00Z"
           }
         ]
@@ -487,8 +487,8 @@
               "tla": "NAP",
               "crest": "https://crests.football-data.org/113.png"
             },
-            "homeScore": 0,
-            "awayScore": 1,
+            "homeScore": 1,
+            "awayScore": 2,
             "status": "IN_PLAY",
             "utcDate": "2026-09-05T16:00:00Z"
           },
