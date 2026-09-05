@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-05T13:31:27Z",
+  "generated_at": "2026-09-05T13:36:20Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -164,7 +164,7 @@
         {
           "gameweek": "GW3",
           "stem": "gameweek-3",
-          "total": 1,
+          "total": 2,
           "covered": 0,
           "matches": [
             {
@@ -172,6 +172,13 @@
               "home": "Ipswich Town FC",
               "away": "Liverpool FC",
               "date": "2026-09-04",
+              "covered": false
+            },
+            {
+              "match_id": 560571,
+              "home": "Newcastle United FC",
+              "away": "AFC Bournemouth",
+              "date": "2026-09-05",
               "covered": false
             }
           ]

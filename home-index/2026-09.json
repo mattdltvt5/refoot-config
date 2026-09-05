@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-05T13:31:18Z",
+  "generated_at": "2026-09-05T13:36:08Z",
   "month": "2026-09",
   "dates": {
     "2026-09-03": [
@@ -244,9 +244,9 @@
               "tla": "BOU",
               "crest": "https://crests.football-data.org/bournemouth.png"
             },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "TIMED",
+            "homeScore": 2,
+            "awayScore": 2,
+            "status": "FINISHED",
             "utcDate": "2026-09-05T11:30:00Z"
           },
           {
@@ -466,9 +466,9 @@
               "tla": "TOR",
               "crest": "https://crests.football-data.org/586.png"
             },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "TIMED",
+            "homeScore": 0,
+            "awayScore": 0,
+            "status": "IN_PLAY",
             "utcDate": "2026-09-05T13:00:00Z"
           },
           {
