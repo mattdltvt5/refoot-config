@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-04T23:01:45.171708Z",
+  "generated_at": "2026-09-05T17:16:46.047139Z",
   "competition": "Ligue 1",
   "slug": "ligue-1",
   "season": 2026,
@@ -121,21 +121,21 @@
     {
       "position": 7,
       "team": {
-        "id": 546,
-        "name": "Racing Club de Lens",
-        "shortName": "RC Lens",
-        "tla": "RCL",
-        "crest": "https://crests.football-data.org/546.png"
+        "id": 525,
+        "name": "FC Lorient",
+        "shortName": "Lorient",
+        "tla": "FCL",
+        "crest": "https://crests.football-data.org/525.png"
       },
-      "playedGames": 2,
-      "form": "L,W",
+      "playedGames": 3,
+      "form": "W,L,D",
       "won": 1,
-      "draw": 0,
+      "draw": 1,
       "lost": 1,
-      "points": 3,
-      "goalsFor": 6,
-      "goalsAgainst": 4,
-      "goalDifference": 2
+      "points": 4,
+      "goalsFor": 2,
+      "goalsAgainst": 2,
+      "goalDifference": 0
     },
     {
       "position": 8,
@@ -159,6 +159,25 @@
     {
       "position": 9,
       "team": {
+        "id": 546,
+        "name": "Racing Club de Lens",
+        "shortName": "RC Lens",
+        "tla": "RCL",
+        "crest": "https://crests.football-data.org/546.png"
+      },
+      "playedGames": 3,
+      "form": "L,L,W",
+      "won": 1,
+      "draw": 0,
+      "lost": 2,
+      "points": 3,
+      "goalsFor": 6,
+      "goalsAgainst": 5,
+      "goalDifference": 1
+    },
+    {
+      "position": 10,
+      "team": {
         "id": 532,
         "name": "Angers SCO",
         "shortName": "Angers SCO",
@@ -176,7 +195,7 @@
       "goalDifference": 0
     },
     {
-      "position": 10,
+      "position": 11,
       "team": {
         "id": 576,
         "name": "RC Strasbourg Alsace",
@@ -195,7 +214,7 @@
       "goalDifference": -3
     },
     {
-      "position": 11,
+      "position": 12,
       "team": {
         "id": 512,
         "name": "Stade Brestois 29",
@@ -214,7 +233,7 @@
       "goalDifference": 0
     },
     {
-      "position": 12,
+      "position": 13,
       "team": {
         "id": 524,
         "name": "Paris Saint-Germain FC",
@@ -233,7 +252,7 @@
       "goalDifference": -1
     },
     {
-      "position": 13,
+      "position": 14,
       "team": {
         "id": 535,
         "name": "Le Mans FC",
@@ -249,25 +268,6 @@
       "points": 1,
       "goalsFor": 4,
       "goalsAgainst": 5,
-      "goalDifference": -1
-    },
-    {
-      "position": 14,
-      "team": {
-        "id": 525,
-        "name": "FC Lorient",
-        "shortName": "Lorient",
-        "tla": "FCL",
-        "crest": "https://crests.football-data.org/525.png"
-      },
-      "playedGames": 2,
-      "form": "L,D",
-      "won": 0,
-      "draw": 1,
-      "lost": 1,
-      "points": 1,
-      "goalsFor": 1,
-      "goalsAgainst": 2,
       "goalDifference": -1
     },
     {
