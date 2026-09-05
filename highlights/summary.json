@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-05T15:01:27Z",
+  "generated_at": "2026-09-05T15:06:34Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -618,7 +618,7 @@
         {
           "gameweek": "GW3",
           "stem": "gameweek-3",
-          "total": 1,
+          "total": 2,
           "covered": 1,
           "matches": [
             {
@@ -627,6 +627,13 @@
               "away": "Como 1907",
               "date": "2026-09-04",
               "covered": true
+            },
+            {
+              "match_id": 558616,
+              "home": "ACF Fiorentina",
+              "away": "Torino FC",
+              "date": "2026-09-05",
+              "covered": false
             }
           ]
         }

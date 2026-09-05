@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-05T11:10:55.891393Z",
+  "generated_at": "2026-09-05T15:06:56.663258Z",
   "competition": "Serie A",
   "slug": "serie-a",
   "season": 2026,
@@ -235,6 +235,25 @@
     {
       "position": 13,
       "team": {
+        "id": 586,
+        "name": "Torino FC",
+        "shortName": "Torino",
+        "tla": "TOR",
+        "crest": "https://crests.football-data.org/586.png"
+      },
+      "playedGames": 3,
+      "form": "W,L,L",
+      "won": 1,
+      "draw": 0,
+      "lost": 2,
+      "points": 3,
+      "goalsFor": 4,
+      "goalsAgainst": 5,
+      "goalDifference": -1
+    },
+    {
+      "position": 14,
+      "team": {
         "id": 5890,
         "name": "US Lecce",
         "shortName": "Lecce",
@@ -247,25 +266,6 @@
       "draw": 0,
       "lost": 1,
       "points": 3,
-      "goalsFor": 2,
-      "goalsAgainst": 4,
-      "goalDifference": -2
-    },
-    {
-      "position": 14,
-      "team": {
-        "id": 586,
-        "name": "Torino FC",
-        "shortName": "Torino",
-        "tla": "TOR",
-        "crest": "https://crests.football-data.org/586.png"
-      },
-      "playedGames": 2,
-      "form": "L,L",
-      "won": 0,
-      "draw": 0,
-      "lost": 2,
-      "points": 0,
       "goalsFor": 2,
       "goalsAgainst": 4,
       "goalDifference": -2
@@ -374,15 +374,15 @@
         "tla": "FIO",
         "crest": "https://crests.football-data.org/99.png"
       },
-      "playedGames": 2,
-      "form": "L,L",
+      "playedGames": 3,
+      "form": "L,L,L",
       "won": 0,
       "draw": 0,
-      "lost": 2,
+      "lost": 3,
       "points": 0,
-      "goalsFor": 0,
-      "goalsAgainst": 7,
-      "goalDifference": -7
+      "goalsFor": 1,
+      "goalsAgainst": 9,
+      "goalDifference": -8
     }
   ]
 }
