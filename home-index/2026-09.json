@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-05T14:26:11Z",
+  "generated_at": "2026-09-05T14:31:20Z",
   "month": "2026-09",
   "dates": {
     "2026-09-03": [
@@ -265,9 +265,9 @@
               "tla": "TOT",
               "crest": "https://crests.football-data.org/73.png"
             },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "TIMED",
+            "homeScore": 0,
+            "awayScore": 0,
+            "status": "IN_PLAY",
             "utcDate": "2026-09-05T14:00:00Z"
           },
           {
@@ -286,9 +286,9 @@
               "tla": "COV",
               "crest": "https://crests.football-data.org/1076.png"
             },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "TIMED",
+            "homeScore": 0,
+            "awayScore": 0,
+            "status": "IN_PLAY",
             "utcDate": "2026-09-05T14:00:00Z"
           },
           {
@@ -307,9 +307,9 @@
               "tla": "LEE",
               "crest": "https://crests.football-data.org/341.png"
             },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "TIMED",
+            "homeScore": 0,
+            "awayScore": 1,
+            "status": "IN_PLAY",
             "utcDate": "2026-09-05T14:00:00Z"
           },
           {
@@ -328,9 +328,9 @@
               "tla": "SUN",
               "crest": "https://crests.football-data.org/71.png"
             },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "TIMED",
+            "homeScore": 0,
+            "awayScore": 1,
+            "status": "IN_PLAY",
             "utcDate": "2026-09-05T14:00:00Z"
           },
           {
@@ -349,9 +349,9 @@
               "tla": "CRY",
               "crest": "https://crests.football-data.org/354.png"
             },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "TIMED",
+            "homeScore": 1,
+            "awayScore": 1,
+            "status": "IN_PLAY",
             "utcDate": "2026-09-05T14:00:00Z"
           },
           {
@@ -537,7 +537,7 @@
             },
             "homeScore": 1,
             "awayScore": 0,
-            "status": "IN_PLAY",
+            "status": "PAUSED",
             "utcDate": "2026-09-05T13:30:00Z"
           },
           {
@@ -558,7 +558,7 @@
             },
             "homeScore": 1,
             "awayScore": 0,
-            "status": "IN_PLAY",
+            "status": "PAUSED",
             "utcDate": "2026-09-05T13:30:00Z"
           },
           {
@@ -579,7 +579,7 @@
             },
             "homeScore": 2,
             "awayScore": 0,
-            "status": "IN_PLAY",
+            "status": "PAUSED",
             "utcDate": "2026-09-05T13:30:00Z"
           },
           {
@@ -600,7 +600,7 @@
             },
             "homeScore": 2,
             "awayScore": 1,
-            "status": "IN_PLAY",
+            "status": "PAUSED",
             "utcDate": "2026-09-05T13:30:00Z"
           },
           {
@@ -621,7 +621,7 @@
             },
             "homeScore": 0,
             "awayScore": 1,
-            "status": "IN_PLAY",
+            "status": "PAUSED",
             "utcDate": "2026-09-05T13:30:00Z"
           },
           {
