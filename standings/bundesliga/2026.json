@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-05T17:26:35.872693Z",
+  "generated_at": "2026-09-05T18:31:46.291934Z",
   "competition": "Bundesliga",
   "slug": "bundesliga",
   "season": 2026,
@@ -70,12 +70,12 @@
         "tla": "FCB",
         "crest": "https://crests.football-data.org/5.png"
       },
-      "playedGames": 1,
-      "form": "W",
+      "playedGames": 2,
+      "form": "D,W",
       "won": 1,
-      "draw": 0,
+      "draw": 1,
       "lost": 0,
-      "points": 3,
+      "points": 4,
       "goalsFor": 5,
       "goalsAgainst": 1,
       "goalDifference": 4
@@ -254,6 +254,25 @@
     {
       "position": 14,
       "team": {
+        "id": 6,
+        "name": "FC Schalke 04",
+        "shortName": "Schalke",
+        "tla": "S04",
+        "crest": "https://crests.football-data.org/6.png"
+      },
+      "playedGames": 2,
+      "form": "D,L",
+      "won": 0,
+      "draw": 1,
+      "lost": 1,
+      "points": 1,
+      "goalsFor": 0,
+      "goalsAgainst": 3,
+      "goalDifference": -3
+    },
+    {
+      "position": 15,
+      "team": {
         "id": 28,
         "name": "1. FC Union Berlin",
         "shortName": "Union Berlin",
@@ -271,7 +290,7 @@
       "goalDifference": -4
     },
     {
-      "position": 15,
+      "position": 16,
       "team": {
         "id": 2,
         "name": "TSG 1899 Hoffenheim",
@@ -290,7 +309,7 @@
       "goalDifference": -2
     },
     {
-      "position": 16,
+      "position": 17,
       "team": {
         "id": 7,
         "name": "Hamburger SV",
@@ -307,25 +326,6 @@
       "goalsFor": 0,
       "goalsAgainst": 2,
       "goalDifference": -2
-    },
-    {
-      "position": 17,
-      "team": {
-        "id": 6,
-        "name": "FC Schalke 04",
-        "shortName": "Schalke",
-        "tla": "S04",
-        "crest": "https://crests.football-data.org/6.png"
-      },
-      "playedGames": 1,
-      "form": "L",
-      "won": 0,
-      "draw": 0,
-      "lost": 1,
-      "points": 0,
-      "goalsFor": 0,
-      "goalsAgainst": 3,
-      "goalDifference": -3
     },
     {
       "position": 18,
