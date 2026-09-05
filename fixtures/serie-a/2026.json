@@ -1,7 +1,7 @@
 {
   "competition": "Serie A",
   "season": 2026,
-  "generated_at": "2026-09-05T14:11:44Z",
+  "generated_at": "2026-09-05T14:16:13Z",
   "fixtures": [
     {
       "match_id": 558629,
@@ -612,11 +612,11 @@
       },
       "score": {
         "fullTime": {
-          "home": 0,
-          "away": 0
+          "home": null,
+          "away": null
         }
       },
-      "status": "IN_PLAY",
+      "status": "TIMED",
       "utcDate": "2026-09-05T13:00:00Z"
     },
     {
