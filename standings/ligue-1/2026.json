@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-06T19:11:53.216185Z",
+  "generated_at": "2026-09-06T20:51:31.802257Z",
   "competition": "Ligue 1",
   "slug": "ligue-1",
   "season": 2026,
@@ -26,6 +26,25 @@
     {
       "position": 2,
       "team": {
+        "id": 1045,
+        "name": "Paris FC",
+        "shortName": "Paris FC",
+        "tla": "PFC",
+        "crest": "https://crests.football-data.org/1045.png"
+      },
+      "playedGames": 3,
+      "form": "W,W,D",
+      "won": 2,
+      "draw": 1,
+      "lost": 0,
+      "points": 7,
+      "goalsFor": 6,
+      "goalsAgainst": 2,
+      "goalDifference": 4
+    },
+    {
+      "position": 3,
+      "team": {
         "id": 523,
         "name": "Olympique Lyonnais",
         "shortName": "Olympique Lyon",
@@ -43,7 +62,7 @@
       "goalDifference": 4
     },
     {
-      "position": 3,
+      "position": 4,
       "team": {
         "id": 521,
         "name": "Lille OSC",
@@ -62,7 +81,7 @@
       "goalDifference": 3
     },
     {
-      "position": 4,
+      "position": 5,
       "team": {
         "id": 529,
         "name": "Stade Rennais FC 1901",
@@ -81,7 +100,7 @@
       "goalDifference": 2
     },
     {
-      "position": 5,
+      "position": 6,
       "team": {
         "id": 576,
         "name": "RC Strasbourg Alsace",
@@ -100,7 +119,7 @@
       "goalDifference": 1
     },
     {
-      "position": 6,
+      "position": 7,
       "team": {
         "id": 512,
         "name": "Stade Brestois 29",
@@ -117,25 +136,6 @@
       "goalsFor": 6,
       "goalsAgainst": 5,
       "goalDifference": 1
-    },
-    {
-      "position": 7,
-      "team": {
-        "id": 1045,
-        "name": "Paris FC",
-        "shortName": "Paris FC",
-        "tla": "PFC",
-        "crest": "https://crests.football-data.org/1045.png"
-      },
-      "playedGames": 2,
-      "form": "W,D",
-      "won": 1,
-      "draw": 1,
-      "lost": 0,
-      "points": 4,
-      "goalsFor": 3,
-      "goalsAgainst": 0,
-      "goalDifference": 3
     },
     {
       "position": 8,
@@ -184,15 +184,15 @@
         "tla": "MAR",
         "crest": "https://crests.football-data.org/516.png"
       },
-      "playedGames": 2,
-      "form": "L,W",
+      "playedGames": 3,
+      "form": "L,L,W",
       "won": 1,
       "draw": 0,
-      "lost": 1,
+      "lost": 2,
       "points": 3,
-      "goalsFor": 4,
-      "goalsAgainst": 2,
-      "goalDifference": 2
+      "goalsFor": 6,
+      "goalsAgainst": 5,
+      "goalDifference": 1
     },
     {
       "position": 11,

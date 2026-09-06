@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-06T19:56:27.468077Z",
+  "generated_at": "2026-09-06T20:51:24.421518Z",
   "competition": "Serie A",
   "slug": "serie-a",
   "season": 2026,
@@ -64,6 +64,44 @@
     {
       "position": 4,
       "team": {
+        "id": 98,
+        "name": "AC Milan",
+        "shortName": "Milan",
+        "tla": "MIL",
+        "crest": "https://crests.football-data.org/98.png"
+      },
+      "playedGames": 3,
+      "form": "D,W,W",
+      "won": 2,
+      "draw": 1,
+      "lost": 0,
+      "points": 7,
+      "goalsFor": 5,
+      "goalsAgainst": 2,
+      "goalDifference": 3
+    },
+    {
+      "position": 5,
+      "team": {
+        "id": 109,
+        "name": "Juventus FC",
+        "shortName": "Juventus",
+        "tla": "JUV",
+        "crest": "https://crests.football-data.org/109.png"
+      },
+      "playedGames": 3,
+      "form": "D,W,W",
+      "won": 2,
+      "draw": 1,
+      "lost": 0,
+      "points": 7,
+      "goalsFor": 4,
+      "goalsAgainst": 1,
+      "goalDifference": 3
+    },
+    {
+      "position": 6,
+      "team": {
         "id": 470,
         "name": "Frosinone Calcio",
         "shortName": "Frosinone",
@@ -78,44 +116,6 @@
       "points": 6,
       "goalsFor": 6,
       "goalsAgainst": 3,
-      "goalDifference": 3
-    },
-    {
-      "position": 5,
-      "team": {
-        "id": 98,
-        "name": "AC Milan",
-        "shortName": "Milan",
-        "tla": "MIL",
-        "crest": "https://crests.football-data.org/98.png"
-      },
-      "playedGames": 2,
-      "form": "W,W",
-      "won": 2,
-      "draw": 0,
-      "lost": 0,
-      "points": 6,
-      "goalsFor": 4,
-      "goalsAgainst": 1,
-      "goalDifference": 3
-    },
-    {
-      "position": 6,
-      "team": {
-        "id": 109,
-        "name": "Juventus FC",
-        "shortName": "Juventus",
-        "tla": "JUV",
-        "crest": "https://crests.football-data.org/109.png"
-      },
-      "playedGames": 2,
-      "form": "W,W",
-      "won": 2,
-      "draw": 0,
-      "lost": 0,
-      "points": 6,
-      "goalsFor": 3,
-      "goalsAgainst": 0,
       "goalDifference": 3
     },
     {
