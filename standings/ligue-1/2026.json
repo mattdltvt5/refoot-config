@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-06T11:34:23.126015Z",
+  "generated_at": "2026-09-06T15:06:38.430813Z",
   "competition": "Ligue 1",
   "slug": "ligue-1",
   "season": 2026,
@@ -64,6 +64,25 @@
     {
       "position": 4,
       "team": {
+        "id": 576,
+        "name": "RC Strasbourg Alsace",
+        "shortName": "Strasbourg",
+        "tla": "RC ",
+        "crest": "https://crests.football-data.org/576.png"
+      },
+      "playedGames": 3,
+      "form": "W,W,L",
+      "won": 2,
+      "draw": 0,
+      "lost": 1,
+      "points": 6,
+      "goalsFor": 8,
+      "goalsAgainst": 7,
+      "goalDifference": 1
+    },
+    {
+      "position": 5,
+      "team": {
         "id": 512,
         "name": "Stade Brestois 29",
         "shortName": "Brest",
@@ -81,7 +100,7 @@
       "goalDifference": 1
     },
     {
-      "position": 5,
+      "position": 6,
       "team": {
         "id": 1045,
         "name": "Paris FC",
@@ -100,7 +119,7 @@
       "goalDifference": 3
     },
     {
-      "position": 6,
+      "position": 7,
       "team": {
         "id": 529,
         "name": "Stade Rennais FC 1901",
@@ -116,25 +135,6 @@
       "points": 4,
       "goalsFor": 5,
       "goalsAgainst": 4,
-      "goalDifference": 1
-    },
-    {
-      "position": 7,
-      "team": {
-        "id": 531,
-        "name": "ES Troyes AC",
-        "shortName": "Troyes",
-        "tla": "ETR",
-        "crest": "https://crests.football-data.org/531.png"
-      },
-      "playedGames": 2,
-      "form": "W,D",
-      "won": 1,
-      "draw": 1,
-      "lost": 0,
-      "points": 4,
-      "goalsFor": 2,
-      "goalsAgainst": 1,
       "goalDifference": 1
     },
     {
@@ -159,6 +159,25 @@
     {
       "position": 9,
       "team": {
+        "id": 531,
+        "name": "ES Troyes AC",
+        "shortName": "Troyes",
+        "tla": "ETR",
+        "crest": "https://crests.football-data.org/531.png"
+      },
+      "playedGames": 3,
+      "form": "L,W,D",
+      "won": 1,
+      "draw": 1,
+      "lost": 1,
+      "points": 4,
+      "goalsFor": 4,
+      "goalsAgainst": 7,
+      "goalDifference": -3
+    },
+    {
+      "position": 10,
+      "team": {
         "id": 516,
         "name": "Olympique de Marseille",
         "shortName": "Marseille",
@@ -176,7 +195,7 @@
       "goalDifference": 2
     },
     {
-      "position": 10,
+      "position": 11,
       "team": {
         "id": 546,
         "name": "Racing Club de Lens",
@@ -195,7 +214,7 @@
       "goalDifference": 1
     },
     {
-      "position": 11,
+      "position": 12,
       "team": {
         "id": 532,
         "name": "Angers SCO",
@@ -212,25 +231,6 @@
       "goalsFor": 3,
       "goalsAgainst": 3,
       "goalDifference": 0
-    },
-    {
-      "position": 12,
-      "team": {
-        "id": 576,
-        "name": "RC Strasbourg Alsace",
-        "shortName": "Strasbourg",
-        "tla": "RC ",
-        "crest": "https://crests.football-data.org/576.png"
-      },
-      "playedGames": 2,
-      "form": "W,L",
-      "won": 1,
-      "draw": 0,
-      "lost": 1,
-      "points": 3,
-      "goalsFor": 2,
-      "goalsAgainst": 5,
-      "goalDifference": -3
     },
     {
       "position": 13,
