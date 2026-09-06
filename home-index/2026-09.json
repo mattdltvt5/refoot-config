@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-06T15:36:08Z",
+  "generated_at": "2026-09-06T15:41:10Z",
   "month": "2026-09",
   "dates": {
     "2026-09-03": [
@@ -780,9 +780,9 @@
               "tla": "CHE",
               "crest": "https://crests.football-data.org/61.png"
             },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "TIMED",
+            "homeScore": 0,
+            "awayScore": 1,
+            "status": "IN_PLAY",
             "utcDate": "2026-09-06T15:30:00Z"
           }
         ]
@@ -808,7 +808,7 @@
               "crest": "https://crests.football-data.org/81.png"
             },
             "homeScore": 0,
-            "awayScore": 2,
+            "awayScore": 3,
             "status": "IN_PLAY",
             "utcDate": "2026-09-06T14:15:00Z"
           },
@@ -1008,9 +1008,9 @@
               "tla": "FCA",
               "crest": "https://crests.football-data.org/16.png"
             },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "TIMED",
+            "homeScore": 0,
+            "awayScore": 0,
+            "status": "IN_PLAY",
             "utcDate": "2026-09-06T15:30:00Z"
           }
         ]
@@ -1057,7 +1057,7 @@
               "crest": "https://crests.football-data.org/529.png"
             },
             "homeScore": 0,
-            "awayScore": 1,
+            "awayScore": 2,
             "status": "IN_PLAY",
             "utcDate": "2026-09-06T15:15:00Z"
           },
