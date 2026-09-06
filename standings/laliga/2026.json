@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-06T18:11:31.664680Z",
+  "generated_at": "2026-09-06T18:36:30.209908Z",
   "competition": "LaLiga",
   "slug": "laliga",
   "season": 2026,
@@ -26,6 +26,25 @@
     {
       "position": 2,
       "team": {
+        "id": 263,
+        "name": "Deportivo Alavés",
+        "shortName": "Alavés",
+        "tla": "ALA",
+        "crest": "https://crests.football-data.org/263.png"
+      },
+      "playedGames": 4,
+      "form": "W,W,D,W",
+      "won": 3,
+      "draw": 1,
+      "lost": 0,
+      "points": 10,
+      "goalsFor": 10,
+      "goalsAgainst": 3,
+      "goalDifference": 7
+    },
+    {
+      "position": 3,
+      "team": {
         "id": 86,
         "name": "Real Madrid CF",
         "shortName": "Real Madrid",
@@ -43,7 +62,7 @@
       "goalDifference": 7
     },
     {
-      "position": 3,
+      "position": 4,
       "team": {
         "id": 90,
         "name": "Real Betis Balompié",
@@ -62,7 +81,7 @@
       "goalDifference": 0
     },
     {
-      "position": 4,
+      "position": 5,
       "team": {
         "id": 560,
         "name": "RC Deportivo La Coruña",
@@ -81,45 +100,7 @@
       "goalDifference": 3
     },
     {
-      "position": 5,
-      "team": {
-        "id": 263,
-        "name": "Deportivo Alavés",
-        "shortName": "Alavés",
-        "tla": "ALA",
-        "crest": "https://crests.football-data.org/263.png"
-      },
-      "playedGames": 3,
-      "form": "W,D,W",
-      "won": 2,
-      "draw": 1,
-      "lost": 0,
-      "points": 7,
-      "goalsFor": 5,
-      "goalsAgainst": 1,
-      "goalDifference": 4
-    },
-    {
       "position": 6,
-      "team": {
-        "id": 79,
-        "name": "CA Osasuna",
-        "shortName": "Osasuna",
-        "tla": "OSA",
-        "crest": "https://crests.football-data.org/79.png"
-      },
-      "playedGames": 3,
-      "form": "W,W,D",
-      "won": 2,
-      "draw": 1,
-      "lost": 0,
-      "points": 7,
-      "goalsFor": 3,
-      "goalsAgainst": 1,
-      "goalDifference": 2
-    },
-    {
-      "position": 7,
       "team": {
         "id": 78,
         "name": "Club Atlético de Madrid",
@@ -136,6 +117,25 @@
       "goalsFor": 7,
       "goalsAgainst": 6,
       "goalDifference": 1
+    },
+    {
+      "position": 7,
+      "team": {
+        "id": 79,
+        "name": "CA Osasuna",
+        "shortName": "Osasuna",
+        "tla": "OSA",
+        "crest": "https://crests.football-data.org/79.png"
+      },
+      "playedGames": 4,
+      "form": "L,W,W,D",
+      "won": 2,
+      "draw": 1,
+      "lost": 1,
+      "points": 7,
+      "goalsFor": 5,
+      "goalsAgainst": 6,
+      "goalDifference": -1
     },
     {
       "position": 8,
@@ -184,12 +184,12 @@
         "tla": "LEV",
         "crest": "https://crests.football-data.org/88.png"
       },
-      "playedGames": 3,
-      "form": "W,D,L",
+      "playedGames": 4,
+      "form": "D,W,D,L",
       "won": 1,
-      "draw": 1,
+      "draw": 2,
       "lost": 1,
-      "points": 4,
+      "points": 5,
       "goalsFor": 5,
       "goalsAgainst": 5,
       "goalDifference": 0
@@ -330,6 +330,25 @@
     {
       "position": 18,
       "team": {
+        "id": 84,
+        "name": "Málaga CF",
+        "shortName": "Málaga",
+        "tla": "MAL",
+        "crest": "https://crests.football-data.org/84.png"
+      },
+      "playedGames": 4,
+      "form": "D,L,D,L",
+      "won": 0,
+      "draw": 2,
+      "lost": 2,
+      "points": 2,
+      "goalsFor": 1,
+      "goalsAgainst": 7,
+      "goalDifference": -6
+    },
+    {
+      "position": 19,
+      "team": {
         "id": 285,
         "name": "Elche CF",
         "shortName": "Elche",
@@ -344,25 +363,6 @@
       "points": 1,
       "goalsFor": 3,
       "goalsAgainst": 9,
-      "goalDifference": -6
-    },
-    {
-      "position": 19,
-      "team": {
-        "id": 84,
-        "name": "Málaga CF",
-        "shortName": "Málaga",
-        "tla": "MAL",
-        "crest": "https://crests.football-data.org/84.png"
-      },
-      "playedGames": 3,
-      "form": "L,D,L",
-      "won": 0,
-      "draw": 1,
-      "lost": 2,
-      "points": 1,
-      "goalsFor": 1,
-      "goalsAgainst": 7,
       "goalDifference": -6
     },
     {
