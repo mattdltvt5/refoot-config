@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-06T11:34:15.726384Z",
+  "generated_at": "2026-09-06T15:31:46.590727Z",
   "competition": "Bundesliga",
   "slug": "bundesliga",
   "season": 2026,
@@ -64,6 +64,25 @@
     {
       "position": 4,
       "team": {
+        "id": 15,
+        "name": "1. FSV Mainz 05",
+        "shortName": "Mainz",
+        "tla": "M05",
+        "crest": "https://crests.football-data.org/15.png"
+      },
+      "playedGames": 2,
+      "form": "W,D",
+      "won": 1,
+      "draw": 1,
+      "lost": 0,
+      "points": 4,
+      "goalsFor": 5,
+      "goalsAgainst": 0,
+      "goalDifference": 5
+    },
+    {
+      "position": 5,
+      "team": {
         "id": 5,
         "name": "FC Bayern München",
         "shortName": "Bayern",
@@ -81,7 +100,7 @@
       "goalDifference": 4
     },
     {
-      "position": 5,
+      "position": 6,
       "team": {
         "id": 3,
         "name": "Bayer 04 Leverkusen",
@@ -100,7 +119,7 @@
       "goalDifference": 3
     },
     {
-      "position": 6,
+      "position": 7,
       "team": {
         "id": 16,
         "name": "FC Augsburg",
@@ -119,7 +138,7 @@
       "goalDifference": 3
     },
     {
-      "position": 7,
+      "position": 8,
       "team": {
         "id": 721,
         "name": "RB Leipzig",
@@ -138,7 +157,7 @@
       "goalDifference": 1
     },
     {
-      "position": 8,
+      "position": 9,
       "team": {
         "id": 10,
         "name": "VfB Stuttgart",
@@ -157,7 +176,7 @@
       "goalDifference": -1
     },
     {
-      "position": 9,
+      "position": 10,
       "team": {
         "id": 12,
         "name": "SV Werder Bremen",
@@ -176,7 +195,7 @@
       "goalDifference": -1
     },
     {
-      "position": 10,
+      "position": 11,
       "team": {
         "id": 1,
         "name": "1. FC Köln",
@@ -195,7 +214,7 @@
       "goalDifference": -2
     },
     {
-      "position": 11,
+      "position": 12,
       "team": {
         "id": 19,
         "name": "Eintracht Frankfurt",
@@ -211,25 +230,6 @@
       "points": 1,
       "goalsFor": 3,
       "goalsAgainst": 3,
-      "goalDifference": 0
-    },
-    {
-      "position": 12,
-      "team": {
-        "id": 15,
-        "name": "1. FSV Mainz 05",
-        "shortName": "Mainz",
-        "tla": "M05",
-        "crest": "https://crests.football-data.org/15.png"
-      },
-      "playedGames": 1,
-      "form": "D",
-      "won": 0,
-      "draw": 1,
-      "lost": 0,
-      "points": 1,
-      "goalsFor": 0,
-      "goalsAgainst": 0,
       "goalDifference": 0
     },
     {
@@ -311,25 +311,6 @@
     {
       "position": 17,
       "team": {
-        "id": 7,
-        "name": "Hamburger SV",
-        "shortName": "HSV",
-        "tla": "HSV",
-        "crest": "https://crests.football-data.org/7.png"
-      },
-      "playedGames": 1,
-      "form": "L",
-      "won": 0,
-      "draw": 0,
-      "lost": 1,
-      "points": 0,
-      "goalsFor": 0,
-      "goalsAgainst": 2,
-      "goalDifference": -2
-    },
-    {
-      "position": 18,
-      "team": {
         "id": 18,
         "name": "Borussia Mönchengladbach",
         "shortName": "M'gladbach",
@@ -345,6 +326,25 @@
       "goalsFor": 3,
       "goalsAgainst": 7,
       "goalDifference": -4
+    },
+    {
+      "position": 18,
+      "team": {
+        "id": 7,
+        "name": "Hamburger SV",
+        "shortName": "HSV",
+        "tla": "HSV",
+        "crest": "https://crests.football-data.org/7.png"
+      },
+      "playedGames": 2,
+      "form": "L,L",
+      "won": 0,
+      "draw": 0,
+      "lost": 2,
+      "points": 0,
+      "goalsFor": 0,
+      "goalsAgainst": 7,
+      "goalDifference": -7
     }
   ]
 }
