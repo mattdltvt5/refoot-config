@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-06T16:56:18.922079Z",
+  "generated_at": "2026-09-06T17:36:24.564591Z",
   "competition": "Premier League",
   "slug": "premier-league",
   "season": 2026,
@@ -26,6 +26,25 @@
     {
       "position": 2,
       "team": {
+        "id": 57,
+        "name": "Arsenal FC",
+        "shortName": "Arsenal",
+        "tla": "ARS",
+        "crest": "https://crests.football-data.org/57.png"
+      },
+      "playedGames": 3,
+      "form": "W,W,W",
+      "won": 3,
+      "draw": 0,
+      "lost": 0,
+      "points": 9,
+      "goalsFor": 6,
+      "goalsAgainst": 1,
+      "goalDifference": 5
+    },
+    {
+      "position": 3,
+      "team": {
         "id": 322,
         "name": "Hull City AFC",
         "shortName": "Hull City",
@@ -43,25 +62,6 @@
       "goalDifference": 3
     },
     {
-      "position": 3,
-      "team": {
-        "id": 57,
-        "name": "Arsenal FC",
-        "shortName": "Arsenal",
-        "tla": "ARS",
-        "crest": "https://crests.football-data.org/57.png"
-      },
-      "playedGames": 2,
-      "form": "W,W",
-      "won": 2,
-      "draw": 0,
-      "lost": 0,
-      "points": 6,
-      "goalsFor": 4,
-      "goalsAgainst": 0,
-      "goalDifference": 4
-    },
-    {
       "position": 4,
       "team": {
         "id": 61,
@@ -70,15 +70,15 @@
         "tla": "CHE",
         "crest": "https://crests.football-data.org/61.png"
       },
-      "playedGames": 2,
-      "form": "W,W",
+      "playedGames": 3,
+      "form": "L,W,W",
       "won": 2,
       "draw": 0,
-      "lost": 0,
+      "lost": 1,
       "points": 6,
-      "goalsFor": 7,
-      "goalsAgainst": 5,
-      "goalDifference": 2
+      "goalsFor": 8,
+      "goalsAgainst": 7,
+      "goalDifference": 1
     },
     {
       "position": 5,
