@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-07T20:56:32.239025Z",
+  "generated_at": "2026-09-07T21:36:38.715411Z",
   "competition": "LaLiga",
   "slug": "laliga",
   "season": 2026,
@@ -159,6 +159,25 @@
     {
       "position": 9,
       "team": {
+        "id": 92,
+        "name": "Real Sociedad de Fútbol",
+        "shortName": "Real Sociedad",
+        "tla": "RSO",
+        "crest": "https://crests.football-data.org/92.png"
+      },
+      "playedGames": 5,
+      "form": "W,D,W,L,L",
+      "won": 2,
+      "draw": 1,
+      "lost": 2,
+      "points": 7,
+      "goalsFor": 6,
+      "goalsAgainst": 8,
+      "goalDifference": -2
+    },
+    {
+      "position": 10,
+      "team": {
         "id": 77,
         "name": "Athletic Club",
         "shortName": "Athletic",
@@ -176,7 +195,7 @@
       "goalDifference": 1
     },
     {
-      "position": 10,
+      "position": 11,
       "team": {
         "id": 88,
         "name": "Levante UD",
@@ -195,7 +214,7 @@
       "goalDifference": 0
     },
     {
-      "position": 11,
+      "position": 12,
       "team": {
         "id": 80,
         "name": "RCD Espanyol de Barcelona",
@@ -214,7 +233,7 @@
       "goalDifference": 1
     },
     {
-      "position": 12,
+      "position": 13,
       "team": {
         "id": 5335,
         "name": "Real Racing Club de Santander",
@@ -233,7 +252,7 @@
       "goalDifference": -1
     },
     {
-      "position": 13,
+      "position": 14,
       "team": {
         "id": 87,
         "name": "Rayo Vallecano de Madrid",
@@ -249,25 +268,6 @@
       "points": 4,
       "goalsFor": 7,
       "goalsAgainst": 10,
-      "goalDifference": -3
-    },
-    {
-      "position": 14,
-      "team": {
-        "id": 92,
-        "name": "Real Sociedad de Fútbol",
-        "shortName": "Real Sociedad",
-        "tla": "RSO",
-        "crest": "https://crests.football-data.org/92.png"
-      },
-      "playedGames": 4,
-      "form": "D,W,L,L",
-      "won": 1,
-      "draw": 1,
-      "lost": 2,
-      "points": 4,
-      "goalsFor": 3,
-      "goalsAgainst": 6,
       "goalDifference": -3
     },
     {
@@ -355,15 +355,15 @@
         "tla": "ELC",
         "crest": "https://crests.football-data.org/285.png"
       },
-      "playedGames": 3,
-      "form": "L,L,D",
+      "playedGames": 4,
+      "form": "L,L,L,D",
       "won": 0,
       "draw": 1,
-      "lost": 2,
+      "lost": 3,
       "points": 1,
-      "goalsFor": 3,
-      "goalsAgainst": 9,
-      "goalDifference": -6
+      "goalsFor": 5,
+      "goalsAgainst": 12,
+      "goalDifference": -7
     },
     {
       "position": 20,
