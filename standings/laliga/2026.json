@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-06T22:56:56.980703Z",
+  "generated_at": "2026-09-07T19:11:36.732793Z",
   "competition": "LaLiga",
   "slug": "laliga",
   "season": 2026,
@@ -279,18 +279,37 @@
         "tla": "GET",
         "crest": "https://crests.football-data.org/82.png"
       },
-      "playedGames": 3,
-      "form": "L,W,L",
+      "playedGames": 4,
+      "form": "D,L,W,L",
       "won": 1,
-      "draw": 0,
+      "draw": 1,
       "lost": 2,
-      "points": 3,
-      "goalsFor": 1,
-      "goalsAgainst": 4,
+      "points": 4,
+      "goalsFor": 2,
+      "goalsAgainst": 5,
       "goalDifference": -3
     },
     {
       "position": 16,
+      "team": {
+        "id": 558,
+        "name": "RC Celta de Vigo",
+        "shortName": "Celta",
+        "tla": "CEL",
+        "crest": "https://crests.football-data.org/558.png"
+      },
+      "playedGames": 5,
+      "form": "D,D,L,L,D",
+      "won": 0,
+      "draw": 3,
+      "lost": 2,
+      "points": 3,
+      "goalsFor": 2,
+      "goalsAgainst": 5,
+      "goalDifference": -3
+    },
+    {
+      "position": 17,
       "team": {
         "id": 94,
         "name": "Villarreal CF",
@@ -307,25 +326,6 @@
       "goalsFor": 6,
       "goalsAgainst": 8,
       "goalDifference": -2
-    },
-    {
-      "position": 17,
-      "team": {
-        "id": 558,
-        "name": "RC Celta de Vigo",
-        "shortName": "Celta",
-        "tla": "CEL",
-        "crest": "https://crests.football-data.org/558.png"
-      },
-      "playedGames": 4,
-      "form": "D,L,L,D",
-      "won": 0,
-      "draw": 2,
-      "lost": 2,
-      "points": 2,
-      "goalsFor": 1,
-      "goalsAgainst": 4,
-      "goalDifference": -3
     },
     {
       "position": 18,
