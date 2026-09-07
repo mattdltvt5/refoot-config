@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-06T23:56:06Z",
+  "generated_at": "2026-09-07T00:01:44Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -164,8 +164,8 @@
         {
           "gameweek": "GW3",
           "stem": "gameweek-3",
-          "total": 8,
-          "covered": 6,
+          "total": 10,
+          "covered": 9,
           "matches": [
             {
               "match_id": 560566,
@@ -221,7 +221,21 @@
               "home": "Hull City AFC",
               "away": "Aston Villa FC",
               "date": "2026-09-05",
-              "covered": false
+              "covered": true
+            },
+            {
+              "match_id": 560567,
+              "home": "Everton FC",
+              "away": "Manchester United FC",
+              "date": "2026-09-06",
+              "covered": true
+            },
+            {
+              "match_id": 560570,
+              "home": "Arsenal FC",
+              "away": "Chelsea FC",
+              "date": "2026-09-06",
+              "covered": true
             }
           ]
         }
@@ -468,8 +482,8 @@
         {
           "gameweek": "GW4",
           "stem": "gameweek-4",
-          "total": 4,
-          "covered": 4,
+          "total": 8,
+          "covered": 8,
           "matches": [
             {
               "match_id": 564667,
@@ -497,6 +511,34 @@
               "home": "Villarreal CF",
               "away": "RC Deportivo La Coruña",
               "date": "2026-09-05",
+              "covered": true
+            },
+            {
+              "match_id": 564659,
+              "home": "Valencia CF",
+              "away": "FC Barcelona",
+              "date": "2026-09-06",
+              "covered": true
+            },
+            {
+              "match_id": 564664,
+              "home": "Deportivo Alavés",
+              "away": "CA Osasuna",
+              "date": "2026-09-06",
+              "covered": true
+            },
+            {
+              "match_id": 564666,
+              "home": "Málaga CF",
+              "away": "Levante UD",
+              "date": "2026-09-06",
+              "covered": true
+            },
+            {
+              "match_id": 564661,
+              "home": "RCD Espanyol de Barcelona",
+              "away": "Sevilla FC",
+              "date": "2026-09-06",
               "covered": true
             }
           ]
@@ -681,8 +723,8 @@
         {
           "gameweek": "GW3",
           "stem": "gameweek-3",
-          "total": 4,
-          "covered": 4,
+          "total": 8,
+          "covered": 8,
           "matches": [
             {
               "match_id": 558609,
@@ -710,6 +752,34 @@
               "home": "AS Roma",
               "away": "Atalanta BC",
               "date": "2026-09-05",
+              "covered": true
+            },
+            {
+              "match_id": 558612,
+              "home": "Parma Calcio 1913",
+              "away": "AC Monza",
+              "date": "2026-09-06",
+              "covered": true
+            },
+            {
+              "match_id": 558615,
+              "home": "Frosinone Calcio",
+              "away": "Venezia FC",
+              "date": "2026-09-06",
+              "covered": true
+            },
+            {
+              "match_id": 558613,
+              "home": "Bologna FC 1909",
+              "away": "US Sassuolo Calcio",
+              "date": "2026-09-06",
+              "covered": true
+            },
+            {
+              "match_id": 558618,
+              "home": "Juventus FC",
+              "away": "AC Milan",
+              "date": "2026-09-06",
               "covered": true
             }
           ]
@@ -794,8 +864,8 @@
         {
           "gameweek": "GW2",
           "stem": "gameweek-2",
-          "total": 7,
-          "covered": 7,
+          "total": 9,
+          "covered": 9,
           "matches": [
             {
               "match_id": 565791,
@@ -844,6 +914,20 @@
               "home": "FC Schalke 04",
               "away": "FC Bayern München",
               "date": "2026-09-05",
+              "covered": true
+            },
+            {
+              "match_id": 565788,
+              "home": "Hamburger SV",
+              "away": "1. FSV Mainz 05",
+              "date": "2026-09-06",
+              "covered": true
+            },
+            {
+              "match_id": 565786,
+              "home": "Eintracht Frankfurt",
+              "away": "FC Augsburg",
+              "date": "2026-09-06",
               "covered": true
             }
           ]
@@ -999,8 +1083,8 @@
         {
           "gameweek": "GW3",
           "stem": "gameweek-3",
-          "total": 6,
-          "covered": 6,
+          "total": 9,
+          "covered": 9,
           "matches": [
             {
               "match_id": 559696,
@@ -1042,6 +1126,27 @@
               "home": "OGC Nice",
               "away": "Le Mans FC",
               "date": "2026-09-05",
+              "covered": true
+            },
+            {
+              "match_id": 559700,
+              "home": "ES Troyes AC",
+              "away": "RC Strasbourg Alsace",
+              "date": "2026-09-06",
+              "covered": true
+            },
+            {
+              "match_id": 559698,
+              "home": "Angers SCO",
+              "away": "Stade Rennais FC 1901",
+              "date": "2026-09-06",
+              "covered": true
+            },
+            {
+              "match_id": 559694,
+              "home": "Olympique de Marseille",
+              "away": "Paris FC",
+              "date": "2026-09-06",
               "covered": true
             }
           ]
