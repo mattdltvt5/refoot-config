@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-07T20:26:41.103435Z",
+  "generated_at": "2026-09-07T20:51:43.079952Z",
   "competition": "Serie A",
   "slug": "serie-a",
   "season": 2026,
@@ -45,6 +45,25 @@
     {
       "position": 3,
       "team": {
+        "id": 110,
+        "name": "SS Lazio",
+        "shortName": "Lazio",
+        "tla": "LAZ",
+        "crest": "https://crests.football-data.org/110.png"
+      },
+      "playedGames": 3,
+      "form": "W,W,W",
+      "won": 3,
+      "draw": 0,
+      "lost": 0,
+      "points": 9,
+      "goalsFor": 4,
+      "goalsAgainst": 1,
+      "goalDifference": 3
+    },
+    {
+      "position": 4,
+      "team": {
         "id": 7397,
         "name": "Como 1907",
         "shortName": "Como 1907",
@@ -62,7 +81,7 @@
       "goalDifference": 4
     },
     {
-      "position": 4,
+      "position": 5,
       "team": {
         "id": 98,
         "name": "AC Milan",
@@ -81,7 +100,7 @@
       "goalDifference": 3
     },
     {
-      "position": 5,
+      "position": 6,
       "team": {
         "id": 109,
         "name": "Juventus FC",
@@ -100,7 +119,7 @@
       "goalDifference": 3
     },
     {
-      "position": 6,
+      "position": 7,
       "team": {
         "id": 470,
         "name": "Frosinone Calcio",
@@ -117,25 +136,6 @@
       "goalsFor": 6,
       "goalsAgainst": 3,
       "goalDifference": 3
-    },
-    {
-      "position": 7,
-      "team": {
-        "id": 110,
-        "name": "SS Lazio",
-        "shortName": "Lazio",
-        "tla": "LAZ",
-        "crest": "https://crests.football-data.org/110.png"
-      },
-      "playedGames": 2,
-      "form": "W,W",
-      "won": 2,
-      "draw": 0,
-      "lost": 0,
-      "points": 6,
-      "goalsFor": 2,
-      "goalsAgainst": 0,
-      "goalDifference": 2
     },
     {
       "position": 8,
@@ -184,15 +184,15 @@
         "tla": "UDI",
         "crest": "https://crests.football-data.org/115.png"
       },
-      "playedGames": 2,
-      "form": "W,D",
+      "playedGames": 3,
+      "form": "L,W,D",
       "won": 1,
       "draw": 1,
-      "lost": 0,
+      "lost": 1,
       "points": 4,
-      "goalsFor": 4,
-      "goalsAgainst": 3,
-      "goalDifference": 1
+      "goalsFor": 5,
+      "goalsAgainst": 5,
+      "goalDifference": 0
     },
     {
       "position": 11,
