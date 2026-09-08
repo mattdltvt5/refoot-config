@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-08T18:06:34.788618Z",
+  "generated_at": "2026-09-08T18:11:31.526389Z",
   "slug": "ucl",
   "standings": [
     {
@@ -9,6 +9,25 @@
       "table": [
         {
           "position": 1,
+          "team": {
+            "id": 1899,
+            "name": "PAE AEK",
+            "shortName": "PAE AEK",
+            "tla": "AEK",
+            "crest": "https://crests.football-data.org/1899.png"
+          },
+          "playedGames": 1,
+          "form": null,
+          "won": 1,
+          "draw": 0,
+          "lost": 0,
+          "points": 3,
+          "goalsFor": 2,
+          "goalsAgainst": 0,
+          "goalDifference": 2
+        },
+        {
+          "position": 2,
           "team": {
             "id": 58,
             "name": "Aston Villa FC",
@@ -23,26 +42,7 @@
           "lost": 0,
           "points": 3,
           "goalsFor": 3,
-          "goalsAgainst": 1,
-          "goalDifference": 2
-        },
-        {
-          "position": 2,
-          "team": {
-            "id": 1899,
-            "name": "PAE AEK",
-            "shortName": "PAE AEK",
-            "tla": "AEK",
-            "crest": "https://crests.football-data.org/1899.png"
-          },
-          "playedGames": 1,
-          "form": null,
-          "won": 1,
-          "draw": 0,
-          "lost": 0,
-          "points": 3,
-          "goalsFor": 1,
-          "goalsAgainst": 0,
+          "goalsAgainst": 2,
           "goalDifference": 1
         },
         {
@@ -656,6 +656,25 @@
         {
           "position": 35,
           "team": {
+            "id": 851,
+            "name": "Club Brugge KV",
+            "shortName": "Club Brugge",
+            "tla": "BRU",
+            "crest": "https://crests.football-data.org/851.png"
+          },
+          "playedGames": 1,
+          "form": null,
+          "won": 0,
+          "draw": 0,
+          "lost": 1,
+          "points": 0,
+          "goalsFor": 2,
+          "goalsAgainst": 3,
+          "goalDifference": -1
+        },
+        {
+          "position": 36,
+          "team": {
             "id": 2016,
             "name": "LASK Linz",
             "shortName": "LASK",
@@ -669,26 +688,7 @@
           "lost": 1,
           "points": 0,
           "goalsFor": 0,
-          "goalsAgainst": 1,
-          "goalDifference": -1
-        },
-        {
-          "position": 36,
-          "team": {
-            "id": 851,
-            "name": "Club Brugge KV",
-            "shortName": "Club Brugge",
-            "tla": "BRU",
-            "crest": "https://crests.football-data.org/851.png"
-          },
-          "playedGames": 1,
-          "form": null,
-          "won": 0,
-          "draw": 0,
-          "lost": 1,
-          "points": 0,
-          "goalsFor": 1,
-          "goalsAgainst": 3,
+          "goalsAgainst": 2,
           "goalDifference": -2
         }
       ]
