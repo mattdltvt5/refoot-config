@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-07T23:56:08Z",
+  "generated_at": "2026-09-08T00:01:37Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -482,8 +482,8 @@
         {
           "gameweek": "GW4",
           "stem": "gameweek-4",
-          "total": 8,
-          "covered": 8,
+          "total": 10,
+          "covered": 10,
           "matches": [
             {
               "match_id": 564667,
@@ -539,6 +539,20 @@
               "home": "RCD Espanyol de Barcelona",
               "away": "Sevilla FC",
               "date": "2026-09-06",
+              "covered": true
+            },
+            {
+              "match_id": 564665,
+              "home": "Getafe CF",
+              "away": "RC Celta de Vigo",
+              "date": "2026-09-07",
+              "covered": true
+            },
+            {
+              "match_id": 564658,
+              "home": "Elche CF",
+              "away": "Real Sociedad de Fútbol",
+              "date": "2026-09-07",
               "covered": true
             }
           ]
@@ -723,8 +737,8 @@
         {
           "gameweek": "GW3",
           "stem": "gameweek-3",
-          "total": 8,
-          "covered": 8,
+          "total": 10,
+          "covered": 10,
           "matches": [
             {
               "match_id": 558609,
@@ -780,6 +794,20 @@
               "home": "Juventus FC",
               "away": "AC Milan",
               "date": "2026-09-06",
+              "covered": true
+            },
+            {
+              "match_id": 558610,
+              "home": "Cagliari Calcio",
+              "away": "US Lecce",
+              "date": "2026-09-07",
+              "covered": true
+            },
+            {
+              "match_id": 558617,
+              "home": "Udinese Calcio",
+              "away": "SS Lazio",
+              "date": "2026-09-07",
               "covered": true
             }
           ]
