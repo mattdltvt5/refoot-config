@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-08T18:16:32.553156Z",
+  "generated_at": "2026-09-08T18:21:38.265482Z",
   "slug": "ucl",
   "standings": [
     {
@@ -9,25 +9,6 @@
       "table": [
         {
           "position": 1,
-          "team": {
-            "id": 1899,
-            "name": "PAE AEK",
-            "shortName": "PAE AEK",
-            "tla": "AEK",
-            "crest": "https://crests.football-data.org/1899.png"
-          },
-          "playedGames": 1,
-          "form": null,
-          "won": 1,
-          "draw": 0,
-          "lost": 0,
-          "points": 3,
-          "goalsFor": 2,
-          "goalsAgainst": 0,
-          "goalDifference": 2
-        },
-        {
-          "position": 2,
           "team": {
             "id": 58,
             "name": "Aston Villa FC",
@@ -43,6 +24,25 @@
           "points": 3,
           "goalsFor": 3,
           "goalsAgainst": 2,
+          "goalDifference": 1
+        },
+        {
+          "position": 2,
+          "team": {
+            "id": 1899,
+            "name": "PAE AEK",
+            "shortName": "PAE AEK",
+            "tla": "AEK",
+            "crest": "https://crests.football-data.org/1899.png"
+          },
+          "playedGames": 1,
+          "form": null,
+          "won": 1,
+          "draw": 0,
+          "lost": 0,
+          "points": 3,
+          "goalsFor": 1,
+          "goalsAgainst": 0,
           "goalDifference": 1
         },
         {
@@ -688,8 +688,8 @@
           "lost": 1,
           "points": 0,
           "goalsFor": 0,
-          "goalsAgainst": 2,
-          "goalDifference": -2
+          "goalsAgainst": 1,
+          "goalDifference": -1
         }
       ]
     }
