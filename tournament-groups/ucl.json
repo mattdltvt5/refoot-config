@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-08T17:36:35.599485Z",
+  "generated_at": "2026-09-08T17:41:30.265434Z",
   "slug": "ucl",
   "standings": [
     {
@@ -22,9 +22,9 @@
           "draw": 0,
           "lost": 0,
           "points": 3,
-          "goalsFor": 2,
+          "goalsFor": 3,
           "goalsAgainst": 1,
-          "goalDifference": 1
+          "goalDifference": 2
         },
         {
           "position": 2,
@@ -656,25 +656,6 @@
         {
           "position": 35,
           "team": {
-            "id": 851,
-            "name": "Club Brugge KV",
-            "shortName": "Club Brugge",
-            "tla": "BRU",
-            "crest": "https://crests.football-data.org/851.png"
-          },
-          "playedGames": 1,
-          "form": null,
-          "won": 0,
-          "draw": 0,
-          "lost": 1,
-          "points": 0,
-          "goalsFor": 1,
-          "goalsAgainst": 2,
-          "goalDifference": -1
-        },
-        {
-          "position": 36,
-          "team": {
             "id": 2016,
             "name": "LASK Linz",
             "shortName": "LASK",
@@ -690,6 +671,25 @@
           "goalsFor": 0,
           "goalsAgainst": 1,
           "goalDifference": -1
+        },
+        {
+          "position": 36,
+          "team": {
+            "id": 851,
+            "name": "Club Brugge KV",
+            "shortName": "Club Brugge",
+            "tla": "BRU",
+            "crest": "https://crests.football-data.org/851.png"
+          },
+          "playedGames": 1,
+          "form": null,
+          "won": 0,
+          "draw": 0,
+          "lost": 1,
+          "points": 0,
+          "goalsFor": 1,
+          "goalsAgainst": 3,
+          "goalDifference": -2
         }
       ]
     }
