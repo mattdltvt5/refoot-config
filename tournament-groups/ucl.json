@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-08T20:36:29.780836Z",
+  "generated_at": "2026-09-08T20:41:39.333994Z",
   "slug": "ucl",
   "standings": [
     {
@@ -9,25 +9,6 @@
       "table": [
         {
           "position": 1,
-          "team": {
-            "id": 86,
-            "name": "Real Madrid CF",
-            "shortName": "Real Madrid",
-            "tla": "RMA",
-            "crest": "https://crests.football-data.org/86.png"
-          },
-          "playedGames": 1,
-          "form": null,
-          "won": 1,
-          "draw": 0,
-          "lost": 0,
-          "points": 3,
-          "goalsFor": 2,
-          "goalsAgainst": 0,
-          "goalDifference": 2
-        },
-        {
-          "position": 2,
           "team": {
             "id": 58,
             "name": "Aston Villa FC",
@@ -46,7 +27,7 @@
           "goalDifference": 1
         },
         {
-          "position": 2,
+          "position": 1,
           "team": {
             "id": 90,
             "name": "Real Betis Balompié",
@@ -62,6 +43,25 @@
           "points": 3,
           "goalsFor": 3,
           "goalsAgainst": 2,
+          "goalDifference": 1
+        },
+        {
+          "position": 3,
+          "team": {
+            "id": 86,
+            "name": "Real Madrid CF",
+            "shortName": "Real Madrid",
+            "tla": "RMA",
+            "crest": "https://crests.football-data.org/86.png"
+          },
+          "playedGames": 1,
+          "form": null,
+          "won": 1,
+          "draw": 0,
+          "lost": 0,
+          "points": 3,
+          "goalsFor": 2,
+          "goalsAgainst": 1,
           "goalDifference": 1
         },
         {
@@ -637,6 +637,25 @@
         {
           "position": 34,
           "team": {
+            "id": 108,
+            "name": "FC Internazionale Milano",
+            "shortName": "Inter",
+            "tla": "INT",
+            "crest": "https://crests.football-data.org/108.png"
+          },
+          "playedGames": 1,
+          "form": null,
+          "won": 0,
+          "draw": 0,
+          "lost": 1,
+          "points": 0,
+          "goalsFor": 1,
+          "goalsAgainst": 2,
+          "goalDifference": -1
+        },
+        {
+          "position": 35,
+          "team": {
             "id": 503,
             "name": "FC Porto",
             "shortName": "Porto",
@@ -654,7 +673,7 @@
           "goalDifference": -1
         },
         {
-          "position": 34,
+          "position": 35,
           "team": {
             "id": 2016,
             "name": "LASK Linz",
@@ -671,25 +690,6 @@
           "goalsFor": 0,
           "goalsAgainst": 1,
           "goalDifference": -1
-        },
-        {
-          "position": 36,
-          "team": {
-            "id": 108,
-            "name": "FC Internazionale Milano",
-            "shortName": "Inter",
-            "tla": "INT",
-            "crest": "https://crests.football-data.org/108.png"
-          },
-          "playedGames": 1,
-          "form": null,
-          "won": 0,
-          "draw": 0,
-          "lost": 1,
-          "points": 0,
-          "goalsFor": 0,
-          "goalsAgainst": 2,
-          "goalDifference": -2
         }
       ]
     }
