@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-08T20:56:27.932971Z",
+  "generated_at": "2026-09-08T21:01:38.582727Z",
   "slug": "ucl",
   "standings": [
     {
@@ -10,11 +10,11 @@
         {
           "position": 1,
           "team": {
-            "id": 4,
-            "name": "Borussia Dortmund",
-            "shortName": "Dortmund",
-            "tla": "BVB",
-            "crest": "https://crests.football-data.org/4.png"
+            "id": 65,
+            "name": "Manchester City FC",
+            "shortName": "Man City",
+            "tla": "MCI",
+            "crest": "https://crests.football-data.org/65.png"
           },
           "playedGames": 1,
           "form": null,
@@ -22,8 +22,8 @@
           "draw": 0,
           "lost": 0,
           "points": 3,
-          "goalsFor": 3,
-          "goalsAgainst": 1,
+          "goalsFor": 2,
+          "goalsAgainst": 0,
           "goalDifference": 2
         },
         {
@@ -67,6 +67,25 @@
         {
           "position": 4,
           "team": {
+            "id": 4,
+            "name": "Borussia Dortmund",
+            "shortName": "Dortmund",
+            "tla": "BVB",
+            "crest": "https://crests.football-data.org/4.png"
+          },
+          "playedGames": 1,
+          "form": null,
+          "won": 1,
+          "draw": 0,
+          "lost": 0,
+          "points": 3,
+          "goalsFor": 3,
+          "goalsAgainst": 2,
+          "goalDifference": 1
+        },
+        {
+          "position": 5,
+          "team": {
             "id": 86,
             "name": "Real Madrid CF",
             "shortName": "Real Madrid",
@@ -81,25 +100,6 @@
           "points": 3,
           "goalsFor": 2,
           "goalsAgainst": 1,
-          "goalDifference": 1
-        },
-        {
-          "position": 5,
-          "team": {
-            "id": 65,
-            "name": "Manchester City FC",
-            "shortName": "Man City",
-            "tla": "MCI",
-            "crest": "https://crests.football-data.org/65.png"
-          },
-          "playedGames": 1,
-          "form": null,
-          "won": 1,
-          "draw": 0,
-          "lost": 0,
-          "points": 3,
-          "goalsFor": 1,
-          "goalsAgainst": 0,
           "goalDifference": 1
         },
         {
@@ -580,6 +580,25 @@
         {
           "position": 31,
           "team": {
+            "id": 94,
+            "name": "Villarreal CF",
+            "shortName": "Villarreal",
+            "tla": "VIL",
+            "crest": "https://crests.football-data.org/94.png"
+          },
+          "playedGames": 1,
+          "form": null,
+          "won": 0,
+          "draw": 0,
+          "lost": 1,
+          "points": 0,
+          "goalsFor": 2,
+          "goalsAgainst": 3,
+          "goalDifference": -1
+        },
+        {
+          "position": 32,
+          "team": {
             "id": 851,
             "name": "Club Brugge KV",
             "shortName": "Club Brugge",
@@ -597,7 +616,7 @@
           "goalDifference": -1
         },
         {
-          "position": 31,
+          "position": 32,
           "team": {
             "id": 521,
             "name": "Lille OSC",
@@ -616,7 +635,7 @@
           "goalDifference": -1
         },
         {
-          "position": 33,
+          "position": 34,
           "team": {
             "id": 108,
             "name": "FC Internazionale Milano",
@@ -635,26 +654,7 @@
           "goalDifference": -1
         },
         {
-          "position": 34,
-          "team": {
-            "id": 503,
-            "name": "FC Porto",
-            "shortName": "Porto",
-            "tla": "FCP",
-            "crest": "https://crests.football-data.org/503.png"
-          },
-          "playedGames": 1,
-          "form": null,
-          "won": 0,
-          "draw": 0,
-          "lost": 1,
-          "points": 0,
-          "goalsFor": 0,
-          "goalsAgainst": 1,
-          "goalDifference": -1
-        },
-        {
-          "position": 34,
+          "position": 35,
           "team": {
             "id": 2016,
             "name": "LASK Linz",
@@ -675,11 +675,11 @@
         {
           "position": 36,
           "team": {
-            "id": 94,
-            "name": "Villarreal CF",
-            "shortName": "Villarreal",
-            "tla": "VIL",
-            "crest": "https://crests.football-data.org/94.png"
+            "id": 503,
+            "name": "FC Porto",
+            "shortName": "Porto",
+            "tla": "FCP",
+            "crest": "https://crests.football-data.org/503.png"
           },
           "playedGames": 1,
           "form": null,
@@ -687,8 +687,8 @@
           "draw": 0,
           "lost": 1,
           "points": 0,
-          "goalsFor": 1,
-          "goalsAgainst": 3,
+          "goalsFor": 0,
+          "goalsAgainst": 2,
           "goalDifference": -2
         }
       ]
