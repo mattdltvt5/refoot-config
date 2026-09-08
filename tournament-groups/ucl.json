@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-08T20:06:29.655038Z",
+  "generated_at": "2026-09-08T20:11:36.219731Z",
   "slug": "ucl",
   "standings": [
     {
@@ -48,11 +48,11 @@
         {
           "position": 3,
           "team": {
-            "id": 521,
-            "name": "Lille OSC",
-            "shortName": "Lille",
-            "tla": "LIL",
-            "crest": "https://crests.football-data.org/521.png"
+            "id": 65,
+            "name": "Manchester City FC",
+            "shortName": "Man City",
+            "tla": "MCI",
+            "crest": "https://crests.football-data.org/65.png"
           },
           "playedGames": 1,
           "form": null,
@@ -60,8 +60,8 @@
           "draw": 0,
           "lost": 0,
           "points": 3,
-          "goalsFor": 2,
-          "goalsAgainst": 1,
+          "goalsFor": 1,
+          "goalsAgainst": 0,
           "goalDifference": 1
         },
         {
@@ -86,6 +86,44 @@
         {
           "position": 5,
           "team": {
+            "id": 90,
+            "name": "Real Betis Balompié",
+            "shortName": "Real Betis",
+            "tla": "BET",
+            "crest": "https://crests.football-data.org/90.png"
+          },
+          "playedGames": 1,
+          "form": null,
+          "won": 0,
+          "draw": 1,
+          "lost": 0,
+          "points": 1,
+          "goalsFor": 2,
+          "goalsAgainst": 2,
+          "goalDifference": 0
+        },
+        {
+          "position": 6,
+          "team": {
+            "id": 521,
+            "name": "Lille OSC",
+            "shortName": "Lille",
+            "tla": "LIL",
+            "crest": "https://crests.football-data.org/521.png"
+          },
+          "playedGames": 1,
+          "form": null,
+          "won": 0,
+          "draw": 1,
+          "lost": 0,
+          "points": 1,
+          "goalsFor": 2,
+          "goalsAgainst": 2,
+          "goalDifference": 0
+        },
+        {
+          "position": 7,
+          "team": {
             "id": 4,
             "name": "Borussia Dortmund",
             "shortName": "Dortmund",
@@ -103,45 +141,7 @@
           "goalDifference": 0
         },
         {
-          "position": 5,
-          "team": {
-            "id": 503,
-            "name": "FC Porto",
-            "shortName": "Porto",
-            "tla": "FCP",
-            "crest": "https://crests.football-data.org/503.png"
-          },
-          "playedGames": 1,
-          "form": null,
-          "won": 0,
-          "draw": 1,
-          "lost": 0,
-          "points": 1,
-          "goalsFor": 0,
-          "goalsAgainst": 0,
-          "goalDifference": 0
-        },
-        {
-          "position": 5,
-          "team": {
-            "id": 65,
-            "name": "Manchester City FC",
-            "shortName": "Man City",
-            "tla": "MCI",
-            "crest": "https://crests.football-data.org/65.png"
-          },
-          "playedGames": 1,
-          "form": null,
-          "won": 0,
-          "draw": 1,
-          "lost": 0,
-          "points": 1,
-          "goalsFor": 0,
-          "goalsAgainst": 0,
-          "goalDifference": 0
-        },
-        {
-          "position": 5,
+          "position": 7,
           "team": {
             "id": 94,
             "name": "Villarreal CF",
@@ -637,11 +637,11 @@
         {
           "position": 34,
           "team": {
-            "id": 90,
-            "name": "Real Betis Balompié",
-            "shortName": "Real Betis",
-            "tla": "BET",
-            "crest": "https://crests.football-data.org/90.png"
+            "id": 503,
+            "name": "FC Porto",
+            "shortName": "Porto",
+            "tla": "FCP",
+            "crest": "https://crests.football-data.org/503.png"
           },
           "playedGames": 1,
           "form": null,
@@ -649,12 +649,12 @@
           "draw": 0,
           "lost": 1,
           "points": 0,
-          "goalsFor": 1,
-          "goalsAgainst": 2,
+          "goalsFor": 0,
+          "goalsAgainst": 1,
           "goalDifference": -1
         },
         {
-          "position": 35,
+          "position": 34,
           "team": {
             "id": 2016,
             "name": "LASK Linz",
