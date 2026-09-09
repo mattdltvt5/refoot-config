@@ -17,9 +17,14 @@ Safety of a proposal:
   * length >= 4.
   * A single-word alias must be UNIQUE across all tracked teams (same collision
     gate Layer 1 uses) — ambiguous words are surfaced under `flags`, not proposed.
-Titles whose short form is NOT part of the official name (pure nicknames /
-alt-language) can't be safely auto-proposed; they are surfaced under `flags`
-for a human to add manually.
+Only videos where the missing team's official name literally appears in the
+title are considered. A safe, unique word becomes a proposal; a word that is
+part of the name but ambiguous/generic is surfaced under `flags` for a human.
+Videos whose title doesn't contain the missing team's name at all are dropped
+(they are a different opponent's match, not an alias gap). Fixtures the live
+matcher already resolves are skipped entirely (a stale cache, not a gap). Pure
+nicknames / alt-language forms are therefore out of scope for this detector by
+design — they need manual discovery.
 
 READ-ONLY: playlistItems.list only (via the pipeline matcher), ReadOnlyQuota
 (no quota-tracker.json write), no cache writes, no adoption. The only file it
@@ -145,9 +150,13 @@ def main():
         try:
             for comp, slug, fix in no_hl:
                 sink = []
-                resolve_videos_for_fixture(fix, comp, config, yt_key, quota,
-                                           INCREMENTAL_CAP, gw_playlist_cache=gw_cache,
-                                           debug_sink=sink)
+                videos = resolve_videos_for_fixture(fix, comp, config, yt_key, quota,
+                                                    INCREMENTAL_CAP, gw_playlist_cache=gw_cache,
+                                                    debug_sink=sink)
+                if videos:
+                    # The live matcher now resolves this fixture (cache is just
+                    # stale) — it is no longer a gap, so skip it entirely.
+                    continue
                 by_vid = {}
                 for rec in sink:
                     v = rec.get("video_id")
@@ -161,18 +170,22 @@ def main():
                     cur = set(team_tokens(fd_name, fix[f"{side}_short"], fix[f"{side}_tla"]))
                     alias, is_multi = propose_alias(fd_name, info["title"], cur)
                     ev = f"{vid} | {info['title']}"
-                    if alias and (is_multi or unique_alias(alias, fd_name)):
+                    if alias is None:
+                        # The missing team's name doesn't appear in the title at
+                        # all → this video is about a different opponent, not an
+                        # alias gap for this team. Drop it (avoids false flags).
+                        continue
+                    if is_multi or unique_alias(alias, fd_name):
                         agg.setdefault(comp, {}).setdefault(fd_name, {}) \
                            .setdefault(alias, set()).add(ev)
                     else:
-                        key = (fd_name, info["title"])
+                        key = (fd_name, alias)
                         if key not in seen_flag:
                             seen_flag.add(key)
-                            reason = ("ambiguous single-word (collides with another team)"
-                                      if alias else
-                                      "title short-form is not part of the official name")
                             flags.append({"competition": comp, "team": fd_name,
-                                          "video": ev, "proposed": alias, "reason": reason})
+                                          "video": ev, "proposed": alias,
+                                          "reason": "ambiguous single-word "
+                                                    "(collides with another team)"})
         except QuotaCapReached as e:
             quota_note = f"Stopped early — quota cap reached: {e}. Results are partial."
         quota_used = quota.units_used
