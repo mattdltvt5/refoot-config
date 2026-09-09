@@ -1,0 +1,62 @@
+name: Audit no-highlight fixtures (read-only diagnostic)
+
+# ONE-OFF, manually-triggered, READ-ONLY diagnostic.
+#
+# Finds every FINISHED fixture (5 domestic leagues, per-season cache) with no
+# joined highlight and classifies each into exactly one of three buckets:
+# no-title-match / matched-but-filtered / truly-absent. It reuses the pipeline's
+# real matcher (resolve_videos_for_fixture) so the per-source title scoping is
+# faithful, runs playlistItems.list only (never search.list), and WRITES NOTHING
+# to the repo -- no cache files, no quota-tracker.json, no commit, no adoption.
+# The report is printed to the log, added to the run summary, and uploaded as an
+# artifact. Quota consumed is printed at the end.
+#
+# To run: Actions tab -> "Audit no-highlight fixtures (read-only diagnostic)" ->
+# Run workflow -> pick a season. Nothing is committed or deployed.
+#
+# Deliberately mirrors discover-playlists-readonly.yml: no `permissions:` block
+# (default read-only token; this job never writes to the repo).
+
+on:
+  workflow_dispatch:
+    inputs:
+      season:
+        description: "Season start year to audit (e.g. 2025 or 2026)"
+        required: true
+        default: "2025"
+
+jobs:
+  audit:
+    name: Classify no-highlight fixtures (read-only)
+    runs-on: ubuntu-latest
+
+    env:
+      YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
+      SEASON_OVERRIDE: ${{ inputs.season }}
+      REPORT_OUT: ${{ github.workspace }}/audit_no_highlight_buckets.md
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install requests
+
+      - name: Classify no-highlight fixtures (prints to log, writes no repo files)
+        run: python scripts/audit_no_highlight_buckets.py
+
+      - name: Upload report artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: no-highlight-audit-season-${{ inputs.season }}
+          path: ${{ github.workspace }}/audit_no_highlight_buckets.md
+          if-no-files-found: warn
