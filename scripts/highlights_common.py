@@ -305,11 +305,17 @@ _RE_GEO_SUFFIX = re.compile(
 )
 
 
-# Generic club-name prefixes that must NEVER become a standalone alias even when
-# unique — broadcasters do not abbreviate a club to these bare words.
-_GENERIC_LEADING_WORDS: frozenset = frozenset({
+# Generic football words that must NEVER become a standalone alias even when
+# they happen to be unique among currently-tracked teams — they are club-type or
+# qualifier words ("Ipswich Town" → never bare "Town"), not distinctive names.
+# (Distinctive short forms like "Villa"/"Forest" live in TEAM_TITLE_ALIASES.)
+_GENERIC_TEAM_WORDS: frozenset = frozenset({
+    # leading qualifiers
     "real", "club", "deportivo", "sporting", "racing", "inter", "athletic",
-    "atletico", "borussia", "bayer", "olympique", "stade", "sporting",
+    "atletico", "borussia", "bayer", "olympique", "stade",
+    # trailing club-type words
+    "town", "city", "united", "rovers", "wanderers", "county", "albion",
+    "hotspur", "athletic", "palace",
 })
 
 # Leading organisational abbreviations skipped when finding the first meaningful
@@ -360,7 +366,7 @@ def _leading_alias_word(team_name: str) -> "str | None":
     if not words:
         return None
     w = words[0]
-    if len(w) < _MIN_AUTO_TOKEN_LEN or w in _GENERIC_LEADING_WORDS:
+    if len(w) < _MIN_AUTO_TOKEN_LEN or w in _GENERIC_TEAM_WORDS:
         return None
     return w
 
