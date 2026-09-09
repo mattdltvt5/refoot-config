@@ -13,7 +13,10 @@ Invariants covered:
 
 from highlights_common import (
     TEAM_TITLE_ALIASES,
+    _auto_tokens,
+    _leading_alias_word,
     _normalize,
+    _team_word_index,
     is_highlight_title,
     team_tokens,
 )
@@ -154,3 +157,36 @@ def test_aston_villa_has_bare_villa_token():
     assert "villa" in tokens, (
         f"Bare 'villa' token missing; tokens: {tokens}"
     )
+
+
+# ── Invariant: uniqueness-gated auto leading-word alias (Layer 1) ─────────────
+
+def test_auto_tokens_derives_unique_leading_word():
+    """A club whose leading word is unique across tracked teams gets it as a bare
+    token. 'Ipswich' is unique → auto-derived, so broadcaster titles like
+    'Man Utd 5-2 Ipswich' join without a manual TEAM_TITLE_ALIASES entry."""
+    tokens = _auto_tokens("Ipswich Town FC", "Ipswich Town", "IPS")
+    assert "ipswich" in tokens, f"unique leading word not derived; tokens: {tokens}"
+
+
+def test_auto_tokens_rejects_ambiguous_leading_word():
+    """A leading word shared by ≥2 tracked clubs must NOT become a bare token —
+    'Manchester' (City + United) and 'Madrid' (Real + Atlético + Rayo) are unsafe."""
+    man = _auto_tokens("Manchester United FC", "Manchester United", "MUN")
+    assert "manchester" not in man, f"ambiguous 'manchester' leaked; tokens: {man}"
+    mad = _auto_tokens("Real Madrid CF", "Real Madrid", "RMA")
+    assert "madrid" not in mad, f"ambiguous 'madrid' leaked; tokens: {mad}"
+
+
+def test_leading_alias_word_screens_shape():
+    """_leading_alias_word skips org abbreviations and rejects generic prefixes."""
+    assert _leading_alias_word("AFC Bournemouth") == "bournemouth"  # skips 'AFC'
+    assert _leading_alias_word("Ipswich Town FC") == "ipswich"
+    assert _leading_alias_word("Real Madrid CF") is None            # 'real' is generic
+
+
+def test_team_word_index_flags_shared_words():
+    """The collision index maps a shared word to ≥2 teams and a unique one to ≤1."""
+    idx = _team_word_index()
+    assert len(idx.get("manchester", set())) >= 2   # City + United
+    assert len(idx.get("ipswich", set())) == 1
