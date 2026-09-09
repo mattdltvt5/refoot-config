@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-08T23:56:10Z",
+  "generated_at": "2026-09-09T00:01:52Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -1175,6 +1175,62 @@
               "home": "Olympique de Marseille",
               "away": "Paris FC",
               "date": "2026-09-06",
+              "covered": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "competition": "Champions League",
+      "slug": "ucl",
+      "gameweeks": [
+        {
+          "gameweek": "MD1",
+          "stem": "matchday-1",
+          "total": 6,
+          "covered": 4,
+          "matches": [
+            {
+              "match_id": 575323,
+              "home": "Club Brugge KV",
+              "away": "Aston Villa FC",
+              "date": "2026-09-08",
+              "covered": true
+            },
+            {
+              "match_id": 575324,
+              "home": "PAE AEK",
+              "away": "LASK Linz",
+              "date": "2026-09-08",
+              "covered": false
+            },
+            {
+              "match_id": 575325,
+              "home": "Real Madrid CF",
+              "away": "FC Internazionale Milano",
+              "date": "2026-09-08",
+              "covered": true
+            },
+            {
+              "match_id": 575326,
+              "home": "FC Porto",
+              "away": "Manchester City FC",
+              "date": "2026-09-08",
+              "covered": false
+            },
+            {
+              "match_id": 575327,
+              "home": "Borussia Dortmund",
+              "away": "Villarreal CF",
+              "date": "2026-09-08",
+              "covered": true
+            },
+            {
+              "match_id": 575328,
+              "home": "Lille OSC",
+              "away": "Real Betis Balompié",
+              "date": "2026-09-08",
               "covered": true
             }
           ]
