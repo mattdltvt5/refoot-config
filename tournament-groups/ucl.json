@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-09T20:46:29.871390Z",
+  "generated_at": "2026-09-09T20:51:32.870570Z",
   "slug": "ucl",
   "standings": [
     {
@@ -10,11 +10,11 @@
         {
           "position": 1,
           "team": {
-            "id": 81,
-            "name": "FC Barcelona",
-            "shortName": "Barça",
-            "tla": "FCB",
-            "crest": "https://crests.football-data.org/81.png"
+            "id": 524,
+            "name": "Paris Saint-Germain FC",
+            "shortName": "PSG",
+            "tla": "PSG",
+            "crest": "https://crests.football-data.org/524.png"
           },
           "playedGames": 1,
           "form": null,
@@ -22,18 +22,18 @@
           "draw": 0,
           "lost": 0,
           "points": 3,
-          "goalsFor": 5,
+          "goalsFor": 6,
           "goalsAgainst": 1,
-          "goalDifference": 4
+          "goalDifference": 5
         },
         {
-          "position": 1,
+          "position": 2,
           "team": {
-            "id": 524,
-            "name": "Paris Saint-Germain FC",
-            "shortName": "PSG",
-            "tla": "PSG",
-            "crest": "https://crests.football-data.org/524.png"
+            "id": 81,
+            "name": "FC Barcelona",
+            "shortName": "Barça",
+            "tla": "FCB",
+            "crest": "https://crests.football-data.org/81.png"
           },
           "playedGames": 1,
           "form": null,
@@ -673,7 +673,7 @@
           "goalDifference": -4
         },
         {
-          "position": 35,
+          "position": 36,
           "team": {
             "id": 7509,
             "name": "ŠK Slovan Bratislava",
@@ -688,8 +688,8 @@
           "lost": 1,
           "points": 0,
           "goalsFor": 1,
-          "goalsAgainst": 5,
-          "goalDifference": -4
+          "goalsAgainst": 6,
+          "goalDifference": -5
         }
       ]
     }
