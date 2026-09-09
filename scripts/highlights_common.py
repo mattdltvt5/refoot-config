@@ -373,6 +373,7 @@ TEAM_TITLE_ALIASES: dict[str, list[str]] = {
     "Crystal Palace FC":           ["Crystal Palace FC", "Crystal Palace"],
     "Everton FC":                  ["Everton FC", "Everton"],
     "Fulham FC":                   ["Fulham FC", "Fulham"],
+    "Ipswich Town FC":             ["Ipswich Town FC", "Ipswich Town", "Ipswich"],
     "Leeds United FC":             ["Leeds United FC", "Leeds United", "Leeds"],
     "Liverpool FC":                ["Liverpool FC", "Liverpool"],
     "Manchester City FC":          ["Manchester City FC", "Manchester City", "Man City"],
