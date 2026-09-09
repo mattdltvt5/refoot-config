@@ -328,16 +328,30 @@ _LEADING_ORG_ABBREVS: frozenset = frozenset({
 
 @functools.lru_cache(maxsize=1)
 def _team_word_index() -> dict:
-    """word → set of tracked-team FD names (from sources.json teamLists) containing it.
+    """word → set of tracked-team FD names that can already match that word.
 
     Gates the auto-derived leading-word alias: a word is only safe as a
-    standalone token when it belongs to exactly ONE team across every tracked
-    competition (so "ipswich" qualifies, but "manchester"/"madrid"/"united"/
-    "town" — shared by ≥2 clubs — do not). Built once and cached; any load
-    failure degrades to an empty index (no leading-word aliases derived) rather
-    than raising, so token derivation never depends on sources.json being present.
+    standalone token when exactly ONE team can match it (so "ipswich" qualifies,
+    but "manchester"/"madrid"/"united"/"town" — shared by ≥2 clubs — do not).
+
+    A team "can match" a word if it is a word of the team's FD name (from
+    sources.json teamLists) OR a word of any of its TEAM_TITLE_ALIASES tokens.
+    Including alias words is what makes the gate collision-proof against manually
+    curated short forms, not just raw FD names. Built once and cached; a
+    sources.json load failure degrades to alias-word data only (never raises).
     """
     index: dict = {}
+
+    def add(name: str, text: str) -> None:
+        for word in set(_normalize(text).split()):
+            index.setdefault(word, set()).add(name)
+
+    # (a) every manual alias token, split into words, keyed by its team.
+    for team_name, aliases in TEAM_TITLE_ALIASES.items():
+        for alias in aliases:
+            add(team_name, alias)
+
+    # (b) every FD name from the tracked roster.
     try:
         with open(SOURCES_JSON, encoding="utf-8") as f:
             raw = json.load(f)
@@ -346,10 +360,8 @@ def _team_word_index() -> dict:
     for teams in (raw.get("teamLists") or {}).values():
         for team in teams or []:
             name = team.get("name") if isinstance(team, dict) else None
-            if not name:
-                continue
-            for word in set(_normalize(name).split()):
-                index.setdefault(word, set()).add(name)
+            if name:
+                add(name, name)
     return index
 
 
