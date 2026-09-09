@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-09T17:16:29.438887Z",
+  "generated_at": "2026-09-09T17:22:09.940584Z",
   "slug": "ucl",
   "standings": [
     {
@@ -9,6 +9,25 @@
       "table": [
         {
           "position": 1,
+          "team": {
+            "id": 10,
+            "name": "VfB Stuttgart",
+            "shortName": "Stuttgart",
+            "tla": "VFB",
+            "crest": "https://crests.football-data.org/10.png"
+          },
+          "playedGames": 1,
+          "form": null,
+          "won": 1,
+          "draw": 0,
+          "lost": 0,
+          "points": 3,
+          "goalsFor": 3,
+          "goalsAgainst": 1,
+          "goalDifference": 2
+        },
+        {
+          "position": 2,
           "team": {
             "id": 65,
             "name": "Manchester City FC",
@@ -27,7 +46,7 @@
           "goalDifference": 2
         },
         {
-          "position": 2,
+          "position": 3,
           "team": {
             "id": 81,
             "name": "FC Barcelona",
@@ -46,7 +65,7 @@
           "goalDifference": 2
         },
         {
-          "position": 3,
+          "position": 4,
           "team": {
             "id": 58,
             "name": "Aston Villa FC",
@@ -65,7 +84,7 @@
           "goalDifference": 1
         },
         {
-          "position": 3,
+          "position": 4,
           "team": {
             "id": 90,
             "name": "Real Betis Balompié",
@@ -84,7 +103,7 @@
           "goalDifference": 1
         },
         {
-          "position": 5,
+          "position": 6,
           "team": {
             "id": 4,
             "name": "Borussia Dortmund",
@@ -103,7 +122,7 @@
           "goalDifference": 1
         },
         {
-          "position": 6,
+          "position": 7,
           "team": {
             "id": 86,
             "name": "Real Madrid CF",
@@ -122,32 +141,13 @@
           "goalDifference": 1
         },
         {
-          "position": 7,
+          "position": 8,
           "team": {
             "id": 1899,
             "name": "PAE AEK",
             "shortName": "PAE AEK",
             "tla": "AEK",
             "crest": "https://crests.football-data.org/1899.png"
-          },
-          "playedGames": 1,
-          "form": null,
-          "won": 1,
-          "draw": 0,
-          "lost": 0,
-          "points": 3,
-          "goalsFor": 1,
-          "goalsAgainst": 0,
-          "goalDifference": 1
-        },
-        {
-          "position": 7,
-          "team": {
-            "id": 10,
-            "name": "VfB Stuttgart",
-            "shortName": "Stuttgart",
-            "tla": "VFB",
-            "crest": "https://crests.football-data.org/10.png"
           },
           "playedGames": 1,
           "form": null,
@@ -635,7 +635,7 @@
           "goalDifference": -1
         },
         {
-          "position": 33,
+          "position": 34,
           "team": {
             "id": 5720,
             "name": "Viking FK",
@@ -649,9 +649,9 @@
           "draw": 0,
           "lost": 1,
           "points": 0,
-          "goalsFor": 0,
-          "goalsAgainst": 1,
-          "goalDifference": -1
+          "goalsFor": 1,
+          "goalsAgainst": 3,
+          "goalDifference": -2
         },
         {
           "position": 35,
