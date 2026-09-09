@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-09T19:36:36.849743Z",
+  "generated_at": "2026-09-09T19:41:33.654861Z",
   "slug": "ucl",
   "standings": [
     {
@@ -29,6 +29,25 @@
         {
           "position": 2,
           "team": {
+            "id": 524,
+            "name": "Paris Saint-Germain FC",
+            "shortName": "PSG",
+            "tla": "PSG",
+            "crest": "https://crests.football-data.org/524.png"
+          },
+          "playedGames": 1,
+          "form": null,
+          "won": 1,
+          "draw": 0,
+          "lost": 0,
+          "points": 3,
+          "goalsFor": 3,
+          "goalsAgainst": 0,
+          "goalDifference": 3
+        },
+        {
+          "position": 3,
+          "team": {
             "id": 10,
             "name": "VfB Stuttgart",
             "shortName": "Stuttgart",
@@ -46,32 +65,13 @@
           "goalDifference": 2
         },
         {
-          "position": 3,
+          "position": 4,
           "team": {
             "id": 65,
             "name": "Manchester City FC",
             "shortName": "Man City",
             "tla": "MCI",
             "crest": "https://crests.football-data.org/65.png"
-          },
-          "playedGames": 1,
-          "form": null,
-          "won": 1,
-          "draw": 0,
-          "lost": 0,
-          "points": 3,
-          "goalsFor": 2,
-          "goalsAgainst": 0,
-          "goalDifference": 2
-        },
-        {
-          "position": 4,
-          "team": {
-            "id": 524,
-            "name": "Paris Saint-Germain FC",
-            "shortName": "PSG",
-            "tla": "PSG",
-            "crest": "https://crests.football-data.org/524.png"
           },
           "playedGames": 1,
           "form": null,
@@ -654,7 +654,7 @@
           "goalDifference": -2
         },
         {
-          "position": 34,
+          "position": 35,
           "team": {
             "id": 7509,
             "name": "ŠK Slovan Bratislava",
@@ -669,8 +669,8 @@
           "lost": 1,
           "points": 0,
           "goalsFor": 0,
-          "goalsAgainst": 2,
-          "goalDifference": -2
+          "goalsAgainst": 3,
+          "goalDifference": -3
         },
         {
           "position": 36,
@@ -959,7 +959,7 @@
       },
       "score": {
         "fullTime": {
-          "home": 2,
+          "home": 3,
           "away": 0
         }
       },
