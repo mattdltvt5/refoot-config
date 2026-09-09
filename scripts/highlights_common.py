@@ -5,6 +5,7 @@ highlights_common.py
 Shared utilities for fetch_highlights.py and backfill_highlights.py.
 """
 
+import functools
 import json
 import logging
 import os
@@ -304,6 +305,84 @@ _RE_GEO_SUFFIX = re.compile(
 )
 
 
+# Generic football words that must NEVER become a standalone alias even when
+# they happen to be unique among currently-tracked teams — they are club-type or
+# qualifier words ("Ipswich Town" → never bare "Town"), not distinctive names.
+# (Distinctive short forms like "Villa"/"Forest" live in TEAM_TITLE_ALIASES.)
+_GENERIC_TEAM_WORDS: frozenset = frozenset({
+    # leading qualifiers
+    "real", "club", "deportivo", "sporting", "racing", "inter", "athletic",
+    "atletico", "borussia", "bayer", "olympique", "stade",
+    # trailing club-type words
+    "town", "city", "united", "rovers", "wanderers", "county", "albion",
+    "hotspur", "athletic", "palace",
+})
+
+# Leading organisational abbreviations skipped when finding the first meaningful
+# word of a club name ("AFC Bournemouth" → "bournemouth", "RCD Mallorca" → "mallorca").
+_LEADING_ORG_ABBREVS: frozenset = frozenset({
+    "fc", "afc", "cf", "sc", "ac", "rc", "rcd", "ca", "ud", "ss", "us",
+    "sv", "vfb", "vfl", "tsg", "fsv", "cd", "sd",
+})
+
+
+@functools.lru_cache(maxsize=1)
+def _team_word_index() -> dict:
+    """word → set of tracked-team FD names that can already match that word.
+
+    Gates the auto-derived leading-word alias: a word is only safe as a
+    standalone token when exactly ONE team can match it (so "ipswich" qualifies,
+    but "manchester"/"madrid"/"united"/"town" — shared by ≥2 clubs — do not).
+
+    A team "can match" a word if it is a word of the team's FD name (from
+    sources.json teamLists) OR a word of any of its TEAM_TITLE_ALIASES tokens.
+    Including alias words is what makes the gate collision-proof against manually
+    curated short forms, not just raw FD names. Built once and cached; a
+    sources.json load failure degrades to alias-word data only (never raises).
+    """
+    index: dict = {}
+
+    def add(name: str, text: str) -> None:
+        for word in set(_normalize(text).split()):
+            index.setdefault(word, set()).add(name)
+
+    # (a) every manual alias token, split into words, keyed by its team.
+    for team_name, aliases in TEAM_TITLE_ALIASES.items():
+        for alias in aliases:
+            add(team_name, alias)
+
+    # (b) every FD name from the tracked roster.
+    try:
+        with open(SOURCES_JSON, encoding="utf-8") as f:
+            raw = json.load(f)
+    except (OSError, ValueError):
+        return index
+    for teams in (raw.get("teamLists") or {}).values():
+        for team in teams or []:
+            name = team.get("name") if isinstance(team, dict) else None
+            if name:
+                add(name, name)
+    return index
+
+
+def _leading_alias_word(team_name: str) -> "str | None":
+    """First meaningful word of [team_name] eligible as a standalone alias, else None.
+
+    Skips a leading org abbreviation, requires length ≥ _MIN_AUTO_TOKEN_LEN, and
+    rejects generic club-name prefixes. Uniqueness is enforced by the caller via
+    _team_word_index(); this only screens the word's own shape.
+    """
+    words = _normalize(_RE_NUM_PREFIX.sub("", team_name)).split()
+    while words and words[0] in _LEADING_ORG_ABBREVS:
+        words = words[1:]
+    if not words:
+        return None
+    w = words[0]
+    if len(w) < _MIN_AUTO_TOKEN_LEN or w in _GENERIC_TEAM_WORDS:
+        return None
+    return w
+
+
 def _auto_tokens(team_name: str, short_name: str, tla: str = "") -> list[str]:
     """Derive matching tokens for a team without a TEAM_TITLE_ALIASES entry.
 
@@ -335,6 +414,14 @@ def _auto_tokens(team_name: str, short_name: str, tla: str = "") -> list[str]:
         _add(s)
     s = _RE_GEO_SUFFIX.sub("", s).strip()
     _add(s)
+
+    # Uniqueness-gated leading-word alias: broadcasters routinely shorten a club
+    # to the leading proper-noun of its name ("Ipswich" for "Ipswich Town FC").
+    # Add it only when that word belongs to exactly one tracked team, so
+    # ambiguous words ("Manchester", "Madrid", "United", "Town") are never added.
+    lead = _leading_alias_word(team_name)
+    if lead and _team_word_index().get(lead, set()) <= {team_name}:
+        _add(lead)
 
     if tla and len(tla) >= _MIN_TLA_LEN:
         _add(tla)
@@ -373,6 +460,7 @@ TEAM_TITLE_ALIASES: dict[str, list[str]] = {
     "Crystal Palace FC":           ["Crystal Palace FC", "Crystal Palace"],
     "Everton FC":                  ["Everton FC", "Everton"],
     "Fulham FC":                   ["Fulham FC", "Fulham"],
+    "Ipswich Town FC":             ["Ipswich Town FC", "Ipswich Town", "Ipswich"],
     "Leeds United FC":             ["Leeds United FC", "Leeds United", "Leeds"],
     "Liverpool FC":                ["Liverpool FC", "Liverpool"],
     "Manchester City FC":          ["Manchester City FC", "Manchester City", "Man City"],

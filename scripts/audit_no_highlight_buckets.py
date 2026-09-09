@@ -180,10 +180,20 @@ if yt_key and no_hl_fixtures:
     try:
         for comp, slug, fix, in_file in no_hl_fixtures:
             sink = []
-            resolve_videos_for_fixture(fix, comp, config, yt_key, quota,
-                                       INCREMENTAL_CAP, gw_playlist_cache=gw_cache,
-                                       debug_sink=sink)
-            bucket, evidence = classify(sink)
+            videos = resolve_videos_for_fixture(fix, comp, config, yt_key, quota,
+                                                INCREMENTAL_CAP, gw_playlist_cache=gw_cache,
+                                                debug_sink=sink)
+            if videos:
+                # The live matcher now RESOLVES this fixture even though the cache
+                # still shows videos[] empty (cache not regenerated). This proves a
+                # matcher/alias change closes the gap; it is NOT one of the three
+                # stale buckets, so surface it as its own outcome.
+                bucket = "would-resolve-now"
+                evidence = [{"video_id": v.get("video_id"), "title": v.get("title", ""),
+                             "reasons": ["ACCEPTED by live matcher"], "dispo": "resolved"}
+                            for v in videos]
+            else:
+                bucket, evidence = classify(sink)
             classified.append((comp, slug, fix, in_file, bucket, evidence))
     except QuotaCapReached as e:
         quota_note = f"\n\n> **Stopped early — YouTube quota cap reached: {e}.** " \
@@ -222,17 +232,18 @@ elif not yt_key:
         out.append(f"| {comp} | {fix['matchday']} | {fix['date']} | "
                    f"{fix['home_team']} vs {fix['away_team']} | {fix['match_id']} | {sig} |")
 else:
-    buckets = {"matched-but-filtered": [], "no-title-match": [], "truly-absent": []}
+    order = ("would-resolve-now", "no-title-match", "matched-but-filtered", "truly-absent")
+    buckets = {b: [] for b in order}
     for row in classified:
         buckets[row[4]].append(row)
     out.append("## Steps 3-4 — bucket totals\n")
     out.append("| Bucket | Count |")
     out.append("|---|--:|")
-    for b in ("no-title-match", "matched-but-filtered", "truly-absent"):
+    for b in order:
         out.append(f"| {b} | {len(buckets[b])} |")
     out.append(f"| **classified** | **{len(classified)}** of {tn} |")
     out.append(quota_note)
-    for b in ("no-title-match", "matched-but-filtered", "truly-absent"):
+    for b in order:
         rows = buckets[b]
         out.append(f"\n## Bucket: {b} ({len(rows)})\n")
         for comp, slug, fix, in_file, bucket, evidence in sorted(

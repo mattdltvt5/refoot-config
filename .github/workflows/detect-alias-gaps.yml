@@ -1,0 +1,73 @@
+name: Detect team-title alias gaps (proposes, never adopts)
+
+# Manually-triggered diagnostic. Finds FINISHED fixtures with no joined
+# highlight where a correct, correctly-dated, highlight-titled video was
+# rejected only because a team's name appears in a short form the token set
+# doesn't cover (the cross-match-guard signal). Proposes SAFE aliases (a word
+# from the official name, unique across tracked teams) into
+# highlights/alias-candidates.json for a human to approve in the admin.
+#
+# It reuses the pipeline matcher read-only (playlistItems.list only,
+# ReadOnlyQuota — no quota-tracker.json write) and NEVER edits sources.json or
+# TEAM_TITLE_ALIASES. Mirrors find-channel-candidates.yml: it commits ONLY its
+# proposals file, nothing else.
+#
+# To run: Actions tab -> "Detect team-title alias gaps" -> Run workflow -> season.
+
+on:
+  workflow_dispatch:
+    inputs:
+      season:
+        description: "Season start year to scan (e.g. 2025 or 2026)"
+        required: true
+        default: "2025"
+
+jobs:
+  detect:
+    name: Propose alias candidates (read-only matcher)
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write       # needed to commit highlights/alias-candidates.json
+
+    env:
+      YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
+      SEASON_OVERRIDE: ${{ inputs.season }}
+      REPORT_OUT: ${{ github.workspace }}/alias_gaps_report.md
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install requests
+
+      - name: Detect alias gaps (proposes to alias-candidates.json)
+        run: python scripts/detect_alias_gaps.py
+
+      - name: Commit proposals (only the candidates file)
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add highlights/alias-candidates.json
+          git diff --cached --quiet \
+            && echo "No changes to commit." \
+            || { \
+                 git commit -m "data: refresh alias candidates [skip ci]" \
+                 && git pull --rebase -X ours origin "$GITHUB_REF_NAME" \
+                 && git push; \
+               }
+
+      - name: Upload report artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: alias-gaps-season-${{ inputs.season }}
+          path: ${{ github.workspace }}/alias_gaps_report.md
+          if-no-files-found: warn
