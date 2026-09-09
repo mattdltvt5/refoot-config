@@ -2,8 +2,8 @@
 """Rebuild tournament-groups/{slug}.json for football-data.org tournaments.
 
 Owns the FULL tournament cache for the FD-sourced tournaments (Euro Cup, World
-Cup, Champions League): standings, knockout `matches`, and group-stage
-`groupMatches` — plus the matched YouTube `video_id` graft.
+Cup, Champions League): standings, knockout `matches`, and group-stage /
+UCL-UEL league-phase `groupMatches` — plus the matched YouTube `video_id` graft.
 
 Cadence: runs every ~4 hours inside fetch-highlights.yml (the single tournament
 -cache refresher), immediately after fetch_highlights.py writes highlights/.
@@ -154,7 +154,13 @@ def build_group_matches(matches_payload, normalize_crest=_identity_crest):
     Group matches are those with a non-null "group" field that are NOT in a
     knockout stage.  Score is copied faithfully via score.fullTime and the FD
     status is carried through unchanged (a TIMED group game stays null).
-    UCL league-phase matches have group=None, so they produce an empty list.
+
+    UCL/UEL "league phase" (Swiss-model) games carry NO FD group (group=None)
+    and stage=="LEAGUE_STAGE".  They are projected here under a synthetic
+    "LEAGUE_PHASE" group so they get a match_id + utcDate and flow into the Home
+    date index and the matchday-keyed video_id graft — without them the whole
+    UCL league phase was dropped (neither knockout nor group).  Other group=None
+    fixtures (qualifying rounds) are still skipped.
 
     ``normalize_crest(name, crest) -> crest`` rewrites national-team padded-PNG
     crests to flag-CDN SVGs (identity for club tournaments).
@@ -164,12 +170,15 @@ def build_group_matches(matches_payload, normalize_crest=_identity_crest):
         if m.get("stage") in KNOCKOUT_STAGES:
             continue
         raw_group = m.get("group")
-        if not raw_group:
-            continue  # no group field → league phase or qualifying; skip
+        if raw_group:
+            group_key = raw_group.upper().replace(" ", "_")  # "Group A" → "GROUP_A"
+        elif m.get("stage") == "LEAGUE_STAGE":
+            group_key = "LEAGUE_PHASE"  # Swiss league phase: no FD group
+        else:
+            continue  # qualifying / no group → skip
         matchday = m.get("matchday")
         if not matchday:
             continue
-        group_key = raw_group.upper().replace(" ", "_")  # "Group A" → "GROUP_A"
         ht    = m.get("homeTeam", {}) or {}
         at    = m.get("awayTeam", {}) or {}
         score = m.get("score", {}) or {}

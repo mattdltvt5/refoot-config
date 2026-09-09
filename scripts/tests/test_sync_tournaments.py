@@ -126,6 +126,34 @@ _MATCH_GROUP = {
     },
 }
 
+# UCL Swiss league-phase fixture — group=None, stage=LEAGUE_STAGE.
+# Must be projected into groupMatches under a synthetic "LEAGUE_PHASE" group.
+_MATCH_LEAGUE_PHASE = {
+    "id": 700001,
+    "utcDate": "2026-09-16T19:00:00Z",
+    "status": "TIMED",
+    "stage": "LEAGUE_STAGE",
+    "group": None,
+    "matchday": 1,
+    "homeTeam": {"id": 64, "name": "Liverpool FC", "tla": "LIV", "crest": "liv.png"},
+    "awayTeam": {"id": 78, "name": "Atlético", "tla": "ATL", "crest": "atl.png"},
+    "score": {"winner": None, "duration": "REGULAR",
+              "fullTime": {"home": None, "away": None}},
+}
+
+# Qualifying fixture — group=None but NOT league stage; must still be skipped.
+_MATCH_QUALIFYING = {
+    "id": 700002,
+    "utcDate": "2026-08-05T19:00:00Z",
+    "status": "FINISHED",
+    "stage": "FIRST_QUALIFYING_ROUND",
+    "group": None,
+    "matchday": 1,
+    "homeTeam": {"id": 1, "name": "TeamA", "tla": "TAA", "crest": "a.png"},
+    "awayTeam": {"id": 2, "name": "TeamB", "tla": "TBB", "crest": "b.png"},
+    "score": {"fullTime": {"home": 1, "away": 0}},
+}
+
 _STANDINGS_PAYLOAD = {
     "standings": [
         {"type": "HOME", "group": "GROUP_A", "table": [{"position": 1}]},
@@ -206,6 +234,38 @@ class TestBuildTournamentDataPassthrough(unittest.TestCase):
     def test_only_knockout_stages_in_matches(self):
         data = build_tournament_data("world-cup", {}, _matches_payload(_MATCH_GROUP))
         self.assertEqual(data["matches"], [])
+
+
+class TestLeaguePhaseProjection(unittest.TestCase):
+    """UCL/UEL Swiss league-phase games (stage=LEAGUE_STAGE, group=None) must be
+    projected into groupMatches so they reach the cache / Home agenda."""
+
+    def test_league_phase_routed_to_group_matches(self):
+        gms = build_group_matches(_matches_payload(_MATCH_LEAGUE_PHASE))
+        self.assertEqual(len(gms), 1)
+        gm = gms[0]
+        self.assertEqual(gm["group"], "LEAGUE_PHASE")
+        self.assertEqual(gm["match_id"], 700001)          # for the matchday-N graft
+        self.assertEqual(gm["utcDate"], "2026-09-16T19:00:00Z")  # for date bucketing
+        self.assertEqual(gm["matchday"], 1)
+        self.assertEqual(gm["sourceRound"], "Matchday 1")
+
+    def test_league_phase_absent_from_knockout_matches(self):
+        data = build_tournament_data("ucl", {}, _matches_payload(_MATCH_LEAGUE_PHASE))
+        self.assertEqual(data["matches"], [])             # not knockout
+        self.assertEqual(len(data["groupMatches"]), 1)
+        self.assertEqual(data["groupMatches"][0]["group"], "LEAGUE_PHASE")
+
+    def test_qualifying_still_skipped(self):
+        # group=None but a non-league stage → must NOT be projected.
+        gms = build_group_matches(_matches_payload(_MATCH_QUALIFYING))
+        self.assertEqual(gms, [])
+
+    def test_real_group_stage_unaffected(self):
+        # Explicit FD group still maps to GROUP_<letter> as before.
+        gms = build_group_matches(_matches_payload(_MATCH_GROUP))
+        self.assertEqual(len(gms), 1)
+        self.assertEqual(gms[0]["group"], "GROUP_A")
 
     def test_standings_filtered_to_total_only(self):
         data = build_tournament_data("world-cup", _STANDINGS_PAYLOAD, {})
@@ -387,9 +447,18 @@ class TestBuildGroupMatches(unittest.TestCase):
         no_md = {**_MATCH_GROUP, "matchday": None}
         self.assertEqual(build_group_matches(_matches_payload(no_md)), [])
 
-    def test_league_phase_no_group_skipped(self):
+    def test_league_phase_projected_under_synthetic_group(self):
+        # Regression: league-phase games (group=None, stage=LEAGUE_STAGE) were
+        # previously dropped. They must now be projected under "LEAGUE_PHASE".
         league = {**_MATCH_GROUP, "group": None, "stage": "LEAGUE_STAGE"}
-        self.assertEqual(build_group_matches(_matches_payload(league)), [])
+        gms = build_group_matches(_matches_payload(league))
+        self.assertEqual(len(gms), 1)
+        self.assertEqual(gms[0]["group"], "LEAGUE_PHASE")
+
+    def test_non_league_no_group_still_skipped(self):
+        # group=None with a non-league stage (qualifying) is still skipped.
+        qual = {**_MATCH_GROUP, "group": None, "stage": "FIRST_QUALIFYING_ROUND"}
+        self.assertEqual(build_group_matches(_matches_payload(qual)), [])
 
 
 # ── fetch endpoints (mocked urllib) ─────────────────────────────────────────────
