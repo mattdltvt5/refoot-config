@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-05T22:26:09Z",
+  "generated_at": "2026-09-09T19:26:10Z",
   "month": "2026-11",
   "dates": {
     "2026-11-01": [
@@ -500,6 +500,400 @@
             "awayScore": null,
             "status": "TIMED",
             "utcDate": "2026-11-02T19:45:00Z"
+          }
+        ]
+      }
+    ],
+    "2026-11-03": [
+      {
+        "competition": "ucl",
+        "name": "Champions League",
+        "matches": [
+          {
+            "match_id": 575377,
+            "homeTeam": {
+              "id": 1887,
+              "name": "FK Shakhtar Donetsk",
+              "shortName": "FK Shakhtar Donetsk",
+              "tla": "SHD",
+              "crest": "https://crests.football-data.org/1887.png"
+            },
+            "awayTeam": {
+              "id": 498,
+              "name": "Sporting Clube de Portugal",
+              "shortName": "Sporting Clube de Portugal",
+              "tla": "SPO",
+              "crest": "https://crests.football-data.org/498.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "TIMED",
+            "utcDate": "2026-11-03T17:45:00Z"
+          },
+          {
+            "match_id": 575378,
+            "homeTeam": {
+              "id": 610,
+              "name": "Galatasaray SK",
+              "shortName": "Galatasaray SK",
+              "tla": "GAL",
+              "crest": "https://crests.football-data.org/610.png"
+            },
+            "awayTeam": {
+              "id": 10,
+              "name": "VfB Stuttgart",
+              "shortName": "VfB Stuttgart",
+              "tla": "VFB",
+              "crest": "https://crests.football-data.org/10.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "TIMED",
+            "utcDate": "2026-11-03T17:45:00Z"
+          },
+          {
+            "match_id": 575379,
+            "homeTeam": {
+              "id": 675,
+              "name": "Feyenoord Rotterdam",
+              "shortName": "Feyenoord Rotterdam",
+              "tla": "FEY",
+              "crest": "https://crests.football-data.org/675.png"
+            },
+            "awayTeam": {
+              "id": 108,
+              "name": "FC Internazionale Milano",
+              "shortName": "FC Internazionale Milano",
+              "tla": "INT",
+              "crest": "https://crests.football-data.org/108.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "TIMED",
+            "utcDate": "2026-11-03T20:00:00Z"
+          },
+          {
+            "match_id": 575380,
+            "homeTeam": {
+              "id": 81,
+              "name": "FC Barcelona",
+              "shortName": "FC Barcelona",
+              "tla": "FCB",
+              "crest": "https://crests.football-data.org/81.png"
+            },
+            "awayTeam": {
+              "id": 58,
+              "name": "Aston Villa FC",
+              "shortName": "Aston Villa FC",
+              "tla": "AVL",
+              "crest": "https://crests.football-data.org/58.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "TIMED",
+            "utcDate": "2026-11-03T20:00:00Z"
+          },
+          {
+            "match_id": 575381,
+            "homeTeam": {
+              "id": 78,
+              "name": "Club Atlético de Madrid",
+              "shortName": "Club Atlético de Madrid",
+              "tla": "ATL",
+              "crest": "https://crests.football-data.org/78.png"
+            },
+            "awayTeam": {
+              "id": 5,
+              "name": "FC Bayern München",
+              "shortName": "FC Bayern München",
+              "tla": "FCB",
+              "crest": "https://crests.football-data.org/5.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "TIMED",
+            "utcDate": "2026-11-03T20:00:00Z"
+          },
+          {
+            "match_id": 575382,
+            "homeTeam": {
+              "id": 94,
+              "name": "Villarreal CF",
+              "shortName": "Villarreal CF",
+              "tla": "VIL",
+              "crest": "https://crests.football-data.org/94.png"
+            },
+            "awayTeam": {
+              "id": 524,
+              "name": "Paris Saint-Germain FC",
+              "shortName": "Paris Saint-Germain FC",
+              "tla": "PSG",
+              "crest": "https://crests.football-data.org/524.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "TIMED",
+            "utcDate": "2026-11-03T20:00:00Z"
+          },
+          {
+            "match_id": 575383,
+            "homeTeam": {
+              "id": 66,
+              "name": "Manchester United FC",
+              "shortName": "Manchester United FC",
+              "tla": "MUN",
+              "crest": "https://crests.football-data.org/66.png"
+            },
+            "awayTeam": {
+              "id": 100,
+              "name": "AS Roma",
+              "shortName": "AS Roma",
+              "tla": "ROM",
+              "crest": "https://crests.football-data.org/100.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "TIMED",
+            "utcDate": "2026-11-03T20:00:00Z"
+          },
+          {
+            "match_id": 575384,
+            "homeTeam": {
+              "id": 5721,
+              "name": "FK Bodø/Glimt",
+              "shortName": "FK Bodø/Glimt",
+              "tla": "FK",
+              "crest": "https://crests.football-data.org/5721.png"
+            },
+            "awayTeam": {
+              "id": 521,
+              "name": "Lille OSC",
+              "shortName": "Lille OSC",
+              "tla": "LIL",
+              "crest": "https://crests.football-data.org/521.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "TIMED",
+            "utcDate": "2026-11-03T20:00:00Z"
+          },
+          {
+            "match_id": 575385,
+            "homeTeam": {
+              "id": 2016,
+              "name": "LASK Linz",
+              "shortName": "LASK Linz",
+              "tla": "LIN",
+              "crest": "https://crests.football-data.org/2016.png"
+            },
+            "awayTeam": {
+              "id": 7509,
+              "name": "ŠK Slovan Bratislava",
+              "shortName": "ŠK Slovan Bratislava",
+              "tla": "SBA",
+              "crest": "https://crests.football-data.org/7509.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "TIMED",
+            "utcDate": "2026-11-03T20:00:00Z"
+          }
+        ]
+      }
+    ],
+    "2026-11-04": [
+      {
+        "competition": "ucl",
+        "name": "Champions League",
+        "matches": [
+          {
+            "match_id": 575386,
+            "homeTeam": {
+              "id": 1899,
+              "name": "PAE AEK",
+              "shortName": "PAE AEK",
+              "tla": "AEK",
+              "crest": "https://crests.football-data.org/1899.png"
+            },
+            "awayTeam": {
+              "id": 86,
+              "name": "Real Madrid CF",
+              "shortName": "Real Madrid CF",
+              "tla": "RMA",
+              "crest": "https://crests.football-data.org/86.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "TIMED",
+            "utcDate": "2026-11-04T17:45:00Z"
+          },
+          {
+            "match_id": 575387,
+            "homeTeam": {
+              "id": 613,
+              "name": "Fenerbahçe SK",
+              "shortName": "Fenerbahçe SK",
+              "tla": "FEN",
+              "crest": "https://crests.football-data.org/613.png"
+            },
+            "awayTeam": {
+              "id": 64,
+              "name": "Liverpool FC",
+              "shortName": "Liverpool FC",
+              "tla": "LIV",
+              "crest": "https://crests.football-data.org/64.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "TIMED",
+            "utcDate": "2026-11-04T17:45:00Z"
+          },
+          {
+            "match_id": 575388,
+            "homeTeam": {
+              "id": 721,
+              "name": "RB Leipzig",
+              "shortName": "RB Leipzig",
+              "tla": "RBL",
+              "crest": "https://crests.football-data.org/721.png"
+            },
+            "awayTeam": {
+              "id": 65,
+              "name": "Manchester City FC",
+              "shortName": "Manchester City FC",
+              "tla": "MCI",
+              "crest": "https://crests.football-data.org/65.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "TIMED",
+            "utcDate": "2026-11-04T20:00:00Z"
+          },
+          {
+            "match_id": 575389,
+            "homeTeam": {
+              "id": 930,
+              "name": "SK Slavia Praha",
+              "shortName": "SK Slavia Praha",
+              "tla": "SLP",
+              "crest": "https://crests.football-data.org/930.png"
+            },
+            "awayTeam": {
+              "id": 57,
+              "name": "Arsenal FC",
+              "shortName": "Arsenal FC",
+              "tla": "ARS",
+              "crest": "https://crests.football-data.org/57.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "TIMED",
+            "utcDate": "2026-11-04T20:00:00Z"
+          },
+          {
+            "match_id": 575390,
+            "homeTeam": {
+              "id": 674,
+              "name": "PSV",
+              "shortName": "PSV",
+              "tla": "PSV",
+              "crest": "https://crests.football-data.org/674.png"
+            },
+            "awayTeam": {
+              "id": 851,
+              "name": "Club Brugge KV",
+              "shortName": "Club Brugge KV",
+              "tla": "BRU",
+              "crest": "https://crests.football-data.org/851.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "TIMED",
+            "utcDate": "2026-11-04T20:00:00Z"
+          },
+          {
+            "match_id": 575391,
+            "homeTeam": {
+              "id": 4,
+              "name": "Borussia Dortmund",
+              "shortName": "Borussia Dortmund",
+              "tla": "BVB",
+              "crest": "https://crests.football-data.org/4.png"
+            },
+            "awayTeam": {
+              "id": 90,
+              "name": "Real Betis Balompié",
+              "shortName": "Real Betis Balompié",
+              "tla": "BET",
+              "crest": "https://crests.football-data.org/90.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "TIMED",
+            "utcDate": "2026-11-04T20:00:00Z"
+          },
+          {
+            "match_id": 575392,
+            "homeTeam": {
+              "id": 503,
+              "name": "FC Porto",
+              "shortName": "FC Porto",
+              "tla": "FCP",
+              "crest": "https://crests.football-data.org/503.png"
+            },
+            "awayTeam": {
+              "id": 113,
+              "name": "SSC Napoli",
+              "shortName": "SSC Napoli",
+              "tla": "NAP",
+              "crest": "https://crests.football-data.org/113.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "TIMED",
+            "utcDate": "2026-11-04T20:00:00Z"
+          },
+          {
+            "match_id": 575393,
+            "homeTeam": {
+              "id": 546,
+              "name": "Racing Club de Lens",
+              "shortName": "Racing Club de Lens",
+              "tla": "RCL",
+              "crest": "https://crests.football-data.org/546.png"
+            },
+            "awayTeam": {
+              "id": 7397,
+              "name": "Como 1907",
+              "shortName": "Como 1907",
+              "tla": "COM",
+              "crest": "https://crests.football-data.org/7397.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "TIMED",
+            "utcDate": "2026-11-04T20:00:00Z"
+          },
+          {
+            "match_id": 575394,
+            "homeTeam": {
+              "id": 5720,
+              "name": "Viking FK",
+              "shortName": "Viking FK",
+              "tla": "VIK",
+              "crest": "https://crests.football-data.org/5720.png"
+            },
+            "awayTeam": {
+              "id": 10233,
+              "name": "Sabah FK",
+              "shortName": "Sabah FK",
+              "tla": "SAB",
+              "crest": "https://crests.football-data.org/10233.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "TIMED",
+            "utcDate": "2026-11-04T20:00:00Z"
           }
         ]
       }
@@ -2638,6 +3032,400 @@
             "awayScore": null,
             "status": "TIMED",
             "utcDate": "2026-11-23T19:45:00Z"
+          }
+        ]
+      }
+    ],
+    "2026-11-24": [
+      {
+        "competition": "ucl",
+        "name": "Champions League",
+        "matches": [
+          {
+            "match_id": 575395,
+            "homeTeam": {
+              "id": 610,
+              "name": "Galatasaray SK",
+              "shortName": "Galatasaray SK",
+              "tla": "GAL",
+              "crest": "https://crests.football-data.org/610.png"
+            },
+            "awayTeam": {
+              "id": 58,
+              "name": "Aston Villa FC",
+              "shortName": "Aston Villa FC",
+              "tla": "AVL",
+              "crest": "https://crests.football-data.org/58.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "TIMED",
+            "utcDate": "2026-11-24T17:45:00Z"
+          },
+          {
+            "match_id": 575396,
+            "homeTeam": {
+              "id": 5721,
+              "name": "FK Bodø/Glimt",
+              "shortName": "FK Bodø/Glimt",
+              "tla": "FK",
+              "crest": "https://crests.football-data.org/5721.png"
+            },
+            "awayTeam": {
+              "id": 2016,
+              "name": "LASK Linz",
+              "shortName": "LASK Linz",
+              "tla": "LIN",
+              "crest": "https://crests.football-data.org/2016.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "TIMED",
+            "utcDate": "2026-11-24T17:45:00Z"
+          },
+          {
+            "match_id": 575397,
+            "homeTeam": {
+              "id": 86,
+              "name": "Real Madrid CF",
+              "shortName": "Real Madrid CF",
+              "tla": "RMA",
+              "crest": "https://crests.football-data.org/86.png"
+            },
+            "awayTeam": {
+              "id": 674,
+              "name": "PSV",
+              "shortName": "PSV",
+              "tla": "PSV",
+              "crest": "https://crests.football-data.org/674.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "TIMED",
+            "utcDate": "2026-11-24T20:00:00Z"
+          },
+          {
+            "match_id": 575398,
+            "homeTeam": {
+              "id": 65,
+              "name": "Manchester City FC",
+              "shortName": "Manchester City FC",
+              "tla": "MCI",
+              "crest": "https://crests.football-data.org/65.png"
+            },
+            "awayTeam": {
+              "id": 113,
+              "name": "SSC Napoli",
+              "shortName": "SSC Napoli",
+              "tla": "NAP",
+              "crest": "https://crests.football-data.org/113.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "TIMED",
+            "utcDate": "2026-11-24T20:00:00Z"
+          },
+          {
+            "match_id": 575399,
+            "homeTeam": {
+              "id": 57,
+              "name": "Arsenal FC",
+              "shortName": "Arsenal FC",
+              "tla": "ARS",
+              "crest": "https://crests.football-data.org/57.png"
+            },
+            "awayTeam": {
+              "id": 4,
+              "name": "Borussia Dortmund",
+              "shortName": "Borussia Dortmund",
+              "tla": "BVB",
+              "crest": "https://crests.football-data.org/4.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "TIMED",
+            "utcDate": "2026-11-24T20:00:00Z"
+          },
+          {
+            "match_id": 575400,
+            "homeTeam": {
+              "id": 675,
+              "name": "Feyenoord Rotterdam",
+              "shortName": "Feyenoord Rotterdam",
+              "tla": "FEY",
+              "crest": "https://crests.football-data.org/675.png"
+            },
+            "awayTeam": {
+              "id": 503,
+              "name": "FC Porto",
+              "shortName": "FC Porto",
+              "tla": "FCP",
+              "crest": "https://crests.football-data.org/503.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "TIMED",
+            "utcDate": "2026-11-24T20:00:00Z"
+          },
+          {
+            "match_id": 575401,
+            "homeTeam": {
+              "id": 7509,
+              "name": "ŠK Slovan Bratislava",
+              "shortName": "ŠK Slovan Bratislava",
+              "tla": "SBA",
+              "crest": "https://crests.football-data.org/7509.png"
+            },
+            "awayTeam": {
+              "id": 90,
+              "name": "Real Betis Balompié",
+              "shortName": "Real Betis Balompié",
+              "tla": "BET",
+              "crest": "https://crests.football-data.org/90.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "TIMED",
+            "utcDate": "2026-11-24T20:00:00Z"
+          },
+          {
+            "match_id": 575402,
+            "homeTeam": {
+              "id": 721,
+              "name": "RB Leipzig",
+              "shortName": "RB Leipzig",
+              "tla": "RBL",
+              "crest": "https://crests.football-data.org/721.png"
+            },
+            "awayTeam": {
+              "id": 546,
+              "name": "Racing Club de Lens",
+              "shortName": "Racing Club de Lens",
+              "tla": "RCL",
+              "crest": "https://crests.football-data.org/546.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "TIMED",
+            "utcDate": "2026-11-24T20:00:00Z"
+          },
+          {
+            "match_id": 575403,
+            "homeTeam": {
+              "id": 7397,
+              "name": "Como 1907",
+              "shortName": "Como 1907",
+              "tla": "COM",
+              "crest": "https://crests.football-data.org/7397.png"
+            },
+            "awayTeam": {
+              "id": 1899,
+              "name": "PAE AEK",
+              "shortName": "PAE AEK",
+              "tla": "AEK",
+              "crest": "https://crests.football-data.org/1899.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "TIMED",
+            "utcDate": "2026-11-24T20:00:00Z"
+          }
+        ]
+      }
+    ],
+    "2026-11-25": [
+      {
+        "competition": "ucl",
+        "name": "Champions League",
+        "matches": [
+          {
+            "match_id": 575404,
+            "homeTeam": {
+              "id": 10233,
+              "name": "Sabah FK",
+              "shortName": "Sabah FK",
+              "tla": "SAB",
+              "crest": "https://crests.football-data.org/10233.png"
+            },
+            "awayTeam": {
+              "id": 81,
+              "name": "FC Barcelona",
+              "shortName": "FC Barcelona",
+              "tla": "FCB",
+              "crest": "https://crests.football-data.org/81.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "TIMED",
+            "utcDate": "2026-11-25T17:45:00Z"
+          },
+          {
+            "match_id": 575405,
+            "homeTeam": {
+              "id": 930,
+              "name": "SK Slavia Praha",
+              "shortName": "SK Slavia Praha",
+              "tla": "SLP",
+              "crest": "https://crests.football-data.org/930.png"
+            },
+            "awayTeam": {
+              "id": 94,
+              "name": "Villarreal CF",
+              "shortName": "Villarreal CF",
+              "tla": "VIL",
+              "crest": "https://crests.football-data.org/94.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "TIMED",
+            "utcDate": "2026-11-25T17:45:00Z"
+          },
+          {
+            "match_id": 575406,
+            "homeTeam": {
+              "id": 108,
+              "name": "FC Internazionale Milano",
+              "shortName": "FC Internazionale Milano",
+              "tla": "INT",
+              "crest": "https://crests.football-data.org/108.png"
+            },
+            "awayTeam": {
+              "id": 10,
+              "name": "VfB Stuttgart",
+              "shortName": "VfB Stuttgart",
+              "tla": "VFB",
+              "crest": "https://crests.football-data.org/10.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "TIMED",
+            "utcDate": "2026-11-25T20:00:00Z"
+          },
+          {
+            "match_id": 575407,
+            "homeTeam": {
+              "id": 78,
+              "name": "Club Atlético de Madrid",
+              "shortName": "Club Atlético de Madrid",
+              "tla": "ATL",
+              "crest": "https://crests.football-data.org/78.png"
+            },
+            "awayTeam": {
+              "id": 5720,
+              "name": "Viking FK",
+              "shortName": "Viking FK",
+              "tla": "VIK",
+              "crest": "https://crests.football-data.org/5720.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "TIMED",
+            "utcDate": "2026-11-25T20:00:00Z"
+          },
+          {
+            "match_id": 575408,
+            "homeTeam": {
+              "id": 524,
+              "name": "Paris Saint-Germain FC",
+              "shortName": "Paris Saint-Germain FC",
+              "tla": "PSG",
+              "crest": "https://crests.football-data.org/524.png"
+            },
+            "awayTeam": {
+              "id": 100,
+              "name": "AS Roma",
+              "shortName": "AS Roma",
+              "tla": "ROM",
+              "crest": "https://crests.football-data.org/100.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "TIMED",
+            "utcDate": "2026-11-25T20:00:00Z"
+          },
+          {
+            "match_id": 575409,
+            "homeTeam": {
+              "id": 851,
+              "name": "Club Brugge KV",
+              "shortName": "Club Brugge KV",
+              "tla": "BRU",
+              "crest": "https://crests.football-data.org/851.png"
+            },
+            "awayTeam": {
+              "id": 64,
+              "name": "Liverpool FC",
+              "shortName": "Liverpool FC",
+              "tla": "LIV",
+              "crest": "https://crests.football-data.org/64.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "TIMED",
+            "utcDate": "2026-11-25T20:00:00Z"
+          },
+          {
+            "match_id": 575410,
+            "homeTeam": {
+              "id": 521,
+              "name": "Lille OSC",
+              "shortName": "Lille OSC",
+              "tla": "LIL",
+              "crest": "https://crests.football-data.org/521.png"
+            },
+            "awayTeam": {
+              "id": 5,
+              "name": "FC Bayern München",
+              "shortName": "FC Bayern München",
+              "tla": "FCB",
+              "crest": "https://crests.football-data.org/5.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "TIMED",
+            "utcDate": "2026-11-25T20:00:00Z"
+          },
+          {
+            "match_id": 575411,
+            "homeTeam": {
+              "id": 498,
+              "name": "Sporting Clube de Portugal",
+              "shortName": "Sporting Clube de Portugal",
+              "tla": "SPO",
+              "crest": "https://crests.football-data.org/498.png"
+            },
+            "awayTeam": {
+              "id": 66,
+              "name": "Manchester United FC",
+              "shortName": "Manchester United FC",
+              "tla": "MUN",
+              "crest": "https://crests.football-data.org/66.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "TIMED",
+            "utcDate": "2026-11-25T20:00:00Z"
+          },
+          {
+            "match_id": 575412,
+            "homeTeam": {
+              "id": 1887,
+              "name": "FK Shakhtar Donetsk",
+              "shortName": "FK Shakhtar Donetsk",
+              "tla": "SHD",
+              "crest": "https://crests.football-data.org/1887.png"
+            },
+            "awayTeam": {
+              "id": 613,
+              "name": "Fenerbahçe SK",
+              "shortName": "Fenerbahçe SK",
+              "tla": "FEN",
+              "crest": "https://crests.football-data.org/613.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "TIMED",
+            "utcDate": "2026-11-25T20:00:00Z"
           }
         ]
       }
