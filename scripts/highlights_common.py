@@ -319,10 +319,18 @@ _GENERIC_TEAM_WORDS: frozenset = frozenset({
 })
 
 # Leading organisational abbreviations skipped when finding the first meaningful
-# word of a club name ("AFC Bournemouth" → "bournemouth", "RCD Mallorca" → "mallorca").
+# word of a club name ("AFC Bournemouth" → "bournemouth", "RCD Mallorca" →
+# "mallorca", "ŠK Slovan Bratislava" → "slovan"). These are pure org markers, not
+# distinctive names — the caller still requires the resulting word to be ≥4 chars,
+# non-generic, AND unique across tracked teams, so an over-broad prefix can only
+# ever fail those gates, never produce a wrong token. Includes common non-English
+# European prefixes (Greek PAE, Slavic/Nordic SK/FK/NK, Italian/French AS/SSC/OGC,
+# Belgian RSC/KAA, German BSC, Croatian GNK/HNK).
 _LEADING_ORG_ABBREVS: frozenset = frozenset({
     "fc", "afc", "cf", "sc", "ac", "rc", "rcd", "ca", "ud", "ss", "us",
     "sv", "vfb", "vfl", "tsg", "fsv", "cd", "sd",
+    "pae", "sk", "fk", "nk", "gnk", "hnk", "bsc", "as", "ssc", "ogc",
+    "rsc", "kaa",
 })
 
 

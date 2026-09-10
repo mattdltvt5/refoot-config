@@ -45,6 +45,14 @@ DOMESTIC = {
     "premier-league": "Premier League", "laliga": "LaLiga", "serie-a": "Serie A",
     "bundesliga": "Bundesliga", "ligue-1": "Ligue 1",
 }
+# FD-sourced tournaments (tournament-groups/{slug}.json). Scanned in addition to
+# the domestic leagues so tournament clubs (e.g. UCL small clubs like PAE AEK,
+# ŠK Slovan Bratislava) get the same alias-gap coverage. Undated matches are
+# skipped in the gather (the matcher needs a kickoff date).
+TOURNAMENTS = {
+    "ucl": "Champions League", "euro-cup": "Euro Cup",
+    "world-cup": "World Cup", "copa-america": "Copa America",
+}
 sys.path.insert(0, str(REPO / "scripts"))
 
 from highlights_common import (          # noqa: E402
@@ -93,6 +101,36 @@ def to_fix(f):
     }
 
 
+def to_fix_tournament(m):
+    """tournament-groups match → provider `fix` dict. Tournament entries carry no
+    shortName, so home_short/away_short are empty (team_tokens handles it)."""
+    h, a = m.get("homeTeam") or {}, m.get("awayTeam") or {}
+    return {
+        "match_id": m.get("match_id"),
+        "home_team": h.get("name", ""), "home_short": "", "home_tla": h.get("tla", ""),
+        "away_team": a.get("name", ""), "away_short": "", "away_tla": a.get("tla", ""),
+        "date": (m.get("utcDate") or "")[:10], "matchday": m.get("matchday"),
+    }
+
+
+def tournament_no_hl():
+    """(comp_name, slug, fix) for PLAYED tournament matches lacking a video_id.
+    Undated matches (e.g. current Copa América) are skipped — the matcher needs a
+    kickoff date for its window."""
+    out = []
+    for slug, comp in TOURNAMENTS.items():
+        p = REPO / "tournament-groups" / f"{slug}.json"
+        if not p.exists():
+            continue
+        d = jload(p)
+        for m in (d.get("matches") or []) + (d.get("groupMatches") or []):
+            played = (m.get("status") == "FINISHED") or \
+                     ((m.get("score") or {}).get("fullTime", {}).get("home") is not None)
+            if played and not m.get("video_id") and (m.get("utcDate") or ""):
+                out.append((comp, slug, to_fix_tournament(m)))
+    return out
+
+
 def is_alias_miss(reasons):
     """True iff EVERY sink record for a candidate is a cross-match team miss —
     i.e. it cleared date-window, comp-keyword and is_highlight_title, and only
@@ -135,6 +173,9 @@ def main():
             if not have.get(f.get("match_id"), False):
                 no_hl.append((comp, slug, to_fix(f)))
 
+    # Tournament clubs (UCL/Euro/WC/Copa) get the same coverage.
+    no_hl += tournament_no_hl()
+
     # ---- run the matcher, detect alias gaps ------------------------------
     yt_key = os.environ.get("YOUTUBE_API_KEY")
     candidates: dict = {}   # comp -> team -> [ {alias, evidence, occurrences} ]
@@ -150,9 +191,17 @@ def main():
         try:
             for comp, slug, fix in no_hl:
                 sink = []
-                videos = resolve_videos_for_fixture(fix, comp, config, yt_key, quota,
-                                                    INCREMENTAL_CAP, gw_playlist_cache=gw_cache,
-                                                    debug_sink=sink)
+                try:
+                    videos = resolve_videos_for_fixture(fix, comp, config, yt_key, quota,
+                                                        INCREMENTAL_CAP, gw_playlist_cache=gw_cache,
+                                                        debug_sink=sink)
+                except QuotaCapReached:
+                    raise
+                except Exception as e:                       # noqa: BLE001
+                    # A tournament comp the matcher can't fully resolve shouldn't
+                    # abort the whole scan — skip it and keep going.
+                    print(f"  skip {comp} match {fix.get('match_id')}: {e}", file=sys.stderr)
+                    continue
                 if videos:
                     # The live matcher now resolves this fixture (cache is just
                     # stale) — it is no longer a gap, so skip it entirely.

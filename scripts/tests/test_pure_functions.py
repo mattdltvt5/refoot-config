@@ -185,6 +185,16 @@ def test_leading_alias_word_screens_shape():
     assert _leading_alias_word("Real Madrid CF") is None            # 'real' is generic
 
 
+def test_leading_alias_word_skips_foreign_prefixes():
+    """Non-English leading org prefixes (PAE / ŠK / FK / AS / SSC …) are skipped
+    to reach the real name word for teams without a manual alias entry."""
+    assert _leading_alias_word("ŠK Newtown") == "newtown"   # ŠK→sk skipped
+    assert _leading_alias_word("PAE Testclub") == "testclub"
+    assert _leading_alias_word("FK Someplace") == "someplace"
+    assert _leading_alias_word("AS Example") == "example"
+    assert _leading_alias_word("SSC Sampletown") == "sampletown"
+
+
 def test_team_word_index_flags_shared_words():
     """The collision index maps a shared word to ≥2 teams and a unique one to ≤1."""
     idx = _team_word_index()
