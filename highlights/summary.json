@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-09T23:56:07Z",
+  "generated_at": "2026-09-10T00:01:28Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -87,7 +87,7 @@
           "gameweek": "GW2",
           "stem": "gameweek-2",
           "total": 10,
-          "covered": 9,
+          "covered": 10,
           "matches": [
             {
               "match_id": 560555,
@@ -150,7 +150,7 @@
               "home": "Manchester United FC",
               "away": "Ipswich Town FC",
               "date": "2026-08-30",
-              "covered": false
+              "covered": true
             },
             {
               "match_id": 560557,
@@ -165,14 +165,14 @@
           "gameweek": "GW3",
           "stem": "gameweek-3",
           "total": 10,
-          "covered": 9,
+          "covered": 10,
           "matches": [
             {
               "match_id": 560566,
               "home": "Ipswich Town FC",
               "away": "Liverpool FC",
               "date": "2026-09-04",
-              "covered": false
+              "covered": true
             },
             {
               "match_id": 560571,
@@ -1188,8 +1188,8 @@
         {
           "gameweek": "MD1",
           "stem": "matchday-1",
-          "total": 6,
-          "covered": 4,
+          "total": 12,
+          "covered": 10,
           "matches": [
             {
               "match_id": 575323,
@@ -1217,7 +1217,7 @@
               "home": "FC Porto",
               "away": "Manchester City FC",
               "date": "2026-09-08",
-              "covered": false
+              "covered": true
             },
             {
               "match_id": 575327,
@@ -1231,6 +1231,48 @@
               "home": "Lille OSC",
               "away": "Real Betis Balompié",
               "date": "2026-09-08",
+              "covered": true
+            },
+            {
+              "match_id": 575329,
+              "home": "FC Barcelona",
+              "away": "Feyenoord Rotterdam",
+              "date": "2026-09-09",
+              "covered": true
+            },
+            {
+              "match_id": 575330,
+              "home": "VfB Stuttgart",
+              "away": "Viking FK",
+              "date": "2026-09-09",
+              "covered": true
+            },
+            {
+              "match_id": 575331,
+              "home": "Liverpool FC",
+              "away": "Club Atlético de Madrid",
+              "date": "2026-09-09",
+              "covered": true
+            },
+            {
+              "match_id": 575332,
+              "home": "Paris Saint-Germain FC",
+              "away": "ŠK Slovan Bratislava",
+              "date": "2026-09-09",
+              "covered": false
+            },
+            {
+              "match_id": 575333,
+              "home": "SSC Napoli",
+              "away": "Arsenal FC",
+              "date": "2026-09-09",
+              "covered": true
+            },
+            {
+              "match_id": 575334,
+              "home": "Sporting Clube de Portugal",
+              "away": "Galatasaray SK",
+              "date": "2026-09-09",
               "covered": true
             }
           ]
