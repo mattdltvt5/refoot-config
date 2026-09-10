@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-10T17:36:33.098502Z",
+  "generated_at": "2026-09-10T17:41:30.440126Z",
   "slug": "ucl",
   "standings": [
     {
@@ -236,7 +236,26 @@
           "goalDifference": 1
         },
         {
-          "position": 13,
+          "position": 11,
+          "team": {
+            "id": 1887,
+            "name": "FK Shakhtar Donetsk",
+            "shortName": "Shaktar",
+            "tla": "SHD",
+            "crest": "https://crests.football-data.org/1887.png"
+          },
+          "playedGames": 1,
+          "form": null,
+          "won": 1,
+          "draw": 0,
+          "lost": 0,
+          "points": 3,
+          "goalsFor": 1,
+          "goalsAgainst": 0,
+          "goalDifference": 1
+        },
+        {
+          "position": 14,
           "team": {
             "id": 1899,
             "name": "PAE AEK",
@@ -255,45 +274,7 @@
           "goalDifference": 1
         },
         {
-          "position": 14,
-          "team": {
-            "id": 674,
-            "name": "PSV",
-            "shortName": "PSV",
-            "tla": "PSV",
-            "crest": "https://crests.football-data.org/674.png"
-          },
-          "playedGames": 1,
-          "form": null,
-          "won": 0,
-          "draw": 1,
-          "lost": 0,
-          "points": 1,
-          "goalsFor": 0,
-          "goalsAgainst": 0,
-          "goalDifference": 0
-        },
-        {
-          "position": 14,
-          "team": {
-            "id": 1887,
-            "name": "FK Shakhtar Donetsk",
-            "shortName": "Shaktar",
-            "tla": "SHD",
-            "crest": "https://crests.football-data.org/1887.png"
-          },
-          "playedGames": 1,
-          "form": null,
-          "won": 0,
-          "draw": 1,
-          "lost": 0,
-          "points": 1,
-          "goalsFor": 0,
-          "goalsAgainst": 0,
-          "goalDifference": 0
-        },
-        {
-          "position": 16,
+          "position": 15,
           "team": {
             "id": 5,
             "name": "FC Bayern München",
@@ -312,7 +293,7 @@
           "goalDifference": 0
         },
         {
-          "position": 16,
+          "position": 15,
           "team": {
             "id": 7397,
             "name": "Como 1907",
@@ -331,7 +312,7 @@
           "goalDifference": 0
         },
         {
-          "position": 16,
+          "position": 15,
           "team": {
             "id": 5721,
             "name": "FK Bodø/Glimt",
@@ -350,7 +331,7 @@
           "goalDifference": 0
         },
         {
-          "position": 16,
+          "position": 15,
           "team": {
             "id": 66,
             "name": "Manchester United FC",
@@ -369,7 +350,7 @@
           "goalDifference": 0
         },
         {
-          "position": 16,
+          "position": 15,
           "team": {
             "id": 721,
             "name": "RB Leipzig",
@@ -388,7 +369,7 @@
           "goalDifference": 0
         },
         {
-          "position": 16,
+          "position": 15,
           "team": {
             "id": 546,
             "name": "Racing Club de Lens",
@@ -407,7 +388,7 @@
           "goalDifference": 0
         },
         {
-          "position": 16,
+          "position": 15,
           "team": {
             "id": 10233,
             "name": "Sabah FK",
@@ -426,7 +407,7 @@
           "goalDifference": 0
         },
         {
-          "position": 16,
+          "position": 15,
           "team": {
             "id": 930,
             "name": "SK Slavia Praha",
@@ -445,7 +426,7 @@
           "goalDifference": 0
         },
         {
-          "position": 24,
+          "position": 23,
           "team": {
             "id": 94,
             "name": "Villarreal CF",
@@ -464,7 +445,7 @@
           "goalDifference": -1
         },
         {
-          "position": 25,
+          "position": 24,
           "team": {
             "id": 851,
             "name": "Club Brugge KV",
@@ -483,7 +464,7 @@
           "goalDifference": -1
         },
         {
-          "position": 25,
+          "position": 24,
           "team": {
             "id": 521,
             "name": "Lille OSC",
@@ -502,7 +483,7 @@
           "goalDifference": -1
         },
         {
-          "position": 27,
+          "position": 26,
           "team": {
             "id": 78,
             "name": "Club Atlético de Madrid",
@@ -521,7 +502,7 @@
           "goalDifference": -1
         },
         {
-          "position": 27,
+          "position": 26,
           "team": {
             "id": 108,
             "name": "FC Internazionale Milano",
@@ -540,7 +521,7 @@
           "goalDifference": -1
         },
         {
-          "position": 29,
+          "position": 28,
           "team": {
             "id": 613,
             "name": "Fenerbahçe SK",
@@ -559,7 +540,7 @@
           "goalDifference": -1
         },
         {
-          "position": 29,
+          "position": 28,
           "team": {
             "id": 2016,
             "name": "LASK Linz",
@@ -578,7 +559,26 @@
           "goalDifference": -1
         },
         {
-          "position": 29,
+          "position": 28,
+          "team": {
+            "id": 674,
+            "name": "PSV",
+            "shortName": "PSV",
+            "tla": "PSV",
+            "crest": "https://crests.football-data.org/674.png"
+          },
+          "playedGames": 1,
+          "form": null,
+          "won": 0,
+          "draw": 0,
+          "lost": 1,
+          "points": 0,
+          "goalsFor": 0,
+          "goalsAgainst": 1,
+          "goalDifference": -1
+        },
+        {
+          "position": 28,
           "team": {
             "id": 113,
             "name": "SSC Napoli",
@@ -1068,7 +1068,7 @@
       "score": {
         "fullTime": {
           "home": 0,
-          "away": 0
+          "away": 1
         }
       },
       "status": "IN_PLAY",
