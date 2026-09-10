@@ -190,3 +190,22 @@ def test_team_word_index_flags_shared_words():
     idx = _team_word_index()
     assert len(idx.get("manchester", set())) >= 2   # City + United
     assert len(idx.get("ipswich", set())) == 1
+
+
+# ── UCL small-club alias gaps (PAE AEK, ŠK Slovan Bratislava) ─────────────────
+
+def test_pae_aek_has_aek_alias():
+    """'PAE AEK' must expose 'aek' — broadcasters drop the Greek 'PAE' prefix.
+    Without this only 'pae aek' is derived and titles like 'AEK 1-0 …' never match."""
+    assert "PAE AEK" in TEAM_TITLE_ALIASES
+    tokens = team_tokens("PAE AEK", "", "AEK")
+    assert "aek" in tokens, f"bare 'aek' token missing; tokens: {tokens}"
+
+
+def test_slovan_bratislava_has_slovan_aliases():
+    """'ŠK Slovan Bratislava' must expose 'slovan bratislava' and 'slovan' — the
+    leading 'ŠK' club prefix is otherwise not stripped, leaving only the full form."""
+    assert "ŠK Slovan Bratislava" in TEAM_TITLE_ALIASES
+    tokens = team_tokens("ŠK Slovan Bratislava", "", "SBA")
+    assert "slovan bratislava" in tokens, f"tokens: {tokens}"
+    assert "slovan" in tokens, f"bare 'slovan' token missing; tokens: {tokens}"
