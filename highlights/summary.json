@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-10T18:41:10Z",
+  "generated_at": "2026-09-10T18:46:23Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -1188,7 +1188,7 @@
         {
           "gameweek": "MD1",
           "stem": "matchday-1",
-          "total": 12,
+          "total": 14,
           "covered": 12,
           "matches": [
             {
@@ -1274,6 +1274,20 @@
               "away": "Galatasaray SK",
               "date": "2026-09-09",
               "covered": true
+            },
+            {
+              "match_id": 575335,
+              "home": "Fenerbahçe SK",
+              "away": "AS Roma",
+              "date": "2026-09-10",
+              "covered": false
+            },
+            {
+              "match_id": 575336,
+              "home": "PSV",
+              "away": "FK Shakhtar Donetsk",
+              "date": "2026-09-10",
+              "covered": false
             }
           ]
         }
