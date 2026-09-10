@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-10T16:46:32.605612Z",
+  "generated_at": "2026-09-10T16:51:35.306947Z",
   "slug": "ucl",
   "standings": [
     {
@@ -244,18 +244,75 @@
             "tla": "ROM",
             "crest": "https://crests.football-data.org/100.png"
           },
-          "playedGames": 0,
+          "playedGames": 1,
           "form": null,
           "won": 0,
-          "draw": 0,
+          "draw": 1,
           "lost": 0,
-          "points": 0,
+          "points": 1,
           "goalsFor": 0,
           "goalsAgainst": 0,
           "goalDifference": 0
         },
         {
           "position": 13,
+          "team": {
+            "id": 613,
+            "name": "Fenerbahçe SK",
+            "shortName": "Fenerbahçe",
+            "tla": "FEN",
+            "crest": "https://crests.football-data.org/613.png"
+          },
+          "playedGames": 1,
+          "form": null,
+          "won": 0,
+          "draw": 1,
+          "lost": 0,
+          "points": 1,
+          "goalsFor": 0,
+          "goalsAgainst": 0,
+          "goalDifference": 0
+        },
+        {
+          "position": 13,
+          "team": {
+            "id": 674,
+            "name": "PSV",
+            "shortName": "PSV",
+            "tla": "PSV",
+            "crest": "https://crests.football-data.org/674.png"
+          },
+          "playedGames": 1,
+          "form": null,
+          "won": 0,
+          "draw": 1,
+          "lost": 0,
+          "points": 1,
+          "goalsFor": 0,
+          "goalsAgainst": 0,
+          "goalDifference": 0
+        },
+        {
+          "position": 13,
+          "team": {
+            "id": 1887,
+            "name": "FK Shakhtar Donetsk",
+            "shortName": "Shaktar",
+            "tla": "SHD",
+            "crest": "https://crests.football-data.org/1887.png"
+          },
+          "playedGames": 1,
+          "form": null,
+          "won": 0,
+          "draw": 1,
+          "lost": 0,
+          "points": 1,
+          "goalsFor": 0,
+          "goalsAgainst": 0,
+          "goalDifference": 0
+        },
+        {
+          "position": 17,
           "team": {
             "id": 5,
             "name": "FC Bayern München",
@@ -274,7 +331,7 @@
           "goalDifference": 0
         },
         {
-          "position": 13,
+          "position": 17,
           "team": {
             "id": 7397,
             "name": "Como 1907",
@@ -293,26 +350,7 @@
           "goalDifference": 0
         },
         {
-          "position": 13,
-          "team": {
-            "id": 613,
-            "name": "Fenerbahçe SK",
-            "shortName": "Fenerbahçe",
-            "tla": "FEN",
-            "crest": "https://crests.football-data.org/613.png"
-          },
-          "playedGames": 0,
-          "form": null,
-          "won": 0,
-          "draw": 0,
-          "lost": 0,
-          "points": 0,
-          "goalsFor": 0,
-          "goalsAgainst": 0,
-          "goalDifference": 0
-        },
-        {
-          "position": 13,
+          "position": 17,
           "team": {
             "id": 5721,
             "name": "FK Bodø/Glimt",
@@ -331,7 +369,7 @@
           "goalDifference": 0
         },
         {
-          "position": 13,
+          "position": 17,
           "team": {
             "id": 66,
             "name": "Manchester United FC",
@@ -350,26 +388,7 @@
           "goalDifference": 0
         },
         {
-          "position": 13,
-          "team": {
-            "id": 674,
-            "name": "PSV",
-            "shortName": "PSV",
-            "tla": "PSV",
-            "crest": "https://crests.football-data.org/674.png"
-          },
-          "playedGames": 0,
-          "form": null,
-          "won": 0,
-          "draw": 0,
-          "lost": 0,
-          "points": 0,
-          "goalsFor": 0,
-          "goalsAgainst": 0,
-          "goalDifference": 0
-        },
-        {
-          "position": 13,
+          "position": 17,
           "team": {
             "id": 721,
             "name": "RB Leipzig",
@@ -388,7 +407,7 @@
           "goalDifference": 0
         },
         {
-          "position": 13,
+          "position": 17,
           "team": {
             "id": 546,
             "name": "Racing Club de Lens",
@@ -407,7 +426,7 @@
           "goalDifference": 0
         },
         {
-          "position": 13,
+          "position": 17,
           "team": {
             "id": 10233,
             "name": "Sabah FK",
@@ -426,26 +445,7 @@
           "goalDifference": 0
         },
         {
-          "position": 13,
-          "team": {
-            "id": 1887,
-            "name": "FK Shakhtar Donetsk",
-            "shortName": "Shaktar",
-            "tla": "SHD",
-            "crest": "https://crests.football-data.org/1887.png"
-          },
-          "playedGames": 0,
-          "form": null,
-          "won": 0,
-          "draw": 0,
-          "lost": 0,
-          "points": 0,
-          "goalsFor": 0,
-          "goalsAgainst": 0,
-          "goalDifference": 0
-        },
-        {
-          "position": 13,
+          "position": 17,
           "team": {
             "id": 930,
             "name": "SK Slavia Praha",
