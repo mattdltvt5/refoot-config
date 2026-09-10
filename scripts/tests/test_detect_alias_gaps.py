@@ -3,7 +3,29 @@
 No network, no API key — imports detect_alias_gaps (import-safe: its runnable
 body is under main()).
 """
-from detect_alias_gaps import is_alias_miss, propose_alias, unique_alias
+from detect_alias_gaps import (
+    is_alias_miss, propose_alias, unique_alias, to_fix_tournament, TOURNAMENTS,
+)
+
+
+# ── tournament coverage (UCL/Euro/WC/Copa) ────────────────────────────────────
+
+def test_tournaments_include_ucl():
+    assert TOURNAMENTS.get("ucl") == "Champions League"
+
+
+def test_to_fix_tournament_shape():
+    m = {
+        "match_id": 575332, "utcDate": "2026-09-09T19:00:00Z", "matchday": 1,
+        "homeTeam": {"id": 524, "name": "Paris Saint-Germain FC", "tla": "PSG"},
+        "awayTeam": {"id": 7509, "name": "ŠK Slovan Bratislava", "tla": "SBA"},
+    }
+    fix = to_fix_tournament(m)
+    assert fix["match_id"] == 575332
+    assert fix["home_team"] == "Paris Saint-Germain FC" and fix["home_tla"] == "PSG"
+    assert fix["away_team"] == "ŠK Slovan Bratislava" and fix["away_tla"] == "SBA"
+    assert fix["home_short"] == "" and fix["away_short"] == ""   # no shortName in tournament data
+    assert fix["date"] == "2026-09-09" and fix["matchday"] == 1
 
 
 # ── is_alias_miss: only a pure cross-match team miss counts ───────────────────
