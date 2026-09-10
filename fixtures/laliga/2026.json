@@ -1,7 +1,7 @@
 {
   "competition": "LaLiga",
   "season": 2026,
-  "generated_at": "2026-09-10T13:26:10Z",
+  "generated_at": "2026-09-10T13:31:15Z",
   "fixtures": [
     {
       "match_id": 564634,
@@ -1964,6 +1964,34 @@
       "utcDate": "2026-09-20T19:00:00Z"
     },
     {
+      "match_id": 564706,
+      "group": "",
+      "matchday": 8,
+      "sourceRound": "Gameweek 8",
+      "homeTeam": {
+        "id": 84,
+        "name": "Málaga CF",
+        "shortName": "Málaga",
+        "tla": "MAL",
+        "crest": "https://crests.football-data.org/84.png"
+      },
+      "awayTeam": {
+        "id": 80,
+        "name": "RCD Espanyol de Barcelona",
+        "shortName": "Espanyol",
+        "tla": "ESP",
+        "crest": "https://crests.football-data.org/80.png"
+      },
+      "score": {
+        "fullTime": {
+          "home": null,
+          "away": null
+        }
+      },
+      "status": "TIMED",
+      "utcDate": "2026-10-09T19:00:00Z"
+    },
+    {
       "match_id": 564698,
       "group": "",
       "matchday": 8,
@@ -1988,8 +2016,8 @@
           "away": null
         }
       },
-      "status": "SCHEDULED",
-      "utcDate": "2026-10-11T00:00:00Z"
+      "status": "TIMED",
+      "utcDate": "2026-10-10T12:00:00Z"
     },
     {
       "match_id": 564699,
@@ -2016,8 +2044,8 @@
           "away": null
         }
       },
-      "status": "SCHEDULED",
-      "utcDate": "2026-10-11T00:00:00Z"
+      "status": "TIMED",
+      "utcDate": "2026-10-10T14:15:00Z"
     },
     {
       "match_id": 564700,
@@ -2044,36 +2072,8 @@
           "away": null
         }
       },
-      "status": "SCHEDULED",
-      "utcDate": "2026-10-11T00:00:00Z"
-    },
-    {
-      "match_id": 564701,
-      "group": "",
-      "matchday": 8,
-      "sourceRound": "Gameweek 8",
-      "homeTeam": {
-        "id": 90,
-        "name": "Real Betis Balompié",
-        "shortName": "Real Betis",
-        "tla": "BET",
-        "crest": "https://crests.football-data.org/90.png"
-      },
-      "awayTeam": {
-        "id": 79,
-        "name": "CA Osasuna",
-        "shortName": "Osasuna",
-        "tla": "OSA",
-        "crest": "https://crests.football-data.org/79.png"
-      },
-      "score": {
-        "fullTime": {
-          "home": null,
-          "away": null
-        }
-      },
-      "status": "SCHEDULED",
-      "utcDate": "2026-10-11T00:00:00Z"
+      "status": "TIMED",
+      "utcDate": "2026-10-10T16:30:00Z"
     },
     {
       "match_id": 564702,
@@ -2100,8 +2100,8 @@
           "away": null
         }
       },
-      "status": "SCHEDULED",
-      "utcDate": "2026-10-11T00:00:00Z"
+      "status": "TIMED",
+      "utcDate": "2026-10-10T19:00:00Z"
     },
     {
       "match_id": 564703,
@@ -2128,92 +2128,8 @@
           "away": null
         }
       },
-      "status": "SCHEDULED",
-      "utcDate": "2026-10-11T00:00:00Z"
-    },
-    {
-      "match_id": 564704,
-      "group": "",
-      "matchday": 8,
-      "sourceRound": "Gameweek 8",
-      "homeTeam": {
-        "id": 88,
-        "name": "Levante UD",
-        "shortName": "Levante",
-        "tla": "LEV",
-        "crest": "https://crests.football-data.org/88.png"
-      },
-      "awayTeam": {
-        "id": 559,
-        "name": "Sevilla FC",
-        "shortName": "Sevilla FC",
-        "tla": "SEV",
-        "crest": "https://crests.football-data.org/559.png"
-      },
-      "score": {
-        "fullTime": {
-          "home": null,
-          "away": null
-        }
-      },
-      "status": "SCHEDULED",
-      "utcDate": "2026-10-11T00:00:00Z"
-    },
-    {
-      "match_id": 564705,
-      "group": "",
-      "matchday": 8,
-      "sourceRound": "Gameweek 8",
-      "homeTeam": {
-        "id": 5335,
-        "name": "Real Racing Club de Santander",
-        "shortName": "Santander",
-        "tla": "SAN",
-        "crest": "https://crests.football-data.org/5335.png"
-      },
-      "awayTeam": {
-        "id": 95,
-        "name": "Valencia CF",
-        "shortName": "Valencia",
-        "tla": "VAL",
-        "crest": "https://crests.football-data.org/95.png"
-      },
-      "score": {
-        "fullTime": {
-          "home": null,
-          "away": null
-        }
-      },
-      "status": "SCHEDULED",
-      "utcDate": "2026-10-11T00:00:00Z"
-    },
-    {
-      "match_id": 564706,
-      "group": "",
-      "matchday": 8,
-      "sourceRound": "Gameweek 8",
-      "homeTeam": {
-        "id": 84,
-        "name": "Málaga CF",
-        "shortName": "Málaga",
-        "tla": "MAL",
-        "crest": "https://crests.football-data.org/84.png"
-      },
-      "awayTeam": {
-        "id": 80,
-        "name": "RCD Espanyol de Barcelona",
-        "shortName": "Espanyol",
-        "tla": "ESP",
-        "crest": "https://crests.football-data.org/80.png"
-      },
-      "score": {
-        "fullTime": {
-          "home": null,
-          "away": null
-        }
-      },
-      "status": "SCHEDULED",
-      "utcDate": "2026-10-11T00:00:00Z"
+      "status": "TIMED",
+      "utcDate": "2026-10-11T12:00:00Z"
     },
     {
       "match_id": 564707,
@@ -2240,8 +2156,92 @@
           "away": null
         }
       },
-      "status": "SCHEDULED",
-      "utcDate": "2026-10-11T00:00:00Z"
+      "status": "TIMED",
+      "utcDate": "2026-10-11T14:15:00Z"
+    },
+    {
+      "match_id": 564701,
+      "group": "",
+      "matchday": 8,
+      "sourceRound": "Gameweek 8",
+      "homeTeam": {
+        "id": 90,
+        "name": "Real Betis Balompié",
+        "shortName": "Real Betis",
+        "tla": "BET",
+        "crest": "https://crests.football-data.org/90.png"
+      },
+      "awayTeam": {
+        "id": 79,
+        "name": "CA Osasuna",
+        "shortName": "Osasuna",
+        "tla": "OSA",
+        "crest": "https://crests.football-data.org/79.png"
+      },
+      "score": {
+        "fullTime": {
+          "home": null,
+          "away": null
+        }
+      },
+      "status": "TIMED",
+      "utcDate": "2026-10-11T16:30:00Z"
+    },
+    {
+      "match_id": 564705,
+      "group": "",
+      "matchday": 8,
+      "sourceRound": "Gameweek 8",
+      "homeTeam": {
+        "id": 5335,
+        "name": "Real Racing Club de Santander",
+        "shortName": "Santander",
+        "tla": "SAN",
+        "crest": "https://crests.football-data.org/5335.png"
+      },
+      "awayTeam": {
+        "id": 95,
+        "name": "Valencia CF",
+        "shortName": "Valencia",
+        "tla": "VAL",
+        "crest": "https://crests.football-data.org/95.png"
+      },
+      "score": {
+        "fullTime": {
+          "home": null,
+          "away": null
+        }
+      },
+      "status": "TIMED",
+      "utcDate": "2026-10-11T19:00:00Z"
+    },
+    {
+      "match_id": 564704,
+      "group": "",
+      "matchday": 8,
+      "sourceRound": "Gameweek 8",
+      "homeTeam": {
+        "id": 88,
+        "name": "Levante UD",
+        "shortName": "Levante",
+        "tla": "LEV",
+        "crest": "https://crests.football-data.org/88.png"
+      },
+      "awayTeam": {
+        "id": 559,
+        "name": "Sevilla FC",
+        "shortName": "Sevilla FC",
+        "tla": "SEV",
+        "crest": "https://crests.football-data.org/559.png"
+      },
+      "score": {
+        "fullTime": {
+          "home": null,
+          "away": null
+        }
+      },
+      "status": "TIMED",
+      "utcDate": "2026-10-12T19:00:00Z"
     },
     {
       "match_id": 564708,

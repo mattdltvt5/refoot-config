@@ -1,8 +1,62 @@
 {
-  "generated_at": "2026-09-10T13:26:10Z",
+  "generated_at": "2026-09-10T13:31:15Z",
   "month": "2026-10",
   "dates": {
     "2026-10-09": [
+      {
+        "competition": "laliga",
+        "name": "LaLiga",
+        "matches": [
+          {
+            "match_id": 564706,
+            "homeTeam": {
+              "id": 84,
+              "name": "Málaga CF",
+              "shortName": "Málaga",
+              "tla": "MAL",
+              "crest": "https://crests.football-data.org/84.png"
+            },
+            "awayTeam": {
+              "id": 80,
+              "name": "RCD Espanyol de Barcelona",
+              "shortName": "Espanyol",
+              "tla": "ESP",
+              "crest": "https://crests.football-data.org/80.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "TIMED",
+            "utcDate": "2026-10-09T19:00:00Z"
+          }
+        ]
+      },
+      {
+        "competition": "bundesliga",
+        "name": "Bundesliga",
+        "matches": [
+          {
+            "match_id": 565820,
+            "homeTeam": {
+              "id": 4,
+              "name": "Borussia Dortmund",
+              "shortName": "Dortmund",
+              "tla": "BVB",
+              "crest": "https://crests.football-data.org/4.png"
+            },
+            "awayTeam": {
+              "id": 12,
+              "name": "SV Werder Bremen",
+              "shortName": "Bremen",
+              "tla": "SVW",
+              "crest": "https://crests.football-data.org/12.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "TIMED",
+            "utcDate": "2026-10-09T18:30:00Z"
+          }
+        ]
+      },
       {
         "competition": "ligue-1",
         "name": "Ligue 1",
@@ -165,6 +219,96 @@
         ]
       },
       {
+        "competition": "laliga",
+        "name": "LaLiga",
+        "matches": [
+          {
+            "match_id": 564698,
+            "homeTeam": {
+              "id": 87,
+              "name": "Rayo Vallecano de Madrid",
+              "shortName": "Rayo Vallecano",
+              "tla": "RAY",
+              "crest": "https://crests.football-data.org/87.png"
+            },
+            "awayTeam": {
+              "id": 77,
+              "name": "Athletic Club",
+              "shortName": "Athletic",
+              "tla": "ATH",
+              "crest": "https://crests.football-data.org/77.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "TIMED",
+            "utcDate": "2026-10-10T12:00:00Z"
+          },
+          {
+            "match_id": 564699,
+            "homeTeam": {
+              "id": 263,
+              "name": "Deportivo Alavés",
+              "shortName": "Alavés",
+              "tla": "ALA",
+              "crest": "https://crests.football-data.org/263.png"
+            },
+            "awayTeam": {
+              "id": 78,
+              "name": "Club Atlético de Madrid",
+              "shortName": "Atleti",
+              "tla": "ATL",
+              "crest": "https://crests.football-data.org/78.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "TIMED",
+            "utcDate": "2026-10-10T14:15:00Z"
+          },
+          {
+            "match_id": 564700,
+            "homeTeam": {
+              "id": 81,
+              "name": "FC Barcelona",
+              "shortName": "Barça",
+              "tla": "FCB",
+              "crest": "https://crests.football-data.org/81.png"
+            },
+            "awayTeam": {
+              "id": 82,
+              "name": "Getafe CF",
+              "shortName": "Getafe",
+              "tla": "GET",
+              "crest": "https://crests.football-data.org/82.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "TIMED",
+            "utcDate": "2026-10-10T16:30:00Z"
+          },
+          {
+            "match_id": 564702,
+            "homeTeam": {
+              "id": 86,
+              "name": "Real Madrid CF",
+              "shortName": "Real Madrid",
+              "tla": "RMA",
+              "crest": "https://crests.football-data.org/86.png"
+            },
+            "awayTeam": {
+              "id": 94,
+              "name": "Villarreal CF",
+              "shortName": "Villarreal",
+              "tla": "VIL",
+              "crest": "https://crests.football-data.org/94.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "TIMED",
+            "utcDate": "2026-10-10T19:00:00Z"
+          }
+        ]
+      },
+      {
         "competition": "serie-a",
         "name": "Serie A",
         "matches": [
@@ -186,7 +330,7 @@
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "2026-10-10 12:00:00Z",
+            "status": "TIMED",
             "utcDate": "2026-10-10T13:00:00Z"
           },
           {
@@ -207,7 +351,7 @@
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "2026-10-10 15:00:00Z",
+            "status": "TIMED",
             "utcDate": "2026-10-10T16:00:00Z"
           },
           {
@@ -228,7 +372,7 @@
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "2026-10-10 17:45:00Z",
+            "status": "TIMED",
             "utcDate": "2026-10-10T18:45:00Z"
           }
         ]
@@ -255,8 +399,8 @@
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "SCHEDULED",
-            "utcDate": "2026-10-10T00:00:00Z"
+            "status": "TIMED",
+            "utcDate": "2026-10-10T13:30:00Z"
           },
           {
             "match_id": 565813,
@@ -276,71 +420,8 @@
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "SCHEDULED",
-            "utcDate": "2026-10-10T00:00:00Z"
-          },
-          {
-            "match_id": 565814,
-            "homeTeam": {
-              "id": 1,
-              "name": "1. FC Köln",
-              "shortName": "1. FC Köln",
-              "tla": "KOE",
-              "crest": "https://crests.football-data.org/1.png"
-            },
-            "awayTeam": {
-              "id": 18,
-              "name": "Borussia Mönchengladbach",
-              "shortName": "M'gladbach",
-              "tla": "BMG",
-              "crest": "https://crests.football-data.org/18.png"
-            },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "SCHEDULED",
-            "utcDate": "2026-10-10T00:00:00Z"
-          },
-          {
-            "match_id": 565815,
-            "homeTeam": {
-              "id": 721,
-              "name": "RB Leipzig",
-              "shortName": "RB Leipzig",
-              "tla": "RBL",
-              "crest": "https://crests.football-data.org/721.png"
-            },
-            "awayTeam": {
-              "id": 19,
-              "name": "Eintracht Frankfurt",
-              "shortName": "Frankfurt",
-              "tla": "SGE",
-              "crest": "https://crests.football-data.org/19.png"
-            },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "SCHEDULED",
-            "utcDate": "2026-10-10T00:00:00Z"
-          },
-          {
-            "match_id": 565816,
-            "homeTeam": {
-              "id": 17,
-              "name": "SC Freiburg",
-              "shortName": "Freiburg",
-              "tla": "SCF",
-              "crest": "https://crests.football-data.org/17.png"
-            },
-            "awayTeam": {
-              "id": 6,
-              "name": "FC Schalke 04",
-              "shortName": "Schalke",
-              "tla": "S04",
-              "crest": "https://crests.football-data.org/6.png"
-            },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "SCHEDULED",
-            "utcDate": "2026-10-10T00:00:00Z"
+            "status": "TIMED",
+            "utcDate": "2026-10-10T13:30:00Z"
           },
           {
             "match_id": 565817,
@@ -360,8 +441,8 @@
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "SCHEDULED",
-            "utcDate": "2026-10-10T00:00:00Z"
+            "status": "TIMED",
+            "utcDate": "2026-10-10T13:30:00Z"
           },
           {
             "match_id": 565818,
@@ -381,8 +462,8 @@
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "SCHEDULED",
-            "utcDate": "2026-10-10T00:00:00Z"
+            "status": "TIMED",
+            "utcDate": "2026-10-10T13:30:00Z"
           },
           {
             "match_id": 565819,
@@ -402,29 +483,29 @@
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "SCHEDULED",
-            "utcDate": "2026-10-10T00:00:00Z"
+            "status": "TIMED",
+            "utcDate": "2026-10-10T13:30:00Z"
           },
           {
-            "match_id": 565820,
+            "match_id": 565815,
             "homeTeam": {
-              "id": 4,
-              "name": "Borussia Dortmund",
-              "shortName": "Dortmund",
-              "tla": "BVB",
-              "crest": "https://crests.football-data.org/4.png"
+              "id": 721,
+              "name": "RB Leipzig",
+              "shortName": "RB Leipzig",
+              "tla": "RBL",
+              "crest": "https://crests.football-data.org/721.png"
             },
             "awayTeam": {
-              "id": 12,
-              "name": "SV Werder Bremen",
-              "shortName": "Bremen",
-              "tla": "SVW",
-              "crest": "https://crests.football-data.org/12.png"
+              "id": 19,
+              "name": "Eintracht Frankfurt",
+              "shortName": "Frankfurt",
+              "tla": "SGE",
+              "crest": "https://crests.football-data.org/19.png"
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "SCHEDULED",
-            "utcDate": "2026-10-10T00:00:00Z"
+            "status": "TIMED",
+            "utcDate": "2026-10-10T16:30:00Z"
           }
         ]
       },
@@ -615,111 +696,6 @@
         "name": "LaLiga",
         "matches": [
           {
-            "match_id": 564698,
-            "homeTeam": {
-              "id": 87,
-              "name": "Rayo Vallecano de Madrid",
-              "shortName": "Rayo Vallecano",
-              "tla": "RAY",
-              "crest": "https://crests.football-data.org/87.png"
-            },
-            "awayTeam": {
-              "id": 77,
-              "name": "Athletic Club",
-              "shortName": "Athletic",
-              "tla": "ATH",
-              "crest": "https://crests.football-data.org/77.png"
-            },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "SCHEDULED",
-            "utcDate": "2026-10-11T00:00:00Z"
-          },
-          {
-            "match_id": 564699,
-            "homeTeam": {
-              "id": 263,
-              "name": "Deportivo Alavés",
-              "shortName": "Alavés",
-              "tla": "ALA",
-              "crest": "https://crests.football-data.org/263.png"
-            },
-            "awayTeam": {
-              "id": 78,
-              "name": "Club Atlético de Madrid",
-              "shortName": "Atleti",
-              "tla": "ATL",
-              "crest": "https://crests.football-data.org/78.png"
-            },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "SCHEDULED",
-            "utcDate": "2026-10-11T00:00:00Z"
-          },
-          {
-            "match_id": 564700,
-            "homeTeam": {
-              "id": 81,
-              "name": "FC Barcelona",
-              "shortName": "Barça",
-              "tla": "FCB",
-              "crest": "https://crests.football-data.org/81.png"
-            },
-            "awayTeam": {
-              "id": 82,
-              "name": "Getafe CF",
-              "shortName": "Getafe",
-              "tla": "GET",
-              "crest": "https://crests.football-data.org/82.png"
-            },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "SCHEDULED",
-            "utcDate": "2026-10-11T00:00:00Z"
-          },
-          {
-            "match_id": 564701,
-            "homeTeam": {
-              "id": 90,
-              "name": "Real Betis Balompié",
-              "shortName": "Real Betis",
-              "tla": "BET",
-              "crest": "https://crests.football-data.org/90.png"
-            },
-            "awayTeam": {
-              "id": 79,
-              "name": "CA Osasuna",
-              "shortName": "Osasuna",
-              "tla": "OSA",
-              "crest": "https://crests.football-data.org/79.png"
-            },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "SCHEDULED",
-            "utcDate": "2026-10-11T00:00:00Z"
-          },
-          {
-            "match_id": 564702,
-            "homeTeam": {
-              "id": 86,
-              "name": "Real Madrid CF",
-              "shortName": "Real Madrid",
-              "tla": "RMA",
-              "crest": "https://crests.football-data.org/86.png"
-            },
-            "awayTeam": {
-              "id": 94,
-              "name": "Villarreal CF",
-              "shortName": "Villarreal",
-              "tla": "VIL",
-              "crest": "https://crests.football-data.org/94.png"
-            },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "SCHEDULED",
-            "utcDate": "2026-10-11T00:00:00Z"
-          },
-          {
             "match_id": 564703,
             "homeTeam": {
               "id": 285,
@@ -737,71 +713,8 @@
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "SCHEDULED",
-            "utcDate": "2026-10-11T00:00:00Z"
-          },
-          {
-            "match_id": 564704,
-            "homeTeam": {
-              "id": 88,
-              "name": "Levante UD",
-              "shortName": "Levante",
-              "tla": "LEV",
-              "crest": "https://crests.football-data.org/88.png"
-            },
-            "awayTeam": {
-              "id": 559,
-              "name": "Sevilla FC",
-              "shortName": "Sevilla FC",
-              "tla": "SEV",
-              "crest": "https://crests.football-data.org/559.png"
-            },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "SCHEDULED",
-            "utcDate": "2026-10-11T00:00:00Z"
-          },
-          {
-            "match_id": 564705,
-            "homeTeam": {
-              "id": 5335,
-              "name": "Real Racing Club de Santander",
-              "shortName": "Santander",
-              "tla": "SAN",
-              "crest": "https://crests.football-data.org/5335.png"
-            },
-            "awayTeam": {
-              "id": 95,
-              "name": "Valencia CF",
-              "shortName": "Valencia",
-              "tla": "VAL",
-              "crest": "https://crests.football-data.org/95.png"
-            },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "SCHEDULED",
-            "utcDate": "2026-10-11T00:00:00Z"
-          },
-          {
-            "match_id": 564706,
-            "homeTeam": {
-              "id": 84,
-              "name": "Málaga CF",
-              "shortName": "Málaga",
-              "tla": "MAL",
-              "crest": "https://crests.football-data.org/84.png"
-            },
-            "awayTeam": {
-              "id": 80,
-              "name": "RCD Espanyol de Barcelona",
-              "shortName": "Espanyol",
-              "tla": "ESP",
-              "crest": "https://crests.football-data.org/80.png"
-            },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "SCHEDULED",
-            "utcDate": "2026-10-11T00:00:00Z"
+            "status": "TIMED",
+            "utcDate": "2026-10-11T12:00:00Z"
           },
           {
             "match_id": 564707,
@@ -821,8 +734,50 @@
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "SCHEDULED",
-            "utcDate": "2026-10-11T00:00:00Z"
+            "status": "TIMED",
+            "utcDate": "2026-10-11T14:15:00Z"
+          },
+          {
+            "match_id": 564701,
+            "homeTeam": {
+              "id": 90,
+              "name": "Real Betis Balompié",
+              "shortName": "Real Betis",
+              "tla": "BET",
+              "crest": "https://crests.football-data.org/90.png"
+            },
+            "awayTeam": {
+              "id": 79,
+              "name": "CA Osasuna",
+              "shortName": "Osasuna",
+              "tla": "OSA",
+              "crest": "https://crests.football-data.org/79.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "TIMED",
+            "utcDate": "2026-10-11T16:30:00Z"
+          },
+          {
+            "match_id": 564705,
+            "homeTeam": {
+              "id": 5335,
+              "name": "Real Racing Club de Santander",
+              "shortName": "Santander",
+              "tla": "SAN",
+              "crest": "https://crests.football-data.org/5335.png"
+            },
+            "awayTeam": {
+              "id": 95,
+              "name": "Valencia CF",
+              "shortName": "Valencia",
+              "tla": "VAL",
+              "crest": "https://crests.football-data.org/95.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "TIMED",
+            "utcDate": "2026-10-11T19:00:00Z"
           }
         ]
       },
@@ -848,7 +803,7 @@
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "2026-10-11 09:30:00Z",
+            "status": "TIMED",
             "utcDate": "2026-10-11T10:30:00Z"
           },
           {
@@ -869,7 +824,7 @@
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "2026-10-11 12:00:00Z",
+            "status": "TIMED",
             "utcDate": "2026-10-11T13:00:00Z"
           },
           {
@@ -890,7 +845,7 @@
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "2026-10-11 12:00:00Z",
+            "status": "TIMED",
             "utcDate": "2026-10-11T13:00:00Z"
           },
           {
@@ -911,7 +866,7 @@
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "2026-10-11 15:00:00Z",
+            "status": "TIMED",
             "utcDate": "2026-10-11T16:00:00Z"
           },
           {
@@ -932,8 +887,56 @@
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "2026-10-11 17:45:00Z",
+            "status": "TIMED",
             "utcDate": "2026-10-11T18:45:00Z"
+          }
+        ]
+      },
+      {
+        "competition": "bundesliga",
+        "name": "Bundesliga",
+        "matches": [
+          {
+            "match_id": 565814,
+            "homeTeam": {
+              "id": 1,
+              "name": "1. FC Köln",
+              "shortName": "1. FC Köln",
+              "tla": "KOE",
+              "crest": "https://crests.football-data.org/1.png"
+            },
+            "awayTeam": {
+              "id": 18,
+              "name": "Borussia Mönchengladbach",
+              "shortName": "M'gladbach",
+              "tla": "BMG",
+              "crest": "https://crests.football-data.org/18.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "TIMED",
+            "utcDate": "2026-10-11T13:30:00Z"
+          },
+          {
+            "match_id": 565816,
+            "homeTeam": {
+              "id": 17,
+              "name": "SC Freiburg",
+              "shortName": "Freiburg",
+              "tla": "SCF",
+              "crest": "https://crests.football-data.org/17.png"
+            },
+            "awayTeam": {
+              "id": 6,
+              "name": "FC Schalke 04",
+              "shortName": "Schalke",
+              "tla": "S04",
+              "crest": "https://crests.football-data.org/6.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "TIMED",
+            "utcDate": "2026-10-11T15:30:00Z"
           }
         ]
       },
@@ -1036,6 +1039,33 @@
         ]
       },
       {
+        "competition": "laliga",
+        "name": "LaLiga",
+        "matches": [
+          {
+            "match_id": 564704,
+            "homeTeam": {
+              "id": 88,
+              "name": "Levante UD",
+              "shortName": "Levante",
+              "tla": "LEV",
+              "crest": "https://crests.football-data.org/88.png"
+            },
+            "awayTeam": {
+              "id": 559,
+              "name": "Sevilla FC",
+              "shortName": "Sevilla FC",
+              "tla": "SEV",
+              "crest": "https://crests.football-data.org/559.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "TIMED",
+            "utcDate": "2026-10-12T19:00:00Z"
+          }
+        ]
+      },
+      {
         "competition": "serie-a",
         "name": "Serie A",
         "matches": [
@@ -1057,7 +1087,7 @@
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "2026-10-12 15:30:00Z",
+            "status": "TIMED",
             "utcDate": "2026-10-12T16:30:00Z"
           },
           {
@@ -1078,7 +1108,7 @@
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "2026-10-12 17:45:00Z",
+            "status": "TIMED",
             "utcDate": "2026-10-12T18:45:00Z"
           }
         ]
@@ -1501,8 +1531,35 @@
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "2026-10-16 17:45:00Z",
+            "status": "TIMED",
             "utcDate": "2026-10-16T18:45:00Z"
+          }
+        ]
+      },
+      {
+        "competition": "bundesliga",
+        "name": "Bundesliga",
+        "matches": [
+          {
+            "match_id": 565828,
+            "homeTeam": {
+              "id": 19,
+              "name": "Eintracht Frankfurt",
+              "shortName": "Frankfurt",
+              "tla": "SGE",
+              "crest": "https://crests.football-data.org/19.png"
+            },
+            "awayTeam": {
+              "id": 1,
+              "name": "1. FC Köln",
+              "shortName": "1. FC Köln",
+              "tla": "KOE",
+              "crest": "https://crests.football-data.org/1.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "TIMED",
+            "utcDate": "2026-10-16T18:30:00Z"
           }
         ]
       },
@@ -1668,7 +1725,7 @@
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "2026-10-17 12:00:00Z",
+            "status": "TIMED",
             "utcDate": "2026-10-17T13:00:00Z"
           },
           {
@@ -1689,7 +1746,7 @@
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "2026-10-17 15:00:00Z",
+            "status": "TIMED",
             "utcDate": "2026-10-17T16:00:00Z"
           },
           {
@@ -1710,7 +1767,7 @@
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "2026-10-17 17:45:00Z",
+            "status": "TIMED",
             "utcDate": "2026-10-17T18:45:00Z"
           }
         ]
@@ -1737,8 +1794,8 @@
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "SCHEDULED",
-            "utcDate": "2026-10-17T00:00:00Z"
+            "status": "TIMED",
+            "utcDate": "2026-10-17T13:30:00Z"
           },
           {
             "match_id": 565822,
@@ -1758,8 +1815,8 @@
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "SCHEDULED",
-            "utcDate": "2026-10-17T00:00:00Z"
+            "status": "TIMED",
+            "utcDate": "2026-10-17T13:30:00Z"
           },
           {
             "match_id": 565823,
@@ -1779,8 +1836,8 @@
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "SCHEDULED",
-            "utcDate": "2026-10-17T00:00:00Z"
+            "status": "TIMED",
+            "utcDate": "2026-10-17T13:30:00Z"
           },
           {
             "match_id": 565824,
@@ -1800,92 +1857,8 @@
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "SCHEDULED",
-            "utcDate": "2026-10-17T00:00:00Z"
-          },
-          {
-            "match_id": 565825,
-            "homeTeam": {
-              "id": 5,
-              "name": "FC Bayern München",
-              "shortName": "Bayern",
-              "tla": "FCB",
-              "crest": "https://crests.football-data.org/5.png"
-            },
-            "awayTeam": {
-              "id": 721,
-              "name": "RB Leipzig",
-              "shortName": "RB Leipzig",
-              "tla": "RBL",
-              "crest": "https://crests.football-data.org/721.png"
-            },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "SCHEDULED",
-            "utcDate": "2026-10-17T00:00:00Z"
-          },
-          {
-            "match_id": 565826,
-            "homeTeam": {
-              "id": 18,
-              "name": "Borussia Mönchengladbach",
-              "shortName": "M'gladbach",
-              "tla": "BMG",
-              "crest": "https://crests.football-data.org/18.png"
-            },
-            "awayTeam": {
-              "id": 2,
-              "name": "TSG 1899 Hoffenheim",
-              "shortName": "Hoffenheim",
-              "tla": "TSG",
-              "crest": "https://crests.football-data.org/2.png"
-            },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "SCHEDULED",
-            "utcDate": "2026-10-17T00:00:00Z"
-          },
-          {
-            "match_id": 565827,
-            "homeTeam": {
-              "id": 3,
-              "name": "Bayer 04 Leverkusen",
-              "shortName": "Leverkusen",
-              "tla": "B04",
-              "crest": "https://crests.football-data.org/3.png"
-            },
-            "awayTeam": {
-              "id": 17,
-              "name": "SC Freiburg",
-              "shortName": "Freiburg",
-              "tla": "SCF",
-              "crest": "https://crests.football-data.org/17.png"
-            },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "SCHEDULED",
-            "utcDate": "2026-10-17T00:00:00Z"
-          },
-          {
-            "match_id": 565828,
-            "homeTeam": {
-              "id": 19,
-              "name": "Eintracht Frankfurt",
-              "shortName": "Frankfurt",
-              "tla": "SGE",
-              "crest": "https://crests.football-data.org/19.png"
-            },
-            "awayTeam": {
-              "id": 1,
-              "name": "1. FC Köln",
-              "shortName": "1. FC Köln",
-              "tla": "KOE",
-              "crest": "https://crests.football-data.org/1.png"
-            },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "SCHEDULED",
-            "utcDate": "2026-10-17T00:00:00Z"
+            "status": "TIMED",
+            "utcDate": "2026-10-17T13:30:00Z"
           },
           {
             "match_id": 565829,
@@ -1905,8 +1878,29 @@
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "SCHEDULED",
-            "utcDate": "2026-10-17T00:00:00Z"
+            "status": "TIMED",
+            "utcDate": "2026-10-17T13:30:00Z"
+          },
+          {
+            "match_id": 565825,
+            "homeTeam": {
+              "id": 5,
+              "name": "FC Bayern München",
+              "shortName": "Bayern",
+              "tla": "FCB",
+              "crest": "https://crests.football-data.org/5.png"
+            },
+            "awayTeam": {
+              "id": 721,
+              "name": "RB Leipzig",
+              "shortName": "RB Leipzig",
+              "tla": "RBL",
+              "crest": "https://crests.football-data.org/721.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "TIMED",
+            "utcDate": "2026-10-17T16:30:00Z"
           }
         ]
       },
@@ -2309,7 +2303,7 @@
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "2026-10-18 09:30:00Z",
+            "status": "TIMED",
             "utcDate": "2026-10-18T10:30:00Z"
           },
           {
@@ -2330,7 +2324,7 @@
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "2026-10-18 12:00:00Z",
+            "status": "TIMED",
             "utcDate": "2026-10-18T13:00:00Z"
           },
           {
@@ -2351,7 +2345,7 @@
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "2026-10-18 15:00:00Z",
+            "status": "TIMED",
             "utcDate": "2026-10-18T16:00:00Z"
           },
           {
@@ -2372,8 +2366,56 @@
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "2026-10-18 17:45:00Z",
+            "status": "TIMED",
             "utcDate": "2026-10-18T18:45:00Z"
+          }
+        ]
+      },
+      {
+        "competition": "bundesliga",
+        "name": "Bundesliga",
+        "matches": [
+          {
+            "match_id": 565827,
+            "homeTeam": {
+              "id": 3,
+              "name": "Bayer 04 Leverkusen",
+              "shortName": "Leverkusen",
+              "tla": "B04",
+              "crest": "https://crests.football-data.org/3.png"
+            },
+            "awayTeam": {
+              "id": 17,
+              "name": "SC Freiburg",
+              "shortName": "Freiburg",
+              "tla": "SCF",
+              "crest": "https://crests.football-data.org/17.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "TIMED",
+            "utcDate": "2026-10-18T13:30:00Z"
+          },
+          {
+            "match_id": 565826,
+            "homeTeam": {
+              "id": 18,
+              "name": "Borussia Mönchengladbach",
+              "shortName": "M'gladbach",
+              "tla": "BMG",
+              "crest": "https://crests.football-data.org/18.png"
+            },
+            "awayTeam": {
+              "id": 2,
+              "name": "TSG 1899 Hoffenheim",
+              "shortName": "Hoffenheim",
+              "tla": "TSG",
+              "crest": "https://crests.football-data.org/2.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "TIMED",
+            "utcDate": "2026-10-18T15:30:00Z"
           }
         ]
       },
@@ -2539,7 +2581,7 @@
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "2026-10-19 15:30:00Z",
+            "status": "TIMED",
             "utcDate": "2026-10-19T16:30:00Z"
           },
           {
@@ -2560,7 +2602,7 @@
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "2026-10-19 17:45:00Z",
+            "status": "TIMED",
             "utcDate": "2026-10-19T18:45:00Z"
           }
         ]
@@ -3010,8 +3052,35 @@
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "2026-10-23 17:45:00Z",
+            "status": "TIMED",
             "utcDate": "2026-10-23T18:45:00Z"
+          }
+        ]
+      },
+      {
+        "competition": "bundesliga",
+        "name": "Bundesliga",
+        "matches": [
+          {
+            "match_id": 565833,
+            "homeTeam": {
+              "id": 10,
+              "name": "VfB Stuttgart",
+              "shortName": "Stuttgart",
+              "tla": "VFB",
+              "crest": "https://crests.football-data.org/10.png"
+            },
+            "awayTeam": {
+              "id": 18,
+              "name": "Borussia Mönchengladbach",
+              "shortName": "M'gladbach",
+              "tla": "BMG",
+              "crest": "https://crests.football-data.org/18.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "TIMED",
+            "utcDate": "2026-10-23T18:30:00Z"
           }
         ]
       },
@@ -3156,7 +3225,7 @@
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "2026-10-24 12:00:00Z",
+            "status": "TIMED",
             "utcDate": "2026-10-24T13:00:00Z"
           },
           {
@@ -3177,7 +3246,7 @@
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "2026-10-24 12:00:00Z",
+            "status": "TIMED",
             "utcDate": "2026-10-24T13:00:00Z"
           },
           {
@@ -3198,7 +3267,7 @@
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "2026-10-24 15:00:00Z",
+            "status": "TIMED",
             "utcDate": "2026-10-24T16:00:00Z"
           },
           {
@@ -3219,7 +3288,7 @@
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "2026-10-24 17:45:00Z",
+            "status": "TIMED",
             "utcDate": "2026-10-24T18:45:00Z"
           }
         ]
@@ -3246,8 +3315,8 @@
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "SCHEDULED",
-            "utcDate": "2026-10-24T00:00:00Z"
+            "status": "TIMED",
+            "utcDate": "2026-10-24T13:30:00Z"
           },
           {
             "match_id": 565831,
@@ -3267,8 +3336,8 @@
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "SCHEDULED",
-            "utcDate": "2026-10-24T00:00:00Z"
+            "status": "TIMED",
+            "utcDate": "2026-10-24T13:30:00Z"
           },
           {
             "match_id": 565832,
@@ -3288,29 +3357,8 @@
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "SCHEDULED",
-            "utcDate": "2026-10-24T00:00:00Z"
-          },
-          {
-            "match_id": 565833,
-            "homeTeam": {
-              "id": 10,
-              "name": "VfB Stuttgart",
-              "shortName": "Stuttgart",
-              "tla": "VFB",
-              "crest": "https://crests.football-data.org/10.png"
-            },
-            "awayTeam": {
-              "id": 18,
-              "name": "Borussia Mönchengladbach",
-              "shortName": "M'gladbach",
-              "tla": "BMG",
-              "crest": "https://crests.football-data.org/18.png"
-            },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "SCHEDULED",
-            "utcDate": "2026-10-24T00:00:00Z"
+            "status": "TIMED",
+            "utcDate": "2026-10-24T13:30:00Z"
           },
           {
             "match_id": 565834,
@@ -3330,71 +3378,8 @@
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "SCHEDULED",
-            "utcDate": "2026-10-24T00:00:00Z"
-          },
-          {
-            "match_id": 565835,
-            "homeTeam": {
-              "id": 2,
-              "name": "TSG 1899 Hoffenheim",
-              "shortName": "Hoffenheim",
-              "tla": "TSG",
-              "crest": "https://crests.football-data.org/2.png"
-            },
-            "awayTeam": {
-              "id": 3,
-              "name": "Bayer 04 Leverkusen",
-              "shortName": "Leverkusen",
-              "tla": "B04",
-              "crest": "https://crests.football-data.org/3.png"
-            },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "SCHEDULED",
-            "utcDate": "2026-10-24T00:00:00Z"
-          },
-          {
-            "match_id": 565836,
-            "homeTeam": {
-              "id": 17,
-              "name": "SC Freiburg",
-              "shortName": "Freiburg",
-              "tla": "SCF",
-              "crest": "https://crests.football-data.org/17.png"
-            },
-            "awayTeam": {
-              "id": 5,
-              "name": "FC Bayern München",
-              "shortName": "Bayern",
-              "tla": "FCB",
-              "crest": "https://crests.football-data.org/5.png"
-            },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "SCHEDULED",
-            "utcDate": "2026-10-24T00:00:00Z"
-          },
-          {
-            "match_id": 565837,
-            "homeTeam": {
-              "id": 4,
-              "name": "Borussia Dortmund",
-              "shortName": "Dortmund",
-              "tla": "BVB",
-              "crest": "https://crests.football-data.org/4.png"
-            },
-            "awayTeam": {
-              "id": 19,
-              "name": "Eintracht Frankfurt",
-              "shortName": "Frankfurt",
-              "tla": "SGE",
-              "crest": "https://crests.football-data.org/19.png"
-            },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "SCHEDULED",
-            "utcDate": "2026-10-24T00:00:00Z"
+            "status": "TIMED",
+            "utcDate": "2026-10-24T13:30:00Z"
           },
           {
             "match_id": 565838,
@@ -3414,8 +3399,29 @@
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "SCHEDULED",
-            "utcDate": "2026-10-24T00:00:00Z"
+            "status": "TIMED",
+            "utcDate": "2026-10-24T13:30:00Z"
+          },
+          {
+            "match_id": 565837,
+            "homeTeam": {
+              "id": 4,
+              "name": "Borussia Dortmund",
+              "shortName": "Dortmund",
+              "tla": "BVB",
+              "crest": "https://crests.football-data.org/4.png"
+            },
+            "awayTeam": {
+              "id": 19,
+              "name": "Eintracht Frankfurt",
+              "shortName": "Frankfurt",
+              "tla": "SGE",
+              "crest": "https://crests.football-data.org/19.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "TIMED",
+            "utcDate": "2026-10-24T16:30:00Z"
           }
         ]
       },
@@ -3908,6 +3914,54 @@
         ]
       },
       {
+        "competition": "bundesliga",
+        "name": "Bundesliga",
+        "matches": [
+          {
+            "match_id": 565835,
+            "homeTeam": {
+              "id": 2,
+              "name": "TSG 1899 Hoffenheim",
+              "shortName": "Hoffenheim",
+              "tla": "TSG",
+              "crest": "https://crests.football-data.org/2.png"
+            },
+            "awayTeam": {
+              "id": 3,
+              "name": "Bayer 04 Leverkusen",
+              "shortName": "Leverkusen",
+              "tla": "B04",
+              "crest": "https://crests.football-data.org/3.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "TIMED",
+            "utcDate": "2026-10-25T14:30:00Z"
+          },
+          {
+            "match_id": 565836,
+            "homeTeam": {
+              "id": 17,
+              "name": "SC Freiburg",
+              "shortName": "Freiburg",
+              "tla": "SCF",
+              "crest": "https://crests.football-data.org/17.png"
+            },
+            "awayTeam": {
+              "id": 5,
+              "name": "FC Bayern München",
+              "shortName": "Bayern",
+              "tla": "FCB",
+              "crest": "https://crests.football-data.org/5.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "TIMED",
+            "utcDate": "2026-10-25T16:30:00Z"
+          }
+        ]
+      },
+      {
         "competition": "ligue-1",
         "name": "Ligue 1",
         "matches": [
@@ -4276,6 +4330,33 @@
     ],
     "2026-10-30": [
       {
+        "competition": "bundesliga",
+        "name": "Bundesliga",
+        "matches": [
+          {
+            "match_id": 565846,
+            "homeTeam": {
+              "id": 719,
+              "name": "SV 07 Elversberg",
+              "shortName": "Elversberg",
+              "tla": "ELV",
+              "crest": "https://crests.football-data.org/719.png"
+            },
+            "awayTeam": {
+              "id": 15,
+              "name": "1. FSV Mainz 05",
+              "shortName": "Mainz",
+              "tla": "M05",
+              "crest": "https://crests.football-data.org/15.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "TIMED",
+            "utcDate": "2026-10-30T19:30:00Z"
+          }
+        ]
+      },
+      {
         "competition": "ligue-1",
         "name": "Ligue 1",
         "matches": [
@@ -4590,8 +4671,8 @@
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "SCHEDULED",
-            "utcDate": "2026-10-31T00:00:00Z"
+            "status": "TIMED",
+            "utcDate": "2026-10-31T14:30:00Z"
           },
           {
             "match_id": 565840,
@@ -4611,29 +4692,8 @@
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "SCHEDULED",
-            "utcDate": "2026-10-31T00:00:00Z"
-          },
-          {
-            "match_id": 565841,
-            "homeTeam": {
-              "id": 28,
-              "name": "1. FC Union Berlin",
-              "shortName": "Union Berlin",
-              "tla": "UNB",
-              "crest": "https://crests.football-data.org/28.png"
-            },
-            "awayTeam": {
-              "id": 1,
-              "name": "1. FC Köln",
-              "shortName": "1. FC Köln",
-              "tla": "KOE",
-              "crest": "https://crests.football-data.org/1.png"
-            },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "SCHEDULED",
-            "utcDate": "2026-10-31T00:00:00Z"
+            "status": "TIMED",
+            "utcDate": "2026-10-31T14:30:00Z"
           },
           {
             "match_id": 565842,
@@ -4653,8 +4713,8 @@
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "SCHEDULED",
-            "utcDate": "2026-10-31T00:00:00Z"
+            "status": "TIMED",
+            "utcDate": "2026-10-31T14:30:00Z"
           },
           {
             "match_id": 565843,
@@ -4674,71 +4734,8 @@
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "SCHEDULED",
-            "utcDate": "2026-10-31T00:00:00Z"
-          },
-          {
-            "match_id": 565844,
-            "homeTeam": {
-              "id": 19,
-              "name": "Eintracht Frankfurt",
-              "shortName": "Frankfurt",
-              "tla": "SGE",
-              "crest": "https://crests.football-data.org/19.png"
-            },
-            "awayTeam": {
-              "id": 7,
-              "name": "Hamburger SV",
-              "shortName": "HSV",
-              "tla": "HSV",
-              "crest": "https://crests.football-data.org/7.png"
-            },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "SCHEDULED",
-            "utcDate": "2026-10-31T00:00:00Z"
-          },
-          {
-            "match_id": 565845,
-            "homeTeam": {
-              "id": 5,
-              "name": "FC Bayern München",
-              "shortName": "Bayern",
-              "tla": "FCB",
-              "crest": "https://crests.football-data.org/5.png"
-            },
-            "awayTeam": {
-              "id": 4,
-              "name": "Borussia Dortmund",
-              "shortName": "Dortmund",
-              "tla": "BVB",
-              "crest": "https://crests.football-data.org/4.png"
-            },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "SCHEDULED",
-            "utcDate": "2026-10-31T00:00:00Z"
-          },
-          {
-            "match_id": 565846,
-            "homeTeam": {
-              "id": 719,
-              "name": "SV 07 Elversberg",
-              "shortName": "Elversberg",
-              "tla": "ELV",
-              "crest": "https://crests.football-data.org/719.png"
-            },
-            "awayTeam": {
-              "id": 15,
-              "name": "1. FSV Mainz 05",
-              "shortName": "Mainz",
-              "tla": "M05",
-              "crest": "https://crests.football-data.org/15.png"
-            },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "SCHEDULED",
-            "utcDate": "2026-10-31T00:00:00Z"
+            "status": "TIMED",
+            "utcDate": "2026-10-31T14:30:00Z"
           },
           {
             "match_id": 565847,
@@ -4758,8 +4755,29 @@
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "SCHEDULED",
-            "utcDate": "2026-10-31T00:00:00Z"
+            "status": "TIMED",
+            "utcDate": "2026-10-31T14:30:00Z"
+          },
+          {
+            "match_id": 565845,
+            "homeTeam": {
+              "id": 5,
+              "name": "FC Bayern München",
+              "shortName": "Bayern",
+              "tla": "FCB",
+              "crest": "https://crests.football-data.org/5.png"
+            },
+            "awayTeam": {
+              "id": 4,
+              "name": "Borussia Dortmund",
+              "shortName": "Dortmund",
+              "tla": "BVB",
+              "crest": "https://crests.football-data.org/4.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "TIMED",
+            "utcDate": "2026-10-31T17:30:00Z"
           }
         ]
       },
