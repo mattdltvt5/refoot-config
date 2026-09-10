@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-10T21:01:29Z",
+  "generated_at": "2026-09-10T21:06:28Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -1188,7 +1188,7 @@
         {
           "gameweek": "MD1",
           "stem": "matchday-1",
-          "total": 15,
+          "total": 18,
           "covered": 14,
           "matches": [
             {
@@ -1295,6 +1295,27 @@
               "away": "Sabah FK",
               "date": "2026-09-10",
               "covered": true
+            },
+            {
+              "match_id": 575337,
+              "home": "FC Bayern München",
+              "away": "FK Bodø/Glimt",
+              "date": "2026-09-10",
+              "covered": false
+            },
+            {
+              "match_id": 575339,
+              "home": "Como 1907",
+              "away": "RB Leipzig",
+              "date": "2026-09-10",
+              "covered": false
+            },
+            {
+              "match_id": 575340,
+              "home": "SK Slavia Praha",
+              "away": "Racing Club de Lens",
+              "date": "2026-09-10",
+              "covered": false
             }
           ]
         }
