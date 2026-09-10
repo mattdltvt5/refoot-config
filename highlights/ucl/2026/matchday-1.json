@@ -2,7 +2,7 @@
   "competition": "Champions League",
   "gameweek": "MD1",
   "stem": "matchday-1",
-  "generated_at": "2026-09-10T19:01:26Z",
+  "generated_at": "2026-09-10T21:01:29Z",
   "matches": [
     {
       "match_id": 575323,
@@ -192,6 +192,20 @@
       "away_team": "FK Shakhtar Donetsk",
       "date": "2026-09-10",
       "videos": []
+    },
+    {
+      "match_id": 575338,
+      "home_team": "Manchester United FC",
+      "away_team": "Sabah FK",
+      "date": "2026-09-10",
+      "videos": [
+        {
+          "video_id": "RQ5cGGjVzR0",
+          "title": "Man Utd 5-0 Sabah | Academy Highlights",
+          "published_at": "2026-09-10",
+          "tier_used": 1
+        }
+      ]
     }
   ]
 }

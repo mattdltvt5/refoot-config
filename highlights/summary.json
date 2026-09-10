@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-10T20:56:15Z",
+  "generated_at": "2026-09-10T21:01:29Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -1188,8 +1188,8 @@
         {
           "gameweek": "MD1",
           "stem": "matchday-1",
-          "total": 14,
-          "covered": 13,
+          "total": 15,
+          "covered": 14,
           "matches": [
             {
               "match_id": 575323,
@@ -1288,6 +1288,13 @@
               "away": "FK Shakhtar Donetsk",
               "date": "2026-09-10",
               "covered": false
+            },
+            {
+              "match_id": 575338,
+              "home": "Manchester United FC",
+              "away": "Sabah FK",
+              "date": "2026-09-10",
+              "covered": true
             }
           ]
         }
