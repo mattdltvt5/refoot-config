@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-11T20:46:33Z",
+  "generated_at": "2026-09-11T20:51:38Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -809,6 +809,21 @@
               "away": "SS Lazio",
               "date": "2026-09-07",
               "covered": true
+            }
+          ]
+        },
+        {
+          "gameweek": "GW4",
+          "stem": "gameweek-4",
+          "total": 1,
+          "covered": 0,
+          "matches": [
+            {
+              "match_id": 558606,
+              "home": "Venezia FC",
+              "away": "ACF Fiorentina",
+              "date": "2026-09-11",
+              "covered": false
             }
           ]
         }

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-11T12:05:34.133762Z",
+  "generated_at": "2026-09-11T20:51:58.693840Z",
   "competition": "Serie A",
   "slug": "serie-a",
   "season": 2026,
@@ -273,6 +273,25 @@
     {
       "position": 15,
       "team": {
+        "id": 99,
+        "name": "ACF Fiorentina",
+        "shortName": "Fiorentina",
+        "tla": "FIO",
+        "crest": "https://crests.football-data.org/99.png"
+      },
+      "playedGames": 4,
+      "form": "W,L,L,L",
+      "won": 1,
+      "draw": 0,
+      "lost": 3,
+      "points": 3,
+      "goalsFor": 5,
+      "goalsAgainst": 11,
+      "goalDifference": -6
+    },
+    {
+      "position": 16,
+      "team": {
         "id": 103,
         "name": "Bologna FC 1909",
         "shortName": "Bologna",
@@ -290,7 +309,7 @@
       "goalDifference": -2
     },
     {
-      "position": 16,
+      "position": 17,
       "team": {
         "id": 112,
         "name": "Parma Calcio 1913",
@@ -309,7 +328,7 @@
       "goalDifference": -3
     },
     {
-      "position": 17,
+      "position": 18,
       "team": {
         "id": 5911,
         "name": "AC Monza",
@@ -326,25 +345,6 @@
       "goalsFor": 4,
       "goalsAgainst": 8,
       "goalDifference": -4
-    },
-    {
-      "position": 18,
-      "team": {
-        "id": 454,
-        "name": "Venezia FC",
-        "shortName": "Venezia FC",
-        "tla": "VEN",
-        "crest": "https://crests.football-data.org/454.png"
-      },
-      "playedGames": 3,
-      "form": "L,L,L",
-      "won": 0,
-      "draw": 0,
-      "lost": 3,
-      "points": 0,
-      "goalsFor": 2,
-      "goalsAgainst": 7,
-      "goalDifference": -5
     },
     {
       "position": 19,
@@ -368,21 +368,21 @@
     {
       "position": 20,
       "team": {
-        "id": 99,
-        "name": "ACF Fiorentina",
-        "shortName": "Fiorentina",
-        "tla": "FIO",
-        "crest": "https://crests.football-data.org/99.png"
+        "id": 454,
+        "name": "Venezia FC",
+        "shortName": "Venezia FC",
+        "tla": "VEN",
+        "crest": "https://crests.football-data.org/454.png"
       },
-      "playedGames": 3,
-      "form": "L,L,L",
+      "playedGames": 4,
+      "form": "L,L,L,L",
       "won": 0,
       "draw": 0,
-      "lost": 3,
+      "lost": 4,
       "points": 0,
-      "goalsFor": 1,
-      "goalsAgainst": 9,
-      "goalDifference": -8
+      "goalsFor": 4,
+      "goalsAgainst": 11,
+      "goalDifference": -7
     }
   ]
 }
