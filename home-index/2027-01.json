@@ -1,32 +1,61 @@
 {
-  "generated_at": "2026-09-09T19:27:42Z",
+  "generated_at": "2026-09-11T13:31:14Z",
   "month": "2027-01",
   "dates": {
+    "2027-01-01": [
+      {
+        "competition": "premier-league",
+        "name": "Premier League",
+        "matches": [
+          {
+            "match_id": 560724,
+            "homeTeam": {
+              "id": 341,
+              "name": "Leeds United FC",
+              "shortName": "Leeds United",
+              "tla": "LEE",
+              "crest": "https://crests.football-data.org/341.png"
+            },
+            "awayTeam": {
+              "id": 62,
+              "name": "Everton FC",
+              "shortName": "Everton",
+              "tla": "EVE",
+              "crest": "https://crests.football-data.org/62.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "TIMED",
+            "utcDate": "2027-01-01T20:00:00Z"
+          }
+        ]
+      }
+    ],
     "2027-01-02": [
       {
         "competition": "premier-league",
         "name": "Premier League",
         "matches": [
           {
-            "match_id": 560722,
+            "match_id": 560730,
             "homeTeam": {
-              "id": 1044,
-              "name": "AFC Bournemouth",
-              "shortName": "Bournemouth",
-              "tla": "BOU",
-              "crest": "https://crests.football-data.org/bournemouth.png"
+              "id": 397,
+              "name": "Brighton & Hove Albion FC",
+              "shortName": "Brighton Hove",
+              "tla": "BHA",
+              "crest": "https://crests.football-data.org/397.png"
             },
             "awayTeam": {
-              "id": 58,
-              "name": "Aston Villa FC",
-              "shortName": "Aston Villa",
-              "tla": "AVL",
-              "crest": "https://crests.football-data.org/58.png"
+              "id": 66,
+              "name": "Manchester United FC",
+              "shortName": "Man United",
+              "tla": "MUN",
+              "crest": "https://crests.football-data.org/66.png"
             },
             "homeScore": null,
             "awayScore": null,
             "status": "TIMED",
-            "utcDate": "2027-01-02T15:00:00Z"
+            "utcDate": "2027-01-02T12:30:00Z"
           },
           {
             "match_id": 560723,
@@ -43,27 +72,6 @@
               "shortName": "Crystal Palace",
               "tla": "CRY",
               "crest": "https://crests.football-data.org/354.png"
-            },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "TIMED",
-            "utcDate": "2027-01-02T15:00:00Z"
-          },
-          {
-            "match_id": 560724,
-            "homeTeam": {
-              "id": 341,
-              "name": "Leeds United FC",
-              "shortName": "Leeds United",
-              "tla": "LEE",
-              "crest": "https://crests.football-data.org/341.png"
-            },
-            "awayTeam": {
-              "id": 62,
-              "name": "Everton FC",
-              "shortName": "Everton",
-              "tla": "EVE",
-              "crest": "https://crests.football-data.org/62.png"
             },
             "homeScore": null,
             "awayScore": null,
@@ -134,27 +142,6 @@
             "utcDate": "2027-01-02T15:00:00Z"
           },
           {
-            "match_id": 560728,
-            "homeTeam": {
-              "id": 61,
-              "name": "Chelsea FC",
-              "shortName": "Chelsea",
-              "tla": "CHE",
-              "crest": "https://crests.football-data.org/61.png"
-            },
-            "awayTeam": {
-              "id": 67,
-              "name": "Newcastle United FC",
-              "shortName": "Newcastle",
-              "tla": "NEW",
-              "crest": "https://crests.football-data.org/67.png"
-            },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "TIMED",
-            "utcDate": "2027-01-02T15:00:00Z"
-          },
-          {
             "match_id": 560729,
             "homeTeam": {
               "id": 351,
@@ -176,46 +163,25 @@
             "utcDate": "2027-01-02T15:00:00Z"
           },
           {
-            "match_id": 560730,
+            "match_id": 560722,
             "homeTeam": {
-              "id": 397,
-              "name": "Brighton & Hove Albion FC",
-              "shortName": "Brighton Hove",
-              "tla": "BHA",
-              "crest": "https://crests.football-data.org/397.png"
+              "id": 1044,
+              "name": "AFC Bournemouth",
+              "shortName": "Bournemouth",
+              "tla": "BOU",
+              "crest": "https://crests.football-data.org/bournemouth.png"
             },
             "awayTeam": {
-              "id": 66,
-              "name": "Manchester United FC",
-              "shortName": "Man United",
-              "tla": "MUN",
-              "crest": "https://crests.football-data.org/66.png"
+              "id": 58,
+              "name": "Aston Villa FC",
+              "shortName": "Aston Villa",
+              "tla": "AVL",
+              "crest": "https://crests.football-data.org/58.png"
             },
             "homeScore": null,
             "awayScore": null,
             "status": "TIMED",
-            "utcDate": "2027-01-02T15:00:00Z"
-          },
-          {
-            "match_id": 560731,
-            "homeTeam": {
-              "id": 65,
-              "name": "Manchester City FC",
-              "shortName": "Man City",
-              "tla": "MCI",
-              "crest": "https://crests.football-data.org/65.png"
-            },
-            "awayTeam": {
-              "id": 73,
-              "name": "Tottenham Hotspur FC",
-              "shortName": "Tottenham",
-              "tla": "TOT",
-              "crest": "https://crests.football-data.org/73.png"
-            },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "TIMED",
-            "utcDate": "2027-01-02T15:00:00Z"
+            "utcDate": "2027-01-02T17:30:00Z"
           }
         ]
       },
@@ -395,6 +361,54 @@
       }
     ],
     "2027-01-03": [
+      {
+        "competition": "premier-league",
+        "name": "Premier League",
+        "matches": [
+          {
+            "match_id": 560728,
+            "homeTeam": {
+              "id": 61,
+              "name": "Chelsea FC",
+              "shortName": "Chelsea",
+              "tla": "CHE",
+              "crest": "https://crests.football-data.org/61.png"
+            },
+            "awayTeam": {
+              "id": 67,
+              "name": "Newcastle United FC",
+              "shortName": "Newcastle",
+              "tla": "NEW",
+              "crest": "https://crests.football-data.org/67.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "TIMED",
+            "utcDate": "2027-01-03T14:00:00Z"
+          },
+          {
+            "match_id": 560731,
+            "homeTeam": {
+              "id": 65,
+              "name": "Manchester City FC",
+              "shortName": "Man City",
+              "tla": "MCI",
+              "crest": "https://crests.football-data.org/65.png"
+            },
+            "awayTeam": {
+              "id": 73,
+              "name": "Tottenham Hotspur FC",
+              "shortName": "Tottenham",
+              "tla": "TOT",
+              "crest": "https://crests.football-data.org/73.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "TIMED",
+            "utcDate": "2027-01-03T16:30:00Z"
+          }
+        ]
+      },
       {
         "competition": "laliga",
         "name": "LaLiga",
@@ -855,7 +869,7 @@
         ]
       }
     ],
-    "2027-01-06": [
+    "2027-01-05": [
       {
         "competition": "premier-league",
         "name": "Premier League",
@@ -879,49 +893,7 @@
             "homeScore": null,
             "awayScore": null,
             "status": "TIMED",
-            "utcDate": "2027-01-06T20:00:00Z"
-          },
-          {
-            "match_id": 560733,
-            "homeTeam": {
-              "id": 341,
-              "name": "Leeds United FC",
-              "shortName": "Leeds United",
-              "tla": "LEE",
-              "crest": "https://crests.football-data.org/341.png"
-            },
-            "awayTeam": {
-              "id": 65,
-              "name": "Manchester City FC",
-              "shortName": "Man City",
-              "tla": "MCI",
-              "crest": "https://crests.football-data.org/65.png"
-            },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "TIMED",
-            "utcDate": "2027-01-06T20:00:00Z"
-          },
-          {
-            "match_id": 560734,
-            "homeTeam": {
-              "id": 66,
-              "name": "Manchester United FC",
-              "shortName": "Man United",
-              "tla": "MUN",
-              "crest": "https://crests.football-data.org/66.png"
-            },
-            "awayTeam": {
-              "id": 67,
-              "name": "Newcastle United FC",
-              "shortName": "Newcastle",
-              "tla": "NEW",
-              "crest": "https://crests.football-data.org/67.png"
-            },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "TIMED",
-            "utcDate": "2027-01-06T20:00:00Z"
+            "utcDate": "2027-01-05T19:30:00Z"
           },
           {
             "match_id": 560735,
@@ -942,7 +914,7 @@
             "homeScore": null,
             "awayScore": null,
             "status": "TIMED",
-            "utcDate": "2027-01-06T20:00:00Z"
+            "utcDate": "2027-01-05T19:30:00Z"
           },
           {
             "match_id": 560736,
@@ -963,28 +935,7 @@
             "homeScore": null,
             "awayScore": null,
             "status": "TIMED",
-            "utcDate": "2027-01-06T20:00:00Z"
-          },
-          {
-            "match_id": 560737,
-            "homeTeam": {
-              "id": 63,
-              "name": "Fulham FC",
-              "shortName": "Fulham",
-              "tla": "FUL",
-              "crest": "https://crests.football-data.org/63.png"
-            },
-            "awayTeam": {
-              "id": 73,
-              "name": "Tottenham Hotspur FC",
-              "shortName": "Tottenham",
-              "tla": "TOT",
-              "crest": "https://crests.football-data.org/73.png"
-            },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "TIMED",
-            "utcDate": "2027-01-06T20:00:00Z"
+            "utcDate": "2027-01-05T19:30:00Z"
           },
           {
             "match_id": 560738,
@@ -1005,7 +956,7 @@
             "homeScore": null,
             "awayScore": null,
             "status": "TIMED",
-            "utcDate": "2027-01-06T20:00:00Z"
+            "utcDate": "2027-01-05T19:30:00Z"
           },
           {
             "match_id": 560739,
@@ -1026,7 +977,36 @@
             "homeScore": null,
             "awayScore": null,
             "status": "TIMED",
-            "utcDate": "2027-01-06T20:00:00Z"
+            "utcDate": "2027-01-05T20:15:00Z"
+          }
+        ]
+      }
+    ],
+    "2027-01-06": [
+      {
+        "competition": "premier-league",
+        "name": "Premier League",
+        "matches": [
+          {
+            "match_id": 560737,
+            "homeTeam": {
+              "id": 63,
+              "name": "Fulham FC",
+              "shortName": "Fulham",
+              "tla": "FUL",
+              "crest": "https://crests.football-data.org/63.png"
+            },
+            "awayTeam": {
+              "id": 73,
+              "name": "Tottenham Hotspur FC",
+              "shortName": "Tottenham",
+              "tla": "TOT",
+              "crest": "https://crests.football-data.org/73.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "TIMED",
+            "utcDate": "2027-01-06T19:30:00Z"
           },
           {
             "match_id": 560740,
@@ -1047,7 +1027,7 @@
             "homeScore": null,
             "awayScore": null,
             "status": "TIMED",
-            "utcDate": "2027-01-06T20:00:00Z"
+            "utcDate": "2027-01-06T19:30:00Z"
           },
           {
             "match_id": 560741,
@@ -1068,7 +1048,28 @@
             "homeScore": null,
             "awayScore": null,
             "status": "TIMED",
-            "utcDate": "2027-01-06T20:00:00Z"
+            "utcDate": "2027-01-06T19:30:00Z"
+          },
+          {
+            "match_id": 560733,
+            "homeTeam": {
+              "id": 341,
+              "name": "Leeds United FC",
+              "shortName": "Leeds United",
+              "tla": "LEE",
+              "crest": "https://crests.football-data.org/341.png"
+            },
+            "awayTeam": {
+              "id": 65,
+              "name": "Manchester City FC",
+              "shortName": "Man City",
+              "tla": "MCI",
+              "crest": "https://crests.football-data.org/65.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "TIMED",
+            "utcDate": "2027-01-06T20:15:00Z"
           }
         ]
       },
@@ -1285,6 +1286,35 @@
             "awayScore": null,
             "status": "SCHEDULED",
             "utcDate": "2027-01-06T00:00:00Z"
+          }
+        ]
+      }
+    ],
+    "2027-01-07": [
+      {
+        "competition": "premier-league",
+        "name": "Premier League",
+        "matches": [
+          {
+            "match_id": 560734,
+            "homeTeam": {
+              "id": 66,
+              "name": "Manchester United FC",
+              "shortName": "Man United",
+              "tla": "MUN",
+              "crest": "https://crests.football-data.org/66.png"
+            },
+            "awayTeam": {
+              "id": 67,
+              "name": "Newcastle United FC",
+              "shortName": "Newcastle",
+              "tla": "NEW",
+              "crest": "https://crests.football-data.org/67.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "TIMED",
+            "utcDate": "2027-01-07T20:00:00Z"
           }
         ]
       }

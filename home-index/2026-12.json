@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-09T19:27:42Z",
+  "generated_at": "2026-09-11T13:31:14Z",
   "month": "2026-12",
   "dates": {
     "2026-12-02": [
@@ -3575,49 +3575,7 @@
             "homeScore": null,
             "awayScore": null,
             "status": "TIMED",
-            "utcDate": "2026-12-26T15:00:00Z"
-          },
-          {
-            "match_id": 560703,
-            "homeTeam": {
-              "id": 66,
-              "name": "Manchester United FC",
-              "shortName": "Man United",
-              "tla": "MUN",
-              "crest": "https://crests.football-data.org/66.png"
-            },
-            "awayTeam": {
-              "id": 351,
-              "name": "Nottingham Forest FC",
-              "shortName": "Nottingham",
-              "tla": "NOT",
-              "crest": "https://crests.football-data.org/351.png"
-            },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "TIMED",
-            "utcDate": "2026-12-26T15:00:00Z"
-          },
-          {
-            "match_id": 560704,
-            "homeTeam": {
-              "id": 354,
-              "name": "Crystal Palace FC",
-              "shortName": "Crystal Palace",
-              "tla": "CRY",
-              "crest": "https://crests.football-data.org/354.png"
-            },
-            "awayTeam": {
-              "id": 57,
-              "name": "Arsenal FC",
-              "shortName": "Arsenal",
-              "tla": "ARS",
-              "crest": "https://crests.football-data.org/57.png"
-            },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "TIMED",
-            "utcDate": "2026-12-26T15:00:00Z"
+            "utcDate": "2026-12-26T12:30:00Z"
           },
           {
             "match_id": 560705,
@@ -3634,48 +3592,6 @@
               "shortName": "Sunderland",
               "tla": "SUN",
               "crest": "https://crests.football-data.org/71.png"
-            },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "TIMED",
-            "utcDate": "2026-12-26T15:00:00Z"
-          },
-          {
-            "match_id": 560706,
-            "homeTeam": {
-              "id": 1076,
-              "name": "Coventry City FC",
-              "shortName": "Coventry City",
-              "tla": "COV",
-              "crest": "https://crests.football-data.org/1076.png"
-            },
-            "awayTeam": {
-              "id": 61,
-              "name": "Chelsea FC",
-              "shortName": "Chelsea",
-              "tla": "CHE",
-              "crest": "https://crests.football-data.org/61.png"
-            },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "TIMED",
-            "utcDate": "2026-12-26T15:00:00Z"
-          },
-          {
-            "match_id": 560707,
-            "homeTeam": {
-              "id": 67,
-              "name": "Newcastle United FC",
-              "shortName": "Newcastle",
-              "tla": "NEW",
-              "crest": "https://crests.football-data.org/67.png"
-            },
-            "awayTeam": {
-              "id": 65,
-              "name": "Manchester City FC",
-              "shortName": "Man City",
-              "tla": "MCI",
-              "crest": "https://crests.football-data.org/65.png"
             },
             "homeScore": null,
             "awayScore": null,
@@ -3725,27 +3641,6 @@
             "utcDate": "2026-12-26T15:00:00Z"
           },
           {
-            "match_id": 560710,
-            "homeTeam": {
-              "id": 322,
-              "name": "Hull City AFC",
-              "shortName": "Hull City",
-              "tla": "HUL",
-              "crest": "https://crests.football-data.org/322.png"
-            },
-            "awayTeam": {
-              "id": 64,
-              "name": "Liverpool FC",
-              "shortName": "Liverpool",
-              "tla": "LIV",
-              "crest": "https://crests.football-data.org/64.png"
-            },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "TIMED",
-            "utcDate": "2026-12-26T15:00:00Z"
-          },
-          {
             "match_id": 560711,
             "homeTeam": {
               "id": 349,
@@ -3765,6 +3660,190 @@
             "awayScore": null,
             "status": "TIMED",
             "utcDate": "2026-12-26T15:00:00Z"
+          },
+          {
+            "match_id": 560710,
+            "homeTeam": {
+              "id": 322,
+              "name": "Hull City AFC",
+              "shortName": "Hull City",
+              "tla": "HUL",
+              "crest": "https://crests.football-data.org/322.png"
+            },
+            "awayTeam": {
+              "id": 64,
+              "name": "Liverpool FC",
+              "shortName": "Liverpool",
+              "tla": "LIV",
+              "crest": "https://crests.football-data.org/64.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "TIMED",
+            "utcDate": "2026-12-26T17:30:00Z"
+          },
+          {
+            "match_id": 560707,
+            "homeTeam": {
+              "id": 67,
+              "name": "Newcastle United FC",
+              "shortName": "Newcastle",
+              "tla": "NEW",
+              "crest": "https://crests.football-data.org/67.png"
+            },
+            "awayTeam": {
+              "id": 65,
+              "name": "Manchester City FC",
+              "shortName": "Man City",
+              "tla": "MCI",
+              "crest": "https://crests.football-data.org/65.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "TIMED",
+            "utcDate": "2026-12-26T20:00:00Z"
+          }
+        ]
+      }
+    ],
+    "2026-12-27": [
+      {
+        "competition": "premier-league",
+        "name": "Premier League",
+        "matches": [
+          {
+            "match_id": 560706,
+            "homeTeam": {
+              "id": 1076,
+              "name": "Coventry City FC",
+              "shortName": "Coventry City",
+              "tla": "COV",
+              "crest": "https://crests.football-data.org/1076.png"
+            },
+            "awayTeam": {
+              "id": 61,
+              "name": "Chelsea FC",
+              "shortName": "Chelsea",
+              "tla": "CHE",
+              "crest": "https://crests.football-data.org/61.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "TIMED",
+            "utcDate": "2026-12-27T14:00:00Z"
+          },
+          {
+            "match_id": 560703,
+            "homeTeam": {
+              "id": 66,
+              "name": "Manchester United FC",
+              "shortName": "Man United",
+              "tla": "MUN",
+              "crest": "https://crests.football-data.org/66.png"
+            },
+            "awayTeam": {
+              "id": 351,
+              "name": "Nottingham Forest FC",
+              "shortName": "Nottingham",
+              "tla": "NOT",
+              "crest": "https://crests.football-data.org/351.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "TIMED",
+            "utcDate": "2026-12-27T16:30:00Z"
+          },
+          {
+            "match_id": 560704,
+            "homeTeam": {
+              "id": 354,
+              "name": "Crystal Palace FC",
+              "shortName": "Crystal Palace",
+              "tla": "CRY",
+              "crest": "https://crests.football-data.org/354.png"
+            },
+            "awayTeam": {
+              "id": 57,
+              "name": "Arsenal FC",
+              "shortName": "Arsenal",
+              "tla": "ARS",
+              "crest": "https://crests.football-data.org/57.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "TIMED",
+            "utcDate": "2026-12-27T19:00:00Z"
+          }
+        ]
+      }
+    ],
+    "2026-12-29": [
+      {
+        "competition": "premier-league",
+        "name": "Premier League",
+        "matches": [
+          {
+            "match_id": 560716,
+            "homeTeam": {
+              "id": 322,
+              "name": "Hull City AFC",
+              "shortName": "Hull City",
+              "tla": "HUL",
+              "crest": "https://crests.football-data.org/322.png"
+            },
+            "awayTeam": {
+              "id": 341,
+              "name": "Leeds United FC",
+              "shortName": "Leeds United",
+              "tla": "LEE",
+              "crest": "https://crests.football-data.org/341.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "TIMED",
+            "utcDate": "2026-12-29T19:30:00Z"
+          },
+          {
+            "match_id": 560719,
+            "homeTeam": {
+              "id": 73,
+              "name": "Tottenham Hotspur FC",
+              "shortName": "Tottenham",
+              "tla": "TOT",
+              "crest": "https://crests.football-data.org/73.png"
+            },
+            "awayTeam": {
+              "id": 397,
+              "name": "Brighton & Hove Albion FC",
+              "shortName": "Brighton Hove",
+              "tla": "BHA",
+              "crest": "https://crests.football-data.org/397.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "TIMED",
+            "utcDate": "2026-12-29T19:30:00Z"
+          },
+          {
+            "match_id": 560720,
+            "homeTeam": {
+              "id": 62,
+              "name": "Everton FC",
+              "shortName": "Everton",
+              "tla": "EVE",
+              "crest": "https://crests.football-data.org/62.png"
+            },
+            "awayTeam": {
+              "id": 65,
+              "name": "Manchester City FC",
+              "shortName": "Man City",
+              "tla": "MCI",
+              "crest": "https://crests.football-data.org/65.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "TIMED",
+            "utcDate": "2026-12-29T20:15:00Z"
           }
         ]
       }
@@ -3793,7 +3872,7 @@
             "homeScore": null,
             "awayScore": null,
             "status": "TIMED",
-            "utcDate": "2026-12-30T20:00:00Z"
+            "utcDate": "2026-12-30T19:30:00Z"
           },
           {
             "match_id": 560713,
@@ -3814,28 +3893,7 @@
             "homeScore": null,
             "awayScore": null,
             "status": "TIMED",
-            "utcDate": "2026-12-30T20:00:00Z"
-          },
-          {
-            "match_id": 560714,
-            "homeTeam": {
-              "id": 58,
-              "name": "Aston Villa FC",
-              "shortName": "Aston Villa",
-              "tla": "AVL",
-              "crest": "https://crests.football-data.org/58.png"
-            },
-            "awayTeam": {
-              "id": 64,
-              "name": "Liverpool FC",
-              "shortName": "Liverpool",
-              "tla": "LIV",
-              "crest": "https://crests.football-data.org/64.png"
-            },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "TIMED",
-            "utcDate": "2026-12-30T20:00:00Z"
+            "utcDate": "2026-12-30T19:30:00Z"
           },
           {
             "match_id": 560715,
@@ -3856,28 +3914,7 @@
             "homeScore": null,
             "awayScore": null,
             "status": "TIMED",
-            "utcDate": "2026-12-30T20:00:00Z"
-          },
-          {
-            "match_id": 560716,
-            "homeTeam": {
-              "id": 322,
-              "name": "Hull City AFC",
-              "shortName": "Hull City",
-              "tla": "HUL",
-              "crest": "https://crests.football-data.org/322.png"
-            },
-            "awayTeam": {
-              "id": 341,
-              "name": "Leeds United FC",
-              "shortName": "Leeds United",
-              "tla": "LEE",
-              "crest": "https://crests.football-data.org/341.png"
-            },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "TIMED",
-            "utcDate": "2026-12-30T20:00:00Z"
+            "utcDate": "2026-12-30T19:30:00Z"
           },
           {
             "match_id": 560717,
@@ -3898,70 +3935,7 @@
             "homeScore": null,
             "awayScore": null,
             "status": "TIMED",
-            "utcDate": "2026-12-30T20:00:00Z"
-          },
-          {
-            "match_id": 560718,
-            "homeTeam": {
-              "id": 349,
-              "name": "Ipswich Town FC",
-              "shortName": "Ipswich Town",
-              "tla": "IPS",
-              "crest": "https://crests.football-data.org/349.png"
-            },
-            "awayTeam": {
-              "id": 61,
-              "name": "Chelsea FC",
-              "shortName": "Chelsea",
-              "tla": "CHE",
-              "crest": "https://crests.football-data.org/61.png"
-            },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "TIMED",
-            "utcDate": "2026-12-30T20:00:00Z"
-          },
-          {
-            "match_id": 560719,
-            "homeTeam": {
-              "id": 73,
-              "name": "Tottenham Hotspur FC",
-              "shortName": "Tottenham",
-              "tla": "TOT",
-              "crest": "https://crests.football-data.org/73.png"
-            },
-            "awayTeam": {
-              "id": 397,
-              "name": "Brighton & Hove Albion FC",
-              "shortName": "Brighton Hove",
-              "tla": "BHA",
-              "crest": "https://crests.football-data.org/397.png"
-            },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "TIMED",
-            "utcDate": "2026-12-30T20:00:00Z"
-          },
-          {
-            "match_id": 560720,
-            "homeTeam": {
-              "id": 62,
-              "name": "Everton FC",
-              "shortName": "Everton",
-              "tla": "EVE",
-              "crest": "https://crests.football-data.org/62.png"
-            },
-            "awayTeam": {
-              "id": 65,
-              "name": "Manchester City FC",
-              "shortName": "Man City",
-              "tla": "MCI",
-              "crest": "https://crests.football-data.org/65.png"
-            },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "TIMED",
-            "utcDate": "2026-12-30T20:00:00Z"
+            "utcDate": "2026-12-30T19:30:00Z"
           },
           {
             "match_id": 560721,
@@ -3982,7 +3956,49 @@
             "homeScore": null,
             "awayScore": null,
             "status": "TIMED",
-            "utcDate": "2026-12-30T20:00:00Z"
+            "utcDate": "2026-12-30T19:30:00Z"
+          },
+          {
+            "match_id": 560714,
+            "homeTeam": {
+              "id": 58,
+              "name": "Aston Villa FC",
+              "shortName": "Aston Villa",
+              "tla": "AVL",
+              "crest": "https://crests.football-data.org/58.png"
+            },
+            "awayTeam": {
+              "id": 64,
+              "name": "Liverpool FC",
+              "shortName": "Liverpool",
+              "tla": "LIV",
+              "crest": "https://crests.football-data.org/64.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "TIMED",
+            "utcDate": "2026-12-30T20:15:00Z"
+          },
+          {
+            "match_id": 560718,
+            "homeTeam": {
+              "id": 349,
+              "name": "Ipswich Town FC",
+              "shortName": "Ipswich Town",
+              "tla": "IPS",
+              "crest": "https://crests.football-data.org/349.png"
+            },
+            "awayTeam": {
+              "id": 61,
+              "name": "Chelsea FC",
+              "shortName": "Chelsea",
+              "tla": "CHE",
+              "crest": "https://crests.football-data.org/61.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "TIMED",
+            "utcDate": "2026-12-30T20:15:00Z"
           }
         ]
       }
