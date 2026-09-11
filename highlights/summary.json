@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-11T21:01:44Z",
+  "generated_at": "2026-09-11T21:06:24Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -816,14 +816,14 @@
           "gameweek": "GW4",
           "stem": "gameweek-4",
           "total": 1,
-          "covered": 0,
+          "covered": 1,
           "matches": [
             {
               "match_id": 558606,
               "home": "Venezia FC",
               "away": "ACF Fiorentina",
               "date": "2026-09-11",
-              "covered": false
+              "covered": true
             }
           ]
         }
@@ -1213,14 +1213,14 @@
           "gameweek": "GW4",
           "stem": "gameweek-4",
           "total": 1,
-          "covered": 0,
+          "covered": 1,
           "matches": [
             {
               "match_id": 559689,
               "home": "Stade Rennais FC 1901",
               "away": "Olympique de Marseille",
               "date": "2026-09-11",
-              "covered": false
+              "covered": true
             }
           ]
         }
