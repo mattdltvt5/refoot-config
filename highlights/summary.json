@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-11T20:41:24Z",
+  "generated_at": "2026-09-11T20:46:33Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -959,6 +959,21 @@
               "covered": true
             }
           ]
+        },
+        {
+          "gameweek": "GW3",
+          "stem": "gameweek-3",
+          "total": 1,
+          "covered": 0,
+          "matches": [
+            {
+              "match_id": 565797,
+              "home": "1. FC Union Berlin",
+              "away": "FC Schalke 04",
+              "date": "2026-09-11",
+              "covered": false
+            }
+          ]
         }
       ]
     },
@@ -1176,6 +1191,21 @@
               "away": "Paris FC",
               "date": "2026-09-06",
               "covered": true
+            }
+          ]
+        },
+        {
+          "gameweek": "GW4",
+          "stem": "gameweek-4",
+          "total": 1,
+          "covered": 0,
+          "matches": [
+            {
+              "match_id": 559689,
+              "home": "Stade Rennais FC 1901",
+              "away": "Olympique de Marseille",
+              "date": "2026-09-11",
+              "covered": false
             }
           ]
         }

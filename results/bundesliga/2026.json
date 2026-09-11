@@ -1,7 +1,7 @@
 {
   "competition": "Bundesliga",
   "season": 2026,
-  "generated_at": "2026-09-11T20:41:19Z",
+  "generated_at": "2026-09-11T20:46:14Z",
   "results": {
     "565776": {
       "status": "FINISHED",
@@ -200,6 +200,17 @@
       },
       "utcDate": "2026-09-06T15:30:00Z",
       "first_finished_at": "2026-09-06T17:31:18Z"
+    },
+    "565797": {
+      "status": "FINISHED",
+      "score": {
+        "fullTime": {
+          "home": 1,
+          "away": 3
+        }
+      },
+      "utcDate": "2026-09-11T18:30:00Z",
+      "first_finished_at": "2026-09-11T20:46:14Z"
     }
   }
 }
