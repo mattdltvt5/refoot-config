@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-11T20:56:40Z",
+  "generated_at": "2026-09-11T21:01:44Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -979,14 +979,14 @@
           "gameweek": "GW3",
           "stem": "gameweek-3",
           "total": 1,
-          "covered": 0,
+          "covered": 1,
           "matches": [
             {
               "match_id": 565797,
               "home": "1. FC Union Berlin",
               "away": "FC Schalke 04",
               "date": "2026-09-11",
-              "covered": false
+              "covered": true
             }
           ]
         }
