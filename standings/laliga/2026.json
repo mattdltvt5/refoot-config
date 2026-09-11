@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-11T12:05:26.446739Z",
+  "generated_at": "2026-09-11T21:16:58.834470Z",
   "competition": "LaLiga",
   "slug": "laliga",
   "season": 2026,
@@ -45,6 +45,25 @@
     {
       "position": 3,
       "team": {
+        "id": 559,
+        "name": "Sevilla FC",
+        "shortName": "Sevilla FC",
+        "tla": "SEV",
+        "crest": "https://crests.football-data.org/559.png"
+      },
+      "playedGames": 5,
+      "form": "W,D,L,W,W",
+      "won": 3,
+      "draw": 1,
+      "lost": 1,
+      "points": 10,
+      "goalsFor": 8,
+      "goalsAgainst": 6,
+      "goalDifference": 2
+    },
+    {
+      "position": 4,
+      "team": {
         "id": 86,
         "name": "Real Madrid CF",
         "shortName": "Real Madrid",
@@ -62,7 +81,7 @@
       "goalDifference": 7
     },
     {
-      "position": 4,
+      "position": 5,
       "team": {
         "id": 90,
         "name": "Real Betis Balompié",
@@ -81,7 +100,7 @@
       "goalDifference": 0
     },
     {
-      "position": 5,
+      "position": 6,
       "team": {
         "id": 560,
         "name": "RC Deportivo La Coruña",
@@ -98,25 +117,6 @@
       "goalsFor": 8,
       "goalsAgainst": 5,
       "goalDifference": 3
-    },
-    {
-      "position": 6,
-      "team": {
-        "id": 559,
-        "name": "Sevilla FC",
-        "shortName": "Sevilla FC",
-        "tla": "SEV",
-        "crest": "https://crests.football-data.org/559.png"
-      },
-      "playedGames": 4,
-      "form": "D,L,W,W",
-      "won": 2,
-      "draw": 1,
-      "lost": 1,
-      "points": 7,
-      "goalsFor": 7,
-      "goalsAgainst": 6,
-      "goalDifference": 1
     },
     {
       "position": 7,
@@ -374,15 +374,15 @@
         "tla": "VAL",
         "crest": "https://crests.football-data.org/95.png"
       },
-      "playedGames": 4,
-      "form": "L,L,L,D",
+      "playedGames": 5,
+      "form": "L,L,L,L,D",
       "won": 0,
       "draw": 1,
-      "lost": 3,
+      "lost": 4,
       "points": 1,
       "goalsFor": 1,
-      "goalsAgainst": 9,
-      "goalDifference": -8
+      "goalsAgainst": 10,
+      "goalDifference": -9
     }
   ]
 }
