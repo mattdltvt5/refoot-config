@@ -2,14 +2,21 @@
   "competition": "LaLiga",
   "gameweek": "GW5",
   "stem": "gameweek-5",
-  "generated_at": "2026-09-11T21:16:37Z",
+  "generated_at": "2026-09-11T21:21:18Z",
   "matches": [
     {
       "match_id": 564669,
       "home_team": "Sevilla FC",
       "away_team": "Valencia CF",
       "date": "2026-09-11",
-      "videos": []
+      "videos": [
+        {
+          "video_id": "G1DAYWMXstc",
+          "title": "SEVILLA FC 1 - 0 VALENCIA CF | RESUMEN LALIGA EA SPORTS",
+          "published_at": "2026-09-11",
+          "tier_used": 2
+        }
+      ]
     }
   ]
 }

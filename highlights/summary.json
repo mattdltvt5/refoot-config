@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-11T21:16:37Z",
+  "generated_at": "2026-09-11T21:21:18Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -561,14 +561,14 @@
           "gameweek": "GW5",
           "stem": "gameweek-5",
           "total": 1,
-          "covered": 0,
+          "covered": 1,
           "matches": [
             {
               "match_id": 564669,
               "home": "Sevilla FC",
               "away": "Valencia CF",
               "date": "2026-09-11",
-              "covered": false
+              "covered": true
             }
           ]
         },
