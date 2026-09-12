@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-12T18:01:39Z",
+  "generated_at": "2026-09-12T18:06:40Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -887,8 +887,8 @@
         {
           "gameweek": "GW4",
           "stem": "gameweek-4",
-          "total": 2,
-          "covered": 2,
+          "total": 3,
+          "covered": 3,
           "matches": [
             {
               "match_id": 558606,
@@ -901,6 +901,13 @@
               "match_id": 558604,
               "home": "Genoa CFC",
               "away": "Frosinone Calcio",
+              "date": "2026-09-12",
+              "covered": true
+            },
+            {
+              "match_id": 558600,
+              "home": "SS Lazio",
+              "away": "AC Milan",
               "date": "2026-09-12",
               "covered": true
             }
