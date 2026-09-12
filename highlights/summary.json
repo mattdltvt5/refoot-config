@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-12T15:31:47Z",
+  "generated_at": "2026-09-12T15:36:45Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -1007,7 +1007,7 @@
         {
           "gameweek": "GW3",
           "stem": "gameweek-3",
-          "total": 4,
+          "total": 6,
           "covered": 1,
           "matches": [
             {
@@ -1035,6 +1035,20 @@
               "match_id": 565802,
               "home": "SC Freiburg",
               "away": "Borussia Mönchengladbach",
+              "date": "2026-09-12",
+              "covered": false
+            },
+            {
+              "match_id": 565794,
+              "home": "TSG 1899 Hoffenheim",
+              "away": "VfB Stuttgart",
+              "date": "2026-09-12",
+              "covered": false
+            },
+            {
+              "match_id": 565796,
+              "home": "FC Augsburg",
+              "away": "Bayer 04 Leverkusen",
               "date": "2026-09-12",
               "covered": false
             }
