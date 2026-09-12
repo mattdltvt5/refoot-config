@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-12T18:26:30Z",
+  "generated_at": "2026-09-12T18:31:46Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -242,7 +242,7 @@
         {
           "gameweek": "GW4",
           "stem": "gameweek-4",
-          "total": 5,
+          "total": 6,
           "covered": 2,
           "matches": [
             {
@@ -279,6 +279,13 @@
               "away": "Brentford FC",
               "date": "2026-09-12",
               "covered": true
+            },
+            {
+              "match_id": 560575,
+              "home": "Tottenham Hotspur FC",
+              "away": "Everton FC",
+              "date": "2026-09-12",
+              "covered": false
             }
           ]
         }
@@ -1064,7 +1071,7 @@
         {
           "gameweek": "GW3",
           "stem": "gameweek-3",
-          "total": 6,
+          "total": 7,
           "covered": 6,
           "matches": [
             {
@@ -1108,6 +1115,13 @@
               "away": "Bayer 04 Leverkusen",
               "date": "2026-09-12",
               "covered": true
+            },
+            {
+              "match_id": 565798,
+              "home": "1. FC Köln",
+              "away": "SV Werder Bremen",
+              "date": "2026-09-12",
+              "covered": false
             }
           ]
         }

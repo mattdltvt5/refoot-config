@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-12T17:56:57.011012Z",
+  "generated_at": "2026-09-12T18:32:07.366477Z",
   "competition": "Premier League",
   "slug": "premier-league",
   "season": 2026,
@@ -121,6 +121,25 @@
     {
       "position": 7,
       "team": {
+        "id": 62,
+        "name": "Everton FC",
+        "shortName": "Everton",
+        "tla": "EVE",
+        "crest": "https://crests.football-data.org/62.png"
+      },
+      "playedGames": 4,
+      "form": "D,D,D,W",
+      "won": 1,
+      "draw": 3,
+      "lost": 0,
+      "points": 6,
+      "goalsFor": 5,
+      "goalsAgainst": 3,
+      "goalDifference": 2
+    },
+    {
+      "position": 8,
+      "team": {
         "id": 349,
         "name": "Ipswich Town FC",
         "shortName": "Ipswich Town",
@@ -138,7 +157,7 @@
       "goalDifference": -3
     },
     {
-      "position": 8,
+      "position": 9,
       "team": {
         "id": 67,
         "name": "Newcastle United FC",
@@ -154,25 +173,6 @@
       "points": 5,
       "goalsFor": 6,
       "goalsAgainst": 4,
-      "goalDifference": 2
-    },
-    {
-      "position": 9,
-      "team": {
-        "id": 62,
-        "name": "Everton FC",
-        "shortName": "Everton",
-        "tla": "EVE",
-        "crest": "https://crests.football-data.org/62.png"
-      },
-      "playedGames": 3,
-      "form": "D,D,W",
-      "won": 1,
-      "draw": 2,
-      "lost": 0,
-      "points": 5,
-      "goalsFor": 5,
-      "goalsAgainst": 3,
       "goalDifference": 2
     },
     {
@@ -311,6 +311,25 @@
     {
       "position": 17,
       "team": {
+        "id": 73,
+        "name": "Tottenham Hotspur FC",
+        "shortName": "Tottenham",
+        "tla": "TOT",
+        "crest": "https://crests.football-data.org/73.png"
+      },
+      "playedGames": 4,
+      "form": "D,D,L,L",
+      "won": 0,
+      "draw": 2,
+      "lost": 2,
+      "points": 2,
+      "goalsFor": 0,
+      "goalsAgainst": 5,
+      "goalDifference": -5
+    },
+    {
+      "position": 18,
+      "team": {
         "id": 63,
         "name": "Fulham FC",
         "shortName": "Fulham",
@@ -326,25 +345,6 @@
       "goalsFor": 4,
       "goalsAgainst": 7,
       "goalDifference": -3
-    },
-    {
-      "position": 18,
-      "team": {
-        "id": 73,
-        "name": "Tottenham Hotspur FC",
-        "shortName": "Tottenham",
-        "tla": "TOT",
-        "crest": "https://crests.football-data.org/73.png"
-      },
-      "playedGames": 3,
-      "form": "D,L,L",
-      "won": 0,
-      "draw": 1,
-      "lost": 2,
-      "points": 1,
-      "goalsFor": 0,
-      "goalsAgainst": 5,
-      "goalDifference": -5
     },
     {
       "position": 19,

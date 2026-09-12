@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-12T17:27:16.690978Z",
+  "generated_at": "2026-09-12T18:32:22.277358Z",
   "competition": "Bundesliga",
   "slug": "bundesliga",
   "season": 2026,
@@ -159,6 +159,25 @@
     {
       "position": 9,
       "team": {
+        "id": 12,
+        "name": "SV Werder Bremen",
+        "shortName": "Bremen",
+        "tla": "SVW",
+        "crest": "https://crests.football-data.org/12.png"
+      },
+      "playedGames": 3,
+      "form": "D,W,L",
+      "won": 1,
+      "draw": 1,
+      "lost": 1,
+      "points": 4,
+      "goalsFor": 5,
+      "goalsAgainst": 6,
+      "goalDifference": -1
+    },
+    {
+      "position": 10,
+      "team": {
         "id": 6,
         "name": "FC Schalke 04",
         "shortName": "Schalke",
@@ -176,7 +195,26 @@
       "goalDifference": -1
     },
     {
-      "position": 10,
+      "position": 11,
+      "team": {
+        "id": 1,
+        "name": "1. FC Köln",
+        "shortName": "1. FC Köln",
+        "tla": "KOE",
+        "crest": "https://crests.football-data.org/1.png"
+      },
+      "playedGames": 3,
+      "form": "D,L,W",
+      "won": 1,
+      "draw": 1,
+      "lost": 1,
+      "points": 4,
+      "goalsFor": 5,
+      "goalsAgainst": 7,
+      "goalDifference": -2
+    },
+    {
+      "position": 12,
       "team": {
         "id": 721,
         "name": "RB Leipzig",
@@ -195,7 +233,7 @@
       "goalDifference": 1
     },
     {
-      "position": 11,
+      "position": 13,
       "team": {
         "id": 2,
         "name": "TSG 1899 Hoffenheim",
@@ -214,26 +252,7 @@
       "goalDifference": -1
     },
     {
-      "position": 12,
-      "team": {
-        "id": 12,
-        "name": "SV Werder Bremen",
-        "shortName": "Bremen",
-        "tla": "SVW",
-        "crest": "https://crests.football-data.org/12.png"
-      },
-      "playedGames": 2,
-      "form": "W,L",
-      "won": 1,
-      "draw": 0,
-      "lost": 1,
-      "points": 3,
-      "goalsFor": 4,
-      "goalsAgainst": 5,
-      "goalDifference": -1
-    },
-    {
-      "position": 13,
+      "position": 14,
       "team": {
         "id": 10,
         "name": "VfB Stuttgart",
@@ -249,25 +268,6 @@
       "points": 3,
       "goalsFor": 6,
       "goalsAgainst": 8,
-      "goalDifference": -2
-    },
-    {
-      "position": 14,
-      "team": {
-        "id": 1,
-        "name": "1. FC Köln",
-        "shortName": "1. FC Köln",
-        "tla": "KOE",
-        "crest": "https://crests.football-data.org/1.png"
-      },
-      "playedGames": 2,
-      "form": "L,W",
-      "won": 1,
-      "draw": 0,
-      "lost": 1,
-      "points": 3,
-      "goalsFor": 4,
-      "goalsAgainst": 6,
       "goalDifference": -2
     },
     {
