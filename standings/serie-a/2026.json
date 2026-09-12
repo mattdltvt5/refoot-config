@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-11T22:41:43.418642Z",
+  "generated_at": "2026-09-12T15:11:58.024734Z",
   "competition": "Serie A",
   "slug": "serie-a",
   "season": 2026,
@@ -83,6 +83,25 @@
     {
       "position": 5,
       "team": {
+        "id": 470,
+        "name": "Frosinone Calcio",
+        "shortName": "Frosinone",
+        "tla": "FRO",
+        "crest": "https://crests.football-data.org/470.png"
+      },
+      "playedGames": 4,
+      "form": "D,W,W,L",
+      "won": 2,
+      "draw": 1,
+      "lost": 1,
+      "points": 7,
+      "goalsFor": 7,
+      "goalsAgainst": 4,
+      "goalDifference": 3
+    },
+    {
+      "position": 6,
+      "team": {
         "id": 98,
         "name": "AC Milan",
         "shortName": "Milan",
@@ -100,7 +119,7 @@
       "goalDifference": 3
     },
     {
-      "position": 6,
+      "position": 7,
       "team": {
         "id": 109,
         "name": "Juventus FC",
@@ -116,25 +135,6 @@
       "points": 7,
       "goalsFor": 4,
       "goalsAgainst": 1,
-      "goalDifference": 3
-    },
-    {
-      "position": 7,
-      "team": {
-        "id": 470,
-        "name": "Frosinone Calcio",
-        "shortName": "Frosinone",
-        "tla": "FRO",
-        "crest": "https://crests.football-data.org/470.png"
-      },
-      "playedGames": 3,
-      "form": "W,W,L",
-      "won": 2,
-      "draw": 0,
-      "lost": 1,
-      "points": 6,
-      "goalsFor": 6,
-      "goalsAgainst": 3,
       "goalDifference": 3
     },
     {
@@ -355,14 +355,14 @@
         "tla": "GEN",
         "crest": "https://crests.football-data.org/107.png"
       },
-      "playedGames": 3,
-      "form": "L,L,L",
+      "playedGames": 4,
+      "form": "D,L,L,L",
       "won": 0,
-      "draw": 0,
+      "draw": 1,
       "lost": 3,
-      "points": 0,
-      "goalsFor": 1,
-      "goalsAgainst": 7,
+      "points": 1,
+      "goalsFor": 2,
+      "goalsAgainst": 8,
       "goalDifference": -6
     },
     {
