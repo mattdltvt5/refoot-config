@@ -1,7 +1,7 @@
 {
   "competition": "Premier League",
   "season": 2026,
-  "generated_at": "2026-09-12T16:06:10Z",
+  "generated_at": "2026-09-12T16:11:10Z",
   "results": {
     "560542": {
       "status": "FINISHED",
@@ -354,6 +354,39 @@
       },
       "utcDate": "2026-09-12T14:00:00Z",
       "first_finished_at": "2026-09-12T16:06:10Z"
+    },
+    "560572": {
+      "status": "FINISHED",
+      "score": {
+        "fullTime": {
+          "home": 2,
+          "away": 3
+        }
+      },
+      "utcDate": "2026-09-12T14:00:00Z",
+      "first_finished_at": "2026-09-12T16:11:10Z"
+    },
+    "560574": {
+      "status": "FINISHED",
+      "score": {
+        "fullTime": {
+          "home": 1,
+          "away": 2
+        }
+      },
+      "utcDate": "2026-09-12T14:00:00Z",
+      "first_finished_at": "2026-09-12T16:11:10Z"
+    },
+    "560576": {
+      "status": "FINISHED",
+      "score": {
+        "fullTime": {
+          "home": 2,
+          "away": 2
+        }
+      },
+      "utcDate": "2026-09-12T14:00:00Z",
+      "first_finished_at": "2026-09-12T16:11:10Z"
     }
   }
 }

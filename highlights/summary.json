@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-12T16:06:21Z",
+  "generated_at": "2026-09-12T16:11:34Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -242,7 +242,7 @@
         {
           "gameweek": "GW4",
           "stem": "gameweek-4",
-          "total": 2,
+          "total": 5,
           "covered": 1,
           "matches": [
             {
@@ -256,6 +256,27 @@
               "match_id": 560581,
               "home": "Chelsea FC",
               "away": "Hull City AFC",
+              "date": "2026-09-12",
+              "covered": false
+            },
+            {
+              "match_id": 560572,
+              "home": "Crystal Palace FC",
+              "away": "Ipswich Town FC",
+              "date": "2026-09-12",
+              "covered": false
+            },
+            {
+              "match_id": 560574,
+              "home": "Aston Villa FC",
+              "away": "Nottingham Forest FC",
+              "date": "2026-09-12",
+              "covered": false
+            },
+            {
+              "match_id": 560576,
+              "home": "AFC Bournemouth",
+              "away": "Brentford FC",
               "date": "2026-09-12",
               "covered": false
             }
