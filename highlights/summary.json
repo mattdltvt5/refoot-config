@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-12T15:36:45Z",
+  "generated_at": "2026-09-12T15:41:45Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -1008,7 +1008,7 @@
           "gameweek": "GW3",
           "stem": "gameweek-3",
           "total": 6,
-          "covered": 1,
+          "covered": 2,
           "matches": [
             {
               "match_id": 565797,
@@ -1022,7 +1022,7 @@
               "home": "Borussia Dortmund",
               "away": "SC Paderborn 07",
               "date": "2026-09-12",
-              "covered": false
+              "covered": true
             },
             {
               "match_id": 565801,
