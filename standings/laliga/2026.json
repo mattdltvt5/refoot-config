@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-12T15:56:59.155000Z",
+  "generated_at": "2026-09-12T16:17:19.276921Z",
   "competition": "LaLiga",
   "slug": "laliga",
   "season": 2026,
@@ -121,6 +121,25 @@
     {
       "position": 7,
       "team": {
+        "id": 80,
+        "name": "RCD Espanyol de Barcelona",
+        "shortName": "Espanyol",
+        "tla": "ESP",
+        "crest": "https://crests.football-data.org/80.png"
+      },
+      "playedGames": 5,
+      "form": "W,D,L,L,W",
+      "won": 2,
+      "draw": 1,
+      "lost": 2,
+      "points": 7,
+      "goalsFor": 8,
+      "goalsAgainst": 5,
+      "goalDifference": 3
+    },
+    {
+      "position": 8,
+      "team": {
         "id": 78,
         "name": "Club Atlético de Madrid",
         "shortName": "Atleti",
@@ -138,7 +157,7 @@
       "goalDifference": 1
     },
     {
-      "position": 8,
+      "position": 9,
       "team": {
         "id": 5335,
         "name": "Real Racing Club de Santander",
@@ -155,25 +174,6 @@
       "goalsFor": 9,
       "goalsAgainst": 9,
       "goalDifference": 0
-    },
-    {
-      "position": 9,
-      "team": {
-        "id": 79,
-        "name": "CA Osasuna",
-        "shortName": "Osasuna",
-        "tla": "OSA",
-        "crest": "https://crests.football-data.org/79.png"
-      },
-      "playedGames": 4,
-      "form": "L,W,W,D",
-      "won": 2,
-      "draw": 1,
-      "lost": 1,
-      "points": 7,
-      "goalsFor": 5,
-      "goalsAgainst": 6,
-      "goalDifference": -1
     },
     {
       "position": 10,
@@ -197,6 +197,25 @@
     {
       "position": 11,
       "team": {
+        "id": 79,
+        "name": "CA Osasuna",
+        "shortName": "Osasuna",
+        "tla": "OSA",
+        "crest": "https://crests.football-data.org/79.png"
+      },
+      "playedGames": 5,
+      "form": "L,L,W,W,D",
+      "won": 2,
+      "draw": 1,
+      "lost": 2,
+      "points": 7,
+      "goalsFor": 5,
+      "goalsAgainst": 8,
+      "goalDifference": -3
+    },
+    {
+      "position": 12,
+      "team": {
         "id": 77,
         "name": "Athletic Club",
         "shortName": "Athletic",
@@ -214,7 +233,7 @@
       "goalDifference": 1
     },
     {
-      "position": 12,
+      "position": 13,
       "team": {
         "id": 88,
         "name": "Levante UD",
@@ -231,25 +250,6 @@
       "goalsFor": 5,
       "goalsAgainst": 5,
       "goalDifference": 0
-    },
-    {
-      "position": 13,
-      "team": {
-        "id": 80,
-        "name": "RCD Espanyol de Barcelona",
-        "shortName": "Espanyol",
-        "tla": "ESP",
-        "crest": "https://crests.football-data.org/80.png"
-      },
-      "playedGames": 4,
-      "form": "D,L,L,W",
-      "won": 1,
-      "draw": 1,
-      "lost": 2,
-      "points": 4,
-      "goalsFor": 6,
-      "goalsAgainst": 5,
-      "goalDifference": 1
     },
     {
       "position": 14,
