@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-12T14:01:24Z",
+  "generated_at": "2026-09-12T14:06:21Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -560,7 +560,7 @@
         {
           "gameweek": "GW5",
           "stem": "gameweek-5",
-          "total": 1,
+          "total": 2,
           "covered": 1,
           "matches": [
             {
@@ -569,6 +569,13 @@
               "away": "Valencia CF",
               "date": "2026-09-11",
               "covered": true
+            },
+            {
+              "match_id": 564670,
+              "home": "Real Racing Club de Santander",
+              "away": "Deportivo Alavés",
+              "date": "2026-09-12",
+              "covered": false
             }
           ]
         },

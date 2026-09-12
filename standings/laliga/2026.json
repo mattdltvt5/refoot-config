@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-11T22:56:35.718027Z",
+  "generated_at": "2026-09-12T14:06:42.379272Z",
   "competition": "LaLiga",
   "slug": "laliga",
   "season": 2026,
@@ -32,15 +32,15 @@
         "tla": "ALA",
         "crest": "https://crests.football-data.org/263.png"
       },
-      "playedGames": 4,
-      "form": "W,W,D,W",
+      "playedGames": 5,
+      "form": "L,W,W,D,W",
       "won": 3,
       "draw": 1,
-      "lost": 0,
+      "lost": 1,
       "points": 10,
-      "goalsFor": 10,
-      "goalsAgainst": 3,
-      "goalDifference": 7
+      "goalsFor": 11,
+      "goalsAgainst": 5,
+      "goalDifference": 6
     },
     {
       "position": 3,
@@ -140,6 +140,25 @@
     {
       "position": 8,
       "team": {
+        "id": 5335,
+        "name": "Real Racing Club de Santander",
+        "shortName": "Santander",
+        "tla": "SAN",
+        "crest": "https://crests.football-data.org/5335.png"
+      },
+      "playedGames": 5,
+      "form": "W,L,W,L,D",
+      "won": 2,
+      "draw": 1,
+      "lost": 2,
+      "points": 7,
+      "goalsFor": 9,
+      "goalsAgainst": 9,
+      "goalDifference": 0
+    },
+    {
+      "position": 9,
+      "team": {
         "id": 79,
         "name": "CA Osasuna",
         "shortName": "Osasuna",
@@ -157,7 +176,7 @@
       "goalDifference": -1
     },
     {
-      "position": 9,
+      "position": 10,
       "team": {
         "id": 92,
         "name": "Real Sociedad de Fútbol",
@@ -176,7 +195,7 @@
       "goalDifference": -2
     },
     {
-      "position": 10,
+      "position": 11,
       "team": {
         "id": 77,
         "name": "Athletic Club",
@@ -195,7 +214,7 @@
       "goalDifference": 1
     },
     {
-      "position": 11,
+      "position": 12,
       "team": {
         "id": 88,
         "name": "Levante UD",
@@ -214,7 +233,7 @@
       "goalDifference": 0
     },
     {
-      "position": 12,
+      "position": 13,
       "team": {
         "id": 80,
         "name": "RCD Espanyol de Barcelona",
@@ -231,25 +250,6 @@
       "goalsFor": 6,
       "goalsAgainst": 5,
       "goalDifference": 1
-    },
-    {
-      "position": 13,
-      "team": {
-        "id": 5335,
-        "name": "Real Racing Club de Santander",
-        "shortName": "Santander",
-        "tla": "SAN",
-        "crest": "https://crests.football-data.org/5335.png"
-      },
-      "playedGames": 4,
-      "form": "L,W,L,D",
-      "won": 1,
-      "draw": 1,
-      "lost": 2,
-      "points": 4,
-      "goalsFor": 7,
-      "goalsAgainst": 8,
-      "goalDifference": -1
     },
     {
       "position": 14,
