@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-12T15:26:20Z",
+  "generated_at": "2026-09-12T15:31:47Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -1007,7 +1007,7 @@
         {
           "gameweek": "GW3",
           "stem": "gameweek-3",
-          "total": 1,
+          "total": 4,
           "covered": 1,
           "matches": [
             {
@@ -1016,6 +1016,27 @@
               "away": "FC Schalke 04",
               "date": "2026-09-11",
               "covered": true
+            },
+            {
+              "match_id": 565795,
+              "home": "Borussia Dortmund",
+              "away": "SC Paderborn 07",
+              "date": "2026-09-12",
+              "covered": false
+            },
+            {
+              "match_id": 565801,
+              "home": "1. FSV Mainz 05",
+              "away": "Eintracht Frankfurt",
+              "date": "2026-09-12",
+              "covered": false
+            },
+            {
+              "match_id": 565802,
+              "home": "SC Freiburg",
+              "away": "Borussia Mönchengladbach",
+              "date": "2026-09-12",
+              "covered": false
             }
           ]
         }

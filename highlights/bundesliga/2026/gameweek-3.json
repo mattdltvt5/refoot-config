@@ -2,7 +2,7 @@
   "competition": "Bundesliga",
   "gameweek": "GW3",
   "stem": "gameweek-3",
-  "generated_at": "2026-09-11T21:01:23Z",
+  "generated_at": "2026-09-12T15:31:35Z",
   "matches": [
     {
       "match_id": 565797,
@@ -17,6 +17,27 @@
           "tier_used": 2
         }
       ]
+    },
+    {
+      "match_id": 565795,
+      "home_team": "Borussia Dortmund",
+      "away_team": "SC Paderborn 07",
+      "date": "2026-09-12",
+      "videos": []
+    },
+    {
+      "match_id": 565801,
+      "home_team": "1. FSV Mainz 05",
+      "away_team": "Eintracht Frankfurt",
+      "date": "2026-09-12",
+      "videos": []
+    },
+    {
+      "match_id": 565802,
+      "home_team": "SC Freiburg",
+      "away_team": "Borussia Mönchengladbach",
+      "date": "2026-09-12",
+      "videos": []
     }
   ]
 }
