@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-12T17:06:39Z",
+  "generated_at": "2026-09-12T17:11:39Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -243,7 +243,7 @@
           "gameweek": "GW4",
           "stem": "gameweek-4",
           "total": 5,
-          "covered": 1,
+          "covered": 2,
           "matches": [
             {
               "match_id": 560573,
@@ -278,7 +278,7 @@
               "home": "AFC Bournemouth",
               "away": "Brentford FC",
               "date": "2026-09-12",
-              "covered": false
+              "covered": true
             }
           ]
         }
