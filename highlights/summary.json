@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-12T17:16:28Z",
+  "generated_at": "2026-09-12T17:22:29Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -1326,7 +1326,7 @@
         {
           "gameweek": "GW4",
           "stem": "gameweek-4",
-          "total": 1,
+          "total": 2,
           "covered": 1,
           "matches": [
             {
@@ -1335,6 +1335,13 @@
               "away": "Olympique de Marseille",
               "date": "2026-09-11",
               "covered": true
+            },
+            {
+              "match_id": 559687,
+              "home": "RC Strasbourg Alsace",
+              "away": "AS Monaco FC",
+              "date": "2026-09-12",
+              "covered": false
             }
           ]
         }
