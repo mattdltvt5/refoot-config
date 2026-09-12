@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-12T18:46:41Z",
+  "generated_at": "2026-09-12T18:51:30Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -1079,7 +1079,7 @@
           "gameweek": "GW3",
           "stem": "gameweek-3",
           "total": 7,
-          "covered": 6,
+          "covered": 7,
           "matches": [
             {
               "match_id": 565797,
@@ -1128,7 +1128,7 @@
               "home": "1. FC Köln",
               "away": "SV Werder Bremen",
               "date": "2026-09-12",
-              "covered": false
+              "covered": true
             }
           ]
         }
