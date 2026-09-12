@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-12T19:56:47.307811Z",
+  "generated_at": "2026-09-12T20:46:30.624270Z",
   "competition": "Serie A",
   "slug": "serie-a",
   "season": 2026,
@@ -64,6 +64,25 @@
     {
       "position": 4,
       "team": {
+        "id": 104,
+        "name": "Cagliari Calcio",
+        "shortName": "Cagliari",
+        "tla": "CAG",
+        "crest": "https://crests.football-data.org/104.png"
+      },
+      "playedGames": 4,
+      "form": "W,W,L,W",
+      "won": 3,
+      "draw": 0,
+      "lost": 1,
+      "points": 9,
+      "goalsFor": 4,
+      "goalsAgainst": 2,
+      "goalDifference": 2
+    },
+    {
+      "position": 5,
+      "team": {
         "id": 98,
         "name": "AC Milan",
         "shortName": "Milan",
@@ -81,7 +100,7 @@
       "goalDifference": 3
     },
     {
-      "position": 5,
+      "position": 6,
       "team": {
         "id": 7397,
         "name": "Como 1907",
@@ -100,7 +119,7 @@
       "goalDifference": 4
     },
     {
-      "position": 6,
+      "position": 7,
       "team": {
         "id": 470,
         "name": "Frosinone Calcio",
@@ -119,7 +138,7 @@
       "goalDifference": 3
     },
     {
-      "position": 7,
+      "position": 8,
       "team": {
         "id": 109,
         "name": "Juventus FC",
@@ -138,7 +157,7 @@
       "goalDifference": 3
     },
     {
-      "position": 8,
+      "position": 9,
       "team": {
         "id": 102,
         "name": "Atalanta BC",
@@ -146,34 +165,15 @@
         "tla": "ATA",
         "crest": "https://crests.football-data.org/102.png"
       },
-      "playedGames": 3,
-      "form": "L,W,W",
+      "playedGames": 4,
+      "form": "L,L,W,W",
       "won": 2,
       "draw": 0,
-      "lost": 1,
+      "lost": 2,
       "points": 6,
-      "goalsFor": 4,
-      "goalsAgainst": 3,
-      "goalDifference": 1
-    },
-    {
-      "position": 9,
-      "team": {
-        "id": 104,
-        "name": "Cagliari Calcio",
-        "shortName": "Cagliari",
-        "tla": "CAG",
-        "crest": "https://crests.football-data.org/104.png"
-      },
-      "playedGames": 3,
-      "form": "W,L,W",
-      "won": 2,
-      "draw": 0,
-      "lost": 1,
-      "points": 6,
-      "goalsFor": 2,
-      "goalsAgainst": 1,
-      "goalDifference": 1
+      "goalsFor": 5,
+      "goalsAgainst": 5,
+      "goalDifference": 0
     },
     {
       "position": 10,

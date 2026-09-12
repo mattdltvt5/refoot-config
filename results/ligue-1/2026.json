@@ -1,7 +1,7 @@
 {
   "competition": "Ligue 1",
   "season": 2026,
-  "generated_at": "2026-09-12T20:41:15Z",
+  "generated_at": "2026-09-12T20:46:09Z",
   "results": {
     "559715": {
       "status": "FINISHED",
@@ -321,6 +321,39 @@
       },
       "utcDate": "2026-09-12T15:15:00Z",
       "first_finished_at": "2026-09-12T17:21:47Z"
+    },
+    "559684": {
+      "status": "FINISHED",
+      "score": {
+        "fullTime": {
+          "home": 2,
+          "away": 2
+        }
+      },
+      "utcDate": "2026-09-12T18:45:00Z",
+      "first_finished_at": "2026-09-12T20:46:09Z"
+    },
+    "559690": {
+      "status": "FINISHED",
+      "score": {
+        "fullTime": {
+          "home": 0,
+          "away": 0
+        }
+      },
+      "utcDate": "2026-09-12T18:45:00Z",
+      "first_finished_at": "2026-09-12T20:46:09Z"
+    },
+    "559692": {
+      "status": "FINISHED",
+      "score": {
+        "fullTime": {
+          "home": 0,
+          "away": 0
+        }
+      },
+      "utcDate": "2026-09-12T18:45:00Z",
+      "first_finished_at": "2026-09-12T20:46:09Z"
     }
   }
 }
