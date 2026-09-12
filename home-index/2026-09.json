@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-12T18:46:12Z",
+  "generated_at": "2026-09-12T18:56:08Z",
   "month": "2026-09",
   "dates": {
     "2026-09-03": [
@@ -2049,9 +2049,9 @@
               "tla": "CAG",
               "crest": "https://crests.football-data.org/104.png"
             },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "TIMED",
+            "homeScore": 0,
+            "awayScore": 0,
+            "status": "IN_PLAY",
             "utcDate": "2026-09-12T18:45:00Z"
           }
         ]
@@ -2189,7 +2189,8 @@
             "homeScore": 1,
             "awayScore": 1,
             "status": "FINISHED",
-            "utcDate": "2026-09-12T16:30:00Z"
+            "utcDate": "2026-09-12T16:30:00Z",
+            "videoId": "hE63tfuKFtI"
           }
         ]
       },
@@ -2235,9 +2236,9 @@
               "tla": "TOU",
               "crest": "https://crests.football-data.org/511.png"
             },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "TIMED",
+            "homeScore": 0,
+            "awayScore": 0,
+            "status": "IN_PLAY",
             "utcDate": "2026-09-12T18:45:00Z"
           },
           {
@@ -2256,9 +2257,9 @@
               "tla": "NIC",
               "crest": "https://crests.football-data.org/522.png"
             },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "TIMED",
+            "homeScore": 0,
+            "awayScore": 0,
+            "status": "IN_PLAY",
             "utcDate": "2026-09-12T18:45:00Z"
           },
           {
@@ -2277,9 +2278,9 @@
               "tla": "ANG",
               "crest": "https://crests.football-data.org/532.png"
             },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "TIMED",
+            "homeScore": 0,
+            "awayScore": 0,
+            "status": "IN_PLAY",
             "utcDate": "2026-09-12T18:45:00Z"
           },
           {
@@ -2298,9 +2299,9 @@
               "tla": "LYO",
               "crest": "https://crests.football-data.org/523.png"
             },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "TIMED",
+            "homeScore": 0,
+            "awayScore": 0,
+            "status": "IN_PLAY",
             "utcDate": "2026-09-12T18:45:00Z"
           }
         ]
