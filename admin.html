@@ -705,9 +705,70 @@
         .cand-approve-btn:hover { filter: brightness(0.95); }
         .cand-approve-btn:disabled { opacity: .5; cursor: not-allowed; }
         .cand-flag-note { color: var(--muted); font-size: 12px; padding: var(--space-1) var(--space-1) 10px; line-height: 1.5; }
+
+        /* ── Auth gate (passphrase unlock) ─────────────────────── */
+        #auth-gate { position: fixed; inset: 0; z-index: 2000; display: none;
+            align-items: center; justify-content: center; padding: var(--space-4);
+            background: var(--overlay); backdrop-filter: blur(3px); }
+        #auth-gate.show { display: flex; }
+        .gate-card { background: var(--white); width: 100%; max-width: 380px;
+            border-radius: var(--radius-md); box-shadow: 0 12px 40px var(--shadow-25);
+            padding: var(--space-5); }
+        .gate-brand { display: flex; align-items: center; gap: 10px; margin-bottom: var(--space-3);
+            font-size: 20px; font-weight: 700; color: var(--text); }
+        .gate-logo { display: inline-flex; align-items: center; justify-content: center;
+            width: 36px; height: 36px; border-radius: var(--radius-md); background: var(--blue); color: var(--white); }
+        .gate-lede { font-size: 13px; color: var(--muted); line-height: 1.6; margin-bottom: var(--space-3); }
+        .gate-label { display: block; font-size: 12px; font-weight: 600; color: var(--text);
+            margin: var(--space-2) 0 4px; }
+        .gate-opt { font-weight: 400; color: var(--muted); }
+        #auth-gate .form-input { width: 100%; }
+        .gate-submit { width: 100%; text-align: center; margin-top: var(--space-3); }
+        .gate-note { font-size: 11.5px; color: var(--muted); line-height: 1.5; margin-top: var(--space-3); }
+        .gate-reset { display: block; width: 100%; margin-top: var(--space-3); background: none; border: none;
+            color: var(--muted); font-size: 12px; text-decoration: underline; cursor: pointer; padding: 6px; }
+        .gate-reset:hover { color: var(--red); }
     </style>
 </head>
 <body>
+
+<!-- Auth gate: single sign-in that unlocks the encrypted credential vault -->
+<div id="auth-gate">
+    <div class="gate-card">
+        <div class="gate-brand">
+            <span class="gate-logo"><i class="fi-br-lock"></i></span>
+            <span class="gate-title">ReFoot Admin</span>
+        </div>
+
+        <!-- First-time setup (no vault yet) -->
+        <div class="gate-pane" id="gate-setup" style="display:none">
+            <p class="gate-lede">Set a passphrase to protect this device. It encrypts your GitHub token and
+                YouTube key so you only sign in once — they never leave this browser and are never stored in plain text.</p>
+            <label class="gate-label" for="gate-set-pass">Passphrase</label>
+            <input class="form-input" id="gate-set-pass" type="password" autocomplete="new-password" placeholder="Choose a passphrase">
+            <label class="gate-label" for="gate-set-pass2">Confirm passphrase</label>
+            <input class="form-input" id="gate-set-pass2" type="password" autocomplete="new-password" placeholder="Repeat it">
+            <label class="gate-label" for="gate-set-pat">GitHub token</label>
+            <input class="form-input" id="gate-set-pat" type="password" autocomplete="off" placeholder="github_pat_xxxx or ghp_xxxx">
+            <label class="gate-label" for="gate-set-yt">YouTube API key <span class="gate-opt">(optional)</span></label>
+            <input class="form-input" id="gate-set-yt" type="password" autocomplete="off" placeholder="AIzaSy…">
+            <button class="btn-blue gate-submit" id="gate-setup-btn">Create &amp; unlock</button>
+            <div class="gate-note">If you forget the passphrase there's no recovery — you'll re-enter your
+                token &amp; key. Tip: a non-expiring fine-grained GitHub token means you set it once.</div>
+            <div class="modal-error" id="gate-setup-error"></div>
+        </div>
+
+        <!-- Returning: unlock existing vault -->
+        <div class="gate-pane" id="gate-unlock" style="display:none">
+            <p class="gate-lede">Enter your passphrase to unlock your saved GitHub &amp; YouTube credentials.</p>
+            <label class="gate-label" for="gate-pass">Passphrase</label>
+            <input class="form-input" id="gate-pass" type="password" autocomplete="current-password" placeholder="Passphrase">
+            <button class="btn-blue gate-submit" id="gate-unlock-btn">Unlock</button>
+            <div class="modal-error" id="gate-unlock-error"></div>
+            <button class="gate-reset" id="gate-reset-btn">Forget stored credentials &amp; start over</button>
+        </div>
+    </div>
+</div>
 
 <!-- Settings drawer -->
 <div id="settings-overlay"></div>
@@ -784,6 +845,7 @@
     <div class="header-right">
         <button class="btn-ghost" id="save-btn" disabled><i class="fi-br-disk"></i> GitHub</button>
         <button class="btn-ghost" id="reload-btn"><i class="fi-br-refresh"></i> Reload</button>
+        <button class="btn-icon" id="lock-btn" title="Lock (sign out)" style="display:none"><i class="fi-br-lock"></i></button>
         <div class="settings-btn-wrap">
             <button class="btn-icon" id="settings-btn" title="Settings"><i class="fi-br-home-settings"></i></button>
             <span class="settings-badge" id="settings-badge"></span>
@@ -913,10 +975,36 @@ let ghPat = '', fileSha = null, ytApiKey = '';
 let sourcesData = { competitions: {}, teams: {}, playlists: {}, teamPlaylists: {} };
 let unsaved = false;
 
-// ── Credentials ──────────────────────────────────────────
+// ── Credentials (encrypted vault) ────────────────────────
+// One passphrase unlocks the GitHub token + YouTube key, kept AES-GCM-encrypted
+// in localStorage['rf_vault']. The passphrase is NEVER stored; the derived key
+// lives only in memory (vaultKey) so in-drawer edits can re-encrypt.
+const VAULT_KEY  = 'rf_vault';
+const LEGACY_PAT = 'rf_gh_pat';   // pre-vault plaintext keys — migrated then removed
+const LEGACY_YT  = 'rf_yt_key';
+let vaultKey  = null;             // CryptoKey (in-memory, post-unlock)
+let vaultSalt = null;             // Uint8Array salt (in-memory)
+
+const _b64 = {
+    enc: (buf) => btoa(String.fromCharCode(...new Uint8Array(buf))),
+    dec: (s)   => Uint8Array.from(atob(s), c => c.charCodeAt(0)),
+};
+async function _deriveKey(passphrase, salt) {
+    const base = await crypto.subtle.importKey(
+        'raw', new TextEncoder().encode(passphrase), 'PBKDF2', false, ['deriveKey']);
+    return crypto.subtle.deriveKey(
+        { name: 'PBKDF2', salt, iterations: 210000, hash: 'SHA-256' },
+        base, { name: 'AES-GCM', length: 256 }, false, ['encrypt', 'decrypt']);
+}
+async function _encryptVault() {
+    const iv = crypto.getRandomValues(new Uint8Array(12));
+    const pt = new TextEncoder().encode(JSON.stringify({ pat: ghPat, yt: ytApiKey }));
+    const ct = await crypto.subtle.encrypt({ name: 'AES-GCM', iv }, vaultKey, pt);
+    localStorage.setItem(VAULT_KEY, JSON.stringify({
+        v: 1, salt: _b64.enc(vaultSalt), iv: _b64.enc(iv), ct: _b64.enc(ct) }));
+}
 function updateCredStatus() {
-    const hasPat = !!localStorage.getItem('rf_gh_pat');
-    const hasYt  = !!localStorage.getItem('rf_yt_key');
+    const hasPat = !!ghPat, hasYt = !!ytApiKey;
     const dotPat = document.getElementById('status-dot-pat');
     const dotYt  = document.getElementById('status-dot-yt');
     if (dotPat) {
@@ -932,15 +1020,13 @@ function updateCredStatus() {
     const badge = document.getElementById('settings-badge');
     if (badge) badge.style.display = hasPat ? 'none' : 'block';
 }
-function loadCreds() {
-    ghPat    = localStorage.getItem('rf_gh_pat') || '';
-    ytApiKey = localStorage.getItem('rf_yt_key')  || '';
+// Persist an in-drawer credential edit by re-encrypting the (already-unlocked) vault.
+async function saveCreds() {
+    if (vaultKey) {
+        try { await _encryptVault(); }
+        catch (e) { dbg('Vault save failed: ' + e, 'error'); }
+    }
     updateCredStatus();
-    return !!ghPat;
-}
-function saveCreds() {
-    localStorage.setItem('rf_gh_pat', ghPat);
-    localStorage.setItem('rf_yt_key',  ytApiKey);
 }
 
 // ── Debug log ────────────────────────────────────────────
@@ -2500,7 +2586,8 @@ function closeDrawer() {
 }
 
 // ── Events ───────────────────────────────────────────────
-document.getElementById('setup-confirm-btn').addEventListener('click', () => {
+// Drawer credential edits (vault already unlocked) — re-encrypt via saveCreds().
+document.getElementById('setup-confirm-btn').addEventListener('click', async () => {
     const pat   = document.getElementById('in-pat').value.trim();
     const ytKey = document.getElementById('in-yt-key').value.trim();
     const err   = document.getElementById('setup-error');
@@ -2508,41 +2595,35 @@ document.getElementById('setup-confirm-btn').addEventListener('click', () => {
     err.style.display='none';
     ghPat    = pat;
     ytApiKey = ytKey;
-    saveCreds();
-    updateCredStatus();
+    await saveCreds();
     closeDrawer();
     loadAll();
 });
-document.getElementById('save-pat-btn').addEventListener('click', () => {
+document.getElementById('save-pat-btn').addEventListener('click', async () => {
     const val = document.getElementById('in-pat').value.trim();
     const err = document.getElementById('setup-error');
     if (!val) { err.textContent = 'GitHub token cannot be empty.'; err.style.display = 'block'; return; }
     err.style.display = 'none';
     ghPat = val;
-    localStorage.setItem('rf_gh_pat', ghPat);
-    updateCredStatus();
+    await saveCreds();
     toast('GitHub token saved', 'success');
 });
-document.getElementById('clear-pat-btn').addEventListener('click', () => {
+document.getElementById('clear-pat-btn').addEventListener('click', async () => {
     ghPat = '';
-    localStorage.removeItem('rf_gh_pat');
     document.getElementById('in-pat').value = '';
-    updateCredStatus();
+    await saveCreds();
     toast('GitHub token cleared');
 });
-document.getElementById('save-yt-btn').addEventListener('click', () => {
+document.getElementById('save-yt-btn').addEventListener('click', async () => {
     const val = document.getElementById('in-yt-key').value.trim();
     ytApiKey = val;
-    if (val) localStorage.setItem('rf_yt_key', val);
-    else     localStorage.removeItem('rf_yt_key');
-    updateCredStatus();
+    await saveCreds();
     toast(val ? 'YouTube key saved' : 'YouTube key cleared', val ? 'success' : '');
 });
-document.getElementById('clear-yt-btn').addEventListener('click', () => {
+document.getElementById('clear-yt-btn').addEventListener('click', async () => {
     ytApiKey = '';
-    localStorage.removeItem('rf_yt_key');
     document.getElementById('in-yt-key').value = '';
-    updateCredStatus();
+    await saveCreds();
     toast('YouTube key cleared');
 });
 function toggleReveal(inputId) {
@@ -2601,12 +2682,110 @@ document.getElementById('competitions-container').addEventListener('click', e =>
 });
 window.addEventListener('beforeunload', e => { if(unsaved){e.preventDefault();e.returnValue='';} });
 
-// ── Init ─────────────────────────────────────────────────
-if (loadCreds()) { loadAll(); }
-else {
-    document.getElementById('loading-state').innerHTML = '<div style="color:var(--muted)">Enter your credentials to get started.</div>';
-    openDrawer('credentials');
+// ── Auth gate + init ─────────────────────────────────────
+function showGate(pane) {
+    document.getElementById('gate-setup').style.display  = pane === 'setup'  ? 'block' : 'none';
+    document.getElementById('gate-unlock').style.display = pane === 'unlock' ? 'block' : 'none';
+    document.getElementById('auth-gate').classList.add('show');
+    document.getElementById('lock-btn').style.display = 'none';
+    const f = document.getElementById(pane === 'setup' ? 'gate-set-pass' : 'gate-pass');
+    if (f) setTimeout(() => f.focus(), 50);
 }
+function hideGate() {
+    document.getElementById('auth-gate').classList.remove('show');
+    document.getElementById('lock-btn').style.display = '';
+}
+async function unlockWith(passphrase) {
+    const blob = JSON.parse(localStorage.getItem(VAULT_KEY));
+    const salt = _b64.dec(blob.salt);
+    const key  = await _deriveKey(passphrase, salt);
+    const pt   = await crypto.subtle.decrypt(               // throws on a wrong passphrase
+        { name: 'AES-GCM', iv: _b64.dec(blob.iv) }, key, _b64.dec(blob.ct));
+    const creds = JSON.parse(new TextDecoder().decode(pt));
+    vaultKey = key; vaultSalt = salt;
+    ghPat = creds.pat || ''; ytApiKey = creds.yt || '';
+}
+function afterUnlock() {
+    hideGate();
+    ['gate-pass','gate-set-pass','gate-set-pass2','gate-set-pat','gate-set-yt']
+        .forEach(id => { const el = document.getElementById(id); if (el) el.value = ''; });
+    document.getElementById('in-pat').value    = ghPat;      // mirror into the drawer for edits
+    document.getElementById('in-yt-key').value = ytApiKey;
+    updateCredStatus();
+    loadAll();
+}
+function lockVault() {
+    ghPat = ''; ytApiKey = ''; vaultKey = null; vaultSalt = null;
+    document.getElementById('in-pat').value = '';
+    document.getElementById('in-yt-key').value = '';
+    updateCredStatus();
+    showGate('unlock');
+}
+function prefillSetupFromLegacy() {
+    const lp = localStorage.getItem(LEGACY_PAT), ly = localStorage.getItem(LEGACY_YT);
+    if (lp) document.getElementById('gate-set-pat').value = lp;
+    if (ly) document.getElementById('gate-set-yt').value  = ly;
+}
+
+document.getElementById('gate-unlock-btn').addEventListener('click', async () => {
+    const err  = document.getElementById('gate-unlock-error');
+    const pass = document.getElementById('gate-pass').value;
+    if (!pass) { err.textContent = 'Enter your passphrase.'; err.style.display = 'block'; return; }
+    err.style.display = 'none';
+    try { await unlockWith(pass); afterUnlock(); }
+    catch (_) { err.textContent = 'Incorrect passphrase.'; err.style.display = 'block'; }
+});
+document.getElementById('gate-pass').addEventListener('keydown', e => {
+    if (e.key === 'Enter') document.getElementById('gate-unlock-btn').click();
+});
+document.getElementById('gate-setup-btn').addEventListener('click', async () => {
+    const err = document.getElementById('gate-setup-error');
+    const p1  = document.getElementById('gate-set-pass').value;
+    const p2  = document.getElementById('gate-set-pass2').value;
+    const pat = document.getElementById('gate-set-pat').value.trim();
+    const yt  = document.getElementById('gate-set-yt').value.trim();
+    const fail = (m) => { err.textContent = m; err.style.display = 'block'; };
+    if (p1.length < 6) return fail('Passphrase must be at least 6 characters.');
+    if (p1 !== p2)     return fail('Passphrases do not match.');
+    if (!pat)          return fail('GitHub token is required.');
+    err.style.display = 'none';
+    try {
+        vaultSalt = crypto.getRandomValues(new Uint8Array(16));
+        vaultKey  = await _deriveKey(p1, vaultSalt);
+        ghPat = pat; ytApiKey = yt;
+        await _encryptVault();
+        localStorage.removeItem(LEGACY_PAT);   // drop any pre-vault plaintext
+        localStorage.removeItem(LEGACY_YT);
+        afterUnlock();
+    } catch (e) { fail('Could not create vault: ' + e); }
+});
+document.getElementById('gate-reset-btn').addEventListener('click', () => {
+    if (!confirm('Forget stored credentials on this device? You will re-enter your GitHub token and YouTube key.')) return;
+    [VAULT_KEY, LEGACY_PAT, LEGACY_YT].forEach(k => localStorage.removeItem(k));
+    ghPat = ''; ytApiKey = ''; vaultKey = null; vaultSalt = null;
+    document.getElementById('gate-set-pass').value = '';
+    document.getElementById('gate-set-pass2').value = '';
+    document.getElementById('gate-set-pat').value = '';
+    document.getElementById('gate-set-yt').value = '';
+    prefillSetupFromLegacy();
+    showGate('setup');
+});
+document.getElementById('lock-btn').addEventListener('click', lockVault);
+
+// Boot: gate first — no data loads until the vault is unlocked.
+(function initAuth() {
+    if (!(window.crypto && crypto.subtle)) {   // Web Crypto needs a secure context
+        document.getElementById('loading-state').innerHTML =
+            '<div style="color:var(--red)">This page must be served over HTTPS (or localhost) to sign in.</div>';
+        return;
+    }
+    if (localStorage.getItem(VAULT_KEY)) {
+        showGate('unlock');
+    } else {
+        prefillSetupFromLegacy();               // one-click migration from old plaintext creds
+        showGate('setup');
+    }
+})();
 </script>
 </body>
 </html>
