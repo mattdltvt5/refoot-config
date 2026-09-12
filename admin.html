@@ -728,6 +728,9 @@
         .gate-reset { display: block; width: 100%; margin-top: var(--space-3); background: none; border: none;
             color: var(--muted); font-size: 12px; text-decoration: underline; cursor: pointer; padding: 6px; }
         .gate-reset:hover { color: var(--red); }
+        /* Off-screen (not display:none) so password managers still detect it for
+           login association, but the user never sees it. */
+        .pw-username { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
     </style>
 </head>
 <body>
@@ -742,16 +745,20 @@
 
         <!-- First-time setup (no vault yet) -->
         <div class="gate-pane" id="gate-setup" style="display:none">
+            <!-- Hidden username so password managers save/associate the passphrase as a
+                 proper login for this origin (improves autofill of the passphrase). -->
+            <input class="pw-username" type="text" name="username" autocomplete="username"
+                   value="ReFoot Admin" readonly tabindex="-1" aria-hidden="true">
             <p class="gate-lede">Set a passphrase to protect this device. It encrypts your GitHub token and
                 YouTube key so you only sign in once — they never leave this browser and are never stored in plain text.</p>
             <label class="gate-label" for="gate-set-pass">Passphrase</label>
-            <input class="form-input" id="gate-set-pass" type="password" autocomplete="new-password" placeholder="Choose a passphrase">
+            <input class="form-input" id="gate-set-pass" name="passphrase" type="password" autocomplete="new-password" placeholder="Choose a passphrase">
             <label class="gate-label" for="gate-set-pass2">Confirm passphrase</label>
-            <input class="form-input" id="gate-set-pass2" type="password" autocomplete="new-password" placeholder="Repeat it">
+            <input class="form-input" id="gate-set-pass2" name="passphrase-confirm" type="password" autocomplete="new-password" placeholder="Repeat it">
             <label class="gate-label" for="gate-set-pat">GitHub token</label>
-            <input class="form-input" id="gate-set-pat" type="password" autocomplete="off" placeholder="github_pat_xxxx or ghp_xxxx">
+            <input class="form-input" id="gate-set-pat" name="github-token" type="password" autocomplete="off" placeholder="github_pat_xxxx or ghp_xxxx">
             <label class="gate-label" for="gate-set-yt">YouTube API key <span class="gate-opt">(optional)</span></label>
-            <input class="form-input" id="gate-set-yt" type="password" autocomplete="off" placeholder="AIzaSy…">
+            <input class="form-input" id="gate-set-yt" name="youtube-key" type="password" autocomplete="off" placeholder="AIzaSy…">
             <button class="btn-blue gate-submit" id="gate-setup-btn">Create &amp; unlock</button>
             <div class="gate-note">If you forget the passphrase there's no recovery — you'll re-enter your
                 token &amp; key. Tip: a non-expiring fine-grained GitHub token means you set it once.</div>
@@ -760,9 +767,11 @@
 
         <!-- Returning: unlock existing vault -->
         <div class="gate-pane" id="gate-unlock" style="display:none">
+            <input class="pw-username" type="text" name="username" autocomplete="username"
+                   value="ReFoot Admin" readonly tabindex="-1" aria-hidden="true">
             <p class="gate-lede">Enter your passphrase to unlock your saved GitHub &amp; YouTube credentials.</p>
             <label class="gate-label" for="gate-pass">Passphrase</label>
-            <input class="form-input" id="gate-pass" type="password" autocomplete="current-password" placeholder="Passphrase">
+            <input class="form-input" id="gate-pass" name="passphrase" type="password" autocomplete="current-password" placeholder="Passphrase">
             <button class="btn-blue gate-submit" id="gate-unlock-btn">Unlock</button>
             <div class="modal-error" id="gate-unlock-error"></div>
             <button class="gate-reset" id="gate-reset-btn">Forget stored credentials &amp; start over</button>
@@ -800,7 +809,7 @@
             <div class="form-group">
                 <label class="form-label" for="in-pat">GitHub Personal Access Token</label>
                 <div class="input-with-reveal">
-                    <input class="form-input" id="in-pat" type="password" placeholder="github_pat_xxxx or ghp_xxxx" autocomplete="off">
+                    <input class="form-input" id="in-pat" name="github-token" type="password" placeholder="github_pat_xxxx or ghp_xxxx" autocomplete="off">
                     <button class="btn-reveal" id="reveal-pat" title="Show / hide" tabindex="-1">&#128065;</button>
                 </div>
                 <div class="cred-key-actions">
@@ -815,7 +824,7 @@
             <div class="form-group" style="margin-top:16px">
                 <label class="form-label" for="in-yt-key">YouTube API Key <span style="font-weight:400;color:var(--muted)">(optional)</span></label>
                 <div class="input-with-reveal">
-                    <input class="form-input" id="in-yt-key" type="password" placeholder="AIzaSy…" autocomplete="off">
+                    <input class="form-input" id="in-yt-key" name="youtube-key" type="password" placeholder="AIzaSy…" autocomplete="off">
                     <button class="btn-reveal" id="reveal-yt" title="Show / hide" tabindex="-1">&#128065;</button>
                 </div>
                 <div class="cred-key-actions">
