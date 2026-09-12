@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-12T18:36:47Z",
+  "generated_at": "2026-09-12T18:41:51Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -611,7 +611,7 @@
           "gameweek": "GW5",
           "stem": "gameweek-5",
           "total": 4,
-          "covered": 2,
+          "covered": 3,
           "matches": [
             {
               "match_id": 564669,
@@ -639,7 +639,7 @@
               "home": "Athletic Club",
               "away": "Elche CF",
               "date": "2026-09-12",
-              "covered": false
+              "covered": true
             }
           ]
         },
