@@ -379,10 +379,12 @@
         #settings-drawer {
             position: fixed; top: 0; right: 0; bottom: 0; width: 400px; max-width: 100vw;
             background: var(--white); z-index: 200; display: flex; flex-direction: column;
-            box-shadow: -4px 0 24px var(--shadow-20);
+            /* box-shadow lives on .open only: the closed drawer is parked off-screen
+               to the right, and its shadow would otherwise bleed ~24px back into the
+               viewport as a full-height strip on the right edge (visible esp. on mobile). */
             transform: translateX(100%); transition: transform 0.25s ease;
         }
-        #settings-drawer.open { transform: translateX(0); }
+        #settings-drawer.open { transform: translateX(0); box-shadow: -4px 0 24px var(--shadow-20); }
         .drawer-header {
             background: var(--blue); color: var(--white); padding: 0 var(--space-2) 0 var(--space-4); height: 56px;
             display: flex; align-items: center; justify-content: space-between; flex-shrink: 0;
