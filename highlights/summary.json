@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-12T16:01:33Z",
+  "generated_at": "2026-09-12T16:06:21Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -242,7 +242,7 @@
         {
           "gameweek": "GW4",
           "stem": "gameweek-4",
-          "total": 1,
+          "total": 2,
           "covered": 1,
           "matches": [
             {
@@ -251,6 +251,13 @@
               "away": "Fulham FC",
               "date": "2026-09-12",
               "covered": true
+            },
+            {
+              "match_id": 560581,
+              "home": "Chelsea FC",
+              "away": "Hull City AFC",
+              "date": "2026-09-12",
+              "covered": false
             }
           ]
         }
