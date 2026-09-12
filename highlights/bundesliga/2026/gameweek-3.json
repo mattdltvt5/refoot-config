@@ -2,7 +2,7 @@
   "competition": "Bundesliga",
   "gameweek": "GW3",
   "stem": "gameweek-3",
-  "generated_at": "2026-09-12T15:56:30Z",
+  "generated_at": "2026-09-12T16:01:22Z",
   "matches": [
     {
       "match_id": 565797,
@@ -51,7 +51,14 @@
       "home_team": "SC Freiburg",
       "away_team": "Borussia Mönchengladbach",
       "date": "2026-09-12",
-      "videos": []
+      "videos": [
+        {
+          "video_id": "WycIeBvD5XU",
+          "title": "Sport-Club Freiburg vs. Borussia Mönchengladbach | Matchday 3 - Bundesliga 2026/27",
+          "published_at": "2026-09-12",
+          "tier_used": 2
+        }
+      ]
     },
     {
       "match_id": 565794,
@@ -72,7 +79,14 @@
       "home_team": "FC Augsburg",
       "away_team": "Bayer 04 Leverkusen",
       "date": "2026-09-12",
-      "videos": []
+      "videos": [
+        {
+          "video_id": "j6XjDC4C8rg",
+          "title": "FC Augsburg vs. Bayer 04 Leverkusen | Matchday 3 - Bundesliga 2026/27",
+          "published_at": "2026-09-12",
+          "tier_used": 2
+        }
+      ]
     }
   ]
 }

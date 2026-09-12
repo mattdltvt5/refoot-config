@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-12T15:56:37Z",
+  "generated_at": "2026-09-12T16:01:33Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -235,6 +235,21 @@
               "home": "Arsenal FC",
               "away": "Chelsea FC",
               "date": "2026-09-06",
+              "covered": true
+            }
+          ]
+        },
+        {
+          "gameweek": "GW4",
+          "stem": "gameweek-4",
+          "total": 1,
+          "covered": 1,
+          "matches": [
+            {
+              "match_id": 560573,
+              "home": "Liverpool FC",
+              "away": "Fulham FC",
+              "date": "2026-09-12",
               "covered": true
             }
           ]
@@ -1008,7 +1023,7 @@
           "gameweek": "GW3",
           "stem": "gameweek-3",
           "total": 6,
-          "covered": 4,
+          "covered": 6,
           "matches": [
             {
               "match_id": 565797,
@@ -1036,7 +1051,7 @@
               "home": "SC Freiburg",
               "away": "Borussia Mönchengladbach",
               "date": "2026-09-12",
-              "covered": false
+              "covered": true
             },
             {
               "match_id": 565794,
@@ -1050,7 +1065,7 @@
               "home": "FC Augsburg",
               "away": "Bayer 04 Leverkusen",
               "date": "2026-09-12",
-              "covered": false
+              "covered": true
             }
           ]
         }
