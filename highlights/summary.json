@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-13T14:56:19Z",
+  "generated_at": "2026-09-13T15:01:39Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -1382,7 +1382,7 @@
         {
           "gameweek": "GW4",
           "stem": "gameweek-4",
-          "total": 6,
+          "total": 7,
           "covered": 5,
           "matches": [
             {
@@ -1426,6 +1426,13 @@
               "away": "Olympique Lyonnais",
               "date": "2026-09-12",
               "covered": true
+            },
+            {
+              "match_id": 559685,
+              "home": "Lille OSC",
+              "away": "ES Troyes AC",
+              "date": "2026-09-13",
+              "covered": false
             }
           ]
         }
