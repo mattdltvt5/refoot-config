@@ -4,6 +4,14 @@ Remote channel configuration for the **ReFoot Highlights** Android app.
 
 ## Recent changes
 
+### Alias-gap automation: scheduled detection + one-click approve (2026-09-13)
+
+Turned "a missing highlight caused by a team-title alias gap" into a surfaced, one-click fix, keeping the human-in-the-loop guard that prevents wrong joins:
+
+- **Scheduled detection.** `detect-alias-gaps.yml` now runs **daily at 08:00 UTC** (after `sync-standings`), not just on demand. It defaults to the **current season** (`SEASON_OVERRIDE` still wins for manual runs) and commits fresh proposals to `highlights/alias-candidates.json`. Still read-only / never auto-adopts.
+- **Admin "Alias Gaps" panel.** A new top-level tab in `admin.html` reads `alias-candidates.json` and shows each proposal (team, proposed token, occurrences, evidence titles). **Approve** appends the token to **`team-aliases.json`** via the same BYO-PAT commit path the channel-approve flow uses (no code edit). Ambiguous proposals are shown read-only under "flagged for manual review".
+- **Data-driven alias overrides.** New `team-aliases.json` (repo root) maps an exact FD team name to extra title tokens. `team_tokens()` in `highlights_common.py` **appends** these to a team's base tokens (never replaces), so an approved short form only ever makes more titles joinable. Absent/empty file = zero behaviour change. The pipeline picks up an approved override on the next fetch; the collision-guard tests cover the merge. **Files:** `scripts/highlights_common.py`, `scripts/detect_alias_gaps.py`, `.github/workflows/detect-alias-gaps.yml`, `admin.html`, `team-aliases.json`, `scripts/tests/test_alias_collisions.py`.
+
 ### Web Admin: tabbed section navigation (2026-09-13)
 
 `admin.html` no longer stacks its sections in one long scroll. A horizontal **tab bar sits
