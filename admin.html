@@ -952,6 +952,7 @@
 <nav class="main-tabs" role="tablist" aria-label="Admin sections">
     <button class="tab active" id="tab-coverage"   role="tab" aria-selected="true"  aria-controls="panel-coverage"   data-tab="coverage">Coverage</button>
     <button class="tab"        id="tab-candidates" role="tab" aria-selected="false" aria-controls="panel-candidates" data-tab="candidates">Candidates</button>
+    <button class="tab"        id="tab-aliasgaps"  role="tab" aria-selected="false" aria-controls="panel-aliasgaps"  data-tab="aliasgaps">Alias Gaps</button>
     <button class="tab"        id="tab-channels"   role="tab" aria-selected="false" aria-controls="panel-channels"   data-tab="channels">Channels</button>
 </nav>
 
@@ -1013,6 +1014,25 @@
         </div>
     </div>
     </div><!-- /panel-candidates -->
+
+    <!-- Alias Gaps review & approve (reads highlights/alias-candidates.json;
+         approving appends tokens to team-aliases.json via the BYO-PAT commit path) -->
+    <div class="tab-panel" id="panel-aliasgaps" role="tabpanel" aria-labelledby="tab-aliasgaps">
+    <div id="aliasgaps-section">
+        <div class="cand-head">
+            <span class="cand-head-label"><i class="fi-br-link-alt"></i> Alias Gaps</span>
+            <span class="cand-head-meta" id="aliasgaps-meta"></span>
+            <button class="cand-refresh" id="aliasgaps-refresh-btn" title="Reload alias proposals"><i class="fi-br-refresh"></i></button>
+        </div>
+        <div class="cand-flag-note">
+            Proposals from the daily alias-gap detector. Approving appends the short form to
+            <code>team-aliases.json</code>; the next fetch re-joins the fixture. Nothing is auto-adopted.
+        </div>
+        <div class="cand-body" id="aliasgaps-body">
+            <div class="cand-empty">Loading alias proposals…</div>
+        </div>
+    </div>
+    </div><!-- /panel-aliasgaps -->
 
     <!-- Channels / competitions editor -->
     <div class="tab-panel" id="panel-channels" role="tabpanel" aria-labelledby="tab-channels">
@@ -1687,6 +1707,163 @@ async function approveCandidate(comp, team, cand, card, btn) {
         toast('Approve failed: ' + err.message, 'error');
         card.querySelectorAll('.cand-approve-btn').forEach(b => b.disabled = false);
         btn.textContent = 'Approve';
+    }
+}
+
+// ── Alias Gaps: review & approve ─────────────────────────
+// Reads highlights/alias-candidates.json (the daily detector's proposals; public
+// raw read, no auth to VIEW) + team-aliases.json (already-approved overrides).
+// Approving APPENDS the short form to team-aliases.json via the same BYO-PAT
+// commit path the editor uses; the pipeline's team_tokens() picks it up on the
+// next fetch. Nothing is auto-adopted; ambiguous flags are shown read-only.
+const ALIAS_CAND_FILE     = 'highlights/alias-candidates.json';
+const ALIAS_OVERRIDE_FILE = 'team-aliases.json';
+let aliasGapsData  = null;
+let aliasOverrides = {};   // FD team name -> [approved tokens]
+
+// Authenticated read of any repo file -> {json, sha}; {json:fallback, sha:null} on 404.
+async function ghReadJson(path, fallback) {
+    const res = await fetch('https://api.github.com/repos/' + GH_OWNER + '/' + GH_REPO + '/contents/' + path,
+        { headers: { 'Authorization': 'Bearer ' + ghPat, 'Accept': 'application/vnd.github+json' } });
+    if (res.status === 404) return { json: fallback, sha: null };
+    if (res.status === 401) throw new Error('GitHub token invalid or expired');
+    if (!res.ok) throw new Error('GitHub error: ' + res.status + ' ' + res.statusText);
+    const data = await res.json();
+    return { json: JSON.parse(b64Decode(data.content)), sha: data.sha };
+}
+async function ghWriteJson(path, data, message, sha) {
+    const body = { message, content: b64Encode(JSON.stringify(data, null, 2)) };
+    if (sha) body.sha = sha;
+    const res = await fetch('https://api.github.com/repos/' + GH_OWNER + '/' + GH_REPO + '/contents/' + path,
+        { method: 'PUT', headers: { 'Authorization': 'Bearer ' + ghPat, 'Accept': 'application/vnd.github+json', 'Content-Type': 'application/json' }, body: JSON.stringify(body) });
+    if (!res.ok) { const e = await res.json().catch(() => ({})); throw new Error(e.message || 'HTTP ' + res.status); }
+    return (await res.json()).content.sha;
+}
+function aliasNorm(s) { return String(s || '').trim().toLowerCase(); }
+function aliasApproved(team, alias) {
+    return (aliasOverrides[team] || []).some(t => aliasNorm(t) === aliasNorm(alias));
+}
+
+async function loadAliasGaps() {
+    const body = document.getElementById('aliasgaps-body');
+    if (!body) return;
+    try {
+        const bust = '?_=' + Date.now();
+        const base = 'https://raw.githubusercontent.com/' + GH_OWNER + '/' + GH_REPO + '/main/';
+        const [candRes, ovrRes] = await Promise.all([
+            fetch(base + ALIAS_CAND_FILE + bust),
+            fetch(base + ALIAS_OVERRIDE_FILE + bust),
+        ]);
+        aliasGapsData = candRes.ok ? await candRes.json() : null;
+        aliasOverrides = {};
+        if (ovrRes.ok) {
+            const raw = await ovrRes.json();
+            Object.keys(raw || {}).forEach(k => { if (Array.isArray(raw[k])) aliasOverrides[k] = raw[k]; });
+        }
+        renderAliasGaps(aliasGapsData);
+    } catch (e) {
+        body.innerHTML = '<div class="cand-empty">Could not load alias proposals (' + (e.message || e) + ').</div>';
+    }
+}
+
+function renderAliasGaps(report) {
+    const body = document.getElementById('aliasgaps-body');
+    const meta = document.getElementById('aliasgaps-meta');
+    if (!body) return;
+    body.innerHTML = '';
+    const cands = (report && report.candidates) || {};
+    const flags = (report && report.flags) || [];
+    if (meta) meta.textContent = (report && report.generated_at) ? 'generated ' + report.generated_at.split('T')[0] : '';
+
+    let n = 0;
+    Object.keys(cands).sort().forEach(comp =>
+        Object.keys(cands[comp]).sort().forEach(team =>
+            (cands[comp][team] || []).forEach(row => { n++; body.appendChild(makeAliasCard(comp, team, row)); })));
+
+    if (n === 0 && flags.length === 0) {
+        body.appendChild(candEmpty((report && report.note)
+            ? 'No proposals. <span style="color:var(--muted)">(' + report.note + ')</span>'
+            : 'No alias gaps detected - the detector found nothing to approve.'));
+    }
+    if (flags.length) {
+        const h = document.createElement('div');
+        h.className = 'cand-flag-note';
+        h.innerHTML = '<strong>' + flags.length + ' flagged for manual review</strong> '
+            + '(ambiguous short form - not one-click safe; fix via a code alias):';
+        body.appendChild(h);
+        flags.forEach(fl => {
+            const d = document.createElement('div');
+            d.className = 'cand-flag-note';
+            d.textContent = '• ' + fl.competition + ' · ' + fl.team + ' — proposed "' + (fl.proposed || '?') + '": ' + fl.reason;
+            body.appendChild(d);
+        });
+    }
+}
+
+function makeAliasCard(comp, team, row) {
+    const card = document.createElement('div');
+    card.className = 'cand-card' + (aliasApproved(team, row.alias) ? ' approved' : '');
+
+    const head = document.createElement('div');
+    head.className = 'cand-card-head';
+    head.innerHTML = '<span class="cand-team-name">' + team + '</span>'
+        + '<span class="cand-team-comp">' + comp + '</span>';
+    card.appendChild(head);
+
+    const info = document.createElement('div');
+    info.className = 'cand-flag-note';
+    info.innerHTML = 'add title token <code>' + row.alias + '</code> · ' + row.occurrences + ' video(s) · current: '
+        + '<span style="color:var(--muted)">' + (row.current_tokens || []).join(', ') + '</span>';
+    card.appendChild(info);
+
+    (row.evidence || []).slice(0, 3).forEach(ev => {
+        const e = document.createElement('div');
+        e.className = 'cand-evidence';
+        e.textContent = '“' + ev.split(' | ').slice(1).join(' | ') + '”';
+        card.appendChild(e);
+    });
+
+    const actions = document.createElement('div');
+    actions.className = 'cand-team-actions';
+    if (aliasApproved(team, row.alias)) {
+        const badge = document.createElement('span');
+        badge.className = 'cand-approved-badge'; badge.textContent = 'Approved ✓';
+        actions.appendChild(badge);
+    } else {
+        const btn = document.createElement('button');
+        btn.className = 'cand-approve-btn';
+        btn.textContent = 'Approve alias';
+        btn.addEventListener('click', () => approveAlias(team, row.alias, card, btn));
+        actions.appendChild(btn);
+    }
+    card.appendChild(actions);
+    return card;
+}
+
+async function approveAlias(team, alias, card, btn) {
+    if (!ghPat) { toast('Enter your GitHub token to approve', 'error'); openDrawer('credentials'); return; }
+    btn.disabled = true; btn.textContent = 'Approving…';
+    const commitMsg = 'Approve alias: ' + team + ' → "' + alias + '"';
+    const doWrite = async () => {
+        const { json, sha } = await ghReadJson(ALIAS_OVERRIDE_FILE, {});
+        const obj = (json && typeof json === 'object') ? json : {};
+        const list = Array.isArray(obj[team]) ? obj[team] : [];
+        if (!list.some(t => aliasNorm(t) === aliasNorm(alias))) list.push(alias);
+        obj[team] = list;
+        await ghWriteJson(ALIAS_OVERRIDE_FILE, obj, commitMsg, sha);
+    };
+    try {
+        try { await doWrite(); }
+        catch (e) { if (/sha|does not match|409|422/i.test(e.message || '')) { await doWrite(); } else throw e; }
+        (aliasOverrides[team] = aliasOverrides[team] || []).push(alias);
+        card.classList.add('approved');
+        const actions = card.querySelector('.cand-team-actions');
+        if (actions) { actions.innerHTML = ''; const b = document.createElement('span'); b.className = 'cand-approved-badge'; b.textContent = 'Approved ✓'; actions.appendChild(b); }
+        toast('Approved alias for ' + team + ' → “' + alias + '”', 'success');
+        dbg('Approved alias ' + team + ' → "' + alias + '" (committed to team-aliases.json)', 'ok');
+    } catch (err) {
+        toast('Approve failed: ' + err.message, 'error');
+        btn.disabled = false; btn.textContent = 'Approve alias';
     }
 }
 
@@ -2657,6 +2834,7 @@ async function loadAll() {
         showContent();
         loadHighlightsCoverage(); // async - does not block the main UI
         loadCandidates();         // async - channel candidates review panel
+        loadAliasGaps();          // async - alias-gap proposals review panel
         loadFetchLog();           // async - does not block the main UI
         renderNextFetch();        // sync - computed from cron schedule + current time
         setInterval(renderNextFetch, 60000); // keep countdown live
@@ -2801,6 +2979,7 @@ document.getElementById('debug-clear-btn').addEventListener('click', () => {
 document.getElementById('reload-btn').addEventListener('click', loadAll);
 document.getElementById('wf-refresh-btn').addEventListener('click', loadWorkflowStatus);
 document.getElementById('cand-refresh-btn').addEventListener('click', loadCandidates);
+document.getElementById('aliasgaps-refresh-btn').addEventListener('click', loadAliasGaps);
 document.querySelectorAll('.cand-tab').forEach(btn =>
     btn.addEventListener('click', () => setCandTab(btn.dataset.tab)));
 document.getElementById('save-btn').addEventListener('click', saveData);

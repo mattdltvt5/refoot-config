@@ -14,6 +14,7 @@ import json
 from collections import defaultdict
 from pathlib import Path
 
+import highlights_common as H
 from highlights_common import team_tokens, TEAM_TITLE_ALIASES, _leading_alias_word, _team_word_index
 
 _SOURCES = Path(__file__).resolve().parents[2] / "sources.json"
@@ -53,6 +54,22 @@ def test_layer1_derives_expected_distinctive_shortforms():
     assert lead("Hull City AFC") == "hull"
     # ...but the generic club-type word is never derived.
     assert lead("Some City FC") != "city"
+
+
+def test_alias_overrides_append_not_replace(monkeypatch):
+    """Admin-approved overrides (team-aliases.json) ADD tokens, keep the base."""
+    monkeypatch.setattr(H, "_team_alias_overrides",
+                        lambda: {"FK Shakhtar Donetsk": ["Shakhtar", "Shakhtar Donetsk"]})
+    toks = team_tokens("FK Shakhtar Donetsk", "", "SHD")
+    assert "shakhtar" in toks and "shakhtar donetsk" in toks  # override added
+    assert "fk shakhtar donetsk" in toks                       # base kept
+
+
+def test_alias_overrides_empty_is_noop(monkeypatch):
+    """No override file / empty dict leaves team_tokens exactly as before."""
+    monkeypatch.setattr(H, "_team_alias_overrides", lambda: {})
+    assert team_tokens("Chelsea FC", "Chelsea", "CHE") == \
+        [H._normalize(a) for a in TEAM_TITLE_ALIASES["Chelsea FC"]]
 
 
 def test_generic_words_never_become_standalone_tokens():

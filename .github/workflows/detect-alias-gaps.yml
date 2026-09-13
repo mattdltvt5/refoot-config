@@ -15,12 +15,14 @@ name: Detect team-title alias gaps (proposes, never adopts)
 # To run: Actions tab -> "Detect team-title alias gaps" -> Run workflow -> season.
 
 on:
+  schedule:
+    - cron: '0 8 * * *'   # daily 08:00 UTC, after sync-standings (07:00) refreshes FINISHED
   workflow_dispatch:
     inputs:
       season:
-        description: "Season start year to scan (e.g. 2025 or 2026)"
-        required: true
-        default: "2025"
+        description: "Season start year to scan (blank = current season)"
+        required: false
+        default: ""
 
 jobs:
   detect:

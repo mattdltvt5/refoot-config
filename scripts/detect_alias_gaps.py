@@ -40,7 +40,10 @@ except Exception:
     pass
 
 REPO = Path(__file__).resolve().parents[1]
-SEASON = int(os.environ.get("SEASON_OVERRIDE", "2025"))
+# SEASON_OVERRIDE wins when set (manual runs); otherwise use the current season
+# so the scheduled daily run always scans the live campaign (computed after the
+# season_utils import below).
+_SEASON_ENV = os.environ.get("SEASON_OVERRIDE", "").strip()
 DOMESTIC = {
     "premier-league": "Premier League", "laliga": "LaLiga", "serie-a": "Serie A",
     "bundesliga": "Bundesliga", "ligue-1": "Ligue 1",
@@ -61,6 +64,9 @@ from highlights_common import (          # noqa: E402
     _GENERIC_TEAM_WORDS,
 )
 from playlist_discovery import apply_discovered_overrides  # noqa: E402
+from season_utils import current_season  # noqa: E402
+
+SEASON = int(_SEASON_ENV) if _SEASON_ENV else current_season()
 
 CANDIDATES_PATH = REPO / "highlights" / "alias-candidates.json"
 

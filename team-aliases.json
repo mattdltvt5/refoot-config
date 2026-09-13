@@ -1,0 +1,3 @@
+{
+  "_comment": "Admin-approved title-alias overrides. Key = exact football-data team name; value = extra title tokens to also match. Managed by the admin 'Alias Gaps' panel (one-click approve of detect_alias_gaps proposals). team_tokens() APPENDS these to a team's base tokens; they never replace them. Keys whose value is not a list (like this _comment) are ignored."
+}

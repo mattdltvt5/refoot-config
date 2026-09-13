@@ -30,6 +30,10 @@ log = logging.getLogger(__name__)
 
 REPO_ROOT              = Path(__file__).resolve().parent.parent
 SOURCES_JSON           = REPO_ROOT / "sources.json"
+# Admin-approved title-alias overrides (FD team name -> extra title tokens).
+# Written by the admin "Alias Gaps" panel (mirrors the channel-approve flow);
+# merged additively by team_tokens(). Absent/empty = no effect.
+TEAM_ALIASES_JSON      = REPO_ROOT / "team-aliases.json"
 HIGHLIGHTS_DIR         = REPO_ROOT / "highlights"
 FIXTURES_DIR           = REPO_ROOT / "fixtures"
 RESULTS_DIR            = REPO_ROOT / "results"   # durable results ledger (self-healing)
@@ -695,23 +699,52 @@ TEAM_TITLE_ALIASES: dict[str, list[str]] = {
 }
 
 
+@functools.lru_cache(maxsize=1)
+def _team_alias_overrides() -> dict:
+    """Admin-approved alias overrides from team-aliases.json.
+
+    Shape: { "<exact FD team.name>": ["Extra Token", ...] }. These are ADDED to
+    whatever team_tokens() would otherwise return (they never replace the base
+    set), so an approved short form can only make more titles joinable, never
+    fewer. Missing/invalid file degrades to {} and never raises. Cached once;
+    the pipeline is a short-lived process so staleness is a non-issue.
+    """
+    try:
+        with open(TEAM_ALIASES_JSON, encoding="utf-8") as f:
+            raw = json.load(f)
+    except (OSError, ValueError):
+        return {}
+    if not isinstance(raw, dict):
+        return {}
+    out: dict = {}
+    for name, toks in raw.items():
+        if isinstance(name, str) and isinstance(toks, list):
+            out[name] = [t for t in toks if isinstance(t, str) and t.strip()]
+    return out
+
+
 def team_tokens(team_name: str, short_name: str, tla: str = "") -> list[str]:
     """Return normalised candidate strings to search for in a YouTube title.
 
-    Override path — if the team has an entry in TEAM_TITLE_ALIASES (keyed by the
-    exact FD team.name), return those strings normalised.  They replace the
-    auto-derived set entirely.
+    Base path — if the team has an entry in TEAM_TITLE_ALIASES (keyed by the
+    exact FD team.name), use those strings normalised (they replace the
+    auto-derived set); otherwise call _auto_tokens() which derives candidates
+    from the FD {name, shortName, tla} triplet plus progressively stripped
+    variants (handles newly promoted/relegated teams with no explicit entry).
 
-    Fallback path — call _auto_tokens() which derives candidates from the FD
-    {name, shortName, tla} triplet plus progressively stripped variants.  This
-    handles newly promoted/relegated teams with no explicit entry.
+    Override path — any admin-approved tokens for this team (team-aliases.json)
+    are then APPENDED, deduped. They only ever add coverage.
 
     Any one candidate appearing as a substring of the normalised title is a hit.
     """
     override = TEAM_TITLE_ALIASES.get(team_name)
-    if override:
-        return [_normalize(a) for a in override]
-    return _auto_tokens(team_name, short_name, tla)
+    tokens = [_normalize(a) for a in override] if override \
+        else _auto_tokens(team_name, short_name, tla)
+    for extra in _team_alias_overrides().get(team_name, []):
+        n = _normalize(extra)
+        if n and n not in tokens:
+            tokens.append(n)
+    return tokens
 
 
 # Regex patterns used to auto-discover per-gameweek playlists from competition channels.
