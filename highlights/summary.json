@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-13T14:01:26Z",
+  "generated_at": "2026-09-13T14:06:26Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -617,7 +617,7 @@
         {
           "gameweek": "GW5",
           "stem": "gameweek-5",
-          "total": 5,
+          "total": 6,
           "covered": 5,
           "matches": [
             {
@@ -654,6 +654,13 @@
               "away": "Rayo Vallecano de Madrid",
               "date": "2026-09-12",
               "covered": true
+            },
+            {
+              "match_id": 564672,
+              "home": "RC Celta de Vigo",
+              "away": "Málaga CF",
+              "date": "2026-09-13",
+              "covered": false
             }
           ]
         },
