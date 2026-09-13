@@ -733,6 +733,19 @@
         /* Off-screen (not display:none) so password managers still detect it for
            login association, but the user never sees it. */
         .pw-username { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
+        /* Google sign-in button + secondary gate links */
+        .btn-google { display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%;
+            background: var(--white); color: var(--text); border: 1px solid var(--border);
+            font-weight: 600; font-size: 14px; padding: 11px 16px; border-radius: var(--radius-md);
+            cursor: pointer; margin-top: var(--space-2); font-family: inherit; }
+        .btn-google:hover { background: var(--bg-subtle); }
+        .btn-google svg { width: 18px; height: 18px; flex: 0 0 18px; }
+        .gate-divider { display: flex; align-items: center; gap: var(--space-2); margin: var(--space-4) 0 var(--space-2);
+            color: var(--muted); font-size: 11px; text-transform: uppercase; letter-spacing: .5px; }
+        .gate-divider::before, .gate-divider::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+        .gate-link { display: block; width: 100%; margin-top: var(--space-3); background: none; border: none;
+            color: var(--blue); font-size: 12px; text-decoration: underline; cursor: pointer; padding: 6px; }
+        .gate-link:hover { color: var(--blue-dark); }
     </style>
 </head>
 <body>
@@ -743,6 +756,37 @@
         <div class="gate-brand">
             <span class="gate-logo"><i class="fi-br-lock"></i></span>
             <span class="gate-title">ReFoot Admin</span>
+        </div>
+
+        <!-- Restoring an existing sign-in (Firebase resolves persistence async) -->
+        <div class="gate-pane" id="gate-checking" style="display:none">
+            <p class="gate-lede">Checking your sign-in…</p>
+        </div>
+
+        <!-- Primary: Google account sign-in -->
+        <div class="gate-pane" id="gate-account" style="display:none">
+            <p class="gate-lede">Sign in with your Google account. Your GitHub token and YouTube key are stored
+                in your account and synced across devices — you stay signed in across refreshes.</p>
+            <button class="btn-google" id="gate-google-btn">
+                <svg viewBox="0 0 48 48" aria-hidden="true"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg>
+                Sign in with Google
+            </button>
+            <div class="modal-error" id="gate-account-error"></div>
+            <button class="gate-link" id="gate-use-pass-btn">Use a device passphrase instead</button>
+        </div>
+
+        <!-- First account login: capture credentials once, stored in the account -->
+        <div class="gate-pane" id="gate-account-setup" style="display:none">
+            <p class="gate-lede">Signed in as <strong id="gate-acc-name">admin</strong>. Add your credentials once —
+                they're saved to your account and synced to every device you sign in on.</p>
+            <label class="gate-label" for="gate-acc-pat">GitHub token</label>
+            <input class="form-input" id="gate-acc-pat" name="github-token" type="password" autocomplete="off" placeholder="github_pat_xxxx or ghp_xxxx">
+            <label class="gate-label" for="gate-acc-yt">YouTube API key <span class="gate-opt">(optional)</span></label>
+            <input class="form-input" id="gate-acc-yt" name="youtube-key" type="password" autocomplete="off" placeholder="AIzaSy…">
+            <button class="btn-blue gate-submit" id="gate-acc-save-btn">Save &amp; continue</button>
+            <div class="gate-note">Tip: a non-expiring fine-grained GitHub token means you set it once, ever.</div>
+            <div class="modal-error" id="gate-account-setup-error"></div>
+            <button class="gate-link" id="gate-acc-signout-btn">Sign out</button>
         </div>
 
         <!-- First-time setup (no vault yet) -->
@@ -765,6 +809,7 @@
             <div class="gate-note">If you forget the passphrase there's no recovery — you'll re-enter your
                 token &amp; key. Tip: a non-expiring fine-grained GitHub token means you set it once.</div>
             <div class="modal-error" id="gate-setup-error"></div>
+            <button class="gate-link" id="gate-setup-use-account-btn">← Sign in with Google instead</button>
         </div>
 
         <!-- Returning: unlock existing vault -->
@@ -776,6 +821,7 @@
             <input class="form-input" id="gate-pass" name="passphrase" type="password" autocomplete="current-password" placeholder="Passphrase">
             <button class="btn-blue gate-submit" id="gate-unlock-btn">Unlock</button>
             <div class="modal-error" id="gate-unlock-error"></div>
+            <button class="gate-link" id="gate-unlock-use-account-btn">← Sign in with Google instead</button>
             <button class="gate-reset" id="gate-reset-btn">Forget stored credentials &amp; start over</button>
         </div>
     </div>
@@ -923,6 +969,26 @@
 
 <div id="toast"></div>
 
+<!-- Firebase (compat SDK) — Google account sign-in + per-account token sync.
+     The web config below is public by design; access is gated by Firebase Auth,
+     the Authorized-domains list, and the Firestore security rules (owner-only). -->
+<script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore-compat.js"></script>
+<script>
+    try {
+        firebase.initializeApp({
+            apiKey: 'AIzaSyBO1iMsaXcL5J0bczI1nrOQ4d6Xg1eTQxo',
+            authDomain: 'refoot-highlights-app.firebaseapp.com',
+            projectId: 'refoot-highlights-app',
+            storageBucket: 'refoot-highlights-app.firebasestorage.app',
+            messagingSenderId: '654326505222',
+            appId: '1:654326505222:web:86e8b597d3726dd0cd8887',
+            measurementId: 'G-8CVEHBGMDM'
+        });
+    } catch (e) { console.warn('Firebase init failed:', e); }
+</script>
+
 <script>
 const GH_OWNER = 'mattdltvt5';
 const GH_REPO  = 'refoot-config';
@@ -996,6 +1062,24 @@ const LEGACY_YT  = 'rf_yt_key';
 let vaultKey  = null;             // CryptoKey (in-memory, post-unlock)
 let vaultSalt = null;             // Uint8Array salt (in-memory)
 
+// ── Account mode (Firebase Auth + Firestore) ─────────────
+// When signed in with Google, credentials live in Firestore under the user's uid
+// (adminSecrets/{uid}) instead of the local vault — synced across devices, and the
+// Firebase session persists so a refresh never re-prompts. The passphrase vault
+// stays fully functional as an offline fallback.
+let authMode = 'vault';           // 'account' once a Google user is signed in
+const _fb = { auth: null, db: null };
+function _fbReady() { return typeof firebase !== 'undefined' && firebase.apps && firebase.apps.length > 0; }
+async function accountLoadSecrets(uid) {
+    const snap = await _fb.db.collection('adminSecrets').doc(uid).get();
+    return snap.exists ? (snap.data() || {}) : {};
+}
+async function accountSaveSecrets() {
+    const u = _fb.auth && _fb.auth.currentUser;
+    if (!u) throw new Error('not signed in');
+    await _fb.db.collection('adminSecrets').doc(u.uid).set({ pat: ghPat, yt: ytApiKey }, { merge: true });
+}
+
 const _b64 = {
     enc: (buf) => btoa(String.fromCharCode(...new Uint8Array(buf))),
     dec: (s)   => Uint8Array.from(atob(s), c => c.charCodeAt(0)),
@@ -1031,9 +1115,13 @@ function updateCredStatus() {
     const badge = document.getElementById('settings-badge');
     if (badge) badge.style.display = hasPat ? 'none' : 'block';
 }
-// Persist an in-drawer credential edit by re-encrypting the (already-unlocked) vault.
+// Persist an in-drawer credential edit: write to the account (Firestore) when signed
+// in with Google, otherwise re-encrypt the (already-unlocked) local vault.
 async function saveCreds() {
-    if (vaultKey) {
+    if (authMode === 'account') {
+        try { await accountSaveSecrets(); }
+        catch (e) { dbg('Account save failed: ' + e, 'error'); }
+    } else if (vaultKey) {
         try { await _encryptVault(); }
         catch (e) { dbg('Vault save failed: ' + e, 'error'); }
     }
@@ -2695,11 +2783,12 @@ window.addEventListener('beforeunload', e => { if(unsaved){e.preventDefault();e.
 
 // ── Auth gate + init ─────────────────────────────────────
 function showGate(pane) {
-    document.getElementById('gate-setup').style.display  = pane === 'setup'  ? 'block' : 'none';
-    document.getElementById('gate-unlock').style.display = pane === 'unlock' ? 'block' : 'none';
+    document.querySelectorAll('.gate-pane').forEach(p =>
+        p.style.display = (p.id === 'gate-' + pane) ? 'block' : 'none');
     document.getElementById('auth-gate').classList.add('show');
     document.getElementById('lock-btn').style.display = 'none';
-    const f = document.getElementById(pane === 'setup' ? 'gate-set-pass' : 'gate-pass');
+    const focusId = { setup: 'gate-set-pass', unlock: 'gate-pass', 'account-setup': 'gate-acc-pat' }[pane];
+    const f = focusId && document.getElementById(focusId);
     if (f) setTimeout(() => f.focus(), 50);
 }
 function hideGate() {
@@ -2718,7 +2807,7 @@ async function unlockWith(passphrase) {
 }
 function afterUnlock() {
     hideGate();
-    ['gate-pass','gate-set-pass','gate-set-pass2','gate-set-pat','gate-set-yt']
+    ['gate-pass','gate-set-pass','gate-set-pass2','gate-set-pat','gate-set-yt','gate-acc-pat','gate-acc-yt']
         .forEach(id => { const el = document.getElementById(id); if (el) el.value = ''; });
     document.getElementById('in-pat').value    = ghPat;      // mirror into the drawer for edits
     document.getElementById('in-yt-key').value = ytApiKey;
@@ -2781,19 +2870,100 @@ document.getElementById('gate-reset-btn').addEventListener('click', () => {
     prefillSetupFromLegacy();
     showGate('setup');
 });
-document.getElementById('lock-btn').addEventListener('click', lockVault);
+// Lock/sign-out: end the Google session when in account mode, else re-lock the vault.
+async function signOutAll() {
+    if (authMode === 'account' && _fb.auth && _fb.auth.currentUser) {
+        try { await _fb.auth.signOut(); }       // onAuthStateChanged routes back to the gate
+        catch (e) { dbg('Sign-out failed: ' + e, 'error'); }
+    } else {
+        lockVault();
+    }
+}
+document.getElementById('lock-btn').addEventListener('click', signOutAll);
 
-// Boot: gate first — no data loads until the vault is unlocked.
+// ── Google account handlers ──────────────────────────────
+document.getElementById('gate-google-btn').addEventListener('click', async () => {
+    const err = document.getElementById('gate-account-error');
+    err.style.display = 'none';
+    try {
+        await _fb.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
+        // onAuthStateChanged takes over: loads secrets → afterUnlock, or asks for them.
+    } catch (e) {
+        err.textContent = 'Sign-in failed: ' + (e.message || e);
+        err.style.display = 'block';
+    }
+});
+document.getElementById('gate-acc-save-btn').addEventListener('click', async () => {
+    const err = document.getElementById('gate-account-setup-error');
+    const pat = document.getElementById('gate-acc-pat').value.trim();
+    const yt  = document.getElementById('gate-acc-yt').value.trim();
+    if (!pat) { err.textContent = 'GitHub token is required.'; err.style.display = 'block'; return; }
+    err.style.display = 'none';
+    ghPat = pat; ytApiKey = yt;
+    try { await accountSaveSecrets(); afterUnlock(); }
+    catch (e) { err.textContent = 'Could not save to your account: ' + (e.message || e); err.style.display = 'block'; }
+});
+document.getElementById('gate-acc-signout-btn').addEventListener('click', () => {
+    if (_fb.auth) _fb.auth.signOut().catch(() => {});
+});
+document.getElementById('gate-use-pass-btn').addEventListener('click', () => {
+    showGate(localStorage.getItem(VAULT_KEY) ? 'unlock' : 'setup');
+});
+document.getElementById('gate-setup-use-account-btn').addEventListener('click', () => showGate('account'));
+document.getElementById('gate-unlock-use-account-btn').addEventListener('click', () => showGate('account'));
+
+// Wire Firebase Auth: persistent session + credential sync. Returns false if the SDK
+// didn't load (offline / blocked) so the caller can fall back to the passphrase vault.
+function initFirebaseAuth() {
+    if (!_fbReady()) return false;
+    try {
+        _fb.auth = firebase.auth();
+        _fb.db   = firebase.firestore();
+    } catch (e) { console.warn('Firebase services unavailable:', e); return false; }
+    _fb.auth.setPersistence(firebase.auth.Auth.Persistence.LOCAL).catch(() => {});
+    _fb.auth.onAuthStateChanged(async (user) => {
+        if (user) {
+            authMode = 'account';
+            const nameEl = document.getElementById('gate-acc-name');
+            if (nameEl) nameEl.textContent = user.displayName || user.email || 'admin';
+            let secrets = {};
+            try { secrets = await accountLoadSecrets(user.uid); }
+            catch (e) {
+                const err = document.getElementById('gate-account-error');
+                err.textContent = 'Could not read your account: ' + (e.message || e);
+                err.style.display = 'block';
+                showGate('account');
+                return;
+            }
+            if (secrets.pat) {
+                ghPat = secrets.pat; ytApiKey = secrets.yt || '';
+                afterUnlock();                    // hide gate + loadAll()
+            } else {
+                ytApiKey = secrets.yt || '';      // first login on this account
+                showGate('account-setup');
+            }
+        } else {
+            if (authMode === 'account') { ghPat = ''; ytApiKey = ''; updateCredStatus(); }
+            authMode = 'vault';
+            showGate('account');                  // primary: offer Google again
+        }
+    });
+    return true;
+}
+
+// Boot: gate first — no data loads until signed in (account or vault).
 (function initAuth() {
-    if (!(window.crypto && crypto.subtle)) {   // Web Crypto needs a secure context
+    if (!(window.crypto && crypto.subtle)) {   // Web Crypto needs a secure context (for the vault)
         document.getElementById('loading-state').innerHTML =
             '<div style="color:var(--red)">This page must be served over HTTPS (or localhost) to sign in.</div>';
         return;
     }
-    if (localStorage.getItem(VAULT_KEY)) {
-        showGate('unlock');
+    if (initFirebaseAuth()) {
+        showGate('checking');                  // onAuthStateChanged routes from here
+    } else if (localStorage.getItem(VAULT_KEY)) {
+        showGate('unlock');                    // Firebase unavailable → passphrase fallback
     } else {
-        prefillSetupFromLegacy();               // one-click migration from old plaintext creds
+        prefillSetupFromLegacy();
         showGate('setup');
     }
 })();
