@@ -2,7 +2,7 @@
   "competition": "Premier League",
   "gameweek": "GW4",
   "stem": "gameweek-4",
-  "generated_at": "2026-09-12T18:31:46Z",
+  "generated_at": "2026-09-13T00:01:55Z",
   "matches": [
     {
       "match_id": 560573,
@@ -23,21 +23,42 @@
       "home_team": "Chelsea FC",
       "away_team": "Hull City AFC",
       "date": "2026-09-12",
-      "videos": []
+      "videos": [
+        {
+          "video_id": "J42n6v_Nhac",
+          "title": "Chelsea 2-2 Hull City | HIGHLIGHTS | Premier League 2026/27",
+          "published_at": "2026-09-12",
+          "tier_used": 1
+        }
+      ]
     },
     {
       "match_id": 560572,
       "home_team": "Crystal Palace FC",
       "away_team": "Ipswich Town FC",
       "date": "2026-09-12",
-      "videos": []
+      "videos": [
+        {
+          "video_id": "ojLgWcx1-LQ",
+          "title": "Match Highlights | Crystal Palace 2-3 Ipswich Town | Premier League",
+          "published_at": "2026-09-12",
+          "tier_used": 1
+        }
+      ]
     },
     {
       "match_id": 560574,
       "home_team": "Aston Villa FC",
       "away_team": "Nottingham Forest FC",
       "date": "2026-09-12",
-      "videos": []
+      "videos": [
+        {
+          "video_id": "Q9UCBCgrHvk",
+          "title": "Villa 1-2 Nott'm Forest | Premier League Highights",
+          "published_at": "2026-09-12",
+          "tier_used": 1
+        }
+      ]
     },
     {
       "match_id": 560576,
@@ -58,7 +79,28 @@
       "home_team": "Tottenham Hotspur FC",
       "away_team": "Everton FC",
       "date": "2026-09-12",
-      "videos": []
+      "videos": [
+        {
+          "video_id": "jPWE5tKtKyY",
+          "title": "Spurs 0-0 Everton | Premier League Highlights",
+          "published_at": "2026-09-12",
+          "tier_used": 1
+        }
+      ]
+    },
+    {
+      "match_id": 560577,
+      "home_team": "Sunderland AFC",
+      "away_team": "Arsenal FC",
+      "date": "2026-09-12",
+      "videos": [
+        {
+          "video_id": "qSCuGCI2eZQ",
+          "title": "Defeat at the SOL | Sunderland AFC 0 - 2 Arsenal | Premier League Highlights",
+          "published_at": "2026-09-12",
+          "tier_used": 1
+        }
+      ]
     }
   ]
 }

@@ -2,7 +2,7 @@
   "competition": "LaLiga",
   "gameweek": "GW5",
   "stem": "gameweek-5",
-  "generated_at": "2026-09-12T18:41:34Z",
+  "generated_at": "2026-09-13T00:01:38Z",
   "matches": [
     {
       "match_id": 564669,
@@ -23,7 +23,14 @@
       "home_team": "Real Racing Club de Santander",
       "away_team": "Deportivo Alavés",
       "date": "2026-09-12",
-      "videos": []
+      "videos": [
+        {
+          "video_id": "OCg5k11nP4c",
+          "title": "Real Racing Club 2-1 Deportivo Alavés ı HIGHLIGHTS | Jornada 5 | Temporada 26/27 LaLiga EA Sports",
+          "published_at": "2026-09-12",
+          "tier_used": 1
+        }
+      ]
     },
     {
       "match_id": 564673,
@@ -50,6 +57,20 @@
           "title": "ATHLETIC CLUB 1 - 1 ELCHE CF | RESUMEN LALIGA EA SPORTS",
           "published_at": "2026-09-12",
           "tier_used": 2
+        }
+      ]
+    },
+    {
+      "match_id": 564677,
+      "home_team": "Real Madrid CF",
+      "away_team": "Rayo Vallecano de Madrid",
+      "date": "2026-09-12",
+      "videos": [
+        {
+          "video_id": "xoungdAL15U",
+          "title": "HIGHLIGHTS | Real Madrid 4-1 Rayo Vallecano | LaLiga",
+          "published_at": "2026-09-12",
+          "tier_used": 1
         }
       ]
     }

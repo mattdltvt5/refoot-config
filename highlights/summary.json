@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-12T23:56:09Z",
+  "generated_at": "2026-09-13T00:01:55Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -242,8 +242,8 @@
         {
           "gameweek": "GW4",
           "stem": "gameweek-4",
-          "total": 6,
-          "covered": 2,
+          "total": 7,
+          "covered": 7,
           "matches": [
             {
               "match_id": 560573,
@@ -257,21 +257,21 @@
               "home": "Chelsea FC",
               "away": "Hull City AFC",
               "date": "2026-09-12",
-              "covered": false
+              "covered": true
             },
             {
               "match_id": 560572,
               "home": "Crystal Palace FC",
               "away": "Ipswich Town FC",
               "date": "2026-09-12",
-              "covered": false
+              "covered": true
             },
             {
               "match_id": 560574,
               "home": "Aston Villa FC",
               "away": "Nottingham Forest FC",
               "date": "2026-09-12",
-              "covered": false
+              "covered": true
             },
             {
               "match_id": 560576,
@@ -285,7 +285,14 @@
               "home": "Tottenham Hotspur FC",
               "away": "Everton FC",
               "date": "2026-09-12",
-              "covered": false
+              "covered": true
+            },
+            {
+              "match_id": 560577,
+              "home": "Sunderland AFC",
+              "away": "Arsenal FC",
+              "date": "2026-09-12",
+              "covered": true
             }
           ]
         }
@@ -610,8 +617,8 @@
         {
           "gameweek": "GW5",
           "stem": "gameweek-5",
-          "total": 4,
-          "covered": 3,
+          "total": 5,
+          "covered": 5,
           "matches": [
             {
               "match_id": 564669,
@@ -625,7 +632,7 @@
               "home": "Real Racing Club de Santander",
               "away": "Deportivo Alavés",
               "date": "2026-09-12",
-              "covered": false
+              "covered": true
             },
             {
               "match_id": 564673,
@@ -638,6 +645,13 @@
               "match_id": 564676,
               "home": "Athletic Club",
               "away": "Elche CF",
+              "date": "2026-09-12",
+              "covered": true
+            },
+            {
+              "match_id": 564677,
+              "home": "Real Madrid CF",
+              "away": "Rayo Vallecano de Madrid",
               "date": "2026-09-12",
               "covered": true
             }
@@ -901,8 +915,8 @@
         {
           "gameweek": "GW4",
           "stem": "gameweek-4",
-          "total": 3,
-          "covered": 3,
+          "total": 4,
+          "covered": 4,
           "matches": [
             {
               "match_id": 558606,
@@ -922,6 +936,13 @@
               "match_id": 558600,
               "home": "SS Lazio",
               "away": "AC Milan",
+              "date": "2026-09-12",
+              "covered": true
+            },
+            {
+              "match_id": 558607,
+              "home": "Atalanta BC",
+              "away": "Cagliari Calcio",
               "date": "2026-09-12",
               "covered": true
             }
@@ -1354,8 +1375,8 @@
         {
           "gameweek": "GW4",
           "stem": "gameweek-4",
-          "total": 2,
-          "covered": 2,
+          "total": 6,
+          "covered": 5,
           "matches": [
             {
               "match_id": 559689,
@@ -1368,6 +1389,34 @@
               "match_id": 559687,
               "home": "RC Strasbourg Alsace",
               "away": "AS Monaco FC",
+              "date": "2026-09-12",
+              "covered": true
+            },
+            {
+              "match_id": 559684,
+              "home": "FC Lorient",
+              "away": "Toulouse FC",
+              "date": "2026-09-12",
+              "covered": true
+            },
+            {
+              "match_id": 559688,
+              "home": "AJ Auxerre",
+              "away": "OGC Nice",
+              "date": "2026-09-12",
+              "covered": true
+            },
+            {
+              "match_id": 559690,
+              "home": "Le Havre AC",
+              "away": "Angers SCO",
+              "date": "2026-09-12",
+              "covered": false
+            },
+            {
+              "match_id": 559692,
+              "home": "Paris FC",
+              "away": "Olympique Lyonnais",
               "date": "2026-09-12",
               "covered": true
             }
