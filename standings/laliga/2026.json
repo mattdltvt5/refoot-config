@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-13T18:11:38.759468Z",
+  "generated_at": "2026-09-13T18:37:12.819381Z",
   "competition": "LaLiga",
   "slug": "laliga",
   "season": 2026,
@@ -83,6 +83,25 @@
     {
       "position": 5,
       "team": {
+        "id": 560,
+        "name": "RC Deportivo La Coruña",
+        "shortName": "Deportivo",
+        "tla": "DEP",
+        "crest": "https://crests.football-data.org/560.png"
+      },
+      "playedGames": 5,
+      "form": "D,W,W,D,D",
+      "won": 2,
+      "draw": 3,
+      "lost": 0,
+      "points": 9,
+      "goalsFor": 9,
+      "goalsAgainst": 6,
+      "goalDifference": 3
+    },
+    {
+      "position": 6,
+      "team": {
         "id": 90,
         "name": "Real Betis Balompié",
         "shortName": "Real Betis",
@@ -98,25 +117,6 @@
       "goalsFor": 5,
       "goalsAgainst": 5,
       "goalDifference": 0
-    },
-    {
-      "position": 6,
-      "team": {
-        "id": 560,
-        "name": "RC Deportivo La Coruña",
-        "shortName": "Deportivo",
-        "tla": "DEP",
-        "crest": "https://crests.football-data.org/560.png"
-      },
-      "playedGames": 4,
-      "form": "W,W,D,D",
-      "won": 2,
-      "draw": 2,
-      "lost": 0,
-      "points": 8,
-      "goalsFor": 8,
-      "goalsAgainst": 5,
-      "goalDifference": 3
     },
     {
       "position": 7,
@@ -254,6 +254,25 @@
     {
       "position": 14,
       "team": {
+        "id": 82,
+        "name": "Getafe CF",
+        "shortName": "Getafe",
+        "tla": "GET",
+        "crest": "https://crests.football-data.org/82.png"
+      },
+      "playedGames": 5,
+      "form": "D,D,L,W,L",
+      "won": 1,
+      "draw": 2,
+      "lost": 2,
+      "points": 5,
+      "goalsFor": 3,
+      "goalsAgainst": 6,
+      "goalDifference": -3
+    },
+    {
+      "position": 15,
+      "team": {
         "id": 558,
         "name": "RC Celta de Vigo",
         "shortName": "Celta",
@@ -268,25 +287,6 @@
       "points": 4,
       "goalsFor": 3,
       "goalsAgainst": 6,
-      "goalDifference": -3
-    },
-    {
-      "position": 15,
-      "team": {
-        "id": 82,
-        "name": "Getafe CF",
-        "shortName": "Getafe",
-        "tla": "GET",
-        "crest": "https://crests.football-data.org/82.png"
-      },
-      "playedGames": 4,
-      "form": "D,L,W,L",
-      "won": 1,
-      "draw": 1,
-      "lost": 2,
-      "points": 4,
-      "goalsFor": 2,
-      "goalsAgainst": 5,
       "goalDifference": -3
     },
     {
