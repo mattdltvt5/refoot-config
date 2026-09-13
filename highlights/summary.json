@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-13T15:06:27Z",
+  "generated_at": "2026-09-13T15:11:44Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -929,7 +929,7 @@
         {
           "gameweek": "GW4",
           "stem": "gameweek-4",
-          "total": 4,
+          "total": 5,
           "covered": 4,
           "matches": [
             {
@@ -959,6 +959,13 @@
               "away": "Cagliari Calcio",
               "date": "2026-09-12",
               "covered": true
+            },
+            {
+              "match_id": 558605,
+              "home": "US Lecce",
+              "away": "AC Monza",
+              "date": "2026-09-13",
+              "covered": false
             }
           ]
         }
