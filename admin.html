@@ -112,6 +112,18 @@
         .header-logo { width: 34px; height: 34px; border-radius: 50%; object-fit: cover; display: block; }
         .header-wordmark { color: var(--white); font-size: 18px; font-weight: 700; letter-spacing: .2px; }
         .header-right { display: flex; gap: var(--space-2); align-items: center; }
+        /* Keep the header from overflowing on small phones: the ghost buttons
+           collapse to icon-only, and the wordmark drops on very narrow screens. */
+        @media (max-width: 480px) {
+            header { padding: 0 var(--space-3); }
+            .header-brand { gap: 8px; }
+            .header-right { gap: var(--space-1); }
+            .header-right .btn-txt { display: none; }
+            .header-right .btn-ghost { padding: var(--space-1) 8px; }
+        }
+        @media (max-width: 340px) {
+            .header-wordmark { display: none; }
+        }
 
         /* ── Buttons ─────────────────────────────────────── */
         button {
@@ -906,8 +918,8 @@
         <span class="header-wordmark">ReFoot</span>
     </div>
     <div class="header-right">
-        <button class="btn-ghost" id="save-btn" disabled><i class="fi-br-disk"></i> GitHub</button>
-        <button class="btn-ghost" id="reload-btn"><i class="fi-br-refresh"></i> Reload</button>
+        <button class="btn-ghost" id="save-btn" disabled><i class="fi-br-disk"></i> <span class="btn-txt">GitHub</span></button>
+        <button class="btn-ghost" id="reload-btn"><i class="fi-br-refresh"></i> <span class="btn-txt">Reload</span></button>
         <button class="btn-icon" id="lock-btn" title="Lock (sign out)" style="display:none"><i class="fi-br-lock"></i></button>
         <div class="settings-btn-wrap">
             <button class="btn-icon" id="settings-btn" title="Settings"><i class="fi-br-home-settings"></i></button>
