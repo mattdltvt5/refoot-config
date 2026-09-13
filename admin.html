@@ -250,7 +250,16 @@
         .cov-filter-btn:hover { background: var(--warning-soft); border-color: var(--yellow); color: var(--yellow); }
         .cov-filter-btn.active { background: var(--danger-soft); border-color: var(--red); color: var(--red); }
         .cov-matches.filter-missing .cov-match-row.is-covered { display: none; }
+        .cov-matches.filter-missing .cov-match-row.is-pending { display: none; }
         .cov-matches.filter-missing .cov-gw-hdr.all-covered { display: none; }
+        .cov-matches.filter-missing .cov-gw-hdr.no-missing { display: none; }
+        /* "Awaiting" = finished within the highlight grace window (not a real gap). */
+        .cov-awaiting-chip {
+            font-size: 10px; font-weight: 500; color: var(--muted);
+            background: var(--bg); border: 1px dashed var(--border);
+            border-radius: var(--radius-sm); padding: 1px 6px; white-space: nowrap; flex-shrink: 0;
+        }
+        .cov-awaiting-label { margin-left: auto; font-size: 11px; color: var(--muted); font-style: italic; flex-shrink: 0; }
         /* Group separator inside the coverage panel */
         .cov-section-hdr {
             font-size: 10px; font-weight: 600; color: var(--muted);
@@ -2046,7 +2055,11 @@ function renderCoverage(data) {
             const allGws  = comp ? (comp.gameweeks || []) : [];
             const total   = allGws.reduce((s, gw) => s + gw.total,   0);
             const covered = allGws.reduce((s, gw) => s + gw.covered, 0);
-            const missingCount = total - covered;
+            // A just-finished fixture (pending) is "awaiting", not "missing":
+            // exclude it from the missing count so the pipeline has time to catch up.
+            const pendingCount = allGws.reduce((s, gw) =>
+                s + gw.matches.filter(m => !m.covered && m.pending).length, 0);
+            const missingCount = total - covered - pendingCount;
             const pct     = total > 0 ? Math.round(covered / total * 100) : 0;
             // grey = no data yet, green = complete, yellow = partial, red = low
             const barColor = total === 0     ? 'var(--border)'
@@ -2106,12 +2119,21 @@ function renderCoverage(data) {
                 });
             }
 
+            let awaitingEl = null;
+            if (pendingCount > 0) {
+                awaitingEl = document.createElement('span');
+                awaitingEl.className = 'cov-awaiting-chip';
+                awaitingEl.textContent = pendingCount + ' awaiting';
+                awaitingEl.title = 'Finished recently - within the highlight grace window, not counted as missing';
+            }
+
             compRow.appendChild(chev);
             compRow.appendChild(flag);
             compRow.appendChild(nameEl);
             compRow.appendChild(barWrap);
             compRow.appendChild(ratio);
             if (filterBtn) compRow.appendChild(filterBtn);
+            if (awaitingEl) compRow.appendChild(awaitingEl);
             panel.appendChild(compRow);
 
             // ── Expanded match rows (only when data exists) ──────
@@ -2123,21 +2145,26 @@ function renderCoverage(data) {
 
             allGws.forEach(gw => {
                 const allGwCovered = gw.matches.every(m => m.covered);
+                const gwHasMissing = gw.matches.some(m => !m.covered && !m.pending);
                 const hdr = document.createElement('div');
-                hdr.className   = 'cov-gw-hdr' + (allGwCovered ? ' all-covered' : '');
+                hdr.className   = 'cov-gw-hdr' + (allGwCovered ? ' all-covered' : '')
+                                 + (gwHasMissing ? '' : ' no-missing');
                 hdr.textContent = gw.gameweek + '  ·  ' + gw.covered + '/' + gw.total + ' covered';
                 matchesEl.appendChild(hdr);
 
                 gw.matches.forEach(m => {
+                    // Three states: covered (green), pending/awaiting (grey clock,
+                    // finished within the grace window), missing (red, a real gap).
+                    const state = m.covered ? 'covered' : (m.pending ? 'pending' : 'missing');
                     const mRow = document.createElement('div');
-                    mRow.className = 'cov-match-row' + (m.covered ? ' is-covered' : '');
+                    mRow.className = 'cov-match-row'
+                        + (state === 'covered' ? ' is-covered' : state === 'pending' ? ' is-pending' : '');
 
                     const icon = document.createElement('span');
                     icon.className = 'cov-match-icon';
-                    icon.innerHTML = m.covered
-                        ? '<i class="fi-br-check"></i>'
-                        : '<i class="fi-br-cross-small"></i>';
-                    icon.style.color = m.covered ? 'var(--green)' : 'var(--red)';
+                    if (state === 'covered')      { icon.innerHTML = '<i class="fi-br-check"></i>';       icon.style.color = 'var(--green)'; }
+                    else if (state === 'pending') { icon.innerHTML = '<i class="fi-br-clock"></i>';       icon.style.color = 'var(--muted)'; }
+                    else                          { icon.innerHTML = '<i class="fi-br-cross-small"></i>'; icon.style.color = 'var(--red)'; }
 
                     const teams = document.createElement('span');
                     teams.className   = 'cov-match-teams';
@@ -2146,7 +2173,13 @@ function renderCoverage(data) {
                     mRow.appendChild(icon);
                     mRow.appendChild(teams);
 
-                    if (!m.covered) {
+                    if (state === 'pending') {
+                        const lbl = document.createElement('span');
+                        lbl.className   = 'cov-awaiting-label';
+                        lbl.textContent = 'awaiting';
+                        lbl.title       = 'Finished recently - waiting for highlights to publish';
+                        mRow.appendChild(lbl);
+                    } else if (state === 'missing') {
                         const btn = document.createElement('button');
                         btn.className   = 'cov-goto-btn';
                         btn.textContent = '↗ Open config';
