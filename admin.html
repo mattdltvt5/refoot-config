@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="uicons/css/uicons-bold-rounded.css">
     <style>
         :root {
-            /* ── Light surface — brand & greys (existing 12 tokens; names unchanged) ── */
+            /* ── Light surface - brand & greys (existing 12 tokens; names unchanged) ── */
             --blue:      #2196F3;
             --blue-dark: #1976D2;
             --blue-bg:   #E3F2FD;
@@ -24,7 +24,7 @@
             --yellow:    #FF9800;
             --red:       #F44336;
 
-            /* ── Semantic colours — canonical per audit cluster (highest usage wins) ── */
+            /* ── Semantic colours - canonical per audit cluster (highest usage wins) ── */
             --accent:    var(--blue);    /* also-ran folded in: #1565C0 (log-info) */
             --success:   var(--green);   /* also-rans folded in: #388E3C, #2E7D32 */
             --danger:    var(--red);     /* also-rans folded in: #D32F2F, #C62828, #cc0000 */
@@ -63,7 +63,7 @@
             --accent-ring:   rgba(33,150,243,0.2);
             --success-soft:  rgba(76,175,80,0.08);
 
-            /* ── Dark surface ramp — on-black foreground. Replaces the 17 ad-hoc
+            /* ── Dark surface ramp - on-black foreground. Replaces the 17 ad-hoc
                   rgba(255,255,255,alpha) values; one token per distinct audited alpha.
                   Consumed by the `.surface-dark` scope (the black comp-header) that backs
                   the former ch-input-dark / field-chip-dark / yt-btn-dark twins. ── */
@@ -96,7 +96,7 @@
             min-height: 100vh;
         }
 
-        /* ── Header — exact match to app blue navbar ─────── */
+        /* ── Header - exact match to app blue navbar ─────── */
         header {
             background: var(--blue);
             height: 56px;
@@ -107,7 +107,10 @@
             position: sticky; top: 0; z-index: 100;
             box-shadow: 0 2px 4px var(--shadow-25);
         }
-        .header-logo { height: 30px; }
+        /* Circular ReFoot mark - same asset the app shows in its app bar. */
+        .header-brand { display: flex; align-items: center; gap: 10px; }
+        .header-logo { width: 34px; height: 34px; border-radius: 50%; object-fit: cover; display: block; }
+        .header-wordmark { color: var(--white); font-size: 18px; font-weight: 700; letter-spacing: .2px; }
         .header-right { display: flex; gap: var(--space-2); align-items: center; }
 
         /* ── Buttons ─────────────────────────────────────── */
@@ -127,7 +130,7 @@
         .btn-icon { font-size: 18px; }
         .btn-blue { box-shadow: 0 2px 6px var(--accent-shadow); padding: 9px 22px; font-size: 14px; }
 
-        /* Bare icon / text button role — no fill or border, muted, subtle hover.
+        /* Bare icon / text button role - no fill or border, muted, subtle hover.
            Shared reset for the coverage / pipeline / broadcaster icon buttons; each
            keeps only its own font-size + hover accent below. (Call sites migrate to
            the .icon-btn name in the later component step.) */
@@ -137,7 +140,7 @@
             padding: var(--space-1) 6px; display: inline-flex; align-items: center;
             transition: color 0.15s, background 0.15s;
         }
-        /* Outline / secondary button role — bordered, muted, non-uppercase. */
+        /* Outline / secondary button role - bordered, muted, non-uppercase. */
         .btn-outline, .btn-cred-clear, .debug-clear-btn, .cand-skip-btn {
             background: none; border: 1px solid var(--border); color: var(--muted);
             border-radius: var(--radius-sm); font-size: 12px; font-weight: 500;
@@ -302,7 +305,7 @@
         .chevron.open { transform: rotate(90deg); }
         /* Dark surface: the base input / button / chip on the black comp-header,
            via the on-dark ramp. A `.surface-dark` ancestor (the comp-header) is the
-           only difference — no separate "-dark" component class. */
+           only difference - no separate "-dark" component class. */
         .surface-dark .ch-input {
             background: var(--on-dark-10); border: 1px solid var(--on-dark-25);
             border-radius: var(--radius-sm); color: var(--white); font-family: inherit; font-size: 12px;
@@ -392,7 +395,7 @@
         .drawer-header-title { font-size: 16px; font-weight: 500; }
         .drawer-close-btn { font-size: 15px; text-transform: none; letter-spacing: 0; }
         .drawer-tabs { display: flex; border-bottom: 1px solid var(--border); flex-shrink: 0; }
-        /* Underline tab role — settings drawer + candidates section (one pattern). */
+        /* Underline tab role - settings drawer + candidates section (one pattern). */
         .tab, .drawer-tab, .cand-tab {
             background: none; border: none; border-bottom: 3px solid transparent;
             cursor: pointer; color: var(--muted); font-weight: 500;
@@ -484,7 +487,7 @@
             border: 1.5px solid var(--blue); display: none;
         }
 
-        /* ── Save button (header) — disabled until dirty ─── */
+        /* ── Save button (header) - disabled until dirty ─── */
         #save-btn:disabled { opacity: 0.35; cursor: not-allowed; pointer-events: none; }
 
         /* ── uicons sizing ──────────────────────────────────── */
@@ -614,7 +617,7 @@
         }
         .add-team-btn:hover { background: var(--blue-bg); }
 
-        /* ── Mobile — defaults (hidden on desktop) ──────── */
+        /* ── Mobile - defaults (hidden on desktop) ──────── */
         .team-count-mobile { display: none; }
         .label-icon        { display: none; }
 
@@ -733,6 +736,19 @@
         /* Off-screen (not display:none) so password managers still detect it for
            login association, but the user never sees it. */
         .pw-username { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
+        /* Google sign-in button + secondary gate links */
+        .btn-google { display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%;
+            background: var(--white); color: var(--text); border: 1px solid var(--border);
+            font-weight: 600; font-size: 14px; padding: 11px 16px; border-radius: var(--radius-md);
+            cursor: pointer; margin-top: var(--space-2); font-family: inherit; }
+        .btn-google:hover { background: var(--bg-subtle); }
+        .btn-google svg { width: 18px; height: 18px; flex: 0 0 18px; }
+        .gate-divider { display: flex; align-items: center; gap: var(--space-2); margin: var(--space-4) 0 var(--space-2);
+            color: var(--muted); font-size: 11px; text-transform: uppercase; letter-spacing: .5px; }
+        .gate-divider::before, .gate-divider::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+        .gate-link { display: block; width: 100%; margin-top: var(--space-3); background: none; border: none;
+            color: var(--blue); font-size: 12px; text-decoration: underline; cursor: pointer; padding: 6px; }
+        .gate-link:hover { color: var(--blue-dark); }
     </style>
 </head>
 <body>
@@ -745,6 +761,37 @@
             <span class="gate-title">ReFoot Admin</span>
         </div>
 
+        <!-- Restoring an existing sign-in (Firebase resolves persistence async) -->
+        <div class="gate-pane" id="gate-checking" style="display:none">
+            <p class="gate-lede">Checking your sign-in…</p>
+        </div>
+
+        <!-- Primary: Google account sign-in -->
+        <div class="gate-pane" id="gate-account" style="display:none">
+            <p class="gate-lede">Sign in with your Google account. Your GitHub token and YouTube key are stored
+                in your account and synced across devices - you stay signed in across refreshes.</p>
+            <button class="btn-google" id="gate-google-btn">
+                <svg viewBox="0 0 48 48" aria-hidden="true"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg>
+                Sign in with Google
+            </button>
+            <div class="modal-error" id="gate-account-error"></div>
+            <button class="gate-link" id="gate-use-pass-btn">Use a device passphrase instead</button>
+        </div>
+
+        <!-- First account login: capture credentials once, stored in the account -->
+        <div class="gate-pane" id="gate-account-setup" style="display:none">
+            <p class="gate-lede">Signed in as <strong id="gate-acc-name">admin</strong>. Add your credentials once -
+                they're saved to your account and synced to every device you sign in on.</p>
+            <label class="gate-label" for="gate-acc-pat">GitHub token</label>
+            <input class="form-input" id="gate-acc-pat" name="github-token" type="password" autocomplete="off" placeholder="github_pat_xxxx or ghp_xxxx">
+            <label class="gate-label" for="gate-acc-yt">YouTube API key <span class="gate-opt">(optional)</span></label>
+            <input class="form-input" id="gate-acc-yt" name="youtube-key" type="password" autocomplete="off" placeholder="AIzaSy…">
+            <button class="btn-blue gate-submit" id="gate-acc-save-btn">Save &amp; continue</button>
+            <div class="gate-note">Tip: a non-expiring fine-grained GitHub token means you set it once, ever.</div>
+            <div class="modal-error" id="gate-account-setup-error"></div>
+            <button class="gate-link" id="gate-acc-signout-btn">Sign out</button>
+        </div>
+
         <!-- First-time setup (no vault yet) -->
         <div class="gate-pane" id="gate-setup" style="display:none">
             <!-- Hidden username so password managers save/associate the passphrase as a
@@ -752,7 +799,7 @@
             <input class="pw-username" type="text" name="username" autocomplete="username"
                    value="ReFoot Admin" readonly tabindex="-1" aria-hidden="true">
             <p class="gate-lede">Set a passphrase to protect this device. It encrypts your GitHub token and
-                YouTube key so you only sign in once — they never leave this browser and are never stored in plain text.</p>
+                YouTube key so you only sign in once - they never leave this browser and are never stored in plain text.</p>
             <label class="gate-label" for="gate-set-pass">Passphrase</label>
             <input class="form-input" id="gate-set-pass" name="passphrase" type="password" autocomplete="new-password" placeholder="Choose a passphrase">
             <label class="gate-label" for="gate-set-pass2">Confirm passphrase</label>
@@ -762,9 +809,10 @@
             <label class="gate-label" for="gate-set-yt">YouTube API key <span class="gate-opt">(optional)</span></label>
             <input class="form-input" id="gate-set-yt" name="youtube-key" type="password" autocomplete="off" placeholder="AIzaSy…">
             <button class="btn-blue gate-submit" id="gate-setup-btn">Create &amp; unlock</button>
-            <div class="gate-note">If you forget the passphrase there's no recovery — you'll re-enter your
+            <div class="gate-note">If you forget the passphrase there's no recovery - you'll re-enter your
                 token &amp; key. Tip: a non-expiring fine-grained GitHub token means you set it once.</div>
             <div class="modal-error" id="gate-setup-error"></div>
+            <button class="gate-link" id="gate-setup-use-account-btn">← Sign in with Google instead</button>
         </div>
 
         <!-- Returning: unlock existing vault -->
@@ -776,6 +824,7 @@
             <input class="form-input" id="gate-pass" name="passphrase" type="password" autocomplete="current-password" placeholder="Passphrase">
             <button class="btn-blue gate-submit" id="gate-unlock-btn">Unlock</button>
             <div class="modal-error" id="gate-unlock-error"></div>
+            <button class="gate-link" id="gate-unlock-use-account-btn">← Sign in with Google instead</button>
             <button class="gate-reset" id="gate-reset-btn">Forget stored credentials &amp; start over</button>
         </div>
     </div>
@@ -805,9 +854,9 @@
                 </div>
             </div>
             <div class="cred-missing-banner" id="cred-missing-banner">
-                GitHub token is required to load and save data — enter it below.
+                GitHub token is required to load and save data - enter it below.
             </div>
-            <p style="font-size:12px;color:var(--muted);margin-bottom:20px;line-height:1.6">Stored only in this browser/device — each device needs a one-time setup. A broad "cookies and site data" clear will wipe stored keys.</p>
+            <p style="font-size:12px;color:var(--muted);margin-bottom:20px;line-height:1.6">Stored only in this browser/device - each device needs a one-time setup. A broad "cookies and site data" clear will wipe stored keys.</p>
             <div class="form-group">
                 <label class="form-label" for="in-pat">GitHub Personal Access Token</label>
                 <div class="input-with-reveal">
@@ -852,7 +901,10 @@
 
 <!-- Header -->
 <header>
-    <img class="header-logo" src="data:image/png;base64,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" alt="ReFoot">
+    <div class="header-brand">
+        <img class="header-logo" src="refoot-logo.webp" alt="ReFoot">
+        <span class="header-wordmark">ReFoot</span>
+    </div>
     <div class="header-right">
         <button class="btn-ghost" id="save-btn" disabled><i class="fi-br-disk"></i> GitHub</button>
         <button class="btn-ghost" id="reload-btn"><i class="fi-br-refresh"></i> Reload</button>
@@ -881,7 +933,7 @@
             <span id="last-saved"></span>
         </div>
         <div id="fetch-log-bar">
-            <span id="fetch-log-time">Last fetch: —</span>
+            <span id="fetch-log-time">Last fetch: -</span>
             <span id="fetch-log-next"></span>
         </div>
         <div id="fetch-additions-list" style="display:none"></div>
@@ -922,6 +974,26 @@
 </main>
 
 <div id="toast"></div>
+
+<!-- Firebase (compat SDK) - Google account sign-in + per-account token sync.
+     The web config below is public by design; access is gated by Firebase Auth,
+     the Authorized-domains list, and the Firestore security rules (owner-only). -->
+<script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore-compat.js"></script>
+<script>
+    try {
+        firebase.initializeApp({
+            apiKey: 'AIzaSyBO1iMsaXcL5J0bczI1nrOQ4d6Xg1eTQxo',
+            authDomain: 'refoot-highlights-app.firebaseapp.com',
+            projectId: 'refoot-highlights-app',
+            storageBucket: 'refoot-highlights-app.firebasestorage.app',
+            messagingSenderId: '654326505222',
+            appId: '1:654326505222:web:86e8b597d3726dd0cd8887',
+            measurementId: 'G-8CVEHBGMDM'
+        });
+    } catch (e) { console.warn('Firebase init failed:', e); }
+</script>
 
 <script>
 const GH_OWNER = 'mattdltvt5';
@@ -976,7 +1048,7 @@ const COV_GROUPS = [
         names: ['Champions League', 'Europa League', 'Euro Cup', 'Copa America', 'World Cup'],
     },
 ];
-// Icons whose PNG is white-on-transparent — must be darkened on the
+// Icons whose PNG is white-on-transparent - must be darkened on the
 // light coverage card background via the .coverage-icon CSS class.
 const COV_WHITE_ICONS = new Set(['Champions League', 'Europa League', 'Euro Cup', 'Copa America', 'World Cup']);
 // Competitions whose fixture files use "matchday" (MD) rather than "gameweek" (GW).
@@ -991,10 +1063,28 @@ let unsaved = false;
 // in localStorage['rf_vault']. The passphrase is NEVER stored; the derived key
 // lives only in memory (vaultKey) so in-drawer edits can re-encrypt.
 const VAULT_KEY  = 'rf_vault';
-const LEGACY_PAT = 'rf_gh_pat';   // pre-vault plaintext keys — migrated then removed
+const LEGACY_PAT = 'rf_gh_pat';   // pre-vault plaintext keys - migrated then removed
 const LEGACY_YT  = 'rf_yt_key';
 let vaultKey  = null;             // CryptoKey (in-memory, post-unlock)
 let vaultSalt = null;             // Uint8Array salt (in-memory)
+
+// ── Account mode (Firebase Auth + Firestore) ─────────────
+// When signed in with Google, credentials live in Firestore under the user's uid
+// (adminSecrets/{uid}) instead of the local vault - synced across devices, and the
+// Firebase session persists so a refresh never re-prompts. The passphrase vault
+// stays fully functional as an offline fallback.
+let authMode = 'vault';           // 'account' once a Google user is signed in
+const _fb = { auth: null, db: null };
+function _fbReady() { return typeof firebase !== 'undefined' && firebase.apps && firebase.apps.length > 0; }
+async function accountLoadSecrets(uid) {
+    const snap = await _fb.db.collection('adminSecrets').doc(uid).get();
+    return snap.exists ? (snap.data() || {}) : {};
+}
+async function accountSaveSecrets() {
+    const u = _fb.auth && _fb.auth.currentUser;
+    if (!u) throw new Error('not signed in');
+    await _fb.db.collection('adminSecrets').doc(u.uid).set({ pat: ghPat, yt: ytApiKey }, { merge: true });
+}
 
 const _b64 = {
     enc: (buf) => btoa(String.fromCharCode(...new Uint8Array(buf))),
@@ -1031,9 +1121,13 @@ function updateCredStatus() {
     const badge = document.getElementById('settings-badge');
     if (badge) badge.style.display = hasPat ? 'none' : 'block';
 }
-// Persist an in-drawer credential edit by re-encrypting the (already-unlocked) vault.
+// Persist an in-drawer credential edit: write to the account (Firestore) when signed
+// in with Google, otherwise re-encrypt the (already-unlocked) local vault.
 async function saveCreds() {
-    if (vaultKey) {
+    if (authMode === 'account') {
+        try { await accountSaveSecrets(); }
+        catch (e) { dbg('Account save failed: ' + e, 'error'); }
+    } else if (vaultKey) {
         try { await _encryptVault(); }
         catch (e) { dbg('Vault save failed: ' + e, 'error'); }
     }
@@ -1099,7 +1193,7 @@ async function fetchSources() {
         'https://api.github.com/repos/' + GH_OWNER + '/' + GH_REPO + '/contents/' + GH_FILE,
         { headers: { 'Authorization': 'Bearer ' + ghPat, 'Accept': 'application/vnd.github+json' } }
     );
-    if (res.status === 404) { dbg('sources.json not found — starting fresh', 'info'); fileSha = null; return { competitions:{}, teams:{} }; }
+    if (res.status === 404) { dbg('sources.json not found - starting fresh', 'info'); fileSha = null; return { competitions:{}, teams:{} }; }
     if (res.status === 401) throw new Error('GitHub token invalid or expired');
     if (!res.ok) throw new Error('GitHub error: ' + res.status + ' ' + res.statusText);
     const data = await res.json();
@@ -1109,7 +1203,7 @@ async function fetchSources() {
 }
 
 async function writeSources(data, message) {
-    const body = { message: message || ('Update channel IDs — ' + today()), content: b64Encode(JSON.stringify(data, null, 2)) };
+    const body = { message: message || ('Update channel IDs - ' + today()), content: b64Encode(JSON.stringify(data, null, 2)) };
     if (fileSha) body.sha = fileSha;
     const res = await fetch(
         'https://api.github.com/repos/' + GH_OWNER + '/' + GH_REPO + '/contents/' + GH_FILE,
@@ -1135,7 +1229,7 @@ function parseChannelId(v) {
     const m = v.match(/(?:youtube\.com|youtu\.be)\/channel\/(UC[\w-]{22})/);
     return m ? m[1] : v;
 }
-// Shared approval predicate — the single source of truth for "is this team approved?".
+// Shared approval predicate - the single source of truth for "is this team approved?".
 // A team is approved once sources.json holds a valid channel id for it. Used by both
 // the candidate-card reconciliation (makeCandCard) and the Pending/Approved tab filter,
 // so the two surfaces can never disagree.
@@ -1212,7 +1306,7 @@ async function loadHighlightsCoverage() {
                   + '/main/highlights/summary.json?_=' + Date.now();
         const res = await fetch(url);
         if (!res.ok) {
-            panel.innerHTML = '<div class="cov-empty">No highlights data yet — run the fetch-highlights workflow first.</div>';
+            panel.innerHTML = '<div class="cov-empty">No highlights data yet - run the fetch-highlights workflow first.</div>';
             return;
         }
         renderCoverage(await res.json());
@@ -1232,7 +1326,7 @@ async function loadFetchLog() {
 }
 
 // ── Channel Candidates: review & approve ─────────────────
-// Reads highlights/channel-candidates.json (public raw read — no auth to VIEW).
+// Reads highlights/channel-candidates.json (public raw read - no auth to VIEW).
 // Approving writes the chosen channel into sources.json via the SAME BYO-PAT
 // commit path the editor uses (fetchSources → set teams[name] → writeSources).
 // Human-in-the-loop: nothing is written without an explicit per-team Approve click.
@@ -1241,7 +1335,7 @@ const CAND_WORKFLOW = 'find-channel-candidates.yml';
 let candidatesData  = null;
 const candSkipped   = new Set();   // session-only "comp::team" dismissals (writes nothing)
 const candApproved  = new Set();   // teams approved this session (for UI state)
-let candActiveTab   = 'pending';   // 'pending' | 'approved' — which group set is shown
+let candActiveTab   = 'pending';   // 'pending' | 'approved' - which group set is shown
 
 function candEmpty(html) {
     const d = document.createElement('div');
@@ -1334,7 +1428,7 @@ function renderCandidates(report) {
         });
     });
 
-    // Flags (teams with no/absent candidate) describe teams still needing a channel —
+    // Flags (teams with no/absent candidate) describe teams still needing a channel -
     // they belong to the Pending view only.
     if (!approvedTab) {
         const flags = report.flags || [];
@@ -1353,7 +1447,7 @@ function renderCandidates(report) {
     if (shown === 0) {
         body.appendChild(candEmpty(approvedTab
             ? 'No approved channels yet.'
-            : 'No pending approvals — all caught up.'));
+            : 'No pending approvals - all caught up.'));
     }
 }
 
@@ -1401,7 +1495,7 @@ function makeCandCard(comp, team, list) {
     } else {
         const skip = document.createElement('button');
         skip.className = 'cand-skip-btn'; skip.textContent = 'None of these / skip';
-        skip.title = 'Dismiss for this session — writes nothing';
+        skip.title = 'Dismiss for this session - writes nothing';
         skip.addEventListener('click', () => { candSkipped.add(comp + '::' + team); renderCandidates(candidatesData); });
         actions.appendChild(skip);
     }
@@ -1446,13 +1540,13 @@ function makeCandRow(comp, team, cand, index, card, assigned) {
     const subLine = document.createElement('div');
     subLine.className = 'cand-sub-line';
     const s1 = document.createElement('span'); s1.textContent = fmtSubs(cand.subscriberCount); subLine.appendChild(s1);
-    const s2 = document.createElement('span'); s2.textContent = 'score ' + (cand.score != null ? cand.score : '—'); subLine.appendChild(s2);
+    const s2 = document.createElement('span'); s2.textContent = 'score ' + (cand.score != null ? cand.score : '-'); subLine.appendChild(s2);
     const s3 = document.createElement('span'); s3.textContent = cand.channelId || ''; subLine.appendChild(s3);
     info.appendChild(subLine);
 
     if (cand.evidence) {
         const ev = document.createElement('div');
-        ev.className = 'cand-evidence'; ev.textContent = cand.evidence;   // WHY it ranked here — never hidden
+        ev.className = 'cand-evidence'; ev.textContent = cand.evidence;   // WHY it ranked here - never hidden
         info.appendChild(ev);
     }
     row.appendChild(info);
@@ -1503,7 +1597,7 @@ async function approveCandidate(comp, team, cand, card, btn) {
 
     const commitMsg = 'Approve channel: ' + team + ' → ' + channelId + ' [' + comp + ']';
     // Fresh load + write, with a single re-fetch/retry on sha optimistic-concurrency
-    // conflict — mirrors how the editor's save path uses the captured sha.
+    // conflict - mirrors how the editor's save path uses the captured sha.
     const doWrite = async () => {
         const data = await fetchSources();               // refreshes global fileSha
         if (!data.teams) data.teams = {};
@@ -1653,7 +1747,7 @@ function renderWorkflowStatus() {
     if (!rowsEl) return;
     if (!wfStatusCache) {
         rowsEl.innerHTML = wfRateLimited
-            ? '<div class="wf-note">GitHub API rate limit reached — try Refresh in a few minutes.</div>'
+            ? '<div class="wf-note">GitHub API rate limit reached - try Refresh in a few minutes.</div>'
             : '<div class="wf-note">Run status unavailable.</div>';
         return;
     }
@@ -1697,7 +1791,7 @@ function renderWorkflowStatus() {
     if (wfRateLimited) {
         const note = document.createElement('div');
         note.className = 'wf-note';
-        note.textContent = 'GitHub API rate limit reached — showing last known status.';
+        note.textContent = 'GitHub API rate limit reached - showing last known status.';
         rowsEl.appendChild(note);
     }
 }
@@ -1708,7 +1802,7 @@ function renderCoverage(data) {
     panel.innerHTML = '';
 
     if (!data) {
-        panel.innerHTML = '<div class="cov-empty">No highlights data yet — run the fetch-highlights workflow first.</div>';
+        panel.innerHTML = '<div class="cov-empty">No highlights data yet - run the fetch-highlights workflow first.</div>';
         return;
     }
 
@@ -1956,7 +2050,7 @@ function makeTeamRow(teamName, ch, pl, hasComp, compName) {
     statusDot.className = 'dot ' + dotC;
     statusDot.id = 'dot-' + sid(teamName);
     statusDot.title = (hasCh0 && hasPl0) ? 'Channel and playlist set'
-                    : (hasCh0 || hasPl0) ? 'Partial — channel or playlist missing'
+                    : (hasCh0 || hasPl0) ? 'Partial - channel or playlist missing'
                     : 'No channel or playlist';
 
     const nameEl = document.createElement('div');
@@ -2098,7 +2192,7 @@ function buildUI() {
                 + '<span class="comp-badge">' + allTeams.length + ' teams</span>'
                 + '<span class="team-count-mobile">' + allTeams.length + '</span>';
 
-            // ── Official channel chip — inline on the right ──
+            // ── Official channel chip - inline on the right ──
             const chipWrap = document.createElement('div');
             chipWrap.className = 'comp-ch-inline';
             chipWrap.addEventListener('click', e => e.stopPropagation());
@@ -2178,7 +2272,7 @@ function buildUI() {
             bcastSection.appendChild(addBcastBtn);
             block.appendChild(bcastSection);
 
-            // Section-level drag events — handle drop positioning for broadcaster reordering
+            // Section-level drag events - handle drop positioning for broadcaster reordering
             bcastSection.addEventListener('dragover', e => {
                 e.preventDefault();
                 e.dataTransfer.dropEffect = 'move';
@@ -2213,7 +2307,7 @@ function buildUI() {
             if (allTeams.length === 0) {
                 const note = document.createElement('div');
                 note.className = 'empty-note';
-                note.textContent = 'Teams not yet synced — run the sync workflow in GitHub Actions.';
+                note.textContent = 'Teams not yet synced - run the sync workflow in GitHub Actions.';
                 list.appendChild(note);
             } else {
                 allTeams.forEach(teamName => {
@@ -2235,7 +2329,7 @@ function buildUI() {
     });
 }
 
-// Returns the first .bcast-row whose top half is below the cursor — the row
+// Returns the first .bcast-row whose top half is below the cursor - the row
 // to insert the dragged item before.  Returns null to append at the end.
 function _bcastDragTarget(rows, cursorY) {
     return rows.reduce((closest, el) => {
@@ -2266,7 +2360,7 @@ async function triggerTier4Recheck(compName) {
 }
 
 function appendBcastRow(section, compName, bcastName, plValues) {
-    // plValues is always string[] — toPlArray() at call site guarantees this
+    // plValues is always string[] - toPlArray() at call site guarantees this
     const addBtn = section.querySelector('.add-bcast-btn');
     const row = document.createElement('div');
     row.className = 'bcast-row';
@@ -2317,7 +2411,7 @@ function appendBcastRow(section, compName, bcastName, plValues) {
     delBtn.title = 'Remove broadcaster';
     delBtn.innerHTML = '<i class="fi-br-cross"></i>';
 
-    // Grip handle — drag only starts from here, never from inputs
+    // Grip handle - drag only starts from here, never from inputs
     const gripEl = document.createElement('span');
     gripEl.className = 'bcast-grip';
     gripEl.textContent = '⠿';
@@ -2329,7 +2423,7 @@ function appendBcastRow(section, compName, bcastName, plValues) {
     row.appendChild(delBtn);
     section.insertBefore(row, addBtn);
 
-    // Row drag events — draggable is only set to true on grip mousedown,
+    // Row drag events - draggable is only set to true on grip mousedown,
     // preventing accidental drags when clicking inputs or the chip.
     row.addEventListener('dragstart', e => {
         if (!row.draggable) { e.preventDefault(); return; }
@@ -2514,10 +2608,10 @@ async function loadAll() {
         document.getElementById('last-saved').textContent = saved ? 'Last saved: '+saved : 'Never saved';
         buildUI();
         showContent();
-        loadHighlightsCoverage(); // async — does not block the main UI
-        loadCandidates();         // async — channel candidates review panel
-        loadFetchLog();           // async — does not block the main UI
-        renderNextFetch();        // sync — computed from cron schedule + current time
+        loadHighlightsCoverage(); // async - does not block the main UI
+        loadCandidates();         // async - channel candidates review panel
+        loadFetchLog();           // async - does not block the main UI
+        renderNextFetch();        // sync - computed from cron schedule + current time
         setInterval(renderNextFetch, 60000); // keep countdown live
         loadWorkflowStatus();     // async: GitHub Actions API (public repo, no token)
         setInterval(renderWorkflowStatus, 60000); // re-render age/overdue without refetching
@@ -2550,7 +2644,7 @@ async function saveData() {
         document.getElementById('last-saved').textContent = 'Last saved: ' + data._updated;
 
         // Detect which competitions had ONLY a broadcaster reorder (same keys, new sequence).
-        // Additions / removals are NOT a reorder — they don't need a re-check.
+        // Additions / removals are NOT a reorder - they don't need a re-check.
         const reorderComps = Object.entries(data.playlists || {})
             .filter(([comp, bcasters]) => {
                 const newKeys = Object.keys(bcasters);
@@ -2564,7 +2658,7 @@ async function saveData() {
             .map(([comp]) => comp);
 
         if (reorderComps.length > 0) {
-            toast('Saved — triggering re-check for ' + reorderComps.join(', ') + '…', 'success');
+            toast('Saved - triggering re-check for ' + reorderComps.join(', ') + '…', 'success');
             for (const comp of reorderComps) {
                 await triggerTier4Recheck(comp);
             }
@@ -2597,7 +2691,7 @@ function closeDrawer() {
 }
 
 // ── Events ───────────────────────────────────────────────
-// Drawer credential edits (vault already unlocked) — re-encrypt via saveCreds().
+// Drawer credential edits (vault already unlocked) - re-encrypt via saveCreds().
 document.getElementById('setup-confirm-btn').addEventListener('click', async () => {
     const pat   = document.getElementById('in-pat').value.trim();
     const ytKey = document.getElementById('in-yt-key').value.trim();
@@ -2664,7 +2758,7 @@ document.querySelectorAll('.cand-tab').forEach(btn =>
     btn.addEventListener('click', () => setCandTab(btn.dataset.tab)));
 document.getElementById('save-btn').addEventListener('click', saveData);
 
-// ── Accordion — one competition open at a time ────────────
+// ── Accordion - one competition open at a time ────────────
 // Single delegated listener on the stable container survives buildUI() re-renders.
 // Clicks on .comp-ch-inline (channel chip/input/play) already call stopPropagation()
 // so they never reach here and never trigger an accordion collapse.
@@ -2695,11 +2789,12 @@ window.addEventListener('beforeunload', e => { if(unsaved){e.preventDefault();e.
 
 // ── Auth gate + init ─────────────────────────────────────
 function showGate(pane) {
-    document.getElementById('gate-setup').style.display  = pane === 'setup'  ? 'block' : 'none';
-    document.getElementById('gate-unlock').style.display = pane === 'unlock' ? 'block' : 'none';
+    document.querySelectorAll('.gate-pane').forEach(p =>
+        p.style.display = (p.id === 'gate-' + pane) ? 'block' : 'none');
     document.getElementById('auth-gate').classList.add('show');
     document.getElementById('lock-btn').style.display = 'none';
-    const f = document.getElementById(pane === 'setup' ? 'gate-set-pass' : 'gate-pass');
+    const focusId = { setup: 'gate-set-pass', unlock: 'gate-pass', 'account-setup': 'gate-acc-pat' }[pane];
+    const f = focusId && document.getElementById(focusId);
     if (f) setTimeout(() => f.focus(), 50);
 }
 function hideGate() {
@@ -2718,7 +2813,7 @@ async function unlockWith(passphrase) {
 }
 function afterUnlock() {
     hideGate();
-    ['gate-pass','gate-set-pass','gate-set-pass2','gate-set-pat','gate-set-yt']
+    ['gate-pass','gate-set-pass','gate-set-pass2','gate-set-pat','gate-set-yt','gate-acc-pat','gate-acc-yt']
         .forEach(id => { const el = document.getElementById(id); if (el) el.value = ''; });
     document.getElementById('in-pat').value    = ghPat;      // mirror into the drawer for edits
     document.getElementById('in-yt-key').value = ytApiKey;
@@ -2781,19 +2876,100 @@ document.getElementById('gate-reset-btn').addEventListener('click', () => {
     prefillSetupFromLegacy();
     showGate('setup');
 });
-document.getElementById('lock-btn').addEventListener('click', lockVault);
+// Lock/sign-out: end the Google session when in account mode, else re-lock the vault.
+async function signOutAll() {
+    if (authMode === 'account' && _fb.auth && _fb.auth.currentUser) {
+        try { await _fb.auth.signOut(); }       // onAuthStateChanged routes back to the gate
+        catch (e) { dbg('Sign-out failed: ' + e, 'error'); }
+    } else {
+        lockVault();
+    }
+}
+document.getElementById('lock-btn').addEventListener('click', signOutAll);
 
-// Boot: gate first — no data loads until the vault is unlocked.
+// ── Google account handlers ──────────────────────────────
+document.getElementById('gate-google-btn').addEventListener('click', async () => {
+    const err = document.getElementById('gate-account-error');
+    err.style.display = 'none';
+    try {
+        await _fb.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
+        // onAuthStateChanged takes over: loads secrets → afterUnlock, or asks for them.
+    } catch (e) {
+        err.textContent = 'Sign-in failed: ' + (e.message || e);
+        err.style.display = 'block';
+    }
+});
+document.getElementById('gate-acc-save-btn').addEventListener('click', async () => {
+    const err = document.getElementById('gate-account-setup-error');
+    const pat = document.getElementById('gate-acc-pat').value.trim();
+    const yt  = document.getElementById('gate-acc-yt').value.trim();
+    if (!pat) { err.textContent = 'GitHub token is required.'; err.style.display = 'block'; return; }
+    err.style.display = 'none';
+    ghPat = pat; ytApiKey = yt;
+    try { await accountSaveSecrets(); afterUnlock(); }
+    catch (e) { err.textContent = 'Could not save to your account: ' + (e.message || e); err.style.display = 'block'; }
+});
+document.getElementById('gate-acc-signout-btn').addEventListener('click', () => {
+    if (_fb.auth) _fb.auth.signOut().catch(() => {});
+});
+document.getElementById('gate-use-pass-btn').addEventListener('click', () => {
+    showGate(localStorage.getItem(VAULT_KEY) ? 'unlock' : 'setup');
+});
+document.getElementById('gate-setup-use-account-btn').addEventListener('click', () => showGate('account'));
+document.getElementById('gate-unlock-use-account-btn').addEventListener('click', () => showGate('account'));
+
+// Wire Firebase Auth: persistent session + credential sync. Returns false if the SDK
+// didn't load (offline / blocked) so the caller can fall back to the passphrase vault.
+function initFirebaseAuth() {
+    if (!_fbReady()) return false;
+    try {
+        _fb.auth = firebase.auth();
+        _fb.db   = firebase.firestore();
+    } catch (e) { console.warn('Firebase services unavailable:', e); return false; }
+    _fb.auth.setPersistence(firebase.auth.Auth.Persistence.LOCAL).catch(() => {});
+    _fb.auth.onAuthStateChanged(async (user) => {
+        if (user) {
+            authMode = 'account';
+            const nameEl = document.getElementById('gate-acc-name');
+            if (nameEl) nameEl.textContent = user.displayName || user.email || 'admin';
+            let secrets = {};
+            try { secrets = await accountLoadSecrets(user.uid); }
+            catch (e) {
+                const err = document.getElementById('gate-account-error');
+                err.textContent = 'Could not read your account: ' + (e.message || e);
+                err.style.display = 'block';
+                showGate('account');
+                return;
+            }
+            if (secrets.pat) {
+                ghPat = secrets.pat; ytApiKey = secrets.yt || '';
+                afterUnlock();                    // hide gate + loadAll()
+            } else {
+                ytApiKey = secrets.yt || '';      // first login on this account
+                showGate('account-setup');
+            }
+        } else {
+            if (authMode === 'account') { ghPat = ''; ytApiKey = ''; updateCredStatus(); }
+            authMode = 'vault';
+            showGate('account');                  // primary: offer Google again
+        }
+    });
+    return true;
+}
+
+// Boot: gate first - no data loads until signed in (account or vault).
 (function initAuth() {
-    if (!(window.crypto && crypto.subtle)) {   // Web Crypto needs a secure context
+    if (!(window.crypto && crypto.subtle)) {   // Web Crypto needs a secure context (for the vault)
         document.getElementById('loading-state').innerHTML =
             '<div style="color:var(--red)">This page must be served over HTTPS (or localhost) to sign in.</div>';
         return;
     }
-    if (localStorage.getItem(VAULT_KEY)) {
-        showGate('unlock');
+    if (initFirebaseAuth()) {
+        showGate('checking');                  // onAuthStateChanged routes from here
+    } else if (localStorage.getItem(VAULT_KEY)) {
+        showGate('unlock');                    // Firebase unavailable → passphrase fallback
     } else {
-        prefillSetupFromLegacy();               // one-click migration from old plaintext creds
+        prefillSetupFromLegacy();
         showGate('setup');
     }
 })();
