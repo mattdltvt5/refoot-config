@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-13T15:01:39Z",
+  "generated_at": "2026-09-13T15:06:27Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -242,7 +242,7 @@
         {
           "gameweek": "GW4",
           "stem": "gameweek-4",
-          "total": 7,
+          "total": 8,
           "covered": 7,
           "matches": [
             {
@@ -293,6 +293,13 @@
               "away": "Arsenal FC",
               "date": "2026-09-12",
               "covered": true
+            },
+            {
+              "match_id": 560578,
+              "home": "Coventry City FC",
+              "away": "Brighton & Hove Albion FC",
+              "date": "2026-09-13",
+              "covered": false
             }
           ]
         }
