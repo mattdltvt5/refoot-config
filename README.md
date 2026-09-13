@@ -4,6 +4,10 @@ Remote channel configuration for the **ReFoot Highlights** Android app.
 
 ## Recent changes
 
+### Coverage: grace window for just-finished fixtures (2026-09-13)
+
+A fixture that only just kicked off/finished no longer shows as **missing** in the Web Admin coverage - it needs time for highlights to publish and for the fetch to catch up. `generate_summary()` now tags an uncovered fixture as **`pending`** while it is within `EST_MATCH_DURATION_HOURS + HIGHLIGHT_GRACE_HOURS` (2 + **12** = 14h) of kickoff, using the kickoff time from `fixtures/` / `tournament-groups/`. The admin renders `pending` as a neutral **"awaiting"** state (grey clock, an "N awaiting" chip) and **excludes it from the "N missing" count** and the missing-filter; once the window passes with still no highlight, it becomes a real red "missing". Tunable via the two constants in `highlights_common.py`. **Files:** `scripts/highlights_common.py`, `admin.html`, `scripts/tests/test_highlight_grace.py`.
+
 ### Alias-gap automation: scheduled detection + one-click approve (2026-09-13)
 
 Turned "a missing highlight caused by a team-title alias gap" into a surfaced, one-click fix, keeping the human-in-the-loop guard that prevents wrong joins:

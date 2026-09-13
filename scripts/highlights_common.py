@@ -34,6 +34,12 @@ SOURCES_JSON           = REPO_ROOT / "sources.json"
 # Written by the admin "Alias Gaps" panel (mirrors the channel-approve flow);
 # merged additively by team_tokens(). Absent/empty = no effect.
 TEAM_ALIASES_JSON      = REPO_ROOT / "team-aliases.json"
+# A finished fixture with no highlight yet is "awaiting" (not "missing") for this
+# long after estimated full-time, giving the fetch pipeline time to catch up.
+# Surfaced as a per-match `pending` flag in summary.json; the admin renders those
+# as "awaiting" and excludes them from the "N missing" count.
+HIGHLIGHT_GRACE_HOURS    = 12
+EST_MATCH_DURATION_HOURS = 2    # kickoff + this ≈ full-time; the grace clock starts here
 HIGHLIGHTS_DIR         = REPO_ROOT / "highlights"
 FIXTURES_DIR           = REPO_ROOT / "fixtures"
 RESULTS_DIR            = REPO_ROOT / "results"   # durable results ledger (self-healing)
@@ -2346,6 +2352,51 @@ def merge_into_gw(
 # ── Summary generation ────────────────────────────────────────────────────────
 
 
+def _within_highlight_grace(kickoff_iso, now=None) -> bool:
+    """True if `now` is still within a fixture's post-full-time grace window.
+
+    i.e. now < kickoff + EST_MATCH_DURATION_HOURS + HIGHLIGHT_GRACE_HOURS. Used to
+    mark a just-finished, not-yet-covered fixture as 'awaiting' rather than
+    'missing'. Bad/empty kickoff → False (treat as not-pending). `now` injectable
+    for tests; defaults to UTC now.
+    """
+    if not kickoff_iso:
+        return False
+    try:
+        kdt = datetime.fromisoformat(str(kickoff_iso).replace("Z", "+00:00"))
+    except (ValueError, TypeError):
+        return False
+    if kdt.tzinfo is None:
+        kdt = kdt.replace(tzinfo=timezone.utc)
+    if now is None:
+        now = datetime.now(timezone.utc)
+    return now < kdt + timedelta(hours=EST_MATCH_DURATION_HOURS + HIGHLIGHT_GRACE_HOURS)
+
+
+def _kickoff_map(slug: str, season: int) -> dict:
+    """match_id -> kickoff utcDate (ISO str), from fixtures/ and tournament-groups/.
+
+    Used only to decide whether an uncovered fixture is still within its
+    post-full-time grace window. Missing files degrade to {}.
+    """
+    out: dict = {}
+    fx = FIXTURES_DIR / slug / f"{season}.json"
+    if fx.exists():
+        for f in (load_json_file(fx) or {}).get("fixtures", []) or []:
+            mid, ko = f.get("match_id"), f.get("utcDate")
+            if mid is not None and ko:
+                out[mid] = ko
+    tg = REPO_ROOT / "tournament-groups" / f"{slug}.json"
+    if tg.exists():
+        data = load_json_file(tg) or {}
+        for key in ("groupMatches", "matches"):
+            for m in data.get(key, []) or []:
+                mid, ko = m.get("match_id"), m.get("utcDate")
+                if mid is not None and ko:
+                    out[mid] = ko
+    return out
+
+
 def generate_summary() -> None:
     """
     Scan all existing gameweek/matchday files and write highlights/summary.json.
@@ -2374,6 +2425,7 @@ def generate_summary() -> None:
         }
     """
     competitions: list[dict] = []
+    _now = datetime.now(timezone.utc)
 
     for comp_name, slug in COMPETITION_SLUG_MAP.items():
         season   = season_for_competition(comp_name)
@@ -2381,6 +2433,7 @@ def generate_summary() -> None:
         if not comp_dir.exists():
             continue
 
+        kickoff = _kickoff_map(slug, season)
         stems = COMPETITION_FILE_STEMS.get(comp_name, [])
 
         gameweeks: list[dict] = []
@@ -2404,6 +2457,12 @@ def generate_summary() -> None:
                         "away":     m["away_team"],
                         "date":     m.get("date", ""),
                         "covered":  bool(m.get("videos")),
+                        # `pending` = finished < grace window ago; the admin shows
+                        # these as "awaiting", not "missing". Omitted when False.
+                        **({"pending": True}
+                           if not m.get("videos")
+                           and _within_highlight_grace(kickoff.get(m["match_id"]), _now)
+                           else {}),
                     }
                     for m in matches_data
                 ],
