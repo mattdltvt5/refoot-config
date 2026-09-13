@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-13T16:56:57.442633Z",
+  "generated_at": "2026-09-13T17:21:48.166335Z",
   "competition": "Ligue 1",
   "slug": "ligue-1",
   "season": 2026,
@@ -159,6 +159,25 @@
     {
       "position": 9,
       "team": {
+        "id": 546,
+        "name": "Racing Club de Lens",
+        "shortName": "RC Lens",
+        "tla": "RCL",
+        "crest": "https://crests.football-data.org/546.png"
+      },
+      "playedGames": 4,
+      "form": "D,L,L,W",
+      "won": 1,
+      "draw": 1,
+      "lost": 2,
+      "points": 4,
+      "goalsFor": 8,
+      "goalsAgainst": 7,
+      "goalDifference": 1
+    },
+    {
+      "position": 10,
+      "team": {
         "id": 532,
         "name": "Angers SCO",
         "shortName": "Angers SCO",
@@ -176,7 +195,7 @@
       "goalDifference": -1
     },
     {
-      "position": 10,
+      "position": 11,
       "team": {
         "id": 531,
         "name": "ES Troyes AC",
@@ -193,25 +212,6 @@
       "goalsFor": 4,
       "goalsAgainst": 9,
       "goalDifference": -5
-    },
-    {
-      "position": 11,
-      "team": {
-        "id": 546,
-        "name": "Racing Club de Lens",
-        "shortName": "RC Lens",
-        "tla": "RCL",
-        "crest": "https://crests.football-data.org/546.png"
-      },
-      "playedGames": 3,
-      "form": "L,L,W",
-      "won": 1,
-      "draw": 0,
-      "lost": 2,
-      "points": 3,
-      "goalsFor": 6,
-      "goalsAgainst": 5,
-      "goalDifference": 1
     },
     {
       "position": 12,
@@ -235,6 +235,25 @@
     {
       "position": 13,
       "team": {
+        "id": 535,
+        "name": "Le Mans FC",
+        "shortName": "Le Mans",
+        "tla": "LMF",
+        "crest": "https://upload.wikimedia.org/wikipedia/en/thumb/5/57/Le_Mans_FC_logo.svg/330px-Le_Mans_FC_logo.svg.png"
+      },
+      "playedGames": 4,
+      "form": "D,D,L,D",
+      "won": 0,
+      "draw": 3,
+      "lost": 1,
+      "points": 3,
+      "goalsFor": 7,
+      "goalsAgainst": 8,
+      "goalDifference": -1
+    },
+    {
+      "position": 14,
+      "team": {
         "id": 519,
         "name": "AJ Auxerre",
         "shortName": "Auxerre",
@@ -250,25 +269,6 @@
       "goalsFor": 5,
       "goalsAgainst": 11,
       "goalDifference": -6
-    },
-    {
-      "position": 14,
-      "team": {
-        "id": 535,
-        "name": "Le Mans FC",
-        "shortName": "Le Mans",
-        "tla": "LMF",
-        "crest": "https://upload.wikimedia.org/wikipedia/en/thumb/5/57/Le_Mans_FC_logo.svg/330px-Le_Mans_FC_logo.svg.png"
-      },
-      "playedGames": 3,
-      "form": "D,L,D",
-      "won": 0,
-      "draw": 2,
-      "lost": 1,
-      "points": 2,
-      "goalsFor": 5,
-      "goalsAgainst": 6,
-      "goalDifference": -1
     },
     {
       "position": 15,
