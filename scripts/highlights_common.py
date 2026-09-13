@@ -606,7 +606,7 @@ TEAM_TITLE_ALIASES: dict[str, list[str]] = {
     "SK Slavia Praha":             ["SK Slavia Praha", "Slavia Praha", "Slavia Prague"],
     "SK Sturm Graz":               ["SK Sturm Graz", "Sturm Graz", "Sturm"],
     "ŠK Slovan Bratislava":        ["ŠK Slovan Bratislava", "Slovan Bratislava", "Slovan"],
-    "Shakhtar Donetsk":            ["Shakhtar Donetsk", "Shakhtar"],
+    "FK Shakhtar Donetsk":         ["FK Shakhtar Donetsk", "Shakhtar Donetsk", "Shakhtar"],
     "Sport Lisboa e Benfica":      ["Sport Lisboa e Benfica", "SL Benfica", "Benfica"],
     "Sporting Clube de Portugal":  ["Sporting Clube de Portugal", "Sporting CP", "Sporting"],
 
