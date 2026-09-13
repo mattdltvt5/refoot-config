@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-label="ReFoot Admin">
+  <defs>
+    <clipPath id="rounded"><rect width="512" height="512" rx="115"/></clipPath>
+  </defs>
+  <g clip-path="url(#rounded)">
+    <!-- grout base shows between tiles -->
+    <rect width="512" height="512" fill="#6a827f"/>
+    <!-- 2x2 dark slate tiles with a small gap (grout) -->
+    <rect x="0"   y="0"   width="249" height="249" fill="#39474d"/>
+    <rect x="263" y="0"   width="249" height="249" fill="#313e45"/>
+    <rect x="0"   y="263" width="249" height="249" fill="#313e45"/>
+    <rect x="263" y="263" width="249" height="249" fill="#39474d"/>
+    <!-- central teal band across the middle -->
+    <rect x="0" y="198" width="512" height="116" fill="#7c9793"/>
+    <!-- wrench (upper-left, diagonal open-end spanner) -->
+    <g transform="rotate(-45 185 205)" fill="#e3e9e7">
+      <!-- handle -->
+      <rect x="167" y="150" width="36" height="185" rx="18"/>
+      <!-- open jaw (C) -->
+      <path d="M152 131 A38 38 0 1 1 218 131" fill="none" stroke="#e3e9e7" stroke-width="34" stroke-linecap="round"/>
+    </g>
+    <!-- ring + stem (lower centre) -->
+    <g fill="none" stroke="#e3e9e7" stroke-width="32" stroke-linecap="round">
+      <line x1="256" y1="322" x2="256" y2="356"/>
+      <circle cx="256" cy="402" r="44"/>
+    </g>
+  </g>
+</svg>

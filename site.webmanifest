@@ -1,0 +1,13 @@
+{
+  "name": "ReFoot Admin",
+  "short_name": "ReFoot Admin",
+  "icons": [
+    { "src": "refoot-admin-icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "refoot-admin-icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" }
+  ],
+  "theme_color": "#2196F3",
+  "background_color": "#F5F5F5",
+  "display": "standalone",
+  "start_url": "./admin.html",
+  "scope": "./"
+}

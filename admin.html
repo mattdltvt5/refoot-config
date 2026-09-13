@@ -8,6 +8,13 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="uicons/css/uicons-bold-rounded.css">
+    <!-- App icon: browser tab favicon, iOS/Android home-screen, and PWA manifest -->
+    <link rel="icon" type="image/svg+xml" href="refoot-admin-icon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="refoot-admin-icon-32.png">
+    <link rel="apple-touch-icon" href="refoot-admin-icon-180.png">
+    <link rel="manifest" href="site.webmanifest">
+    <meta name="theme-color" content="#2196F3">
+    <meta name="apple-mobile-web-app-title" content="ReFoot Admin">
     <style>
         :root {
             /* ── Light surface - brand & greys (existing 12 tokens; names unchanged) ── */
@@ -109,7 +116,7 @@
         }
         /* Circular ReFoot mark - same asset the app shows in its app bar. */
         .header-brand { display: flex; align-items: center; gap: 10px; }
-        .header-logo { width: 34px; height: 34px; border-radius: 50%; object-fit: cover; display: block; }
+        .header-logo { width: 34px; height: 34px; border-radius: 20%; object-fit: cover; display: block; }
         .header-wordmark { color: var(--white); font-size: 18px; font-weight: 700; letter-spacing: .2px; }
         .header-right { display: flex; gap: var(--space-2); align-items: center; }
         /* Keep the header from overflowing on small phones: the ghost buttons
@@ -415,6 +422,19 @@
         }
         .tab.active, .drawer-tab.active, .cand-tab.active { color: var(--blue); border-bottom-color: var(--blue); }
         .tab:not(.active):hover, .drawer-tab:not(.active):hover, .cand-tab:not(.active):hover { color: var(--text); }
+        /* Top-level section tabs: a sticky bar under the fixed header. Reuses the
+           existing .tab underline treatment (no new style system). */
+        .main-tabs {
+            display: flex; justify-content: center; gap: var(--space-5);
+            background: var(--white); border-bottom: 1px solid var(--border);
+            padding: 0 var(--space-4); position: sticky; top: 56px; z-index: 90;
+        }
+        .main-tabs .tab {
+            padding: var(--space-3) var(--space-2); font-size: 13px;
+            text-transform: uppercase; letter-spacing: 0.4px; margin-bottom: -1px;
+        }
+        .tab-panel { display: none; }
+        .tab-panel.active { display: block; }
         .drawer-tab {
             flex: 1; padding: var(--space-3) var(--space-2); font-size: 13px;
             text-transform: uppercase; letter-spacing: 0.4px; margin-bottom: -1px;
@@ -914,7 +934,7 @@
 <!-- Header -->
 <header>
     <div class="header-brand">
-        <img class="header-logo" src="refoot-logo.webp" alt="ReFoot">
+        <img class="header-logo" src="refoot-admin-icon.svg" alt="ReFoot Admin">
         <span class="header-wordmark">ReFoot</span>
     </div>
     <div class="header-right">
@@ -928,6 +948,13 @@
     </div>
 </header>
 
+<!-- Top-level section tabs (one per major section; controlled by JS + URL hash) -->
+<nav class="main-tabs" role="tablist" aria-label="Admin sections">
+    <button class="tab active" id="tab-coverage"   role="tab" aria-selected="true"  aria-controls="panel-coverage"   data-tab="coverage">Coverage</button>
+    <button class="tab"        id="tab-candidates" role="tab" aria-selected="false" aria-controls="panel-candidates" data-tab="candidates">Candidates</button>
+    <button class="tab"        id="tab-channels"   role="tab" aria-selected="false" aria-controls="panel-channels"   data-tab="channels">Channels</button>
+</nav>
+
 <main>
     <!-- CORS warning (shown when opened as file://) -->
     <div id="cors-banner">
@@ -938,7 +965,14 @@
         This file works for saving channel IDs even locally, but teams require HTTPS.
     </div>
 
+    <!-- Global loading spinner (shown during data load, across all tabs) -->
+    <div id="loading-state">
+        <div class="spinner"></div>
+        <div id="loading-text">Initialising…</div>
+    </div>
+
     <!-- Highlights coverage dashboard -->
+    <div class="tab-panel active" id="panel-coverage" role="tabpanel" aria-labelledby="tab-coverage">
     <div id="status-bar" style="display:none">
         <div id="cov-topbar">
             <span id="cov-topbar-label"><i class="fi-br-film"></i> Highlights Coverage</span>
@@ -960,8 +994,10 @@
             <div class="cov-empty">Loading coverage data…</div>
         </div>
     </div>
+    </div><!-- /panel-coverage -->
 
     <!-- Channel Candidates review & approve (reads highlights/channel-candidates.json) -->
+    <div class="tab-panel" id="panel-candidates" role="tabpanel" aria-labelledby="tab-candidates">
     <div id="candidates-section">
         <div class="cand-head">
             <span class="cand-head-label"><i class="fi-br-search"></i> Channel Candidates</span>
@@ -976,13 +1012,12 @@
             <div class="cand-empty">Loading candidates…</div>
         </div>
     </div>
+    </div><!-- /panel-candidates -->
 
-    <div id="loading-state">
-        <div class="spinner"></div>
-        <div id="loading-text">Initialising…</div>
-    </div>
-
+    <!-- Channels / competitions editor -->
+    <div class="tab-panel" id="panel-channels" role="tabpanel" aria-labelledby="tab-channels">
     <div id="competitions-container" style="display:none"></div>
+    </div><!-- /panel-channels -->
 </main>
 
 <div id="toast"></div>
@@ -2798,6 +2833,37 @@ document.getElementById('competitions-container').addEventListener('click', e =>
     }
 });
 window.addEventListener('beforeunload', e => { if(unsaved){e.preventDefault();e.returnValue='';} });
+
+// ── Top-level section tabs ───────────────────────────────
+// Presentation-only: shows one section panel at a time and mirrors the active
+// tab into location.hash (e.g. #coverage) so a refresh/RELOAD restores it.
+// Does not touch any section's own data-load or show/hide logic.
+function activateTab(name) {
+    const tabs   = document.querySelectorAll('.main-tabs .tab');
+    const panels = document.querySelectorAll('.tab-panel');
+    let matched = false;
+    tabs.forEach(t => {
+        const on = t.dataset.tab === name;
+        t.classList.toggle('active', on);
+        t.setAttribute('aria-selected', on ? 'true' : 'false');
+        if (on) matched = true;
+    });
+    if (!matched) return false;
+    panels.forEach(p => p.classList.toggle('active', p.id === 'panel-' + name));
+    return true;
+}
+(function initTabs() {
+    const tabs = [...document.querySelectorAll('.main-tabs .tab')];
+    if (!tabs.length) return;
+    const first = tabs[0].dataset.tab;
+    // Click sets the hash; the hashchange handler does the actual switch so the
+    // two stay in sync whether the user clicks a tab or edits the URL.
+    tabs.forEach(t => t.addEventListener('click', () => { location.hash = t.dataset.tab; }));
+    window.addEventListener('hashchange', () => {
+        if (!activateTab(location.hash.slice(1))) activateTab(first);
+    });
+    if (!activateTab(location.hash.slice(1))) activateTab(first);
+})();
 
 // ── Auth gate + init ─────────────────────────────────────
 function showGate(pane) {

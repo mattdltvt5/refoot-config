@@ -4,6 +4,19 @@ Remote channel configuration for the **ReFoot Highlights** Android app.
 
 ## Recent changes
 
+### Web Admin: tabbed section navigation (2026-09-13)
+
+`admin.html` no longer stacks its sections in one long scroll. A horizontal **tab bar sits
+directly below the fixed header** with one tab per major section - **Coverage** (Highlights
+Coverage: Pipeline runs, coverage bars, Last saved/Last fetch/Next timing), **Candidates**
+(Channel Candidates, including its own inner Pending/Approved toggle), and **Channels** (the
+competitions/channel editor). Exactly one section is visible at a time; the first tab is active
+on load. The active tab is mirrored into the URL hash (e.g. `#candidates`), so a browser refresh
+returns you to the same tab. This is a presentation/navigation-only change - no data-fetch,
+coverage-computation, pipeline-polling, or BYO-PAT commit logic was touched, the fixed header
+stays outside the tab system, and `admin.html` remains self-contained (vanilla JS, no new
+dependencies). **Files:** `admin.html`.
+
 ### Web Admin: dev component gallery (2026-08-31)
 
 Added **`gallery.html`** — a dev-only preview of the admin's shared roles/components (buttons, inputs, chips,
@@ -626,6 +639,21 @@ Requirements:
 - GitHub Personal Access Token with **Contents: Read & Write** on this repo
 
 The admin panel uses the [UIcons Bold Rounded](https://www.flaticon.com/uicons) icon set, hosted locally in `uicons/` so it works without an internet connection to Flaticon.
+
+### Tabbed navigation
+
+Below the fixed header (ReFoot logo, GitHub, Reload, lock, settings) is a tab bar that splits the
+panel into one section per tab:
+
+- **Coverage** - the Highlights Coverage dashboard (Pipeline run status, Leagues/International
+  coverage bars, and the Last saved / Last fetch / Next timing line).
+- **Candidates** - the Channel Candidates review-and-approve panel (with its own Pending/Approved
+  sub-toggle, described below).
+- **Channels** - the competitions/team channel editor.
+
+Only one section shows at a time (no long cross-section scroll). The active tab is stored in the
+URL hash (e.g. `.../admin.html#candidates`), so a page refresh reopens the tab you were on; an
+absent or unknown hash falls back to the first tab.
 
 ### Channel Candidates (review & approve)
 
