@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web Admin — Component Gallery (dev)</title>
+    <title>Web Admin - Component Gallery (dev)</title>
 
     <!-- Dev-only preview of admin.html's shared roles/components. Not linked from
          the admin. It fetches admin.html's <style> at load and injects it below,
-         so the gallery ALWAYS reflects the real, current admin CSS — no copy, no
+         so the gallery ALWAYS reflects the real, current admin CSS - no copy, no
          drift. admin.html itself is untouched. Open at /gallery.html. -->
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -44,7 +44,7 @@
     </style>
 </head>
 <body>
-    <div class="gx-head">Web Admin — Component Gallery <small>dev preview · reflects admin.html's live styles</small></div>
+    <div class="gx-head">Web Admin - Component Gallery <small>dev preview · reflects admin.html's live styles</small></div>
     <main id="g"><div class="gx-sec"><p>Loading admin.html styles…</p></div></main>
 
 <script>
@@ -62,25 +62,25 @@ function render() {
     const g = document.getElementById('g');
     g.innerHTML = [
 
-        sec('Buttons — primary', 'The filled blue role (.btn-primary). btn-blue is the large CTA; btn-cred-save the small variant.',
+        sec('Buttons - primary', 'The filled blue role (.btn-primary). btn-blue is the large CTA; btn-cred-save the small variant.',
             row('', `<button class="btn-blue">Save &amp; Load</button>
                      <button class="btn-cred-save">Save token</button>
                      <button class="cand-approve-btn">Approve</button>
                      <button class="btn-blue" disabled>Disabled</button>`)),
 
-        sec('Buttons — outline', 'The bordered/muted role (.btn-outline).',
+        sec('Buttons - outline', 'The bordered/muted role (.btn-outline).',
             row('', `<button class="btn-cred-clear">Clear</button>
                      <button class="cand-skip-btn">Skip</button>
                      <button class="debug-clear-btn">Clear log</button>`)),
 
-        sec('Buttons — icon / text (.icon-btn)', 'Bare icon buttons: neutral, accent (blue), and danger (red) hovers.',
+        sec('Buttons - icon / text (.icon-btn)', 'Bare icon buttons: neutral, accent (blue), and danger (red) hovers.',
             row('', `<button class="wf-refresh"><i class="fi-br-refresh"></i></button>
                      <button class="cand-refresh"><i class="fi-br-refresh"></i></button>
                      <button class="cov-goto-btn">Go to</button>
                      <button class="bcast-del-btn"><i class="fi-br-trash"></i></button>
                      <button class="bcast-pl-del"><i class="fi-br-cross"></i></button>`)),
 
-        sec('Buttons — ghost / icon-circle (on the blue header)', 'White-on-blue header controls.',
+        sec('Buttons - ghost / icon-circle (on the blue header)', 'White-on-blue header controls.',
             row('', `<button class="btn-ghost"><i class="fi-br-disk"></i> GitHub</button>
                      <button class="btn-ghost"><i class="fi-br-refresh"></i> Reload</button>
                      <button class="btn-icon"><i class="fi-br-home-settings"></i></button>
@@ -98,7 +98,7 @@ function render() {
             row('Light', `${chip('Channel', true)} ${chip('Playlist', false)}`) +
             row('Dark (.surface-dark)', `${chip('Official Channel', true)}`, 'surface-dark gx-ondark')),
 
-        sec('Tabs — one underline role', 'Settings-drawer tabs and candidate tabs now share the underline treatment.',
+        sec('Tabs - one underline role', 'Settings-drawer tabs and candidate tabs now share the underline treatment.',
             row('drawer-tabs', `<div class="drawer-tabs" style="width:320px"><button class="drawer-tab active">Credentials</button><button class="drawer-tab">Debug Log</button></div>`) +
             row('cand-tabs', `<div class="cand-tabs"><button class="cand-tab active">Pending</button><button class="cand-tab">Approved</button></div>`)),
 
@@ -132,7 +132,7 @@ function render() {
             row('', `<div class="cred-missing-banner" style="display:block">GitHub token is required to load and save data.</div>`) +
             row('', `<div class="comp-error">Failed to load teams for this competition.</div>`)),
 
-        sec('Cards — competition block',
+        sec('Cards - competition block',
             'The status-accented comp-block, with its dark comp-header (surface-dark) inside.',
             `<div class="comp-block status-green">
                 <div class="comp-header surface-dark">
