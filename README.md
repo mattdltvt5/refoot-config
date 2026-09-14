@@ -4,6 +4,10 @@ Remote channel configuration for the **ReFoot Highlights** Android app.
 
 ## Recent changes
 
+### Web Admin: responsive tab bar + "ALIAS" rename (2026-09-14)
+
+The top tab bar (`.main-tabs`) is now fully responsive: gap, horizontal padding, and font-size use `clamp()` so all four tabs fit on one line at any width (verified ~360 / 768 / desktop) with no cropping, no label wrapping (`white-space: nowrap`), and no horizontal page scroll. At desktop widths the clamps hit their max, so the original look is unchanged. The **"ALIAS GAPS" tab is renamed to "ALIAS"**; its id/`#aliasgaps` hash and panel mapping are unchanged, so existing links and the tab controller still resolve. Layout-only change on existing selectors (no new token system). **Files:** `admin.html`.
+
 ### Coverage: grace window for just-finished fixtures (2026-09-13)
 
 A fixture that only just kicked off/finished no longer shows as **missing** in the Web Admin coverage - it needs time for highlights to publish and for the fetch to catch up. `generate_summary()` now tags an uncovered fixture as **`pending`** while it is within `EST_MATCH_DURATION_HOURS + HIGHLIGHT_GRACE_HOURS` (2 + **12** = 14h) of kickoff, using the kickoff time from `fixtures/` / `tournament-groups/`. The admin renders `pending` as a neutral **"awaiting"** state (grey clock, an "N awaiting" chip) and **excludes it from the "N missing" count** and the missing-filter; once the window passes with still no highlight, it becomes a real red "missing". Tunable via the two constants in `highlights_common.py`. **Files:** `scripts/highlights_common.py`, `admin.html`, `scripts/tests/test_highlight_grace.py`.
