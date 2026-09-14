@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-14T13:45:24.575858Z",
+  "generated_at": "2026-09-14T21:07:00.645527Z",
   "competition": "LaLiga",
   "slug": "laliga",
   "season": 2026,
@@ -45,6 +45,25 @@
     {
       "position": 3,
       "team": {
+        "id": 90,
+        "name": "Real Betis Balompié",
+        "shortName": "Real Betis",
+        "tla": "BET",
+        "crest": "https://crests.football-data.org/90.png"
+      },
+      "playedGames": 5,
+      "form": "W,W,L,W,W",
+      "won": 4,
+      "draw": 0,
+      "lost": 1,
+      "points": 12,
+      "goalsFor": 7,
+      "goalsAgainst": 6,
+      "goalDifference": 1
+    },
+    {
+      "position": 4,
+      "team": {
         "id": 263,
         "name": "Deportivo Alavés",
         "shortName": "Alavés",
@@ -62,7 +81,7 @@
       "goalDifference": 6
     },
     {
-      "position": 4,
+      "position": 5,
       "team": {
         "id": 78,
         "name": "Club Atlético de Madrid",
@@ -81,7 +100,7 @@
       "goalDifference": 4
     },
     {
-      "position": 5,
+      "position": 6,
       "team": {
         "id": 559,
         "name": "Sevilla FC",
@@ -100,7 +119,7 @@
       "goalDifference": 2
     },
     {
-      "position": 6,
+      "position": 7,
       "team": {
         "id": 560,
         "name": "RC Deportivo La Coruña",
@@ -117,25 +136,6 @@
       "goalsFor": 9,
       "goalsAgainst": 6,
       "goalDifference": 3
-    },
-    {
-      "position": 7,
-      "team": {
-        "id": 90,
-        "name": "Real Betis Balompié",
-        "shortName": "Real Betis",
-        "tla": "BET",
-        "crest": "https://crests.football-data.org/90.png"
-      },
-      "playedGames": 4,
-      "form": "W,L,W,W",
-      "won": 3,
-      "draw": 0,
-      "lost": 1,
-      "points": 9,
-      "goalsFor": 5,
-      "goalsAgainst": 5,
-      "goalDifference": 0
     },
     {
       "position": 8,
@@ -336,15 +336,15 @@
         "tla": "VIL",
         "crest": "https://crests.football-data.org/94.png"
       },
-      "playedGames": 4,
-      "form": "L,L,D,D",
+      "playedGames": 5,
+      "form": "L,L,L,D,D",
       "won": 0,
       "draw": 2,
-      "lost": 2,
+      "lost": 3,
       "points": 2,
-      "goalsFor": 6,
-      "goalsAgainst": 8,
-      "goalDifference": -2
+      "goalsFor": 7,
+      "goalsAgainst": 10,
+      "goalDifference": -3
     },
     {
       "position": 19,

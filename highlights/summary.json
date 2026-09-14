@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-14T21:01:26Z",
+  "generated_at": "2026-09-14T21:06:31Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -639,7 +639,7 @@
         {
           "gameweek": "GW5",
           "stem": "gameweek-5",
-          "total": 9,
+          "total": 10,
           "covered": 9,
           "matches": [
             {
@@ -704,6 +704,14 @@
               "away": "Club Atlético de Madrid",
               "date": "2026-09-13",
               "covered": true
+            },
+            {
+              "match_id": 564671,
+              "home": "Villarreal CF",
+              "away": "Real Betis Balompié",
+              "date": "2026-09-14",
+              "covered": false,
+              "pending": true
             }
           ]
         },
