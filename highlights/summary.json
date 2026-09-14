@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-14T18:31:20Z",
+  "generated_at": "2026-09-14T18:36:30Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -957,7 +957,7 @@
         {
           "gameweek": "GW4",
           "stem": "gameweek-4",
-          "total": 8,
+          "total": 9,
           "covered": 7,
           "matches": [
             {
@@ -1013,6 +1013,14 @@
               "match_id": 558602,
               "home": "Como 1907",
               "away": "Parma Calcio 1913",
+              "date": "2026-09-14",
+              "covered": false,
+              "pending": true
+            },
+            {
+              "match_id": 558603,
+              "home": "Torino FC",
+              "away": "AS Roma",
               "date": "2026-09-14",
               "covered": false,
               "pending": true
