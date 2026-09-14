@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-14T18:56:22Z",
+  "generated_at": "2026-09-14T19:01:25Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -958,7 +958,7 @@
           "gameweek": "GW4",
           "stem": "gameweek-4",
           "total": 9,
-          "covered": 8,
+          "covered": 9,
           "matches": [
             {
               "match_id": 558606,
@@ -1021,8 +1021,7 @@
               "home": "Torino FC",
               "away": "AS Roma",
               "date": "2026-09-14",
-              "covered": false,
-              "pending": true
+              "covered": true
             }
           ]
         }
