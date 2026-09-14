@@ -1,11 +1,49 @@
 {
-  "generated_at": "2026-09-14T13:45:32.162921Z",
+  "generated_at": "2026-09-14T18:31:41.609050Z",
   "competition": "Serie A",
   "slug": "serie-a",
   "season": 2026,
   "standings": [
     {
       "position": 1,
+      "team": {
+        "id": 100,
+        "name": "AS Roma",
+        "shortName": "Roma",
+        "tla": "ROM",
+        "crest": "https://crests.football-data.org/100.png"
+      },
+      "playedGames": 4,
+      "form": "W,W,W,W",
+      "won": 4,
+      "draw": 0,
+      "lost": 0,
+      "points": 12,
+      "goalsFor": 12,
+      "goalsAgainst": 1,
+      "goalDifference": 11
+    },
+    {
+      "position": 2,
+      "team": {
+        "id": 7397,
+        "name": "Como 1907",
+        "shortName": "Como 1907",
+        "tla": "COM",
+        "crest": "https://crests.football-data.org/7397.png"
+      },
+      "playedGames": 4,
+      "form": "W,W,W,D",
+      "won": 3,
+      "draw": 1,
+      "lost": 0,
+      "points": 10,
+      "goalsFor": 9,
+      "goalsAgainst": 4,
+      "goalDifference": 5
+    },
+    {
+      "position": 3,
       "team": {
         "id": 110,
         "name": "SS Lazio",
@@ -24,26 +62,7 @@
       "goalDifference": 3
     },
     {
-      "position": 2,
-      "team": {
-        "id": 100,
-        "name": "AS Roma",
-        "shortName": "Roma",
-        "tla": "ROM",
-        "crest": "https://crests.football-data.org/100.png"
-      },
-      "playedGames": 3,
-      "form": "W,W,W",
-      "won": 3,
-      "draw": 0,
-      "lost": 0,
-      "points": 9,
-      "goalsFor": 10,
-      "goalsAgainst": 1,
-      "goalDifference": 9
-    },
-    {
-      "position": 3,
+      "position": 4,
       "team": {
         "id": 108,
         "name": "FC Internazionale Milano",
@@ -62,7 +81,7 @@
       "goalDifference": 5
     },
     {
-      "position": 4,
+      "position": 5,
       "team": {
         "id": 104,
         "name": "Cagliari Calcio",
@@ -81,7 +100,7 @@
       "goalDifference": 2
     },
     {
-      "position": 5,
+      "position": 6,
       "team": {
         "id": 98,
         "name": "AC Milan",
@@ -98,25 +117,6 @@
       "goalsFor": 7,
       "goalsAgainst": 4,
       "goalDifference": 3
-    },
-    {
-      "position": 6,
-      "team": {
-        "id": 7397,
-        "name": "Como 1907",
-        "shortName": "Como 1907",
-        "tla": "COM",
-        "crest": "https://crests.football-data.org/7397.png"
-      },
-      "playedGames": 3,
-      "form": "W,W,D",
-      "won": 2,
-      "draw": 1,
-      "lost": 0,
-      "points": 7,
-      "goalsFor": 7,
-      "goalsAgainst": 3,
-      "goalDifference": 4
     },
     {
       "position": 7,
@@ -260,15 +260,15 @@
         "tla": "TOR",
         "crest": "https://crests.football-data.org/586.png"
       },
-      "playedGames": 3,
-      "form": "W,L,L",
+      "playedGames": 4,
+      "form": "L,W,L,L",
       "won": 1,
       "draw": 0,
-      "lost": 2,
+      "lost": 3,
       "points": 3,
       "goalsFor": 4,
-      "goalsAgainst": 5,
-      "goalDifference": -1
+      "goalsAgainst": 7,
+      "goalDifference": -3
     },
     {
       "position": 15,
@@ -317,15 +317,15 @@
         "tla": "PAR",
         "crest": "https://crests.football-data.org/112.png"
       },
-      "playedGames": 3,
-      "form": "D,L,L",
+      "playedGames": 4,
+      "form": "L,D,L,L",
       "won": 0,
       "draw": 1,
-      "lost": 2,
+      "lost": 3,
       "points": 1,
-      "goalsFor": 1,
-      "goalsAgainst": 4,
-      "goalDifference": -3
+      "goalsFor": 2,
+      "goalsAgainst": 6,
+      "goalDifference": -4
     },
     {
       "position": 18,
