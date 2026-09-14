@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-14T18:41:30Z",
+  "generated_at": "2026-09-14T18:46:23Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -958,7 +958,7 @@
           "gameweek": "GW4",
           "stem": "gameweek-4",
           "total": 9,
-          "covered": 7,
+          "covered": 8,
           "matches": [
             {
               "match_id": 558606,
@@ -1014,8 +1014,7 @@
               "home": "Como 1907",
               "away": "Parma Calcio 1913",
               "date": "2026-09-14",
-              "covered": false,
-              "pending": true
+              "covered": true
             },
             {
               "match_id": 558603,
