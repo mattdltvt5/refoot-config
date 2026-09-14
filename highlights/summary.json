@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-14T21:51:17Z",
+  "generated_at": "2026-09-14T21:56:17Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -243,7 +243,7 @@
           "gameweek": "GW4",
           "stem": "gameweek-4",
           "total": 10,
-          "covered": 9,
+          "covered": 10,
           "matches": [
             {
               "match_id": 560573,
@@ -313,8 +313,7 @@
               "home": "Leeds United FC",
               "away": "Newcastle United FC",
               "date": "2026-09-14",
-              "covered": false,
-              "pending": true
+              "covered": true
             }
           ]
         }
