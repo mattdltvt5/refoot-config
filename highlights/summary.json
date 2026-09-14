@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-14T20:41:10Z",
+  "generated_at": "2026-09-14T20:46:20Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -957,7 +957,7 @@
         {
           "gameweek": "GW4",
           "stem": "gameweek-4",
-          "total": 9,
+          "total": 10,
           "covered": 9,
           "matches": [
             {
@@ -1022,6 +1022,14 @@
               "away": "AS Roma",
               "date": "2026-09-14",
               "covered": true
+            },
+            {
+              "match_id": 558601,
+              "home": "FC Internazionale Milano",
+              "away": "Udinese Calcio",
+              "date": "2026-09-14",
+              "covered": false,
+              "pending": true
             }
           ]
         }

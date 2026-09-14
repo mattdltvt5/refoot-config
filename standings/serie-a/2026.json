@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-14T20:26:26.188719Z",
+  "generated_at": "2026-09-14T20:46:40.590871Z",
   "competition": "Serie A",
   "slug": "serie-a",
   "season": 2026,
@@ -26,6 +26,25 @@
     {
       "position": 2,
       "team": {
+        "id": 108,
+        "name": "FC Internazionale Milano",
+        "shortName": "Inter",
+        "tla": "INT",
+        "crest": "https://crests.football-data.org/108.png"
+      },
+      "playedGames": 4,
+      "form": "W,W,W,W",
+      "won": 4,
+      "draw": 0,
+      "lost": 0,
+      "points": 12,
+      "goalsFor": 13,
+      "goalsAgainst": 6,
+      "goalDifference": 7
+    },
+    {
+      "position": 3,
+      "team": {
         "id": 7397,
         "name": "Como 1907",
         "shortName": "Como 1907",
@@ -43,7 +62,7 @@
       "goalDifference": 5
     },
     {
-      "position": 3,
+      "position": 4,
       "team": {
         "id": 110,
         "name": "SS Lazio",
@@ -60,25 +79,6 @@
       "goalsFor": 6,
       "goalsAgainst": 3,
       "goalDifference": 3
-    },
-    {
-      "position": 4,
-      "team": {
-        "id": 108,
-        "name": "FC Internazionale Milano",
-        "shortName": "Inter",
-        "tla": "INT",
-        "crest": "https://crests.football-data.org/108.png"
-      },
-      "playedGames": 3,
-      "form": "W,W,W",
-      "won": 3,
-      "draw": 0,
-      "lost": 0,
-      "points": 9,
-      "goalsFor": 8,
-      "goalsAgainst": 3,
-      "goalDifference": 5
     },
     {
       "position": 5,
@@ -241,15 +241,15 @@
         "tla": "UDI",
         "crest": "https://crests.football-data.org/115.png"
       },
-      "playedGames": 3,
-      "form": "L,W,D",
+      "playedGames": 4,
+      "form": "L,L,W,D",
       "won": 1,
       "draw": 1,
-      "lost": 1,
+      "lost": 2,
       "points": 4,
-      "goalsFor": 5,
-      "goalsAgainst": 5,
-      "goalDifference": 0
+      "goalsFor": 8,
+      "goalsAgainst": 10,
+      "goalDifference": -2
     },
     {
       "position": 14,
