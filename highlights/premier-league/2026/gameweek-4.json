@@ -2,7 +2,7 @@
   "competition": "Premier League",
   "gameweek": "GW4",
   "stem": "gameweek-4",
-  "generated_at": "2026-09-13T15:06:26Z",
+  "generated_at": "2026-09-14T00:01:29Z",
   "matches": [
     {
       "match_id": 560573,
@@ -107,7 +107,28 @@
       "home_team": "Coventry City FC",
       "away_team": "Brighton & Hove Albion FC",
       "date": "2026-09-13",
-      "videos": []
+      "videos": [
+        {
+          "video_id": "2wpPngasWjE",
+          "title": "Coventry City 0-5 Brighton and Hove Albion | Premier League Highlights",
+          "published_at": "2026-09-13",
+          "tier_used": 1
+        }
+      ]
+    },
+    {
+      "match_id": 560580,
+      "home_team": "Manchester United FC",
+      "away_team": "Manchester City FC",
+      "date": "2026-09-13",
+      "videos": [
+        {
+          "video_id": "De2YdZcJgy0",
+          "title": "Man Utd 0-1 Man City | Highlights",
+          "published_at": "2026-09-13",
+          "tier_used": 1
+        }
+      ]
     }
   ]
 }

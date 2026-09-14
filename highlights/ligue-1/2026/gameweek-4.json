@@ -2,7 +2,7 @@
   "competition": "Ligue 1",
   "gameweek": "GW4",
   "stem": "gameweek-4",
-  "generated_at": "2026-09-13T15:01:39Z",
+  "generated_at": "2026-09-14T00:01:28Z",
   "matches": [
     {
       "match_id": 559689,
@@ -65,7 +65,14 @@
       "home_team": "Le Havre AC",
       "away_team": "Angers SCO",
       "date": "2026-09-12",
-      "videos": []
+      "videos": [
+        {
+          "video_id": "kkfyXNAfoNY",
+          "title": "⚽️ Résumé : HAC - Angers SCO (0-0) I J4 - L1 McDonald's 2026-2027",
+          "published_at": "2026-09-13",
+          "tier_used": 1
+        }
+      ]
     },
     {
       "match_id": 559692,
@@ -86,7 +93,42 @@
       "home_team": "Lille OSC",
       "away_team": "ES Troyes AC",
       "date": "2026-09-13",
-      "videos": []
+      "videos": [
+        {
+          "video_id": "MI0iINyiO4k",
+          "title": "LOSC LILLE - ESTAC TROYES (2-0) | Week 4 - Ligue 1 McDonald's 26/27",
+          "published_at": "2026-09-13",
+          "tier_used": 2
+        }
+      ]
+    },
+    {
+      "match_id": 559686,
+      "home_team": "Le Mans FC",
+      "away_team": "Racing Club de Lens",
+      "date": "2026-09-13",
+      "videos": [
+        {
+          "video_id": "xALgN5TII3E",
+          "title": "LE MANS FC - RC LENS (2-2) | Week 4 - Ligue 1 McDonald's 26/27",
+          "published_at": "2026-09-13",
+          "tier_used": 2
+        }
+      ]
+    },
+    {
+      "match_id": 559691,
+      "home_team": "Stade Brestois 29",
+      "away_team": "Paris Saint-Germain FC",
+      "date": "2026-09-13",
+      "videos": [
+        {
+          "video_id": "taBlamKslbE",
+          "title": "STADE BRESTOIS 29 - PARIS SAINT-GERMAIN (0-1) | Week 4 - Ligue 1 McDonald's 26/27",
+          "published_at": "2026-09-13",
+          "tier_used": 2
+        }
+      ]
     }
   ]
 }
