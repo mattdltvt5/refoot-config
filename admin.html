@@ -433,14 +433,20 @@
         .tab:not(.active):hover, .drawer-tab:not(.active):hover, .cand-tab:not(.active):hover { color: var(--text); }
         /* Top-level section tabs: a sticky bar under the fixed header. Reuses the
            existing .tab underline treatment (no new style system). */
+        /* Fluid tab bar: clamp()s scale gap/padding/font down on narrow viewports
+           so all four tabs fit on one line without cropping or a page scrollbar;
+           at desktop widths the clamps hit their max and match the original look. */
         .main-tabs {
-            display: flex; justify-content: center; gap: var(--space-5);
+            display: flex; justify-content: center; gap: clamp(2px, 2.2vw, var(--space-5));
             background: var(--white); border-bottom: 1px solid var(--border);
-            padding: 0 var(--space-4); position: sticky; top: 56px; z-index: 90;
+            padding: 0 clamp(4px, 2vw, var(--space-4)); position: sticky; top: 56px; z-index: 90;
+            max-width: 100%; box-sizing: border-box;
         }
         .main-tabs .tab {
-            padding: var(--space-3) var(--space-2); font-size: 13px;
+            padding: var(--space-3) clamp(3px, 1.6vw, var(--space-2));
+            font-size: clamp(11px, 3vw, 13px);
             text-transform: uppercase; letter-spacing: 0.4px; margin-bottom: -1px;
+            white-space: nowrap;
         }
         .tab-panel { display: none; }
         .tab-panel.active { display: block; }
@@ -961,7 +967,7 @@
 <nav class="main-tabs" role="tablist" aria-label="Admin sections">
     <button class="tab active" id="tab-coverage"   role="tab" aria-selected="true"  aria-controls="panel-coverage"   data-tab="coverage">Coverage</button>
     <button class="tab"        id="tab-candidates" role="tab" aria-selected="false" aria-controls="panel-candidates" data-tab="candidates">Candidates</button>
-    <button class="tab"        id="tab-aliasgaps"  role="tab" aria-selected="false" aria-controls="panel-aliasgaps"  data-tab="aliasgaps">Alias Gaps</button>
+    <button class="tab"        id="tab-aliasgaps"  role="tab" aria-selected="false" aria-controls="panel-aliasgaps"  data-tab="aliasgaps">Alias</button>
     <button class="tab"        id="tab-channels"   role="tab" aria-selected="false" aria-controls="panel-channels"   data-tab="channels">Channels</button>
 </nav>
 
