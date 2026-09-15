@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-15T20:11:17Z",
+  "generated_at": "2026-09-15T20:16:12Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -717,7 +717,7 @@
           "gameweek": "GW6",
           "stem": "gameweek-6",
           "total": 3,
-          "covered": 2,
+          "covered": 3,
           "matches": [
             {
               "match_id": 564682,
@@ -738,8 +738,7 @@
               "home": "Deportivo Alavés",
               "away": "Valencia CF",
               "date": "2026-09-15",
-              "covered": false,
-              "pending": true
+              "covered": true
             }
           ]
         }
