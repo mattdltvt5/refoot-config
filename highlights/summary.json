@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-15T21:36:23Z",
+  "generated_at": "2026-09-15T21:41:14Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -717,7 +717,7 @@
           "gameweek": "GW6",
           "stem": "gameweek-6",
           "total": 4,
-          "covered": 3,
+          "covered": 4,
           "matches": [
             {
               "match_id": 564682,
@@ -745,8 +745,7 @@
               "home": "Elche CF",
               "away": "Real Madrid CF",
               "date": "2026-09-15",
-              "covered": false,
-              "pending": true
+              "covered": true
             }
           ]
         }
