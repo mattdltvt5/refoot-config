@@ -4,6 +4,10 @@ Remote channel configuration for the **ReFoot Highlights** Android app.
 
 ## Recent changes
 
+### Web Admin: responsive Candidates/Alias header (2026-09-15)
+
+The `.cand-head` header (shared by the Channel Candidates and Alias Gaps panels) crammed its title, Pending/Approved toggle, generated-date, and refresh into one row, so on narrow widths the title wrapped mid-phrase. It now `flex-wrap`s with the title and date each kept on one line (`white-space: nowrap`); a `@media (max-width: 520px)` rule reorders it into two tidy rows (title + refresh on top, toggle + date below). Desktop keeps its original single row. Layout-only on existing selectors; the Pending/Approved sub-toggle is unchanged. **Files:** `admin.html`.
+
 ### Web Admin: responsive tab bar + "ALIAS" rename (2026-09-14)
 
 The top tab bar (`.main-tabs`) is now fully responsive: gap, horizontal padding, and font-size use `clamp()` so all four tabs fit on one line at any width (verified ~360 / 768 / desktop) with no cropping, no label wrapping (`white-space: nowrap`), and no horizontal page scroll. At desktop widths the clamps hit their max, so the original look is unchanged. The **"ALIAS GAPS" tab is renamed to "ALIAS"**; its id/`#aliasgaps` hash and panel mapping are unchanged, so existing links and the tab controller still resolve. Layout-only change on existing selectors (no new token system). **Files:** `admin.html`.
