@@ -705,16 +705,27 @@
 
         /* ── Channel Candidates (review & approve) ─────────────── */
         #candidates-section { display: none; margin-bottom: var(--space-4); }
-        .cand-head { display: flex; align-items: center; gap: 10px; padding: var(--space-3) var(--space-4);
+        /* Wraps to extra rows on narrow viewports so the title never breaks
+           mid-phrase and the Pending/Approved toggle + meta + refresh stay legible. */
+        .cand-head { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; row-gap: 6px;
+            padding: var(--space-3) var(--space-4);
             background: var(--white); border: 1px solid var(--border); border-radius: var(--radius-md) var(--radius-md) 0 0;
             border-bottom: none; }
-        .cand-head-label { font-weight: 700; font-size: 14px; display: flex; align-items: center; gap: var(--space-2); }
+        .cand-head-label { font-weight: 700; font-size: 14px; display: flex; align-items: center; gap: var(--space-2); white-space: nowrap; }
         .cand-head-label i { color: var(--blue); }
-        .cand-head-meta { color: var(--muted); font-size: 12px; margin-left: auto; }
+        .cand-head-meta { color: var(--muted); font-size: 12px; margin-left: auto; white-space: nowrap; }
         .cand-tabs { display: inline-flex; gap: var(--space-3); }
         .cand-tab { padding: 5px 0; font-size: 12px; font-weight: 600; }
         .cand-refresh { font-size: 13px; }
         .cand-refresh:hover { background: var(--bg); color: var(--text); }
+        /* Narrow viewports: lay the header out as two tidy rows — title + refresh
+           on top, then the toggle + generated-date — instead of cramming one row
+           (which forced the title to wrap mid-phrase). Desktop keeps its single row. */
+        @media (max-width: 520px) {
+            .cand-head .cand-refresh   { order: 1; margin-left: auto; }
+            .cand-head .cand-tabs      { order: 2; }
+            .cand-head .cand-head-meta { order: 3; margin-left: 0; }
+        }
         .cand-body { background: var(--white); border: 1px solid var(--border); border-radius: 0 0 var(--radius-md) var(--radius-md);
             padding: var(--space-2) var(--space-3) var(--space-3); }
         .cand-empty { color: var(--muted); font-size: 13px; padding: 14px; text-align: center; line-height: 1.5; }
