@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-15T19:56:27.646476Z",
+  "generated_at": "2026-09-15T20:01:42.348636Z",
   "competition": "LaLiga",
   "slug": "laliga",
   "season": 2026,
@@ -70,15 +70,15 @@
         "tla": "ALA",
         "crest": "https://crests.football-data.org/263.png"
       },
-      "playedGames": 5,
-      "form": "L,W,W,D,W",
+      "playedGames": 6,
+      "form": "L,L,W,W,D",
       "won": 3,
       "draw": 1,
-      "lost": 1,
+      "lost": 2,
       "points": 10,
       "goalsFor": 11,
-      "goalsAgainst": 5,
-      "goalDifference": 6
+      "goalsAgainst": 6,
+      "goalDifference": 5
     },
     {
       "position": 5,
@@ -311,6 +311,25 @@
     {
       "position": 17,
       "team": {
+        "id": 95,
+        "name": "Valencia CF",
+        "shortName": "Valencia",
+        "tla": "VAL",
+        "crest": "https://crests.football-data.org/95.png"
+      },
+      "playedGames": 6,
+      "form": "W,L,L,L,L",
+      "won": 1,
+      "draw": 1,
+      "lost": 4,
+      "points": 4,
+      "goalsFor": 2,
+      "goalsAgainst": 10,
+      "goalDifference": -8
+    },
+    {
+      "position": 18,
+      "team": {
         "id": 84,
         "name": "Málaga CF",
         "shortName": "Málaga",
@@ -328,7 +347,7 @@
       "goalDifference": -6
     },
     {
-      "position": 18,
+      "position": 19,
       "team": {
         "id": 94,
         "name": "Villarreal CF",
@@ -347,7 +366,7 @@
       "goalDifference": -3
     },
     {
-      "position": 19,
+      "position": 20,
       "team": {
         "id": 285,
         "name": "Elche CF",
@@ -364,25 +383,6 @@
       "goalsFor": 6,
       "goalsAgainst": 13,
       "goalDifference": -7
-    },
-    {
-      "position": 20,
-      "team": {
-        "id": 95,
-        "name": "Valencia CF",
-        "shortName": "Valencia",
-        "tla": "VAL",
-        "crest": "https://crests.football-data.org/95.png"
-      },
-      "playedGames": 5,
-      "form": "L,L,L,L,D",
-      "won": 0,
-      "draw": 1,
-      "lost": 4,
-      "points": 1,
-      "goalsFor": 1,
-      "goalsAgainst": 10,
-      "goalDifference": -9
     }
   ]
 }
