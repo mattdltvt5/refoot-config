@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-14T22:56:35.540372Z",
+  "generated_at": "2026-09-15T19:11:57.592140Z",
   "competition": "LaLiga",
   "slug": "laliga",
   "season": 2026,
@@ -146,15 +146,15 @@
         "tla": "ESP",
         "crest": "https://crests.football-data.org/80.png"
       },
-      "playedGames": 5,
-      "form": "W,D,L,L,W",
+      "playedGames": 6,
+      "form": "L,W,D,L,L",
       "won": 2,
       "draw": 1,
-      "lost": 2,
+      "lost": 3,
       "points": 7,
-      "goalsFor": 8,
-      "goalsAgainst": 5,
-      "goalDifference": 3
+      "goalsFor": 9,
+      "goalsAgainst": 7,
+      "goalDifference": 2
     },
     {
       "position": 9,
@@ -216,6 +216,25 @@
     {
       "position": 12,
       "team": {
+        "id": 87,
+        "name": "Rayo Vallecano de Madrid",
+        "shortName": "Rayo Vallecano",
+        "tla": "RAY",
+        "crest": "https://crests.football-data.org/87.png"
+      },
+      "playedGames": 6,
+      "form": "W,L,W,L,D",
+      "won": 2,
+      "draw": 1,
+      "lost": 3,
+      "points": 7,
+      "goalsFor": 10,
+      "goalsAgainst": 15,
+      "goalDifference": -5
+    },
+    {
+      "position": 13,
+      "team": {
         "id": 92,
         "name": "Real Sociedad de Fútbol",
         "shortName": "Real Sociedad",
@@ -233,7 +252,7 @@
       "goalDifference": -5
     },
     {
-      "position": 13,
+      "position": 14,
       "team": {
         "id": 88,
         "name": "Levante UD",
@@ -252,7 +271,7 @@
       "goalDifference": -2
     },
     {
-      "position": 14,
+      "position": 15,
       "team": {
         "id": 82,
         "name": "Getafe CF",
@@ -271,7 +290,7 @@
       "goalDifference": -3
     },
     {
-      "position": 15,
+      "position": 16,
       "team": {
         "id": 558,
         "name": "RC Celta de Vigo",
@@ -288,25 +307,6 @@
       "goalsFor": 3,
       "goalsAgainst": 6,
       "goalDifference": -3
-    },
-    {
-      "position": 16,
-      "team": {
-        "id": 87,
-        "name": "Rayo Vallecano de Madrid",
-        "shortName": "Rayo Vallecano",
-        "tla": "RAY",
-        "crest": "https://crests.football-data.org/87.png"
-      },
-      "playedGames": 5,
-      "form": "L,W,L,D,L",
-      "won": 1,
-      "draw": 1,
-      "lost": 3,
-      "points": 4,
-      "goalsFor": 8,
-      "goalsAgainst": 14,
-      "goalDifference": -6
     },
     {
       "position": 17,
