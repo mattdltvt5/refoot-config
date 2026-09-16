@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-16T12:29:14.765719Z",
+  "generated_at": "2026-09-16T19:06:49.417064Z",
   "competition": "LaLiga",
   "slug": "laliga",
   "season": 2026,
@@ -45,6 +45,44 @@
     {
       "position": 3,
       "team": {
+        "id": 78,
+        "name": "Club Atlético de Madrid",
+        "shortName": "Atleti",
+        "tla": "ATL",
+        "crest": "https://crests.football-data.org/78.png"
+      },
+      "playedGames": 6,
+      "form": "W,W,L,W,D",
+      "won": 4,
+      "draw": 1,
+      "lost": 1,
+      "points": 13,
+      "goalsFor": 14,
+      "goalsAgainst": 6,
+      "goalDifference": 8
+    },
+    {
+      "position": 4,
+      "team": {
+        "id": 559,
+        "name": "Sevilla FC",
+        "shortName": "Sevilla FC",
+        "tla": "SEV",
+        "crest": "https://crests.football-data.org/559.png"
+      },
+      "playedGames": 6,
+      "form": "W,W,D,L,W",
+      "won": 4,
+      "draw": 1,
+      "lost": 1,
+      "points": 13,
+      "goalsFor": 9,
+      "goalsAgainst": 6,
+      "goalDifference": 3
+    },
+    {
+      "position": 5,
+      "team": {
         "id": 90,
         "name": "Real Betis Balompié",
         "shortName": "Real Betis",
@@ -62,7 +100,7 @@
       "goalDifference": 1
     },
     {
-      "position": 4,
+      "position": 6,
       "team": {
         "id": 263,
         "name": "Deportivo Alavés",
@@ -81,44 +119,6 @@
       "goalDifference": 5
     },
     {
-      "position": 5,
-      "team": {
-        "id": 78,
-        "name": "Club Atlético de Madrid",
-        "shortName": "Atleti",
-        "tla": "ATL",
-        "crest": "https://crests.football-data.org/78.png"
-      },
-      "playedGames": 5,
-      "form": "W,L,W,D,W",
-      "won": 3,
-      "draw": 1,
-      "lost": 1,
-      "points": 10,
-      "goalsFor": 10,
-      "goalsAgainst": 6,
-      "goalDifference": 4
-    },
-    {
-      "position": 6,
-      "team": {
-        "id": 559,
-        "name": "Sevilla FC",
-        "shortName": "Sevilla FC",
-        "tla": "SEV",
-        "crest": "https://crests.football-data.org/559.png"
-      },
-      "playedGames": 5,
-      "form": "W,D,L,W,W",
-      "won": 3,
-      "draw": 1,
-      "lost": 1,
-      "points": 10,
-      "goalsFor": 8,
-      "goalsAgainst": 6,
-      "goalDifference": 2
-    },
-    {
       "position": 7,
       "team": {
         "id": 560,
@@ -127,15 +127,15 @@
         "tla": "DEP",
         "crest": "https://crests.football-data.org/560.png"
       },
-      "playedGames": 5,
-      "form": "D,W,W,D,D",
+      "playedGames": 6,
+      "form": "L,D,W,W,D",
       "won": 2,
       "draw": 3,
-      "lost": 0,
+      "lost": 1,
       "points": 9,
       "goalsFor": 9,
-      "goalsAgainst": 6,
-      "goalDifference": 3
+      "goalsAgainst": 7,
+      "goalDifference": 2
     },
     {
       "position": 8,
@@ -197,25 +197,6 @@
     {
       "position": 11,
       "team": {
-        "id": 79,
-        "name": "CA Osasuna",
-        "shortName": "Osasuna",
-        "tla": "OSA",
-        "crest": "https://crests.football-data.org/79.png"
-      },
-      "playedGames": 5,
-      "form": "L,L,W,W,D",
-      "won": 2,
-      "draw": 1,
-      "lost": 2,
-      "points": 7,
-      "goalsFor": 5,
-      "goalsAgainst": 8,
-      "goalDifference": -3
-    },
-    {
-      "position": 12,
-      "team": {
         "id": 87,
         "name": "Rayo Vallecano de Madrid",
         "shortName": "Rayo Vallecano",
@@ -233,7 +214,7 @@
       "goalDifference": -5
     },
     {
-      "position": 13,
+      "position": 12,
       "team": {
         "id": 92,
         "name": "Real Sociedad de Fútbol",
@@ -250,6 +231,25 @@
       "goalsFor": 6,
       "goalsAgainst": 11,
       "goalDifference": -5
+    },
+    {
+      "position": 13,
+      "team": {
+        "id": 79,
+        "name": "CA Osasuna",
+        "shortName": "Osasuna",
+        "tla": "OSA",
+        "crest": "https://crests.football-data.org/79.png"
+      },
+      "playedGames": 6,
+      "form": "L,L,L,W,W",
+      "won": 2,
+      "draw": 1,
+      "lost": 3,
+      "points": 7,
+      "goalsFor": 5,
+      "goalsAgainst": 12,
+      "goalDifference": -7
     },
     {
       "position": 14,

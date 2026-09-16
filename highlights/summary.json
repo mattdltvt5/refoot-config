@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-16T19:01:29Z",
+  "generated_at": "2026-09-16T19:06:29Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -716,7 +716,7 @@
         {
           "gameweek": "GW6",
           "stem": "gameweek-6",
-          "total": 4,
+          "total": 6,
           "covered": 4,
           "matches": [
             {
@@ -746,6 +746,22 @@
               "away": "Real Madrid CF",
               "date": "2026-09-15",
               "covered": true
+            },
+            {
+              "match_id": 564679,
+              "home": "RC Deportivo La Coruña",
+              "away": "Sevilla FC",
+              "date": "2026-09-16",
+              "covered": false,
+              "pending": true
+            },
+            {
+              "match_id": 564684,
+              "home": "Club Atlético de Madrid",
+              "away": "CA Osasuna",
+              "date": "2026-09-16",
+              "covered": false,
+              "pending": true
             }
           ]
         }
