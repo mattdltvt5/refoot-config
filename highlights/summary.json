@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-16T21:51:22Z",
+  "generated_at": "2026-09-16T21:56:14Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -717,7 +717,7 @@
           "gameweek": "GW6",
           "stem": "gameweek-6",
           "total": 7,
-          "covered": 6,
+          "covered": 7,
           "matches": [
             {
               "match_id": 564682,
@@ -766,8 +766,7 @@
               "home": "FC Barcelona",
               "away": "Real Racing Club de Santander",
               "date": "2026-09-16",
-              "covered": false,
-              "pending": true
+              "covered": true
             }
           ]
         }
