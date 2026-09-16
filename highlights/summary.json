@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-16T19:16:19Z",
+  "generated_at": "2026-09-16T19:21:16Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -717,7 +717,7 @@
           "gameweek": "GW6",
           "stem": "gameweek-6",
           "total": 6,
-          "covered": 5,
+          "covered": 6,
           "matches": [
             {
               "match_id": 564682,
@@ -752,8 +752,7 @@
               "home": "RC Deportivo La Coruña",
               "away": "Sevilla FC",
               "date": "2026-09-16",
-              "covered": false,
-              "pending": true
+              "covered": true
             },
             {
               "match_id": 564684,
