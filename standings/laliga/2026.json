@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-17T12:29:00.611436Z",
+  "generated_at": "2026-09-17T19:11:52.490585Z",
   "competition": "LaLiga",
   "slug": "laliga",
   "season": 2026,
@@ -45,6 +45,25 @@
     {
       "position": 3,
       "team": {
+        "id": 90,
+        "name": "Real Betis Balompié",
+        "shortName": "Real Betis",
+        "tla": "BET",
+        "crest": "https://crests.football-data.org/90.png"
+      },
+      "playedGames": 6,
+      "form": "W,W,W,L,W",
+      "won": 5,
+      "draw": 0,
+      "lost": 1,
+      "points": 15,
+      "goalsFor": 8,
+      "goalsAgainst": 6,
+      "goalDifference": 2
+    },
+    {
+      "position": 4,
+      "team": {
         "id": 78,
         "name": "Club Atlético de Madrid",
         "shortName": "Atleti",
@@ -62,7 +81,7 @@
       "goalDifference": 8
     },
     {
-      "position": 4,
+      "position": 5,
       "team": {
         "id": 559,
         "name": "Sevilla FC",
@@ -79,25 +98,6 @@
       "goalsFor": 9,
       "goalsAgainst": 6,
       "goalDifference": 3
-    },
-    {
-      "position": 5,
-      "team": {
-        "id": 90,
-        "name": "Real Betis Balompié",
-        "shortName": "Real Betis",
-        "tla": "BET",
-        "crest": "https://crests.football-data.org/90.png"
-      },
-      "playedGames": 5,
-      "form": "W,W,L,W,W",
-      "won": 4,
-      "draw": 0,
-      "lost": 1,
-      "points": 12,
-      "goalsFor": 7,
-      "goalsAgainst": 6,
-      "goalDifference": 1
     },
     {
       "position": 6,
@@ -279,15 +279,15 @@
         "tla": "GET",
         "crest": "https://crests.football-data.org/82.png"
       },
-      "playedGames": 5,
-      "form": "D,D,L,W,L",
+      "playedGames": 6,
+      "form": "L,D,D,L,W",
       "won": 1,
       "draw": 2,
-      "lost": 2,
+      "lost": 3,
       "points": 5,
       "goalsFor": 3,
-      "goalsAgainst": 6,
-      "goalDifference": -3
+      "goalsAgainst": 7,
+      "goalDifference": -4
     },
     {
       "position": 16,

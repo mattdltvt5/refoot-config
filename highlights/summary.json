@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-17T19:06:11Z",
+  "generated_at": "2026-09-17T19:11:31Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -716,7 +716,7 @@
         {
           "gameweek": "GW6",
           "stem": "gameweek-6",
-          "total": 7,
+          "total": 8,
           "covered": 7,
           "matches": [
             {
@@ -767,6 +767,14 @@
               "away": "Real Racing Club de Santander",
               "date": "2026-09-16",
               "covered": true
+            },
+            {
+              "match_id": 564686,
+              "home": "Real Betis Balompié",
+              "away": "Getafe CF",
+              "date": "2026-09-17",
+              "covered": false,
+              "pending": true
             }
           ]
         }
