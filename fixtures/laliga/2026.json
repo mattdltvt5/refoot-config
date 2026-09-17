@@ -1,7 +1,7 @@
 {
   "competition": "LaLiga",
   "season": 2026,
-  "generated_at": "2026-09-17T04:21:15Z",
+  "generated_at": "2026-09-17T04:26:10Z",
   "fixtures": [
     {
       "match_id": 564634,
@@ -1516,6 +1516,34 @@
       "utcDate": "2026-09-15T19:30:00Z"
     },
     {
+      "match_id": 564685,
+      "group": "",
+      "matchday": 6,
+      "sourceRound": "Gameweek 6",
+      "homeTeam": {
+        "id": 88,
+        "name": "Levante UD",
+        "shortName": "Levante",
+        "tla": "LEV",
+        "crest": "https://crests.football-data.org/88.png"
+      },
+      "awayTeam": {
+        "id": 77,
+        "name": "Athletic Club",
+        "shortName": "Athletic",
+        "tla": "ATH",
+        "crest": "https://crests.football-data.org/77.png"
+      },
+      "score": {
+        "fullTime": {
+          "home": 0,
+          "away": 0
+        }
+      },
+      "status": "POSTPONED",
+      "utcDate": "2026-09-16T00:00:00Z"
+    },
+    {
       "match_id": 564679,
       "group": "",
       "matchday": 6,
@@ -1570,34 +1598,6 @@
       },
       "status": "FINISHED",
       "utcDate": "2026-09-16T17:00:00Z"
-    },
-    {
-      "match_id": 564685,
-      "group": "",
-      "matchday": 6,
-      "sourceRound": "Gameweek 6",
-      "homeTeam": {
-        "id": 88,
-        "name": "Levante UD",
-        "shortName": "Levante",
-        "tla": "LEV",
-        "crest": "https://crests.football-data.org/88.png"
-      },
-      "awayTeam": {
-        "id": 77,
-        "name": "Athletic Club",
-        "shortName": "Athletic",
-        "tla": "ATH",
-        "crest": "https://crests.football-data.org/77.png"
-      },
-      "score": {
-        "fullTime": {
-          "home": 0,
-          "away": 0
-        }
-      },
-      "status": "FINISHED",
-      "utcDate": "2026-09-16T19:30:00Z"
     },
     {
       "match_id": 564687,
