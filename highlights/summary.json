@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-17T21:36:21Z",
+  "generated_at": "2026-09-17T21:41:18Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -717,7 +717,7 @@
           "gameweek": "GW6",
           "stem": "gameweek-6",
           "total": 9,
-          "covered": 8,
+          "covered": 9,
           "matches": [
             {
               "match_id": 564682,
@@ -780,8 +780,7 @@
               "home": "Málaga CF",
               "away": "Villarreal CF",
               "date": "2026-09-17",
-              "covered": false,
-              "pending": true
+              "covered": true
             }
           ]
         }
