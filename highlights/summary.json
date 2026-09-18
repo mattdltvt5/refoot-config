@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-18T21:01:39Z",
+  "generated_at": "2026-09-18T21:06:28Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -314,6 +314,22 @@
               "away": "Newcastle United FC",
               "date": "2026-09-14",
               "covered": true
+            }
+          ]
+        },
+        {
+          "gameweek": "GW5",
+          "stem": "gameweek-5",
+          "total": 1,
+          "covered": 0,
+          "matches": [
+            {
+              "match_id": 560591,
+              "home": "Brentford FC",
+              "away": "Chelsea FC",
+              "date": "2026-09-18",
+              "covered": false,
+              "pending": true
             }
           ]
         }

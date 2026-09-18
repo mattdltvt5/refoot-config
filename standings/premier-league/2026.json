@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-18T12:07:35.529338Z",
+  "generated_at": "2026-09-18T21:06:49.771451Z",
   "competition": "Premier League",
   "slug": "premier-league",
   "season": 2026,
@@ -45,6 +45,25 @@
     {
       "position": 3,
       "team": {
+        "id": 402,
+        "name": "Brentford FC",
+        "shortName": "Brentford",
+        "tla": "BRE",
+        "crest": "https://crests.football-data.org/402.png"
+      },
+      "playedGames": 5,
+      "form": "W,D,D,D,W",
+      "won": 2,
+      "draw": 3,
+      "lost": 0,
+      "points": 9,
+      "goalsFor": 10,
+      "goalsAgainst": 4,
+      "goalDifference": 6
+    },
+    {
+      "position": 4,
+      "team": {
         "id": 341,
         "name": "Leeds United FC",
         "shortName": "Leeds United",
@@ -62,7 +81,7 @@
       "goalDifference": 4
     },
     {
-      "position": 4,
+      "position": 5,
       "team": {
         "id": 322,
         "name": "Hull City AFC",
@@ -81,7 +100,7 @@
       "goalDifference": 3
     },
     {
-      "position": 5,
+      "position": 6,
       "team": {
         "id": 397,
         "name": "Brighton & Hove Albion FC",
@@ -100,7 +119,7 @@
       "goalDifference": 8
     },
     {
-      "position": 6,
+      "position": 7,
       "team": {
         "id": 61,
         "name": "Chelsea FC",
@@ -108,34 +127,15 @@
         "tla": "CHE",
         "crest": "https://crests.football-data.org/61.png"
       },
-      "playedGames": 4,
-      "form": "D,L,W,W",
+      "playedGames": 5,
+      "form": "L,D,L,W,W",
       "won": 2,
       "draw": 1,
-      "lost": 1,
+      "lost": 2,
       "points": 7,
       "goalsFor": 10,
-      "goalsAgainst": 9,
-      "goalDifference": 1
-    },
-    {
-      "position": 7,
-      "team": {
-        "id": 402,
-        "name": "Brentford FC",
-        "shortName": "Brentford",
-        "tla": "BRE",
-        "crest": "https://crests.football-data.org/402.png"
-      },
-      "playedGames": 4,
-      "form": "D,D,D,W",
-      "won": 1,
-      "draw": 3,
-      "lost": 0,
-      "points": 6,
-      "goalsFor": 7,
-      "goalsAgainst": 4,
-      "goalDifference": 3
+      "goalsAgainst": 12,
+      "goalDifference": -2
     },
     {
       "position": 8,
