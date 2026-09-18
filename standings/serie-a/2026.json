@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-18T12:07:50.593668Z",
+  "generated_at": "2026-09-18T20:52:08.418157Z",
   "competition": "Serie A",
   "slug": "serie-a",
   "season": 2026,
@@ -165,15 +165,15 @@
         "tla": "SAS",
         "crest": "https://crests.football-data.org/471.png"
       },
-      "playedGames": 4,
-      "form": "W,D,W,L",
+      "playedGames": 5,
+      "form": "L,W,D,W,L",
       "won": 2,
       "draw": 1,
-      "lost": 1,
+      "lost": 2,
       "points": 7,
-      "goalsFor": 8,
-      "goalsAgainst": 7,
-      "goalDifference": 1
+      "goalsFor": 9,
+      "goalsAgainst": 9,
+      "goalDifference": 0
     },
     {
       "position": 10,
@@ -254,6 +254,25 @@
     {
       "position": 14,
       "team": {
+        "id": 5911,
+        "name": "AC Monza",
+        "shortName": "Monza",
+        "tla": "MON",
+        "crest": "https://crests.football-data.org/5911.png"
+      },
+      "playedGames": 5,
+      "form": "W,L,D,L,L",
+      "won": 1,
+      "draw": 1,
+      "lost": 3,
+      "points": 4,
+      "goalsFor": 8,
+      "goalsAgainst": 12,
+      "goalDifference": -4
+    },
+    {
+      "position": 15,
+      "team": {
         "id": 586,
         "name": "Torino FC",
         "shortName": "Torino",
@@ -271,7 +290,7 @@
       "goalDifference": -3
     },
     {
-      "position": 15,
+      "position": 16,
       "team": {
         "id": 99,
         "name": "ACF Fiorentina",
@@ -290,7 +309,7 @@
       "goalDifference": -6
     },
     {
-      "position": 16,
+      "position": 17,
       "team": {
         "id": 103,
         "name": "Bologna FC 1909",
@@ -309,7 +328,7 @@
       "goalDifference": -3
     },
     {
-      "position": 17,
+      "position": 18,
       "team": {
         "id": 112,
         "name": "Parma Calcio 1913",
@@ -326,25 +345,6 @@
       "goalsFor": 2,
       "goalsAgainst": 6,
       "goalDifference": -4
-    },
-    {
-      "position": 18,
-      "team": {
-        "id": 5911,
-        "name": "AC Monza",
-        "shortName": "Monza",
-        "tla": "MON",
-        "crest": "https://crests.football-data.org/5911.png"
-      },
-      "playedGames": 4,
-      "form": "L,D,L,L",
-      "won": 0,
-      "draw": 1,
-      "lost": 3,
-      "points": 1,
-      "goalsFor": 6,
-      "goalsAgainst": 11,
-      "goalDifference": -5
     },
     {
       "position": 19,

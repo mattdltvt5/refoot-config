@@ -1,11 +1,30 @@
 {
-  "generated_at": "2026-09-18T12:08:05.671870Z",
+  "generated_at": "2026-09-18T20:52:23.593162Z",
   "competition": "Ligue 1",
   "slug": "ligue-1",
   "season": 2026,
   "standings": [
     {
       "position": 1,
+      "team": {
+        "id": 548,
+        "name": "AS Monaco FC",
+        "shortName": "Monaco",
+        "tla": "ASM",
+        "crest": "https://crests.football-data.org/548.png"
+      },
+      "playedGames": 5,
+      "form": "W,D,W,W,W",
+      "won": 4,
+      "draw": 1,
+      "lost": 0,
+      "points": 13,
+      "goalsFor": 8,
+      "goalsAgainst": 3,
+      "goalDifference": 5
+    },
+    {
+      "position": 2,
       "team": {
         "id": 521,
         "name": "Lille OSC",
@@ -22,25 +41,6 @@
       "goalsFor": 7,
       "goalsAgainst": 2,
       "goalDifference": 5
-    },
-    {
-      "position": 2,
-      "team": {
-        "id": 548,
-        "name": "AS Monaco FC",
-        "shortName": "Monaco",
-        "tla": "ASM",
-        "crest": "https://crests.football-data.org/548.png"
-      },
-      "playedGames": 4,
-      "form": "D,W,W,W",
-      "won": 3,
-      "draw": 1,
-      "lost": 0,
-      "points": 10,
-      "goalsFor": 6,
-      "goalsAgainst": 2,
-      "goalDifference": 4
     },
     {
       "position": 3,
@@ -184,15 +184,15 @@
         "tla": "RCL",
         "crest": "https://crests.football-data.org/546.png"
       },
-      "playedGames": 4,
-      "form": "D,L,L,W",
+      "playedGames": 5,
+      "form": "L,D,L,L,W",
       "won": 1,
       "draw": 1,
-      "lost": 2,
+      "lost": 3,
       "points": 4,
-      "goalsFor": 8,
-      "goalsAgainst": 7,
-      "goalDifference": 1
+      "goalsFor": 9,
+      "goalsAgainst": 9,
+      "goalDifference": 0
     },
     {
       "position": 11,
