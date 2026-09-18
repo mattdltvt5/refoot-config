@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-18T20:36:17Z",
+  "generated_at": "2026-09-18T20:41:15Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -1325,15 +1325,14 @@
           "gameweek": "GW4",
           "stem": "gameweek-4",
           "total": 1,
-          "covered": 0,
+          "covered": 1,
           "matches": [
             {
               "match_id": 565804,
               "home": "FC Bayern München",
               "away": "1. FC Union Berlin",
               "date": "2026-09-18",
-              "covered": false,
-              "pending": true
+              "covered": true
             }
           ]
         }
