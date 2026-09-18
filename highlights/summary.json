@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-18T20:56:31Z",
+  "generated_at": "2026-09-18T21:01:39Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -1106,15 +1106,14 @@
           "gameweek": "GW5",
           "stem": "gameweek-5",
           "total": 1,
-          "covered": 0,
+          "covered": 1,
           "matches": [
             {
               "match_id": 558596,
               "home": "AC Monza",
               "away": "US Sassuolo Calcio",
               "date": "2026-09-18",
-              "covered": false,
-              "pending": true
+              "covered": true
             }
           ]
         }
