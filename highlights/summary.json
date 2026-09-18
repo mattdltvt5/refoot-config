@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-18T21:16:24Z",
+  "generated_at": "2026-09-18T21:21:21Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -1676,15 +1676,14 @@
           "gameweek": "GW5",
           "stem": "gameweek-5",
           "total": 1,
-          "covered": 0,
+          "covered": 1,
           "matches": [
             {
               "match_id": 559682,
               "home": "AS Monaco FC",
               "away": "Racing Club de Lens",
               "date": "2026-09-18",
-              "covered": false,
-              "pending": true
+              "covered": true
             }
           ]
         }
