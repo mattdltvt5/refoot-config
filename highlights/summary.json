@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-18T21:06:28Z",
+  "generated_at": "2026-09-18T21:11:42Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -797,6 +797,22 @@
               "away": "Villarreal CF",
               "date": "2026-09-17",
               "covered": true
+            }
+          ]
+        },
+        {
+          "gameweek": "GW7",
+          "stem": "gameweek-7",
+          "total": 1,
+          "covered": 0,
+          "matches": [
+            {
+              "match_id": 564692,
+              "home": "RCD Espanyol de Barcelona",
+              "away": "Elche CF",
+              "date": "2026-09-18",
+              "covered": false,
+              "pending": true
             }
           ]
         }
