@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-19T16:16:39Z",
+  "generated_at": "2026-09-19T16:21:33Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -835,7 +835,7 @@
           "gameweek": "GW7",
           "stem": "gameweek-7",
           "total": 3,
-          "covered": 2,
+          "covered": 3,
           "matches": [
             {
               "match_id": 564692,
@@ -856,8 +856,7 @@
               "home": "Athletic Club",
               "away": "Deportivo Alavés",
               "date": "2026-09-19",
-              "covered": false,
-              "pending": true
+              "covered": true
             }
           ]
         }
