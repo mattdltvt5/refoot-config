@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-19T20:51:41.579769Z",
+  "generated_at": "2026-09-19T20:56:40.896008Z",
   "competition": "Ligue 1",
   "slug": "ligue-1",
   "season": 2026,
@@ -26,6 +26,25 @@
     {
       "position": 2,
       "team": {
+        "id": 523,
+        "name": "Olympique Lyonnais",
+        "shortName": "Olympique Lyon",
+        "tla": "LYO",
+        "crest": "https://crests.football-data.org/523.png"
+      },
+      "playedGames": 5,
+      "form": "W,D,W,D,W",
+      "won": 3,
+      "draw": 2,
+      "lost": 0,
+      "points": 11,
+      "goalsFor": 10,
+      "goalsAgainst": 2,
+      "goalDifference": 8
+    },
+    {
+      "position": 3,
+      "team": {
         "id": 1045,
         "name": "Paris FC",
         "shortName": "Paris FC",
@@ -43,7 +62,7 @@
       "goalDifference": 5
     },
     {
-      "position": 3,
+      "position": 4,
       "team": {
         "id": 521,
         "name": "Lille OSC",
@@ -62,7 +81,7 @@
       "goalDifference": 5
     },
     {
-      "position": 4,
+      "position": 5,
       "team": {
         "id": 529,
         "name": "Stade Rennais FC 1901",
@@ -70,34 +89,15 @@
         "tla": "REN",
         "crest": "https://crests.football-data.org/529.png"
       },
-      "playedGames": 4,
-      "form": "W,W,W,D",
+      "playedGames": 5,
+      "form": "L,W,W,W,D",
       "won": 3,
       "draw": 1,
-      "lost": 0,
+      "lost": 1,
       "points": 10,
       "goalsFor": 8,
-      "goalsAgainst": 5,
-      "goalDifference": 3
-    },
-    {
-      "position": 5,
-      "team": {
-        "id": 523,
-        "name": "Olympique Lyonnais",
-        "shortName": "Olympique Lyon",
-        "tla": "LYO",
-        "crest": "https://crests.football-data.org/523.png"
-      },
-      "playedGames": 4,
-      "form": "D,W,D,W",
-      "won": 2,
-      "draw": 2,
-      "lost": 0,
-      "points": 8,
-      "goalsFor": 6,
-      "goalsAgainst": 2,
-      "goalDifference": 4
+      "goalsAgainst": 9,
+      "goalDifference": -1
     },
     {
       "position": 6,
