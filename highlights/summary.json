@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-19T15:31:41Z",
+  "generated_at": "2026-09-19T15:36:32Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -1398,7 +1398,7 @@
         {
           "gameweek": "GW4",
           "stem": "gameweek-4",
-          "total": 3,
+          "total": 4,
           "covered": 1,
           "matches": [
             {
@@ -1420,6 +1420,14 @@
               "match_id": 565811,
               "home": "Eintracht Frankfurt",
               "away": "SC Freiburg",
+              "date": "2026-09-19",
+              "covered": false,
+              "pending": true
+            },
+            {
+              "match_id": 565810,
+              "home": "SV Werder Bremen",
+              "away": "FC Augsburg",
               "date": "2026-09-19",
               "covered": false,
               "pending": true

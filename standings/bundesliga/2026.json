@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-19T15:32:17.692488Z",
+  "generated_at": "2026-09-19T15:37:07.968849Z",
   "competition": "Bundesliga",
   "slug": "bundesliga",
   "season": 2026,
@@ -83,6 +83,25 @@
     {
       "position": 5,
       "team": {
+        "id": 15,
+        "name": "1. FSV Mainz 05",
+        "shortName": "Mainz",
+        "tla": "M05",
+        "crest": "https://crests.football-data.org/15.png"
+      },
+      "playedGames": 4,
+      "form": "W,L,W,D",
+      "won": 2,
+      "draw": 1,
+      "lost": 1,
+      "points": 7,
+      "goalsFor": 10,
+      "goalsAgainst": 6,
+      "goalDifference": 4
+    },
+    {
+      "position": 6,
+      "team": {
         "id": 12,
         "name": "SV Werder Bremen",
         "shortName": "Bremen",
@@ -100,7 +119,7 @@
       "goalDifference": 0
     },
     {
-      "position": 6,
+      "position": 7,
       "team": {
         "id": 721,
         "name": "RB Leipzig",
@@ -119,7 +138,7 @@
       "goalDifference": 6
     },
     {
-      "position": 7,
+      "position": 8,
       "team": {
         "id": 719,
         "name": "SV 07 Elversberg",
@@ -138,7 +157,7 @@
       "goalDifference": 1
     },
     {
-      "position": 8,
+      "position": 9,
       "team": {
         "id": 19,
         "name": "Eintracht Frankfurt",
@@ -157,7 +176,7 @@
       "goalDifference": -1
     },
     {
-      "position": 9,
+      "position": 10,
       "team": {
         "id": 3,
         "name": "Bayer 04 Leverkusen",
@@ -173,25 +192,6 @@
       "points": 4,
       "goalsFor": 8,
       "goalsAgainst": 5,
-      "goalDifference": 3
-    },
-    {
-      "position": 10,
-      "team": {
-        "id": 15,
-        "name": "1. FSV Mainz 05",
-        "shortName": "Mainz",
-        "tla": "M05",
-        "crest": "https://crests.football-data.org/15.png"
-      },
-      "playedGames": 3,
-      "form": "L,W,D",
-      "won": 1,
-      "draw": 1,
-      "lost": 1,
-      "points": 4,
-      "goalsFor": 6,
-      "goalsAgainst": 3,
       "goalDifference": 3
     },
     {
@@ -336,15 +336,15 @@
         "tla": "BMG",
         "crest": "https://crests.football-data.org/18.png"
       },
-      "playedGames": 3,
-      "form": "L,L,L",
+      "playedGames": 4,
+      "form": "L,L,L,L",
       "won": 0,
       "draw": 0,
-      "lost": 3,
+      "lost": 4,
       "points": 0,
-      "goalsFor": 3,
-      "goalsAgainst": 12,
-      "goalDifference": -9
+      "goalsFor": 6,
+      "goalsAgainst": 16,
+      "goalDifference": -10
     }
   ]
 }
