@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-19T14:56:11Z",
+  "generated_at": "2026-09-19T15:01:36Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -1150,7 +1150,7 @@
         {
           "gameweek": "GW5",
           "stem": "gameweek-5",
-          "total": 1,
+          "total": 2,
           "covered": 1,
           "matches": [
             {
@@ -1159,6 +1159,14 @@
               "away": "US Sassuolo Calcio",
               "date": "2026-09-18",
               "covered": true
+            },
+            {
+              "match_id": 558589,
+              "home": "Udinese Calcio",
+              "away": "Cagliari Calcio",
+              "date": "2026-09-19",
+              "covered": false,
+              "pending": true
             }
           ]
         }

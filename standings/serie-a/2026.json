@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-19T11:50:20.930487Z",
+  "generated_at": "2026-09-19T15:02:12.094304Z",
   "competition": "Serie A",
   "slug": "serie-a",
   "season": 2026,
@@ -45,6 +45,25 @@
     {
       "position": 3,
       "team": {
+        "id": 104,
+        "name": "Cagliari Calcio",
+        "shortName": "Cagliari",
+        "tla": "CAG",
+        "crest": "https://crests.football-data.org/104.png"
+      },
+      "playedGames": 5,
+      "form": "W,W,W,L,W",
+      "won": 4,
+      "draw": 0,
+      "lost": 1,
+      "points": 12,
+      "goalsFor": 5,
+      "goalsAgainst": 2,
+      "goalDifference": 3
+    },
+    {
+      "position": 4,
+      "team": {
         "id": 7397,
         "name": "Como 1907",
         "shortName": "Como 1907",
@@ -62,7 +81,7 @@
       "goalDifference": 5
     },
     {
-      "position": 4,
+      "position": 5,
       "team": {
         "id": 110,
         "name": "SS Lazio",
@@ -79,25 +98,6 @@
       "goalsFor": 6,
       "goalsAgainst": 3,
       "goalDifference": 3
-    },
-    {
-      "position": 5,
-      "team": {
-        "id": 104,
-        "name": "Cagliari Calcio",
-        "shortName": "Cagliari",
-        "tla": "CAG",
-        "crest": "https://crests.football-data.org/104.png"
-      },
-      "playedGames": 4,
-      "form": "W,W,L,W",
-      "won": 3,
-      "draw": 0,
-      "lost": 1,
-      "points": 9,
-      "goalsFor": 4,
-      "goalsAgainst": 2,
-      "goalDifference": 2
     },
     {
       "position": 6,
@@ -241,18 +241,37 @@
         "tla": "UDI",
         "crest": "https://crests.football-data.org/115.png"
       },
-      "playedGames": 4,
-      "form": "L,L,W,D",
+      "playedGames": 5,
+      "form": "L,L,L,W,D",
       "won": 1,
       "draw": 1,
-      "lost": 2,
+      "lost": 3,
       "points": 4,
       "goalsFor": 8,
-      "goalsAgainst": 10,
-      "goalDifference": -2
+      "goalsAgainst": 11,
+      "goalDifference": -3
     },
     {
       "position": 14,
+      "team": {
+        "id": 586,
+        "name": "Torino FC",
+        "shortName": "Torino",
+        "tla": "TOR",
+        "crest": "https://crests.football-data.org/586.png"
+      },
+      "playedGames": 5,
+      "form": "D,L,W,L,L",
+      "won": 1,
+      "draw": 1,
+      "lost": 3,
+      "points": 4,
+      "goalsFor": 5,
+      "goalsAgainst": 8,
+      "goalDifference": -3
+    },
+    {
+      "position": 15,
       "team": {
         "id": 5911,
         "name": "AC Monza",
@@ -269,25 +288,6 @@
       "goalsFor": 8,
       "goalsAgainst": 12,
       "goalDifference": -4
-    },
-    {
-      "position": 15,
-      "team": {
-        "id": 586,
-        "name": "Torino FC",
-        "shortName": "Torino",
-        "tla": "TOR",
-        "crest": "https://crests.football-data.org/586.png"
-      },
-      "playedGames": 4,
-      "form": "L,W,L,L",
-      "won": 1,
-      "draw": 0,
-      "lost": 3,
-      "points": 3,
-      "goalsFor": 4,
-      "goalsAgainst": 7,
-      "goalDifference": -3
     },
     {
       "position": 16,
@@ -317,14 +317,14 @@
         "tla": "BOL",
         "crest": "https://crests.football-data.org/103.png"
       },
-      "playedGames": 4,
-      "form": "L,D,L,L",
+      "playedGames": 5,
+      "form": "D,L,D,L,L",
       "won": 0,
-      "draw": 1,
+      "draw": 2,
       "lost": 3,
-      "points": 1,
-      "goalsFor": 2,
-      "goalsAgainst": 5,
+      "points": 2,
+      "goalsFor": 3,
+      "goalsAgainst": 6,
       "goalDifference": -3
     },
     {
