@@ -2,7 +2,7 @@
   "competition": "Serie A",
   "gameweek": "GW5",
   "stem": "gameweek-5",
-  "generated_at": "2026-09-19T15:01:35Z",
+  "generated_at": "2026-09-19T15:06:29Z",
   "matches": [
     {
       "match_id": 558596,
@@ -24,6 +24,20 @@
       "away_team": "Cagliari Calcio",
       "date": "2026-09-19",
       "videos": []
+    },
+    {
+      "match_id": 558598,
+      "home_team": "Bologna FC 1909",
+      "away_team": "Torino FC",
+      "date": "2026-09-19",
+      "videos": [
+        {
+          "video_id": "B3nNgVmjAos",
+          "title": "Bologna vs. Torino: Extended Highlights | Serie A | CBS Sports Golazo",
+          "published_at": "2026-09-19",
+          "tier_used": 4
+        }
+      ]
     }
   ]
 }
