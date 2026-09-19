@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-19T18:41:53Z",
+  "generated_at": "2026-09-19T18:46:40Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -1453,7 +1453,7 @@
           "gameweek": "GW4",
           "stem": "gameweek-4",
           "total": 6,
-          "covered": 5,
+          "covered": 6,
           "matches": [
             {
               "match_id": 565804,
@@ -1495,8 +1495,7 @@
               "home": "VfB Stuttgart",
               "away": "Borussia Dortmund",
               "date": "2026-09-19",
-              "covered": false,
-              "pending": true
+              "covered": true
             }
           ]
         }
