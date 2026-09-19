@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-19T18:41:13Z",
+  "generated_at": "2026-09-19T18:51:11Z",
   "month": "2026-09",
   "dates": {
     "2026-09-03": [
@@ -3422,9 +3422,9 @@
               "tla": "LAZ",
               "crest": "https://crests.football-data.org/110.png"
             },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "TIMED",
+            "homeScore": 0,
+            "awayScore": 0,
+            "status": "IN_PLAY",
             "utcDate": "2026-09-19T18:45:00Z"
           }
         ]
@@ -3540,7 +3540,8 @@
             "homeScore": 0,
             "awayScore": 1,
             "status": "FINISHED",
-            "utcDate": "2026-09-19T16:30:00Z"
+            "utcDate": "2026-09-19T16:30:00Z",
+            "videoId": "dmE_gTw-Ukc"
           }
         ]
       },
