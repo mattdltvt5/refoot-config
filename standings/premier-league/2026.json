@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-19T11:50:06.019642Z",
+  "generated_at": "2026-09-19T13:41:44.684642Z",
   "competition": "Premier League",
   "slug": "premier-league",
   "season": 2026,
@@ -273,6 +273,25 @@
     {
       "position": 15,
       "team": {
+        "id": 58,
+        "name": "Aston Villa FC",
+        "shortName": "Aston Villa",
+        "tla": "AVL",
+        "crest": "https://crests.football-data.org/58.png"
+      },
+      "playedGames": 5,
+      "form": "W,L,D,L,L",
+      "won": 1,
+      "draw": 1,
+      "lost": 3,
+      "points": 4,
+      "goalsFor": 4,
+      "goalsAgainst": 9,
+      "goalDifference": -5
+    },
+    {
+      "position": 16,
+      "team": {
         "id": 1044,
         "name": "AFC Bournemouth",
         "shortName": "Bournemouth",
@@ -290,7 +309,7 @@
       "goalDifference": -1
     },
     {
-      "position": 16,
+      "position": 17,
       "team": {
         "id": 354,
         "name": "Crystal Palace FC",
@@ -309,7 +328,7 @@
       "goalDifference": -5
     },
     {
-      "position": 17,
+      "position": 18,
       "team": {
         "id": 73,
         "name": "Tottenham Hotspur FC",
@@ -317,18 +336,18 @@
         "tla": "TOT",
         "crest": "https://crests.football-data.org/73.png"
       },
-      "playedGames": 4,
-      "form": "D,D,L,L",
+      "playedGames": 5,
+      "form": "L,D,D,L,L",
       "won": 0,
       "draw": 2,
-      "lost": 2,
+      "lost": 3,
       "points": 2,
-      "goalsFor": 0,
-      "goalsAgainst": 5,
-      "goalDifference": -5
+      "goalsFor": 2,
+      "goalsAgainst": 8,
+      "goalDifference": -6
     },
     {
-      "position": 18,
+      "position": 19,
       "team": {
         "id": 63,
         "name": "Fulham FC",
@@ -345,25 +364,6 @@
       "goalsFor": 4,
       "goalsAgainst": 7,
       "goalDifference": -3
-    },
-    {
-      "position": 19,
-      "team": {
-        "id": 58,
-        "name": "Aston Villa FC",
-        "shortName": "Aston Villa",
-        "tla": "AVL",
-        "crest": "https://crests.football-data.org/58.png"
-      },
-      "playedGames": 4,
-      "form": "L,D,L,L",
-      "won": 0,
-      "draw": 1,
-      "lost": 3,
-      "points": 1,
-      "goalsFor": 1,
-      "goalsAgainst": 7,
-      "goalDifference": -6
     },
     {
       "position": 20,

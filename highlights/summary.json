@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-19T13:36:14Z",
+  "generated_at": "2026-09-19T13:41:22Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -320,7 +320,7 @@
         {
           "gameweek": "GW5",
           "stem": "gameweek-5",
-          "total": 1,
+          "total": 2,
           "covered": 1,
           "matches": [
             {
@@ -329,6 +329,14 @@
               "away": "Chelsea FC",
               "date": "2026-09-18",
               "covered": true
+            },
+            {
+              "match_id": 560587,
+              "home": "Tottenham Hotspur FC",
+              "away": "Aston Villa FC",
+              "date": "2026-09-19",
+              "covered": false,
+              "pending": true
             }
           ]
         }
