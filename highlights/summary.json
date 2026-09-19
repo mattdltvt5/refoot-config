@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-19T14:01:23Z",
+  "generated_at": "2026-09-19T14:06:23Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -810,7 +810,7 @@
         {
           "gameweek": "GW7",
           "stem": "gameweek-7",
-          "total": 1,
+          "total": 2,
           "covered": 1,
           "matches": [
             {
@@ -819,6 +819,14 @@
               "away": "Elche CF",
               "date": "2026-09-18",
               "covered": true
+            },
+            {
+              "match_id": 564693,
+              "home": "CA Osasuna",
+              "away": "Rayo Vallecano de Madrid",
+              "date": "2026-09-19",
+              "covered": false,
+              "pending": true
             }
           ]
         }
