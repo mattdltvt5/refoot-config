@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-19T15:56:33.907296Z",
+  "generated_at": "2026-09-19T16:17:07.646275Z",
   "competition": "LaLiga",
   "slug": "laliga",
   "season": 2026,
@@ -108,12 +108,12 @@
         "tla": "ALA",
         "crest": "https://crests.football-data.org/263.png"
       },
-      "playedGames": 6,
-      "form": "L,L,W,W,D",
+      "playedGames": 7,
+      "form": "D,L,L,W,W",
       "won": 3,
-      "draw": 1,
+      "draw": 2,
       "lost": 2,
-      "points": 10,
+      "points": 11,
       "goalsFor": 11,
       "goalsAgainst": 6,
       "goalDifference": 5
@@ -140,6 +140,25 @@
     {
       "position": 8,
       "team": {
+        "id": 77,
+        "name": "Athletic Club",
+        "shortName": "Athletic",
+        "tla": "ATH",
+        "crest": "https://crests.football-data.org/77.png"
+      },
+      "playedGames": 6,
+      "form": "D,D,W,W,L",
+      "won": 2,
+      "draw": 2,
+      "lost": 2,
+      "points": 8,
+      "goalsFor": 7,
+      "goalsAgainst": 6,
+      "goalDifference": 1
+    },
+    {
+      "position": 9,
+      "team": {
         "id": 87,
         "name": "Rayo Vallecano de Madrid",
         "shortName": "Rayo Vallecano",
@@ -157,7 +176,7 @@
       "goalDifference": -5
     },
     {
-      "position": 9,
+      "position": 10,
       "team": {
         "id": 79,
         "name": "CA Osasuna",
@@ -174,25 +193,6 @@
       "goalsFor": 6,
       "goalsAgainst": 13,
       "goalDifference": -7
-    },
-    {
-      "position": 10,
-      "team": {
-        "id": 77,
-        "name": "Athletic Club",
-        "shortName": "Athletic",
-        "tla": "ATH",
-        "crest": "https://crests.football-data.org/77.png"
-      },
-      "playedGames": 5,
-      "form": "D,W,W,L,L",
-      "won": 2,
-      "draw": 1,
-      "lost": 2,
-      "points": 7,
-      "goalsFor": 7,
-      "goalsAgainst": 6,
-      "goalDifference": 1
     },
     {
       "position": 11,
