@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-19T18:26:23Z",
+  "generated_at": "2026-09-19T18:31:47Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -320,7 +320,7 @@
         {
           "gameweek": "GW5",
           "stem": "gameweek-5",
-          "total": 5,
+          "total": 6,
           "covered": 1,
           "matches": [
             {
@@ -358,6 +358,14 @@
               "match_id": 560588,
               "home": "Newcastle United FC",
               "away": "Hull City AFC",
+              "date": "2026-09-19",
+              "covered": false,
+              "pending": true
+            },
+            {
+              "match_id": 560589,
+              "home": "Nottingham Forest FC",
+              "away": "Coventry City FC",
               "date": "2026-09-19",
               "covered": false,
               "pending": true
@@ -1436,7 +1444,7 @@
         {
           "gameweek": "GW4",
           "stem": "gameweek-4",
-          "total": 5,
+          "total": 6,
           "covered": 5,
           "matches": [
             {
@@ -1473,6 +1481,14 @@
               "away": "1. FSV Mainz 05",
               "date": "2026-09-19",
               "covered": true
+            },
+            {
+              "match_id": 565806,
+              "home": "VfB Stuttgart",
+              "away": "Borussia Dortmund",
+              "date": "2026-09-19",
+              "covered": false,
+              "pending": true
             }
           ]
         }

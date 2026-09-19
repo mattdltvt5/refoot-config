@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-19T17:56:53.360618Z",
+  "generated_at": "2026-09-19T18:32:08.939200Z",
   "competition": "Premier League",
   "slug": "premier-league",
   "season": 2026,
@@ -222,15 +222,15 @@
         "tla": "NOT",
         "crest": "https://crests.football-data.org/351.png"
       },
-      "playedGames": 4,
-      "form": "W,D,D,L",
+      "playedGames": 5,
+      "form": "L,W,D,D,L",
       "won": 1,
       "draw": 2,
-      "lost": 1,
+      "lost": 2,
       "points": 5,
       "goalsFor": 4,
-      "goalsAgainst": 4,
-      "goalDifference": 0
+      "goalsAgainst": 5,
+      "goalDifference": -1
     },
     {
       "position": 13,
@@ -330,6 +330,25 @@
     {
       "position": 18,
       "team": {
+        "id": 1076,
+        "name": "Coventry City FC",
+        "shortName": "Coventry City",
+        "tla": "COV",
+        "crest": "https://crests.football-data.org/1076.png"
+      },
+      "playedGames": 5,
+      "form": "W,L,L,L,L",
+      "won": 1,
+      "draw": 0,
+      "lost": 4,
+      "points": 3,
+      "goalsFor": 1,
+      "goalsAgainst": 10,
+      "goalDifference": -9
+    },
+    {
+      "position": 19,
+      "team": {
         "id": 73,
         "name": "Tottenham Hotspur FC",
         "shortName": "Tottenham",
@@ -347,7 +366,7 @@
       "goalDifference": -6
     },
     {
-      "position": 19,
+      "position": 20,
       "team": {
         "id": 63,
         "name": "Fulham FC",
@@ -364,25 +383,6 @@
       "goalsFor": 4,
       "goalsAgainst": 7,
       "goalDifference": -3
-    },
-    {
-      "position": 20,
-      "team": {
-        "id": 1076,
-        "name": "Coventry City FC",
-        "shortName": "Coventry City",
-        "tla": "COV",
-        "crest": "https://crests.football-data.org/1076.png"
-      },
-      "playedGames": 4,
-      "form": "L,L,L,L",
-      "won": 0,
-      "draw": 0,
-      "lost": 4,
-      "points": 0,
-      "goalsFor": 0,
-      "goalsAgainst": 10,
-      "goalDifference": -10
     }
   ]
 }
