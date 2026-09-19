@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-19T19:57:17.828717Z",
+  "generated_at": "2026-09-19T20:46:30.610722Z",
   "competition": "Serie A",
   "slug": "serie-a",
   "season": 2026,
@@ -45,6 +45,25 @@
     {
       "position": 3,
       "team": {
+        "id": 110,
+        "name": "SS Lazio",
+        "shortName": "Lazio",
+        "tla": "LAZ",
+        "crest": "https://crests.football-data.org/110.png"
+      },
+      "playedGames": 5,
+      "form": "W,D,W,W,W",
+      "won": 4,
+      "draw": 1,
+      "lost": 0,
+      "points": 13,
+      "goalsFor": 8,
+      "goalsAgainst": 3,
+      "goalDifference": 5
+    },
+    {
+      "position": 4,
+      "team": {
         "id": 104,
         "name": "Cagliari Calcio",
         "shortName": "Cagliari",
@@ -62,7 +81,7 @@
       "goalDifference": 3
     },
     {
-      "position": 4,
+      "position": 5,
       "team": {
         "id": 7397,
         "name": "Como 1907",
@@ -79,25 +98,6 @@
       "goalsFor": 9,
       "goalsAgainst": 4,
       "goalDifference": 5
-    },
-    {
-      "position": 5,
-      "team": {
-        "id": 110,
-        "name": "SS Lazio",
-        "shortName": "Lazio",
-        "tla": "LAZ",
-        "crest": "https://crests.football-data.org/110.png"
-      },
-      "playedGames": 4,
-      "form": "D,W,W,W",
-      "won": 3,
-      "draw": 1,
-      "lost": 0,
-      "points": 10,
-      "goalsFor": 6,
-      "goalsAgainst": 3,
-      "goalDifference": 3
     },
     {
       "position": 6,
@@ -374,15 +374,15 @@
         "tla": "VEN",
         "crest": "https://crests.football-data.org/454.png"
       },
-      "playedGames": 4,
-      "form": "L,L,L,L",
+      "playedGames": 5,
+      "form": "L,L,L,L,L",
       "won": 0,
       "draw": 0,
-      "lost": 4,
+      "lost": 5,
       "points": 0,
       "goalsFor": 4,
-      "goalsAgainst": 11,
-      "goalDifference": -7
+      "goalsAgainst": 13,
+      "goalDifference": -9
     }
   ]
 }
