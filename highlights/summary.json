@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-19T17:16:27Z",
+  "generated_at": "2026-09-19T17:21:35Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -1762,7 +1762,7 @@
         {
           "gameweek": "GW5",
           "stem": "gameweek-5",
-          "total": 1,
+          "total": 2,
           "covered": 1,
           "matches": [
             {
@@ -1771,6 +1771,14 @@
               "away": "Racing Club de Lens",
               "date": "2026-09-18",
               "covered": true
+            },
+            {
+              "match_id": 559679,
+              "home": "Paris FC",
+              "away": "RC Strasbourg Alsace",
+              "date": "2026-09-19",
+              "covered": false,
+              "pending": true
             }
           ]
         }

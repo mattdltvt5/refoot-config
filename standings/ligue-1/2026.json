@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-19T11:50:35.873262Z",
+  "generated_at": "2026-09-19T17:22:18.289855Z",
   "competition": "Ligue 1",
   "slug": "ligue-1",
   "season": 2026,
@@ -26,6 +26,25 @@
     {
       "position": 2,
       "team": {
+        "id": 1045,
+        "name": "Paris FC",
+        "shortName": "Paris FC",
+        "tla": "PFC",
+        "crest": "https://crests.football-data.org/1045.png"
+      },
+      "playedGames": 5,
+      "form": "W,D,W,W,D",
+      "won": 3,
+      "draw": 2,
+      "lost": 0,
+      "points": 11,
+      "goalsFor": 8,
+      "goalsAgainst": 3,
+      "goalDifference": 5
+    },
+    {
+      "position": 3,
+      "team": {
         "id": 521,
         "name": "Lille OSC",
         "shortName": "Lille",
@@ -43,7 +62,7 @@
       "goalDifference": 5
     },
     {
-      "position": 3,
+      "position": 4,
       "team": {
         "id": 529,
         "name": "Stade Rennais FC 1901",
@@ -60,25 +79,6 @@
       "goalsFor": 8,
       "goalsAgainst": 5,
       "goalDifference": 3
-    },
-    {
-      "position": 4,
-      "team": {
-        "id": 1045,
-        "name": "Paris FC",
-        "shortName": "Paris FC",
-        "tla": "PFC",
-        "crest": "https://crests.football-data.org/1045.png"
-      },
-      "playedGames": 4,
-      "form": "D,W,W,D",
-      "won": 2,
-      "draw": 2,
-      "lost": 0,
-      "points": 8,
-      "goalsFor": 6,
-      "goalsAgainst": 2,
-      "goalDifference": 4
     },
     {
       "position": 5,
@@ -108,15 +108,15 @@
         "tla": "RC ",
         "crest": "https://crests.football-data.org/576.png"
       },
-      "playedGames": 4,
-      "form": "D,W,W,L",
+      "playedGames": 5,
+      "form": "L,D,W,W,L",
       "won": 2,
       "draw": 1,
-      "lost": 1,
+      "lost": 2,
       "points": 7,
-      "goalsFor": 9,
-      "goalsAgainst": 8,
-      "goalDifference": 1
+      "goalsFor": 10,
+      "goalsAgainst": 10,
+      "goalDifference": 0
     },
     {
       "position": 7,
