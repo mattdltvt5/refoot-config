@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-19T18:31:47Z",
+  "generated_at": "2026-09-19T18:36:47Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -842,7 +842,7 @@
         {
           "gameweek": "GW7",
           "stem": "gameweek-7",
-          "total": 3,
+          "total": 4,
           "covered": 3,
           "matches": [
             {
@@ -865,6 +865,14 @@
               "away": "Deportivo Alavés",
               "date": "2026-09-19",
               "covered": true
+            },
+            {
+              "match_id": 564694,
+              "home": "RC Celta de Vigo",
+              "away": "Real Racing Club de Santander",
+              "date": "2026-09-19",
+              "covered": false,
+              "pending": true
             }
           ]
         }

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-19T18:12:00.681300Z",
+  "generated_at": "2026-09-19T18:37:16.563670Z",
   "competition": "LaLiga",
   "slug": "laliga",
   "season": 2026,
@@ -197,6 +197,25 @@
     {
       "position": 11,
       "team": {
+        "id": 558,
+        "name": "RC Celta de Vigo",
+        "shortName": "Celta",
+        "tla": "CEL",
+        "crest": "https://crests.football-data.org/558.png"
+      },
+      "playedGames": 7,
+      "form": "W,D,D,D,L",
+      "won": 1,
+      "draw": 4,
+      "lost": 2,
+      "points": 7,
+      "goalsFor": 8,
+      "goalsAgainst": 6,
+      "goalDifference": 2
+    },
+    {
+      "position": 12,
+      "team": {
         "id": 80,
         "name": "RCD Espanyol de Barcelona",
         "shortName": "Espanyol",
@@ -212,25 +231,6 @@
       "goalsFor": 10,
       "goalsAgainst": 10,
       "goalDifference": 0
-    },
-    {
-      "position": 12,
-      "team": {
-        "id": 5335,
-        "name": "Real Racing Club de Santander",
-        "shortName": "Santander",
-        "tla": "SAN",
-        "crest": "https://crests.football-data.org/5335.png"
-      },
-      "playedGames": 6,
-      "form": "L,W,L,W,L",
-      "won": 2,
-      "draw": 1,
-      "lost": 3,
-      "points": 7,
-      "goalsFor": 11,
-      "goalsAgainst": 16,
-      "goalDifference": -5
     },
     {
       "position": 13,
@@ -254,6 +254,25 @@
     {
       "position": 14,
       "team": {
+        "id": 5335,
+        "name": "Real Racing Club de Santander",
+        "shortName": "Santander",
+        "tla": "SAN",
+        "crest": "https://crests.football-data.org/5335.png"
+      },
+      "playedGames": 7,
+      "form": "L,L,W,L,W",
+      "won": 2,
+      "draw": 1,
+      "lost": 4,
+      "points": 7,
+      "goalsFor": 11,
+      "goalsAgainst": 21,
+      "goalDifference": -10
+    },
+    {
+      "position": 15,
+      "team": {
         "id": 94,
         "name": "Villarreal CF",
         "shortName": "Villarreal",
@@ -271,7 +290,7 @@
       "goalDifference": -1
     },
     {
-      "position": 15,
+      "position": 16,
       "team": {
         "id": 88,
         "name": "Levante UD",
@@ -290,7 +309,7 @@
       "goalDifference": -2
     },
     {
-      "position": 16,
+      "position": 17,
       "team": {
         "id": 82,
         "name": "Getafe CF",
@@ -309,7 +328,7 @@
       "goalDifference": -4
     },
     {
-      "position": 17,
+      "position": 18,
       "team": {
         "id": 285,
         "name": "Elche CF",
@@ -326,25 +345,6 @@
       "goalsFor": 11,
       "goalsAgainst": 17,
       "goalDifference": -6
-    },
-    {
-      "position": 18,
-      "team": {
-        "id": 558,
-        "name": "RC Celta de Vigo",
-        "shortName": "Celta",
-        "tla": "CEL",
-        "crest": "https://crests.football-data.org/558.png"
-      },
-      "playedGames": 6,
-      "form": "D,D,D,L,L",
-      "won": 0,
-      "draw": 4,
-      "lost": 2,
-      "points": 4,
-      "goalsFor": 3,
-      "goalsAgainst": 6,
-      "goalDifference": -3
     },
     {
       "position": 19,

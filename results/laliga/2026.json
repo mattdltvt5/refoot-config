@@ -1,7 +1,7 @@
 {
   "competition": "LaLiga",
   "season": 2026,
-  "generated_at": "2026-09-19T18:31:19Z",
+  "generated_at": "2026-09-19T18:36:10Z",
   "results": {
     "564634": {
       "status": "FINISHED",
@@ -684,6 +684,17 @@
       },
       "utcDate": "2026-09-19T14:15:00Z",
       "first_finished_at": "2026-09-19T16:16:11Z"
+    },
+    "564694": {
+      "status": "FINISHED",
+      "score": {
+        "fullTime": {
+          "home": 5,
+          "away": 0
+        }
+      },
+      "utcDate": "2026-09-19T16:30:00Z",
+      "first_finished_at": "2026-09-19T18:36:10Z"
     }
   }
 }
