@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-19T16:26:13Z",
+  "generated_at": "2026-09-19T16:41:08Z",
   "month": "2026-09",
   "dates": {
     "2026-09-03": [
@@ -3237,9 +3237,9 @@
               "tla": "COV",
               "crest": "https://crests.football-data.org/1076.png"
             },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "TIMED",
+            "homeScore": 0,
+            "awayScore": 0,
+            "status": "IN_PLAY",
             "utcDate": "2026-09-19T16:30:00Z"
           }
         ]
@@ -3308,9 +3308,9 @@
               "tla": "SAN",
               "crest": "https://crests.football-data.org/5335.png"
             },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "TIMED",
+            "homeScore": 0,
+            "awayScore": 0,
+            "status": "IN_PLAY",
             "utcDate": "2026-09-19T16:30:00Z"
           },
           {
@@ -3536,9 +3536,9 @@
               "tla": "BVB",
               "crest": "https://crests.football-data.org/4.png"
             },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "TIMED",
+            "homeScore": 0,
+            "awayScore": 0,
+            "status": "IN_PLAY",
             "utcDate": "2026-09-19T16:30:00Z"
           }
         ]
@@ -3563,7 +3563,7 @@
               "tla": "RC ",
               "crest": "https://crests.football-data.org/576.png"
             },
-            "homeScore": 1,
+            "homeScore": 2,
             "awayScore": 0,
             "status": "IN_PLAY",
             "utcDate": "2026-09-19T15:15:00Z"
