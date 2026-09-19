@@ -4,6 +4,22 @@ Remote channel configuration for the **ReFoot Highlights** Android app.
 
 ## Recent changes
 
+### Curated team/nation color palettes in `sources.json` (`teamPalettes`) (2026-09-18)
+
+Added a new top-level **`teamPalettes`** map to `sources.json` — curated brand colors for the app's upcoming
+team-color theming (tap a favourite → the app repaints its *accent* tokens). Keyed by the stringified
+football-data team id; value `{ "primary": "#RRGGBB", "secondary"?: "#RRGGBB" }` (raw hand-picked hexes only —
+the app does all per-brightness clamping / on-color derivation). **Pure data edit; no writer/sync code changed.**
+
+Placed as a **top-level sibling of `teamLists`, not inside it**, on purpose: `sync-teams.yml` rebuilds each
+`teamLists[comp]` from the football-data API every week and would wipe any field added inside those records —
+but it leaves sibling top-level keys untouched, so `teamPalettes` is clobber-safe. Seeded v1: **all 20 Premier
+League clubs**, a representative sample across **LaLiga / Serie A / Bundesliga / Ligue 1**, **all 24 Euro Cup
+nations**, and **36 World Cup nations** (Euro nations via shared FD ids + prominent others). **Copa América
+excluded** (API-Sports ids don't join FD ids). Remaining non-PL clubs and smaller WC nations are pending — each
+is a one-line data edit. Full field docs under **`sources.json` schema → `teamPalettes`** below. **Files:**
+`sources.json`, `README.md`.
+
 ### Web Admin: responsive Candidates/Alias header (2026-09-15)
 
 The `.cand-head` header (shared by the Channel Candidates and Alias Gaps panels) crammed its title, Pending/Approved toggle, generated-date, and refresh into one row, so on narrow widths the title wrapped mid-phrase. It now `flex-wrap`s with the title and date each kept on one line (`white-space: nowrap`); a `@media (max-width: 520px)` rule reorders it into two tidy rows (title + refresh on top, toggle + date below). Desktop keeps its original single row. Layout-only on existing selectors; the Pending/Approved sub-toggle is unchanged. **Files:** `admin.html`.
@@ -718,7 +734,12 @@ eyeball the channel before deciding. Human-in-the-loop is the point:
     }
   },
   "teamLists": {
-    "Competition Name": ["Team A", "Team B"]
+    "Competition Name": [
+      { "name": "Team A", "id": 57, "tla": "TLA", "crestUrl": "https://…" }
+    ]
+  },
+  "teamPalettes": {
+    "57": { "primary": "#RRGGBB", "secondary": "#RRGGBB" }
   }
 }
 ```
@@ -728,8 +749,35 @@ eyeball the channel before deciding. Human-in-the-loop is the point:
 - Empty string `""` means "not configured" — the app falls through to the next tier
 - `playlists` and `teamPlaylists` are Tier 4 fallbacks; `competitions` and `teams` are Tier 2 / Tier 1
 - `playlists` supports multiple playlist IDs per broadcaster (e.g. one per game week); the app queries them all
-- `teamLists` is auto-populated weekly by the `sync-teams.yml` GitHub Action (football-data.org)
+- `teamLists` is auto-populated weekly by the `sync-teams.yml` GitHub Action (football-data.org) — **it fully
+  rebuilds each competition's list from the API every run, so extra fields added inside a `teamLists` record do
+  NOT survive.** Curated per-team data must live outside `teamLists` (see `teamPalettes`).
 - `teams` channel IDs are auto-populated weekly by the `sync-channels.yml` GitHub Action (Wikidata)
+
+### `teamPalettes` — curated team/nation brand colors (clobber-safe)
+
+Curated brand colors for the app's team-color theming (a favourite repaints the app's *accent* tokens; the app
+computes per-brightness clamping + derived on-colors — the pipeline stores only raw hand-picked hexes).
+
+- **Shape:** a flat top-level map keyed by the **stringified football-data numeric team id** (the same stable id
+  used in `teamLists`, standings/fixtures rows, and the tournament caches). Value: `{ "primary": "#RRGGBB",
+  "secondary": "#RRGGBB" }` — `primary` required, `secondary` optional (omit when a team has no clear second
+  brand color).
+- **Why a top-level sibling, not inside `teamLists`:** `sync-teams.yml` reassigns `teamLists[comp]` (and
+  `_updated`) wholesale each week but leaves every other top-level key untouched, so a sibling map is
+  **clobber-safe** — a pure data edit no sync overwrites. It is hand/admin-curated only.
+- **Join / consumption:** the app resolves a favourite team/nation by its FD id → `teamPalettes["<id>"]`. Ids are
+  currently consistent across `teamLists` and the generated tournament caches (e.g. Germany 759, Spain 760 in both
+  Euro and World Cup), so one entry themes a nation wherever it is favourited; if a future FD id split appears,
+  add a second id key pointing at the same palette.
+- **Seed coverage (v1):** **Premier League — all 20 clubs**; **LaLiga / Serie A / Bundesliga / Ligue 1 — a
+  representative sample (~8–10 clubs each)**; **Euro Cup — all 24 nations**; **World Cup — 36 nations** (the 24
+  Euro nations via shared ids + ~23 prominent others). Remaining clubs in the four non-PL leagues and the smaller
+  World Cup nations (e.g. Bosnia-Herzegovina, Cape Verde, Congo DR, Curaçao, Haiti, Iraq, Ivory Coast, Jordan,
+  New Zealand, Panama, Uzbekistan, Algeria) are **pending** — adding one is a single data-edit line here.
+- **Copa América — excluded (v1):** it has no `teamLists` entry and its `tournament-groups/copa-america.json`
+  uses API-Sports ids (Argentina 26), not FD ids (Argentina 762), so it can't join by FD id until an
+  API-Sports→FD reconciliation map exists. Do **not** add Copa palettes here yet.
 
 ## Highlights Cache
 
