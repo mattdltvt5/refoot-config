@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-19T18:01:48Z",
+  "generated_at": "2026-09-19T18:06:49Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -1181,7 +1181,7 @@
         {
           "gameweek": "GW5",
           "stem": "gameweek-5",
-          "total": 3,
+          "total": 4,
           "covered": 3,
           "matches": [
             {
@@ -1204,6 +1204,14 @@
               "away": "Torino FC",
               "date": "2026-09-19",
               "covered": true
+            },
+            {
+              "match_id": 558593,
+              "home": "AS Roma",
+              "away": "FC Internazionale Milano",
+              "date": "2026-09-19",
+              "covered": false,
+              "pending": true
             }
           ]
         }
