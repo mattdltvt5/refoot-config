@@ -2,7 +2,7 @@
   "competition": "Bundesliga",
   "gameweek": "GW4",
   "stem": "gameweek-4",
-  "generated_at": "2026-09-19T15:41:40Z",
+  "generated_at": "2026-09-19T15:51:11Z",
   "matches": [
     {
       "match_id": 565804,
@@ -23,28 +23,56 @@
       "home_team": "Hamburger SV",
       "away_team": "1. FC Köln",
       "date": "2026-09-19",
-      "videos": []
+      "videos": [
+        {
+          "video_id": "geRQMBNv9Q8",
+          "title": "Hamburger SV vs. 1. FC Köln | Matchday 4 - Bundesliga 2026/27",
+          "published_at": "2026-09-19",
+          "tier_used": 2
+        }
+      ]
     },
     {
       "match_id": 565811,
       "home_team": "Eintracht Frankfurt",
       "away_team": "SC Freiburg",
       "date": "2026-09-19",
-      "videos": []
+      "videos": [
+        {
+          "video_id": "qVWM-mIaJLM",
+          "title": "Eintracht Frankfurt vs. Sport-Club Freiburg | Matchday 4 - Bundesliga 2026/27",
+          "published_at": "2026-09-19",
+          "tier_used": 2
+        }
+      ]
     },
     {
       "match_id": 565810,
       "home_team": "SV Werder Bremen",
       "away_team": "FC Augsburg",
       "date": "2026-09-19",
-      "videos": []
+      "videos": [
+        {
+          "video_id": "11Jqit9krLk",
+          "title": "SV Werder Bremen vs. FC Augsburg | Matchday 4 - Bundesliga 2026/27",
+          "published_at": "2026-09-19",
+          "tier_used": 2
+        }
+      ]
     },
     {
       "match_id": 565809,
       "home_team": "Borussia Mönchengladbach",
       "away_team": "1. FSV Mainz 05",
       "date": "2026-09-19",
-      "videos": []
+      "videos": [
+        {
+          "video_id": "s1OAubNj818",
+          "title": "Borussia Mönchengladbach vs. 1. FSV Mainz 05 | Matchday 4 - Bundesliga 2026/27",
+          "published_at": "2026-09-19",
+          "tier_used": 2
+        }
+      ]
     }
   ]
 }
