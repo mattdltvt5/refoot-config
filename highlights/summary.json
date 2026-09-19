@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-19T16:01:22Z",
+  "generated_at": "2026-09-19T16:06:33Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -320,7 +320,7 @@
         {
           "gameweek": "GW5",
           "stem": "gameweek-5",
-          "total": 2,
+          "total": 5,
           "covered": 1,
           "matches": [
             {
@@ -334,6 +334,30 @@
               "match_id": 560587,
               "home": "Tottenham Hotspur FC",
               "away": "Aston Villa FC",
+              "date": "2026-09-19",
+              "covered": false,
+              "pending": true
+            },
+            {
+              "match_id": 560584,
+              "home": "Everton FC",
+              "away": "Ipswich Town FC",
+              "date": "2026-09-19",
+              "covered": false,
+              "pending": true
+            },
+            {
+              "match_id": 560586,
+              "home": "Brighton & Hove Albion FC",
+              "away": "Arsenal FC",
+              "date": "2026-09-19",
+              "covered": false,
+              "pending": true
+            },
+            {
+              "match_id": 560588,
+              "home": "Newcastle United FC",
+              "away": "Hull City AFC",
               "date": "2026-09-19",
               "covered": false,
               "pending": true
