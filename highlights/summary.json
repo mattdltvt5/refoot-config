@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-19T15:26:17Z",
+  "generated_at": "2026-09-19T15:31:41Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -1151,7 +1151,7 @@
           "gameweek": "GW5",
           "stem": "gameweek-5",
           "total": 3,
-          "covered": 2,
+          "covered": 3,
           "matches": [
             {
               "match_id": 558596,
@@ -1165,8 +1165,7 @@
               "home": "Udinese Calcio",
               "away": "Cagliari Calcio",
               "date": "2026-09-19",
-              "covered": false,
-              "pending": true
+              "covered": true
             },
             {
               "match_id": 558598,
@@ -1399,7 +1398,7 @@
         {
           "gameweek": "GW4",
           "stem": "gameweek-4",
-          "total": 1,
+          "total": 3,
           "covered": 1,
           "matches": [
             {
@@ -1408,6 +1407,22 @@
               "away": "1. FC Union Berlin",
               "date": "2026-09-18",
               "covered": true
+            },
+            {
+              "match_id": 565808,
+              "home": "Hamburger SV",
+              "away": "1. FC Köln",
+              "date": "2026-09-19",
+              "covered": false,
+              "pending": true
+            },
+            {
+              "match_id": 565811,
+              "home": "Eintracht Frankfurt",
+              "away": "SC Freiburg",
+              "date": "2026-09-19",
+              "covered": false,
+              "pending": true
             }
           ]
         }
