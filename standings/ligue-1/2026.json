@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-20T19:12:32.148957Z",
+  "generated_at": "2026-09-20T20:51:51.441051Z",
   "competition": "Ligue 1",
   "slug": "ligue-1",
   "season": 2026,
@@ -102,6 +102,25 @@
     {
       "position": 6,
       "team": {
+        "id": 524,
+        "name": "Paris Saint-Germain FC",
+        "shortName": "PSG",
+        "tla": "PSG",
+        "crest": "https://crests.football-data.org/524.png"
+      },
+      "playedGames": 5,
+      "form": "W,W,L,D,D",
+      "won": 2,
+      "draw": 2,
+      "lost": 1,
+      "points": 8,
+      "goalsFor": 8,
+      "goalsAgainst": 7,
+      "goalDifference": 1
+    },
+    {
+      "position": 7,
+      "team": {
         "id": 532,
         "name": "Angers SCO",
         "shortName": "Angers SCO",
@@ -119,7 +138,7 @@
       "goalDifference": 1
     },
     {
-      "position": 7,
+      "position": 8,
       "team": {
         "id": 576,
         "name": "RC Strasbourg Alsace",
@@ -138,7 +157,7 @@
       "goalDifference": 0
     },
     {
-      "position": 8,
+      "position": 9,
       "team": {
         "id": 535,
         "name": "Le Mans FC",
@@ -157,7 +176,7 @@
       "goalDifference": 0
     },
     {
-      "position": 9,
+      "position": 10,
       "team": {
         "id": 519,
         "name": "AJ Auxerre",
@@ -174,25 +193,6 @@
       "goalsFor": 7,
       "goalsAgainst": 12,
       "goalDifference": -5
-    },
-    {
-      "position": 10,
-      "team": {
-        "id": 524,
-        "name": "Paris Saint-Germain FC",
-        "shortName": "PSG",
-        "tla": "PSG",
-        "crest": "https://crests.football-data.org/524.png"
-      },
-      "playedGames": 4,
-      "form": "W,L,D,D",
-      "won": 1,
-      "draw": 2,
-      "lost": 1,
-      "points": 5,
-      "goalsFor": 6,
-      "goalsAgainst": 6,
-      "goalDifference": 0
     },
     {
       "position": 11,
@@ -317,15 +317,15 @@
         "tla": "MAR",
         "crest": "https://crests.football-data.org/516.png"
       },
-      "playedGames": 4,
-      "form": "L,L,L,W",
+      "playedGames": 5,
+      "form": "L,L,L,L,W",
       "won": 1,
       "draw": 0,
-      "lost": 3,
+      "lost": 4,
       "points": 3,
-      "goalsFor": 6,
-      "goalsAgainst": 6,
-      "goalDifference": 0
+      "goalsFor": 7,
+      "goalsAgainst": 8,
+      "goalDifference": -1
     },
     {
       "position": 18,
