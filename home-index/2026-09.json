@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-20T18:51:14Z",
+  "generated_at": "2026-09-20T18:56:10Z",
   "month": "2026-09",
   "dates": {
     "2026-09-03": [
@@ -3828,7 +3828,8 @@
             "homeScore": 1,
             "awayScore": 1,
             "status": "FINISHED",
-            "utcDate": "2026-09-20T16:30:00Z"
+            "utcDate": "2026-09-20T16:30:00Z",
+            "videoId": "kOnxo2_JtCI"
           },
           {
             "match_id": 564696,
@@ -3983,9 +3984,9 @@
               "tla": "USL",
               "crest": "https://crests.football-data.org/5890.png"
             },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "TIMED",
+            "homeScore": 0,
+            "awayScore": 0,
+            "status": "IN_PLAY",
             "utcDate": "2026-09-20T18:45:00Z"
           }
         ]
