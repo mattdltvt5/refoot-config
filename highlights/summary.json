@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-20T17:31:46Z",
+  "generated_at": "2026-09-20T17:36:31Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -1528,7 +1528,7 @@
           "gameweek": "GW4",
           "stem": "gameweek-4",
           "total": 8,
-          "covered": 7,
+          "covered": 8,
           "matches": [
             {
               "match_id": 565804,
@@ -1584,8 +1584,7 @@
               "home": "FC Schalke 04",
               "away": "SV 07 Elversberg",
               "date": "2026-09-20",
-              "covered": false,
-              "pending": true
+              "covered": true
             }
           ]
         }
