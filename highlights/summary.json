@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-20T13:06:19Z",
+  "generated_at": "2026-09-20T13:11:46Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -1199,7 +1199,7 @@
           "gameweek": "GW5",
           "stem": "gameweek-5",
           "total": 6,
-          "covered": 5,
+          "covered": 6,
           "matches": [
             {
               "match_id": 558596,
@@ -1241,8 +1241,7 @@
               "home": "ACF Fiorentina",
               "away": "SSC Napoli",
               "date": "2026-09-20",
-              "covered": false,
-              "pending": true
+              "covered": true
             }
           ]
         }
