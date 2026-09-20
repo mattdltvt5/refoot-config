@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-20T16:31:38Z",
+  "generated_at": "2026-09-20T16:36:26Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -1867,7 +1867,7 @@
           "gameweek": "GW5",
           "stem": "gameweek-5",
           "total": 7,
-          "covered": 6,
+          "covered": 7,
           "matches": [
             {
               "match_id": 559682,
@@ -1916,8 +1916,7 @@
               "home": "AJ Auxerre",
               "away": "Stade Brestois 29",
               "date": "2026-09-20",
-              "covered": false,
-              "pending": true
+              "covered": true
             }
           ]
         }
