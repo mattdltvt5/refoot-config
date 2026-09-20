@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-20T17:31:14Z",
+  "generated_at": "2026-09-20T17:41:10Z",
   "month": "2026-09",
   "dates": {
     "2026-09-03": [
@@ -4033,7 +4033,8 @@
             "homeScore": 0,
             "awayScore": 0,
             "status": "FINISHED",
-            "utcDate": "2026-09-20T15:30:00Z"
+            "utcDate": "2026-09-20T15:30:00Z",
+            "videoId": "3oBANtmWr7M"
           },
           {
             "match_id": 565803,
@@ -4051,9 +4052,9 @@
               "tla": "TSG",
               "crest": "https://crests.football-data.org/2.png"
             },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "TIMED",
+            "homeScore": 0,
+            "awayScore": 0,
+            "status": "IN_PLAY",
             "utcDate": "2026-09-20T17:30:00Z"
           }
         ]
