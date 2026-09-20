@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-20T15:31:19Z",
+  "generated_at": "2026-09-20T15:41:10Z",
   "month": "2026-09",
   "dates": {
     "2026-09-03": [
@@ -3754,9 +3754,9 @@
               "tla": "MUN",
               "crest": "https://crests.football-data.org/66.png"
             },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "TIMED",
+            "homeScore": 0,
+            "awayScore": 0,
+            "status": "IN_PLAY",
             "utcDate": "2026-09-20T15:30:00Z"
           }
         ]
@@ -3803,7 +3803,7 @@
               "tla": "RMA",
               "crest": "https://crests.football-data.org/86.png"
             },
-            "homeScore": 0,
+            "homeScore": 1,
             "awayScore": 0,
             "status": "IN_PLAY",
             "utcDate": "2026-09-20T14:15:00Z"
@@ -3918,7 +3918,8 @@
             "homeScore": 2,
             "awayScore": 1,
             "status": "FINISHED",
-            "utcDate": "2026-09-20T13:00:00Z"
+            "utcDate": "2026-09-20T13:00:00Z",
+            "videoId": "-0y1t82f0bA"
           },
           {
             "match_id": 558592,
@@ -3939,7 +3940,8 @@
             "homeScore": 2,
             "awayScore": 0,
             "status": "FINISHED",
-            "utcDate": "2026-09-20T13:00:00Z"
+            "utcDate": "2026-09-20T13:00:00Z",
+            "videoId": "qJd0bqsMfog"
           },
           {
             "match_id": 558595,
@@ -4008,7 +4010,8 @@
             "homeScore": 2,
             "awayScore": 0,
             "status": "FINISHED",
-            "utcDate": "2026-09-20T13:30:00Z"
+            "utcDate": "2026-09-20T13:30:00Z",
+            "videoId": "G0Ax1HeP9EY"
           },
           {
             "match_id": 565805,
@@ -4026,9 +4029,9 @@
               "tla": "ELV",
               "crest": "https://crests.football-data.org/719.png"
             },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "TIMED",
+            "homeScore": 0,
+            "awayScore": 0,
+            "status": "IN_PLAY",
             "utcDate": "2026-09-20T15:30:00Z"
           },
           {
