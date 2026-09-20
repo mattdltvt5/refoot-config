@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-20T17:52:22Z",
+  "generated_at": "2026-09-20T17:56:36Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -1882,7 +1882,7 @@
           "gameweek": "GW5",
           "stem": "gameweek-5",
           "total": 8,
-          "covered": 7,
+          "covered": 8,
           "matches": [
             {
               "match_id": 559682,
@@ -1938,8 +1938,7 @@
               "home": "OGC Nice",
               "away": "Lille OSC",
               "date": "2026-09-20",
-              "covered": false,
-              "pending": true
+              "covered": true
             }
           ]
         }
