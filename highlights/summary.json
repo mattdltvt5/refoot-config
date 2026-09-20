@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-20T14:11:09Z",
+  "generated_at": "2026-09-20T14:16:20Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -837,7 +837,7 @@
         {
           "gameweek": "GW7",
           "stem": "gameweek-7",
-          "total": 5,
+          "total": 6,
           "covered": 5,
           "matches": [
             {
@@ -874,6 +874,14 @@
               "away": "FC Barcelona",
               "date": "2026-09-19",
               "covered": true
+            },
+            {
+              "match_id": 564697,
+              "home": "Getafe CF",
+              "away": "Málaga CF",
+              "date": "2026-09-20",
+              "covered": false,
+              "pending": true
             }
           ]
         }
