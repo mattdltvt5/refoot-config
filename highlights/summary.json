@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-20T17:56:36Z",
+  "generated_at": "2026-09-20T18:01:40Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -1244,8 +1244,8 @@
         {
           "gameweek": "GW5",
           "stem": "gameweek-5",
-          "total": 8,
-          "covered": 8,
+          "total": 9,
+          "covered": 9,
           "matches": [
             {
               "match_id": 558596,
@@ -1300,6 +1300,13 @@
               "match_id": 558592,
               "home": "Frosinone Calcio",
               "away": "Como 1907",
+              "date": "2026-09-20",
+              "covered": true
+            },
+            {
+              "match_id": 558595,
+              "home": "Juventus FC",
+              "away": "Atalanta BC",
               "date": "2026-09-20",
               "covered": true
             }
