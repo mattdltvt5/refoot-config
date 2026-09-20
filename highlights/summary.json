@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-20T18:46:42Z",
+  "generated_at": "2026-09-20T18:51:34Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -870,7 +870,7 @@
           "gameweek": "GW7",
           "stem": "gameweek-7",
           "total": 9,
-          "covered": 8,
+          "covered": 9,
           "matches": [
             {
               "match_id": 564692,
@@ -926,8 +926,7 @@
               "home": "RC Deportivo La Coruña",
               "away": "Real Betis Balompié",
               "date": "2026-09-20",
-              "covered": false,
-              "pending": true
+              "covered": true
             },
             {
               "match_id": 564696,
