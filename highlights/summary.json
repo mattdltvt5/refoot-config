@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-20T18:31:36Z",
+  "generated_at": "2026-09-20T18:36:45Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -869,7 +869,7 @@
         {
           "gameweek": "GW7",
           "stem": "gameweek-7",
-          "total": 7,
+          "total": 9,
           "covered": 7,
           "matches": [
             {
@@ -920,6 +920,22 @@
               "away": "Real Madrid CF",
               "date": "2026-09-20",
               "covered": true
+            },
+            {
+              "match_id": 564695,
+              "home": "RC Deportivo La Coruña",
+              "away": "Real Betis Balompié",
+              "date": "2026-09-20",
+              "covered": false,
+              "pending": true
+            },
+            {
+              "match_id": 564696,
+              "home": "Villarreal CF",
+              "away": "Levante UD",
+              "date": "2026-09-20",
+              "covered": false,
+              "pending": true
             }
           ]
         }
