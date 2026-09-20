@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-20T19:56:57.924148Z",
+  "generated_at": "2026-09-20T20:47:00.073309Z",
   "competition": "Serie A",
   "slug": "serie-a",
   "season": 2026,
@@ -83,6 +83,25 @@
     {
       "position": 5,
       "team": {
+        "id": 98,
+        "name": "AC Milan",
+        "shortName": "Milan",
+        "tla": "MIL",
+        "crest": "https://crests.football-data.org/98.png"
+      },
+      "playedGames": 5,
+      "form": "W,D,D,W,W",
+      "won": 3,
+      "draw": 2,
+      "lost": 0,
+      "points": 11,
+      "goalsFor": 10,
+      "goalsAgainst": 4,
+      "goalDifference": 6
+    },
+    {
+      "position": 6,
+      "team": {
         "id": 470,
         "name": "Frosinone Calcio",
         "shortName": "Frosinone",
@@ -100,7 +119,7 @@
       "goalDifference": 5
     },
     {
-      "position": 6,
+      "position": 7,
       "team": {
         "id": 109,
         "name": "Juventus FC",
@@ -119,7 +138,7 @@
       "goalDifference": 4
     },
     {
-      "position": 7,
+      "position": 8,
       "team": {
         "id": 7397,
         "name": "Como 1907",
@@ -135,25 +154,6 @@
       "points": 10,
       "goalsFor": 9,
       "goalsAgainst": 6,
-      "goalDifference": 3
-    },
-    {
-      "position": 8,
-      "team": {
-        "id": 98,
-        "name": "AC Milan",
-        "shortName": "Milan",
-        "tla": "MIL",
-        "crest": "https://crests.football-data.org/98.png"
-      },
-      "playedGames": 4,
-      "form": "D,D,W,W",
-      "won": 2,
-      "draw": 2,
-      "lost": 0,
-      "points": 8,
-      "goalsFor": 7,
-      "goalsAgainst": 4,
       "goalDifference": 3
     },
     {
@@ -197,25 +197,6 @@
     {
       "position": 11,
       "team": {
-        "id": 5890,
-        "name": "US Lecce",
-        "shortName": "Lecce",
-        "tla": "USL",
-        "crest": "https://crests.football-data.org/5890.png"
-      },
-      "playedGames": 4,
-      "form": "W,L,L,W",
-      "won": 2,
-      "draw": 0,
-      "lost": 2,
-      "points": 6,
-      "goalsFor": 5,
-      "goalsAgainst": 7,
-      "goalDifference": -2
-    },
-    {
-      "position": 12,
-      "team": {
         "id": 102,
         "name": "Atalanta BC",
         "shortName": "Atalanta",
@@ -231,6 +212,25 @@
       "goalsFor": 5,
       "goalsAgainst": 7,
       "goalDifference": -2
+    },
+    {
+      "position": 12,
+      "team": {
+        "id": 5890,
+        "name": "US Lecce",
+        "shortName": "Lecce",
+        "tla": "USL",
+        "crest": "https://crests.football-data.org/5890.png"
+      },
+      "playedGames": 5,
+      "form": "L,W,L,L,W",
+      "won": 2,
+      "draw": 0,
+      "lost": 3,
+      "points": 6,
+      "goalsFor": 5,
+      "goalsAgainst": 10,
+      "goalDifference": -5
     },
     {
       "position": 13,
