@@ -2,7 +2,7 @@
   "competition": "Serie A",
   "gameweek": "GW5",
   "stem": "gameweek-5",
-  "generated_at": "2026-09-20T15:11:42Z",
+  "generated_at": "2026-09-20T15:36:51Z",
   "matches": [
     {
       "match_id": 558596,
@@ -93,14 +93,28 @@
       "home_team": "Parma Calcio 1913",
       "away_team": "Genoa CFC",
       "date": "2026-09-20",
-      "videos": []
+      "videos": [
+        {
+          "video_id": "-0y1t82f0bA",
+          "title": "Parma vs. Genoa: Extended Highlights | Serie A | CBS Sports Golazo",
+          "published_at": "2026-09-20",
+          "tier_used": 4
+        }
+      ]
     },
     {
       "match_id": 558592,
       "home_team": "Frosinone Calcio",
       "away_team": "Como 1907",
       "date": "2026-09-20",
-      "videos": []
+      "videos": [
+        {
+          "video_id": "qJd0bqsMfog",
+          "title": "Frosinone vs. Como: Extended Highlights | Serie A | CBS Sports Golazo",
+          "published_at": "2026-09-20",
+          "tier_used": 4
+        }
+      ]
     }
   ]
 }

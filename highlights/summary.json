@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-20T15:31:56Z",
+  "generated_at": "2026-09-20T15:36:51Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -1230,7 +1230,7 @@
           "gameweek": "GW5",
           "stem": "gameweek-5",
           "total": 8,
-          "covered": 6,
+          "covered": 8,
           "matches": [
             {
               "match_id": 558596,
@@ -1279,16 +1279,14 @@
               "home": "Parma Calcio 1913",
               "away": "Genoa CFC",
               "date": "2026-09-20",
-              "covered": false,
-              "pending": true
+              "covered": true
             },
             {
               "match_id": 558592,
               "home": "Frosinone Calcio",
               "away": "Como 1907",
               "date": "2026-09-20",
-              "covered": false,
-              "pending": true
+              "covered": true
             }
           ]
         }
@@ -1515,7 +1513,7 @@
           "gameweek": "GW4",
           "stem": "gameweek-4",
           "total": 7,
-          "covered": 6,
+          "covered": 7,
           "matches": [
             {
               "match_id": 565804,
@@ -1564,8 +1562,7 @@
               "home": "Bayer 04 Leverkusen",
               "away": "RB Leipzig",
               "date": "2026-09-20",
-              "covered": false,
-              "pending": true
+              "covered": true
             }
           ]
         }
