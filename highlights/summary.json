@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-20T15:26:38Z",
+  "generated_at": "2026-09-20T15:31:56Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -1514,7 +1514,7 @@
         {
           "gameweek": "GW4",
           "stem": "gameweek-4",
-          "total": 6,
+          "total": 7,
           "covered": 6,
           "matches": [
             {
@@ -1558,6 +1558,14 @@
               "away": "Borussia Dortmund",
               "date": "2026-09-19",
               "covered": true
+            },
+            {
+              "match_id": 565807,
+              "home": "Bayer 04 Leverkusen",
+              "away": "RB Leipzig",
+              "date": "2026-09-20",
+              "covered": false,
+              "pending": true
             }
           ]
         }
