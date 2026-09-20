@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-20T15:57:05.206403Z",
+  "generated_at": "2026-09-20T16:27:09.878760Z",
   "competition": "LaLiga",
   "slug": "laliga",
   "season": 2026,
@@ -26,24 +26,43 @@
     {
       "position": 2,
       "team": {
+        "id": 78,
+        "name": "Club Atlético de Madrid",
+        "shortName": "Atleti",
+        "tla": "ATL",
+        "crest": "https://crests.football-data.org/78.png"
+      },
+      "playedGames": 7,
+      "form": "W,W,W,L,W",
+      "won": 5,
+      "draw": 1,
+      "lost": 1,
+      "points": 16,
+      "goalsFor": 16,
+      "goalsAgainst": 7,
+      "goalDifference": 9
+    },
+    {
+      "position": 3,
+      "team": {
         "id": 86,
         "name": "Real Madrid CF",
         "shortName": "Real Madrid",
         "tla": "RMA",
         "crest": "https://crests.football-data.org/86.png"
       },
-      "playedGames": 6,
-      "form": "W,W,L,W,W",
+      "playedGames": 7,
+      "form": "L,W,W,L,W",
       "won": 5,
       "draw": 0,
-      "lost": 1,
+      "lost": 2,
       "points": 15,
-      "goalsFor": 17,
-      "goalsAgainst": 6,
-      "goalDifference": 11
+      "goalsFor": 18,
+      "goalsAgainst": 8,
+      "goalDifference": 10
     },
     {
-      "position": 3,
+      "position": 4,
       "team": {
         "id": 90,
         "name": "Real Betis Balompié",
@@ -60,25 +79,6 @@
       "goalsFor": 8,
       "goalsAgainst": 6,
       "goalDifference": 2
-    },
-    {
-      "position": 4,
-      "team": {
-        "id": 78,
-        "name": "Club Atlético de Madrid",
-        "shortName": "Atleti",
-        "tla": "ATL",
-        "crest": "https://crests.football-data.org/78.png"
-      },
-      "playedGames": 6,
-      "form": "W,W,L,W,D",
-      "won": 4,
-      "draw": 1,
-      "lost": 1,
-      "points": 13,
-      "goalsFor": 14,
-      "goalsAgainst": 6,
-      "goalDifference": 8
     },
     {
       "position": 5,

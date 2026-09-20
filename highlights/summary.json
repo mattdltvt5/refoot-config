@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-20T16:21:32Z",
+  "generated_at": "2026-09-20T16:26:40Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -861,7 +861,7 @@
         {
           "gameweek": "GW7",
           "stem": "gameweek-7",
-          "total": 6,
+          "total": 7,
           "covered": 6,
           "matches": [
             {
@@ -905,6 +905,14 @@
               "away": "Málaga CF",
               "date": "2026-09-20",
               "covered": true
+            },
+            {
+              "match_id": 564688,
+              "home": "Club Atlético de Madrid",
+              "away": "Real Madrid CF",
+              "date": "2026-09-20",
+              "covered": false,
+              "pending": true
             }
           ]
         }
