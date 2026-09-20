@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-20T17:26:29Z",
+  "generated_at": "2026-09-20T17:31:46Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -320,7 +320,7 @@
         {
           "gameweek": "GW5",
           "stem": "gameweek-5",
-          "total": 9,
+          "total": 10,
           "covered": 6,
           "matches": [
             {
@@ -385,6 +385,14 @@
               "match_id": 560590,
               "home": "Manchester City FC",
               "away": "Sunderland AFC",
+              "date": "2026-09-20",
+              "covered": false,
+              "pending": true
+            },
+            {
+              "match_id": 560583,
+              "home": "Fulham FC",
+              "away": "Manchester United FC",
               "date": "2026-09-20",
               "covered": false,
               "pending": true
@@ -1519,7 +1527,7 @@
         {
           "gameweek": "GW4",
           "stem": "gameweek-4",
-          "total": 7,
+          "total": 8,
           "covered": 7,
           "matches": [
             {
@@ -1570,6 +1578,14 @@
               "away": "RB Leipzig",
               "date": "2026-09-20",
               "covered": true
+            },
+            {
+              "match_id": 565805,
+              "home": "FC Schalke 04",
+              "away": "SV 07 Elversberg",
+              "date": "2026-09-20",
+              "covered": false,
+              "pending": true
             }
           ]
         }

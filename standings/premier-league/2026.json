@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-20T16:56:43.919547Z",
+  "generated_at": "2026-09-20T17:32:07.111237Z",
   "competition": "Premier League",
   "slug": "premier-league",
   "season": 2026,
@@ -216,6 +216,25 @@
     {
       "position": 12,
       "team": {
+        "id": 66,
+        "name": "Manchester United FC",
+        "shortName": "Man United",
+        "tla": "MUN",
+        "crest": "https://crests.football-data.org/66.png"
+      },
+      "playedGames": 5,
+      "form": "D,L,D,W,L",
+      "won": 1,
+      "draw": 2,
+      "lost": 2,
+      "points": 5,
+      "goalsFor": 8,
+      "goalsAgainst": 8,
+      "goalDifference": 0
+    },
+    {
+      "position": 13,
+      "team": {
         "id": 351,
         "name": "Nottingham Forest FC",
         "shortName": "Nottingham",
@@ -231,25 +250,6 @@
       "goalsFor": 4,
       "goalsAgainst": 5,
       "goalDifference": -1
-    },
-    {
-      "position": 13,
-      "team": {
-        "id": 66,
-        "name": "Manchester United FC",
-        "shortName": "Man United",
-        "tla": "MUN",
-        "crest": "https://crests.football-data.org/66.png"
-      },
-      "playedGames": 4,
-      "form": "L,D,W,L",
-      "won": 1,
-      "draw": 1,
-      "lost": 2,
-      "points": 4,
-      "goalsFor": 7,
-      "goalsAgainst": 7,
-      "goalDifference": 0
     },
     {
       "position": 14,
@@ -349,6 +349,25 @@
     {
       "position": 19,
       "team": {
+        "id": 63,
+        "name": "Fulham FC",
+        "shortName": "Fulham",
+        "tla": "FUL",
+        "crest": "https://crests.football-data.org/63.png"
+      },
+      "playedGames": 5,
+      "form": "D,D,L,L,L",
+      "won": 0,
+      "draw": 2,
+      "lost": 3,
+      "points": 2,
+      "goalsFor": 5,
+      "goalsAgainst": 8,
+      "goalDifference": -3
+    },
+    {
+      "position": 20,
+      "team": {
         "id": 73,
         "name": "Tottenham Hotspur FC",
         "shortName": "Tottenham",
@@ -364,25 +383,6 @@
       "goalsFor": 2,
       "goalsAgainst": 8,
       "goalDifference": -6
-    },
-    {
-      "position": 20,
-      "team": {
-        "id": 63,
-        "name": "Fulham FC",
-        "shortName": "Fulham",
-        "tla": "FUL",
-        "crest": "https://crests.football-data.org/63.png"
-      },
-      "playedGames": 4,
-      "form": "D,L,L,L",
-      "won": 0,
-      "draw": 1,
-      "lost": 3,
-      "points": 1,
-      "goalsFor": 4,
-      "goalsAgainst": 7,
-      "goalDifference": -3
     }
   ]
 }
