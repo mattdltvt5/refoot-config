@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-19T22:41:44.106023Z",
+  "generated_at": "2026-09-20T12:41:43.104675Z",
   "competition": "Serie A",
   "slug": "serie-a",
   "season": 2026,
@@ -159,6 +159,25 @@
     {
       "position": 9,
       "team": {
+        "id": 113,
+        "name": "SSC Napoli",
+        "shortName": "Napoli",
+        "tla": "NAP",
+        "crest": "https://crests.football-data.org/113.png"
+      },
+      "playedGames": 5,
+      "form": "D,W,L,L,W",
+      "won": 2,
+      "draw": 1,
+      "lost": 2,
+      "points": 7,
+      "goalsFor": 7,
+      "goalsAgainst": 6,
+      "goalDifference": 1
+    },
+    {
+      "position": 10,
+      "team": {
         "id": 471,
         "name": "US Sassuolo Calcio",
         "shortName": "Sassuolo",
@@ -174,25 +193,6 @@
       "goalsFor": 9,
       "goalsAgainst": 9,
       "goalDifference": 0
-    },
-    {
-      "position": 10,
-      "team": {
-        "id": 113,
-        "name": "SSC Napoli",
-        "shortName": "Napoli",
-        "tla": "NAP",
-        "crest": "https://crests.football-data.org/113.png"
-      },
-      "playedGames": 4,
-      "form": "W,L,L,W",
-      "won": 2,
-      "draw": 0,
-      "lost": 2,
-      "points": 6,
-      "goalsFor": 6,
-      "goalsAgainst": 5,
-      "goalDifference": 1
     },
     {
       "position": 11,
@@ -298,14 +298,14 @@
         "tla": "FIO",
         "crest": "https://crests.football-data.org/99.png"
       },
-      "playedGames": 4,
-      "form": "W,L,L,L",
+      "playedGames": 5,
+      "form": "D,W,L,L,L",
       "won": 1,
-      "draw": 0,
+      "draw": 1,
       "lost": 3,
-      "points": 3,
-      "goalsFor": 5,
-      "goalsAgainst": 11,
+      "points": 4,
+      "goalsFor": 6,
+      "goalsAgainst": 12,
       "goalDifference": -6
     },
     {

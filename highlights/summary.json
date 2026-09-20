@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-20T12:36:10Z",
+  "generated_at": "2026-09-20T12:41:21Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -1198,7 +1198,7 @@
         {
           "gameweek": "GW5",
           "stem": "gameweek-5",
-          "total": 5,
+          "total": 6,
           "covered": 5,
           "matches": [
             {
@@ -1235,6 +1235,14 @@
               "away": "SS Lazio",
               "date": "2026-09-19",
               "covered": true
+            },
+            {
+              "match_id": 558591,
+              "home": "ACF Fiorentina",
+              "away": "SSC Napoli",
+              "date": "2026-09-20",
+              "covered": false,
+              "pending": true
             }
           ]
         }
