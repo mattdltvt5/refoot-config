@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-20T14:26:38.041907Z",
+  "generated_at": "2026-09-20T15:07:13.576100Z",
   "competition": "Serie A",
   "slug": "serie-a",
   "season": 2026,
@@ -83,17 +83,17 @@
     {
       "position": 5,
       "team": {
-        "id": 7397,
-        "name": "Como 1907",
-        "shortName": "Como 1907",
-        "tla": "COM",
-        "crest": "https://crests.football-data.org/7397.png"
+        "id": 470,
+        "name": "Frosinone Calcio",
+        "shortName": "Frosinone",
+        "tla": "FRO",
+        "crest": "https://crests.football-data.org/470.png"
       },
-      "playedGames": 4,
-      "form": "W,W,W,D",
+      "playedGames": 5,
+      "form": "W,D,W,W,L",
       "won": 3,
       "draw": 1,
-      "lost": 0,
+      "lost": 1,
       "points": 10,
       "goalsFor": 9,
       "goalsAgainst": 4,
@@ -101,6 +101,25 @@
     },
     {
       "position": 6,
+      "team": {
+        "id": 7397,
+        "name": "Como 1907",
+        "shortName": "Como 1907",
+        "tla": "COM",
+        "crest": "https://crests.football-data.org/7397.png"
+      },
+      "playedGames": 5,
+      "form": "L,W,W,W,D",
+      "won": 3,
+      "draw": 1,
+      "lost": 1,
+      "points": 10,
+      "goalsFor": 9,
+      "goalsAgainst": 6,
+      "goalDifference": 3
+    },
+    {
+      "position": 7,
       "team": {
         "id": 98,
         "name": "AC Milan",
@@ -114,25 +133,6 @@
       "draw": 2,
       "lost": 0,
       "points": 8,
-      "goalsFor": 7,
-      "goalsAgainst": 4,
-      "goalDifference": 3
-    },
-    {
-      "position": 7,
-      "team": {
-        "id": 470,
-        "name": "Frosinone Calcio",
-        "shortName": "Frosinone",
-        "tla": "FRO",
-        "crest": "https://crests.football-data.org/470.png"
-      },
-      "playedGames": 4,
-      "form": "D,W,W,L",
-      "won": 2,
-      "draw": 1,
-      "lost": 1,
-      "points": 7,
       "goalsFor": 7,
       "goalsAgainst": 4,
       "goalDifference": 3
@@ -273,6 +273,25 @@
     {
       "position": 15,
       "team": {
+        "id": 112,
+        "name": "Parma Calcio 1913",
+        "shortName": "Parma",
+        "tla": "PAR",
+        "crest": "https://crests.football-data.org/112.png"
+      },
+      "playedGames": 5,
+      "form": "W,L,D,L,L",
+      "won": 1,
+      "draw": 1,
+      "lost": 3,
+      "points": 4,
+      "goalsFor": 4,
+      "goalsAgainst": 7,
+      "goalDifference": -3
+    },
+    {
+      "position": 16,
+      "team": {
         "id": 5911,
         "name": "AC Monza",
         "shortName": "Monza",
@@ -290,7 +309,7 @@
       "goalDifference": -4
     },
     {
-      "position": 16,
+      "position": 17,
       "team": {
         "id": 99,
         "name": "ACF Fiorentina",
@@ -309,7 +328,7 @@
       "goalDifference": -6
     },
     {
-      "position": 17,
+      "position": 18,
       "team": {
         "id": 103,
         "name": "Bologna FC 1909",
@@ -328,25 +347,6 @@
       "goalDifference": -3
     },
     {
-      "position": 18,
-      "team": {
-        "id": 112,
-        "name": "Parma Calcio 1913",
-        "shortName": "Parma",
-        "tla": "PAR",
-        "crest": "https://crests.football-data.org/112.png"
-      },
-      "playedGames": 4,
-      "form": "L,D,L,L",
-      "won": 0,
-      "draw": 1,
-      "lost": 3,
-      "points": 1,
-      "goalsFor": 2,
-      "goalsAgainst": 6,
-      "goalDifference": -4
-    },
-    {
       "position": 19,
       "team": {
         "id": 107,
@@ -355,15 +355,15 @@
         "tla": "GEN",
         "crest": "https://crests.football-data.org/107.png"
       },
-      "playedGames": 4,
-      "form": "D,L,L,L",
+      "playedGames": 5,
+      "form": "L,D,L,L,L",
       "won": 0,
       "draw": 1,
-      "lost": 3,
+      "lost": 4,
       "points": 1,
-      "goalsFor": 2,
-      "goalsAgainst": 8,
-      "goalDifference": -6
+      "goalsFor": 3,
+      "goalsAgainst": 10,
+      "goalDifference": -7
     },
     {
       "position": 20,
