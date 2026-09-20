@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-20T17:16:28Z",
+  "generated_at": "2026-09-20T17:21:34Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -1866,7 +1866,7 @@
         {
           "gameweek": "GW5",
           "stem": "gameweek-5",
-          "total": 7,
+          "total": 8,
           "covered": 7,
           "matches": [
             {
@@ -1917,6 +1917,14 @@
               "away": "Stade Brestois 29",
               "date": "2026-09-20",
               "covered": true
+            },
+            {
+              "match_id": 559678,
+              "home": "OGC Nice",
+              "away": "Lille OSC",
+              "date": "2026-09-20",
+              "covered": false,
+              "pending": true
             }
           ]
         }

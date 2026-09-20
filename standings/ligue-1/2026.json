@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-20T16:57:14.044173Z",
+  "generated_at": "2026-09-20T17:22:09.956522Z",
   "competition": "Ligue 1",
   "slug": "ligue-1",
   "season": 2026,
@@ -70,15 +70,15 @@
         "tla": "LIL",
         "crest": "https://crests.football-data.org/521.png"
       },
-      "playedGames": 4,
-      "form": "W,W,D,W",
+      "playedGames": 5,
+      "form": "L,W,W,D,W",
       "won": 3,
       "draw": 1,
-      "lost": 0,
+      "lost": 1,
       "points": 10,
-      "goalsFor": 7,
-      "goalsAgainst": 2,
-      "goalDifference": 5
+      "goalsFor": 8,
+      "goalsAgainst": 4,
+      "goalDifference": 4
     },
     {
       "position": 5,
@@ -254,6 +254,25 @@
     {
       "position": 14,
       "team": {
+        "id": 522,
+        "name": "OGC Nice",
+        "shortName": "Nice",
+        "tla": "NIC",
+        "crest": "https://crests.football-data.org/522.png"
+      },
+      "playedGames": 5,
+      "form": "W,L,D,L,D",
+      "won": 1,
+      "draw": 2,
+      "lost": 2,
+      "points": 5,
+      "goalsFor": 3,
+      "goalsAgainst": 6,
+      "goalDifference": -3
+    },
+    {
+      "position": 15,
+      "team": {
         "id": 546,
         "name": "Racing Club de Lens",
         "shortName": "RC Lens",
@@ -271,7 +290,7 @@
       "goalDifference": 0
     },
     {
-      "position": 15,
+      "position": 16,
       "team": {
         "id": 531,
         "name": "ES Troyes AC",
@@ -290,7 +309,7 @@
       "goalDifference": -7
     },
     {
-      "position": 16,
+      "position": 17,
       "team": {
         "id": 516,
         "name": "Olympique de Marseille",
@@ -309,7 +328,7 @@
       "goalDifference": 0
     },
     {
-      "position": 17,
+      "position": 18,
       "team": {
         "id": 533,
         "name": "Le Havre AC",
@@ -326,25 +345,6 @@
       "goalsFor": 4,
       "goalsAgainst": 7,
       "goalDifference": -3
-    },
-    {
-      "position": 18,
-      "team": {
-        "id": 522,
-        "name": "OGC Nice",
-        "shortName": "Nice",
-        "tla": "NIC",
-        "crest": "https://crests.football-data.org/522.png"
-      },
-      "playedGames": 4,
-      "form": "L,D,L,D",
-      "won": 0,
-      "draw": 2,
-      "lost": 2,
-      "points": 2,
-      "goalsFor": 1,
-      "goalsAgainst": 5,
-      "goalDifference": -4
     }
   ]
 }

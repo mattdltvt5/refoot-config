@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-20T17:16:57.629897Z",
+  "generated_at": "2026-09-20T17:22:02.523767Z",
   "competition": "Bundesliga",
   "slug": "bundesliga",
   "season": 2026,
@@ -121,6 +121,25 @@
     {
       "position": 7,
       "team": {
+        "id": 719,
+        "name": "SV 07 Elversberg",
+        "shortName": "Elversberg",
+        "tla": "ELV",
+        "crest": "https://crests.football-data.org/719.png"
+      },
+      "playedGames": 4,
+      "form": "D,L,W,W",
+      "won": 2,
+      "draw": 1,
+      "lost": 1,
+      "points": 7,
+      "goalsFor": 8,
+      "goalsAgainst": 7,
+      "goalDifference": 1
+    },
+    {
+      "position": 8,
+      "team": {
         "id": 12,
         "name": "SV Werder Bremen",
         "shortName": "Bremen",
@@ -138,7 +157,7 @@
       "goalDifference": 0
     },
     {
-      "position": 8,
+      "position": 9,
       "team": {
         "id": 721,
         "name": "RB Leipzig",
@@ -155,25 +174,6 @@
       "goalsFor": 9,
       "goalsAgainst": 5,
       "goalDifference": 4
-    },
-    {
-      "position": 9,
-      "team": {
-        "id": 719,
-        "name": "SV 07 Elversberg",
-        "shortName": "Elversberg",
-        "tla": "ELV",
-        "crest": "https://crests.football-data.org/719.png"
-      },
-      "playedGames": 3,
-      "form": "L,W,W",
-      "won": 2,
-      "draw": 0,
-      "lost": 1,
-      "points": 6,
-      "goalsFor": 8,
-      "goalsAgainst": 7,
-      "goalDifference": 1
     },
     {
       "position": 10,
@@ -203,12 +203,12 @@
         "tla": "S04",
         "crest": "https://crests.football-data.org/6.png"
       },
-      "playedGames": 3,
-      "form": "W,D,L",
+      "playedGames": 4,
+      "form": "D,W,D,L",
       "won": 1,
-      "draw": 1,
+      "draw": 2,
       "lost": 1,
-      "points": 4,
+      "points": 5,
       "goalsFor": 3,
       "goalsAgainst": 4,
       "goalDifference": -1
