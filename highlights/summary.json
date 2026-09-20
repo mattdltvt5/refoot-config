@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-20T19:31:38Z",
+  "generated_at": "2026-09-20T19:36:32Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -1549,7 +1549,7 @@
           "gameweek": "GW4",
           "stem": "gameweek-4",
           "total": 9,
-          "covered": 8,
+          "covered": 9,
           "matches": [
             {
               "match_id": 565804,
@@ -1612,8 +1612,7 @@
               "home": "SC Paderborn 07",
               "away": "TSG 1899 Hoffenheim",
               "date": "2026-09-20",
-              "covered": false,
-              "pending": true
+              "covered": true
             }
           ]
         }
