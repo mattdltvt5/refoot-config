@@ -4,6 +4,15 @@ Remote channel configuration for the **ReFoot Highlights** Android app.
 
 ## Recent changes
 
+### Public legal pages: `privacy.html` + `terms.html` (2026-09-20)
+
+Added two self-contained static pages served by GitHub Pages alongside `admin.html`:
+
+- **Privacy Policy** — https://mattdltvt5.github.io/refoot-config/privacy.html
+- **Terms of Service** — https://mattdltvt5.github.io/refoot-config/terms.html
+
+Purpose: they are the reachable **"Application privacy policy link"** and **"Application terms of service link"** for the **Google OAuth consent screen branding** submission (so the Google sign-in screen shows the ReFoot name instead of the raw `firebaseapp.com` domain), and they double as the app's user-facing legal pages. Content: a free, non-commercial highlights aggregator with no analytics and on-device-only preferences; contact `refoot.highlights.app@gmail.com`. Each page follows the established web-surface pattern — **inline CSS/markup, no build step, no external fetches** — and its `:root` uses **`admin.html`'s real design tokens** (`--blue`, `--text`, `--muted`, `--bg`, `--border`, `--blue-bg`, `--white`, `--warning-soft`) so all three surfaces share one palette. (`admin.html` is light-only — no OS/toggle dark mode — so these match it.) **Files:** `privacy.html`, `terms.html`.
+
 ### Curated team/nation color palettes in `sources.json` (`teamPalettes`) (2026-09-18)
 
 Added a new top-level **`teamPalettes`** map to `sources.json` — curated brand colors for the app's upcoming
