@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-07T11:49:04Z",
+  "generated_at": "2026-09-21T12:13:53Z",
   "current_season": 2026,
   "resolved": {
     "2026": {
@@ -86,7 +86,7 @@
         },
         "Everton FC": {
           "format": "undetermined",
-          "playlist_id": "PLkB7IpRClaTK-kd_RjYKmaYpwMscjfK7X"
+          "playlist_id": "PLH7KWX7yGaY8"
         },
         "Fulham FC": {
           "format": "undetermined",
@@ -194,7 +194,7 @@
       "Serie A": {
         "AC Milan": {
           "format": "undetermined",
-          "playlist_id": "PLW7Xs51ob1LI"
+          "playlist_id": "PLOzHOZ4Qr3hs"
         },
         "AS Roma": {
           "format": "undetermined",
@@ -210,7 +210,7 @@
         },
         "FC Internazionale Milano": {
           "format": "undetermined",
-          "playlist_id": "PLdwU7tWGjpdU"
+          "playlist_id": "PLT_p53qElCWs"
         },
         "Hellas Verona FC": {
           "format": "undetermined",
@@ -262,7 +262,7 @@
         },
         "OGC Nice": {
           "format": "undetermined",
-          "playlist_id": "PL1jKDEOyvIG3oQZPx33aPORIeeUCJzuf8"
+          "playlist_id": "PLDkam-qHDBlQ"
         },
         "Olympique Lyonnais": {
           "format": "undetermined",
@@ -290,6 +290,13 @@
       "source": "Premier League",
       "mapped_id": "PLQ_voP4Q3cfetksvjNLOrMr3h8xtViMuP",
       "reason": "channel_unresolvable_reseed"
+    },
+    {
+      "competition": "Champions League",
+      "source": "TUDN USA",
+      "mapped_id": "PLKl0099ohpvEAjUxyNv3YT9aV3FBeJ2Xz",
+      "reason": "no_confident_match_kept_last_known_good",
+      "owner_channel": "TUDN USA"
     },
     {
       "competition": "Premier League",
@@ -370,10 +377,50 @@
   ],
   "missing_channels": [
     {
-      "competition": "Bundesliga",
-      "team": "SV 07 Elversberg",
+      "competition": "Champions League",
+      "team": "FC Porto",
+      "covered_via_other_tier": true
+    },
+    {
+      "competition": "Champions League",
+      "team": "FK Shakhtar Donetsk",
+      "covered_via_other_tier": true
+    },
+    {
+      "competition": "Champions League",
+      "team": "Fenerbahçe SK",
+      "covered_via_other_tier": true
+    },
+    {
+      "competition": "Champions League",
+      "team": "Feyenoord Rotterdam",
+      "covered_via_other_tier": true
+    },
+    {
+      "competition": "Champions League",
+      "team": "LASK Linz",
+      "covered_via_other_tier": true
+    },
+    {
+      "competition": "Champions League",
+      "team": "PAE AEK",
+      "covered_via_other_tier": true
+    },
+    {
+      "competition": "Champions League",
+      "team": "Sabah FK",
+      "covered_via_other_tier": true
+    },
+    {
+      "competition": "Champions League",
+      "team": "Viking FK",
+      "covered_via_other_tier": true
+    },
+    {
+      "competition": "Champions League",
+      "team": "ŠK Slovan Bratislava",
       "covered_via_other_tier": true
     }
   ],
-  "estimated_units": 195
+  "estimated_units": 202
 }
