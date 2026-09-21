@@ -3,6 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Deliberate ReFoot blue so the Chrome Custom Tab toolbar picks up a
+     consistent brand colour (the page below is a neutral document, not a hero). -->
+<meta name="theme-color" content="#2196F3">
 <title>ReFoot Terms of Service</title>
 <style>
   :root {
@@ -28,15 +31,23 @@
     background: var(--bg);
     line-height: 1.6;
   }
+  /* Neutral document header (no blue hero): the Custom Tab toolbar above already
+     carries the brand, so this reads as a calm document with just a small
+     wordmark + normal title, separated from the body by a thin border. */
   header {
-    background: var(--blue);
-    color: var(--white);
-    padding: 24px 20px;
+    background: var(--white);
+    color: var(--text);
+    padding: 24px 20px 20px;
+    border-bottom: 1px solid var(--border);
   }
   header .wrap { max-width: var(--maxw); margin: 0 auto; }
-  header h1 { margin: 0; font-size: 22px; }
+  .wordmark {
+    margin: 0 0 6px; font-size: 13px; font-weight: 700;
+    letter-spacing: .5px; text-transform: uppercase; color: var(--blue);
+  }
+  header h1 { margin: 0; font-size: 22px; color: var(--text); }
   main { max-width: var(--maxw); margin: 0 auto; padding: 28px 20px 64px; }
-  .updated { color: var(--muted); font-size: 14px; margin: 0 0 24px; }
+  .updated { color: var(--muted); font-size: 14px; margin: 6px 0 0; }
   h2 { font-size: 18px; margin: 32px 0 8px; }
   p, li { font-size: 15px; }
   ul { padding-left: 20px; }
@@ -53,11 +64,13 @@
 </head>
 <body>
 <header>
-  <div class="wrap"><h1>ReFoot Terms of Service</h1></div>
+  <div class="wrap">
+    <p class="wordmark">ReFoot</p>
+    <h1>Terms of Service</h1>
+    <p class="updated">Last updated: September 20, 2026</p>
+  </div>
 </header>
 <main>
-  <p class="updated">Last updated: September 20, 2026</p>
-
   <p>These Terms of Service ("Terms") govern your use of ReFoot (the "Service"), operated by
   Matthieu Delatour ("we", "us"). By using the Service,
   you agree to these Terms. If you do not agree, do not use the Service.</p>

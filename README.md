@@ -4,6 +4,10 @@ Remote channel configuration for the **ReFoot Highlights** Android app.
 
 ## Recent changes
 
+### Privacy/Terms: neutral document header (dropped the blue hero) (2026-09-21)
+
+`privacy.html` and `terms.html` replaced their full-width blue hero banner with a **neutral document header** — white background, small blue "ReFoot" wordmark, normal-size dark title, the "Last updated" line beneath, and a thin bottom border (no colored band). This avoids the double-blue stacking under the app's Chrome Custom Tab toolbar (which already carries the brand + title). Added `<meta name="theme-color" content="#2196F3">` to both so the Custom Tab toolbar picks up a deliberate ReFoot blue. **Policy/terms wording, dates, and section structure are unchanged** — header/`<head>` styling only. **Files:** `privacy.html`, `terms.html`.
+
 ### Public legal pages: `privacy.html` + `terms.html` (2026-09-20)
 
 Added two self-contained static pages served by GitHub Pages alongside `admin.html`:
