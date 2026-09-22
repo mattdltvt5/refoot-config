@@ -1,7 +1,7 @@
 {
   "competition": "Premier League",
   "season": 2026,
-  "generated_at": "2026-09-22T13:26:23Z",
+  "generated_at": "2026-09-22T13:31:23Z",
   "fixtures": [
     {
       "match_id": 560542,
@@ -2524,23 +2524,23 @@
       "utcDate": "2026-11-02T20:00:00Z"
     },
     {
-      "match_id": 560640,
+      "match_id": 560634,
       "group": "",
       "matchday": 10,
       "sourceRound": "Gameweek 10",
       "homeTeam": {
-        "id": 57,
-        "name": "Arsenal FC",
-        "shortName": "Arsenal",
-        "tla": "ARS",
-        "crest": "https://crests.football-data.org/57.png"
+        "id": 62,
+        "name": "Everton FC",
+        "shortName": "Everton",
+        "tla": "EVE",
+        "crest": "https://crests.football-data.org/62.png"
       },
       "awayTeam": {
-        "id": 322,
-        "name": "Hull City AFC",
-        "shortName": "Hull City",
-        "tla": "HUL",
-        "crest": "https://crests.football-data.org/322.png"
+        "id": 1076,
+        "name": "Coventry City FC",
+        "shortName": "Coventry City",
+        "tla": "COV",
+        "crest": "https://crests.football-data.org/1076.png"
       },
       "score": {
         "fullTime": {
@@ -2549,35 +2549,7 @@
         }
       },
       "status": "TIMED",
-      "utcDate": "2026-11-07T15:00:00Z"
-    },
-    {
-      "match_id": 560641,
-      "group": "",
-      "matchday": 10,
-      "sourceRound": "Gameweek 10",
-      "homeTeam": {
-        "id": 351,
-        "name": "Nottingham Forest FC",
-        "shortName": "Nottingham",
-        "tla": "NOT",
-        "crest": "https://crests.football-data.org/351.png"
-      },
-      "awayTeam": {
-        "id": 65,
-        "name": "Manchester City FC",
-        "shortName": "Man City",
-        "tla": "MCI",
-        "crest": "https://crests.football-data.org/65.png"
-      },
-      "score": {
-        "fullTime": {
-          "home": null,
-          "away": null
-        }
-      },
-      "status": "TIMED",
-      "utcDate": "2026-11-07T15:00:00Z"
+      "utcDate": "2026-11-06T20:00:00Z"
     },
     {
       "match_id": 560632,
@@ -2597,6 +2569,34 @@
         "shortName": "Tottenham",
         "tla": "TOT",
         "crest": "https://crests.football-data.org/73.png"
+      },
+      "score": {
+        "fullTime": {
+          "home": null,
+          "away": null
+        }
+      },
+      "status": "TIMED",
+      "utcDate": "2026-11-07T12:30:00Z"
+    },
+    {
+      "match_id": 560640,
+      "group": "",
+      "matchday": 10,
+      "sourceRound": "Gameweek 10",
+      "homeTeam": {
+        "id": 57,
+        "name": "Arsenal FC",
+        "shortName": "Arsenal",
+        "tla": "ARS",
+        "crest": "https://crests.football-data.org/57.png"
+      },
+      "awayTeam": {
+        "id": 322,
+        "name": "Hull City AFC",
+        "shortName": "Hull City",
+        "tla": "HUL",
+        "crest": "https://crests.football-data.org/322.png"
       },
       "score": {
         "fullTime": {
@@ -2636,23 +2636,23 @@
       "utcDate": "2026-11-07T15:00:00Z"
     },
     {
-      "match_id": 560634,
+      "match_id": 560641,
       "group": "",
       "matchday": 10,
       "sourceRound": "Gameweek 10",
       "homeTeam": {
-        "id": 62,
-        "name": "Everton FC",
-        "shortName": "Everton",
-        "tla": "EVE",
-        "crest": "https://crests.football-data.org/62.png"
+        "id": 351,
+        "name": "Nottingham Forest FC",
+        "shortName": "Nottingham",
+        "tla": "NOT",
+        "crest": "https://crests.football-data.org/351.png"
       },
       "awayTeam": {
-        "id": 1076,
-        "name": "Coventry City FC",
-        "shortName": "Coventry City",
-        "tla": "COV",
-        "crest": "https://crests.football-data.org/1076.png"
+        "id": 65,
+        "name": "Manchester City FC",
+        "shortName": "Man City",
+        "tla": "MCI",
+        "crest": "https://crests.football-data.org/65.png"
       },
       "score": {
         "fullTime": {
@@ -2661,7 +2661,7 @@
         }
       },
       "status": "TIMED",
-      "utcDate": "2026-11-07T15:00:00Z"
+      "utcDate": "2026-11-07T17:30:00Z"
     },
     {
       "match_id": 560635,
@@ -2689,7 +2689,7 @@
         }
       },
       "status": "TIMED",
-      "utcDate": "2026-11-07T15:00:00Z"
+      "utcDate": "2026-11-08T14:00:00Z"
     },
     {
       "match_id": 560636,
@@ -2717,7 +2717,7 @@
         }
       },
       "status": "TIMED",
-      "utcDate": "2026-11-07T15:00:00Z"
+      "utcDate": "2026-11-08T14:00:00Z"
     },
     {
       "match_id": 560637,
@@ -2745,7 +2745,7 @@
         }
       },
       "status": "TIMED",
-      "utcDate": "2026-11-07T15:00:00Z"
+      "utcDate": "2026-11-08T14:00:00Z"
     },
     {
       "match_id": 560638,
@@ -2773,7 +2773,7 @@
         }
       },
       "status": "TIMED",
-      "utcDate": "2026-11-07T15:00:00Z"
+      "utcDate": "2026-11-08T14:00:00Z"
     },
     {
       "match_id": 560639,
@@ -2801,7 +2801,35 @@
         }
       },
       "status": "TIMED",
-      "utcDate": "2026-11-07T15:00:00Z"
+      "utcDate": "2026-11-08T16:30:00Z"
+    },
+    {
+      "match_id": 560643,
+      "group": "",
+      "matchday": 11,
+      "sourceRound": "Gameweek 11",
+      "homeTeam": {
+        "id": 65,
+        "name": "Manchester City FC",
+        "shortName": "Man City",
+        "tla": "MCI",
+        "crest": "https://crests.football-data.org/65.png"
+      },
+      "awayTeam": {
+        "id": 63,
+        "name": "Fulham FC",
+        "shortName": "Fulham",
+        "tla": "FUL",
+        "crest": "https://crests.football-data.org/63.png"
+      },
+      "score": {
+        "fullTime": {
+          "home": null,
+          "away": null
+        }
+      },
+      "status": "TIMED",
+      "utcDate": "2026-11-21T12:30:00Z"
     },
     {
       "match_id": 560642,
@@ -2832,34 +2860,6 @@
       "utcDate": "2026-11-21T15:00:00Z"
     },
     {
-      "match_id": 560643,
-      "group": "",
-      "matchday": 11,
-      "sourceRound": "Gameweek 11",
-      "homeTeam": {
-        "id": 65,
-        "name": "Manchester City FC",
-        "shortName": "Man City",
-        "tla": "MCI",
-        "crest": "https://crests.football-data.org/65.png"
-      },
-      "awayTeam": {
-        "id": 63,
-        "name": "Fulham FC",
-        "shortName": "Fulham",
-        "tla": "FUL",
-        "crest": "https://crests.football-data.org/63.png"
-      },
-      "score": {
-        "fullTime": {
-          "home": null,
-          "away": null
-        }
-      },
-      "status": "TIMED",
-      "utcDate": "2026-11-21T15:00:00Z"
-    },
-    {
       "match_id": 560644,
       "group": "",
       "matchday": 11,
@@ -2877,62 +2877,6 @@
         "shortName": "Sunderland",
         "tla": "SUN",
         "crest": "https://crests.football-data.org/71.png"
-      },
-      "score": {
-        "fullTime": {
-          "home": null,
-          "away": null
-        }
-      },
-      "status": "TIMED",
-      "utcDate": "2026-11-21T15:00:00Z"
-    },
-    {
-      "match_id": 560645,
-      "group": "",
-      "matchday": 11,
-      "sourceRound": "Gameweek 11",
-      "homeTeam": {
-        "id": 64,
-        "name": "Liverpool FC",
-        "shortName": "Liverpool",
-        "tla": "LIV",
-        "crest": "https://crests.football-data.org/64.png"
-      },
-      "awayTeam": {
-        "id": 66,
-        "name": "Manchester United FC",
-        "shortName": "Man United",
-        "tla": "MUN",
-        "crest": "https://crests.football-data.org/66.png"
-      },
-      "score": {
-        "fullTime": {
-          "home": null,
-          "away": null
-        }
-      },
-      "status": "TIMED",
-      "utcDate": "2026-11-21T15:00:00Z"
-    },
-    {
-      "match_id": 560646,
-      "group": "",
-      "matchday": 11,
-      "sourceRound": "Gameweek 11",
-      "homeTeam": {
-        "id": 322,
-        "name": "Hull City AFC",
-        "shortName": "Hull City",
-        "tla": "HUL",
-        "crest": "https://crests.football-data.org/322.png"
-      },
-      "awayTeam": {
-        "id": 397,
-        "name": "Brighton & Hove Albion FC",
-        "shortName": "Brighton Hove",
-        "tla": "BHA",
-        "crest": "https://crests.football-data.org/397.png"
       },
       "score": {
         "fullTime": {
@@ -3000,34 +2944,6 @@
       "utcDate": "2026-11-21T15:00:00Z"
     },
     {
-      "match_id": 560649,
-      "group": "",
-      "matchday": 11,
-      "sourceRound": "Gameweek 11",
-      "homeTeam": {
-        "id": 402,
-        "name": "Brentford FC",
-        "shortName": "Brentford",
-        "tla": "BRE",
-        "crest": "https://crests.football-data.org/402.png"
-      },
-      "awayTeam": {
-        "id": 62,
-        "name": "Everton FC",
-        "shortName": "Everton",
-        "tla": "EVE",
-        "crest": "https://crests.football-data.org/62.png"
-      },
-      "score": {
-        "fullTime": {
-          "home": null,
-          "away": null
-        }
-      },
-      "status": "TIMED",
-      "utcDate": "2026-11-21T15:00:00Z"
-    },
-    {
       "match_id": 560650,
       "group": "",
       "matchday": 11,
@@ -3081,7 +2997,119 @@
         }
       },
       "status": "TIMED",
-      "utcDate": "2026-11-21T15:00:00Z"
+      "utcDate": "2026-11-21T17:30:00Z"
+    },
+    {
+      "match_id": 560646,
+      "group": "",
+      "matchday": 11,
+      "sourceRound": "Gameweek 11",
+      "homeTeam": {
+        "id": 322,
+        "name": "Hull City AFC",
+        "shortName": "Hull City",
+        "tla": "HUL",
+        "crest": "https://crests.football-data.org/322.png"
+      },
+      "awayTeam": {
+        "id": 397,
+        "name": "Brighton & Hove Albion FC",
+        "shortName": "Brighton Hove",
+        "tla": "BHA",
+        "crest": "https://crests.football-data.org/397.png"
+      },
+      "score": {
+        "fullTime": {
+          "home": null,
+          "away": null
+        }
+      },
+      "status": "TIMED",
+      "utcDate": "2026-11-22T14:00:00Z"
+    },
+    {
+      "match_id": 560645,
+      "group": "",
+      "matchday": 11,
+      "sourceRound": "Gameweek 11",
+      "homeTeam": {
+        "id": 64,
+        "name": "Liverpool FC",
+        "shortName": "Liverpool",
+        "tla": "LIV",
+        "crest": "https://crests.football-data.org/64.png"
+      },
+      "awayTeam": {
+        "id": 66,
+        "name": "Manchester United FC",
+        "shortName": "Man United",
+        "tla": "MUN",
+        "crest": "https://crests.football-data.org/66.png"
+      },
+      "score": {
+        "fullTime": {
+          "home": null,
+          "away": null
+        }
+      },
+      "status": "TIMED",
+      "utcDate": "2026-11-22T16:30:00Z"
+    },
+    {
+      "match_id": 560649,
+      "group": "",
+      "matchday": 11,
+      "sourceRound": "Gameweek 11",
+      "homeTeam": {
+        "id": 402,
+        "name": "Brentford FC",
+        "shortName": "Brentford",
+        "tla": "BRE",
+        "crest": "https://crests.football-data.org/402.png"
+      },
+      "awayTeam": {
+        "id": 62,
+        "name": "Everton FC",
+        "shortName": "Everton",
+        "tla": "EVE",
+        "crest": "https://crests.football-data.org/62.png"
+      },
+      "score": {
+        "fullTime": {
+          "home": null,
+          "away": null
+        }
+      },
+      "status": "TIMED",
+      "utcDate": "2026-11-23T20:00:00Z"
+    },
+    {
+      "match_id": 560658,
+      "group": "",
+      "matchday": 12,
+      "sourceRound": "Gameweek 12",
+      "homeTeam": {
+        "id": 351,
+        "name": "Nottingham Forest FC",
+        "shortName": "Nottingham",
+        "tla": "NOT",
+        "crest": "https://crests.football-data.org/351.png"
+      },
+      "awayTeam": {
+        "id": 61,
+        "name": "Chelsea FC",
+        "shortName": "Chelsea",
+        "tla": "CHE",
+        "crest": "https://crests.football-data.org/61.png"
+      },
+      "score": {
+        "fullTime": {
+          "home": null,
+          "away": null
+        }
+      },
+      "status": "TIMED",
+      "utcDate": "2026-11-27T20:00:00Z"
     },
     {
       "match_id": 560652,
@@ -3101,62 +3129,6 @@
         "shortName": "Coventry City",
         "tla": "COV",
         "crest": "https://crests.football-data.org/1076.png"
-      },
-      "score": {
-        "fullTime": {
-          "home": null,
-          "away": null
-        }
-      },
-      "status": "TIMED",
-      "utcDate": "2026-11-28T15:00:00Z"
-    },
-    {
-      "match_id": 560653,
-      "group": "",
-      "matchday": 12,
-      "sourceRound": "Gameweek 12",
-      "homeTeam": {
-        "id": 349,
-        "name": "Ipswich Town FC",
-        "shortName": "Ipswich Town",
-        "tla": "IPS",
-        "crest": "https://crests.football-data.org/349.png"
-      },
-      "awayTeam": {
-        "id": 58,
-        "name": "Aston Villa FC",
-        "shortName": "Aston Villa",
-        "tla": "AVL",
-        "crest": "https://crests.football-data.org/58.png"
-      },
-      "score": {
-        "fullTime": {
-          "home": null,
-          "away": null
-        }
-      },
-      "status": "TIMED",
-      "utcDate": "2026-11-28T15:00:00Z"
-    },
-    {
-      "match_id": 560654,
-      "group": "",
-      "matchday": 12,
-      "sourceRound": "Gameweek 12",
-      "homeTeam": {
-        "id": 57,
-        "name": "Arsenal FC",
-        "shortName": "Arsenal",
-        "tla": "ARS",
-        "crest": "https://crests.football-data.org/57.png"
-      },
-      "awayTeam": {
-        "id": 65,
-        "name": "Manchester City FC",
-        "shortName": "Man City",
-        "tla": "MCI",
-        "crest": "https://crests.football-data.org/65.png"
       },
       "score": {
         "fullTime": {
@@ -3196,6 +3168,34 @@
       "utcDate": "2026-11-28T15:00:00Z"
     },
     {
+      "match_id": 560653,
+      "group": "",
+      "matchday": 12,
+      "sourceRound": "Gameweek 12",
+      "homeTeam": {
+        "id": 349,
+        "name": "Ipswich Town FC",
+        "shortName": "Ipswich Town",
+        "tla": "IPS",
+        "crest": "https://crests.football-data.org/349.png"
+      },
+      "awayTeam": {
+        "id": 58,
+        "name": "Aston Villa FC",
+        "shortName": "Aston Villa",
+        "tla": "AVL",
+        "crest": "https://crests.football-data.org/58.png"
+      },
+      "score": {
+        "fullTime": {
+          "home": null,
+          "away": null
+        }
+      },
+      "status": "TIMED",
+      "utcDate": "2026-11-28T17:30:00Z"
+    },
+    {
       "match_id": 560656,
       "group": "",
       "matchday": 12,
@@ -3221,7 +3221,7 @@
         }
       },
       "status": "TIMED",
-      "utcDate": "2026-11-28T15:00:00Z"
+      "utcDate": "2026-11-29T12:00:00Z"
     },
     {
       "match_id": 560657,
@@ -3249,35 +3249,7 @@
         }
       },
       "status": "TIMED",
-      "utcDate": "2026-11-28T15:00:00Z"
-    },
-    {
-      "match_id": 560658,
-      "group": "",
-      "matchday": 12,
-      "sourceRound": "Gameweek 12",
-      "homeTeam": {
-        "id": 351,
-        "name": "Nottingham Forest FC",
-        "shortName": "Nottingham",
-        "tla": "NOT",
-        "crest": "https://crests.football-data.org/351.png"
-      },
-      "awayTeam": {
-        "id": 61,
-        "name": "Chelsea FC",
-        "shortName": "Chelsea",
-        "tla": "CHE",
-        "crest": "https://crests.football-data.org/61.png"
-      },
-      "score": {
-        "fullTime": {
-          "home": null,
-          "away": null
-        }
-      },
-      "status": "TIMED",
-      "utcDate": "2026-11-28T15:00:00Z"
+      "utcDate": "2026-11-29T14:05:00Z"
     },
     {
       "match_id": 560659,
@@ -3305,7 +3277,7 @@
         }
       },
       "status": "TIMED",
-      "utcDate": "2026-11-28T15:00:00Z"
+      "utcDate": "2026-11-29T14:05:00Z"
     },
     {
       "match_id": 560660,
@@ -3333,7 +3305,7 @@
         }
       },
       "status": "TIMED",
-      "utcDate": "2026-11-28T15:00:00Z"
+      "utcDate": "2026-11-29T14:05:00Z"
     },
     {
       "match_id": 560661,
@@ -3361,7 +3333,35 @@
         }
       },
       "status": "TIMED",
-      "utcDate": "2026-11-28T15:00:00Z"
+      "utcDate": "2026-11-29T14:05:00Z"
+    },
+    {
+      "match_id": 560654,
+      "group": "",
+      "matchday": 12,
+      "sourceRound": "Gameweek 12",
+      "homeTeam": {
+        "id": 57,
+        "name": "Arsenal FC",
+        "shortName": "Arsenal",
+        "tla": "ARS",
+        "crest": "https://crests.football-data.org/57.png"
+      },
+      "awayTeam": {
+        "id": 65,
+        "name": "Manchester City FC",
+        "shortName": "Man City",
+        "tla": "MCI",
+        "crest": "https://crests.football-data.org/65.png"
+      },
+      "score": {
+        "fullTime": {
+          "home": null,
+          "away": null
+        }
+      },
+      "status": "TIMED",
+      "utcDate": "2026-11-29T16:30:00Z"
     },
     {
       "match_id": 560662,
