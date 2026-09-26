@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-18T00:21:14Z",
+  "generated_at": "2026-09-26T13:31:20Z",
   "month": "2026-12",
   "dates": {
     "2026-12-02": [
@@ -220,6 +220,35 @@
         ]
       }
     ],
+    "2026-12-04": [
+      {
+        "competition": "serie-a",
+        "name": "Serie A",
+        "matches": [
+          {
+            "match_id": 558502,
+            "homeTeam": {
+              "id": 103,
+              "name": "Bologna FC 1909",
+              "shortName": "Bologna",
+              "tla": "BOL",
+              "crest": "https://crests.football-data.org/103.png"
+            },
+            "awayTeam": {
+              "id": 100,
+              "name": "AS Roma",
+              "shortName": "Roma",
+              "tla": "ROM",
+              "crest": "https://crests.football-data.org/100.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "TIMED",
+            "utcDate": "2026-12-04T19:45:00Z"
+          }
+        ]
+      }
+    ],
     "2026-12-05": [
       {
         "competition": "premier-league",
@@ -434,6 +463,75 @@
             "awayScore": null,
             "status": "TIMED",
             "utcDate": "2026-12-05T15:00:00Z"
+          }
+        ]
+      },
+      {
+        "competition": "serie-a",
+        "name": "Serie A",
+        "matches": [
+          {
+            "match_id": 558507,
+            "homeTeam": {
+              "id": 5911,
+              "name": "AC Monza",
+              "shortName": "Monza",
+              "tla": "MON",
+              "crest": "https://crests.football-data.org/5911.png"
+            },
+            "awayTeam": {
+              "id": 7397,
+              "name": "Como 1907",
+              "shortName": "Como 1907",
+              "tla": "COM",
+              "crest": "https://crests.football-data.org/7397.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "TIMED",
+            "utcDate": "2026-12-05T14:00:00Z"
+          },
+          {
+            "match_id": 558501,
+            "homeTeam": {
+              "id": 470,
+              "name": "Frosinone Calcio",
+              "shortName": "Frosinone",
+              "tla": "FRO",
+              "crest": "https://crests.football-data.org/470.png"
+            },
+            "awayTeam": {
+              "id": 108,
+              "name": "FC Internazionale Milano",
+              "shortName": "Inter",
+              "tla": "INT",
+              "crest": "https://crests.football-data.org/108.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "TIMED",
+            "utcDate": "2026-12-05T17:00:00Z"
+          },
+          {
+            "match_id": 558508,
+            "homeTeam": {
+              "id": 113,
+              "name": "SSC Napoli",
+              "shortName": "Napoli",
+              "tla": "NAP",
+              "crest": "https://crests.football-data.org/113.png"
+            },
+            "awayTeam": {
+              "id": 5890,
+              "name": "US Lecce",
+              "shortName": "Lecce",
+              "tla": "USL",
+              "crest": "https://crests.football-data.org/5890.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "TIMED",
+            "utcDate": "2026-12-05T19:45:00Z"
           }
         ]
       },
@@ -1067,92 +1165,8 @@
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "SCHEDULED",
-            "utcDate": "2026-12-06T00:00:00Z"
-          },
-          {
-            "match_id": 558500,
-            "homeTeam": {
-              "id": 109,
-              "name": "Juventus FC",
-              "shortName": "Juventus",
-              "tla": "JUV",
-              "crest": "https://crests.football-data.org/109.png"
-            },
-            "awayTeam": {
-              "id": 115,
-              "name": "Udinese Calcio",
-              "shortName": "Udinese",
-              "tla": "UDI",
-              "crest": "https://crests.football-data.org/115.png"
-            },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "SCHEDULED",
-            "utcDate": "2026-12-06T00:00:00Z"
-          },
-          {
-            "match_id": 558501,
-            "homeTeam": {
-              "id": 470,
-              "name": "Frosinone Calcio",
-              "shortName": "Frosinone",
-              "tla": "FRO",
-              "crest": "https://crests.football-data.org/470.png"
-            },
-            "awayTeam": {
-              "id": 108,
-              "name": "FC Internazionale Milano",
-              "shortName": "Inter",
-              "tla": "INT",
-              "crest": "https://crests.football-data.org/108.png"
-            },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "SCHEDULED",
-            "utcDate": "2026-12-06T00:00:00Z"
-          },
-          {
-            "match_id": 558502,
-            "homeTeam": {
-              "id": 103,
-              "name": "Bologna FC 1909",
-              "shortName": "Bologna",
-              "tla": "BOL",
-              "crest": "https://crests.football-data.org/103.png"
-            },
-            "awayTeam": {
-              "id": 100,
-              "name": "AS Roma",
-              "shortName": "Roma",
-              "tla": "ROM",
-              "crest": "https://crests.football-data.org/100.png"
-            },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "SCHEDULED",
-            "utcDate": "2026-12-06T00:00:00Z"
-          },
-          {
-            "match_id": 558503,
-            "homeTeam": {
-              "id": 99,
-              "name": "ACF Fiorentina",
-              "shortName": "Fiorentina",
-              "tla": "FIO",
-              "crest": "https://crests.football-data.org/99.png"
-            },
-            "awayTeam": {
-              "id": 104,
-              "name": "Cagliari Calcio",
-              "shortName": "Cagliari",
-              "tla": "CAG",
-              "crest": "https://crests.football-data.org/104.png"
-            },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "SCHEDULED",
-            "utcDate": "2026-12-06T00:00:00Z"
+            "status": "TIMED",
+            "utcDate": "2026-12-06T11:30:00Z"
           },
           {
             "match_id": 558504,
@@ -1172,8 +1186,29 @@
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "SCHEDULED",
-            "utcDate": "2026-12-06T00:00:00Z"
+            "status": "TIMED",
+            "utcDate": "2026-12-06T14:00:00Z"
+          },
+          {
+            "match_id": 558500,
+            "homeTeam": {
+              "id": 109,
+              "name": "Juventus FC",
+              "shortName": "Juventus",
+              "tla": "JUV",
+              "crest": "https://crests.football-data.org/109.png"
+            },
+            "awayTeam": {
+              "id": 115,
+              "name": "Udinese Calcio",
+              "shortName": "Udinese",
+              "tla": "UDI",
+              "crest": "https://crests.football-data.org/115.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "TIMED",
+            "utcDate": "2026-12-06T17:00:00Z"
           },
           {
             "match_id": 558505,
@@ -1193,9 +1228,17 @@
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "SCHEDULED",
-            "utcDate": "2026-12-06T00:00:00Z"
-          },
+            "status": "TIMED",
+            "utcDate": "2026-12-06T19:45:00Z"
+          }
+        ]
+      }
+    ],
+    "2026-12-07": [
+      {
+        "competition": "serie-a",
+        "name": "Serie A",
+        "matches": [
           {
             "match_id": 558506,
             "homeTeam": {
@@ -1214,50 +1257,29 @@
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "SCHEDULED",
-            "utcDate": "2026-12-06T00:00:00Z"
+            "status": "TIMED",
+            "utcDate": "2026-12-07T17:30:00Z"
           },
           {
-            "match_id": 558507,
+            "match_id": 558503,
             "homeTeam": {
-              "id": 5911,
-              "name": "AC Monza",
-              "shortName": "Monza",
-              "tla": "MON",
-              "crest": "https://crests.football-data.org/5911.png"
+              "id": 99,
+              "name": "ACF Fiorentina",
+              "shortName": "Fiorentina",
+              "tla": "FIO",
+              "crest": "https://crests.football-data.org/99.png"
             },
             "awayTeam": {
-              "id": 7397,
-              "name": "Como 1907",
-              "shortName": "Como 1907",
-              "tla": "COM",
-              "crest": "https://crests.football-data.org/7397.png"
+              "id": 104,
+              "name": "Cagliari Calcio",
+              "shortName": "Cagliari",
+              "tla": "CAG",
+              "crest": "https://crests.football-data.org/104.png"
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "SCHEDULED",
-            "utcDate": "2026-12-06T00:00:00Z"
-          },
-          {
-            "match_id": 558508,
-            "homeTeam": {
-              "id": 113,
-              "name": "SSC Napoli",
-              "shortName": "Napoli",
-              "tla": "NAP",
-              "crest": "https://crests.football-data.org/113.png"
-            },
-            "awayTeam": {
-              "id": 5890,
-              "name": "US Lecce",
-              "shortName": "Lecce",
-              "tla": "USL",
-              "crest": "https://crests.football-data.org/5890.png"
-            },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "SCHEDULED",
-            "utcDate": "2026-12-06T00:00:00Z"
+            "status": "TIMED",
+            "utcDate": "2026-12-07T19:45:00Z"
           }
         ]
       }
@@ -1656,6 +1678,35 @@
         ]
       }
     ],
+    "2026-12-11": [
+      {
+        "competition": "serie-a",
+        "name": "Serie A",
+        "matches": [
+          {
+            "match_id": 558491,
+            "homeTeam": {
+              "id": 115,
+              "name": "Udinese Calcio",
+              "shortName": "Udinese",
+              "tla": "UDI",
+              "crest": "https://crests.football-data.org/115.png"
+            },
+            "awayTeam": {
+              "id": 470,
+              "name": "Frosinone Calcio",
+              "shortName": "Frosinone",
+              "tla": "FRO",
+              "crest": "https://crests.football-data.org/470.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "TIMED",
+            "utcDate": "2026-12-11T19:45:00Z"
+          }
+        ]
+      }
+    ],
     "2026-12-12": [
       {
         "competition": "premier-league",
@@ -1870,6 +1921,75 @@
             "awayScore": null,
             "status": "TIMED",
             "utcDate": "2026-12-12T15:00:00Z"
+          }
+        ]
+      },
+      {
+        "competition": "serie-a",
+        "name": "Serie A",
+        "matches": [
+          {
+            "match_id": 558494,
+            "homeTeam": {
+              "id": 104,
+              "name": "Cagliari Calcio",
+              "shortName": "Cagliari",
+              "tla": "CAG",
+              "crest": "https://crests.football-data.org/104.png"
+            },
+            "awayTeam": {
+              "id": 454,
+              "name": "Venezia FC",
+              "shortName": "Venezia FC",
+              "tla": "VEN",
+              "crest": "https://crests.football-data.org/454.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "TIMED",
+            "utcDate": "2026-12-12T14:00:00Z"
+          },
+          {
+            "match_id": 558492,
+            "homeTeam": {
+              "id": 5890,
+              "name": "US Lecce",
+              "shortName": "Lecce",
+              "tla": "USL",
+              "crest": "https://crests.football-data.org/5890.png"
+            },
+            "awayTeam": {
+              "id": 471,
+              "name": "US Sassuolo Calcio",
+              "shortName": "Sassuolo",
+              "tla": "SAS",
+              "crest": "https://crests.football-data.org/471.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "TIMED",
+            "utcDate": "2026-12-12T17:00:00Z"
+          },
+          {
+            "match_id": 558490,
+            "homeTeam": {
+              "id": 7397,
+              "name": "Como 1907",
+              "shortName": "Como 1907",
+              "tla": "COM",
+              "crest": "https://crests.football-data.org/7397.png"
+            },
+            "awayTeam": {
+              "id": 103,
+              "name": "Bologna FC 1909",
+              "shortName": "Bologna",
+              "tla": "BOL",
+              "crest": "https://crests.football-data.org/103.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "TIMED",
+            "utcDate": "2026-12-12T19:45:00Z"
           }
         ]
       },
@@ -2465,130 +2585,25 @@
         "name": "Serie A",
         "matches": [
           {
-            "match_id": 558489,
+            "match_id": 558498,
             "homeTeam": {
-              "id": 113,
-              "name": "SSC Napoli",
-              "shortName": "Napoli",
-              "tla": "NAP",
-              "crest": "https://crests.football-data.org/113.png"
+              "id": 110,
+              "name": "SS Lazio",
+              "shortName": "Lazio",
+              "tla": "LAZ",
+              "crest": "https://crests.football-data.org/110.png"
             },
             "awayTeam": {
-              "id": 98,
-              "name": "AC Milan",
-              "shortName": "Milan",
-              "tla": "MIL",
-              "crest": "https://crests.football-data.org/98.png"
+              "id": 100,
+              "name": "AS Roma",
+              "shortName": "Roma",
+              "tla": "ROM",
+              "crest": "https://crests.football-data.org/100.png"
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "SCHEDULED",
-            "utcDate": "2026-12-13T00:00:00Z"
-          },
-          {
-            "match_id": 558490,
-            "homeTeam": {
-              "id": 7397,
-              "name": "Como 1907",
-              "shortName": "Como 1907",
-              "tla": "COM",
-              "crest": "https://crests.football-data.org/7397.png"
-            },
-            "awayTeam": {
-              "id": 103,
-              "name": "Bologna FC 1909",
-              "shortName": "Bologna",
-              "tla": "BOL",
-              "crest": "https://crests.football-data.org/103.png"
-            },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "SCHEDULED",
-            "utcDate": "2026-12-13T00:00:00Z"
-          },
-          {
-            "match_id": 558491,
-            "homeTeam": {
-              "id": 115,
-              "name": "Udinese Calcio",
-              "shortName": "Udinese",
-              "tla": "UDI",
-              "crest": "https://crests.football-data.org/115.png"
-            },
-            "awayTeam": {
-              "id": 470,
-              "name": "Frosinone Calcio",
-              "shortName": "Frosinone",
-              "tla": "FRO",
-              "crest": "https://crests.football-data.org/470.png"
-            },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "SCHEDULED",
-            "utcDate": "2026-12-13T00:00:00Z"
-          },
-          {
-            "match_id": 558492,
-            "homeTeam": {
-              "id": 5890,
-              "name": "US Lecce",
-              "shortName": "Lecce",
-              "tla": "USL",
-              "crest": "https://crests.football-data.org/5890.png"
-            },
-            "awayTeam": {
-              "id": 471,
-              "name": "US Sassuolo Calcio",
-              "shortName": "Sassuolo",
-              "tla": "SAS",
-              "crest": "https://crests.football-data.org/471.png"
-            },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "SCHEDULED",
-            "utcDate": "2026-12-13T00:00:00Z"
-          },
-          {
-            "match_id": 558493,
-            "homeTeam": {
-              "id": 112,
-              "name": "Parma Calcio 1913",
-              "shortName": "Parma",
-              "tla": "PAR",
-              "crest": "https://crests.football-data.org/112.png"
-            },
-            "awayTeam": {
-              "id": 99,
-              "name": "ACF Fiorentina",
-              "shortName": "Fiorentina",
-              "tla": "FIO",
-              "crest": "https://crests.football-data.org/99.png"
-            },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "SCHEDULED",
-            "utcDate": "2026-12-13T00:00:00Z"
-          },
-          {
-            "match_id": 558494,
-            "homeTeam": {
-              "id": 104,
-              "name": "Cagliari Calcio",
-              "shortName": "Cagliari",
-              "tla": "CAG",
-              "crest": "https://crests.football-data.org/104.png"
-            },
-            "awayTeam": {
-              "id": 454,
-              "name": "Venezia FC",
-              "shortName": "Venezia FC",
-              "tla": "VEN",
-              "crest": "https://crests.football-data.org/454.png"
-            },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "SCHEDULED",
-            "utcDate": "2026-12-13T00:00:00Z"
+            "status": "TIMED",
+            "utcDate": "2026-12-13T11:30:00Z"
           },
           {
             "match_id": 558495,
@@ -2608,71 +2623,50 @@
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "SCHEDULED",
-            "utcDate": "2026-12-13T00:00:00Z"
+            "status": "TIMED",
+            "utcDate": "2026-12-13T14:00:00Z"
           },
           {
-            "match_id": 558496,
+            "match_id": 558493,
             "homeTeam": {
-              "id": 109,
-              "name": "Juventus FC",
-              "shortName": "Juventus",
-              "tla": "JUV",
-              "crest": "https://crests.football-data.org/109.png"
+              "id": 112,
+              "name": "Parma Calcio 1913",
+              "shortName": "Parma",
+              "tla": "PAR",
+              "crest": "https://crests.football-data.org/112.png"
             },
             "awayTeam": {
-              "id": 5911,
-              "name": "AC Monza",
-              "shortName": "Monza",
-              "tla": "MON",
-              "crest": "https://crests.football-data.org/5911.png"
+              "id": 99,
+              "name": "ACF Fiorentina",
+              "shortName": "Fiorentina",
+              "tla": "FIO",
+              "crest": "https://crests.football-data.org/99.png"
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "SCHEDULED",
-            "utcDate": "2026-12-13T00:00:00Z"
+            "status": "TIMED",
+            "utcDate": "2026-12-13T17:00:00Z"
           },
           {
-            "match_id": 558497,
+            "match_id": 558489,
             "homeTeam": {
-              "id": 102,
-              "name": "Atalanta BC",
-              "shortName": "Atalanta",
-              "tla": "ATA",
-              "crest": "https://crests.football-data.org/102.png"
+              "id": 113,
+              "name": "SSC Napoli",
+              "shortName": "Napoli",
+              "tla": "NAP",
+              "crest": "https://crests.football-data.org/113.png"
             },
             "awayTeam": {
-              "id": 107,
-              "name": "Genoa CFC",
-              "shortName": "Genoa",
-              "tla": "GEN",
-              "crest": "https://crests.football-data.org/107.png"
+              "id": 98,
+              "name": "AC Milan",
+              "shortName": "Milan",
+              "tla": "MIL",
+              "crest": "https://crests.football-data.org/98.png"
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "SCHEDULED",
-            "utcDate": "2026-12-13T00:00:00Z"
-          },
-          {
-            "match_id": 558498,
-            "homeTeam": {
-              "id": 110,
-              "name": "SS Lazio",
-              "shortName": "Lazio",
-              "tla": "LAZ",
-              "crest": "https://crests.football-data.org/110.png"
-            },
-            "awayTeam": {
-              "id": 100,
-              "name": "AS Roma",
-              "shortName": "Roma",
-              "tla": "ROM",
-              "crest": "https://crests.football-data.org/100.png"
-            },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "SCHEDULED",
-            "utcDate": "2026-12-13T00:00:00Z"
+            "status": "TIMED",
+            "utcDate": "2026-12-13T19:45:00Z"
           }
         ]
       },
@@ -2700,6 +2694,106 @@
             "awayScore": null,
             "status": "TIMED",
             "utcDate": "2026-12-13T19:45:00Z"
+          }
+        ]
+      }
+    ],
+    "2026-12-14": [
+      {
+        "competition": "serie-a",
+        "name": "Serie A",
+        "matches": [
+          {
+            "match_id": 558497,
+            "homeTeam": {
+              "id": 102,
+              "name": "Atalanta BC",
+              "shortName": "Atalanta",
+              "tla": "ATA",
+              "crest": "https://crests.football-data.org/102.png"
+            },
+            "awayTeam": {
+              "id": 107,
+              "name": "Genoa CFC",
+              "shortName": "Genoa",
+              "tla": "GEN",
+              "crest": "https://crests.football-data.org/107.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "TIMED",
+            "utcDate": "2026-12-14T17:30:00Z"
+          },
+          {
+            "match_id": 558496,
+            "homeTeam": {
+              "id": 109,
+              "name": "Juventus FC",
+              "shortName": "Juventus",
+              "tla": "JUV",
+              "crest": "https://crests.football-data.org/109.png"
+            },
+            "awayTeam": {
+              "id": 5911,
+              "name": "AC Monza",
+              "shortName": "Monza",
+              "tla": "MON",
+              "crest": "https://crests.football-data.org/5911.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "TIMED",
+            "utcDate": "2026-12-14T19:45:00Z"
+          }
+        ]
+      }
+    ],
+    "2026-12-18": [
+      {
+        "competition": "serie-a",
+        "name": "Serie A",
+        "matches": [
+          {
+            "match_id": 558482,
+            "homeTeam": {
+              "id": 470,
+              "name": "Frosinone Calcio",
+              "shortName": "Frosinone",
+              "tla": "FRO",
+              "crest": "https://crests.football-data.org/470.png"
+            },
+            "awayTeam": {
+              "id": 110,
+              "name": "SS Lazio",
+              "shortName": "Lazio",
+              "tla": "LAZ",
+              "crest": "https://crests.football-data.org/110.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "TIMED",
+            "utcDate": "2026-12-18T17:30:00Z"
+          },
+          {
+            "match_id": 558486,
+            "homeTeam": {
+              "id": 5890,
+              "name": "US Lecce",
+              "shortName": "Lecce",
+              "tla": "USL",
+              "crest": "https://crests.football-data.org/5890.png"
+            },
+            "awayTeam": {
+              "id": 108,
+              "name": "FC Internazionale Milano",
+              "shortName": "Inter",
+              "tla": "INT",
+              "crest": "https://crests.football-data.org/108.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "TIMED",
+            "utcDate": "2026-12-18T19:45:00Z"
           }
         ]
       }
@@ -2918,6 +3012,75 @@
             "awayScore": null,
             "status": "TIMED",
             "utcDate": "2026-12-19T15:00:00Z"
+          }
+        ]
+      },
+      {
+        "competition": "serie-a",
+        "name": "Serie A",
+        "matches": [
+          {
+            "match_id": 558480,
+            "homeTeam": {
+              "id": 471,
+              "name": "US Sassuolo Calcio",
+              "shortName": "Sassuolo",
+              "tla": "SAS",
+              "crest": "https://crests.football-data.org/471.png"
+            },
+            "awayTeam": {
+              "id": 112,
+              "name": "Parma Calcio 1913",
+              "shortName": "Parma",
+              "tla": "PAR",
+              "crest": "https://crests.football-data.org/112.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "TIMED",
+            "utcDate": "2026-12-19T14:00:00Z"
+          },
+          {
+            "match_id": 558479,
+            "homeTeam": {
+              "id": 98,
+              "name": "AC Milan",
+              "shortName": "Milan",
+              "tla": "MIL",
+              "crest": "https://crests.football-data.org/98.png"
+            },
+            "awayTeam": {
+              "id": 7397,
+              "name": "Como 1907",
+              "shortName": "Como 1907",
+              "tla": "COM",
+              "crest": "https://crests.football-data.org/7397.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "TIMED",
+            "utcDate": "2026-12-19T17:00:00Z"
+          },
+          {
+            "match_id": 558481,
+            "homeTeam": {
+              "id": 100,
+              "name": "AS Roma",
+              "shortName": "Roma",
+              "tla": "ROM",
+              "crest": "https://crests.football-data.org/100.png"
+            },
+            "awayTeam": {
+              "id": 109,
+              "name": "Juventus FC",
+              "shortName": "Juventus",
+              "tla": "JUV",
+              "crest": "https://crests.football-data.org/109.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "TIMED",
+            "utcDate": "2026-12-19T19:45:00Z"
           }
         ]
       },
@@ -3339,111 +3502,6 @@
         "name": "Serie A",
         "matches": [
           {
-            "match_id": 558479,
-            "homeTeam": {
-              "id": 98,
-              "name": "AC Milan",
-              "shortName": "Milan",
-              "tla": "MIL",
-              "crest": "https://crests.football-data.org/98.png"
-            },
-            "awayTeam": {
-              "id": 7397,
-              "name": "Como 1907",
-              "shortName": "Como 1907",
-              "tla": "COM",
-              "crest": "https://crests.football-data.org/7397.png"
-            },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "SCHEDULED",
-            "utcDate": "2026-12-20T00:00:00Z"
-          },
-          {
-            "match_id": 558480,
-            "homeTeam": {
-              "id": 471,
-              "name": "US Sassuolo Calcio",
-              "shortName": "Sassuolo",
-              "tla": "SAS",
-              "crest": "https://crests.football-data.org/471.png"
-            },
-            "awayTeam": {
-              "id": 112,
-              "name": "Parma Calcio 1913",
-              "shortName": "Parma",
-              "tla": "PAR",
-              "crest": "https://crests.football-data.org/112.png"
-            },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "SCHEDULED",
-            "utcDate": "2026-12-20T00:00:00Z"
-          },
-          {
-            "match_id": 558481,
-            "homeTeam": {
-              "id": 100,
-              "name": "AS Roma",
-              "shortName": "Roma",
-              "tla": "ROM",
-              "crest": "https://crests.football-data.org/100.png"
-            },
-            "awayTeam": {
-              "id": 109,
-              "name": "Juventus FC",
-              "shortName": "Juventus",
-              "tla": "JUV",
-              "crest": "https://crests.football-data.org/109.png"
-            },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "SCHEDULED",
-            "utcDate": "2026-12-20T00:00:00Z"
-          },
-          {
-            "match_id": 558482,
-            "homeTeam": {
-              "id": 470,
-              "name": "Frosinone Calcio",
-              "shortName": "Frosinone",
-              "tla": "FRO",
-              "crest": "https://crests.football-data.org/470.png"
-            },
-            "awayTeam": {
-              "id": 110,
-              "name": "SS Lazio",
-              "shortName": "Lazio",
-              "tla": "LAZ",
-              "crest": "https://crests.football-data.org/110.png"
-            },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "SCHEDULED",
-            "utcDate": "2026-12-20T00:00:00Z"
-          },
-          {
-            "match_id": 558483,
-            "homeTeam": {
-              "id": 102,
-              "name": "Atalanta BC",
-              "shortName": "Atalanta",
-              "tla": "ATA",
-              "crest": "https://crests.football-data.org/102.png"
-            },
-            "awayTeam": {
-              "id": 113,
-              "name": "SSC Napoli",
-              "shortName": "Napoli",
-              "tla": "NAP",
-              "crest": "https://crests.football-data.org/113.png"
-            },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "SCHEDULED",
-            "utcDate": "2026-12-20T00:00:00Z"
-          },
-          {
             "match_id": 558484,
             "homeTeam": {
               "id": 99,
@@ -3461,50 +3519,8 @@
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "SCHEDULED",
-            "utcDate": "2026-12-20T00:00:00Z"
-          },
-          {
-            "match_id": 558485,
-            "homeTeam": {
-              "id": 107,
-              "name": "Genoa CFC",
-              "shortName": "Genoa",
-              "tla": "GEN",
-              "crest": "https://crests.football-data.org/107.png"
-            },
-            "awayTeam": {
-              "id": 115,
-              "name": "Udinese Calcio",
-              "shortName": "Udinese",
-              "tla": "UDI",
-              "crest": "https://crests.football-data.org/115.png"
-            },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "SCHEDULED",
-            "utcDate": "2026-12-20T00:00:00Z"
-          },
-          {
-            "match_id": 558486,
-            "homeTeam": {
-              "id": 5890,
-              "name": "US Lecce",
-              "shortName": "Lecce",
-              "tla": "USL",
-              "crest": "https://crests.football-data.org/5890.png"
-            },
-            "awayTeam": {
-              "id": 108,
-              "name": "FC Internazionale Milano",
-              "shortName": "Inter",
-              "tla": "INT",
-              "crest": "https://crests.football-data.org/108.png"
-            },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "SCHEDULED",
-            "utcDate": "2026-12-20T00:00:00Z"
+            "status": "TIMED",
+            "utcDate": "2026-12-20T11:30:00Z"
           },
           {
             "match_id": 558487,
@@ -3524,8 +3540,8 @@
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "SCHEDULED",
-            "utcDate": "2026-12-20T00:00:00Z"
+            "status": "TIMED",
+            "utcDate": "2026-12-20T14:00:00Z"
           },
           {
             "match_id": 558488,
@@ -3545,8 +3561,50 @@
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "SCHEDULED",
-            "utcDate": "2026-12-20T00:00:00Z"
+            "status": "TIMED",
+            "utcDate": "2026-12-20T14:00:00Z"
+          },
+          {
+            "match_id": 558485,
+            "homeTeam": {
+              "id": 107,
+              "name": "Genoa CFC",
+              "shortName": "Genoa",
+              "tla": "GEN",
+              "crest": "https://crests.football-data.org/107.png"
+            },
+            "awayTeam": {
+              "id": 115,
+              "name": "Udinese Calcio",
+              "shortName": "Udinese",
+              "tla": "UDI",
+              "crest": "https://crests.football-data.org/115.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "TIMED",
+            "utcDate": "2026-12-20T17:00:00Z"
+          },
+          {
+            "match_id": 558483,
+            "homeTeam": {
+              "id": 102,
+              "name": "Atalanta BC",
+              "shortName": "Atalanta",
+              "tla": "ATA",
+              "crest": "https://crests.football-data.org/102.png"
+            },
+            "awayTeam": {
+              "id": 113,
+              "name": "SSC Napoli",
+              "shortName": "Napoli",
+              "tla": "NAP",
+              "crest": "https://crests.football-data.org/113.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "TIMED",
+            "utcDate": "2026-12-20T19:45:00Z"
           }
         ]
       }
