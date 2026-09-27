@@ -68,7 +68,7 @@
   <div class="wrap">
     <p class="wordmark">ReFoot</p>
     <h1>Privacy Policy</h1>
-    <p class="updated">Last updated: September 20, 2026</p>
+    <p class="updated">Last updated: September 27, 2026</p>
   </div>
 </header>
 <main>
@@ -84,17 +84,28 @@
   <strong>anonymous account identifier</strong> so your on-device experience can function.
   If you choose to sign in with Google, we link your Google account to that identifier and
   receive from Google your <strong>email address, display name, and profile photo</strong>.
+  We use these only to show which account you are signed in with in the app's menu; we do not
+  copy them into our database. Sign-in is handled by Google's Firebase Authentication.
   We do not receive your Google password.</p>
 
   <h3>Your preferences and favourites</h3>
-  <p>Your favourite teams and competitions, and app preferences such as theme, are stored on
-  your device. They are not currently sent to or stored on our servers. If we later add cross-device syncing of these preferences, we will update this policy to describe it before that feature launches.</p>
+  <p>Your favourite teams and competitions, and app preferences such as theme and team colours,
+  are stored on your device.</p>
+  <p>If you <strong>use ReFoot without signing in</strong>, they stay on your device only.</p>
+  <p>If you <strong>sign in with Google</strong>, we also save your favourites and these
+  preferences to your account in our cloud database (Google Cloud Firestore), so they are
+  available on any device where you sign in. The first time you sign in, favourites already on
+  your device are combined with any already saved to your account, so none are lost; if your
+  account already has saved preferences (such as theme), those are used. Only you
+  can read or change the data saved to your account. A few device-only settings, such as whether
+  you dismissed an in-app tip, are never synced.</p>
 
   <h3>Highlight playback</h3>
-  <p>Highlights are not hosted by ReFoot. When you play a highlight, the video is embedded from
-  a third-party platform (currently YouTube). That platform may set its own cookies and receive
-  technical information such as your IP address and device details, governed by that platform's
-  own privacy policy. See "Third-party services" below.</p>
+  <p>Highlights are not hosted by ReFoot. When you choose to watch a highlight, ReFoot opens it
+  on a third-party platform (currently YouTube), in your browser or the YouTube app. That
+  platform may set its own cookies and receive technical information such as your IP address
+  and device details, governed by that platform's own privacy policy. See "Third-party
+  services" below.</p>
 
   <h3>Technical and usage information</h3>
   <p>Our hosting and infrastructure providers automatically process standard technical
@@ -107,8 +118,8 @@
   <div class="note">
     ReFoot reads football data (fixtures, results, standings) and highlight links from a cache
     we prepare in advance. The app does not send your personal information to the football data
-    sources or to the highlight platforms except as part of loading an embedded video you choose
-    to play.
+    sources or to the highlight platforms; opening a highlight you choose to watch takes you to
+    that platform.
   </div>
 
   <h2>2. How we use information</h2>
@@ -129,7 +140,7 @@
   <p>We rely on the following third parties, each with its own privacy practices:</p>
   <ul>
     <li><strong>Google / Firebase</strong>: authentication, cloud database, and hosting.</li>
-    <li><strong>YouTube (Google)</strong>: embedded highlight playback.</li>
+    <li><strong>YouTube (Google)</strong>: highlight videos, opened on YouTube.</li>
   </ul>
   <p>We are not responsible for the privacy practices of these third parties. Please review
   their policies, including Google's Privacy Policy, for how they handle your information.</p>
