@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-21T12:13:53Z",
+  "generated_at": "2026-09-28T13:09:30Z",
   "current_season": 2026,
   "resolved": {
     "2026": {
@@ -307,6 +307,12 @@
     },
     {
       "competition": "Premier League",
+      "source": "team:Fulham FC",
+      "mapped_id": "PLY8T1xH7hxoqgrkF1OIxjZpum7ylgr9g_",
+      "reason": "channel_unresolvable_reseed"
+    },
+    {
+      "competition": "Premier League",
       "source": "team:Tottenham Hotspur FC",
       "mapped_id": "PLCQm3OPgov-if9jjzK-aoOLZ7C79b18k1",
       "reason": "no_confident_match_kept_last_known_good",
@@ -422,5 +428,5 @@
       "covered_via_other_tier": true
     }
   ],
-  "estimated_units": 202
+  "estimated_units": 199
 }
