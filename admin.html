@@ -807,6 +807,87 @@
         .gate-link { display: block; width: 100%; margin-top: var(--space-3); background: none; border: none;
             color: var(--blue); font-size: 12px; text-decoration: underline; cursor: pointer; padding: 6px; }
         .gate-link:hover { color: var(--blue-dark); }
+
+        /* ── Desktop layout (>= 1024px): Sobremesa-style persistent sidebar ──────
+           Mobile/tablet keep the blue header + top tab bar untouched; everything
+           below only applies at desktop widths. The sidebar reuses existing
+           elements: the section tabs become its vertical list, the header brand
+           sits at its top and the Settings button at its bottom. */
+        .tab-ico, .side-label, .header-title { display: none; }
+        @media (min-width: 1024px) {
+            :root {
+                --sidebar-w: clamp(232px, 20vw, 300px);
+                --content-max: 960px;
+                --header-h: 56px;
+                --side-row-h: 44px;
+            }
+            body { padding-left: var(--sidebar-w); }
+            main { max-width: var(--content-max); }
+
+            /* Plain header aligned with the content column (brand lives in the sidebar). */
+            /* z-index above the sidebar list: the brand + Settings below are
+               fixed-positioned CHILDREN of the header, so they paint in its
+               stacking context and would otherwise sit under the sidebar. */
+            header {
+                z-index: 105;
+                background: var(--bg); box-shadow: none;
+                border-bottom: 1px solid var(--border);
+                padding: 0 max(var(--space-4), calc((100% - var(--content-max)) / 2 + var(--space-4)));
+            }
+            .header-title { display: block; flex: 1; font-size: 20px; font-weight: 700; color: var(--text); }
+            header .btn-ghost { background: var(--white); color: var(--text); border-color: var(--border); }
+            header .btn-ghost:hover:not(:disabled) { background: var(--bg-subtle); }
+            header .btn-icon { color: var(--muted); }
+            header .btn-icon:hover { background: var(--border); }
+
+            /* Brand → top of the sidebar. */
+            .header-brand {
+                position: fixed; top: 0; left: 0; z-index: 110;
+                width: var(--sidebar-w); height: var(--header-h);
+                padding: 0 var(--space-5); background: var(--white);
+                border-right: 1px solid var(--border);
+            }
+            .header-wordmark { color: var(--text); }
+
+            /* Section tabs → the sidebar's vertical list. */
+            .main-tabs {
+                position: fixed; top: 0; bottom: 0; left: 0; z-index: 100;
+                width: var(--sidebar-w); max-width: none;
+                flex-direction: column; justify-content: flex-start; gap: var(--space-1);
+                padding: calc(var(--header-h) + var(--space-2)) var(--space-3)
+                         calc(var(--side-row-h) + var(--space-6));
+                border-bottom: none; border-right: 1px solid var(--border);
+                overflow-y: auto;
+            }
+            .main-tabs .tab {
+                display: flex; align-items: center; gap: var(--space-3);
+                min-height: var(--side-row-h); padding: 0 var(--space-4);
+                border: none; border-radius: var(--radius-md); margin: 0;
+                font-size: 14px; text-transform: none; letter-spacing: 0;
+                text-align: left; color: var(--text);
+            }
+            .main-tabs .tab .tab-ico { display: inline-flex; font-size: 18px; color: var(--muted); }
+            .main-tabs .tab:not(.active):hover { background: var(--bg-subtle); }
+            .main-tabs .tab.active { background: var(--blue-bg); color: var(--blue); font-weight: 600; }
+            .main-tabs .tab.active .tab-ico { color: var(--blue); }
+
+            /* Settings → pinned at the sidebar bottom (same button + handler). */
+            .settings-btn-wrap {
+                position: fixed; left: 0; bottom: 0; z-index: 110;
+                width: var(--sidebar-w); padding: var(--space-3);
+                background: var(--white);
+                border-top: 1px solid var(--border); border-right: 1px solid var(--border);
+            }
+            #settings-btn {
+                width: 100%; height: var(--side-row-h); border-radius: var(--radius-md);
+                justify-content: flex-start; gap: var(--space-3); padding: 0 var(--space-4);
+                color: var(--text); font-size: 18px;
+                text-transform: none; letter-spacing: 0;
+            }
+            #settings-btn i { color: var(--muted); }
+            #settings-btn:hover { background: var(--bg-subtle); }
+            #settings-btn .side-label { display: inline; font-size: 14px; font-weight: 500; }
+        }
     </style>
 </head>
 <body>
@@ -963,12 +1044,13 @@
         <img class="header-logo" src="refoot-admin-icon-192.png" alt="ReFoot Admin">
         <span class="header-wordmark">ReFoot</span>
     </div>
+    <span class="header-title" id="header-title" aria-hidden="true"></span>
     <div class="header-right">
         <button class="btn-ghost" id="save-btn" disabled><i class="fi-br-disk"></i> <span class="btn-txt">GitHub</span></button>
         <button class="btn-ghost" id="reload-btn"><i class="fi-br-refresh"></i> <span class="btn-txt">Reload</span></button>
         <button class="btn-icon" id="lock-btn" title="Lock (sign out)" style="display:none"><i class="fi-br-lock"></i></button>
         <div class="settings-btn-wrap">
-            <button class="btn-icon" id="settings-btn" title="Settings"><i class="fi-br-home-settings"></i></button>
+            <button class="btn-icon" id="settings-btn" title="Settings"><i class="fi-br-home-settings"></i><span class="side-label">Settings</span></button>
             <span class="settings-badge" id="settings-badge"></span>
         </div>
     </div>
@@ -976,10 +1058,10 @@
 
 <!-- Top-level section tabs (one per major section; controlled by JS + URL hash) -->
 <nav class="main-tabs" role="tablist" aria-label="Admin sections">
-    <button class="tab active" id="tab-coverage"   role="tab" aria-selected="true"  aria-controls="panel-coverage"   data-tab="coverage">Coverage</button>
-    <button class="tab"        id="tab-candidates" role="tab" aria-selected="false" aria-controls="panel-candidates" data-tab="candidates">Candidates</button>
-    <button class="tab"        id="tab-aliasgaps"  role="tab" aria-selected="false" aria-controls="panel-aliasgaps"  data-tab="aliasgaps">Alias</button>
-    <button class="tab"        id="tab-channels"   role="tab" aria-selected="false" aria-controls="panel-channels"   data-tab="channels">Channels</button>
+    <button class="tab active" id="tab-coverage"   role="tab" aria-selected="true"  aria-controls="panel-coverage"   data-tab="coverage"><i class="fi-br-chart-pie-alt tab-ico" aria-hidden="true"></i><span class="tab-label">Coverage</span></button>
+    <button class="tab"        id="tab-candidates" role="tab" aria-selected="false" aria-controls="panel-candidates" data-tab="candidates"><i class="fi-br-list-check tab-ico" aria-hidden="true"></i><span class="tab-label">Candidates</span></button>
+    <button class="tab"        id="tab-aliasgaps"  role="tab" aria-selected="false" aria-controls="panel-aliasgaps"  data-tab="aliasgaps"><i class="fi-br-link tab-ico" aria-hidden="true"></i><span class="tab-label">Alias</span></button>
+    <button class="tab"        id="tab-channels"   role="tab" aria-selected="false" aria-controls="panel-channels"   data-tab="channels"><i class="fi-br-tv-music tab-ico" aria-hidden="true"></i><span class="tab-label">Channels</span></button>
 </nav>
 
 <main>
@@ -3078,6 +3160,9 @@ function activateTab(name) {
         if (on) matched = true;
     });
     if (!matched) return false;
+    const active = [...tabs].find(t => t.dataset.tab === name);
+    const title = document.getElementById('header-title');
+    if (title && active) title.textContent = (active.querySelector('.tab-label') || active).textContent.trim();
     panels.forEach(p => p.classList.toggle('active', p.id === 'panel-' + name));
     return true;
 }

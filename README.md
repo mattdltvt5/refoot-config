@@ -4,6 +4,20 @@ Remote channel configuration for the **ReFoot Highlights** Android app.
 
 ## Recent changes
 
+### Admin: desktop sidebar layout (≥ 1024px) (2026-10-05)
+
+On wide windows `admin.html` showed its phone layout stretched: a blue header bar, a centred row of four underline tabs, and a narrow 720px column. Desktop now follows the same pattern as the Sobremesa app and the ReFoot Flutter app's desktop layout. **Phone/tablet layout is unchanged:** every rule is inside `@media (min-width: 1024px)`, and the new markup bits are hidden below it.
+- **Left sidebar** (`clamp(232px, 20vw, 300px)`), built from the existing elements rather than duplicates:
+  - the header's **logo + "ReFoot"** sits at its top;
+  - the four section tabs (`.main-tabs`) become a **vertical list with icons** (Coverage `fi-br-chart-pie-alt`, Candidates `fi-br-list-check`, Alias `fi-br-link`, Channels `fi-br-tv-music`), with the active one shown as a blue-tinted pill;
+  - the existing **Settings** button is pinned at its bottom with a "Settings" label, opening the same credentials/debug panel.
+- **Header** becomes a plain bar aligned with the content: the **current section's name** as the page title (kept in sync by `activateTab`), with GitHub / Reload / lock restyled for the light background.
+- **Content column** widened from 720 to **960px** and centred.
+- The tab controller, URL hashes (`#coverage` / `#candidates` / `#aliasgaps` / `#channels`) and the panels are unchanged. Existing tokens are reused (`--blue`, `--blue-bg`, `--bg`, `--bg-subtle`, `--border`, `--text`, `--muted`, `--space-*`, `--radius-md`).
+- **Gotcha:** the logo and Settings are fixed-position *children of the header*, so the header gets `z-index: 105` on desktop to paint above the sidebar list.
+
+**Files:** `admin.html`.
+
 ### Privacy/Terms: neutral document header (dropped the blue hero) (2026-09-21)
 
 `privacy.html` and `terms.html` replaced their full-width blue hero banner with a **neutral document header** — white background, small blue "ReFoot" wordmark, normal-size dark title, the "Last updated" line beneath, and a thin bottom border (no colored band). This avoids the double-blue stacking under the app's Chrome Custom Tab toolbar (which already carries the brand + title). Added `<meta name="theme-color" content="#2196F3">` to both so the Custom Tab toolbar picks up a deliberate ReFoot blue. **Policy/terms wording, dates, and section structure are unchanged** — header/`<head>` styling only. **Files:** `privacy.html`, `terms.html`.
