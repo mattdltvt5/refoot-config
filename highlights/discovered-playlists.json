@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-28T13:09:30Z",
+  "generated_at": "2026-10-05T13:52:00Z",
   "current_season": 2026,
   "resolved": {
     "2026": {
@@ -152,7 +152,7 @@
         },
         "RC Celta de Vigo": {
           "format": "undetermined",
-          "playlist_id": "PLAhhtSSokrL4"
+          "playlist_id": "PLEVuNP6M8X8Q"
         },
         "RCD Espanyol de Barcelona": {
           "format": "undetermined",
@@ -333,13 +333,6 @@
       "owner_channel": "Getafe C.F."
     },
     {
-      "competition": "LaLiga",
-      "source": "team:RC Celta de Vigo",
-      "mapped_id": "PLViRVq4QRYNGIn4oNDknC6iuTd4Dnm2_l",
-      "reason": "no_confident_match_kept_last_known_good",
-      "owner_channel": "RC Celta"
-    },
-    {
       "competition": "Serie A",
       "source": "team:AS Roma",
       "mapped_id": "PLWDYmb1zjcb4NBrWcg5_9MXh2ry65z7Nr",
@@ -428,5 +421,5 @@
       "covered_via_other_tier": true
     }
   ],
-  "estimated_units": 199
+  "estimated_units": 198
 }
