@@ -213,6 +213,25 @@ def build_group_matches(matches_payload, normalize_crest=_identity_crest):
     return group_matches
 
 
+def season_of(matches_payload):
+    """Start year of the season a football-data /matches payload covers.
+
+    FD echoes it in ``filters.season``; otherwise read it off the first match's
+    ``season.startDate`` (e.g. "2025-09-16" → 2025). None when neither exists.
+    """
+    raw = (matches_payload.get("filters") or {}).get("season")
+    if raw is None:
+        for m in matches_payload.get("matches", []):
+            start = (m.get("season") or {}).get("startDate") or ""
+            if len(start) >= 4:
+                raw = start[:4]
+                break
+    try:
+        return int(raw) if raw is not None else None
+    except (TypeError, ValueError):
+        return None
+
+
 def build_tournament_data(slug, standings_payload, matches_payload,
                           existing_video_ids=None):
     """Build the full tournament-groups dict for one competition.
@@ -255,7 +274,7 @@ def build_tournament_data(slug, standings_payload, matches_payload,
             out.append({**s, "table": table})
         return out
 
-    return {
+    data = {
         "generated_at": datetime.now(timezone.utc).isoformat().replace("+00:00", "Z"),
         "slug": slug,
         "standings": _standings(),
@@ -269,6 +288,10 @@ def build_tournament_data(slug, standings_payload, matches_payload,
             for gm in build_group_matches(matches_payload, normalize_crest=ncrest)
         ],
     }
+    season = season_of(matches_payload)
+    if season is not None:
+        data["season"] = season  # drives the per-season archive (archive_season)
+    return data
 
 
 def read_existing_video_ids(path):
@@ -411,6 +434,45 @@ def graft_video_ids(out_dir="."):
             print(f"  {slug}: no new video IDs")
 
 
+# ── Per-season archive ─────────────────────────────────────────────────────────
+
+
+def _without_timestamp(d):
+    return {k: v for k, v in d.items() if k != "generated_at"}
+
+
+def archive_season(slug, out_dir="."):
+    """Copy tournament-groups/{slug}.json to tournament-groups/{slug}/{season}.json.
+
+    {slug}.json always holds the CURRENT season, so a season rollover used to
+    overwrite the previous one (UCL 2025/26 knockouts were lost that way on
+    2026-08-29). Archiving every run keeps each season's last state; once FD
+    moves on, that season's archive simply stops changing and the app reads it
+    for past seasons. Written only when the content (ignoring generated_at)
+    differs, so it adds no commit churn. Returns the archive path, or None.
+    """
+    src = pathlib.Path(out_dir) / "tournament-groups" / f"{slug}.json"
+    try:
+        data = json.loads(src.read_text(encoding="utf-8"))
+    except Exception:
+        return None
+    season = data.get("season")
+    if not isinstance(season, int):
+        return None
+    dst = src.parent / slug / f"{season}.json"
+    if dst.exists():
+        try:
+            prev = json.loads(dst.read_text(encoding="utf-8"))
+            if _without_timestamp(prev) == _without_timestamp(data):
+                return None
+        except Exception:
+            pass
+    dst.parent.mkdir(parents=True, exist_ok=True)
+    dst.write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n",
+                   encoding="utf-8")
+    return str(dst)
+
+
 # ── Orchestration ──────────────────────────────────────────────────────────────
 
 
@@ -443,7 +505,14 @@ def main(api_key, out_dir="."):
     #    the freshly-written local highlights.  No API calls.
     graft_video_ids(out_dir)
 
-    # 3) Report national teams with padded-PNG crests we couldn't map to a country
+    # 3) Archive each FD tournament's current season (after the graft, so the
+    #    archive carries the latest video_ids).
+    for _, comp_name, slug in TOURNAMENT_COMPETITIONS:
+        archived = archive_season(slug, out_dir)
+        if archived:
+            print(f"✓ {comp_name}: archived {archived}")
+
+    # 4) Report national teams with padded-PNG crests we couldn't map to a country
     #    code (their crest was left unchanged) so _COUNTRY_ISO2 can be extended.
     if _unmapped_png_crests:
         print(f"⚠ national teams with unmapped padded-PNG crests (kept FD crest; "

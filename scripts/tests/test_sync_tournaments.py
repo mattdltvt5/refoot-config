@@ -21,6 +21,7 @@ from unittest.mock import patch, MagicMock
 
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
 from sync_tournaments import (  # noqa: E402
+    archive_season,
     build_group_matches,
     build_tournament_data,
     fetch_matches,
@@ -28,6 +29,7 @@ from sync_tournaments import (  # noqa: E402
     graft_video_ids,
     normalize_national_crest,
     read_existing_video_ids,
+    season_of,
     write_tournament,
 )
 
@@ -698,3 +700,79 @@ class TestWorkflowConsolidation(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+# ── Per-season archive (UCL 2025/26 was overwritten by the 2026/27 rollover) ──
+
+
+class TestSeasonArchive(unittest.TestCase):
+    def test_season_of_reads_filters_season(self):
+        self.assertEqual(season_of({"filters": {"season": "2026"}, "matches": []}), 2026)
+
+    def test_season_of_falls_back_to_match_start_date(self):
+        payload = {"matches": [{"season": {"startDate": "2025-09-16"}}]}
+        self.assertEqual(season_of(payload), 2025)
+
+    def test_season_of_none_when_unknown(self):
+        self.assertIsNone(season_of({}))
+
+    def test_build_records_season_only_when_known(self):
+        self.assertNotIn("season", build_tournament_data("ucl", {}, {}))
+        data = build_tournament_data("ucl", {}, {"filters": {"season": "2026"}})
+        self.assertEqual(data["season"], 2026)
+
+    def _write(self, tmp, slug, data):
+        write_tournament(slug, data, out_dir=tmp)
+
+    def _archive(self, tmp, slug, season):
+        return os.path.join(tmp, "tournament-groups", slug, f"{season}.json")
+
+    def test_archive_written_for_current_season(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            data = build_tournament_data(
+                "ucl", {}, {"filters": {"season": "2026"}, "matches": [_MATCH_REGULAR]})
+            self._write(tmp, "ucl", data)
+            path = archive_season("ucl", out_dir=tmp)
+            self.assertEqual(path, self._archive(tmp, "ucl", 2026))
+            with open(path, encoding="utf-8") as f:
+                self.assertEqual(json.load(f)["matches"], data["matches"])
+
+    def test_rollover_keeps_previous_season_archive(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            old = build_tournament_data(
+                "ucl", {}, {"filters": {"season": "2025"}, "matches": [_MATCH_REGULAR]})
+            self._write(tmp, "ucl", old)
+            archive_season("ucl", out_dir=tmp)
+            # FD rolls over: the live file becomes the new, empty season.
+            new = build_tournament_data("ucl", {}, {"filters": {"season": "2026"}})
+            self._write(tmp, "ucl", new)
+            archive_season("ucl", out_dir=tmp)
+            with open(self._archive(tmp, "ucl", 2025), encoding="utf-8") as f:
+                self.assertEqual(len(json.load(f)["matches"]), 1,
+                                 "the 2025 archive must survive the rollover")
+            self.assertTrue(os.path.exists(self._archive(tmp, "ucl", 2026)))
+
+    def test_unchanged_content_not_rewritten(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            data = build_tournament_data("ucl", {}, {"filters": {"season": "2026"}})
+            self._write(tmp, "ucl", data)
+            self.assertIsNotNone(archive_season("ucl", out_dir=tmp))
+            # Same content, new generated_at only → no write (no commit churn).
+            data["generated_at"] = "2099-01-01T00:00:00Z"
+            self._write(tmp, "ucl", data)
+            self.assertIsNone(archive_season("ucl", out_dir=tmp))
+
+    def test_no_season_no_archive(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            self._write(tmp, "world-cup", build_tournament_data("world-cup", {}, {}))
+            self.assertIsNone(archive_season("world-cup", out_dir=tmp))
+            self.assertIsNone(archive_season("missing", out_dir=tmp))
+
+    def test_graft_ignores_archive_subfolders(self):
+        # graft_video_ids globs tournament-groups/*.json - archives live one
+        # level down and must not be treated as slugs.
+        with tempfile.TemporaryDirectory() as tmp:
+            data = build_tournament_data("ucl", {}, {"filters": {"season": "2026"}})
+            self._write(tmp, "ucl", data)
+            archive_season("ucl", out_dir=tmp)
+            graft_video_ids(out_dir=tmp)  # must not raise
