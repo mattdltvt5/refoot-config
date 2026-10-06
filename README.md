@@ -4,6 +4,15 @@ Remote channel configuration for the **ReFoot Highlights** Android app.
 
 ## Recent changes
 
+### Tournament caches archived per season; UCL 2025/26 restored (2026-10-06)
+
+`tournament-groups/{slug}.json` only ever holds the **current** season. When football-data rolled the Champions League over to 2026/27 (commit `e3526d9141`, 2026-08-29 12:46), the next `sync_tournaments.py` run overwrote the 2025/26 file: its 29 knockout matches with highlight links were lost from `main`, and the app had no way to reach past UCL seasons anyway.
+- **Archive:** `sync_tournaments.py` now records the payload's season (`season_of()`: FD's `filters.season`, else the first match's `season.startDate`) as a top-level `"season"` and, after the video_id graft, copies each FD tournament file to **`tournament-groups/{slug}/{season}.json`** (`archive_season()`). It only writes when the content (ignoring `generated_at`) changed, so no extra commit churn. A rollover now just starts a new archive; the previous season's file stays put. `graft_video_ids` still globs only `tournament-groups/*.json`, so the archive folders aren't mistaken for slugs. The workflow already `git add`s all of `tournament-groups/`.
+- **Backfill:** `tournament-groups/ucl/2025.json` restored from the last good version (`fbb69d7980`, 2026-08-29 12:42) plus `"season": 2025`. It has 29 knockout matches (Round of 16 → final, all FINISHED, all with `video_id`). The **league phase isn't in it**: the `groupMatches` projection only started on 2026-09-09, after the rollover. Standings come from the existing `standings/ucl/2025.json`.
+- **App side** (refoot_flutter): the UCL screen gets the season selector, listing archived seasons, and loads past knockouts from `tournament-groups/ucl/{season}.json`.
+- **World Cup / Euro Cup** were never lost: their files are intact, but football-data no longer serves either tournament, so `generated_at` stopped moving and the app's 7-day staleness check rejected them. That is fixed in the app (a finished edition is valid at any age).
+- **Files:** `scripts/sync_tournaments.py`, `scripts/tests/test_sync_tournaments.py` (+9 tests), `tournament-groups/ucl/2025.json`.
+
 ### Admin: desktop sidebar layout (≥ 1024px) (2026-10-05)
 
 On wide windows `admin.html` showed its phone layout stretched: a blue header bar, a centred row of four underline tabs, and a narrow 720px column. Desktop now follows the same pattern as the Sobremesa app and the ReFoot Flutter app's desktop layout. **Phone/tablet layout is unchanged:** every rule is inside `@media (min-width: 1024px)`, and the new markup bits are hidden below it.
