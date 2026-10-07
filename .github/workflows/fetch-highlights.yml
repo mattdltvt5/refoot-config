@@ -67,7 +67,12 @@ jobs:
       - name: Refresh league standings (recent-finish only)
         run: python scripts/sync_standings.py --if-recent-finish
 
-      # Only commit when the script changed at least one file.
+      # Only commit when real data changed. Every run rewrites its run
+      # timestamps, so a plain "anything changed?" check committed every ~5 min
+      # (and each push rebuilt Pages). scripts/commit_gate.py skips
+      # timestamp-only changes, but still commits a heartbeat once the data's
+      # timestamps are 3 h old so the app's freshness checks (fixtures: 6 h)
+      # never see stale data during a quiet spell.
       # [skip ci] prevents this commit from re-triggering the workflow.
       - name: Commit and push if changed
         run: |
@@ -76,6 +81,10 @@ jobs:
           git add highlights/ tournament-groups/ fixtures/ standings/ home-index/ results/
           if git diff --cached --quiet; then
             echo "No changes — skipping commit"
+            exit 0
+          fi
+          if [ "$(python scripts/commit_gate.py --heartbeat-hours 3)" = "skip" ]; then
+            echo "Timestamp-only changes — skipping commit"
             exit 0
           fi
           git commit -m "chore: update highlights cache [skip ci]"

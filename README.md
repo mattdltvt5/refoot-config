@@ -4,6 +4,13 @@ Remote channel configuration for the **ReFoot Highlights** Android app.
 
 ## Recent changes
 
+### Actions usage cut: no timestamp-only commits, Pages built only for site changes (2026-10-07)
+
+Measured over the last 1,000 runs (about 42 h): **Fetch highlights cache** ran every 5 min (496 runs, about 1.5 min each). Each run then committed even when nothing changed (about 286 commits a day): every run rewrites its run timestamps (`generated_at`, `last_run`, `last_updated`) in about 14 files. Each of those pushes then triggered a legacy **GitHub Pages build** (500 runs, about 1 min each). Together that was roughly 1,000 runner-minutes a day. It's free because the repo is public, but it was pure waste.
+- **Fix 1: commit gate (`scripts/commit_gate.py`).** The fetch workflow's commit step now asks the gate first. If the only changes are those timestamp keys (at any depth, plus `_updated`), it **skips** the commit. Any real change commits as before: a score, fixture, video, quota count, or a new or deleted file. A **heartbeat** commit still happens once the data's timestamps at `HEAD` are **3 h** old, because the app rejects stale caches (league fixtures after **6 h**, standings after 2 days, tournaments after 7 days). Side effect: the admin's "Last fetch" line (from `highlights/fetch-log.json`) can lag by up to 3 h on quiet days. The workflow-run status panel still shows the live runs. Tests: `scripts/tests/test_commit_gate.py`.
+- **Fix 2: Pages via Actions (`.github/workflows/pages.yml`).** Pages source switched from "deploy from branch" (a rebuild on every push) to "GitHub Actions". The new workflow runs only when a root-level file, `uicons/**` or the workflow itself changes. Data folders never match the root-level `'*'` filter, so data commits no longer trigger it. It publishes the root-level files and `uicons/` to the same URL (`mattdltvt5.github.io/refoot-config/…`). The data folders aren't published: the admin reads data from raw.githubusercontent.com / the API. The bare site root no longer renders README.md (nothing links to it).
+- **Remaining cost** is the fetch run itself (about 430 min a day at a 5-min cadence). That interval is set in cron-job.org.
+
 ### Tournament caches archived per season; UCL 2025/26 restored (2026-10-06)
 
 `tournament-groups/{slug}.json` only ever holds the **current** season. When football-data rolled the Champions League over to 2026/27 (commit `e3526d9141`, 2026-08-29 12:46), the next `sync_tournaments.py` run overwrote the 2025/26 file: its 29 knockout matches with highlight links were lost from `main`, and the app had no way to reach past UCL seasons anyway.
