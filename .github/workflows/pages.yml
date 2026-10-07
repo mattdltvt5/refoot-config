@@ -1,0 +1,58 @@
+name: Deploy admin site (GitHub Pages)
+
+# Publishes the static site - admin.html, privacy.html, terms.html, gallery.html,
+# the admin icons/manifest and the uicons font - to
+# https://mattdltvt5.github.io/refoot-config/.
+#
+# Replaces the legacy "deploy from branch" Pages build, which re-ran on EVERY
+# push to main, including the bot's data commits every few minutes (~700 runner
+# minutes a day for nothing: the admin reads its data live from
+# raw.githubusercontent.com / the GitHub API, never from Pages).
+#
+# Triggers only when the site itself changes: root-level files ('*' does not
+# match subfolders, so highlights/, fixtures/, tournament-groups/ ... data
+# commits never trigger it), the uicons font, or this workflow. Pages source
+# must be set to "GitHub Actions" (Settings → Pages, or the API: build_type=workflow).
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '*'
+      - 'uicons/**'
+      - '.github/workflows/pages.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+
+      # Site = every root-level file + uicons/. The data folders stay out of the
+      # artifact (they're served from raw.githubusercontent.com, not Pages).
+      - name: Assemble site
+        run: |
+          mkdir _site
+          find . -maxdepth 1 -type f ! -name '.*' -exec cp {} _site/ \;
+          cp -r uicons _site/
+          ls _site
+
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+      - id: deployment
+        uses: actions/deploy-pages@v4
