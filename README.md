@@ -4,6 +4,16 @@ Remote channel configuration for the **ReFoot Highlights** Android app.
 
 ## Recent changes
 
+### Privacy policy: in-app account deletion (2026-10-08)
+
+`privacy.html` §5 (Data retention) and §6 (Your rights and choices) now describe the app's new **Delete account** action:
+- Signed-in users open the menu, tap Delete account under their name and confirm with Google. That deletes the sign-in account and the favourites/preferences saved to it, and clears them from that device.
+- Copies on other devices stay there until removed.
+- Hosting-provider technical data follows those providers' retention schedules.
+- Email requests remain an alternative.
+
+"Last updated" is now October 8, 2026. The file is byte-identical to `refoot_flutter/web/privacy.html` (served at `/privacy`), which ships in the same change as the feature.
+
 ### Actions usage cut: no timestamp-only commits, Pages built only for site changes (2026-10-07)
 
 Measured over the last 1,000 runs (about 42 h): **Fetch highlights cache** ran every 5 min (496 runs, about 1.5 min each). Each run then committed even when nothing changed (about 286 commits a day): every run rewrites its run timestamps (`generated_at`, `last_run`, `last_updated`) in about 14 files. Each of those pushes then triggered a legacy **GitHub Pages build** (500 runs, about 1 min each). Together that was roughly 1,000 runner-minutes a day. It's free because the repo is public, but it was pure waste.
