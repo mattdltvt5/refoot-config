@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Detect push-notification events for favourite teams (LOG-ONLY for now).
+"""Detect push-notification events for favourite teams and send them.
 
 Runs at the end of every ~5-minute fetch-highlights run, after all artifacts
 have been rewritten and before the commit. It compares the match state the
@@ -23,9 +23,18 @@ are never emitted again (a failed push, a lagging artifact or a score flicker
 can't produce duplicates). Only recent matches are considered, so a backfill
 of old data can't flood users.
 
-``--mode log`` (the default and, for now, the only mode): print the events and
-append them to ``push-events/events-{YYYY-MM}.jsonl`` with timing data, so a
-real matchday can be measured before anything is sent. Nothing is sent.
+Every detected event is appended to ``push-events/events-{YYYY-MM}.jsonl``
+with timing data.
+
+``--mode log``: record only, nothing is sent.
+
+``--mode send``: also POST the events to the ``pushEvents`` Cloud Function
+(refoot_flutter functions/index.js) with ``Authorization: Bearer
+$PUSH_EVENTS_SECRET``; the function sends one FCM notification per event to
+the subscribers of both teams (and never sends an event twice). If the post
+fails, the events wait in ``push-events/pending.json`` and are retried on the
+next runs until they're too old to be useful (PENDING_MAX_AGE). Without the
+secret in the environment, send mode falls back to log mode.
 
 Never fails the pipeline: any error is logged and the script exits 0.
 """
@@ -35,6 +44,7 @@ from __future__ import annotations
 import argparse
 import json
 import logging
+import os
 import subprocess
 import sys
 from datetime import datetime, timedelta, timezone
@@ -43,6 +53,23 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 EVENTS_DIR = ROOT / "push-events"
 LEDGER_PATH = EVENTS_DIR / "ledger.json"
+PENDING_PATH = EVENTS_DIR / "pending.json"
+
+PUSH_EVENTS_URL = os.environ.get(
+    "PUSH_EVENTS_URL",
+    "https://us-central1-refoot-highlights-app.cloudfunctions.net/pushEvents",
+)
+SECRET_ENV = "PUSH_EVENTS_SECRET"
+# Events per POST (the function accepts up to 200).
+SEND_CHUNK = 100
+# An unsent event is dropped once it's this stale: a goal alert an hour late is
+# noise, a highlights alert a few hours late is still useful.
+PENDING_MAX_AGE = {
+    "goal": timedelta(minutes=30),
+    "disallowed": timedelta(minutes=30),
+    "final": timedelta(hours=2),
+    "highlights": timedelta(hours=12),
+}
 
 LIVE = frozenset({"IN_PLAY", "PAUSED"})
 FINISHED = "FINISHED"
@@ -235,7 +262,69 @@ def write_outputs(events: list[dict], ledger: dict[str, str], now: datetime) -> 
         LEDGER_PATH.write_text(new, encoding="utf-8")
 
 
-def run(mode: str, now: datetime | None = None) -> list[dict]:
+def prune_pending(pending: list[dict], now: datetime) -> list[dict]:
+    """Drop unsent events that are too old to be worth sending."""
+    out = []
+    for e in pending:
+        at = _parse(e.get("detected_at"))
+        limit = PENDING_MAX_AGE.get(e.get("type"), timedelta(minutes=30))
+        if at is not None and now - at <= limit:
+            out.append(e)
+    return out
+
+
+def post_events(events: list[dict], url: str, secret: str, http=None) -> dict:
+    """POST events to the pushEvents function in chunks. Raises on any failure.
+    Returns the summed {sent, duplicate, invalid}."""
+    if http is None:
+        import requests as http  # noqa: PLC0415 (pipeline dependency)
+    total = {"sent": 0, "duplicate": 0, "invalid": 0}
+    for i in range(0, len(events), SEND_CHUNK):
+        r = http.post(
+            url,
+            json={"events": events[i:i + SEND_CHUNK]},
+            headers={"Authorization": f"Bearer {secret}"},
+            timeout=30,
+        )
+        if r.status_code != 200:
+            raise RuntimeError(f"pushEvents HTTP {r.status_code}: {r.text[:200]}")
+        for k, v in r.json().items():
+            total[k] = total.get(k, 0) + v
+    return total
+
+
+def load_pending() -> list[dict]:
+    try:
+        data = json.loads(PENDING_PATH.read_text(encoding="utf-8"))
+        return data if isinstance(data, list) else []
+    except (OSError, ValueError):
+        return []
+
+
+def write_pending(pending: list[dict]) -> None:
+    EVENTS_DIR.mkdir(exist_ok=True)
+    new = json.dumps(pending, indent=1, ensure_ascii=False) + "\n"
+    old = PENDING_PATH.read_text(encoding="utf-8") if PENDING_PATH.exists() else None
+    if new != old:
+        PENDING_PATH.write_text(new, encoding="utf-8")
+
+
+def deliver(events: list[dict], now: datetime, secret: str, http=None) -> list[dict]:
+    """Send this run's events plus any still-fresh unsent ones; return what's
+    left unsent (empty on success)."""
+    outbox = prune_pending(load_pending(), now) + events
+    if not outbox:
+        return []
+    try:
+        result = post_events(outbox, PUSH_EVENTS_URL, secret, http=http)
+        log.info("sent %d event(s) to pushEvents: %s", len(outbox), result)
+        return []
+    except Exception as exc:  # keep them for the next run
+        log.warning("pushEvents failed (%s); %d event(s) kept for retry", exc, len(outbox))
+        return outbox
+
+
+def run(mode: str, now: datetime | None = None, http=None) -> list[dict]:
     now = now or datetime.now(timezone.utc)
     months = months_around(now)
     prev = load_head_state(months)
@@ -246,16 +335,24 @@ def run(mode: str, now: datetime | None = None) -> list[dict]:
         log.info("[%s] %s %s %s-%s %s (%s, +%s min)", mode, e["type"].upper(),
                  e["home"]["name"], *e["score"], e["away"]["name"],
                  e["competition"], e["minutes_after_kickoff"])
-    log.info("%d push event(s) detected (%s mode - nothing sent)", len(events), mode)
+    secret = os.environ.get(SECRET_ENV, "")
+    if mode == "send" and not secret:
+        log.warning("%s not set - falling back to log mode", SECRET_ENV)
+        mode = "log"
+    log.info("%d push event(s) detected (%s mode)", len(events), mode)
+    # Record detection first, so a failed send can never re-detect (and later
+    # double-send) the same events; unsent ones go through the outbox instead.
     write_outputs(events, update_ledger(ledger, events, now, marks), now)
+    if mode == "send":
+        write_pending(deliver(events, now, secret, http=http))
     return events
 
 
 def main(argv: list[str] | None = None) -> int:
     logging.basicConfig(level=logging.INFO, format="%(levelname)s %(name)s: %(message)s")
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
-    ap.add_argument("--mode", choices=["log"], default="log",
-                    help="log: record events only (sending comes in a later PR)")
+    ap.add_argument("--mode", choices=["log", "send"], default="log",
+                    help="log: record events only; send: also POST them to pushEvents")
     args = ap.parse_args(argv)
     try:
         run(args.mode)

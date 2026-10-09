@@ -186,5 +186,111 @@ class TestRun(unittest.TestCase):
             self.assertEqual(push_events.main([]), 0)
 
 
+
+class _Resp:
+    def __init__(self, status, body=None):
+        self.status_code = status
+        self._body = body or {"sent": 0, "duplicate": 0, "invalid": 0}
+        self.text = json.dumps(self._body)
+
+    def json(self):
+        return self._body
+
+
+class _Http:
+    """Fake `requests`: records posts, answers with [status]."""
+
+    def __init__(self, status=200):
+        self.status = status
+        self.posts = []
+
+    def post(self, url, json=None, headers=None, timeout=None):
+        self.posts.append({"url": url, "events": json["events"], "headers": headers})
+        n = len(json["events"])
+        return _Resp(self.status, {"sent": n, "duplicate": 0, "invalid": 0})
+
+
+class TestSend(unittest.TestCase):
+    def setUp(self):
+        self._dir = tempfile.TemporaryDirectory()
+        events_dir = Path(self._dir.name) / "push-events"
+        self._patches = [
+            mock.patch.object(push_events, "EVENTS_DIR", events_dir),
+            mock.patch.object(push_events, "LEDGER_PATH", events_dir / "ledger.json"),
+            mock.patch.object(push_events, "PENDING_PATH", events_dir / "pending.json"),
+            mock.patch.object(push_events, "load_head_state",
+                              return_value={1: _m("IN_PLAY", 0, 0)}),
+            mock.patch.object(push_events, "load_current_state",
+                              return_value={1: _m("IN_PLAY", 1, 0)}),
+            mock.patch.dict(os.environ, {"PUSH_EVENTS_SECRET": "s3cret"}),
+        ]
+        for p in self._patches:
+            p.start()
+        self.pending = events_dir / "pending.json"
+
+    def tearDown(self):
+        for p in self._patches:
+            p.stop()
+        self._dir.cleanup()
+
+    def test_send_posts_events_with_the_secret(self):
+        http = _Http()
+        push_events.run("send", now=_at(21), http=http)
+        self.assertEqual(len(http.posts), 1)
+        self.assertEqual(http.posts[0]["headers"], {"Authorization": "Bearer s3cret"})
+        self.assertEqual(http.posts[0]["events"][0]["key"], "1:goal:1-0")
+        self.assertEqual(json.loads(self.pending.read_text()), [])
+
+    def test_a_failed_post_is_retried_next_run(self):
+        push_events.run("send", now=_at(21), http=_Http(status=500))
+        self.assertEqual([e["key"] for e in json.loads(self.pending.read_text())],
+                         ["1:goal:1-0"])
+        # Next run: no new events (already in the ledger), the pending one is sent.
+        http = _Http()
+        push_events.run("send", now=_at(26), http=http)
+        self.assertEqual([e["key"] for e in http.posts[0]["events"]], ["1:goal:1-0"])
+        self.assertEqual(json.loads(self.pending.read_text()), [])
+
+    def test_stale_unsent_events_are_dropped(self):
+        push_events.run("send", now=_at(21), http=_Http(status=500))
+        http = _Http()
+        push_events.run("send", now=_at(21 + 45), http=http)  # 45 min later
+        self.assertEqual(http.posts, [], "a 45-minute-old goal alert isn't sent")
+        self.assertEqual(json.loads(self.pending.read_text()), [])
+
+    def test_prune_keeps_highlights_longer_than_goals(self):
+        now = _at(0)
+        old = (now - timedelta(hours=3)).isoformat().replace("+00:00", "Z")
+        kept = push_events.prune_pending(
+            [{"type": "goal", "detected_at": old}, {"type": "highlights", "detected_at": old}],
+            now)
+        self.assertEqual([e["type"] for e in kept], ["highlights"])
+
+    def test_large_batches_are_chunked(self):
+        http = _Http()
+        events = [{"key": str(i)} for i in range(push_events.SEND_CHUNK * 2 + 5)]
+        total = push_events.post_events(events, "u", "s", http=http)
+        self.assertEqual([len(p["events"]) for p in http.posts],
+                         [push_events.SEND_CHUNK, push_events.SEND_CHUNK, 5])
+        self.assertEqual(total["sent"], len(events))
+
+    def test_without_the_secret_send_falls_back_to_log(self):
+        http = _Http()
+        with mock.patch.dict(os.environ, {"PUSH_EVENTS_SECRET": ""}):
+            evs = push_events.run("send", now=_at(21), http=http)
+        self.assertEqual(len(evs), 1, "still detected and logged")
+        self.assertEqual(http.posts, [])
+        self.assertFalse(self.pending.exists())
+
+    def test_log_mode_never_posts(self):
+        http = _Http()
+        push_events.run("log", now=_at(21), http=http)
+        self.assertEqual(http.posts, [])
+
+    def test_send_mode_errors_never_fail_the_pipeline(self):
+        with mock.patch.object(push_events, "run", side_effect=RuntimeError("boom")):
+            self.assertEqual(push_events.main(["--mode", "send"]), 0)
+
+
 if __name__ == "__main__":
     unittest.main()

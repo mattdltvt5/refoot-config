@@ -67,13 +67,17 @@ jobs:
       - name: Refresh league standings (recent-finish only)
         run: python scripts/sync_standings.py --if-recent-finish
 
-      # Push notifications, step 1: LOG-ONLY. Compares the match state just built
-      # (all artifacts above) with HEAD and records goal / final / highlights
-      # events in push-events/ (events-YYYY-MM.jsonl + a dedupe ledger) so a real
-      # matchday can be measured. Nothing is sent. Never fails the run.
-      - name: Detect push-notification events (log only)
+      # Push notifications for favourite teams. Compares the match state just
+      # built (all artifacts above) with HEAD, records goal / disallowed / final /
+      # highlights events in push-events/ (events-YYYY-MM.jsonl + a dedupe
+      # ledger) and POSTs them to the pushEvents Cloud Function, which notifies
+      # the teams' subscribers. Failed posts wait in push-events/pending.json for
+      # the next run. Without the secret it only logs. Never fails the run.
+      - name: Detect and send push-notification events
         continue-on-error: true
-        run: python scripts/push_events.py --mode log
+        env:
+          PUSH_EVENTS_SECRET: ${{ secrets.PUSH_EVENTS_SECRET }}
+        run: python scripts/push_events.py --mode send
 
       # Only commit when real data changed. Every run rewrites its run
       # timestamps, so a plain "anything changed?" check committed every ~5 min
