@@ -1,0 +1,36 @@
+{
+  "_about": "Copa America 2024 results that no API in this pipeline can provide any more: the API-Sports account that sync_copa_tournament.py relied on was suspended (every run since 2026-07-02 fails), and Copa is outside football-data.org's free tier. The tournament is finished, so these never change. Used only by scripts/repair_copa_tournament.py, which checks every group score against the official group tables already in tournament-groups/copa-america.json and refuses to write if anything disagrees.",
+  "_source": "https://en.wikipedia.org/wiki/2024_Copa_Am%C3%A9rica (group stage) and https://en.wikipedia.org/wiki/2024_Copa_Am%C3%A9rica_knockout_stage",
+  "_retrieved": "2026-10-09",
+  "_team_names": "As in the API-Sports data (e.g. USA, not United States).",
+  "group_stage": [
+    {"group": "GROUP_A", "matchday": 1, "home": "Argentina",     "away": "Canada",     "score": [2, 0]},
+    {"group": "GROUP_A", "matchday": 1, "home": "Peru",          "away": "Chile",      "score": [0, 0]},
+    {"group": "GROUP_A", "matchday": 2, "home": "Peru",          "away": "Canada",     "score": [0, 1]},
+    {"group": "GROUP_A", "matchday": 2, "home": "Chile",         "away": "Argentina",  "score": [0, 1]},
+    {"group": "GROUP_A", "matchday": 3, "home": "Argentina",     "away": "Peru",       "score": [2, 0]},
+    {"group": "GROUP_A", "matchday": 3, "home": "Canada",        "away": "Chile",      "score": [0, 0]},
+    {"group": "GROUP_B", "matchday": 1, "home": "Ecuador",       "away": "Venezuela",  "score": [1, 2]},
+    {"group": "GROUP_B", "matchday": 1, "home": "Mexico",        "away": "Jamaica",    "score": [1, 0]},
+    {"group": "GROUP_B", "matchday": 2, "home": "Ecuador",       "away": "Jamaica",    "score": [3, 1]},
+    {"group": "GROUP_B", "matchday": 2, "home": "Venezuela",     "away": "Mexico",     "score": [1, 0]},
+    {"group": "GROUP_B", "matchday": 3, "home": "Mexico",        "away": "Ecuador",    "score": [0, 0]},
+    {"group": "GROUP_B", "matchday": 3, "home": "Jamaica",       "away": "Venezuela",  "score": [0, 3]},
+    {"group": "GROUP_C", "matchday": 1, "home": "USA",           "away": "Bolivia",    "score": [2, 0]},
+    {"group": "GROUP_C", "matchday": 1, "home": "Uruguay",       "away": "Panama",     "score": [3, 1]},
+    {"group": "GROUP_C", "matchday": 2, "home": "Panama",        "away": "USA",        "score": [2, 1]},
+    {"group": "GROUP_C", "matchday": 2, "home": "Uruguay",       "away": "Bolivia",    "score": [5, 0]},
+    {"group": "GROUP_C", "matchday": 3, "home": "USA",           "away": "Uruguay",    "score": [0, 1]},
+    {"group": "GROUP_C", "matchday": 3, "home": "Bolivia",       "away": "Panama",     "score": [1, 3]},
+    {"group": "GROUP_D", "matchday": 1, "home": "Colombia",      "away": "Paraguay",   "score": [2, 1]},
+    {"group": "GROUP_D", "matchday": 1, "home": "Brazil",        "away": "Costa Rica", "score": [0, 0]},
+    {"group": "GROUP_D", "matchday": 2, "home": "Colombia",      "away": "Costa Rica", "score": [3, 0]},
+    {"group": "GROUP_D", "matchday": 2, "home": "Paraguay",      "away": "Brazil",     "score": [1, 4]},
+    {"group": "GROUP_D", "matchday": 3, "home": "Brazil",        "away": "Colombia",   "score": [1, 1]},
+    {"group": "GROUP_D", "matchday": 3, "home": "Costa Rica",    "away": "Paraguay",   "score": [2, 1]}
+  ],
+  "knockout_extra_time": [
+    {"stage": "FINAL", "home": "Argentina", "away": "Colombia", "after_extra_time": [1, 0],
+     "_note": "0-0 after 90 minutes; Lautaro Martinez scored in extra time (112'). The API-Sports 'fulltime' score is the 90-minute score only."}
+  ]
+}
