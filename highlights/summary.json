@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-09T20:31:15Z",
+  "generated_at": "2026-10-09T20:36:16Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -1623,6 +1623,22 @@
               "away": "TSG 1899 Hoffenheim",
               "date": "2026-09-20",
               "covered": true
+            }
+          ]
+        },
+        {
+          "gameweek": "GW5",
+          "stem": "gameweek-5",
+          "total": 1,
+          "covered": 0,
+          "matches": [
+            {
+              "match_id": 565820,
+              "home": "Borussia Dortmund",
+              "away": "SV Werder Bremen",
+              "date": "2026-10-09",
+              "covered": false,
+              "pending": true
             }
           ]
         }
