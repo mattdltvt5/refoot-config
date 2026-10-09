@@ -67,6 +67,14 @@ jobs:
       - name: Refresh league standings (recent-finish only)
         run: python scripts/sync_standings.py --if-recent-finish
 
+      # Push notifications, step 1: LOG-ONLY. Compares the match state just built
+      # (all artifacts above) with HEAD and records goal / final / highlights
+      # events in push-events/ (events-YYYY-MM.jsonl + a dedupe ledger) so a real
+      # matchday can be measured. Nothing is sent. Never fails the run.
+      - name: Detect push-notification events (log only)
+        continue-on-error: true
+        run: python scripts/push_events.py --mode log
+
       # Only commit when real data changed. Every run rewrites its run
       # timestamps, so a plain "anything changed?" check committed every ~5 min
       # (and each push rebuilt Pages). scripts/commit_gate.py skips
@@ -78,7 +86,7 @@ jobs:
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add highlights/ tournament-groups/ fixtures/ standings/ home-index/ results/
+          git add highlights/ tournament-groups/ fixtures/ standings/ home-index/ results/ push-events/
           if git diff --cached --quiet; then
             echo "No changes — skipping commit"
             exit 0
