@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-09T20:56:18Z",
+  "generated_at": "2026-10-09T21:01:37Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -937,6 +937,22 @@
               "away": "Real Sociedad de Fútbol",
               "date": "2026-09-20",
               "covered": true
+            }
+          ]
+        },
+        {
+          "gameweek": "GW8",
+          "stem": "gameweek-8",
+          "total": 1,
+          "covered": 0,
+          "matches": [
+            {
+              "match_id": 564706,
+              "home": "Málaga CF",
+              "away": "RCD Espanyol de Barcelona",
+              "date": "2026-10-09",
+              "covered": false,
+              "pending": true
             }
           ]
         }

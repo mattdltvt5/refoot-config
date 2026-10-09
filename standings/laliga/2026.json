@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-09T14:13:32.140096Z",
+  "generated_at": "2026-10-09T21:01:57.630937Z",
   "competition": "LaLiga",
   "slug": "laliga",
   "season": 2026,
@@ -197,6 +197,25 @@
     {
       "position": 11,
       "team": {
+        "id": 80,
+        "name": "RCD Espanyol de Barcelona",
+        "shortName": "Espanyol",
+        "tla": "ESP",
+        "crest": "https://crests.football-data.org/80.png"
+      },
+      "playedGames": 8,
+      "form": "D,L,L,W,D",
+      "won": 2,
+      "draw": 2,
+      "lost": 4,
+      "points": 8,
+      "goalsFor": 11,
+      "goalsAgainst": 11,
+      "goalDifference": 0
+    },
+    {
+      "position": 12,
+      "team": {
         "id": 82,
         "name": "Getafe CF",
         "shortName": "Getafe",
@@ -214,7 +233,7 @@
       "goalDifference": -3
     },
     {
-      "position": 12,
+      "position": 13,
       "team": {
         "id": 87,
         "name": "Rayo Vallecano de Madrid",
@@ -233,7 +252,7 @@
       "goalDifference": -5
     },
     {
-      "position": 13,
+      "position": 14,
       "team": {
         "id": 79,
         "name": "CA Osasuna",
@@ -252,7 +271,7 @@
       "goalDifference": -7
     },
     {
-      "position": 14,
+      "position": 15,
       "team": {
         "id": 558,
         "name": "RC Celta de Vigo",
@@ -269,25 +288,6 @@
       "goalsFor": 8,
       "goalsAgainst": 6,
       "goalDifference": 2
-    },
-    {
-      "position": 15,
-      "team": {
-        "id": 80,
-        "name": "RCD Espanyol de Barcelona",
-        "shortName": "Espanyol",
-        "tla": "ESP",
-        "crest": "https://crests.football-data.org/80.png"
-      },
-      "playedGames": 7,
-      "form": "L,L,W,D,L",
-      "won": 2,
-      "draw": 1,
-      "lost": 4,
-      "points": 7,
-      "goalsFor": 10,
-      "goalsAgainst": 10,
-      "goalDifference": 0
     },
     {
       "position": 16,
@@ -349,6 +349,25 @@
     {
       "position": 19,
       "team": {
+        "id": 84,
+        "name": "Málaga CF",
+        "shortName": "Málaga",
+        "tla": "MAL",
+        "crest": "https://crests.football-data.org/84.png"
+      },
+      "playedGames": 8,
+      "form": "D,L,L,D,D",
+      "won": 0,
+      "draw": 4,
+      "lost": 4,
+      "points": 4,
+      "goalsFor": 4,
+      "goalsAgainst": 13,
+      "goalDifference": -9
+    },
+    {
+      "position": 20,
+      "team": {
         "id": 95,
         "name": "Valencia CF",
         "shortName": "Valencia",
@@ -363,25 +382,6 @@
       "points": 4,
       "goalsFor": 4,
       "goalsAgainst": 13,
-      "goalDifference": -9
-    },
-    {
-      "position": 20,
-      "team": {
-        "id": 84,
-        "name": "Málaga CF",
-        "shortName": "Málaga",
-        "tla": "MAL",
-        "crest": "https://crests.football-data.org/84.png"
-      },
-      "playedGames": 7,
-      "form": "L,L,D,D,L",
-      "won": 0,
-      "draw": 3,
-      "lost": 4,
-      "points": 3,
-      "goalsFor": 3,
-      "goalsAgainst": 12,
       "goalDifference": -9
     }
   ]
