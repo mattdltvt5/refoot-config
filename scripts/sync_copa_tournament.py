@@ -81,6 +81,29 @@ KNOCKOUT_STAGE_MAP: dict = {
     "Final":           "FINAL",
 }
 
+# API-Sports fixture.status.short values for a match that's over (full time,
+# after extra time, after penalties) -> written as FD-style "FINISHED", which
+# the app uses to recognise a finished edition (its FINAL) as complete rather
+# than stale.
+_FINISHED_SHORT = {"FT", "AET", "PEN"}
+
+
+def _status(fix: dict) -> str:
+    short = fix.get("fixture", {}).get("status", {}).get("short", "")
+    return "FINISHED" if short in _FINISHED_SHORT else short
+
+
+def _final_score(score: dict) -> dict:
+    """The score at the end of play: API-Sports' "fulltime" is the 90-minute
+    score only, extra-time goals are in "extratime" (e.g. the 2024 Final was
+    0-0 at 90 minutes and 1-0 after extra time)."""
+    ft = score.get("fulltime") or {}
+    et = score.get("extratime") or {}
+    if et.get("home") is not None and et.get("away") is not None             and ft.get("home") is not None and ft.get("away") is not None:
+        return {"home": ft["home"] + et["home"], "away": ft["away"] + et["away"]}
+    return {"home": ft.get("home"), "away": ft.get("away")}
+
+
 # Regex that extracts the matchday integer from "Group Stage - N".
 # Matches any spacing/dash variant defensively (e.g. "Group Stage - 2", "Group Stage-3").
 _GROUP_STAGE_RE = re.compile(r'Group\s+Stage\s*[-–]\s*(\d+)', re.IGNORECASE)
@@ -219,7 +242,7 @@ def normalize_group(body: dict, team_group_map: dict) -> list:
         # Derive group from standings map; fall back to "" if team not found.
         group = team_group_map.get(home_id) or team_group_map.get(away_id) or ""
 
-        status = fixture.get("status", {}).get("short", "")
+        status = _status(fix)
 
         matches.append({
             "match_id":    fixture_id,
@@ -246,7 +269,7 @@ def normalize_group(body: dict, team_group_map: dict) -> list:
                 ),
             },
             "score": {
-                "fullTime": {"home": ft.get("home"), "away": ft.get("away")},
+                "fullTime": _final_score(score),
             },
             "status": status,
         })
@@ -313,9 +336,10 @@ def normalize_knockout(body: dict) -> list:
                 ),
             },
             "score": {
-                "fullTime":   {"home": ft.get("home"), "away": ft.get("away")},
+                "fullTime":   _final_score(score),
                 "penalties":  penalties,
             },
+            "status": _status(fix),
         })
 
     return matches

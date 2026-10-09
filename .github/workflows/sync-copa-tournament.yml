@@ -1,8 +1,13 @@
 name: Sync Copa América tournament data from API-Sports
 
 on:
-  schedule:
-    - cron: '0 5 * * 1'   # Every Monday at 05:00 UTC (after sync-teams.yml at 04:00)
+  # The weekly schedule is OFF: the API-Sports account was suspended (every run
+  # since 2026-07-02 failed with "Your account is suspended"), and Copa 2024 is
+  # finished. tournament-groups/copa-america.json was rebuilt offline by
+  # scripts/repair_copa_tournament.py. Re-enable this once a working API-Sports
+  # key is back:
+  # schedule:
+  #   - cron: '0 5 * * 1'   # Every Monday at 05:00 UTC (after sync-teams.yml at 04:00)
   workflow_dispatch:        # Manual trigger from the Actions tab
 
 # API-Sports quota discipline:

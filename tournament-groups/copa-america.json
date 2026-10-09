@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-01T13:07:43Z",
+  "generated_at": "2026-10-09T17:34:04Z",
   "slug": "copa-america",
   "standings": [
     {
@@ -339,7 +339,10 @@
           "home": 4,
           "away": 2
         }
-      }
+      },
+      "id": 1219957,
+      "video_id": "uke5ZqQmXns",
+      "status": "FINISHED"
     },
     {
       "stage": "QUARTER_FINALS",
@@ -364,7 +367,10 @@
           "home": 3,
           "away": 4
         }
-      }
+      },
+      "id": 1219958,
+      "video_id": "A_r6iM40LUs",
+      "status": "FINISHED"
     },
     {
       "stage": "QUARTER_FINALS",
@@ -386,7 +392,10 @@
           "away": 0
         },
         "penalties": null
-      }
+      },
+      "id": 1222459,
+      "video_id": "KwlVn2cN_Zo",
+      "status": "FINISHED"
     },
     {
       "stage": "QUARTER_FINALS",
@@ -411,7 +420,10 @@
           "home": 4,
           "away": 2
         }
-      }
+      },
+      "id": 1222460,
+      "video_id": "PHi7NwJbCl0",
+      "status": "FINISHED"
     },
     {
       "stage": "SEMI_FINALS",
@@ -433,7 +445,10 @@
           "away": 0
         },
         "penalties": null
-      }
+      },
+      "id": 1227537,
+      "video_id": "KBD9YH7sRRw",
+      "status": "FINISHED"
     },
     {
       "stage": "SEMI_FINALS",
@@ -455,7 +470,10 @@
           "away": 1
         },
         "penalties": null
-      }
+      },
+      "id": 1227538,
+      "video_id": "WDGW69qHHdk",
+      "status": "FINISHED"
     },
     {
       "stage": "THIRD_PLACE",
@@ -480,7 +498,10 @@
           "home": 3,
           "away": 4
         }
-      }
+      },
+      "id": 1234029,
+      "video_id": "z9shbCkRoyg",
+      "status": "FINISHED"
     },
     {
       "stage": "FINAL",
@@ -498,11 +519,641 @@
       },
       "score": {
         "fullTime": {
-          "home": 0,
+          "home": 1,
           "away": 0
         },
         "penalties": null
-      }
+      },
+      "id": 1234030,
+      "video_id": "1x3gtW-JcEY",
+      "status": "FINISHED"
     }
-  ]
+  ],
+  "groupMatches": [
+    {
+      "match_id": 1189120,
+      "video_id": "uPkvqrkfTxc",
+      "group": "GROUP_A",
+      "matchday": 1,
+      "sourceRound": "Group Stage - 1",
+      "homeTeam": {
+        "id": 26,
+        "name": "Argentina",
+        "tla": "",
+        "crest": "https://media.api-sports.io/football/teams/26.png"
+      },
+      "awayTeam": {
+        "id": 5529,
+        "name": "Canada",
+        "tla": "",
+        "crest": "https://media.api-sports.io/football/teams/5529.png"
+      },
+      "score": {
+        "fullTime": {
+          "home": 2,
+          "away": 0
+        }
+      },
+      "status": "FINISHED"
+    },
+    {
+      "match_id": 1146301,
+      "video_id": "opOlQka2e9s",
+      "group": "GROUP_A",
+      "matchday": 1,
+      "sourceRound": "Group Stage - 1",
+      "homeTeam": {
+        "id": 30,
+        "name": "Peru",
+        "tla": "",
+        "crest": "https://media.api-sports.io/football/teams/30.png"
+      },
+      "awayTeam": {
+        "id": 2383,
+        "name": "Chile",
+        "tla": "",
+        "crest": "https://media.api-sports.io/football/teams/2383.png"
+      },
+      "score": {
+        "fullTime": {
+          "home": 0,
+          "away": 0
+        }
+      },
+      "status": "FINISHED"
+    },
+    {
+      "match_id": 1189122,
+      "video_id": "Kre5Vag2XGs",
+      "group": "GROUP_A",
+      "matchday": 2,
+      "sourceRound": "Group Stage - 2",
+      "homeTeam": {
+        "id": 30,
+        "name": "Peru",
+        "tla": "",
+        "crest": "https://media.api-sports.io/football/teams/30.png"
+      },
+      "awayTeam": {
+        "id": 5529,
+        "name": "Canada",
+        "tla": "",
+        "crest": "https://media.api-sports.io/football/teams/5529.png"
+      },
+      "score": {
+        "fullTime": {
+          "home": 0,
+          "away": 1
+        }
+      },
+      "status": "FINISHED"
+    },
+    {
+      "match_id": 1146307,
+      "video_id": "J3HCbownPTA",
+      "group": "GROUP_A",
+      "matchday": 2,
+      "sourceRound": "Group Stage - 2",
+      "homeTeam": {
+        "id": 2383,
+        "name": "Chile",
+        "tla": "",
+        "crest": "https://media.api-sports.io/football/teams/2383.png"
+      },
+      "awayTeam": {
+        "id": 26,
+        "name": "Argentina",
+        "tla": "",
+        "crest": "https://media.api-sports.io/football/teams/26.png"
+      },
+      "score": {
+        "fullTime": {
+          "home": 0,
+          "away": 1
+        }
+      },
+      "status": "FINISHED"
+    },
+    {
+      "match_id": 1146313,
+      "video_id": "HV3U1hyaiXI",
+      "group": "GROUP_A",
+      "matchday": 3,
+      "sourceRound": "Group Stage - 3",
+      "homeTeam": {
+        "id": 26,
+        "name": "Argentina",
+        "tla": "",
+        "crest": "https://media.api-sports.io/football/teams/26.png"
+      },
+      "awayTeam": {
+        "id": 30,
+        "name": "Peru",
+        "tla": "",
+        "crest": "https://media.api-sports.io/football/teams/30.png"
+      },
+      "score": {
+        "fullTime": {
+          "home": 2,
+          "away": 0
+        }
+      },
+      "status": "FINISHED"
+    },
+    {
+      "match_id": 1189124,
+      "video_id": "2LTDwNRv6n4",
+      "group": "GROUP_A",
+      "matchday": 3,
+      "sourceRound": "Group Stage - 3",
+      "homeTeam": {
+        "id": 5529,
+        "name": "Canada",
+        "tla": "",
+        "crest": "https://media.api-sports.io/football/teams/5529.png"
+      },
+      "awayTeam": {
+        "id": 2383,
+        "name": "Chile",
+        "tla": "",
+        "crest": "https://media.api-sports.io/football/teams/2383.png"
+      },
+      "score": {
+        "fullTime": {
+          "home": 0,
+          "away": 0
+        }
+      },
+      "status": "FINISHED"
+    },
+    {
+      "match_id": 1146302,
+      "video_id": null,
+      "group": "GROUP_B",
+      "matchday": 1,
+      "sourceRound": "Group Stage - 1",
+      "homeTeam": {
+        "id": 2382,
+        "name": "Ecuador",
+        "tla": "",
+        "crest": "https://media.api-sports.io/football/teams/2382.png"
+      },
+      "awayTeam": {
+        "id": 2379,
+        "name": "Venezuela",
+        "tla": "",
+        "crest": "https://media.api-sports.io/football/teams/2379.png"
+      },
+      "score": {
+        "fullTime": {
+          "home": 1,
+          "away": 2
+        }
+      },
+      "status": "FINISHED"
+    },
+    {
+      "match_id": 1146303,
+      "video_id": "_PtyOTg_HzE",
+      "group": "GROUP_B",
+      "matchday": 1,
+      "sourceRound": "Group Stage - 1",
+      "homeTeam": {
+        "id": 16,
+        "name": "Mexico",
+        "tla": "",
+        "crest": "https://media.api-sports.io/football/teams/16.png"
+      },
+      "awayTeam": {
+        "id": 2385,
+        "name": "Jamaica",
+        "tla": "",
+        "crest": "https://media.api-sports.io/football/teams/2385.png"
+      },
+      "score": {
+        "fullTime": {
+          "home": 1,
+          "away": 0
+        }
+      },
+      "status": "FINISHED"
+    },
+    {
+      "match_id": 1146308,
+      "video_id": "V14QAhThW1I",
+      "group": "GROUP_B",
+      "matchday": 2,
+      "sourceRound": "Group Stage - 2",
+      "homeTeam": {
+        "id": 2382,
+        "name": "Ecuador",
+        "tla": "",
+        "crest": "https://media.api-sports.io/football/teams/2382.png"
+      },
+      "awayTeam": {
+        "id": 2385,
+        "name": "Jamaica",
+        "tla": "",
+        "crest": "https://media.api-sports.io/football/teams/2385.png"
+      },
+      "score": {
+        "fullTime": {
+          "home": 3,
+          "away": 1
+        }
+      },
+      "status": "FINISHED"
+    },
+    {
+      "match_id": 1146309,
+      "video_id": "CfohCpuextk",
+      "group": "GROUP_B",
+      "matchday": 2,
+      "sourceRound": "Group Stage - 2",
+      "homeTeam": {
+        "id": 2379,
+        "name": "Venezuela",
+        "tla": "",
+        "crest": "https://media.api-sports.io/football/teams/2379.png"
+      },
+      "awayTeam": {
+        "id": 16,
+        "name": "Mexico",
+        "tla": "",
+        "crest": "https://media.api-sports.io/football/teams/16.png"
+      },
+      "score": {
+        "fullTime": {
+          "home": 1,
+          "away": 0
+        }
+      },
+      "status": "FINISHED"
+    },
+    {
+      "match_id": 1146315,
+      "video_id": "Y4O6QC3w0gM",
+      "group": "GROUP_B",
+      "matchday": 3,
+      "sourceRound": "Group Stage - 3",
+      "homeTeam": {
+        "id": 16,
+        "name": "Mexico",
+        "tla": "",
+        "crest": "https://media.api-sports.io/football/teams/16.png"
+      },
+      "awayTeam": {
+        "id": 2382,
+        "name": "Ecuador",
+        "tla": "",
+        "crest": "https://media.api-sports.io/football/teams/2382.png"
+      },
+      "score": {
+        "fullTime": {
+          "home": 0,
+          "away": 0
+        }
+      },
+      "status": "FINISHED"
+    },
+    {
+      "match_id": 1146314,
+      "video_id": "ja0Y1nJovBk",
+      "group": "GROUP_B",
+      "matchday": 3,
+      "sourceRound": "Group Stage - 3",
+      "homeTeam": {
+        "id": 2385,
+        "name": "Jamaica",
+        "tla": "",
+        "crest": "https://media.api-sports.io/football/teams/2385.png"
+      },
+      "awayTeam": {
+        "id": 2379,
+        "name": "Venezuela",
+        "tla": "",
+        "crest": "https://media.api-sports.io/football/teams/2379.png"
+      },
+      "score": {
+        "fullTime": {
+          "home": 0,
+          "away": 3
+        }
+      },
+      "status": "FINISHED"
+    },
+    {
+      "match_id": 1146304,
+      "video_id": "o5I44LFf9u4",
+      "group": "GROUP_C",
+      "matchday": 1,
+      "sourceRound": "Group Stage - 1",
+      "homeTeam": {
+        "id": 2384,
+        "name": "USA",
+        "tla": "",
+        "crest": "https://media.api-sports.io/football/teams/2384.png"
+      },
+      "awayTeam": {
+        "id": 2381,
+        "name": "Bolivia",
+        "tla": "",
+        "crest": "https://media.api-sports.io/football/teams/2381.png"
+      },
+      "score": {
+        "fullTime": {
+          "home": 2,
+          "away": 0
+        }
+      },
+      "status": "FINISHED"
+    },
+    {
+      "match_id": 1146305,
+      "video_id": "h_VcAiN5LhQ",
+      "group": "GROUP_C",
+      "matchday": 1,
+      "sourceRound": "Group Stage - 1",
+      "homeTeam": {
+        "id": 7,
+        "name": "Uruguay",
+        "tla": "",
+        "crest": "https://media.api-sports.io/football/teams/7.png"
+      },
+      "awayTeam": {
+        "id": 11,
+        "name": "Panama",
+        "tla": "",
+        "crest": "https://media.api-sports.io/football/teams/11.png"
+      },
+      "score": {
+        "fullTime": {
+          "home": 3,
+          "away": 1
+        }
+      },
+      "status": "FINISHED"
+    },
+    {
+      "match_id": 1146310,
+      "video_id": "0cKb7uVNS2s",
+      "group": "GROUP_C",
+      "matchday": 2,
+      "sourceRound": "Group Stage - 2",
+      "homeTeam": {
+        "id": 11,
+        "name": "Panama",
+        "tla": "",
+        "crest": "https://media.api-sports.io/football/teams/11.png"
+      },
+      "awayTeam": {
+        "id": 2384,
+        "name": "USA",
+        "tla": "",
+        "crest": "https://media.api-sports.io/football/teams/2384.png"
+      },
+      "score": {
+        "fullTime": {
+          "home": 2,
+          "away": 1
+        }
+      },
+      "status": "FINISHED"
+    },
+    {
+      "match_id": 1146311,
+      "video_id": "GE6tzi-Nj88",
+      "group": "GROUP_C",
+      "matchday": 2,
+      "sourceRound": "Group Stage - 2",
+      "homeTeam": {
+        "id": 7,
+        "name": "Uruguay",
+        "tla": "",
+        "crest": "https://media.api-sports.io/football/teams/7.png"
+      },
+      "awayTeam": {
+        "id": 2381,
+        "name": "Bolivia",
+        "tla": "",
+        "crest": "https://media.api-sports.io/football/teams/2381.png"
+      },
+      "score": {
+        "fullTime": {
+          "home": 5,
+          "away": 0
+        }
+      },
+      "status": "FINISHED"
+    },
+    {
+      "match_id": 1146317,
+      "video_id": "-WgQsh5uoP0",
+      "group": "GROUP_C",
+      "matchday": 3,
+      "sourceRound": "Group Stage - 3",
+      "homeTeam": {
+        "id": 2384,
+        "name": "USA",
+        "tla": "",
+        "crest": "https://media.api-sports.io/football/teams/2384.png"
+      },
+      "awayTeam": {
+        "id": 7,
+        "name": "Uruguay",
+        "tla": "",
+        "crest": "https://media.api-sports.io/football/teams/7.png"
+      },
+      "score": {
+        "fullTime": {
+          "home": 0,
+          "away": 1
+        }
+      },
+      "status": "FINISHED"
+    },
+    {
+      "match_id": 1146316,
+      "video_id": "Qb5k-QHFkNQ",
+      "group": "GROUP_C",
+      "matchday": 3,
+      "sourceRound": "Group Stage - 3",
+      "homeTeam": {
+        "id": 2381,
+        "name": "Bolivia",
+        "tla": "",
+        "crest": "https://media.api-sports.io/football/teams/2381.png"
+      },
+      "awayTeam": {
+        "id": 11,
+        "name": "Panama",
+        "tla": "",
+        "crest": "https://media.api-sports.io/football/teams/11.png"
+      },
+      "score": {
+        "fullTime": {
+          "home": 1,
+          "away": 3
+        }
+      },
+      "status": "FINISHED"
+    },
+    {
+      "match_id": 1146306,
+      "video_id": "oSiIWf9oU6M",
+      "group": "GROUP_D",
+      "matchday": 1,
+      "sourceRound": "Group Stage - 1",
+      "homeTeam": {
+        "id": 8,
+        "name": "Colombia",
+        "tla": "",
+        "crest": "https://media.api-sports.io/football/teams/8.png"
+      },
+      "awayTeam": {
+        "id": 2380,
+        "name": "Paraguay",
+        "tla": "",
+        "crest": "https://media.api-sports.io/football/teams/2380.png"
+      },
+      "score": {
+        "fullTime": {
+          "home": 2,
+          "away": 1
+        }
+      },
+      "status": "FINISHED"
+    },
+    {
+      "match_id": 1189121,
+      "video_id": "2y9rDsUn_GI",
+      "group": "GROUP_D",
+      "matchday": 1,
+      "sourceRound": "Group Stage - 1",
+      "homeTeam": {
+        "id": 6,
+        "name": "Brazil",
+        "tla": "",
+        "crest": "https://media.api-sports.io/football/teams/6.png"
+      },
+      "awayTeam": {
+        "id": 29,
+        "name": "Costa Rica",
+        "tla": "",
+        "crest": "https://media.api-sports.io/football/teams/29.png"
+      },
+      "score": {
+        "fullTime": {
+          "home": 0,
+          "away": 0
+        }
+      },
+      "status": "FINISHED"
+    },
+    {
+      "match_id": 1189123,
+      "video_id": "yQJMcguV14I",
+      "group": "GROUP_D",
+      "matchday": 2,
+      "sourceRound": "Group Stage - 2",
+      "homeTeam": {
+        "id": 8,
+        "name": "Colombia",
+        "tla": "",
+        "crest": "https://media.api-sports.io/football/teams/8.png"
+      },
+      "awayTeam": {
+        "id": 29,
+        "name": "Costa Rica",
+        "tla": "",
+        "crest": "https://media.api-sports.io/football/teams/29.png"
+      },
+      "score": {
+        "fullTime": {
+          "home": 3,
+          "away": 0
+        }
+      },
+      "status": "FINISHED"
+    },
+    {
+      "match_id": 1146312,
+      "video_id": "Zg-iwl6Lzr4",
+      "group": "GROUP_D",
+      "matchday": 2,
+      "sourceRound": "Group Stage - 2",
+      "homeTeam": {
+        "id": 2380,
+        "name": "Paraguay",
+        "tla": "",
+        "crest": "https://media.api-sports.io/football/teams/2380.png"
+      },
+      "awayTeam": {
+        "id": 6,
+        "name": "Brazil",
+        "tla": "",
+        "crest": "https://media.api-sports.io/football/teams/6.png"
+      },
+      "score": {
+        "fullTime": {
+          "home": 1,
+          "away": 4
+        }
+      },
+      "status": "FINISHED"
+    },
+    {
+      "match_id": 1146318,
+      "video_id": "umh9Hvn7mhY",
+      "group": "GROUP_D",
+      "matchday": 3,
+      "sourceRound": "Group Stage - 3",
+      "homeTeam": {
+        "id": 6,
+        "name": "Brazil",
+        "tla": "",
+        "crest": "https://media.api-sports.io/football/teams/6.png"
+      },
+      "awayTeam": {
+        "id": 8,
+        "name": "Colombia",
+        "tla": "",
+        "crest": "https://media.api-sports.io/football/teams/8.png"
+      },
+      "score": {
+        "fullTime": {
+          "home": 1,
+          "away": 1
+        }
+      },
+      "status": "FINISHED"
+    },
+    {
+      "match_id": 1189125,
+      "video_id": "lKEJLf69fEg",
+      "group": "GROUP_D",
+      "matchday": 3,
+      "sourceRound": "Group Stage - 3",
+      "homeTeam": {
+        "id": 29,
+        "name": "Costa Rica",
+        "tla": "",
+        "crest": "https://media.api-sports.io/football/teams/29.png"
+      },
+      "awayTeam": {
+        "id": 2380,
+        "name": "Paraguay",
+        "tla": "",
+        "crest": "https://media.api-sports.io/football/teams/2380.png"
+      },
+      "score": {
+        "fullTime": {
+          "home": 2,
+          "away": 1
+        }
+      },
+      "status": "FINISHED"
+    }
+  ],
+  "_repaired": "Rebuilt offline by scripts/repair_copa_tournament.py from committed data + manual-data/copa-america-2024-results.json (Wikipedia)."
 }
