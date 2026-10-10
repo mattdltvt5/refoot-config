@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-10T16:16:57Z",
+  "generated_at": "2026-10-10T16:21:50Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -991,7 +991,7 @@
         {
           "gameweek": "GW8",
           "stem": "gameweek-8",
-          "total": 1,
+          "total": 2,
           "covered": 1,
           "matches": [
             {
@@ -1000,6 +1000,14 @@
               "away": "RCD Espanyol de Barcelona",
               "date": "2026-10-09",
               "covered": true
+            },
+            {
+              "match_id": 564699,
+              "home": "Deportivo Alavés",
+              "away": "Club Atlético de Madrid",
+              "date": "2026-10-10",
+              "covered": false,
+              "pending": true
             }
           ]
         }
@@ -1708,7 +1716,7 @@
           "gameweek": "GW5",
           "stem": "gameweek-5",
           "total": 6,
-          "covered": 2,
+          "covered": 6,
           "matches": [
             {
               "match_id": 565820,
@@ -1722,32 +1730,28 @@
               "home": "SC Paderborn 07",
               "away": "VfB Stuttgart",
               "date": "2026-10-10",
-              "covered": false,
-              "pending": true
+              "covered": true
             },
             {
               "match_id": 565817,
               "home": "1. FC Union Berlin",
               "away": "SV 07 Elversberg",
               "date": "2026-10-10",
-              "covered": false,
-              "pending": true
+              "covered": true
             },
             {
               "match_id": 565812,
               "home": "1. FSV Mainz 05",
               "away": "Bayer 04 Leverkusen",
               "date": "2026-10-10",
-              "covered": false,
-              "pending": true
+              "covered": true
             },
             {
               "match_id": 565818,
               "home": "TSG 1899 Hoffenheim",
               "away": "Hamburger SV",
               "date": "2026-10-10",
-              "covered": false,
-              "pending": true
+              "covered": true
             },
             {
               "match_id": 565819,
