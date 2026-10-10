@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-10T15:46:37Z",
+  "generated_at": "2026-10-10T15:51:35Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -1676,7 +1676,7 @@
           "gameweek": "GW5",
           "stem": "gameweek-5",
           "total": 6,
-          "covered": 1,
+          "covered": 2,
           "matches": [
             {
               "match_id": 565820,
@@ -1722,8 +1722,7 @@
               "home": "FC Augsburg",
               "away": "FC Bayern München",
               "date": "2026-10-10",
-              "covered": false,
-              "pending": true
+              "covered": true
             }
           ]
         }
