@@ -4,6 +4,29 @@ Remote channel configuration for the **ReFoot Highlights** Android app.
 
 ## Recent changes
 
+### Team display names: `team-display-names.json` (2026-10-10)
+
+Official football-data names such as "TSG 1899 Hoffenheim", "1. FSV Mainz 05" and "SV 07 Elversberg" read badly next
+to a scoreline and in notifications. `team-display-names.json` (repo root) is the **single source of truth** for a
+cleaner name to show:
+
+```json
+{ "teams": { "2": { "name": "TSG 1899 Hoffenheim", "display": "TSG Hoffenheim" } } }
+```
+
+- **Keyed by football-data team id** (as a string). Ids are stable when names change. `name` is the official name, for
+  reference only.
+- **Read by both sides, so they can't drift:**
+  - the Flutter app fetches it from raw GitHub (like `sources.json`) and shows `display` everywhere a team name appears;
+  - `scripts/push_events.py` uses it for notification text (`home/away.name`; the official name goes in `official`).
+- **Additive:** the official name stays in every data file and is still what search, alias matching and highlight
+  matching use. Joins use ids and `match_id`, so nothing else changes. No data files are regenerated.
+- **Curated, never derived:** list only teams deliberately. Never strip digits by rule; FC Schalke 04 is intentionally
+  absent. Unlisted teams show their official name.
+- **To add a team:** add `"<id>": {"name": "<official>", "display": "<short>"}` and commit. The team id is in any
+  fixtures/standings team object. The app picks it up on its next load. `test_push_events.py` checks the file is well
+  formed (numeric keys, non-empty, display differs from name, Schalke absent).
+
 ### Privacy policy: in-app account deletion (2026-10-08)
 
 `privacy.html` §5 (Data retention) and §6 (Your rights and choices) now describe the app's new **Delete account** action:

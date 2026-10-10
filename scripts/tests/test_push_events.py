@@ -294,3 +294,28 @@ class TestSend(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+
+class DisplayNameTests(unittest.TestCase):
+    """Notification text uses the curated display names (team-display-names.json)."""
+
+    def test_mapped_team_shows_display_name_and_keeps_official(self):
+        m = {"homeTeam": {"id": 2, "name": "TSG 1899 Hoffenheim"},
+             "awayTeam": {"id": 6, "name": "FC Schalke 04"}}
+        self.assertEqual(push_events._team(m["homeTeam"]),
+                         {"id": 2, "name": "TSG Hoffenheim", "official": "TSG 1899 Hoffenheim"})
+        # Deliberately not mapped: its number is part of its identity.
+        self.assertEqual(push_events._team(m["awayTeam"]), {"id": 6, "name": "FC Schalke 04"})
+
+    def test_unmapped_or_missing_team_falls_back(self):
+        self.assertEqual(push_events._team({"id": 62, "name": "Everton FC"}), {"id": 62, "name": "Everton FC"})
+        self.assertEqual(push_events._team(None), {"id": None, "name": None})
+
+    def test_file_is_well_formed(self):
+        data = json.loads(push_events.DISPLAY_NAMES_FILE.read_text(encoding="utf-8"))
+        for key, v in data["teams"].items():
+            self.assertTrue(key.isdigit(), key)
+            self.assertTrue(v["display"].strip() and v["name"].strip(), key)
+            self.assertNotEqual(v["display"], v["name"], key)
+        self.assertNotIn("6", data["teams"], "Schalke 04 keeps its name")
