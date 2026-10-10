@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-10T16:26:43Z",
+  "generated_at": "2026-10-10T16:31:34Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -992,7 +992,7 @@
           "gameweek": "GW8",
           "stem": "gameweek-8",
           "total": 2,
-          "covered": 1,
+          "covered": 2,
           "matches": [
             {
               "match_id": 564706,
@@ -1006,8 +1006,7 @@
               "home": "Deportivo Alavés",
               "away": "Club Atlético de Madrid",
               "date": "2026-10-10",
-              "covered": false,
-              "pending": true
+              "covered": true
             }
           ]
         }
