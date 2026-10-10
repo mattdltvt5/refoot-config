@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-10T18:12:03.723735Z",
+  "generated_at": "2026-10-10T18:42:10.581686Z",
   "competition": "LaLiga",
   "slug": "laliga",
   "season": 2026,
@@ -13,15 +13,15 @@
         "tla": "FCB",
         "crest": "https://crests.football-data.org/81.png"
       },
-      "playedGames": 7,
+      "playedGames": 8,
       "form": "W,W,W,W,W",
-      "won": 7,
+      "won": 8,
       "draw": 0,
       "lost": 0,
-      "points": 21,
-      "goalsFor": 31,
+      "points": 24,
+      "goalsFor": 34,
       "goalsAgainst": 7,
-      "goalDifference": 24
+      "goalDifference": 27
     },
     {
       "position": 2,
@@ -216,25 +216,6 @@
     {
       "position": 12,
       "team": {
-        "id": 82,
-        "name": "Getafe CF",
-        "shortName": "Getafe",
-        "tla": "GET",
-        "crest": "https://crests.football-data.org/82.png"
-      },
-      "playedGames": 7,
-      "form": "W,L,D,D,L",
-      "won": 2,
-      "draw": 2,
-      "lost": 3,
-      "points": 8,
-      "goalsFor": 4,
-      "goalsAgainst": 7,
-      "goalDifference": -3
-    },
-    {
-      "position": 13,
-      "team": {
         "id": 87,
         "name": "Rayo Vallecano de Madrid",
         "shortName": "Rayo Vallecano",
@@ -250,6 +231,25 @@
       "goalsFor": 11,
       "goalsAgainst": 16,
       "goalDifference": -5
+    },
+    {
+      "position": 13,
+      "team": {
+        "id": 82,
+        "name": "Getafe CF",
+        "shortName": "Getafe",
+        "tla": "GET",
+        "crest": "https://crests.football-data.org/82.png"
+      },
+      "playedGames": 8,
+      "form": "L,W,L,D,D",
+      "won": 2,
+      "draw": 2,
+      "lost": 4,
+      "points": 8,
+      "goalsFor": 4,
+      "goalsAgainst": 10,
+      "goalDifference": -6
     },
     {
       "position": 14,
