@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-10T18:46:48Z",
+  "generated_at": "2026-10-10T18:51:39Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -1000,7 +1000,7 @@
           "gameweek": "GW8",
           "stem": "gameweek-8",
           "total": 3,
-          "covered": 2,
+          "covered": 3,
           "matches": [
             {
               "match_id": 564706,
@@ -1021,8 +1021,7 @@
               "home": "FC Barcelona",
               "away": "Getafe CF",
               "date": "2026-10-10",
-              "covered": false,
-              "pending": true
+              "covered": true
             }
           ]
         }
