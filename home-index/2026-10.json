@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-10T16:31:11Z",
+  "generated_at": "2026-10-10T16:36:07Z",
   "month": "2026-10",
   "dates": {
     "2026-10-09": [
@@ -265,7 +265,8 @@
             "homeScore": 1,
             "awayScore": 2,
             "status": "FINISHED",
-            "utcDate": "2026-10-10T14:15:00Z"
+            "utcDate": "2026-10-10T14:15:00Z",
+            "videoId": "EOx2R7NOc2U"
           },
           {
             "match_id": 564700,
@@ -511,9 +512,9 @@
               "tla": "SGE",
               "crest": "https://crests.football-data.org/19.png"
             },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "TIMED",
+            "homeScore": 0,
+            "awayScore": 0,
+            "status": "IN_PLAY",
             "utcDate": "2026-10-10T16:30:00Z"
           }
         ]
