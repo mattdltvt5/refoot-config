@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-10T13:23:57.752269Z",
+  "generated_at": "2026-10-10T15:06:52.005172Z",
   "competition": "Serie A",
   "slug": "serie-a",
   "season": 2026,
@@ -311,24 +311,43 @@
     {
       "position": 17,
       "team": {
+        "id": 107,
+        "name": "Genoa CFC",
+        "shortName": "Genoa",
+        "tla": "GEN",
+        "crest": "https://crests.football-data.org/107.png"
+      },
+      "playedGames": 6,
+      "form": "W,L,D,L,L",
+      "won": 1,
+      "draw": 1,
+      "lost": 4,
+      "points": 4,
+      "goalsFor": 5,
+      "goalsAgainst": 11,
+      "goalDifference": -6
+    },
+    {
+      "position": 18,
+      "team": {
         "id": 99,
         "name": "ACF Fiorentina",
         "shortName": "Fiorentina",
         "tla": "FIO",
         "crest": "https://crests.football-data.org/99.png"
       },
-      "playedGames": 5,
-      "form": "D,W,L,L,L",
+      "playedGames": 6,
+      "form": "L,D,W,L,L",
       "won": 1,
       "draw": 1,
-      "lost": 3,
+      "lost": 4,
       "points": 4,
-      "goalsFor": 6,
-      "goalsAgainst": 12,
-      "goalDifference": -6
+      "goalsFor": 7,
+      "goalsAgainst": 14,
+      "goalDifference": -7
     },
     {
-      "position": 18,
+      "position": 19,
       "team": {
         "id": 103,
         "name": "Bologna FC 1909",
@@ -345,25 +364,6 @@
       "goalsFor": 3,
       "goalsAgainst": 6,
       "goalDifference": -3
-    },
-    {
-      "position": 19,
-      "team": {
-        "id": 107,
-        "name": "Genoa CFC",
-        "shortName": "Genoa",
-        "tla": "GEN",
-        "crest": "https://crests.football-data.org/107.png"
-      },
-      "playedGames": 5,
-      "form": "L,D,L,L,L",
-      "won": 0,
-      "draw": 1,
-      "lost": 4,
-      "points": 1,
-      "goalsFor": 3,
-      "goalsAgainst": 10,
-      "goalDifference": -7
     },
     {
       "position": 20,
