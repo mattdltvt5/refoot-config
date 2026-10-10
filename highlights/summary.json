@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-10T18:06:46Z",
+  "generated_at": "2026-10-10T18:11:42Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -1410,7 +1410,7 @@
           "gameweek": "GW6",
           "stem": "gameweek-6",
           "total": 2,
-          "covered": 1,
+          "covered": 2,
           "matches": [
             {
               "match_id": 558588,
@@ -1424,8 +1424,7 @@
               "home": "FC Internazionale Milano",
               "away": "Parma Calcio 1913",
               "date": "2026-10-10",
-              "covered": false,
-              "pending": true
+              "covered": true
             }
           ]
         }
