@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-10T15:26:23Z",
+  "generated_at": "2026-10-10T15:31:40Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -1676,7 +1676,7 @@
         {
           "gameweek": "GW5",
           "stem": "gameweek-5",
-          "total": 1,
+          "total": 3,
           "covered": 1,
           "matches": [
             {
@@ -1685,6 +1685,22 @@
               "away": "SV Werder Bremen",
               "date": "2026-10-09",
               "covered": true
+            },
+            {
+              "match_id": 565813,
+              "home": "SC Paderborn 07",
+              "away": "VfB Stuttgart",
+              "date": "2026-10-10",
+              "covered": false,
+              "pending": true
+            },
+            {
+              "match_id": 565817,
+              "home": "1. FC Union Berlin",
+              "away": "SV 07 Elversberg",
+              "date": "2026-10-10",
+              "covered": false,
+              "pending": true
             }
           ]
         }
