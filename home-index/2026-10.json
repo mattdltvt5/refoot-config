@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-10T18:41:08Z",
+  "generated_at": "2026-10-10T18:56:08Z",
   "month": "2026-10",
   "dates": {
     "2026-10-09": [
@@ -287,7 +287,8 @@
             "homeScore": 3,
             "awayScore": 0,
             "status": "FINISHED",
-            "utcDate": "2026-10-10T16:30:00Z"
+            "utcDate": "2026-10-10T16:30:00Z",
+            "videoId": "08RWFNVutzM"
           },
           {
             "match_id": 564702,
@@ -376,9 +377,9 @@
               "tla": "FRO",
               "crest": "https://crests.football-data.org/470.png"
             },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "TIMED",
+            "homeScore": 0,
+            "awayScore": 0,
+            "status": "IN_PLAY",
             "utcDate": "2026-10-10T18:45:00Z"
           }
         ]
@@ -563,9 +564,9 @@
               "tla": "ANG",
               "crest": "https://crests.football-data.org/532.png"
             },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "TIMED",
+            "homeScore": 0,
+            "awayScore": 0,
+            "status": "IN_PLAY",
             "utcDate": "2026-10-10T18:45:00Z"
           },
           {
@@ -584,9 +585,9 @@
               "tla": "PFC",
               "crest": "https://crests.football-data.org/1045.png"
             },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "TIMED",
+            "homeScore": 0,
+            "awayScore": 0,
+            "status": "IN_PLAY",
             "utcDate": "2026-10-10T18:45:00Z"
           },
           {
@@ -605,9 +606,9 @@
               "tla": "LMF",
               "crest": "https://upload.wikimedia.org/wikipedia/en/thumb/5/57/Le_Mans_FC_logo.svg/330px-Le_Mans_FC_logo.svg.png"
             },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "TIMED",
+            "homeScore": 0,
+            "awayScore": 0,
+            "status": "IN_PLAY",
             "utcDate": "2026-10-10T18:45:00Z"
           },
           {
@@ -626,9 +627,9 @@
               "tla": "TOU",
               "crest": "https://crests.football-data.org/511.png"
             },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "TIMED",
+            "homeScore": 0,
+            "awayScore": 0,
+            "status": "IN_PLAY",
             "utcDate": "2026-10-10T18:45:00Z"
           }
         ]
