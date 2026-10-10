@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-10T18:31:34Z",
+  "generated_at": "2026-10-10T18:36:33Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -398,7 +398,7 @@
         {
           "gameweek": "GW6",
           "stem": "gameweek-6",
-          "total": 5,
+          "total": 6,
           "covered": 0,
           "matches": [
             {
@@ -437,6 +437,14 @@
               "match_id": 560601,
               "home": "Aston Villa FC",
               "away": "Brentford FC",
+              "date": "2026-10-10",
+              "covered": false,
+              "pending": true
+            },
+            {
+              "match_id": 560600,
+              "home": "Manchester United FC",
+              "away": "Tottenham Hotspur FC",
               "date": "2026-10-10",
               "covered": false,
               "pending": true
