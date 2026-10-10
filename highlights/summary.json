@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-10T18:11:42Z",
+  "generated_at": "2026-10-10T18:16:42Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -2133,7 +2133,7 @@
           "gameweek": "GW6",
           "stem": "gameweek-6",
           "total": 2,
-          "covered": 1,
+          "covered": 2,
           "matches": [
             {
               "match_id": 559669,
@@ -2147,8 +2147,7 @@
               "home": "Lille OSC",
               "away": "Le Havre AC",
               "date": "2026-10-10",
-              "covered": false,
-              "pending": true
+              "covered": true
             }
           ]
         }
