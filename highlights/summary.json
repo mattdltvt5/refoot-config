@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-10T16:01:57Z",
+  "generated_at": "2026-10-10T16:07:00Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -398,13 +398,37 @@
         {
           "gameweek": "GW6",
           "stem": "gameweek-6",
-          "total": 1,
+          "total": 4,
           "covered": 0,
           "matches": [
             {
               "match_id": 560593,
               "home": "Arsenal FC",
               "away": "Leeds United FC",
+              "date": "2026-10-10",
+              "covered": false,
+              "pending": true
+            },
+            {
+              "match_id": 560592,
+              "home": "Sunderland AFC",
+              "away": "Brighton & Hove Albion FC",
+              "date": "2026-10-10",
+              "covered": false,
+              "pending": true
+            },
+            {
+              "match_id": 560595,
+              "home": "Chelsea FC",
+              "away": "AFC Bournemouth",
+              "date": "2026-10-10",
+              "covered": false,
+              "pending": true
+            },
+            {
+              "match_id": 560599,
+              "home": "Ipswich Town FC",
+              "away": "Fulham FC",
               "date": "2026-10-10",
               "covered": false,
               "pending": true
