@@ -130,6 +130,38 @@ def _total(m: dict | None) -> int | None:
     return h + a
 
 
+DISPLAY_NAMES_FILE = ROOT / "team-display-names.json"
+_display_names: dict[str, str] | None = None
+
+
+def display_names() -> dict[str, str]:
+    """{team id: display name} from team-display-names.json - the curated list
+    the app reads too, so notifications and match cards never drift. Missing or
+    malformed file: no mapping (official names are used)."""
+    global _display_names
+    if _display_names is None:
+        try:
+            teams = json.loads(DISPLAY_NAMES_FILE.read_text(encoding="utf-8")).get("teams", {})
+            _display_names = {str(k): v["display"] for k, v in teams.items()
+                              if isinstance(v, dict) and isinstance(v.get("display"), str)
+                              and v["display"].strip()}
+        except (OSError, ValueError, AttributeError):
+            _display_names = {}
+    return _display_names
+
+
+def _team(t: dict | None) -> dict:
+    """A team for the notification payload: `name` is what to show (the
+    curated display name, else the official one); `official` keeps the official
+    name. Matching is by `id`, never by name."""
+    t = t or {}
+    official = t.get("name")
+    out = {"id": t.get("id"), "name": display_names().get(str(t.get("id")), official)}
+    if out["name"] != official:
+        out["official"] = official
+    return out
+
+
 def _event(kind: str, key: str, m: dict, now: datetime) -> dict:
     ko = _parse(m.get("utcDate"))
     ev = {
@@ -137,10 +169,8 @@ def _event(kind: str, key: str, m: dict, now: datetime) -> dict:
         "type": kind,
         "match_id": m.get("match_id"),
         "competition": m.get("competition"),
-        "home": {"id": (m.get("homeTeam") or {}).get("id"),
-                 "name": (m.get("homeTeam") or {}).get("name")},
-        "away": {"id": (m.get("awayTeam") or {}).get("id"),
-                 "name": (m.get("awayTeam") or {}).get("name")},
+        "home": _team(m.get("homeTeam")),
+        "away": _team(m.get("awayTeam")),
         "score": [m.get("homeScore"), m.get("awayScore")],
         "status": m.get("status"),
         "kickoff": m.get("utcDate"),

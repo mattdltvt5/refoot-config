@@ -1,0 +1,20 @@
+{
+  "_comment": "Curated short display names for teams whose official football-data names carry numbers that read badly on match cards and in notifications. Key = football-data team id (as a string), value = { name: official name (for reference only), display: what to show }. The single source of truth for BOTH the app (match cards, standings, team lists, favourites, the assistant) and push-notification text (scripts/push_events.py). Additive: the official name stays in all data and is still used for search and matching. Only list teams deliberately - never derive by stripping digits (FC Schalke 04 is intentionally absent). Teams not listed show their official name.",
+  "teams": {
+    "2": { "name": "TSG 1899 Hoffenheim", "display": "TSG Hoffenheim" },
+    "15": { "name": "1. FSV Mainz 05", "display": "FSV Mainz" },
+    "719": { "name": "SV 07 Elversberg", "display": "SV Elversberg" },
+    "29": { "name": "SC Paderborn 07", "display": "SC Paderborn" },
+    "28": { "name": "1. FC Union Berlin", "display": "FC Union Berlin" },
+    "44": { "name": "1. FC Heidenheim 1846", "display": "FC Heidenheim" },
+    "1": { "name": "1. FC Köln", "display": "FC Köln" },
+    "3": { "name": "Bayer 04 Leverkusen", "display": "Bayer Leverkusen" },
+    "20": { "name": "FC St. Pauli 1910", "display": "FC St. Pauli" },
+    "487": { "name": "AC Pisa 1909", "display": "AC Pisa" },
+    "103": { "name": "Bologna FC 1909", "display": "Bologna FC" },
+    "112": { "name": "Parma Calcio 1913", "display": "Parma Calcio" },
+    "7397": { "name": "Como 1907", "display": "Como" },
+    "512": { "name": "Stade Brestois 29", "display": "Stade Brestois" },
+    "529": { "name": "Stade Rennais FC 1901", "display": "Stade Rennais FC" }
+  }
+}
