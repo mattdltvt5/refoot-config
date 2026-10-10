@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-10T18:26:28Z",
+  "generated_at": "2026-10-10T18:31:34Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -1721,8 +1721,8 @@
         {
           "gameweek": "GW5",
           "stem": "gameweek-5",
-          "total": 6,
-          "covered": 6,
+          "total": 7,
+          "covered": 7,
           "matches": [
             {
               "match_id": 565820,
@@ -1763,6 +1763,13 @@
               "match_id": 565819,
               "home": "FC Augsburg",
               "away": "FC Bayern München",
+              "date": "2026-10-10",
+              "covered": true
+            },
+            {
+              "match_id": 565815,
+              "home": "RB Leipzig",
+              "away": "Eintracht Frankfurt",
               "date": "2026-10-10",
               "covered": true
             }
