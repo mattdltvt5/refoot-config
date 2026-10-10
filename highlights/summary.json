@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-10T15:31:40Z",
+  "generated_at": "2026-10-10T15:36:38Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -1371,15 +1371,14 @@
           "gameweek": "GW6",
           "stem": "gameweek-6",
           "total": 1,
-          "covered": 0,
+          "covered": 1,
           "matches": [
             {
               "match_id": 558588,
               "home": "Genoa CFC",
               "away": "ACF Fiorentina",
               "date": "2026-10-10",
-              "covered": false,
-              "pending": true
+              "covered": true
             }
           ]
         }
@@ -1676,7 +1675,7 @@
         {
           "gameweek": "GW5",
           "stem": "gameweek-5",
-          "total": 3,
+          "total": 4,
           "covered": 1,
           "matches": [
             {
@@ -1698,6 +1697,14 @@
               "match_id": 565817,
               "home": "1. FC Union Berlin",
               "away": "SV 07 Elversberg",
+              "date": "2026-10-10",
+              "covered": false,
+              "pending": true
+            },
+            {
+              "match_id": 565812,
+              "home": "1. FSV Mainz 05",
+              "away": "Bayer 04 Leverkusen",
               "date": "2026-10-10",
               "covered": false,
               "pending": true
