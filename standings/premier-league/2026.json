@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-11T16:51:33.522149Z",
+  "generated_at": "2026-10-11T17:31:33.064575Z",
   "competition": "Premier League",
   "slug": "premier-league",
   "season": 2026,
@@ -13,15 +13,15 @@
         "tla": "MCI",
         "crest": "https://crests.football-data.org/65.png"
       },
-      "playedGames": 5,
+      "playedGames": 6,
       "form": "W,W,W,W,W",
-      "won": 5,
+      "won": 6,
       "draw": 0,
       "lost": 0,
-      "points": 15,
-      "goalsFor": 13,
+      "points": 18,
+      "goalsFor": 16,
       "goalsAgainst": 5,
-      "goalDifference": 8
+      "goalDifference": 11
     },
     {
       "position": 2,
@@ -140,25 +140,6 @@
     {
       "position": 8,
       "team": {
-        "id": 64,
-        "name": "Liverpool FC",
-        "shortName": "Liverpool",
-        "tla": "LIV",
-        "crest": "https://crests.football-data.org/64.png"
-      },
-      "playedGames": 5,
-      "form": "W,D,W,D,D",
-      "won": 2,
-      "draw": 3,
-      "lost": 0,
-      "points": 9,
-      "goalsFor": 7,
-      "goalsAgainst": 4,
-      "goalDifference": 3
-    },
-    {
-      "position": 9,
-      "team": {
         "id": 322,
         "name": "Hull City AFC",
         "shortName": "Hull City",
@@ -174,6 +155,25 @@
       "goalsFor": 8,
       "goalsAgainst": 6,
       "goalDifference": 2
+    },
+    {
+      "position": 9,
+      "team": {
+        "id": 64,
+        "name": "Liverpool FC",
+        "shortName": "Liverpool",
+        "tla": "LIV",
+        "crest": "https://crests.football-data.org/64.png"
+      },
+      "playedGames": 6,
+      "form": "L,W,D,W,D",
+      "won": 2,
+      "draw": 3,
+      "lost": 1,
+      "points": 9,
+      "goalsFor": 7,
+      "goalsAgainst": 7,
+      "goalDifference": 0
     },
     {
       "position": 10,
