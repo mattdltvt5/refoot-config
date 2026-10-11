@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-11T15:56:59.703328Z",
+  "generated_at": "2026-10-11T16:21:36.979065Z",
   "competition": "LaLiga",
   "slug": "laliga",
   "season": 2026,
@@ -102,6 +102,25 @@
     {
       "position": 6,
       "team": {
+        "id": 92,
+        "name": "Real Sociedad de Fútbol",
+        "shortName": "Real Sociedad",
+        "tla": "RSO",
+        "crest": "https://crests.football-data.org/92.png"
+      },
+      "playedGames": 8,
+      "form": "W,W,L,W,D",
+      "won": 4,
+      "draw": 1,
+      "lost": 3,
+      "points": 13,
+      "goalsFor": 12,
+      "goalsAgainst": 15,
+      "goalDifference": -3
+    },
+    {
+      "position": 7,
+      "team": {
         "id": 263,
         "name": "Deportivo Alavés",
         "shortName": "Alavés",
@@ -119,7 +138,7 @@
       "goalDifference": 4
     },
     {
-      "position": 7,
+      "position": 8,
       "team": {
         "id": 560,
         "name": "RC Deportivo La Coruña",
@@ -127,34 +146,15 @@
         "tla": "DEP",
         "crest": "https://crests.football-data.org/560.png"
       },
-      "playedGames": 7,
-      "form": "D,L,D,W,W",
+      "playedGames": 8,
+      "form": "L,D,L,D,W",
       "won": 2,
       "draw": 4,
-      "lost": 1,
+      "lost": 2,
       "points": 10,
-      "goalsFor": 10,
-      "goalsAgainst": 8,
-      "goalDifference": 2
-    },
-    {
-      "position": 8,
-      "team": {
-        "id": 92,
-        "name": "Real Sociedad de Fútbol",
-        "shortName": "Real Sociedad",
-        "tla": "RSO",
-        "crest": "https://crests.football-data.org/92.png"
-      },
-      "playedGames": 7,
-      "form": "W,L,W,D,W",
-      "won": 3,
-      "draw": 1,
-      "lost": 3,
-      "points": 10,
-      "goalsFor": 9,
-      "goalsAgainst": 13,
-      "goalDifference": -4
+      "goalsFor": 12,
+      "goalsAgainst": 11,
+      "goalDifference": 1
     },
     {
       "position": 9,
