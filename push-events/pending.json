@@ -1,1 +1,24 @@
-[]
+[
+ {
+  "key": "560598:final",
+  "type": "final",
+  "match_id": 560598,
+  "competition": "premier-league",
+  "home": {
+   "id": 64,
+   "name": "Liverpool FC"
+  },
+  "away": {
+   "id": 65,
+   "name": "Manchester City FC"
+  },
+  "score": [
+   0,
+   3
+  ],
+  "status": "FINISHED",
+  "kickoff": "2026-10-11T15:30:00Z",
+  "detected_at": "2026-10-11T17:46:53Z",
+  "minutes_after_kickoff": 137
+ }
+]
