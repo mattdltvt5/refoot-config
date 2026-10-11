@@ -304,7 +304,8 @@ class DisplayNameTests(unittest.TestCase):
         m = {"homeTeam": {"id": 2, "name": "TSG 1899 Hoffenheim"},
              "awayTeam": {"id": 6, "name": "FC Schalke 04"}}
         self.assertEqual(push_events._team(m["homeTeam"]),
-                         {"id": 2, "name": "TSG Hoffenheim", "official": "TSG 1899 Hoffenheim"})
+                         {"id": 2, "name": "TSG Hoffenheim", "official": "TSG 1899 Hoffenheim",
+                          "short": "TSG Hoffenheim"})
         # Deliberately not mapped: its number is part of its identity.
         self.assertEqual(push_events._team(m["awayTeam"]), {"id": 6, "name": "FC Schalke 04"})
 
@@ -319,3 +320,38 @@ class DisplayNameTests(unittest.TestCase):
             self.assertTrue(v["display"].strip() and v["name"].strip(), key)
             self.assertNotEqual(v["display"], v["name"], key)
         self.assertNotIn("6", data["teams"], "Schalke 04 keeps its name")
+
+
+
+class GoalScorerTests(unittest.TestCase):
+    """Goal events say which side scored, and carry short names."""
+
+    def test_scoring_side(self):
+        prev = {"homeScore": 2, "awayScore": 3}
+        self.assertEqual(push_events._scorer({"homeScore": 2, "awayScore": 4}, prev), "away")
+        self.assertEqual(push_events._scorer({"homeScore": 3, "awayScore": 3}, prev), "home")
+        self.assertEqual(push_events._scorer({"homeScore": 3, "awayScore": 4}, prev), "both")
+        self.assertEqual(push_events._scorer({"homeScore": 1, "awayScore": 0}, None), "home",
+                         "first sight of a live game counts from 0-0")
+        self.assertIsNone(push_events._scorer({"homeScore": 2, "awayScore": 3}, prev))
+
+    def test_goal_event_carries_scorer(self):
+        now = datetime(2026, 10, 10, 15, 0, tzinfo=timezone.utc)
+        base = {"match_id": 7, "competition": "bundesliga", "status": "IN_PLAY",
+                "utcDate": "2026-10-10T13:30:00Z",
+                "homeTeam": {"id": 15, "name": "1. FSV Mainz 05", "shortName": "Mainz"},
+                "awayTeam": {"id": 3, "name": "Bayer 04 Leverkusen", "shortName": "Leverkusen"}}
+        prev = {7: {**base, "homeScore": 2, "awayScore": 3}}
+        curr = {7: {**base, "homeScore": 2, "awayScore": 4}}
+        events, _ = push_events.detect(prev, curr, now, {})
+        goal = [e for e in events if e["type"] == "goal"][0]
+        self.assertEqual(goal["scorer"], "away")
+        self.assertEqual(goal["away"]["short"], "Leverkusen")
+        self.assertEqual(goal["home"]["short"], "Mainz")
+
+    def test_short_name_avoids_numbers(self):
+        # Köln's shortName is "1. FC Köln": use the curated display name instead.
+        t = push_events._team({"id": 1, "name": "1. FC K\u00f6ln", "shortName": "1. FC K\u00f6ln"})
+        self.assertEqual(t["short"], "FC K\u00f6ln")
+        # No shortName, no curated name: no short (the server shows `name`).
+        self.assertNotIn("short", push_events._team({"id": 62, "name": "Everton FC"}))

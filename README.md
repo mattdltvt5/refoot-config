@@ -4,6 +4,18 @@ Remote channel configuration for the **ReFoot Highlights** Android app.
 
 ## Recent changes
 
+### Push: goal events say who scored, with short names (2026-10-11)
+
+`scripts/push_events.py` goal events now carry `scorer`: `home`, `away`, or `both` when each side scored between
+two checks. It comes from the score change since the previous state.
+
+Each team gets `short`:
+- football-data's `shortName` ("Leverkusen", "Mainz");
+- or, when that still has a number in it ("1. FC Köln"), the curated display name.
+
+The Cloud Function (refoot_flutter #157, deployed first) builds "⚽ Leverkusen score!" with the body
+"Mainz 2-4 Leverkusen · Bundesliga". Player names and minutes aren't in our feed. Tests: `GoalScorerTests`.
+
 ### Team display names: `team-display-names.json` (2026-10-10)
 
 Official football-data names such as "TSG 1899 Hoffenheim", "1. FSV Mainz 05" and "SV 07 Elversberg" read badly next

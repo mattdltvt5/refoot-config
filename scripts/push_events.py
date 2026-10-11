@@ -159,7 +159,30 @@ def _team(t: dict | None) -> dict:
     out = {"id": t.get("id"), "name": display_names().get(str(t.get("id")), official)}
     if out["name"] != official:
         out["official"] = official
+    # `short` fits a lock screen ("Leverkusen"): football-data's shortName,
+    # unless that still carries a number (e.g. "1. FC Köln") - then the curated
+    # display name, else nothing (the server falls back to `name`).
+    short = t.get("shortName")
+    if short and not any(ch.isdigit() for ch in short):
+        out["short"] = short
+    elif out["name"] != official:
+        out["short"] = out["name"]
     return out
+
+
+def _scorer(m: dict, p: dict | None) -> str | None:
+    """Which side scored since the previous state: 'home', 'away', 'both'
+    (each scored between two checks), or None."""
+    p = p or {}
+    dh = (m.get("homeScore") or 0) - (p.get("homeScore") or 0)
+    da = (m.get("awayScore") or 0) - (p.get("awayScore") or 0)
+    if dh > 0 and da > 0:
+        return "both"
+    if dh > 0:
+        return "home"
+    if da > 0:
+        return "away"
+    return None
 
 
 def _event(kind: str, key: str, m: dict, now: datetime) -> dict:
@@ -198,15 +221,15 @@ def detect(prev: dict[int, dict], curr: dict[int, dict], now: datetime,
         status = m.get("status")
         h, a = m.get("homeScore"), m.get("awayScore")
 
-        def emit(kind: str, key: str) -> None:
+        def emit(kind: str, key: str, **extra) -> None:
             if key not in ledger:
-                events.append(_event(kind, key, m, now))
+                events.append({**_event(kind, key, m, now), **extra})
 
         if age <= GOAL_WINDOW:
             t_now, t_prev = _total(m), _total(p)
             if t_now is not None and (status in LIVE or status == FINISHED):
                 if t_now > (t_prev or 0):
-                    emit("goal", f"{mid}:goal:{h}-{a}")
+                    emit("goal", f"{mid}:goal:{h}-{a}", scorer=_scorer(m, p))
                 elif t_prev is not None and t_now < t_prev:
                     emit("disallowed", f"{mid}:disallowed:{h}-{a}")
             # Final: once this final score has been seen unchanged for
