@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-11T18:11:50.659337Z",
+  "generated_at": "2026-10-11T18:41:41.282192Z",
   "competition": "LaLiga",
   "slug": "laliga",
   "season": 2026,
@@ -45,6 +45,25 @@
     {
       "position": 3,
       "team": {
+        "id": 90,
+        "name": "Real Betis Balompié",
+        "shortName": "Real Betis",
+        "tla": "BET",
+        "crest": "https://crests.football-data.org/90.png"
+      },
+      "playedGames": 8,
+      "form": "W,D,W,W,W",
+      "won": 6,
+      "draw": 1,
+      "lost": 1,
+      "points": 19,
+      "goalsFor": 14,
+      "goalsAgainst": 9,
+      "goalDifference": 5
+    },
+    {
+      "position": 4,
+      "team": {
         "id": 86,
         "name": "Real Madrid CF",
         "shortName": "Real Madrid",
@@ -60,25 +79,6 @@
       "goalsFor": 19,
       "goalsAgainst": 8,
       "goalDifference": 11
-    },
-    {
-      "position": 4,
-      "team": {
-        "id": 90,
-        "name": "Real Betis Balompié",
-        "shortName": "Real Betis",
-        "tla": "BET",
-        "crest": "https://crests.football-data.org/90.png"
-      },
-      "playedGames": 7,
-      "form": "D,W,W,W,L",
-      "won": 5,
-      "draw": 1,
-      "lost": 1,
-      "points": 16,
-      "goalsFor": 9,
-      "goalsAgainst": 7,
-      "goalDifference": 2
     },
     {
       "position": 5,
@@ -279,15 +279,15 @@
         "tla": "OSA",
         "crest": "https://crests.football-data.org/79.png"
       },
-      "playedGames": 7,
-      "form": "D,L,L,L,W",
+      "playedGames": 8,
+      "form": "L,D,L,L,L",
       "won": 2,
       "draw": 2,
-      "lost": 3,
+      "lost": 4,
       "points": 8,
-      "goalsFor": 6,
-      "goalsAgainst": 13,
-      "goalDifference": -7
+      "goalsFor": 8,
+      "goalsAgainst": 18,
+      "goalDifference": -10
     },
     {
       "position": 16,
