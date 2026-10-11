@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-11T16:51:48.545687Z",
+  "generated_at": "2026-10-11T18:11:58.141532Z",
   "competition": "Serie A",
   "slug": "serie-a",
   "season": 2026,
@@ -64,6 +64,25 @@
     {
       "position": 4,
       "team": {
+        "id": 98,
+        "name": "AC Milan",
+        "shortName": "Milan",
+        "tla": "MIL",
+        "crest": "https://crests.football-data.org/98.png"
+      },
+      "playedGames": 6,
+      "form": "D,W,D,D,W",
+      "won": 3,
+      "draw": 3,
+      "lost": 0,
+      "points": 12,
+      "goalsFor": 11,
+      "goalsAgainst": 5,
+      "goalDifference": 6
+    },
+    {
+      "position": 5,
+      "team": {
         "id": 104,
         "name": "Cagliari Calcio",
         "shortName": "Cagliari",
@@ -79,25 +98,6 @@
       "goalsFor": 5,
       "goalsAgainst": 2,
       "goalDifference": 3
-    },
-    {
-      "position": 5,
-      "team": {
-        "id": 98,
-        "name": "AC Milan",
-        "shortName": "Milan",
-        "tla": "MIL",
-        "crest": "https://crests.football-data.org/98.png"
-      },
-      "playedGames": 5,
-      "form": "W,D,D,W,W",
-      "won": 3,
-      "draw": 2,
-      "lost": 0,
-      "points": 11,
-      "goalsFor": 10,
-      "goalsAgainst": 4,
-      "goalDifference": 6
     },
     {
       "position": 6,
@@ -184,14 +184,14 @@
         "tla": "SAS",
         "crest": "https://crests.football-data.org/471.png"
       },
-      "playedGames": 5,
-      "form": "L,W,D,W,L",
+      "playedGames": 6,
+      "form": "D,L,W,D,W",
       "won": 2,
-      "draw": 1,
+      "draw": 2,
       "lost": 2,
-      "points": 7,
-      "goalsFor": 9,
-      "goalsAgainst": 9,
+      "points": 8,
+      "goalsFor": 10,
+      "goalsAgainst": 10,
       "goalDifference": 0
     },
     {
