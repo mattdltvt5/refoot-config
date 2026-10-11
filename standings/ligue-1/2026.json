@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-11T19:12:05.562407Z",
+  "generated_at": "2026-10-11T20:46:37.952867Z",
   "competition": "Ligue 1",
   "slug": "ligue-1",
   "season": 2026,
@@ -235,6 +235,25 @@
     {
       "position": 13,
       "team": {
+        "id": 516,
+        "name": "Olympique de Marseille",
+        "shortName": "Marseille",
+        "tla": "MAR",
+        "crest": "https://crests.football-data.org/516.png"
+      },
+      "playedGames": 6,
+      "form": "W,L,L,L,L",
+      "won": 2,
+      "draw": 0,
+      "lost": 4,
+      "points": 6,
+      "goalsFor": 9,
+      "goalsAgainst": 8,
+      "goalDifference": 1
+    },
+    {
+      "position": 14,
+      "team": {
         "id": 535,
         "name": "Le Mans FC",
         "shortName": "Le Mans",
@@ -252,7 +271,7 @@
       "goalDifference": -2
     },
     {
-      "position": 14,
+      "position": 15,
       "team": {
         "id": 511,
         "name": "Toulouse FC",
@@ -271,7 +290,7 @@
       "goalDifference": -2
     },
     {
-      "position": 15,
+      "position": 16,
       "team": {
         "id": 519,
         "name": "AJ Auxerre",
@@ -290,7 +309,7 @@
       "goalDifference": -8
     },
     {
-      "position": 16,
+      "position": 17,
       "team": {
         "id": 531,
         "name": "ES Troyes AC",
@@ -298,34 +317,15 @@
         "tla": "ETR",
         "crest": "https://crests.football-data.org/531.png"
       },
-      "playedGames": 5,
-      "form": "L,L,L,W,D",
-      "won": 1,
-      "draw": 1,
-      "lost": 3,
-      "points": 4,
-      "goalsFor": 4,
-      "goalsAgainst": 11,
-      "goalDifference": -7
-    },
-    {
-      "position": 17,
-      "team": {
-        "id": 516,
-        "name": "Olympique de Marseille",
-        "shortName": "Marseille",
-        "tla": "MAR",
-        "crest": "https://crests.football-data.org/516.png"
-      },
-      "playedGames": 5,
+      "playedGames": 6,
       "form": "L,L,L,L,W",
       "won": 1,
-      "draw": 0,
+      "draw": 1,
       "lost": 4,
-      "points": 3,
-      "goalsFor": 7,
-      "goalsAgainst": 8,
-      "goalDifference": -1
+      "points": 4,
+      "goalsFor": 4,
+      "goalsAgainst": 13,
+      "goalDifference": -9
     },
     {
       "position": 18,
