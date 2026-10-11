@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-11T16:52:03.585784Z",
+  "generated_at": "2026-10-11T17:16:44.571561Z",
   "competition": "Ligue 1",
   "slug": "ligue-1",
   "season": 2026,
@@ -45,6 +45,25 @@
     {
       "position": 3,
       "team": {
+        "id": 529,
+        "name": "Stade Rennais FC 1901",
+        "shortName": "Stade Rennais",
+        "tla": "REN",
+        "crest": "https://crests.football-data.org/529.png"
+      },
+      "playedGames": 6,
+      "form": "W,L,W,W,W",
+      "won": 4,
+      "draw": 1,
+      "lost": 1,
+      "points": 13,
+      "goalsFor": 12,
+      "goalsAgainst": 10,
+      "goalDifference": 2
+    },
+    {
+      "position": 4,
+      "team": {
         "id": 523,
         "name": "Olympique Lyonnais",
         "shortName": "Olympique Lyon",
@@ -62,7 +81,7 @@
       "goalDifference": 7
     },
     {
-      "position": 4,
+      "position": 5,
       "team": {
         "id": 1045,
         "name": "Paris FC",
@@ -81,7 +100,7 @@
       "goalDifference": 4
     },
     {
-      "position": 5,
+      "position": 6,
       "team": {
         "id": 524,
         "name": "Paris Saint-Germain FC",
@@ -98,25 +117,6 @@
       "goalsFor": 11,
       "goalsAgainst": 8,
       "goalDifference": 3
-    },
-    {
-      "position": 6,
-      "team": {
-        "id": 529,
-        "name": "Stade Rennais FC 1901",
-        "shortName": "Stade Rennais",
-        "tla": "REN",
-        "crest": "https://crests.football-data.org/529.png"
-      },
-      "playedGames": 5,
-      "form": "L,W,W,W,D",
-      "won": 3,
-      "draw": 1,
-      "lost": 1,
-      "points": 10,
-      "goalsFor": 8,
-      "goalsAgainst": 9,
-      "goalDifference": -1
     },
     {
       "position": 7,
@@ -279,15 +279,15 @@
         "tla": "AJA",
         "crest": "https://crests.football-data.org/519.png"
       },
-      "playedGames": 5,
-      "form": "W,W,L,L,L",
+      "playedGames": 6,
+      "form": "L,W,W,L,L",
       "won": 2,
       "draw": 0,
-      "lost": 3,
+      "lost": 4,
       "points": 6,
-      "goalsFor": 7,
-      "goalsAgainst": 12,
-      "goalDifference": -5
+      "goalsFor": 8,
+      "goalsAgainst": 16,
+      "goalDifference": -8
     },
     {
       "position": 16,
