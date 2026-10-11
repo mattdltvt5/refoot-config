@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-11T13:56:19Z",
+  "generated_at": "2026-10-11T14:01:34Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -993,7 +993,7 @@
         {
           "gameweek": "GW8",
           "stem": "gameweek-8",
-          "total": 4,
+          "total": 5,
           "covered": 4,
           "matches": [
             {
@@ -1023,6 +1023,14 @@
               "away": "Villarreal CF",
               "date": "2026-10-10",
               "covered": true
+            },
+            {
+              "match_id": 564703,
+              "home": "Elche CF",
+              "away": "RC Celta de Vigo",
+              "date": "2026-10-11",
+              "covered": false,
+              "pending": true
             }
           ]
         }
