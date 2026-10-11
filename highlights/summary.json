@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-11T15:01:42Z",
+  "generated_at": "2026-10-11T15:06:40Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -398,7 +398,7 @@
         {
           "gameweek": "GW6",
           "stem": "gameweek-6",
-          "total": 6,
+          "total": 7,
           "covered": 6,
           "matches": [
             {
@@ -442,6 +442,14 @@
               "away": "Tottenham Hotspur FC",
               "date": "2026-10-10",
               "covered": true
+            },
+            {
+              "match_id": 560594,
+              "home": "Hull City AFC",
+              "away": "Everton FC",
+              "date": "2026-10-11",
+              "covered": false,
+              "pending": true
             }
           ]
         }
@@ -1432,7 +1440,7 @@
         {
           "gameweek": "GW6",
           "stem": "gameweek-6",
-          "total": 4,
+          "total": 5,
           "covered": 4,
           "matches": [
             {
@@ -1462,6 +1470,14 @@
               "away": "AS Roma",
               "date": "2026-10-11",
               "covered": true
+            },
+            {
+              "match_id": 558583,
+              "home": "SS Lazio",
+              "away": "AC Monza",
+              "date": "2026-10-11",
+              "covered": false,
+              "pending": true
             }
           ]
         }
