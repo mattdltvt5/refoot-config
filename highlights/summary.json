@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-11T14:56:24Z",
+  "generated_at": "2026-10-11T15:01:42Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -2176,7 +2176,7 @@
         {
           "gameweek": "GW6",
           "stem": "gameweek-6",
-          "total": 6,
+          "total": 7,
           "covered": 5,
           "matches": [
             {
@@ -2220,6 +2220,14 @@
               "away": "Toulouse FC",
               "date": "2026-10-10",
               "covered": false
+            },
+            {
+              "match_id": 559670,
+              "home": "OGC Nice",
+              "away": "RC Strasbourg Alsace",
+              "date": "2026-10-11",
+              "covered": false,
+              "pending": true
             }
           ]
         }
