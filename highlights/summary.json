@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-11T15:36:40Z",
+  "generated_at": "2026-10-11T15:42:01Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -1790,7 +1790,7 @@
         {
           "gameweek": "GW5",
           "stem": "gameweek-5",
-          "total": 7,
+          "total": 8,
           "covered": 7,
           "matches": [
             {
@@ -1841,6 +1841,14 @@
               "away": "Eintracht Frankfurt",
               "date": "2026-10-10",
               "covered": true
+            },
+            {
+              "match_id": 565814,
+              "home": "1. FC Köln",
+              "away": "Borussia Mönchengladbach",
+              "date": "2026-10-11",
+              "covered": false,
+              "pending": true
             }
           ]
         }

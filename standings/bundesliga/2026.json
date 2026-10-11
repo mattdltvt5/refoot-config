@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-11T13:51:42.840978Z",
+  "generated_at": "2026-10-11T15:42:44.513465Z",
   "competition": "Bundesliga",
   "slug": "bundesliga",
   "season": 2026,
@@ -178,6 +178,25 @@
     {
       "position": 10,
       "team": {
+        "id": 1,
+        "name": "1. FC Köln",
+        "shortName": "1. FC Köln",
+        "tla": "KOE",
+        "crest": "https://crests.football-data.org/1.png"
+      },
+      "playedGames": 5,
+      "form": "W,L,D,L,W",
+      "won": 2,
+      "draw": 1,
+      "lost": 2,
+      "points": 7,
+      "goalsFor": 8,
+      "goalsAgainst": 10,
+      "goalDifference": -2
+    },
+    {
+      "position": 11,
+      "team": {
         "id": 10,
         "name": "VfB Stuttgart",
         "shortName": "Stuttgart",
@@ -195,7 +214,7 @@
       "goalDifference": -1
     },
     {
-      "position": 11,
+      "position": 12,
       "team": {
         "id": 7,
         "name": "Hamburger SV",
@@ -214,7 +233,7 @@
       "goalDifference": -10
     },
     {
-      "position": 12,
+      "position": 13,
       "team": {
         "id": 6,
         "name": "FC Schalke 04",
@@ -233,7 +252,7 @@
       "goalDifference": -1
     },
     {
-      "position": 13,
+      "position": 14,
       "team": {
         "id": 19,
         "name": "Eintracht Frankfurt",
@@ -250,25 +269,6 @@
       "goalsFor": 9,
       "goalsAgainst": 16,
       "goalDifference": -7
-    },
-    {
-      "position": 14,
-      "team": {
-        "id": 1,
-        "name": "1. FC Köln",
-        "shortName": "1. FC Köln",
-        "tla": "KOE",
-        "crest": "https://crests.football-data.org/1.png"
-      },
-      "playedGames": 4,
-      "form": "L,D,L,W",
-      "won": 1,
-      "draw": 1,
-      "lost": 2,
-      "points": 4,
-      "goalsFor": 6,
-      "goalsAgainst": 9,
-      "goalDifference": -3
     },
     {
       "position": 15,
@@ -336,15 +336,15 @@
         "tla": "BMG",
         "crest": "https://crests.football-data.org/18.png"
       },
-      "playedGames": 4,
-      "form": "L,L,L,L",
+      "playedGames": 5,
+      "form": "L,L,L,L,L",
       "won": 0,
       "draw": 0,
-      "lost": 4,
+      "lost": 5,
       "points": 0,
-      "goalsFor": 6,
-      "goalsAgainst": 16,
-      "goalDifference": -10
+      "goalsFor": 7,
+      "goalsAgainst": 18,
+      "goalDifference": -11
     }
   ]
 }
