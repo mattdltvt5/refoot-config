@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-11T12:36:37Z",
+  "generated_at": "2026-10-11T12:41:32Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -1425,7 +1425,7 @@
         {
           "gameweek": "GW6",
           "stem": "gameweek-6",
-          "total": 3,
+          "total": 4,
           "covered": 3,
           "matches": [
             {
@@ -1448,6 +1448,14 @@
               "away": "Frosinone Calcio",
               "date": "2026-10-10",
               "covered": true
+            },
+            {
+              "match_id": 558585,
+              "home": "Como 1907",
+              "away": "AS Roma",
+              "date": "2026-10-11",
+              "covered": false,
+              "pending": true
             }
           ]
         }

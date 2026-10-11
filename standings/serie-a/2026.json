@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-10T21:31:40.268938Z",
+  "generated_at": "2026-10-11T12:41:53.467760Z",
   "competition": "Serie A",
   "slug": "serie-a",
   "season": 2026,
@@ -32,12 +32,12 @@
         "tla": "ROM",
         "crest": "https://crests.football-data.org/100.png"
       },
-      "playedGames": 5,
-      "form": "D,W,W,W,W",
+      "playedGames": 6,
+      "form": "D,D,W,W,W",
       "won": 4,
-      "draw": 1,
+      "draw": 2,
       "lost": 0,
-      "points": 13,
+      "points": 14,
       "goalsFor": 14,
       "goalsAgainst": 3,
       "goalDifference": 11
@@ -102,6 +102,25 @@
     {
       "position": 6,
       "team": {
+        "id": 7397,
+        "name": "Como 1907",
+        "shortName": "Como 1907",
+        "tla": "COM",
+        "crest": "https://crests.football-data.org/7397.png"
+      },
+      "playedGames": 6,
+      "form": "D,L,W,W,W",
+      "won": 3,
+      "draw": 2,
+      "lost": 1,
+      "points": 11,
+      "goalsFor": 9,
+      "goalsAgainst": 6,
+      "goalDifference": 3
+    },
+    {
+      "position": 7,
+      "team": {
         "id": 113,
         "name": "SSC Napoli",
         "shortName": "Napoli",
@@ -119,7 +138,7 @@
       "goalDifference": 4
     },
     {
-      "position": 7,
+      "position": 8,
       "team": {
         "id": 109,
         "name": "Juventus FC",
@@ -136,25 +155,6 @@
       "goalsFor": 8,
       "goalsAgainst": 4,
       "goalDifference": 4
-    },
-    {
-      "position": 8,
-      "team": {
-        "id": 7397,
-        "name": "Como 1907",
-        "shortName": "Como 1907",
-        "tla": "COM",
-        "crest": "https://crests.football-data.org/7397.png"
-      },
-      "playedGames": 5,
-      "form": "L,W,W,W,D",
-      "won": 3,
-      "draw": 1,
-      "lost": 1,
-      "points": 10,
-      "goalsFor": 9,
-      "goalsAgainst": 6,
-      "goalDifference": 3
     },
     {
       "position": 9,
