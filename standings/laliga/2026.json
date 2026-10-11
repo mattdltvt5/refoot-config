@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-11T20:16:34.827139Z",
+  "generated_at": "2026-10-11T21:06:27.510447Z",
   "competition": "LaLiga",
   "slug": "laliga",
   "season": 2026,
@@ -273,6 +273,25 @@
     {
       "position": 15,
       "team": {
+        "id": 5335,
+        "name": "Real Racing Club de Santander",
+        "shortName": "Santander",
+        "tla": "SAN",
+        "crest": "https://crests.football-data.org/5335.png"
+      },
+      "playedGames": 8,
+      "form": "D,L,L,W,L",
+      "won": 2,
+      "draw": 2,
+      "lost": 4,
+      "points": 8,
+      "goalsFor": 13,
+      "goalsAgainst": 23,
+      "goalDifference": -10
+    },
+    {
+      "position": 16,
+      "team": {
         "id": 79,
         "name": "CA Osasuna",
         "shortName": "Osasuna",
@@ -287,25 +306,6 @@
       "points": 8,
       "goalsFor": 8,
       "goalsAgainst": 18,
-      "goalDifference": -10
-    },
-    {
-      "position": 16,
-      "team": {
-        "id": 5335,
-        "name": "Real Racing Club de Santander",
-        "shortName": "Santander",
-        "tla": "SAN",
-        "crest": "https://crests.football-data.org/5335.png"
-      },
-      "playedGames": 7,
-      "form": "L,L,W,L,W",
-      "won": 2,
-      "draw": 1,
-      "lost": 4,
-      "points": 7,
-      "goalsFor": 11,
-      "goalsAgainst": 21,
       "goalDifference": -10
     },
     {
@@ -349,6 +349,25 @@
     {
       "position": 19,
       "team": {
+        "id": 95,
+        "name": "Valencia CF",
+        "shortName": "Valencia",
+        "tla": "VAL",
+        "crest": "https://crests.football-data.org/95.png"
+      },
+      "playedGames": 8,
+      "form": "D,L,W,L,L",
+      "won": 1,
+      "draw": 2,
+      "lost": 5,
+      "points": 5,
+      "goalsFor": 6,
+      "goalsAgainst": 15,
+      "goalDifference": -9
+    },
+    {
+      "position": 20,
+      "team": {
         "id": 84,
         "name": "Málaga CF",
         "shortName": "Málaga",
@@ -360,25 +379,6 @@
       "won": 0,
       "draw": 4,
       "lost": 4,
-      "points": 4,
-      "goalsFor": 4,
-      "goalsAgainst": 13,
-      "goalDifference": -9
-    },
-    {
-      "position": 20,
-      "team": {
-        "id": 95,
-        "name": "Valencia CF",
-        "shortName": "Valencia",
-        "tla": "VAL",
-        "crest": "https://crests.football-data.org/95.png"
-      },
-      "playedGames": 7,
-      "form": "L,W,L,L,L",
-      "won": 1,
-      "draw": 1,
-      "lost": 5,
       "points": 4,
       "goalsFor": 4,
       "goalsAgainst": 13,
