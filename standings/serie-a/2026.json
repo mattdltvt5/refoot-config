@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-12T20:26:30.030538Z",
+  "generated_at": "2026-10-12T20:51:32.317357Z",
   "competition": "Serie A",
   "slug": "serie-a",
   "season": 2026,
@@ -216,6 +216,25 @@
     {
       "position": 12,
       "team": {
+        "id": 586,
+        "name": "Torino FC",
+        "shortName": "Torino",
+        "tla": "TOR",
+        "crest": "https://crests.football-data.org/586.png"
+      },
+      "playedGames": 6,
+      "form": "W,D,L,W,L",
+      "won": 2,
+      "draw": 1,
+      "lost": 3,
+      "points": 7,
+      "goalsFor": 7,
+      "goalsAgainst": 9,
+      "goalDifference": -2
+    },
+    {
+      "position": 13,
+      "team": {
         "id": 5890,
         "name": "US Lecce",
         "shortName": "Lecce",
@@ -233,7 +252,7 @@
       "goalDifference": -6
     },
     {
-      "position": 13,
+      "position": 14,
       "team": {
         "id": 103,
         "name": "Bologna FC 1909",
@@ -252,7 +271,7 @@
       "goalDifference": -2
     },
     {
-      "position": 14,
+      "position": 15,
       "team": {
         "id": 115,
         "name": "Udinese Calcio",
@@ -260,34 +279,15 @@
         "tla": "UDI",
         "crest": "https://crests.football-data.org/115.png"
       },
-      "playedGames": 5,
-      "form": "L,L,L,W,D",
+      "playedGames": 6,
+      "form": "L,L,L,L,W",
       "won": 1,
       "draw": 1,
-      "lost": 3,
+      "lost": 4,
       "points": 4,
-      "goalsFor": 8,
-      "goalsAgainst": 11,
-      "goalDifference": -3
-    },
-    {
-      "position": 15,
-      "team": {
-        "id": 586,
-        "name": "Torino FC",
-        "shortName": "Torino",
-        "tla": "TOR",
-        "crest": "https://crests.football-data.org/586.png"
-      },
-      "playedGames": 5,
-      "form": "D,L,W,L,L",
-      "won": 1,
-      "draw": 1,
-      "lost": 3,
-      "points": 4,
-      "goalsFor": 5,
-      "goalsAgainst": 8,
-      "goalDifference": -3
+      "goalsFor": 9,
+      "goalsAgainst": 13,
+      "goalDifference": -4
     },
     {
       "position": 16,
