@@ -2,7 +2,7 @@
   "competition": "Ligue 1",
   "gameweek": "GW6",
   "stem": "gameweek-6",
-  "generated_at": "2026-10-11T15:01:42Z",
+  "generated_at": "2026-10-12T00:01:28Z",
   "matches": [
     {
       "match_id": 559669,
@@ -85,14 +85,68 @@
       "home_team": "AS Monaco FC",
       "away_team": "Toulouse FC",
       "date": "2026-10-10",
-      "videos": []
+      "videos": [
+        {
+          "video_id": "nglNvYsH1Rk",
+          "title": "Malgré un BIJOU d'Abline, Monaco FREINÉ par Toulouse | 6ème journée - Ligue 1 McDonald's 26/27",
+          "published_at": "2026-10-11",
+          "tier_used": 2
+        },
+        {
+          "video_id": "ZgACoGRzPpg",
+          "title": "AS MONACO - TOULOUSE FC (2-2) | Week 6 - Ligue 1 McDonald's 26/27",
+          "published_at": "2026-10-11",
+          "tier_used": 2
+        }
+      ]
     },
     {
       "match_id": 559670,
       "home_team": "OGC Nice",
       "away_team": "RC Strasbourg Alsace",
       "date": "2026-10-11",
-      "videos": []
+      "videos": [
+        {
+          "video_id": "xICFGHdjdUo",
+          "title": "Résumé : Coup de CANON de CLAUSS pour inverser la tendance I Nice 2-1 Strasbourg (Ligue 1 26-27)",
+          "published_at": "2026-10-11",
+          "tier_used": 1
+        }
+      ]
+    },
+    {
+      "match_id": 559667,
+      "home_team": "Stade Rennais FC 1901",
+      "away_team": "AJ Auxerre",
+      "date": "2026-10-11",
+      "videos": [
+        {
+          "video_id": "tZfm-IKxUfI",
+          "title": "Une VOLÉE de Lepaul, DOUBLÉ de Dia : Rennes PUNIT Auxerre | 6ème journée - Ligue 1 McDonald's 26/27",
+          "published_at": "2026-10-11",
+          "tier_used": 2
+        },
+        {
+          "video_id": "-x3Qflv_DFU",
+          "title": "STADE RENNAIS - AJ AUXERRE (4-1) | Week 6 - Ligue 1 McDonald's 26/27",
+          "published_at": "2026-10-11",
+          "tier_used": 2
+        }
+      ]
+    },
+    {
+      "match_id": 559671,
+      "home_team": "ES Troyes AC",
+      "away_team": "Olympique de Marseille",
+      "date": "2026-10-11",
+      "videos": [
+        {
+          "video_id": "yV2nD5yuGGo",
+          "title": "Troyes 0-2 OM : Le résumé de la victoire ✅",
+          "published_at": "2026-10-11",
+          "tier_used": 1
+        }
+      ]
     }
   ]
 }
