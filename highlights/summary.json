@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-12T17:16:14Z",
+  "generated_at": "2026-10-12T18:31:14Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -1474,8 +1474,8 @@
         {
           "gameweek": "GW6",
           "stem": "gameweek-6",
-          "total": 8,
-          "covered": 8,
+          "total": 9,
+          "covered": 9,
           "matches": [
             {
               "match_id": 558588,
@@ -1531,6 +1531,13 @@
               "home": "Cagliari Calcio",
               "away": "Juventus FC",
               "date": "2026-10-11",
+              "covered": true
+            },
+            {
+              "match_id": 558579,
+              "home": "Atalanta BC",
+              "away": "Venezia FC",
+              "date": "2026-10-12",
               "covered": true
             }
           ]

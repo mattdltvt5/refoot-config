@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-12T16:35:08.939115Z",
+  "generated_at": "2026-10-12T18:31:34.762328Z",
   "competition": "Serie A",
   "slug": "serie-a",
   "season": 2026,
@@ -178,6 +178,25 @@
     {
       "position": 10,
       "team": {
+        "id": 102,
+        "name": "Atalanta BC",
+        "shortName": "Atalanta",
+        "tla": "ATA",
+        "crest": "https://crests.football-data.org/102.png"
+      },
+      "playedGames": 6,
+      "form": "W,L,L,L,W",
+      "won": 3,
+      "draw": 0,
+      "lost": 3,
+      "points": 9,
+      "goalsFor": 8,
+      "goalsAgainst": 8,
+      "goalDifference": 0
+    },
+    {
+      "position": 11,
+      "team": {
         "id": 471,
         "name": "US Sassuolo Calcio",
         "shortName": "Sassuolo",
@@ -193,25 +212,6 @@
       "goalsFor": 10,
       "goalsAgainst": 10,
       "goalDifference": 0
-    },
-    {
-      "position": 11,
-      "team": {
-        "id": 102,
-        "name": "Atalanta BC",
-        "shortName": "Atalanta",
-        "tla": "ATA",
-        "crest": "https://crests.football-data.org/102.png"
-      },
-      "playedGames": 5,
-      "form": "L,L,L,W,W",
-      "won": 2,
-      "draw": 0,
-      "lost": 3,
-      "points": 6,
-      "goalsFor": 5,
-      "goalsAgainst": 7,
-      "goalDifference": -2
     },
     {
       "position": 12,
@@ -374,15 +374,15 @@
         "tla": "VEN",
         "crest": "https://crests.football-data.org/454.png"
       },
-      "playedGames": 5,
+      "playedGames": 6,
       "form": "L,L,L,L,L",
       "won": 0,
       "draw": 0,
-      "lost": 5,
+      "lost": 6,
       "points": 0,
-      "goalsFor": 4,
-      "goalsAgainst": 13,
-      "goalDifference": -9
+      "goalsFor": 5,
+      "goalsAgainst": 16,
+      "goalDifference": -11
     }
   ]
 }
