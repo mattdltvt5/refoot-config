@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-12T21:21:23Z",
+  "generated_at": "2026-10-12T21:26:13Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -1023,7 +1023,7 @@
           "gameweek": "GW8",
           "stem": "gameweek-8",
           "total": 9,
-          "covered": 8,
+          "covered": 9,
           "matches": [
             {
               "match_id": 564706,
@@ -1086,8 +1086,7 @@
               "home": "Levante UD",
               "away": "Sevilla FC",
               "date": "2026-10-12",
-              "covered": false,
-              "pending": true
+              "covered": true
             }
           ]
         }
