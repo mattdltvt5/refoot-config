@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-13T21:11:42Z",
+  "generated_at": "2026-10-13T21:16:22Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -2500,7 +2500,7 @@
           "gameweek": "MD2",
           "stem": "matchday-2",
           "total": 9,
-          "covered": 3,
+          "covered": 6,
           "matches": [
             {
               "match_id": 575341,
@@ -2528,8 +2528,7 @@
               "home": "Villarreal CF",
               "away": "SSC Napoli",
               "date": "2026-10-13",
-              "covered": false,
-              "pending": true
+              "covered": true
             },
             {
               "match_id": 575343,
@@ -2544,8 +2543,7 @@
               "home": "Galatasaray SK",
               "away": "FC Barcelona",
               "date": "2026-10-13",
-              "covered": false,
-              "pending": true
+              "covered": true
             },
             {
               "match_id": 575345,
@@ -2560,8 +2558,7 @@
               "home": "Viking FK",
               "away": "FC Bayern München",
               "date": "2026-10-13",
-              "covered": false,
-              "pending": true
+              "covered": true
             },
             {
               "match_id": 575348,
