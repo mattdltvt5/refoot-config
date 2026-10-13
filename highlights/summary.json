@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-13T20:56:09Z",
+  "generated_at": "2026-10-13T21:01:28Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -2499,7 +2499,7 @@
         {
           "gameweek": "MD2",
           "stem": "matchday-2",
-          "total": 2,
+          "total": 4,
           "covered": 2,
           "matches": [
             {
@@ -2515,6 +2515,22 @@
               "away": "SK Slavia Praha",
               "date": "2026-10-13",
               "covered": true
+            },
+            {
+              "match_id": 575346,
+              "home": "Arsenal FC",
+              "away": "Lille OSC",
+              "date": "2026-10-13",
+              "covered": false,
+              "pending": true
+            },
+            {
+              "match_id": 575349,
+              "home": "Villarreal CF",
+              "away": "SSC Napoli",
+              "date": "2026-10-13",
+              "covered": false,
+              "pending": true
             }
           ]
         }
