@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-13T18:46:10Z",
+  "generated_at": "2026-10-13T18:51:19Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -2493,6 +2493,30 @@
               "away": "Racing Club de Lens",
               "date": "2026-09-10",
               "covered": true
+            }
+          ]
+        },
+        {
+          "gameweek": "MD2",
+          "stem": "matchday-2",
+          "total": 2,
+          "covered": 0,
+          "matches": [
+            {
+              "match_id": 575341,
+              "home": "Racing Club de Lens",
+              "away": "Sporting Clube de Portugal",
+              "date": "2026-10-13",
+              "covered": false,
+              "pending": true
+            },
+            {
+              "match_id": 575342,
+              "home": "Sabah FK",
+              "away": "SK Slavia Praha",
+              "date": "2026-10-13",
+              "covered": false,
+              "pending": true
             }
           ]
         }
