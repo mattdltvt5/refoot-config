@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-13T18:56:20Z",
+  "generated_at": "2026-10-13T19:01:23Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -2500,15 +2500,14 @@
           "gameweek": "MD2",
           "stem": "matchday-2",
           "total": 2,
-          "covered": 0,
+          "covered": 1,
           "matches": [
             {
               "match_id": 575341,
               "home": "Racing Club de Lens",
               "away": "Sporting Clube de Portugal",
               "date": "2026-10-13",
-              "covered": false,
-              "pending": true
+              "covered": true
             },
             {
               "match_id": 575342,
