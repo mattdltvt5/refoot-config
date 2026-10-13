@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-13T16:56:30.401609Z",
+  "generated_at": "2026-10-13T17:11:37.382367Z",
   "slug": "ucl",
   "standings": [
     {
@@ -18,35 +18,16 @@
           },
           "playedGames": 2,
           "form": null,
-          "won": 1,
-          "draw": 1,
+          "won": 2,
+          "draw": 0,
           "lost": 0,
-          "points": 4,
-          "goalsFor": 3,
+          "points": 6,
+          "goalsFor": 4,
           "goalsAgainst": 1,
-          "goalDifference": 2
+          "goalDifference": 3
         },
         {
           "position": 2,
-          "team": {
-            "id": 546,
-            "name": "Racing Club de Lens",
-            "shortName": "RC Lens",
-            "tla": "RCL",
-            "crest": "https://crests.football-data.org/546.png"
-          },
-          "playedGames": 2,
-          "form": null,
-          "won": 1,
-          "draw": 1,
-          "lost": 0,
-          "points": 4,
-          "goalsFor": 3,
-          "goalsAgainst": 2,
-          "goalDifference": 1
-        },
-        {
-          "position": 3,
           "team": {
             "id": 524,
             "name": "Paris Saint-Germain FC",
@@ -65,7 +46,7 @@
           "goalDifference": 5
         },
         {
-          "position": 4,
+          "position": 3,
           "team": {
             "id": 5,
             "name": "FC Bayern München",
@@ -84,7 +65,7 @@
           "goalDifference": 5
         },
         {
-          "position": 5,
+          "position": 4,
           "team": {
             "id": 81,
             "name": "FC Barcelona",
@@ -103,7 +84,7 @@
           "goalDifference": 4
         },
         {
-          "position": 6,
+          "position": 5,
           "team": {
             "id": 66,
             "name": "Manchester United FC",
@@ -122,7 +103,7 @@
           "goalDifference": 4
         },
         {
-          "position": 7,
+          "position": 6,
           "team": {
             "id": 7397,
             "name": "Como 1907",
@@ -141,7 +122,7 @@
           "goalDifference": 3
         },
         {
-          "position": 8,
+          "position": 7,
           "team": {
             "id": 10,
             "name": "VfB Stuttgart",
@@ -160,7 +141,7 @@
           "goalDifference": 2
         },
         {
-          "position": 9,
+          "position": 8,
           "team": {
             "id": 65,
             "name": "Manchester City FC",
@@ -179,7 +160,7 @@
           "goalDifference": 2
         },
         {
-          "position": 10,
+          "position": 9,
           "team": {
             "id": 58,
             "name": "Aston Villa FC",
@@ -198,7 +179,7 @@
           "goalDifference": 1
         },
         {
-          "position": 10,
+          "position": 9,
           "team": {
             "id": 90,
             "name": "Real Betis Balompié",
@@ -217,7 +198,7 @@
           "goalDifference": 1
         },
         {
-          "position": 12,
+          "position": 11,
           "team": {
             "id": 4,
             "name": "Borussia Dortmund",
@@ -236,7 +217,7 @@
           "goalDifference": 1
         },
         {
-          "position": 13,
+          "position": 12,
           "team": {
             "id": 64,
             "name": "Liverpool FC",
@@ -255,7 +236,7 @@
           "goalDifference": 1
         },
         {
-          "position": 13,
+          "position": 12,
           "team": {
             "id": 86,
             "name": "Real Madrid CF",
@@ -274,7 +255,7 @@
           "goalDifference": 1
         },
         {
-          "position": 15,
+          "position": 14,
           "team": {
             "id": 57,
             "name": "Arsenal FC",
@@ -293,7 +274,7 @@
           "goalDifference": 1
         },
         {
-          "position": 16,
+          "position": 15,
           "team": {
             "id": 1899,
             "name": "PAE AEK",
@@ -310,6 +291,25 @@
           "goalsFor": 1,
           "goalsAgainst": 0,
           "goalDifference": 1
+        },
+        {
+          "position": 16,
+          "team": {
+            "id": 546,
+            "name": "Racing Club de Lens",
+            "shortName": "RC Lens",
+            "tla": "RCL",
+            "crest": "https://crests.football-data.org/546.png"
+          },
+          "playedGames": 2,
+          "form": null,
+          "won": 1,
+          "draw": 0,
+          "lost": 1,
+          "points": 3,
+          "goalsFor": 3,
+          "goalsAgainst": 3,
+          "goalDifference": 0
         },
         {
           "position": 17,
@@ -1229,7 +1229,7 @@
       },
       "score": {
         "fullTime": {
-          "home": 0,
+          "home": 1,
           "away": 0
         }
       },
