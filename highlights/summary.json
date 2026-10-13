@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-13T19:06:14Z",
+  "generated_at": "2026-10-13T19:11:13Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -2500,7 +2500,7 @@
           "gameweek": "MD2",
           "stem": "matchday-2",
           "total": 2,
-          "covered": 1,
+          "covered": 2,
           "matches": [
             {
               "match_id": 575341,
@@ -2514,8 +2514,7 @@
               "home": "Sabah FK",
               "away": "SK Slavia Praha",
               "date": "2026-10-13",
-              "covered": false,
-              "pending": true
+              "covered": true
             }
           ]
         }
