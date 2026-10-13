@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-13T21:16:22Z",
+  "generated_at": "2026-10-13T21:21:16Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -2500,7 +2500,7 @@
           "gameweek": "MD2",
           "stem": "matchday-2",
           "total": 9,
-          "covered": 6,
+          "covered": 7,
           "matches": [
             {
               "match_id": 575341,
@@ -2565,8 +2565,7 @@
               "home": "RB Leipzig",
               "away": "PSV",
               "date": "2026-10-13",
-              "covered": false,
-              "pending": true
+              "covered": true
             }
           ]
         }
