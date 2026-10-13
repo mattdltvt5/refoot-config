@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-13T21:01:28Z",
+  "generated_at": "2026-10-13T21:06:37Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -2499,8 +2499,8 @@
         {
           "gameweek": "MD2",
           "stem": "matchday-2",
-          "total": 4,
-          "covered": 2,
+          "total": 9,
+          "covered": 3,
           "matches": [
             {
               "match_id": 575341,
@@ -2521,13 +2521,52 @@
               "home": "Arsenal FC",
               "away": "Lille OSC",
               "date": "2026-10-13",
-              "covered": false,
-              "pending": true
+              "covered": true
             },
             {
               "match_id": 575349,
               "home": "Villarreal CF",
               "away": "SSC Napoli",
+              "date": "2026-10-13",
+              "covered": false,
+              "pending": true
+            },
+            {
+              "match_id": 575343,
+              "home": "FC Internazionale Milano",
+              "away": "Club Brugge KV",
+              "date": "2026-10-13",
+              "covered": false,
+              "pending": true
+            },
+            {
+              "match_id": 575344,
+              "home": "Galatasaray SK",
+              "away": "FC Barcelona",
+              "date": "2026-10-13",
+              "covered": false,
+              "pending": true
+            },
+            {
+              "match_id": 575345,
+              "home": "Club Atlético de Madrid",
+              "away": "Manchester United FC",
+              "date": "2026-10-13",
+              "covered": false,
+              "pending": true
+            },
+            {
+              "match_id": 575347,
+              "home": "Viking FK",
+              "away": "FC Bayern München",
+              "date": "2026-10-13",
+              "covered": false,
+              "pending": true
+            },
+            {
+              "match_id": 575348,
+              "home": "RB Leipzig",
+              "away": "PSV",
               "date": "2026-10-13",
               "covered": false,
               "pending": true
