@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-13T18:36:27.930399Z",
+  "generated_at": "2026-10-13T18:41:32.120253Z",
   "slug": "ucl",
   "standings": [
     {
@@ -326,9 +326,9 @@
           "draw": 0,
           "lost": 1,
           "points": 3,
-          "goalsFor": 1,
+          "goalsFor": 2,
           "goalsAgainst": 4,
-          "goalDifference": -3
+          "goalDifference": -2
         },
         {
           "position": 18,
@@ -542,25 +542,6 @@
         {
           "position": 29,
           "team": {
-            "id": 930,
-            "name": "SK Slavia Praha",
-            "shortName": "Slavia Praha",
-            "tla": "SLP",
-            "crest": "https://crests.football-data.org/930.png"
-          },
-          "playedGames": 2,
-          "form": null,
-          "won": 0,
-          "draw": 0,
-          "lost": 2,
-          "points": 0,
-          "goalsFor": 2,
-          "goalsAgainst": 4,
-          "goalDifference": -2
-        },
-        {
-          "position": 30,
-          "team": {
             "id": 610,
             "name": "Galatasaray SK",
             "shortName": "Galatasaray",
@@ -578,7 +559,7 @@
           "goalDifference": -2
         },
         {
-          "position": 30,
+          "position": 29,
           "team": {
             "id": 5720,
             "name": "Viking FK",
@@ -597,7 +578,7 @@
           "goalDifference": -2
         },
         {
-          "position": 32,
+          "position": 31,
           "team": {
             "id": 503,
             "name": "FC Porto",
@@ -614,6 +595,25 @@
           "goalsFor": 0,
           "goalsAgainst": 2,
           "goalDifference": -2
+        },
+        {
+          "position": 32,
+          "team": {
+            "id": 930,
+            "name": "SK Slavia Praha",
+            "shortName": "Slavia Praha",
+            "tla": "SLP",
+            "crest": "https://crests.football-data.org/930.png"
+          },
+          "playedGames": 2,
+          "form": null,
+          "won": 0,
+          "draw": 0,
+          "lost": 2,
+          "points": 0,
+          "goalsFor": 2,
+          "goalsAgainst": 5,
+          "goalDifference": -3
         },
         {
           "position": 33,
@@ -1229,7 +1229,7 @@
       },
       "score": {
         "fullTime": {
-          "home": 1,
+          "home": 2,
           "away": 0
         }
       },
