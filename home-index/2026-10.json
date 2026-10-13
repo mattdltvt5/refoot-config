@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-13T19:11:13Z",
+  "generated_at": "2026-10-13T19:16:15Z",
   "month": "2026-10",
   "dates": {
     "2026-10-09": [
@@ -1207,7 +1207,8 @@
             "homeScore": 2,
             "awayScore": 0,
             "status": "FINISHED",
-            "utcDate": "2026-10-13T16:45:00Z"
+            "utcDate": "2026-10-13T16:45:00Z",
+            "videoId": "FN6WFsfNGLg"
           },
           {
             "match_id": 575343,
@@ -1267,9 +1268,9 @@
               "tla": "MUN",
               "crest": "https://crests.football-data.org/66.png"
             },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "TIMED",
+            "homeScore": 1,
+            "awayScore": 0,
+            "status": "IN_PLAY",
             "utcDate": "2026-10-13T19:00:00Z"
           },
           {
@@ -1309,7 +1310,7 @@
               "tla": "FCB",
               "crest": "https://crests.football-data.org/5.png"
             },
-            "homeScore": 0,
+            "homeScore": 1,
             "awayScore": 0,
             "status": "IN_PLAY",
             "utcDate": "2026-10-13T19:00:00Z"
@@ -1330,9 +1331,9 @@
               "tla": "PSV",
               "crest": "https://crests.football-data.org/674.png"
             },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "TIMED",
+            "homeScore": 0,
+            "awayScore": 0,
+            "status": "IN_PLAY",
             "utcDate": "2026-10-13T19:00:00Z"
           },
           {
