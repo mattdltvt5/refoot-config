@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-13T19:36:28.154047Z",
+  "generated_at": "2026-10-13T19:41:37.587181Z",
   "slug": "ucl",
   "standings": [
     {
@@ -80,11 +80,11 @@
           "lost": 1,
           "points": 3,
           "goalsFor": 5,
-          "goalsAgainst": 1,
-          "goalDifference": 4
+          "goalsAgainst": 2,
+          "goalDifference": 3
         },
         {
-          "position": 5,
+          "position": 4,
           "team": {
             "id": 81,
             "name": "FC Barcelona",
@@ -314,6 +314,44 @@
         {
           "position": 17,
           "team": {
+            "id": 851,
+            "name": "Club Brugge KV",
+            "shortName": "Club Brugge",
+            "tla": "BRU",
+            "crest": "https://crests.football-data.org/851.png"
+          },
+          "playedGames": 2,
+          "form": null,
+          "won": 1,
+          "draw": 0,
+          "lost": 1,
+          "points": 3,
+          "goalsFor": 3,
+          "goalsAgainst": 3,
+          "goalDifference": 0
+        },
+        {
+          "position": 17,
+          "team": {
+            "id": 5720,
+            "name": "Viking FK",
+            "shortName": "Viking",
+            "tla": "VIK",
+            "crest": "https://crests.football-data.org/5720.png"
+          },
+          "playedGames": 2,
+          "form": null,
+          "won": 1,
+          "draw": 0,
+          "lost": 1,
+          "points": 3,
+          "goalsFor": 3,
+          "goalsAgainst": 3,
+          "goalDifference": 0
+        },
+        {
+          "position": 19,
+          "team": {
             "id": 78,
             "name": "Club Atlético de Madrid",
             "shortName": "Atleti",
@@ -331,7 +369,7 @@
           "goalDifference": 0
         },
         {
-          "position": 18,
+          "position": 20,
           "team": {
             "id": 546,
             "name": "Racing Club de Lens",
@@ -350,7 +388,7 @@
           "goalDifference": -1
         },
         {
-          "position": 19,
+          "position": 21,
           "team": {
             "id": 610,
             "name": "Galatasaray SK",
@@ -369,26 +407,7 @@
           "goalDifference": -1
         },
         {
-          "position": 19,
-          "team": {
-            "id": 5720,
-            "name": "Viking FK",
-            "shortName": "Viking",
-            "tla": "VIK",
-            "crest": "https://crests.football-data.org/5720.png"
-          },
-          "playedGames": 2,
-          "form": null,
-          "won": 1,
-          "draw": 0,
-          "lost": 1,
-          "points": 3,
-          "goalsFor": 2,
-          "goalsAgainst": 3,
-          "goalDifference": -1
-        },
-        {
-          "position": 21,
+          "position": 22,
           "team": {
             "id": 10233,
             "name": "Sabah FK",
@@ -407,7 +426,7 @@
           "goalDifference": -2
         },
         {
-          "position": 22,
+          "position": 23,
           "team": {
             "id": 674,
             "name": "PSV",
@@ -426,7 +445,7 @@
           "goalDifference": 0
         },
         {
-          "position": 23,
+          "position": 24,
           "team": {
             "id": 100,
             "name": "AS Roma",
@@ -445,7 +464,7 @@
           "goalDifference": 0
         },
         {
-          "position": 23,
+          "position": 24,
           "team": {
             "id": 1887,
             "name": "FK Shakhtar Donetsk",
@@ -464,7 +483,7 @@
           "goalDifference": 0
         },
         {
-          "position": 25,
+          "position": 26,
           "team": {
             "id": 613,
             "name": "Fenerbahçe SK",
@@ -483,26 +502,7 @@
           "goalDifference": 0
         },
         {
-          "position": 26,
-          "team": {
-            "id": 851,
-            "name": "Club Brugge KV",
-            "shortName": "Club Brugge",
-            "tla": "BRU",
-            "crest": "https://crests.football-data.org/851.png"
-          },
-          "playedGames": 2,
-          "form": null,
-          "won": 0,
-          "draw": 1,
-          "lost": 1,
-          "points": 1,
-          "goalsFor": 2,
-          "goalsAgainst": 3,
-          "goalDifference": -1
-        },
-        {
-          "position": 26,
+          "position": 27,
           "team": {
             "id": 521,
             "name": "Lille OSC",
@@ -523,25 +523,6 @@
         {
           "position": 28,
           "team": {
-            "id": 108,
-            "name": "FC Internazionale Milano",
-            "shortName": "Inter",
-            "tla": "INT",
-            "crest": "https://crests.football-data.org/108.png"
-          },
-          "playedGames": 2,
-          "form": null,
-          "won": 0,
-          "draw": 1,
-          "lost": 1,
-          "points": 1,
-          "goalsFor": 1,
-          "goalsAgainst": 2,
-          "goalDifference": -1
-        },
-        {
-          "position": 29,
-          "team": {
             "id": 721,
             "name": "RB Leipzig",
             "shortName": "RB Leipzig",
@@ -559,7 +540,7 @@
           "goalDifference": -3
         },
         {
-          "position": 30,
+          "position": 29,
           "team": {
             "id": 2016,
             "name": "LASK Linz",
@@ -578,7 +559,26 @@
           "goalDifference": -1
         },
         {
-          "position": 31,
+          "position": 30,
+          "team": {
+            "id": 108,
+            "name": "FC Internazionale Milano",
+            "shortName": "Inter",
+            "tla": "INT",
+            "crest": "https://crests.football-data.org/108.png"
+          },
+          "playedGames": 2,
+          "form": null,
+          "won": 0,
+          "draw": 0,
+          "lost": 2,
+          "points": 0,
+          "goalsFor": 1,
+          "goalsAgainst": 3,
+          "goalDifference": -2
+        },
+        {
+          "position": 30,
           "team": {
             "id": 113,
             "name": "SSC Napoli",
@@ -1283,7 +1283,7 @@
       },
       "score": {
         "fullTime": {
-          "home": 1,
+          "home": 2,
           "away": 0
         }
       },
