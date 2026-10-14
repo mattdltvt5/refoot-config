@@ -4,6 +4,27 @@ Remote channel configuration for the **ReFoot Highlights** Android app.
 
 ## Recent changes
 
+### Push: publish, then notify (2026-10-14)
+
+**Problem:** tonight every Champions League goal notification arrived 3-5 minutes before the app could show that
+score.
+- `fetch_highlights.py` built `home-index/` before `sync_tournaments.py` refreshed the tournament scores.
+- `push_events.py` then announced from a fresher in-memory index, and the commit published the stale file.
+- And notifications were sent before the push, so a slow push widened the gap.
+
+**Now (`fetch-highlights.yml`):**
+1. **Rebuild Home index from the fresh scores:** `build_home_index.py` runs again after the tournament and standings
+   syncs.
+2. **Detect** (`push_events.py --mode detect`, before the commit): it records events in the ledger and log, and writes
+   this run's events to the uncommitted `push-events/.outbox-run.json` (gitignored).
+3. **Commit and push** the data.
+4. **Send** (`--mode deliver`, only if the push succeeded): it sends the run outbox plus the retry queue
+   (`pending.json`, with the same expiry rules).
+   - If a send fails, the events go into `pending.json`, which is committed in a small extra commit (rare).
+   - If the push fails, the ledger wasn't pushed either, so the next run re-detects the events.
+
+`--mode send` (detect and send at once) still exists. Tests: `test_detect_*`, `test_a_failed_deliver_*`.
+
 ### Push: goal counts + delivery receipts in the privacy policy (2026-10-14)
 
 Goal events now carry `goals`: `{home, away}` goals since the previous state. Several goals can land between two

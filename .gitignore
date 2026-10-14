@@ -7,3 +7,5 @@
 
 # Local debug/log dumps (never commit raw Actions logs)
 debug_output.txt
+# This run's notifications between detect and deliver (never committed)
+push-events/.outbox-run.json

@@ -385,8 +385,71 @@ def deliver(events: list[dict], now: datetime, secret: str, http=None) -> list[d
         return outbox
 
 
+# This run's detected events, between the detect step (before the commit)
+# and the deliver step (after the push). Deliberately NOT committed
+# (.gitignore): only events that failed to send are kept, in pending.json.
+RUN_OUTBOX_PATH = EVENTS_DIR / ".outbox-run.json"
+
+
+def _dedupe(events: list[dict]) -> list[dict]:
+    out, seen = [], set()
+    for e in events:
+        if e.get("key") in seen:
+            continue
+        seen.add(e.get("key"))
+        out.append(e)
+    return out
+
+
+def write_run_outbox(events: list[dict]) -> None:
+    EVENTS_DIR.mkdir(exist_ok=True)
+    RUN_OUTBOX_PATH.write_text(json.dumps(events, ensure_ascii=False) + "\n", encoding="utf-8")
+
+
+def load_run_outbox() -> list[dict]:
+    try:
+        data = json.loads(RUN_OUTBOX_PATH.read_text(encoding="utf-8"))
+        return data if isinstance(data, list) else []
+    except (OSError, ValueError):
+        return []
+
+
+def deliver_pending(now: datetime, secret: str, http=None) -> list[dict]:
+    """Send earlier unsent events (pending.json) plus this run's (the run
+    outbox), after the data is pushed; return what's left unsent."""
+    outbox = _dedupe(prune_pending(load_pending(), now) + prune_pending(load_run_outbox(), now))
+    RUN_OUTBOX_PATH.unlink(missing_ok=True)
+    if not outbox:
+        log.info("outbox empty - nothing to send")
+        return []
+    try:
+        result = post_events(outbox, PUSH_EVENTS_URL, secret, http=http)
+        log.info("sent %d event(s) to pushEvents: %s", len(outbox), result)
+        return []
+    except Exception as exc:  # keep them for the next run
+        log.warning("pushEvents failed (%s); %d event(s) kept for retry", exc, len(outbox))
+        return outbox
+
+
 def run(mode: str, now: datetime | None = None, http=None) -> list[dict]:
+    """Modes:
+      log     - detect and record events, send nothing;
+      detect  - detect, record and QUEUE them in the outbox (before the data is
+                committed), send nothing;
+      deliver - send the outbox (after the data is pushed, so the app already
+                shows the score a notification announces); no detection;
+      send    - detect and send at once (the old single step).
+    """
     now = now or datetime.now(timezone.utc)
+    secret = os.environ.get(SECRET_ENV, "")
+    if mode == "deliver":
+        if not secret:
+            log.warning("%s not set - nothing sent; events kept for retry", SECRET_ENV)
+            write_pending(_dedupe(prune_pending(load_pending(), now) + load_run_outbox()))
+            RUN_OUTBOX_PATH.unlink(missing_ok=True)
+            return []
+        write_pending(deliver_pending(now, secret, http=http))
+        return []
     months = months_around(now)
     prev = load_head_state(months)
     curr = load_current_state(months)
@@ -396,7 +459,6 @@ def run(mode: str, now: datetime | None = None, http=None) -> list[dict]:
         log.info("[%s] %s %s %s-%s %s (%s, +%s min)", mode, e["type"].upper(),
                  e["home"]["name"], *e["score"], e["away"]["name"],
                  e["competition"], e["minutes_after_kickoff"])
-    secret = os.environ.get(SECRET_ENV, "")
     if mode == "send" and not secret:
         log.warning("%s not set - falling back to log mode", SECRET_ENV)
         mode = "log"
@@ -406,14 +468,17 @@ def run(mode: str, now: datetime | None = None, http=None) -> list[dict]:
     write_outputs(events, update_ledger(ledger, events, now, marks), now)
     if mode == "send":
         write_pending(deliver(events, now, secret, http=http))
+    elif mode == "detect":
+        write_run_outbox(events)
     return events
 
 
 def main(argv: list[str] | None = None) -> int:
     logging.basicConfig(level=logging.INFO, format="%(levelname)s %(name)s: %(message)s")
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
-    ap.add_argument("--mode", choices=["log", "send"], default="log",
-                    help="log: record events only; send: also POST them to pushEvents")
+    ap.add_argument("--mode", choices=["log", "detect", "deliver", "send"], default="log",
+                    help="log: record only; detect: record + queue; deliver: send the "
+                         "queue; send: detect and send at once")
     args = ap.parse_args(argv)
     try:
         run(args.mode)

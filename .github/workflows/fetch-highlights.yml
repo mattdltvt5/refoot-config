@@ -73,11 +73,21 @@ jobs:
       # ledger) and POSTs them to the pushEvents Cloud Function, which notifies
       # the teams' subscribers. Failed posts wait in push-events/pending.json for
       # the next run. Without the secret it only logs. Never fails the run.
-      - name: Detect and send push-notification events
+      # The Home index was first built by fetch_highlights.py, BEFORE the
+      # tournament sync above refreshed UCL/WC/Euro/Copa scores - so the
+      # committed file ran one run (~5 min) behind the notifications. Rebuild
+      # it now from the fresh files, so what's published matches what's
+      # announced.
+      - name: Rebuild Home index from the fresh scores
         continue-on-error: true
-        env:
-          PUSH_EVENTS_SECRET: ${{ secrets.PUSH_EVENTS_SECRET }}
-        run: python scripts/push_events.py --mode send
+        run: python scripts/build_home_index.py
+
+      # Detect and QUEUE notifications before the commit (they're recorded in
+      # push-events/ with the data); they're SENT only after the push below,
+      # so the app already shows the score a notification announces.
+      - name: Detect push-notification events
+        continue-on-error: true
+        run: python scripts/push_events.py --mode detect
 
       # Only commit when real data changed. Every run rewrites its run
       # timestamps, so a plain "anything changed?" check committed every ~5 min
@@ -116,3 +126,24 @@ jobs:
           done
           echo "ERROR: could not push after 5 attempts (persistent push race)" >&2
           exit 1
+
+      # Publish, then notify: send this run's notifications only once the data
+      # is on main (or there was nothing to commit). Skipped when the push
+      # failed: the events weren't pushed into the ledger either, so the next
+      # run detects them again. A failed SEND keeps them in
+      # push-events/pending.json, committed here (rare) so the next run retries.
+      - name: Send push notifications
+        continue-on-error: true
+        env:
+          PUSH_EVENTS_SECRET: ${{ secrets.PUSH_EVENTS_SECRET }}
+        run: |
+          python scripts/push_events.py --mode deliver
+          git add push-events/pending.json
+          if ! git diff --cached --quiet; then
+            git commit -m "chore: push retry queue [skip ci]"
+            for attempt in 1 2 3; do
+              if git pull --rebase -X theirs origin main && git push; then exit 0; fi
+              git rebase --abort 2>/dev/null || true
+              sleep 3
+            done
+          fi

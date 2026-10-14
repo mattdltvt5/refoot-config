@@ -218,6 +218,7 @@ class TestSend(unittest.TestCase):
             mock.patch.object(push_events, "EVENTS_DIR", events_dir),
             mock.patch.object(push_events, "LEDGER_PATH", events_dir / "ledger.json"),
             mock.patch.object(push_events, "PENDING_PATH", events_dir / "pending.json"),
+            mock.patch.object(push_events, "RUN_OUTBOX_PATH", events_dir / ".outbox-run.json"),
             mock.patch.object(push_events, "load_head_state",
                               return_value={1: _m("IN_PLAY", 0, 0)}),
             mock.patch.object(push_events, "load_current_state",
@@ -257,6 +258,38 @@ class TestSend(unittest.TestCase):
         push_events.run("send", now=_at(21 + 45), http=http)  # 45 min later
         self.assertEqual(http.posts, [], "a 45-minute-old goal alert isn't sent")
         self.assertEqual(json.loads(self.pending.read_text()), [])
+
+    def _run_outbox(self):
+        return push_events.RUN_OUTBOX_PATH
+
+    def test_detect_sends_nothing_then_deliver_sends_and_commits_nothing(self):
+        http = _Http()
+        evs = push_events.run("detect", now=_at(21), http=http)
+        self.assertEqual([e["key"] for e in evs], ["1:goal:1-0"])
+        self.assertEqual(http.posts, [], "detect never sends (the data isn't pushed yet)")
+        self.assertFalse(self.pending.exists() and json.loads(self.pending.read_text()),
+                         "the committed retry queue stays empty")
+        # After the push: deliver sends this run's events; nothing left to commit.
+        push_events.run("deliver", now=_at(21), http=http)
+        self.assertEqual([e["key"] for e in http.posts[0]["events"]], ["1:goal:1-0"])
+        self.assertEqual(json.loads(self.pending.read_text()), [])
+        self.assertFalse(self._run_outbox().exists())
+
+    def test_a_failed_deliver_keeps_them_for_the_next_run(self):
+        push_events.run("detect", now=_at(21), http=_Http())
+        push_events.run("deliver", now=_at(21), http=_Http(status=500))
+        self.assertEqual([e["key"] for e in json.loads(self.pending.read_text())],
+                         ["1:goal:1-0"], "kept in the committed retry queue")
+        http = _Http()
+        push_events.run("deliver", now=_at(26), http=http)
+        self.assertEqual([e["key"] for e in http.posts[0]["events"]], ["1:goal:1-0"])
+        self.assertEqual(json.loads(self.pending.read_text()), [])
+
+    def test_deliver_without_secret_keeps_them(self):
+        push_events.run("detect", now=_at(21), http=_Http())
+        with mock.patch.dict(os.environ, {"PUSH_EVENTS_SECRET": ""}):
+            push_events.run("deliver", now=_at(21), http=_Http())
+        self.assertEqual(len(json.loads(self.pending.read_text())), 1)
 
     def test_prune_keeps_highlights_longer_than_goals(self):
         now = _at(0)
