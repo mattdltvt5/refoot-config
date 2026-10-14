@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-14T20:56:14Z",
+  "generated_at": "2026-10-14T21:01:38Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -2499,7 +2499,7 @@
         {
           "gameweek": "MD2",
           "stem": "matchday-2",
-          "total": 12,
+          "total": 15,
           "covered": 11,
           "matches": [
             {
@@ -2583,6 +2583,30 @@
               "match_id": 575355,
               "home": "Aston Villa FC",
               "away": "Fenerbahçe SK",
+              "date": "2026-10-14",
+              "covered": false,
+              "pending": true
+            },
+            {
+              "match_id": 575354,
+              "home": "FK Bodø/Glimt",
+              "away": "Borussia Dortmund",
+              "date": "2026-10-14",
+              "covered": false,
+              "pending": true
+            },
+            {
+              "match_id": 575357,
+              "home": "FK Shakhtar Donetsk",
+              "away": "PAE AEK",
+              "date": "2026-10-14",
+              "covered": false,
+              "pending": true
+            },
+            {
+              "match_id": 575358,
+              "home": "ŠK Slovan Bratislava",
+              "away": "VfB Stuttgart",
               "date": "2026-10-14",
               "covered": false,
               "pending": true
