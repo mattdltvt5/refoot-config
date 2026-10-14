@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-14T21:01:38Z",
+  "generated_at": "2026-10-14T21:06:43Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -2499,7 +2499,7 @@
         {
           "gameweek": "MD2",
           "stem": "matchday-2",
-          "total": 15,
+          "total": 18,
           "covered": 11,
           "matches": [
             {
@@ -2607,6 +2607,30 @@
               "match_id": 575358,
               "home": "ŠK Slovan Bratislava",
               "away": "VfB Stuttgart",
+              "date": "2026-10-14",
+              "covered": false,
+              "pending": true
+            },
+            {
+              "match_id": 575352,
+              "home": "AS Roma",
+              "away": "Real Madrid CF",
+              "date": "2026-10-14",
+              "covered": false,
+              "pending": true
+            },
+            {
+              "match_id": 575353,
+              "home": "Manchester City FC",
+              "away": "Paris Saint-Germain FC",
+              "date": "2026-10-14",
+              "covered": false,
+              "pending": true
+            },
+            {
+              "match_id": 575356,
+              "home": "Real Betis Balompié",
+              "away": "FC Porto",
               "date": "2026-10-14",
               "covered": false,
               "pending": true
