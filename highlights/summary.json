@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-14T18:46:17Z",
+  "generated_at": "2026-10-14T18:51:17Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -2499,7 +2499,7 @@
         {
           "gameweek": "MD2",
           "stem": "matchday-2",
-          "total": 10,
+          "total": 11,
           "covered": 9,
           "matches": [
             {
@@ -2569,6 +2569,14 @@
               "match_id": 575350,
               "home": "LASK Linz",
               "away": "Liverpool FC",
+              "date": "2026-10-14",
+              "covered": false,
+              "pending": true
+            },
+            {
+              "match_id": 575351,
+              "home": "Feyenoord Rotterdam",
+              "away": "Como 1907",
               "date": "2026-10-14",
               "covered": false,
               "pending": true
