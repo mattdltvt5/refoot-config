@@ -355,3 +355,23 @@ class GoalScorerTests(unittest.TestCase):
         self.assertEqual(t["short"], "FC K\u00f6ln")
         # No shortName, no curated name: no short (the server shows `name`).
         self.assertNotIn("short", push_events._team({"id": 62, "name": "Everton FC"}))
+
+
+class GoalCountTests(unittest.TestCase):
+    """Several goals between two checks are counted per side."""
+
+    def test_counts(self):
+        self.assertEqual(push_events._goals({"homeScore": 0, "awayScore": 2},
+                                            {"homeScore": 0, "awayScore": 0}), {"home": 0, "away": 2})
+        self.assertEqual(push_events._goals({"homeScore": 1, "awayScore": 1}, None), {"home": 1, "away": 1})
+
+    def test_goal_event_carries_counts(self):
+        now = datetime(2026, 10, 14, 19, 26, tzinfo=timezone.utc)
+        base = {"match_id": 575353, "competition": "ucl", "status": "IN_PLAY",
+                "utcDate": "2026-10-14T19:00:00Z",
+                "homeTeam": {"id": 65, "name": "Manchester City FC", "shortName": "Man City"},
+                "awayTeam": {"id": 524, "name": "Paris Saint-Germain FC", "shortName": "PSG"}}
+        events, _ = push_events.detect({575353: {**base, "homeScore": 0, "awayScore": 0}},
+                                       {575353: {**base, "homeScore": 0, "awayScore": 2}}, now, {})
+        goal = [e for e in events if e["type"] == "goal"][0]
+        self.assertEqual((goal["scorer"], goal["goals"]), ("away", {"home": 0, "away": 2}))
