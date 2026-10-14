@@ -4,6 +4,16 @@ Remote channel configuration for the **ReFoot Highlights** Android app.
 
 ## Recent changes
 
+### Push: goal counts + delivery receipts in the privacy policy (2026-10-14)
+
+Goal events now carry `goals`: `{home, away}` goals since the previous state. Several goals can land between two
+5-minute checks: Man City v PSG went 0-0 → 0-2 between the 19:20 and 19:25 runs. The Cloud Function
+(refoot_flutter #161) turns it into "⚽ 2 goals for PSG!".
+
+`privacy.html` (kept identical to the app's copy) adds the delivery receipts: on every push the device reports
+which notification arrived, when, whether ReFoot was open, and an anonymous device code; these are deleted after
+30 days. Tests: `GoalCountTests`.
+
 ### Push: goal events say who scored, with short names (2026-10-11)
 
 `scripts/push_events.py` goal events now carry `scorer`: `home`, `away`, or `both` when each side scored between

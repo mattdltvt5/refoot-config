@@ -170,6 +170,14 @@ def _team(t: dict | None) -> dict:
     return out
 
 
+def _goals(m: dict, p: dict | None) -> dict:
+    """Goals per side since the previous state (several can land between two
+    5-minute checks): {'home': n, 'away': n}."""
+    p = p or {}
+    return {"home": max(0, (m.get("homeScore") or 0) - (p.get("homeScore") or 0)),
+            "away": max(0, (m.get("awayScore") or 0) - (p.get("awayScore") or 0))}
+
+
 def _scorer(m: dict, p: dict | None) -> str | None:
     """Which side scored since the previous state: 'home', 'away', 'both'
     (each scored between two checks), or None."""
@@ -229,7 +237,7 @@ def detect(prev: dict[int, dict], curr: dict[int, dict], now: datetime,
             t_now, t_prev = _total(m), _total(p)
             if t_now is not None and (status in LIVE or status == FINISHED):
                 if t_now > (t_prev or 0):
-                    emit("goal", f"{mid}:goal:{h}-{a}", scorer=_scorer(m, p))
+                    emit("goal", f"{mid}:goal:{h}-{a}", scorer=_scorer(m, p), goals=_goals(m, p))
                 elif t_prev is not None and t_now < t_prev:
                     emit("disallowed", f"{mid}:disallowed:{h}-{a}")
             # Final: once this final score has been seen unchanged for
