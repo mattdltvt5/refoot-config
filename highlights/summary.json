@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-14T21:46:09Z",
+  "generated_at": "2026-10-14T21:51:11Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -2500,7 +2500,7 @@
           "gameweek": "MD2",
           "stem": "matchday-2",
           "total": 18,
-          "covered": 17,
+          "covered": 18,
           "matches": [
             {
               "match_id": 575341,
@@ -2598,8 +2598,7 @@
               "home": "FK Shakhtar Donetsk",
               "away": "PAE AEK",
               "date": "2026-10-14",
-              "covered": false,
-              "pending": true
+              "covered": true
             },
             {
               "match_id": 575358,
