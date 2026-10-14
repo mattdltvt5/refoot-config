@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-14T18:16:31.410511Z",
+  "generated_at": "2026-10-14T18:21:36.925890Z",
   "slug": "ucl",
   "standings": [
     {
@@ -41,9 +41,9 @@
           "draw": 0,
           "lost": 0,
           "points": 6,
-          "goalsFor": 7,
-          "goalsAgainst": 2,
-          "goalDifference": 5
+          "goalsFor": 8,
+          "goalsAgainst": 4,
+          "goalDifference": 4
         },
         {
           "position": 3,
@@ -599,6 +599,25 @@
         {
           "position": 32,
           "team": {
+            "id": 2016,
+            "name": "LASK Linz",
+            "shortName": "LASK",
+            "tla": "LIN",
+            "crest": "https://crests.football-data.org/2016.png"
+          },
+          "playedGames": 2,
+          "form": null,
+          "won": 0,
+          "draw": 0,
+          "lost": 2,
+          "points": 0,
+          "goalsFor": 3,
+          "goalsAgainst": 7,
+          "goalDifference": -4
+        },
+        {
+          "position": 33,
+          "team": {
             "id": 521,
             "name": "Lille OSC",
             "shortName": "Lille",
@@ -616,7 +635,7 @@
           "goalDifference": -4
         },
         {
-          "position": 33,
+          "position": 34,
           "team": {
             "id": 610,
             "name": "Galatasaray SK",
@@ -635,7 +654,7 @@
           "goalDifference": -5
         },
         {
-          "position": 34,
+          "position": 35,
           "team": {
             "id": 7509,
             "name": "ŠK Slovan Bratislava",
@@ -648,25 +667,6 @@
           "won": 0,
           "draw": 0,
           "lost": 1,
-          "points": 0,
-          "goalsFor": 1,
-          "goalsAgainst": 6,
-          "goalDifference": -5
-        },
-        {
-          "position": 35,
-          "team": {
-            "id": 2016,
-            "name": "LASK Linz",
-            "shortName": "LASK",
-            "tla": "LIN",
-            "crest": "https://crests.football-data.org/2016.png"
-          },
-          "playedGames": 2,
-          "form": null,
-          "won": 0,
-          "draw": 0,
-          "lost": 2,
           "points": 0,
           "goalsFor": 1,
           "goalsAgainst": 6,
@@ -1446,7 +1446,7 @@
       "score": {
         "fullTime": {
           "home": 1,
-          "away": 5
+          "away": 6
         }
       },
       "status": "IN_PLAY",
