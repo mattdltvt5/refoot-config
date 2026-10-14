@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-14T19:16:30.572310Z",
+  "generated_at": "2026-10-14T19:21:32.450025Z",
   "slug": "ucl",
   "standings": [
     {
@@ -29,6 +29,25 @@
         {
           "position": 2,
           "team": {
+            "id": 524,
+            "name": "Paris Saint-Germain FC",
+            "shortName": "PSG",
+            "tla": "PSG",
+            "crest": "https://crests.football-data.org/524.png"
+          },
+          "playedGames": 2,
+          "form": null,
+          "won": 2,
+          "draw": 0,
+          "lost": 0,
+          "points": 6,
+          "goalsFor": 8,
+          "goalsAgainst": 1,
+          "goalDifference": 7
+        },
+        {
+          "position": 3,
+          "team": {
             "id": 64,
             "name": "Liverpool FC",
             "shortName": "Liverpool",
@@ -46,7 +65,7 @@
           "goalDifference": 4
         },
         {
-          "position": 3,
+          "position": 4,
           "team": {
             "id": 498,
             "name": "Sporting Clube de Portugal",
@@ -65,7 +84,7 @@
           "goalDifference": 4
         },
         {
-          "position": 4,
+          "position": 5,
           "team": {
             "id": 57,
             "name": "Arsenal FC",
@@ -84,7 +103,26 @@
           "goalDifference": 4
         },
         {
-          "position": 5,
+          "position": 6,
+          "team": {
+            "id": 58,
+            "name": "Aston Villa FC",
+            "shortName": "Aston Villa",
+            "tla": "AVL",
+            "crest": "https://crests.football-data.org/58.png"
+          },
+          "playedGames": 2,
+          "form": null,
+          "won": 2,
+          "draw": 0,
+          "lost": 0,
+          "points": 6,
+          "goalsFor": 4,
+          "goalsAgainst": 2,
+          "goalDifference": 2
+        },
+        {
+          "position": 7,
           "team": {
             "id": 5,
             "name": "FC Bayern München",
@@ -103,26 +141,7 @@
           "goalDifference": 5
         },
         {
-          "position": 6,
-          "team": {
-            "id": 524,
-            "name": "Paris Saint-Germain FC",
-            "shortName": "PSG",
-            "tla": "PSG",
-            "crest": "https://crests.football-data.org/524.png"
-          },
-          "playedGames": 2,
-          "form": null,
-          "won": 1,
-          "draw": 1,
-          "lost": 0,
-          "points": 4,
-          "goalsFor": 6,
-          "goalsAgainst": 1,
-          "goalDifference": 5
-        },
-        {
-          "position": 7,
+          "position": 8,
           "team": {
             "id": 10,
             "name": "VfB Stuttgart",
@@ -139,44 +158,6 @@
           "goalsFor": 3,
           "goalsAgainst": 1,
           "goalDifference": 2
-        },
-        {
-          "position": 8,
-          "team": {
-            "id": 65,
-            "name": "Manchester City FC",
-            "shortName": "Man City",
-            "tla": "MCI",
-            "crest": "https://crests.football-data.org/65.png"
-          },
-          "playedGames": 2,
-          "form": null,
-          "won": 1,
-          "draw": 1,
-          "lost": 0,
-          "points": 4,
-          "goalsFor": 2,
-          "goalsAgainst": 0,
-          "goalDifference": 2
-        },
-        {
-          "position": 9,
-          "team": {
-            "id": 58,
-            "name": "Aston Villa FC",
-            "shortName": "Aston Villa",
-            "tla": "AVL",
-            "crest": "https://crests.football-data.org/58.png"
-          },
-          "playedGames": 2,
-          "form": null,
-          "won": 1,
-          "draw": 1,
-          "lost": 0,
-          "points": 4,
-          "goalsFor": 3,
-          "goalsAgainst": 2,
-          "goalDifference": 1
         },
         {
           "position": 9,
@@ -198,7 +179,7 @@
           "goalDifference": 1
         },
         {
-          "position": 11,
+          "position": 10,
           "team": {
             "id": 4,
             "name": "Borussia Dortmund",
@@ -217,7 +198,7 @@
           "goalDifference": 1
         },
         {
-          "position": 12,
+          "position": 11,
           "team": {
             "id": 86,
             "name": "Real Madrid CF",
@@ -236,7 +217,7 @@
           "goalDifference": 1
         },
         {
-          "position": 13,
+          "position": 12,
           "team": {
             "id": 1899,
             "name": "PAE AEK",
@@ -255,7 +236,7 @@
           "goalDifference": 1
         },
         {
-          "position": 14,
+          "position": 13,
           "team": {
             "id": 7397,
             "name": "Como 1907",
@@ -274,7 +255,7 @@
           "goalDifference": 2
         },
         {
-          "position": 15,
+          "position": 14,
           "team": {
             "id": 66,
             "name": "Manchester United FC",
@@ -293,7 +274,7 @@
           "goalDifference": 2
         },
         {
-          "position": 16,
+          "position": 15,
           "team": {
             "id": 94,
             "name": "Villarreal CF",
@@ -312,7 +293,7 @@
           "goalDifference": 1
         },
         {
-          "position": 17,
+          "position": 16,
           "team": {
             "id": 78,
             "name": "Club Atlético de Madrid",
@@ -331,7 +312,7 @@
           "goalDifference": 1
         },
         {
-          "position": 18,
+          "position": 17,
           "team": {
             "id": 851,
             "name": "Club Brugge KV",
@@ -347,6 +328,25 @@
           "points": 3,
           "goalsFor": 6,
           "goalsAgainst": 6,
+          "goalDifference": 0
+        },
+        {
+          "position": 18,
+          "team": {
+            "id": 65,
+            "name": "Manchester City FC",
+            "shortName": "Man City",
+            "tla": "MCI",
+            "crest": "https://crests.football-data.org/65.png"
+          },
+          "playedGames": 2,
+          "form": null,
+          "won": 1,
+          "draw": 0,
+          "lost": 1,
+          "points": 3,
+          "goalsFor": 2,
+          "goalsAgainst": 2,
           "goalDifference": 0
         },
         {
@@ -475,15 +475,15 @@
           "playedGames": 2,
           "form": null,
           "won": 0,
-          "draw": 2,
-          "lost": 0,
-          "points": 2,
+          "draw": 1,
+          "lost": 1,
+          "points": 1,
           "goalsFor": 1,
-          "goalsAgainst": 1,
-          "goalDifference": 0
+          "goalsAgainst": 2,
+          "goalDifference": -1
         },
         {
-          "position": 26,
+          "position": 25,
           "team": {
             "id": 674,
             "name": "PSV",
@@ -1580,7 +1580,7 @@
       },
       "score": {
         "fullTime": {
-          "home": 0,
+          "home": 1,
           "away": 0
         }
       },
