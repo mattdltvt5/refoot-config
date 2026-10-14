@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-14T16:56:30.674083Z",
+  "generated_at": "2026-10-14T17:11:34.875731Z",
   "slug": "ucl",
   "standings": [
     {
@@ -67,6 +67,25 @@
         {
           "position": 4,
           "team": {
+            "id": 64,
+            "name": "Liverpool FC",
+            "shortName": "Liverpool",
+            "tla": "LIV",
+            "crest": "https://crests.football-data.org/64.png"
+          },
+          "playedGames": 2,
+          "form": null,
+          "won": 2,
+          "draw": 0,
+          "lost": 0,
+          "points": 6,
+          "goalsFor": 3,
+          "goalsAgainst": 1,
+          "goalDifference": 2
+        },
+        {
+          "position": 5,
+          "team": {
             "id": 5,
             "name": "FC Bayern München",
             "shortName": "Bayern",
@@ -84,7 +103,7 @@
           "goalDifference": 5
         },
         {
-          "position": 5,
+          "position": 6,
           "team": {
             "id": 7397,
             "name": "Como 1907",
@@ -98,28 +117,9 @@
           "draw": 1,
           "lost": 0,
           "points": 4,
-          "goalsFor": 4,
-          "goalsAgainst": 1,
+          "goalsFor": 5,
+          "goalsAgainst": 2,
           "goalDifference": 3
-        },
-        {
-          "position": 6,
-          "team": {
-            "id": 64,
-            "name": "Liverpool FC",
-            "shortName": "Liverpool",
-            "tla": "LIV",
-            "crest": "https://crests.football-data.org/64.png"
-          },
-          "playedGames": 2,
-          "form": null,
-          "won": 1,
-          "draw": 1,
-          "lost": 0,
-          "points": 4,
-          "goalsFor": 2,
-          "goalsAgainst": 1,
-          "goalDifference": 1
         },
         {
           "position": 7,
@@ -485,25 +485,6 @@
         {
           "position": 26,
           "team": {
-            "id": 2016,
-            "name": "LASK Linz",
-            "shortName": "LASK",
-            "tla": "LIN",
-            "crest": "https://crests.football-data.org/2016.png"
-          },
-          "playedGames": 2,
-          "form": null,
-          "won": 0,
-          "draw": 1,
-          "lost": 1,
-          "points": 1,
-          "goalsFor": 0,
-          "goalsAgainst": 1,
-          "goalDifference": -1
-        },
-        {
-          "position": 27,
-          "team": {
             "id": 5720,
             "name": "Viking FK",
             "shortName": "Viking",
@@ -521,7 +502,7 @@
           "goalDifference": -2
         },
         {
-          "position": 28,
+          "position": 27,
           "team": {
             "id": 675,
             "name": "Feyenoord Rotterdam",
@@ -535,12 +516,12 @@
           "draw": 1,
           "lost": 1,
           "points": 1,
-          "goalsFor": 1,
-          "goalsAgainst": 5,
+          "goalsFor": 2,
+          "goalsAgainst": 6,
           "goalDifference": -4
         },
         {
-          "position": 29,
+          "position": 28,
           "team": {
             "id": 108,
             "name": "FC Internazionale Milano",
@@ -559,7 +540,7 @@
           "goalDifference": -2
         },
         {
-          "position": 30,
+          "position": 29,
           "team": {
             "id": 503,
             "name": "FC Porto",
@@ -572,6 +553,25 @@
           "won": 0,
           "draw": 0,
           "lost": 1,
+          "points": 0,
+          "goalsFor": 0,
+          "goalsAgainst": 2,
+          "goalDifference": -2
+        },
+        {
+          "position": 29,
+          "team": {
+            "id": 2016,
+            "name": "LASK Linz",
+            "shortName": "LASK",
+            "tla": "LIN",
+            "crest": "https://crests.football-data.org/2016.png"
+          },
+          "playedGames": 2,
+          "form": null,
+          "won": 0,
+          "draw": 0,
+          "lost": 2,
           "points": 0,
           "goalsFor": 0,
           "goalsAgainst": 2,
@@ -1473,7 +1473,7 @@
       "score": {
         "fullTime": {
           "home": 0,
-          "away": 0
+          "away": 1
         }
       },
       "status": "IN_PLAY",
