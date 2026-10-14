@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-14T20:51:12Z",
+  "generated_at": "2026-10-14T20:56:14Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -2499,7 +2499,7 @@
         {
           "gameweek": "MD2",
           "stem": "matchday-2",
-          "total": 11,
+          "total": 12,
           "covered": 11,
           "matches": [
             {
@@ -2578,6 +2578,14 @@
               "away": "Como 1907",
               "date": "2026-10-14",
               "covered": true
+            },
+            {
+              "match_id": 575355,
+              "home": "Aston Villa FC",
+              "away": "Fenerbahçe SK",
+              "date": "2026-10-14",
+              "covered": false,
+              "pending": true
             }
           ]
         }
