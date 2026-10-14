@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-14T21:26:23Z",
+  "generated_at": "2026-10-14T21:31:32Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -2500,7 +2500,7 @@
           "gameweek": "MD2",
           "stem": "matchday-2",
           "total": 18,
-          "covered": 14,
+          "covered": 15,
           "matches": [
             {
               "match_id": 575341,
@@ -2629,8 +2629,7 @@
               "home": "Real Betis Balompié",
               "away": "FC Porto",
               "date": "2026-10-14",
-              "covered": false,
-              "pending": true
+              "covered": true
             }
           ]
         }
