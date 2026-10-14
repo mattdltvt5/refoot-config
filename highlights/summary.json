@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-14T18:51:17Z",
+  "generated_at": "2026-10-14T18:56:16Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -2500,7 +2500,7 @@
           "gameweek": "MD2",
           "stem": "matchday-2",
           "total": 11,
-          "covered": 9,
+          "covered": 10,
           "matches": [
             {
               "match_id": 575341,
@@ -2578,8 +2578,7 @@
               "home": "Feyenoord Rotterdam",
               "away": "Como 1907",
               "date": "2026-10-14",
-              "covered": false,
-              "pending": true
+              "covered": true
             }
           ]
         }
