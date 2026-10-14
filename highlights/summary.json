@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-14T18:56:16Z",
+  "generated_at": "2026-10-14T19:01:25Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -2500,7 +2500,7 @@
           "gameweek": "MD2",
           "stem": "matchday-2",
           "total": 11,
-          "covered": 10,
+          "covered": 11,
           "matches": [
             {
               "match_id": 575341,
@@ -2570,8 +2570,7 @@
               "home": "LASK Linz",
               "away": "Liverpool FC",
               "date": "2026-10-14",
-              "covered": false,
-              "pending": true
+              "covered": true
             },
             {
               "match_id": 575351,
