@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-14T21:16:37Z",
+  "generated_at": "2026-10-14T21:21:29Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -2500,7 +2500,7 @@
           "gameweek": "MD2",
           "stem": "matchday-2",
           "total": 18,
-          "covered": 11,
+          "covered": 13,
           "matches": [
             {
               "match_id": 575341,
@@ -2584,8 +2584,7 @@
               "home": "Aston Villa FC",
               "away": "Fenerbahçe SK",
               "date": "2026-10-14",
-              "covered": false,
-              "pending": true
+              "covered": true
             },
             {
               "match_id": 575354,
@@ -2616,8 +2615,7 @@
               "home": "AS Roma",
               "away": "Real Madrid CF",
               "date": "2026-10-14",
-              "covered": false,
-              "pending": true
+              "covered": true
             },
             {
               "match_id": 575353,
