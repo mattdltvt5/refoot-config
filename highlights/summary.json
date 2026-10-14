@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-13T23:56:16Z",
+  "generated_at": "2026-10-14T00:01:24Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -2500,7 +2500,7 @@
           "gameweek": "MD2",
           "stem": "matchday-2",
           "total": 9,
-          "covered": 8,
+          "covered": 9,
           "matches": [
             {
               "match_id": 575341,
@@ -2549,8 +2549,7 @@
               "home": "Club Atlético de Madrid",
               "away": "Manchester United FC",
               "date": "2026-10-13",
-              "covered": false,
-              "pending": true
+              "covered": true
             },
             {
               "match_id": 575347,
