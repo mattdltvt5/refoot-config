@@ -30,6 +30,7 @@ from fixture_providers import (
     APISPORTS_COMPETITIONS,
     ApiSportsProvider,
     ApisportsQuotaTracker,
+    preserve_finished,
 )
 from highlights_common import (
     REPO_ROOT,
@@ -414,7 +415,18 @@ def main() -> None:
     group_matches  = [] if fixtures_body is None else normalize_group(fixtures_body, team_group_map)
     log.info(f"  {len(group_matches)} group match(es)")
 
-    write_tournament(groups, matches, group_matches)
+    # Never let a finished result on disk regress to unplayed (the same guard
+    # as the FD tournaments and leagues).
+    data = {"matches": matches, "groupMatches": group_matches}
+    try:
+        prev = json.loads(OUT_PATH.read_text(encoding="utf-8")) if OUT_PATH.exists() else {}
+    except Exception:
+        prev = {}
+    kept = preserve_finished(data, prev)
+    if kept:
+        log.warning(f"  kept {kept} FINISHED result(s) the API re-served as unplayed")
+
+    write_tournament(groups, data["matches"], data["groupMatches"])
     log.info(f"API-Sports calls used today: {as_quota.calls_used}")
 
 

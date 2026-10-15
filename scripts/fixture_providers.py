@@ -117,6 +117,35 @@ def merge_preserve_finished(cached: dict, incoming: dict) -> dict:
     return cached
 
 
+def preserve_finished(data, prev):
+    """Keep finished results that football-data.org briefly re-serves unplayed.
+
+    The same FINISHED->TIMED/null flicker the league fixtures guard against
+    (merge_preserve_finished) also hits /competitions/CL: on
+    2026-10-15 at 00:46 and 01:16 UTC every UCL game of 13-14 Oct came back
+    TIMED with no score, so ucl.json - and the Home index built from it - showed
+    them as not started until the next run. A scored FINISHED match on disk is
+    kept unless the new record is FINISHED too or a terminal non-played status.
+    Applies to knockout `matches` (keyed by id) and `groupMatches` (match_id);
+    used by sync_tournaments (UCL/WC/Euro) and sync_copa_tournament (Copa).
+    Returns how many records were kept from disk.
+    """
+    kept = 0
+    for key, idf in (("matches", "id"), ("groupMatches", "match_id")):
+        old = {m.get(idf): m for m in prev.get(key, []) or [] if m.get(idf) is not None}
+        out = []
+        for m in data.get(key, []):
+            cached = old.get(m.get(idf))
+            chosen = merge_preserve_finished(cached, m) if cached else m
+            if chosen is not m:
+                kept += 1
+                # The cached record wins whole, but keep the newest video_id.
+                chosen = {**chosen, "video_id": m.get("video_id") or chosen.get("video_id")}
+            out.append(chosen)
+        data[key] = out
+    return kept
+
+
 def _parse_utc(value: str):
     """Parse an ISO-8601 UTC kickoff string to an aware datetime, or None."""
     if not value:
