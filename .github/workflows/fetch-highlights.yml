@@ -58,13 +58,12 @@ jobs:
       - name: Refresh tournament cache (scores, status, video IDs)
         run: python scripts/sync_tournaments.py
 
-      # Refresh DOMESTIC league standings only for leagues whose fixtures show a
-      # match finished in the last few hours (smart-skip) - reads the fixtures
-      # artifacts written just above, so 0 extra football-data calls on quiet
-      # cycles. Moves league standings off the once-daily job onto this ~5-min loop.
-      # football-data only (no API-Sports). sync-standings.yml still runs daily as a
-      # full backstop (and covers UCL, which has no fixtures artifact here).
-      - name: Refresh league standings (recent-finish only)
+      # Refresh standings only for competitions with a match finished in the last
+      # few hours (smart-skip) - reads the fixtures artifacts (leagues) and
+      # tournament-groups/ucl.json (UCL) written just above, so 0 extra
+      # football-data calls on quiet cycles. football-data only (no API-Sports).
+      # sync-standings.yml still runs daily as a full backstop.
+      - name: Refresh standings (recent-finish only)
         run: python scripts/sync_standings.py --if-recent-finish
 
       # Push notifications for favourite teams. Compares the match state just

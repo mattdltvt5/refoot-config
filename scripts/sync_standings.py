@@ -112,23 +112,40 @@ def main(api_key, out_dir="."):
             print(f"✗ {comp_name}: {e} — skipping", file=sys.stderr)
 
 
+def _finished_kickoffs(slug, season, out_dir="."):
+    """Kickoff strings of the FINISHED matches this run's artifacts hold for one
+    competition: fixtures/{slug}/{season}.json for the leagues, else
+    tournament-groups/{slug}.json (league phase + knockouts) for UCL, which has no
+    fixtures artifact. The tournament file is only used for the same season."""
+    def load(path):
+        try:
+            with open(path, encoding="utf-8") as f:
+                return json.load(f)
+        except (OSError, ValueError):
+            return None
+
+    data = load(os.path.join(out_dir, "fixtures", slug, f"{season}.json"))
+    if data is not None:
+        return [fx.get("utcDate") for fx in data.get("fixtures", [])
+                if fx.get("status") == "FINISHED"]
+    data = load(os.path.join(out_dir, "tournament-groups", f"{slug}.json"))
+    if data is None or data.get("season") not in (None, season):
+        return []
+    return [m.get("utcDate")
+            for m in (data.get("groupMatches") or []) + (data.get("matches") or [])
+            if m.get("status") == "FINISHED"]
+
+
 def had_recent_finish(slug, season, out_dir=".", now=None):
-    """True if fixtures/{slug}/{season}.json has a FINISHED match whose kickoff
-    (utcDate) is within RECENT_FINISH_HOURS of now. Reads the fixtures artifact
-    that fetch_highlights.py wrote this run (no extra FD call). Missing/unreadable
-    fixtures -> False (the daily full sync is the backstop)."""
+    """True if this competition has a FINISHED match whose kickoff (utcDate) is
+    within RECENT_FINISH_HOURS of now. Reads the artifacts fetch_highlights.py and
+    sync_tournaments.py wrote this run (no extra FD call): the league fixtures, or
+    the tournament file for UCL - without it the UCL table waited for the daily
+    job (on 2026-10-15 it was still pre-matchday at 10:45 UTC). Missing/unreadable
+    -> False (the daily full sync is the backstop)."""
     now = now or datetime.now(timezone.utc)
     cutoff = now - timedelta(hours=RECENT_FINISH_HOURS)
-    path = os.path.join(out_dir, "fixtures", slug, f"{season}.json")
-    try:
-        with open(path, encoding="utf-8") as f:
-            data = json.load(f)
-    except (OSError, ValueError):
-        return False
-    for fx in data.get("fixtures", []):
-        if fx.get("status") != "FINISHED":
-            continue
-        ko = fx.get("utcDate")
+    for ko in _finished_kickoffs(slug, season, out_dir):
         if not ko:
             continue
         try:
@@ -141,8 +158,8 @@ def had_recent_finish(slug, season, out_dir=".", now=None):
 
 
 def main_recent(api_key, out_dir=".", now=None):
-    """Smart-skip: refresh standings ONLY for leagues with a recent finish.
-    Competitions without a fixtures artifact (e.g. UCL) are left to the daily job."""
+    """Smart-skip: refresh standings ONLY for competitions with a recent finish
+    (leagues from their fixtures, UCL from its tournament file)."""
     season = current_season(now)
     eligible = [c for c in COMPETITIONS
                 if had_recent_finish(c[2], season, out_dir, now)]
