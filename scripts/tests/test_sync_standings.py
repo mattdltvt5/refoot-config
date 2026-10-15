@@ -248,6 +248,42 @@ class TestSmartSkip(unittest.TestCase):
                 [{'status': 'FINISHED', 'utcDate': '2026-08-01T19:00:00Z'}])   # old
             main_recent('fake-key', out_dir=d, now=self._now)
             mock_fetch.assert_not_called()
+    def _write_tournament(self, d, slug, season, group_matches, matches=()):
+        os.makedirs(os.path.join(d, 'tournament-groups'), exist_ok=True)
+        with open(os.path.join(d, 'tournament-groups', f'{slug}.json'), 'w', encoding='utf-8') as f:
+            json.dump({'season': season, 'groupMatches': group_matches,
+                       'matches': list(matches)}, f)
+
+    def test_ucl_recent_finish_comes_from_the_tournament_file(self):
+        # UCL has no fixtures artifact: its table waited for the daily job.
+        with tempfile.TemporaryDirectory() as d:
+            self._write_tournament(d, 'ucl', 2025,
+                [{'status': 'FINISHED', 'utcDate': '2026-08-23T19:00:00Z'}])
+            self.assertTrue(had_recent_finish('ucl', 2025, d, self._now))
+
+    def test_ucl_knockout_finish_counts_and_old_or_other_season_does_not(self):
+        with tempfile.TemporaryDirectory() as d:
+            self._write_tournament(d, 'ucl', 2025, [],
+                [{'status': 'FINISHED', 'utcDate': '2026-08-23T18:00:00Z'}])
+            self.assertTrue(had_recent_finish('ucl', 2025, d, self._now))
+            self._write_tournament(d, 'ucl', 2025,
+                [{'status': 'FINISHED', 'utcDate': '2026-08-20T19:00:00Z'}])
+            self.assertFalse(had_recent_finish('ucl', 2025, d, self._now))
+            self._write_tournament(d, 'ucl', 2024,
+                [{'status': 'FINISHED', 'utcDate': '2026-08-23T19:00:00Z'}])
+            self.assertFalse(had_recent_finish('ucl', 2025, d, self._now))
+
+    @patch('sync_standings.current_season', return_value=2025)
+    @patch('sync_standings.fetch_standings')
+    def test_main_recent_refreshes_ucl_after_its_games(self, mock_fetch, _season):
+        mock_fetch.return_value = {'standings': [{'type': 'TOTAL', 'table': [{'position': 1}]}]}
+        with tempfile.TemporaryDirectory() as d:
+            self._write_tournament(d, 'ucl', 2025,
+                [{'status': 'FINISHED', 'utcDate': '2026-08-23T19:00:00Z'}])
+            main_recent('fake-key', out_dir=d, now=self._now)
+            self.assertEqual([c.args[0] for c in mock_fetch.call_args_list], [2001])
+            self.assertTrue(os.path.exists(os.path.join(d, 'standings', 'ucl', '2025.json')))
+
 
 if __name__ == "__main__":
     unittest.main()
