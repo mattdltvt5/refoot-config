@@ -40,6 +40,7 @@ import urllib.request
 from datetime import datetime, timezone
 
 from highlights_common import season_for_competition, COMPETITION_SLUG_MAP
+from fixture_providers import merge_preserve_finished
 
 FD_BASE = "https://api.football-data.org/v4"
 FD_SLEEP_SECONDS = 6  # pause between football-data.org requests (10 req/min free tier)
@@ -317,6 +318,45 @@ def read_existing_video_ids(path):
     return result
 
 
+def read_existing(path):
+    """The tournament file already on disk, or {} when missing/unreadable."""
+    p = pathlib.Path(path)
+    if not p.exists():
+        return {}
+    try:
+        return json.loads(p.read_text(encoding="utf-8")) or {}
+    except Exception:
+        return {}
+
+
+def preserve_finished(data, prev):
+    """Keep finished results that football-data.org briefly re-serves unplayed.
+
+    The same FINISHED->TIMED/null flicker the league fixtures guard against
+    (fixture_providers.merge_preserve_finished) also hits /competitions/CL: on
+    2026-10-15 at 00:46 and 01:16 UTC every UCL game of 13-14 Oct came back
+    TIMED with no score, so ucl.json - and the Home index built from it - showed
+    them as not started until the next run. A scored FINISHED match on disk is
+    kept unless the new record is FINISHED too or a terminal non-played status.
+    Applies to knockout `matches` (keyed by id) and `groupMatches` (match_id).
+    Returns how many records were kept from disk.
+    """
+    kept = 0
+    for key, idf in (("matches", "id"), ("groupMatches", "match_id")):
+        old = {m.get(idf): m for m in prev.get(key, []) or [] if m.get(idf) is not None}
+        out = []
+        for m in data.get(key, []):
+            cached = old.get(m.get(idf))
+            chosen = merge_preserve_finished(cached, m) if cached else m
+            if chosen is not m:
+                kept += 1
+                # The cached record wins whole, but keep the newest video_id.
+                chosen = {**chosen, "video_id": m.get("video_id") or chosen.get("video_id")}
+            out.append(chosen)
+        data[key] = out
+    return kept
+
+
 def write_tournament(slug, data, out_dir="."):
     """Write tournament-groups/{slug}.json atomically and return the path."""
     os.makedirs(os.path.join(out_dir, "tournament-groups"), exist_ok=True)
@@ -498,6 +538,10 @@ def main(api_key, out_dir="."):
         data = build_tournament_data(
             slug, standings_payload, matches_payload, existing_video_ids
         )
+        kept = preserve_finished(data, read_existing(existing_path))
+        if kept:
+            print(f"⚠ {comp_name}: kept {kept} FINISHED result(s) the API re-served "
+                  f"as unplayed", file=sys.stderr)
         path = write_tournament(slug, data, out_dir)
         print(f"✓ {comp_name}: {path} written ({len(data['matches'])} knockout matches)")
 
