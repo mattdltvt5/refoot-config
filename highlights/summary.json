@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-16T20:46:10Z",
+  "generated_at": "2026-10-16T20:51:26Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -1562,6 +1562,22 @@
               "covered": true
             }
           ]
+        },
+        {
+          "gameweek": "GW7",
+          "stem": "gameweek-7",
+          "total": 1,
+          "covered": 0,
+          "matches": [
+            {
+              "match_id": 558573,
+              "home": "Frosinone Calcio",
+              "away": "US Sassuolo Calcio",
+              "date": "2026-10-16",
+              "covered": false,
+              "pending": true
+            }
+          ]
         }
       ]
     },
@@ -2368,6 +2384,22 @@
               "away": "Olympique de Marseille",
               "date": "2026-10-11",
               "covered": true
+            }
+          ]
+        },
+        {
+          "gameweek": "GW7",
+          "stem": "gameweek-7",
+          "total": 1,
+          "covered": 0,
+          "matches": [
+            {
+              "match_id": 559661,
+              "home": "Le Mans FC",
+              "away": "Toulouse FC",
+              "date": "2026-10-16",
+              "covered": false,
+              "pending": true
             }
           ]
         }

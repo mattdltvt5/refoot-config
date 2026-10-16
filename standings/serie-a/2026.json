@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-16T12:10:38.909361Z",
+  "generated_at": "2026-10-16T20:51:47.422550Z",
   "competition": "Serie A",
   "slug": "serie-a",
   "season": 2026,
@@ -64,6 +64,25 @@
     {
       "position": 4,
       "team": {
+        "id": 470,
+        "name": "Frosinone Calcio",
+        "shortName": "Frosinone",
+        "tla": "FRO",
+        "crest": "https://crests.football-data.org/470.png"
+      },
+      "playedGames": 7,
+      "form": "W,L,W,D,W",
+      "won": 4,
+      "draw": 1,
+      "lost": 2,
+      "points": 13,
+      "goalsFor": 13,
+      "goalsAgainst": 9,
+      "goalDifference": 4
+    },
+    {
+      "position": 5,
+      "team": {
         "id": 104,
         "name": "Cagliari Calcio",
         "shortName": "Cagliari",
@@ -81,7 +100,7 @@
       "goalDifference": 3
     },
     {
-      "position": 5,
+      "position": 6,
       "team": {
         "id": 98,
         "name": "AC Milan",
@@ -100,7 +119,7 @@
       "goalDifference": 6
     },
     {
-      "position": 6,
+      "position": 7,
       "team": {
         "id": 109,
         "name": "Juventus FC",
@@ -119,7 +138,7 @@
       "goalDifference": 4
     },
     {
-      "position": 7,
+      "position": 8,
       "team": {
         "id": 7397,
         "name": "Como 1907",
@@ -138,7 +157,7 @@
       "goalDifference": 3
     },
     {
-      "position": 8,
+      "position": 9,
       "team": {
         "id": 113,
         "name": "SSC Napoli",
@@ -155,25 +174,6 @@
       "goalsFor": 10,
       "goalsAgainst": 6,
       "goalDifference": 4
-    },
-    {
-      "position": 9,
-      "team": {
-        "id": 470,
-        "name": "Frosinone Calcio",
-        "shortName": "Frosinone",
-        "tla": "FRO",
-        "crest": "https://crests.football-data.org/470.png"
-      },
-      "playedGames": 6,
-      "form": "L,W,D,W,W",
-      "won": 3,
-      "draw": 1,
-      "lost": 2,
-      "points": 10,
-      "goalsFor": 9,
-      "goalsAgainst": 7,
-      "goalDifference": 2
     },
     {
       "position": 10,
@@ -203,15 +203,15 @@
         "tla": "SAS",
         "crest": "https://crests.football-data.org/471.png"
       },
-      "playedGames": 6,
-      "form": "D,L,W,D,W",
+      "playedGames": 7,
+      "form": "L,D,L,W,D",
       "won": 2,
       "draw": 2,
-      "lost": 2,
+      "lost": 3,
       "points": 8,
-      "goalsFor": 10,
-      "goalsAgainst": 10,
-      "goalDifference": 0
+      "goalsFor": 12,
+      "goalsAgainst": 14,
+      "goalDifference": -2
     },
     {
       "position": 12,
