@@ -1,7 +1,7 @@
 {
   "competition": "LaLiga",
   "season": 2026,
-  "generated_at": "2026-10-16T05:06:10Z",
+  "generated_at": "2026-10-16T05:11:10Z",
   "fixtures": [
     {
       "match_id": 564634,
@@ -3084,23 +3084,23 @@
       "utcDate": "2026-11-02T20:00:00Z"
     },
     {
-      "match_id": 564740,
+      "match_id": 564738,
       "group": "",
       "matchday": 12,
       "sourceRound": "Gameweek 12",
       "homeTeam": {
-        "id": 559,
-        "name": "Sevilla FC",
-        "shortName": "Sevilla FC",
-        "tla": "SEV",
-        "crest": "https://crests.football-data.org/559.png"
+        "id": 285,
+        "name": "Elche CF",
+        "shortName": "Elche",
+        "tla": "ELC",
+        "crest": "https://crests.football-data.org/285.png"
       },
       "awayTeam": {
-        "id": 263,
-        "name": "Deportivo Alavés",
-        "shortName": "Alavés",
-        "tla": "ALA",
-        "crest": "https://crests.football-data.org/263.png"
+        "id": 90,
+        "name": "Real Betis Balompié",
+        "shortName": "Real Betis",
+        "tla": "BET",
+        "crest": "https://crests.football-data.org/90.png"
       },
       "score": {
         "fullTime": {
@@ -3108,64 +3108,8 @@
           "away": null
         }
       },
-      "status": "TIMED",
-      "utcDate": "2026-11-06T20:00:00Z"
-    },
-    {
-      "match_id": 564744,
-      "group": "",
-      "matchday": 12,
-      "sourceRound": "Gameweek 12",
-      "homeTeam": {
-        "id": 84,
-        "name": "Málaga CF",
-        "shortName": "Málaga",
-        "tla": "MAL",
-        "crest": "https://crests.football-data.org/84.png"
-      },
-      "awayTeam": {
-        "id": 5335,
-        "name": "Real Racing Club de Santander",
-        "shortName": "Santander",
-        "tla": "SAN",
-        "crest": "https://crests.football-data.org/5335.png"
-      },
-      "score": {
-        "fullTime": {
-          "home": null,
-          "away": null
-        }
-      },
-      "status": "TIMED",
-      "utcDate": "2026-11-07T13:00:00Z"
-    },
-    {
-      "match_id": 564745,
-      "group": "",
-      "matchday": 12,
-      "sourceRound": "Gameweek 12",
-      "homeTeam": {
-        "id": 80,
-        "name": "RCD Espanyol de Barcelona",
-        "shortName": "Espanyol",
-        "tla": "ESP",
-        "crest": "https://crests.football-data.org/80.png"
-      },
-      "awayTeam": {
-        "id": 560,
-        "name": "RC Deportivo La Coruña",
-        "shortName": "Deportivo",
-        "tla": "DEP",
-        "crest": "https://crests.football-data.org/560.png"
-      },
-      "score": {
-        "fullTime": {
-          "home": null,
-          "away": null
-        }
-      },
-      "status": "TIMED",
-      "utcDate": "2026-11-07T15:15:00Z"
+      "status": "SCHEDULED",
+      "utcDate": "2026-11-08T00:00:00Z"
     },
     {
       "match_id": 564739,
@@ -3192,8 +3136,36 @@
           "away": null
         }
       },
-      "status": "TIMED",
-      "utcDate": "2026-11-07T17:30:00Z"
+      "status": "SCHEDULED",
+      "utcDate": "2026-11-08T00:00:00Z"
+    },
+    {
+      "match_id": 564740,
+      "group": "",
+      "matchday": 12,
+      "sourceRound": "Gameweek 12",
+      "homeTeam": {
+        "id": 559,
+        "name": "Sevilla FC",
+        "shortName": "Sevilla FC",
+        "tla": "SEV",
+        "crest": "https://crests.football-data.org/559.png"
+      },
+      "awayTeam": {
+        "id": 263,
+        "name": "Deportivo Alavés",
+        "shortName": "Alavés",
+        "tla": "ALA",
+        "crest": "https://crests.football-data.org/263.png"
+      },
+      "score": {
+        "fullTime": {
+          "home": null,
+          "away": null
+        }
+      },
+      "status": "SCHEDULED",
+      "utcDate": "2026-11-08T00:00:00Z"
     },
     {
       "match_id": 564741,
@@ -3220,64 +3192,8 @@
           "away": null
         }
       },
-      "status": "TIMED",
-      "utcDate": "2026-11-07T20:00:00Z"
-    },
-    {
-      "match_id": 564738,
-      "group": "",
-      "matchday": 12,
-      "sourceRound": "Gameweek 12",
-      "homeTeam": {
-        "id": 285,
-        "name": "Elche CF",
-        "shortName": "Elche",
-        "tla": "ELC",
-        "crest": "https://crests.football-data.org/285.png"
-      },
-      "awayTeam": {
-        "id": 90,
-        "name": "Real Betis Balompié",
-        "shortName": "Real Betis",
-        "tla": "BET",
-        "crest": "https://crests.football-data.org/90.png"
-      },
-      "score": {
-        "fullTime": {
-          "home": null,
-          "away": null
-        }
-      },
-      "status": "TIMED",
-      "utcDate": "2026-11-08T13:00:00Z"
-    },
-    {
-      "match_id": 564743,
-      "group": "",
-      "matchday": 12,
-      "sourceRound": "Gameweek 12",
-      "homeTeam": {
-        "id": 92,
-        "name": "Real Sociedad de Fútbol",
-        "shortName": "Real Sociedad",
-        "tla": "RSO",
-        "crest": "https://crests.football-data.org/92.png"
-      },
-      "awayTeam": {
-        "id": 87,
-        "name": "Rayo Vallecano de Madrid",
-        "shortName": "Rayo Vallecano",
-        "tla": "RAY",
-        "crest": "https://crests.football-data.org/87.png"
-      },
-      "score": {
-        "fullTime": {
-          "home": null,
-          "away": null
-        }
-      },
-      "status": "TIMED",
-      "utcDate": "2026-11-08T15:15:00Z"
+      "status": "SCHEDULED",
+      "utcDate": "2026-11-08T00:00:00Z"
     },
     {
       "match_id": 564742,
@@ -3304,27 +3220,27 @@
           "away": null
         }
       },
-      "status": "TIMED",
-      "utcDate": "2026-11-08T17:30:00Z"
+      "status": "SCHEDULED",
+      "utcDate": "2026-11-08T00:00:00Z"
     },
     {
-      "match_id": 564747,
+      "match_id": 564743,
       "group": "",
       "matchday": 12,
       "sourceRound": "Gameweek 12",
       "homeTeam": {
-        "id": 94,
-        "name": "Villarreal CF",
-        "shortName": "Villarreal",
-        "tla": "VIL",
-        "crest": "https://crests.football-data.org/94.png"
+        "id": 92,
+        "name": "Real Sociedad de Fútbol",
+        "shortName": "Real Sociedad",
+        "tla": "RSO",
+        "crest": "https://crests.football-data.org/92.png"
       },
       "awayTeam": {
-        "id": 82,
-        "name": "Getafe CF",
-        "shortName": "Getafe",
-        "tla": "GET",
-        "crest": "https://crests.football-data.org/82.png"
+        "id": 87,
+        "name": "Rayo Vallecano de Madrid",
+        "shortName": "Rayo Vallecano",
+        "tla": "RAY",
+        "crest": "https://crests.football-data.org/87.png"
       },
       "score": {
         "fullTime": {
@@ -3332,8 +3248,64 @@
           "away": null
         }
       },
-      "status": "TIMED",
-      "utcDate": "2026-11-08T17:30:00Z"
+      "status": "SCHEDULED",
+      "utcDate": "2026-11-08T00:00:00Z"
+    },
+    {
+      "match_id": 564744,
+      "group": "",
+      "matchday": 12,
+      "sourceRound": "Gameweek 12",
+      "homeTeam": {
+        "id": 84,
+        "name": "Málaga CF",
+        "shortName": "Málaga",
+        "tla": "MAL",
+        "crest": "https://crests.football-data.org/84.png"
+      },
+      "awayTeam": {
+        "id": 5335,
+        "name": "Real Racing Club de Santander",
+        "shortName": "Santander",
+        "tla": "SAN",
+        "crest": "https://crests.football-data.org/5335.png"
+      },
+      "score": {
+        "fullTime": {
+          "home": null,
+          "away": null
+        }
+      },
+      "status": "SCHEDULED",
+      "utcDate": "2026-11-08T00:00:00Z"
+    },
+    {
+      "match_id": 564745,
+      "group": "",
+      "matchday": 12,
+      "sourceRound": "Gameweek 12",
+      "homeTeam": {
+        "id": 80,
+        "name": "RCD Espanyol de Barcelona",
+        "shortName": "Espanyol",
+        "tla": "ESP",
+        "crest": "https://crests.football-data.org/80.png"
+      },
+      "awayTeam": {
+        "id": 560,
+        "name": "RC Deportivo La Coruña",
+        "shortName": "Deportivo",
+        "tla": "DEP",
+        "crest": "https://crests.football-data.org/560.png"
+      },
+      "score": {
+        "fullTime": {
+          "home": null,
+          "away": null
+        }
+      },
+      "status": "SCHEDULED",
+      "utcDate": "2026-11-08T00:00:00Z"
     },
     {
       "match_id": 564746,
@@ -3360,8 +3332,36 @@
           "away": null
         }
       },
-      "status": "TIMED",
-      "utcDate": "2026-11-08T20:00:00Z"
+      "status": "SCHEDULED",
+      "utcDate": "2026-11-08T00:00:00Z"
+    },
+    {
+      "match_id": 564747,
+      "group": "",
+      "matchday": 12,
+      "sourceRound": "Gameweek 12",
+      "homeTeam": {
+        "id": 94,
+        "name": "Villarreal CF",
+        "shortName": "Villarreal",
+        "tla": "VIL",
+        "crest": "https://crests.football-data.org/94.png"
+      },
+      "awayTeam": {
+        "id": 82,
+        "name": "Getafe CF",
+        "shortName": "Getafe",
+        "tla": "GET",
+        "crest": "https://crests.football-data.org/82.png"
+      },
+      "score": {
+        "fullTime": {
+          "home": null,
+          "away": null
+        }
+      },
+      "status": "SCHEDULED",
+      "utcDate": "2026-11-08T00:00:00Z"
     },
     {
       "match_id": 564748,
