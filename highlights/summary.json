@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-16T21:01:33Z",
+  "generated_at": "2026-10-16T21:06:17Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -1567,15 +1567,14 @@
           "gameweek": "GW7",
           "stem": "gameweek-7",
           "total": 1,
-          "covered": 0,
+          "covered": 1,
           "matches": [
             {
               "match_id": 558573,
               "home": "Frosinone Calcio",
               "away": "US Sassuolo Calcio",
               "date": "2026-10-16",
-              "covered": false,
-              "pending": true
+              "covered": true
             }
           ]
         }
