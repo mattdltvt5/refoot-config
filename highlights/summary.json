@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-16T21:06:17Z",
+  "generated_at": "2026-10-16T21:11:31Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -1086,6 +1086,22 @@
               "away": "Sevilla FC",
               "date": "2026-10-12",
               "covered": true
+            }
+          ]
+        },
+        {
+          "gameweek": "GW9",
+          "stem": "gameweek-9",
+          "total": 1,
+          "covered": 0,
+          "matches": [
+            {
+              "match_id": 564716,
+              "home": "RC Deportivo La Coruña",
+              "away": "Levante UD",
+              "date": "2026-10-16",
+              "covered": false,
+              "pending": true
             }
           ]
         }
@@ -2390,15 +2406,14 @@
           "gameweek": "GW7",
           "stem": "gameweek-7",
           "total": 1,
-          "covered": 0,
+          "covered": 1,
           "matches": [
             {
               "match_id": 559661,
               "home": "Le Mans FC",
               "away": "Toulouse FC",
               "date": "2026-10-16",
-              "covered": false,
-              "pending": true
+              "covered": true
             }
           ]
         }
