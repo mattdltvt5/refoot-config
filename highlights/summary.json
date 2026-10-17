@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-17T14:01:23Z",
+  "generated_at": "2026-10-17T14:06:27Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -1108,7 +1108,7 @@
         {
           "gameweek": "GW9",
           "stem": "gameweek-9",
-          "total": 1,
+          "total": 2,
           "covered": 1,
           "matches": [
             {
@@ -1117,6 +1117,14 @@
               "away": "Levante UD",
               "date": "2026-10-16",
               "covered": true
+            },
+            {
+              "match_id": 564710,
+              "home": "RCD Espanyol de Barcelona",
+              "away": "Club Atlético de Madrid",
+              "date": "2026-10-17",
+              "covered": false,
+              "pending": true
             }
           ]
         }
