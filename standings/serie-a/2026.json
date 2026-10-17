@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-17T11:28:45.912173Z",
+  "generated_at": "2026-10-17T15:06:56.608334Z",
   "competition": "Serie A",
   "slug": "serie-a",
   "season": 2026,
@@ -165,15 +165,15 @@
         "tla": "NAP",
         "crest": "https://crests.football-data.org/113.png"
       },
-      "playedGames": 6,
-      "form": "W,D,W,L,L",
+      "playedGames": 7,
+      "form": "L,W,D,W,L",
       "won": 3,
       "draw": 1,
-      "lost": 2,
+      "lost": 3,
       "points": 10,
       "goalsFor": 10,
-      "goalsAgainst": 6,
-      "goalDifference": 4
+      "goalsAgainst": 7,
+      "goalDifference": 3
     },
     {
       "position": 10,
@@ -374,15 +374,15 @@
         "tla": "VEN",
         "crest": "https://crests.football-data.org/454.png"
       },
-      "playedGames": 6,
-      "form": "L,L,L,L,L",
-      "won": 0,
+      "playedGames": 7,
+      "form": "W,L,L,L,L",
+      "won": 1,
       "draw": 0,
       "lost": 6,
-      "points": 0,
-      "goalsFor": 5,
+      "points": 3,
+      "goalsFor": 6,
       "goalsAgainst": 16,
-      "goalDifference": -11
+      "goalDifference": -10
     }
   ]
 }
