@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-17T17:41:39Z",
+  "generated_at": "2026-10-17T17:46:32Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -2501,7 +2501,7 @@
           "gameweek": "GW7",
           "stem": "gameweek-7",
           "total": 2,
-          "covered": 1,
+          "covered": 2,
           "matches": [
             {
               "match_id": 559661,
@@ -2515,8 +2515,7 @@
               "home": "RC Strasbourg Alsace",
               "away": "Paris Saint-Germain FC",
               "date": "2026-10-17",
-              "covered": false,
-              "pending": true
+              "covered": true
             }
           ]
         }
