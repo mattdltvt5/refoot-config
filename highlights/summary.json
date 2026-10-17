@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-17T18:36:36Z",
+  "generated_at": "2026-10-17T18:41:53Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -1140,7 +1140,7 @@
         {
           "gameweek": "GW9",
           "stem": "gameweek-9",
-          "total": 3,
+          "total": 4,
           "covered": 3,
           "matches": [
             {
@@ -1163,6 +1163,14 @@
               "away": "Elche CF",
               "date": "2026-10-17",
               "covered": true
+            },
+            {
+              "match_id": 564713,
+              "home": "Real Betis Balompié",
+              "away": "FC Barcelona",
+              "date": "2026-10-17",
+              "covered": false,
+              "pending": true
             }
           ]
         }
