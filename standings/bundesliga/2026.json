@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-17T15:37:13.848447Z",
+  "generated_at": "2026-10-17T15:42:14.824316Z",
   "competition": "Bundesliga",
   "slug": "bundesliga",
   "season": 2026,
@@ -102,6 +102,25 @@
     {
       "position": 6,
       "team": {
+        "id": 719,
+        "name": "SV 07 Elversberg",
+        "shortName": "Elversberg",
+        "tla": "ELV",
+        "crest": "https://crests.football-data.org/719.png"
+      },
+      "playedGames": 6,
+      "form": "W,L,D,L,W",
+      "won": 3,
+      "draw": 1,
+      "lost": 2,
+      "points": 10,
+      "goalsFor": 12,
+      "goalsAgainst": 11,
+      "goalDifference": 1
+    },
+    {
+      "position": 7,
+      "team": {
         "id": 721,
         "name": "RB Leipzig",
         "shortName": "RB Leipzig",
@@ -119,7 +138,7 @@
       "goalDifference": 10
     },
     {
-      "position": 7,
+      "position": 8,
       "team": {
         "id": 12,
         "name": "SV Werder Bremen",
@@ -138,7 +157,7 @@
       "goalDifference": 0
     },
     {
-      "position": 8,
+      "position": 9,
       "team": {
         "id": 7,
         "name": "Hamburger SV",
@@ -157,7 +176,7 @@
       "goalDifference": -9
     },
     {
-      "position": 9,
+      "position": 10,
       "team": {
         "id": 16,
         "name": "FC Augsburg",
@@ -165,18 +184,18 @@
         "tla": "FCA",
         "crest": "https://crests.football-data.org/16.png"
       },
-      "playedGames": 5,
-      "form": "D,L,D,W,W",
+      "playedGames": 6,
+      "form": "L,D,L,D,W",
       "won": 2,
       "draw": 2,
-      "lost": 1,
+      "lost": 2,
       "points": 8,
-      "goalsFor": 13,
-      "goalsAgainst": 8,
-      "goalDifference": 5
+      "goalsFor": 16,
+      "goalsAgainst": 12,
+      "goalDifference": 4
     },
     {
-      "position": 10,
+      "position": 11,
       "team": {
         "id": 19,
         "name": "Eintracht Frankfurt",
@@ -193,25 +212,6 @@
       "goalsFor": 10,
       "goalsAgainst": 16,
       "goalDifference": -6
-    },
-    {
-      "position": 11,
-      "team": {
-        "id": 719,
-        "name": "SV 07 Elversberg",
-        "shortName": "Elversberg",
-        "tla": "ELV",
-        "crest": "https://crests.football-data.org/719.png"
-      },
-      "playedGames": 5,
-      "form": "L,D,L,W,W",
-      "won": 2,
-      "draw": 1,
-      "lost": 2,
-      "points": 7,
-      "goalsFor": 8,
-      "goalsAgainst": 8,
-      "goalDifference": 0
     },
     {
       "position": 12,
