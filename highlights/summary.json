@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-17T15:26:13Z",
+  "generated_at": "2026-10-17T15:31:34Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -1987,7 +1987,7 @@
         {
           "gameweek": "GW6",
           "stem": "gameweek-6",
-          "total": 1,
+          "total": 4,
           "covered": 1,
           "matches": [
             {
@@ -1996,6 +1996,30 @@
               "away": "1. FC Köln",
               "date": "2026-10-16",
               "covered": true
+            },
+            {
+              "match_id": 565822,
+              "home": "Hamburger SV",
+              "away": "VfB Stuttgart",
+              "date": "2026-10-17",
+              "covered": false,
+              "pending": true
+            },
+            {
+              "match_id": 565823,
+              "home": "SV Werder Bremen",
+              "away": "SC Paderborn 07",
+              "date": "2026-10-17",
+              "covered": false,
+              "pending": true
+            },
+            {
+              "match_id": 565829,
+              "home": "FC Schalke 04",
+              "away": "1. FSV Mainz 05",
+              "date": "2026-10-17",
+              "covered": false,
+              "pending": true
             }
           ]
         }
