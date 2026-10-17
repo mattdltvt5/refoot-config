@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-17T16:31:40Z",
+  "generated_at": "2026-10-17T16:36:25Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -1133,7 +1133,7 @@
           "gameweek": "GW9",
           "stem": "gameweek-9",
           "total": 3,
-          "covered": 2,
+          "covered": 3,
           "matches": [
             {
               "match_id": 564716,
@@ -1154,8 +1154,7 @@
               "home": "Villarreal CF",
               "away": "Elche CF",
               "date": "2026-10-17",
-              "covered": false,
-              "pending": true
+              "covered": true
             }
           ]
         }
