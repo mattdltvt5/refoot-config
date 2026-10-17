@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-17T15:41:38Z",
+  "generated_at": "2026-10-17T15:46:40Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -1987,7 +1987,7 @@
         {
           "gameweek": "GW6",
           "stem": "gameweek-6",
-          "total": 5,
+          "total": 6,
           "covered": 1,
           "matches": [
             {
@@ -2025,6 +2025,14 @@
               "match_id": 565821,
               "home": "1. FC Union Berlin",
               "away": "Borussia Dortmund",
+              "date": "2026-10-17",
+              "covered": false,
+              "pending": true
+            },
+            {
+              "match_id": 565824,
+              "home": "SV 07 Elversberg",
+              "away": "FC Augsburg",
               "date": "2026-10-17",
               "covered": false,
               "pending": true
