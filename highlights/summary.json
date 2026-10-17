@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-17T20:46:40Z",
+  "generated_at": "2026-10-17T20:52:01Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -2537,7 +2537,7 @@
         {
           "gameweek": "GW7",
           "stem": "gameweek-7",
-          "total": 3,
+          "total": 4,
           "covered": 2,
           "matches": [
             {
@@ -2558,6 +2558,14 @@
               "match_id": 559660,
               "home": "Lille OSC",
               "away": "Stade Brestois 29",
+              "date": "2026-10-17",
+              "covered": false,
+              "pending": true
+            },
+            {
+              "match_id": 559659,
+              "home": "ES Troyes AC",
+              "away": "Racing Club de Lens",
               "date": "2026-10-17",
               "covered": false,
               "pending": true
