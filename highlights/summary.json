@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-17T20:41:28Z",
+  "generated_at": "2026-10-17T20:46:40Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -1650,7 +1650,7 @@
         {
           "gameweek": "GW7",
           "stem": "gameweek-7",
-          "total": 3,
+          "total": 4,
           "covered": 3,
           "matches": [
             {
@@ -1673,6 +1673,14 @@
               "away": "FC Internazionale Milano",
               "date": "2026-10-17",
               "covered": true
+            },
+            {
+              "match_id": 558572,
+              "home": "AS Roma",
+              "away": "Genoa CFC",
+              "date": "2026-10-17",
+              "covered": false,
+              "pending": true
             }
           ]
         }
@@ -2529,7 +2537,7 @@
         {
           "gameweek": "GW7",
           "stem": "gameweek-7",
-          "total": 2,
+          "total": 3,
           "covered": 2,
           "matches": [
             {
@@ -2545,6 +2553,14 @@
               "away": "Paris Saint-Germain FC",
               "date": "2026-10-17",
               "covered": true
+            },
+            {
+              "match_id": 559660,
+              "home": "Lille OSC",
+              "away": "Stade Brestois 29",
+              "date": "2026-10-17",
+              "covered": false,
+              "pending": true
             }
           ]
         }

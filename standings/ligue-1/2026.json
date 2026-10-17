@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-17T19:12:19.255397Z",
+  "generated_at": "2026-10-17T20:47:07.699273Z",
   "competition": "Ligue 1",
   "slug": "ligue-1",
   "season": 2026,
@@ -26,6 +26,25 @@
     {
       "position": 2,
       "team": {
+        "id": 521,
+        "name": "Lille OSC",
+        "shortName": "Lille",
+        "tla": "LIL",
+        "crest": "https://crests.football-data.org/521.png"
+      },
+      "playedGames": 7,
+      "form": "D,W,L,W,W",
+      "won": 4,
+      "draw": 2,
+      "lost": 1,
+      "points": 14,
+      "goalsFor": 10,
+      "goalsAgainst": 5,
+      "goalDifference": 5
+    },
+    {
+      "position": 3,
+      "team": {
         "id": 548,
         "name": "AS Monaco FC",
         "shortName": "Monaco",
@@ -40,25 +59,6 @@
       "points": 14,
       "goalsFor": 10,
       "goalsAgainst": 5,
-      "goalDifference": 5
-    },
-    {
-      "position": 3,
-      "team": {
-        "id": 521,
-        "name": "Lille OSC",
-        "shortName": "Lille",
-        "tla": "LIL",
-        "crest": "https://crests.football-data.org/521.png"
-      },
-      "playedGames": 6,
-      "form": "W,L,W,W,D",
-      "won": 4,
-      "draw": 1,
-      "lost": 1,
-      "points": 13,
-      "goalsFor": 9,
-      "goalsAgainst": 4,
       "goalDifference": 5
     },
     {
@@ -121,6 +121,44 @@
     {
       "position": 7,
       "team": {
+        "id": 546,
+        "name": "Racing Club de Lens",
+        "shortName": "RC Lens",
+        "tla": "RCL",
+        "crest": "https://crests.football-data.org/546.png"
+      },
+      "playedGames": 7,
+      "form": "W,W,L,D,L",
+      "won": 3,
+      "draw": 1,
+      "lost": 3,
+      "points": 10,
+      "goalsFor": 14,
+      "goalsAgainst": 11,
+      "goalDifference": 3
+    },
+    {
+      "position": 8,
+      "team": {
+        "id": 512,
+        "name": "Stade Brestois 29",
+        "shortName": "Brest",
+        "tla": "BRE",
+        "crest": "https://crests.football-data.org/512.png"
+      },
+      "playedGames": 7,
+      "form": "D,W,L,L,W",
+      "won": 2,
+      "draw": 3,
+      "lost": 2,
+      "points": 9,
+      "goalsFor": 13,
+      "goalsAgainst": 10,
+      "goalDifference": 3
+    },
+    {
+      "position": 9,
+      "team": {
         "id": 511,
         "name": "Toulouse FC",
         "shortName": "Toulouse",
@@ -138,26 +176,7 @@
       "goalDifference": 1
     },
     {
-      "position": 8,
-      "team": {
-        "id": 512,
-        "name": "Stade Brestois 29",
-        "shortName": "Brest",
-        "tla": "BRE",
-        "crest": "https://crests.football-data.org/512.png"
-      },
-      "playedGames": 6,
-      "form": "W,L,L,W,D",
-      "won": 2,
-      "draw": 2,
-      "lost": 2,
-      "points": 8,
-      "goalsFor": 12,
-      "goalsAgainst": 9,
-      "goalDifference": 3
-    },
-    {
-      "position": 9,
+      "position": 10,
       "team": {
         "id": 525,
         "name": "FC Lorient",
@@ -176,7 +195,7 @@
       "goalDifference": 0
     },
     {
-      "position": 10,
+      "position": 11,
       "team": {
         "id": 522,
         "name": "OGC Nice",
@@ -193,25 +212,6 @@
       "goalsFor": 5,
       "goalsAgainst": 7,
       "goalDifference": -2
-    },
-    {
-      "position": 11,
-      "team": {
-        "id": 546,
-        "name": "Racing Club de Lens",
-        "shortName": "RC Lens",
-        "tla": "RCL",
-        "crest": "https://crests.football-data.org/546.png"
-      },
-      "playedGames": 6,
-      "form": "W,L,D,L,L",
-      "won": 2,
-      "draw": 1,
-      "lost": 3,
-      "points": 7,
-      "goalsFor": 11,
-      "goalsAgainst": 10,
-      "goalDifference": 1
     },
     {
       "position": 12,
@@ -317,15 +317,15 @@
         "tla": "ETR",
         "crest": "https://crests.football-data.org/531.png"
       },
-      "playedGames": 6,
-      "form": "L,L,L,L,W",
+      "playedGames": 7,
+      "form": "L,L,L,L,L",
       "won": 1,
       "draw": 1,
-      "lost": 4,
+      "lost": 5,
       "points": 4,
-      "goalsFor": 4,
-      "goalsAgainst": 13,
-      "goalDifference": -9
+      "goalsFor": 5,
+      "goalsAgainst": 16,
+      "goalDifference": -11
     },
     {
       "position": 18,
