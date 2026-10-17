@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-17T18:06:30Z",
+  "generated_at": "2026-10-17T18:11:31Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -1636,7 +1636,7 @@
           "gameweek": "GW7",
           "stem": "gameweek-7",
           "total": 3,
-          "covered": 2,
+          "covered": 3,
           "matches": [
             {
               "match_id": 558573,
@@ -1657,8 +1657,7 @@
               "home": "Bologna FC 1909",
               "away": "FC Internazionale Milano",
               "date": "2026-10-17",
-              "covered": false,
-              "pending": true
+              "covered": true
             }
           ]
         }
