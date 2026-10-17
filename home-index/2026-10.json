@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-17T16:07:00Z",
+  "generated_at": "2026-10-17T16:11:09Z",
   "month": "2026-10",
   "dates": {
     "2026-10-09": [
@@ -1752,7 +1752,7 @@
             },
             "homeScore": 3,
             "awayScore": 2,
-            "status": "IN_PLAY",
+            "status": "FINISHED",
             "utcDate": "2026-10-17T14:00:00Z"
           },
           {
@@ -1932,9 +1932,9 @@
               "tla": "INT",
               "crest": "https://crests.football-data.org/108.png"
             },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "TIMED",
+            "homeScore": 0,
+            "awayScore": 0,
+            "status": "IN_PLAY",
             "utcDate": "2026-10-17T16:00:00Z"
           },
           {

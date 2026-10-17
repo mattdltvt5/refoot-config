@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-17T16:06:23Z",
+  "generated_at": "2026-10-17T16:11:23Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -476,7 +476,7 @@
         {
           "gameweek": "GW7",
           "stem": "gameweek-7",
-          "total": 2,
+          "total": 3,
           "covered": 0,
           "matches": [
             {
@@ -491,6 +491,14 @@
               "match_id": 560602,
               "home": "Fulham FC",
               "away": "Hull City AFC",
+              "date": "2026-10-17",
+              "covered": false,
+              "pending": true
+            },
+            {
+              "match_id": 560610,
+              "home": "Manchester City FC",
+              "away": "Ipswich Town FC",
               "date": "2026-10-17",
               "covered": false,
               "pending": true
