@@ -1,7 +1,7 @@
 {
   "competition": "Ligue 1",
   "season": 2026,
-  "generated_at": "2026-10-17T18:51:08Z",
+  "generated_at": "2026-10-17T18:56:21Z",
   "fixtures": [
     {
       "match_id": 559715,
@@ -1592,11 +1592,11 @@
       },
       "score": {
         "fullTime": {
-          "home": null,
-          "away": null
+          "home": 0,
+          "away": 0
         }
       },
-      "status": "TIMED",
+      "status": "IN_PLAY",
       "utcDate": "2026-10-17T18:45:00Z"
     },
     {
@@ -1620,11 +1620,11 @@
       },
       "score": {
         "fullTime": {
-          "home": null,
-          "away": null
+          "home": 0,
+          "away": 0
         }
       },
-      "status": "TIMED",
+      "status": "IN_PLAY",
       "utcDate": "2026-10-17T18:45:00Z"
     },
     {
