@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-17T20:52:01Z",
+  "generated_at": "2026-10-17T20:56:45Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -1651,7 +1651,7 @@
           "gameweek": "GW7",
           "stem": "gameweek-7",
           "total": 4,
-          "covered": 3,
+          "covered": 4,
           "matches": [
             {
               "match_id": 558573,
@@ -1679,8 +1679,7 @@
               "home": "AS Roma",
               "away": "Genoa CFC",
               "date": "2026-10-17",
-              "covered": false,
-              "pending": true
+              "covered": true
             }
           ]
         }
