@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-17T20:56:45Z",
+  "generated_at": "2026-10-17T21:01:43Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -1140,8 +1140,8 @@
         {
           "gameweek": "GW9",
           "stem": "gameweek-9",
-          "total": 4,
-          "covered": 4,
+          "total": 5,
+          "covered": 5,
           "matches": [
             {
               "match_id": 564716,
@@ -1168,6 +1168,13 @@
               "match_id": 564713,
               "home": "Real Betis Balompié",
               "away": "FC Barcelona",
+              "date": "2026-10-17",
+              "covered": true
+            },
+            {
+              "match_id": 564711,
+              "home": "Valencia CF",
+              "away": "Athletic Club",
               "date": "2026-10-17",
               "covered": true
             }
