@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-17T16:01:42Z",
+  "generated_at": "2026-10-17T16:06:23Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -476,13 +476,21 @@
         {
           "gameweek": "GW7",
           "stem": "gameweek-7",
-          "total": 1,
+          "total": 2,
           "covered": 0,
           "matches": [
             {
               "match_id": 560603,
               "home": "Everton FC",
               "away": "Chelsea FC",
+              "date": "2026-10-17",
+              "covered": false,
+              "pending": true
+            },
+            {
+              "match_id": 560602,
+              "home": "Fulham FC",
+              "away": "Hull City AFC",
               "date": "2026-10-17",
               "covered": false,
               "pending": true
@@ -1988,7 +1996,7 @@
           "gameweek": "GW6",
           "stem": "gameweek-6",
           "total": 6,
-          "covered": 3,
+          "covered": 6,
           "matches": [
             {
               "match_id": 565828,
@@ -2009,24 +2017,21 @@
               "home": "SV Werder Bremen",
               "away": "SC Paderborn 07",
               "date": "2026-10-17",
-              "covered": false,
-              "pending": true
+              "covered": true
             },
             {
               "match_id": 565829,
               "home": "FC Schalke 04",
               "away": "1. FSV Mainz 05",
               "date": "2026-10-17",
-              "covered": false,
-              "pending": true
+              "covered": true
             },
             {
               "match_id": 565821,
               "home": "1. FC Union Berlin",
               "away": "Borussia Dortmund",
               "date": "2026-10-17",
-              "covered": false,
-              "pending": true
+              "covered": true
             },
             {
               "match_id": 565824,
