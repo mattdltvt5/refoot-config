@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-17T13:41:14Z",
+  "generated_at": "2026-10-17T13:46:19Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -470,6 +470,22 @@
               "away": "Newcastle United FC",
               "date": "2026-10-12",
               "covered": true
+            }
+          ]
+        },
+        {
+          "gameweek": "GW7",
+          "stem": "gameweek-7",
+          "total": 1,
+          "covered": 0,
+          "matches": [
+            {
+              "match_id": 560603,
+              "home": "Everton FC",
+              "away": "Chelsea FC",
+              "date": "2026-10-17",
+              "covered": false,
+              "pending": true
             }
           ]
         }

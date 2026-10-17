@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-17T11:28:31.084592Z",
+  "generated_at": "2026-10-17T13:46:41.351385Z",
   "competition": "Premier League",
   "slug": "premier-league",
   "season": 2026,
@@ -64,6 +64,25 @@
     {
       "position": 4,
       "team": {
+        "id": 61,
+        "name": "Chelsea FC",
+        "shortName": "Chelsea",
+        "tla": "CHE",
+        "crest": "https://crests.football-data.org/61.png"
+      },
+      "playedGames": 7,
+      "form": "W,W,L,D,L",
+      "won": 4,
+      "draw": 1,
+      "lost": 2,
+      "points": 13,
+      "goalsFor": 17,
+      "goalsAgainst": 13,
+      "goalDifference": 4
+    },
+    {
+      "position": 5,
+      "team": {
         "id": 402,
         "name": "Brentford FC",
         "shortName": "Brentford",
@@ -81,7 +100,7 @@
       "goalDifference": 6
     },
     {
-      "position": 5,
+      "position": 6,
       "team": {
         "id": 62,
         "name": "Everton FC",
@@ -89,34 +108,15 @@
         "tla": "EVE",
         "crest": "https://crests.football-data.org/62.png"
       },
-      "playedGames": 6,
-      "form": "D,W,D,D,D",
+      "playedGames": 7,
+      "form": "L,D,W,D,D",
       "won": 2,
       "draw": 4,
-      "lost": 0,
+      "lost": 1,
       "points": 10,
       "goalsFor": 8,
-      "goalsAgainst": 5,
-      "goalDifference": 3
-    },
-    {
-      "position": 6,
-      "team": {
-        "id": 61,
-        "name": "Chelsea FC",
-        "shortName": "Chelsea",
-        "tla": "CHE",
-        "crest": "https://crests.football-data.org/61.png"
-      },
-      "playedGames": 6,
-      "form": "W,L,D,L,W",
-      "won": 3,
-      "draw": 1,
-      "lost": 2,
-      "points": 10,
-      "goalsFor": 15,
-      "goalsAgainst": 13,
-      "goalDifference": 2
+      "goalsAgainst": 7,
+      "goalDifference": 1
     },
     {
       "position": 7,
