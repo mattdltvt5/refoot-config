@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-17T17:56:48.074931Z",
+  "generated_at": "2026-10-17T18:36:57.094862Z",
   "competition": "Premier League",
   "slug": "premier-league",
   "season": 2026,
@@ -203,18 +203,37 @@
         "tla": "NEW",
         "crest": "https://crests.football-data.org/67.png"
       },
-      "playedGames": 6,
-      "form": "L,W,L,D,W",
+      "playedGames": 7,
+      "form": "L,L,W,L,D",
       "won": 2,
       "draw": 2,
-      "lost": 2,
+      "lost": 3,
       "points": 8,
       "goalsFor": 10,
-      "goalsAgainst": 13,
-      "goalDifference": -3
+      "goalsAgainst": 14,
+      "goalDifference": -4
     },
     {
       "position": 12,
+      "team": {
+        "id": 58,
+        "name": "Aston Villa FC",
+        "shortName": "Aston Villa",
+        "tla": "AVL",
+        "crest": "https://crests.football-data.org/58.png"
+      },
+      "playedGames": 7,
+      "form": "W,D,W,L,D",
+      "won": 2,
+      "draw": 2,
+      "lost": 3,
+      "points": 8,
+      "goalsFor": 7,
+      "goalsAgainst": 11,
+      "goalDifference": -4
+    },
+    {
+      "position": 13,
       "team": {
         "id": 354,
         "name": "Crystal Palace FC",
@@ -233,7 +252,7 @@
       "goalDifference": -3
     },
     {
-      "position": 13,
+      "position": 14,
       "team": {
         "id": 66,
         "name": "Manchester United FC",
@@ -252,7 +271,7 @@
       "goalDifference": 0
     },
     {
-      "position": 14,
+      "position": 15,
       "team": {
         "id": 1076,
         "name": "Coventry City FC",
@@ -271,7 +290,7 @@
       "goalDifference": -6
     },
     {
-      "position": 15,
+      "position": 16,
       "team": {
         "id": 63,
         "name": "Fulham FC",
@@ -290,7 +309,7 @@
       "goalDifference": -3
     },
     {
-      "position": 16,
+      "position": 17,
       "team": {
         "id": 351,
         "name": "Nottingham Forest FC",
@@ -307,25 +326,6 @@
       "goalsFor": 5,
       "goalsAgainst": 8,
       "goalDifference": -3
-    },
-    {
-      "position": 17,
-      "team": {
-        "id": 58,
-        "name": "Aston Villa FC",
-        "shortName": "Aston Villa",
-        "tla": "AVL",
-        "crest": "https://crests.football-data.org/58.png"
-      },
-      "playedGames": 6,
-      "form": "D,W,L,D,L",
-      "won": 1,
-      "draw": 2,
-      "lost": 3,
-      "points": 5,
-      "goalsFor": 6,
-      "goalsAgainst": 11,
-      "goalDifference": -5
     },
     {
       "position": 18,
