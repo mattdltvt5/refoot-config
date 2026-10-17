@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-17T15:11:25Z",
+  "generated_at": "2026-10-17T15:16:13Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -1605,7 +1605,7 @@
           "gameweek": "GW7",
           "stem": "gameweek-7",
           "total": 2,
-          "covered": 1,
+          "covered": 2,
           "matches": [
             {
               "match_id": 558573,
@@ -1619,8 +1619,7 @@
               "home": "Venezia FC",
               "away": "SSC Napoli",
               "date": "2026-10-17",
-              "covered": false,
-              "pending": true
+              "covered": true
             }
           ]
         }
