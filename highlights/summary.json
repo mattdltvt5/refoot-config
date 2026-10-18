@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-18T18:21:50Z",
+  "generated_at": "2026-10-18T18:27:08Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -2620,7 +2620,7 @@
           "gameweek": "GW7",
           "stem": "gameweek-7",
           "total": 8,
-          "covered": 6,
+          "covered": 7,
           "matches": [
             {
               "match_id": 559661,
@@ -2669,8 +2669,7 @@
               "home": "FC Lorient",
               "away": "AS Monaco FC",
               "date": "2026-10-18",
-              "covered": false,
-              "pending": true
+              "covered": true
             },
             {
               "match_id": 559658,
