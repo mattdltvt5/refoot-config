@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-18T17:22:17.678953Z",
+  "generated_at": "2026-10-18T17:27:15.757775Z",
   "competition": "Ligue 1",
   "slug": "ligue-1",
   "season": 2026,
@@ -26,6 +26,25 @@
     {
       "position": 2,
       "team": {
+        "id": 1045,
+        "name": "Paris FC",
+        "shortName": "Paris FC",
+        "tla": "PFC",
+        "crest": "https://crests.football-data.org/1045.png"
+      },
+      "playedGames": 7,
+      "form": "W,L,W,D,W",
+      "won": 4,
+      "draw": 2,
+      "lost": 1,
+      "points": 14,
+      "goalsFor": 12,
+      "goalsAgainst": 7,
+      "goalDifference": 5
+    },
+    {
+      "position": 3,
+      "team": {
         "id": 521,
         "name": "Lille OSC",
         "shortName": "Lille",
@@ -43,7 +62,7 @@
       "goalDifference": 5
     },
     {
-      "position": 3,
+      "position": 4,
       "team": {
         "id": 548,
         "name": "AS Monaco FC",
@@ -62,7 +81,7 @@
       "goalDifference": 4
     },
     {
-      "position": 4,
+      "position": 5,
       "team": {
         "id": 529,
         "name": "Stade Rennais FC 1901",
@@ -70,18 +89,18 @@
         "tla": "REN",
         "crest": "https://crests.football-data.org/529.png"
       },
-      "playedGames": 6,
-      "form": "W,L,W,W,W",
+      "playedGames": 7,
+      "form": "L,W,L,W,W",
       "won": 4,
       "draw": 1,
-      "lost": 1,
+      "lost": 2,
       "points": 13,
-      "goalsFor": 12,
-      "goalsAgainst": 10,
-      "goalDifference": 2
+      "goalsFor": 15,
+      "goalsAgainst": 14,
+      "goalDifference": 1
     },
     {
-      "position": 5,
+      "position": 6,
       "team": {
         "id": 523,
         "name": "Olympique Lyonnais",
@@ -98,25 +117,6 @@
       "goalsFor": 11,
       "goalsAgainst": 4,
       "goalDifference": 7
-    },
-    {
-      "position": 6,
-      "team": {
-        "id": 1045,
-        "name": "Paris FC",
-        "shortName": "Paris FC",
-        "tla": "PFC",
-        "crest": "https://crests.football-data.org/1045.png"
-      },
-      "playedGames": 6,
-      "form": "L,W,D,W,W",
-      "won": 3,
-      "draw": 2,
-      "lost": 1,
-      "points": 11,
-      "goalsFor": 8,
-      "goalsAgainst": 4,
-      "goalDifference": 4
     },
     {
       "position": 7,

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-18T17:22:10.319290Z",
+  "generated_at": "2026-10-18T17:27:08.377800Z",
   "competition": "Bundesliga",
   "slug": "bundesliga",
   "season": 2026,
@@ -254,6 +254,25 @@
     {
       "position": 14,
       "team": {
+        "id": 2,
+        "name": "TSG 1899 Hoffenheim",
+        "shortName": "Hoffenheim",
+        "tla": "TSG",
+        "crest": "https://crests.football-data.org/2.png"
+      },
+      "playedGames": 6,
+      "form": "W,L,L,W,L",
+      "won": 2,
+      "draw": 0,
+      "lost": 4,
+      "points": 6,
+      "goalsFor": 11,
+      "goalsAgainst": 14,
+      "goalDifference": -3
+    },
+    {
+      "position": 15,
+      "team": {
         "id": 6,
         "name": "FC Schalke 04",
         "shortName": "Schalke",
@@ -271,7 +290,7 @@
       "goalDifference": -3
     },
     {
-      "position": 15,
+      "position": 16,
       "team": {
         "id": 29,
         "name": "SC Paderborn 07",
@@ -290,7 +309,7 @@
       "goalDifference": -4
     },
     {
-      "position": 16,
+      "position": 17,
       "team": {
         "id": 28,
         "name": "1. FC Union Berlin",
@@ -309,25 +328,6 @@
       "goalDifference": -12
     },
     {
-      "position": 17,
-      "team": {
-        "id": 2,
-        "name": "TSG 1899 Hoffenheim",
-        "shortName": "Hoffenheim",
-        "tla": "TSG",
-        "crest": "https://crests.football-data.org/2.png"
-      },
-      "playedGames": 5,
-      "form": "L,L,W,L,L",
-      "won": 1,
-      "draw": 0,
-      "lost": 4,
-      "points": 3,
-      "goalsFor": 9,
-      "goalsAgainst": 13,
-      "goalDifference": -4
-    },
-    {
       "position": 18,
       "team": {
         "id": 18,
@@ -336,15 +336,15 @@
         "tla": "BMG",
         "crest": "https://crests.football-data.org/18.png"
       },
-      "playedGames": 5,
+      "playedGames": 6,
       "form": "L,L,L,L,L",
       "won": 0,
       "draw": 0,
-      "lost": 5,
+      "lost": 6,
       "points": 0,
-      "goalsFor": 7,
-      "goalsAgainst": 18,
-      "goalDifference": -11
+      "goalsFor": 8,
+      "goalsAgainst": 20,
+      "goalDifference": -12
     }
   ]
 }
