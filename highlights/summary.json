@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-18T16:21:40Z",
+  "generated_at": "2026-10-18T16:26:41Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -1160,7 +1160,7 @@
           "gameweek": "GW9",
           "stem": "gameweek-9",
           "total": 7,
-          "covered": 5,
+          "covered": 6,
           "matches": [
             {
               "match_id": 564716,
@@ -1210,8 +1210,7 @@
               "home": "RC Celta de Vigo",
               "away": "Deportivo Alavés",
               "date": "2026-10-18",
-              "covered": false,
-              "pending": true
+              "covered": true
             }
           ]
         }
