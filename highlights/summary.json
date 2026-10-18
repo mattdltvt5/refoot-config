@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-18T17:16:34Z",
+  "generated_at": "2026-10-18T17:21:42Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -2597,7 +2597,7 @@
         {
           "gameweek": "GW7",
           "stem": "gameweek-7",
-          "total": 6,
+          "total": 7,
           "covered": 5,
           "matches": [
             {
@@ -2639,6 +2639,14 @@
               "match_id": 559663,
               "home": "Le Havre AC",
               "away": "AJ Auxerre",
+              "date": "2026-10-18",
+              "covered": false,
+              "pending": true
+            },
+            {
+              "match_id": 559657,
+              "home": "FC Lorient",
+              "away": "AS Monaco FC",
               "date": "2026-10-18",
               "covered": false,
               "pending": true
