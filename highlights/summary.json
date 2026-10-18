@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-18T12:31:16Z",
+  "generated_at": "2026-10-18T12:36:16Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -1652,7 +1652,7 @@
         {
           "gameweek": "GW7",
           "stem": "gameweek-7",
-          "total": 4,
+          "total": 5,
           "covered": 4,
           "matches": [
             {
@@ -1682,6 +1682,14 @@
               "away": "Genoa CFC",
               "date": "2026-10-17",
               "covered": true
+            },
+            {
+              "match_id": 558574,
+              "home": "Udinese Calcio",
+              "away": "US Lecce",
+              "date": "2026-10-18",
+              "covered": false,
+              "pending": true
             }
           ]
         }

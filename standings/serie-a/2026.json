@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-18T11:58:39.128306Z",
+  "generated_at": "2026-10-18T12:36:38.207084Z",
   "competition": "Serie A",
   "slug": "serie-a",
   "season": 2026,
@@ -197,6 +197,25 @@
     {
       "position": 11,
       "team": {
+        "id": 5890,
+        "name": "US Lecce",
+        "shortName": "Lecce",
+        "tla": "USL",
+        "crest": "https://crests.football-data.org/5890.png"
+      },
+      "playedGames": 7,
+      "form": "W,L,L,W,L",
+      "won": 3,
+      "draw": 0,
+      "lost": 4,
+      "points": 9,
+      "goalsFor": 9,
+      "goalsAgainst": 12,
+      "goalDifference": -3
+    },
+    {
+      "position": 12,
+      "team": {
         "id": 471,
         "name": "US Sassuolo Calcio",
         "shortName": "Sassuolo",
@@ -214,7 +233,7 @@
       "goalDifference": -2
     },
     {
-      "position": 12,
+      "position": 13,
       "team": {
         "id": 586,
         "name": "Torino FC",
@@ -231,25 +250,6 @@
       "goalsFor": 7,
       "goalsAgainst": 9,
       "goalDifference": -2
-    },
-    {
-      "position": 13,
-      "team": {
-        "id": 5890,
-        "name": "US Lecce",
-        "shortName": "Lecce",
-        "tla": "USL",
-        "crest": "https://crests.football-data.org/5890.png"
-      },
-      "playedGames": 6,
-      "form": "L,L,W,L,L",
-      "won": 2,
-      "draw": 0,
-      "lost": 4,
-      "points": 6,
-      "goalsFor": 6,
-      "goalsAgainst": 12,
-      "goalDifference": -6
     },
     {
       "position": 14,
@@ -273,25 +273,6 @@
     {
       "position": 15,
       "team": {
-        "id": 115,
-        "name": "Udinese Calcio",
-        "shortName": "Udinese",
-        "tla": "UDI",
-        "crest": "https://crests.football-data.org/115.png"
-      },
-      "playedGames": 6,
-      "form": "L,L,L,L,W",
-      "won": 1,
-      "draw": 1,
-      "lost": 4,
-      "points": 4,
-      "goalsFor": 9,
-      "goalsAgainst": 13,
-      "goalDifference": -4
-    },
-    {
-      "position": 16,
-      "team": {
         "id": 5911,
         "name": "AC Monza",
         "shortName": "Monza",
@@ -309,7 +290,7 @@
       "goalDifference": -6
     },
     {
-      "position": 17,
+      "position": 16,
       "team": {
         "id": 112,
         "name": "Parma Calcio 1913",
@@ -326,6 +307,25 @@
       "goalsFor": 4,
       "goalsAgainst": 10,
       "goalDifference": -6
+    },
+    {
+      "position": 17,
+      "team": {
+        "id": 115,
+        "name": "Udinese Calcio",
+        "shortName": "Udinese",
+        "tla": "UDI",
+        "crest": "https://crests.football-data.org/115.png"
+      },
+      "playedGames": 7,
+      "form": "L,L,L,L,L",
+      "won": 1,
+      "draw": 1,
+      "lost": 5,
+      "points": 4,
+      "goalsFor": 9,
+      "goalsAgainst": 16,
+      "goalDifference": -7
     },
     {
       "position": 18,
