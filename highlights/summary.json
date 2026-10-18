@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-18T15:26:46Z",
+  "generated_at": "2026-10-18T15:31:47Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -1685,7 +1685,7 @@
           "gameweek": "GW7",
           "stem": "gameweek-7",
           "total": 6,
-          "covered": 5,
+          "covered": 6,
           "matches": [
             {
               "match_id": 558573,
@@ -1727,8 +1727,7 @@
               "home": "ACF Fiorentina",
               "away": "Como 1907",
               "date": "2026-10-18",
-              "covered": false,
-              "pending": true
+              "covered": true
             }
           ]
         }
