@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-18T15:31:47Z",
+  "generated_at": "2026-10-18T15:36:36Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -2095,8 +2095,8 @@
         {
           "gameweek": "GW6",
           "stem": "gameweek-6",
-          "total": 7,
-          "covered": 7,
+          "total": 8,
+          "covered": 8,
           "matches": [
             {
               "match_id": 565828,
@@ -2145,6 +2145,13 @@
               "home": "FC Bayern München",
               "away": "RB Leipzig",
               "date": "2026-10-17",
+              "covered": true
+            },
+            {
+              "match_id": 565827,
+              "home": "Bayer 04 Leverkusen",
+              "away": "SC Freiburg",
+              "date": "2026-10-18",
               "covered": true
             }
           ]
