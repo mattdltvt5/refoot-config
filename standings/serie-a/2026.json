@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-18T16:57:12.964267Z",
+  "generated_at": "2026-10-18T18:07:23.195514Z",
   "competition": "Serie A",
   "slug": "serie-a",
   "season": 2026,
@@ -64,6 +64,25 @@
     {
       "position": 4,
       "team": {
+        "id": 98,
+        "name": "AC Milan",
+        "shortName": "Milan",
+        "tla": "MIL",
+        "crest": "https://crests.football-data.org/98.png"
+      },
+      "playedGames": 7,
+      "form": "W,D,W,D,D",
+      "won": 4,
+      "draw": 3,
+      "lost": 0,
+      "points": 15,
+      "goalsFor": 14,
+      "goalsAgainst": 7,
+      "goalDifference": 7
+    },
+    {
+      "position": 5,
+      "team": {
         "id": 7397,
         "name": "Como 1907",
         "shortName": "Como 1907",
@@ -81,7 +100,7 @@
       "goalDifference": 5
     },
     {
-      "position": 5,
+      "position": 6,
       "team": {
         "id": 470,
         "name": "Frosinone Calcio",
@@ -100,7 +119,7 @@
       "goalDifference": 4
     },
     {
-      "position": 6,
+      "position": 7,
       "team": {
         "id": 104,
         "name": "Cagliari Calcio",
@@ -117,25 +136,6 @@
       "goalsFor": 6,
       "goalsAgainst": 3,
       "goalDifference": 3
-    },
-    {
-      "position": 7,
-      "team": {
-        "id": 98,
-        "name": "AC Milan",
-        "shortName": "Milan",
-        "tla": "MIL",
-        "crest": "https://crests.football-data.org/98.png"
-      },
-      "playedGames": 6,
-      "form": "D,W,D,D,W",
-      "won": 3,
-      "draw": 3,
-      "lost": 0,
-      "points": 12,
-      "goalsFor": 11,
-      "goalsAgainst": 5,
-      "goalDifference": 6
     },
     {
       "position": 8,
@@ -184,15 +184,15 @@
         "tla": "ATA",
         "crest": "https://crests.football-data.org/102.png"
       },
-      "playedGames": 6,
-      "form": "W,L,L,L,W",
+      "playedGames": 7,
+      "form": "L,W,L,L,L",
       "won": 3,
       "draw": 0,
-      "lost": 3,
+      "lost": 4,
       "points": 9,
-      "goalsFor": 8,
-      "goalsAgainst": 8,
-      "goalDifference": 0
+      "goalsFor": 10,
+      "goalsAgainst": 11,
+      "goalDifference": -1
     },
     {
       "position": 11,
