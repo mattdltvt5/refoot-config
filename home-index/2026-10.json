@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-18T19:41:22Z",
+  "generated_at": "2026-10-18T19:46:12Z",
   "month": "2026-10",
   "dates": {
     "2026-10-09": [
@@ -2358,9 +2358,9 @@
               "tla": "SEV",
               "crest": "https://crests.football-data.org/559.png"
             },
-            "homeScore": 0,
-            "awayScore": 0,
-            "status": "IN_PLAY",
+            "homeScore": null,
+            "awayScore": null,
+            "status": "TIMED",
             "utcDate": "2026-10-18T19:00:00Z"
           }
         ]
@@ -2617,7 +2617,7 @@
             },
             "homeScore": 2,
             "awayScore": 1,
-            "status": "PAUSED",
+            "status": "IN_PLAY",
             "utcDate": "2026-10-18T18:45:00Z"
           }
         ]
