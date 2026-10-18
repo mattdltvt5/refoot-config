@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-18T14:56:16Z",
+  "generated_at": "2026-10-18T15:01:47Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -476,7 +476,7 @@
         {
           "gameweek": "GW7",
           "stem": "gameweek-7",
-          "total": 5,
+          "total": 7,
           "covered": 5,
           "matches": [
             {
@@ -513,6 +513,22 @@
               "away": "Aston Villa FC",
               "date": "2026-10-17",
               "covered": true
+            },
+            {
+              "match_id": 560605,
+              "home": "Leeds United FC",
+              "away": "Manchester United FC",
+              "date": "2026-10-18",
+              "covered": false,
+              "pending": true
+            },
+            {
+              "match_id": 560609,
+              "home": "Brighton & Hove Albion FC",
+              "away": "Crystal Palace FC",
+              "date": "2026-10-18",
+              "covered": false,
+              "pending": true
             }
           ]
         }
@@ -2553,7 +2569,7 @@
         {
           "gameweek": "GW7",
           "stem": "gameweek-7",
-          "total": 4,
+          "total": 5,
           "covered": 4,
           "matches": [
             {
@@ -2583,6 +2599,14 @@
               "away": "Racing Club de Lens",
               "date": "2026-10-17",
               "covered": true
+            },
+            {
+              "match_id": 559664,
+              "home": "Angers SCO",
+              "away": "Olympique de Marseille",
+              "date": "2026-10-18",
+              "covered": false,
+              "pending": true
             }
           ]
         }
