@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-18T19:56:35.829697Z",
+  "generated_at": "2026-10-18T20:46:30.479925Z",
   "competition": "Serie A",
   "slug": "serie-a",
   "season": 2026,
@@ -26,6 +26,25 @@
     {
       "position": 2,
       "team": {
+        "id": 110,
+        "name": "SS Lazio",
+        "shortName": "Lazio",
+        "tla": "LAZ",
+        "crest": "https://crests.football-data.org/110.png"
+      },
+      "playedGames": 7,
+      "form": "W,W,W,D,W",
+      "won": 6,
+      "draw": 1,
+      "lost": 0,
+      "points": 19,
+      "goalsFor": 14,
+      "goalsAgainst": 4,
+      "goalDifference": 10
+    },
+    {
+      "position": 3,
+      "team": {
         "id": 100,
         "name": "AS Roma",
         "shortName": "Roma",
@@ -41,25 +60,6 @@
       "goalsFor": 16,
       "goalsAgainst": 3,
       "goalDifference": 13
-    },
-    {
-      "position": 3,
-      "team": {
-        "id": 110,
-        "name": "SS Lazio",
-        "shortName": "Lazio",
-        "tla": "LAZ",
-        "crest": "https://crests.football-data.org/110.png"
-      },
-      "playedGames": 6,
-      "form": "W,W,D,W,W",
-      "won": 5,
-      "draw": 1,
-      "lost": 0,
-      "points": 16,
-      "goalsFor": 11,
-      "goalsAgainst": 4,
-      "goalDifference": 7
     },
     {
       "position": 4,
@@ -146,15 +146,15 @@
         "tla": "JUV",
         "crest": "https://crests.football-data.org/109.png"
       },
-      "playedGames": 6,
-      "form": "D,W,L,D,W",
+      "playedGames": 7,
+      "form": "L,D,W,L,D",
       "won": 3,
       "draw": 2,
-      "lost": 1,
+      "lost": 2,
       "points": 11,
       "goalsFor": 9,
-      "goalsAgainst": 5,
-      "goalDifference": 4
+      "goalsAgainst": 8,
+      "goalDifference": 1
     },
     {
       "position": 9,
