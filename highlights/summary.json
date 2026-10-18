@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-18T17:32:02Z",
+  "generated_at": "2026-10-18T17:36:57Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -476,7 +476,7 @@
         {
           "gameweek": "GW7",
           "stem": "gameweek-7",
-          "total": 8,
+          "total": 9,
           "covered": 6,
           "matches": [
             {
@@ -533,6 +533,14 @@
               "match_id": 560604,
               "home": "AFC Bournemouth",
               "away": "Sunderland AFC",
+              "date": "2026-10-18",
+              "covered": false,
+              "pending": true
+            },
+            {
+              "match_id": 560608,
+              "home": "Nottingham Forest FC",
+              "away": "Arsenal FC",
               "date": "2026-10-18",
               "covered": false,
               "pending": true
