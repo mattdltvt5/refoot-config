@@ -1,1 +1,90 @@
-[]
+[
+ {
+  "key": "559657:goal:1-0",
+  "type": "goal",
+  "match_id": 559657,
+  "competition": "ligue-1",
+  "home": {
+   "id": 525,
+   "name": "FC Lorient",
+   "short": "Lorient"
+  },
+  "away": {
+   "id": 548,
+   "name": "AS Monaco FC",
+   "short": "Monaco"
+  },
+  "score": [
+   1,
+   0
+  ],
+  "status": "IN_PLAY",
+  "kickoff": "2026-10-18T15:15:00Z",
+  "detected_at": "2026-10-18T16:47:22Z",
+  "minutes_after_kickoff": 92,
+  "scorer": "home",
+  "goals": {
+   "home": 1,
+   "away": 0
+  }
+ },
+ {
+  "key": "559663:goal:1-2",
+  "type": "goal",
+  "match_id": 559663,
+  "competition": "ligue-1",
+  "home": {
+   "id": 533,
+   "name": "Le Havre AC",
+   "short": "Le Havre"
+  },
+  "away": {
+   "id": 519,
+   "name": "AJ Auxerre",
+   "short": "Auxerre"
+  },
+  "score": [
+   1,
+   2
+  ],
+  "status": "IN_PLAY",
+  "kickoff": "2026-10-18T15:15:00Z",
+  "detected_at": "2026-10-18T16:47:22Z",
+  "minutes_after_kickoff": 92,
+  "scorer": "both",
+  "goals": {
+   "home": 1,
+   "away": 1
+  }
+ },
+ {
+  "key": "565826:goal:1-1",
+  "type": "goal",
+  "match_id": 565826,
+  "competition": "bundesliga",
+  "home": {
+   "id": 18,
+   "name": "Borussia Mönchengladbach",
+   "short": "M'gladbach"
+  },
+  "away": {
+   "id": 2,
+   "name": "TSG Hoffenheim",
+   "official": "TSG 1899 Hoffenheim",
+   "short": "Hoffenheim"
+  },
+  "score": [
+   1,
+   1
+  ],
+  "status": "IN_PLAY",
+  "kickoff": "2026-10-18T15:30:00Z",
+  "detected_at": "2026-10-18T16:47:22Z",
+  "minutes_after_kickoff": 77,
+  "scorer": "home",
+  "goals": {
+   "home": 1,
+   "away": 0
+  }
+ }
+]
