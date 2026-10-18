@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-18T16:32:36Z",
+  "generated_at": "2026-10-18T16:37:26Z",
   "month": "2026-10",
   "dates": {
     "2026-10-09": [
@@ -2427,9 +2427,9 @@
               "tla": "ATA",
               "crest": "https://crests.football-data.org/102.png"
             },
-            "homeScore": 1,
-            "awayScore": 0,
-            "status": "IN_PLAY",
+            "homeScore": null,
+            "awayScore": null,
+            "status": "TIMED",
             "utcDate": "2026-10-18T16:00:00Z"
           },
           {
@@ -2498,7 +2498,7 @@
               "crest": "https://crests.football-data.org/2.png"
             },
             "homeScore": 0,
-            "awayScore": 1,
+            "awayScore": 0,
             "status": "IN_PLAY",
             "utcDate": "2026-10-18T15:30:00Z"
           }
@@ -2744,7 +2744,7 @@
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "2026-10-20 16:45:00Z",
+            "status": "TIMED",
             "utcDate": "2026-10-20T16:45:00Z"
           },
           {
@@ -2765,7 +2765,7 @@
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "2026-10-20 16:45:00Z",
+            "status": "TIMED",
             "utcDate": "2026-10-20T16:45:00Z"
           },
           {
@@ -2786,7 +2786,7 @@
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "2026-10-20 19:00:00Z",
+            "status": "TIMED",
             "utcDate": "2026-10-20T19:00:00Z"
           },
           {
@@ -2807,7 +2807,7 @@
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "2026-10-20 19:00:00Z",
+            "status": "TIMED",
             "utcDate": "2026-10-20T19:00:00Z"
           },
           {
@@ -2828,7 +2828,7 @@
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "2026-10-20 19:00:00Z",
+            "status": "TIMED",
             "utcDate": "2026-10-20T19:00:00Z"
           },
           {
@@ -2849,7 +2849,7 @@
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "2026-10-20 19:00:00Z",
+            "status": "TIMED",
             "utcDate": "2026-10-20T19:00:00Z"
           },
           {
@@ -2870,7 +2870,7 @@
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "2026-10-20 19:00:00Z",
+            "status": "TIMED",
             "utcDate": "2026-10-20T19:00:00Z"
           },
           {
@@ -2891,7 +2891,7 @@
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "2026-10-20 19:00:00Z",
+            "status": "TIMED",
             "utcDate": "2026-10-20T19:00:00Z"
           },
           {
@@ -2912,7 +2912,7 @@
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "2026-10-20 19:00:00Z",
+            "status": "TIMED",
             "utcDate": "2026-10-20T19:00:00Z"
           }
         ]
@@ -2968,7 +2968,7 @@
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "2026-10-21 16:45:00Z",
+            "status": "TIMED",
             "utcDate": "2026-10-21T16:45:00Z"
           },
           {
@@ -2989,7 +2989,7 @@
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "2026-10-21 16:45:00Z",
+            "status": "TIMED",
             "utcDate": "2026-10-21T16:45:00Z"
           },
           {
@@ -3010,7 +3010,7 @@
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "2026-10-21 19:00:00Z",
+            "status": "TIMED",
             "utcDate": "2026-10-21T19:00:00Z"
           },
           {
@@ -3031,7 +3031,7 @@
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "2026-10-21 19:00:00Z",
+            "status": "TIMED",
             "utcDate": "2026-10-21T19:00:00Z"
           },
           {
@@ -3052,7 +3052,7 @@
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "2026-10-21 19:00:00Z",
+            "status": "TIMED",
             "utcDate": "2026-10-21T19:00:00Z"
           },
           {
@@ -3073,7 +3073,7 @@
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "2026-10-21 19:00:00Z",
+            "status": "TIMED",
             "utcDate": "2026-10-21T19:00:00Z"
           },
           {
@@ -3094,7 +3094,7 @@
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "2026-10-21 19:00:00Z",
+            "status": "TIMED",
             "utcDate": "2026-10-21T19:00:00Z"
           },
           {
@@ -3115,7 +3115,7 @@
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "2026-10-21 19:00:00Z",
+            "status": "TIMED",
             "utcDate": "2026-10-21T19:00:00Z"
           },
           {
@@ -3136,7 +3136,7 @@
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "2026-10-21 19:00:00Z",
+            "status": "TIMED",
             "utcDate": "2026-10-21T19:00:00Z"
           }
         ]
