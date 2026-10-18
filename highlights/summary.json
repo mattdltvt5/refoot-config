@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-18T18:06:47Z",
+  "generated_at": "2026-10-18T18:11:57Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -2620,7 +2620,7 @@
           "gameweek": "GW7",
           "stem": "gameweek-7",
           "total": 8,
-          "covered": 5,
+          "covered": 6,
           "matches": [
             {
               "match_id": 559661,
@@ -2662,8 +2662,7 @@
               "home": "Le Havre AC",
               "away": "AJ Auxerre",
               "date": "2026-10-18",
-              "covered": false,
-              "pending": true
+              "covered": true
             },
             {
               "match_id": 559657,
