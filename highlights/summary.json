@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-18T16:56:36Z",
+  "generated_at": "2026-10-18T17:01:57Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -477,7 +477,7 @@
           "gameweek": "GW7",
           "stem": "gameweek-7",
           "total": 8,
-          "covered": 5,
+          "covered": 6,
           "matches": [
             {
               "match_id": 560603,
@@ -527,8 +527,7 @@
               "home": "Brighton & Hove Albion FC",
               "away": "Crystal Palace FC",
               "date": "2026-10-18",
-              "covered": false,
-              "pending": true
+              "covered": true
             },
             {
               "match_id": 560604,
