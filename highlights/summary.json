@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-18T17:26:40Z",
+  "generated_at": "2026-10-18T17:32:02Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -2101,8 +2101,8 @@
         {
           "gameweek": "GW6",
           "stem": "gameweek-6",
-          "total": 8,
-          "covered": 8,
+          "total": 9,
+          "covered": 9,
           "matches": [
             {
               "match_id": 565828,
@@ -2157,6 +2157,13 @@
               "match_id": 565827,
               "home": "Bayer 04 Leverkusen",
               "away": "SC Freiburg",
+              "date": "2026-10-18",
+              "covered": true
+            },
+            {
+              "match_id": 565826,
+              "home": "Borussia Mönchengladbach",
+              "away": "TSG 1899 Hoffenheim",
               "date": "2026-10-18",
               "covered": true
             }
@@ -2597,7 +2604,7 @@
         {
           "gameweek": "GW7",
           "stem": "gameweek-7",
-          "total": 7,
+          "total": 8,
           "covered": 5,
           "matches": [
             {
@@ -2647,6 +2654,14 @@
               "match_id": 559657,
               "home": "FC Lorient",
               "away": "AS Monaco FC",
+              "date": "2026-10-18",
+              "covered": false,
+              "pending": true
+            },
+            {
+              "match_id": 559658,
+              "home": "Paris FC",
+              "away": "Stade Rennais FC 1901",
               "date": "2026-10-18",
               "covered": false,
               "pending": true
