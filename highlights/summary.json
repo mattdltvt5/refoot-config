@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-18T14:01:16Z",
+  "generated_at": "2026-10-18T14:06:16Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -1135,7 +1135,7 @@
         {
           "gameweek": "GW9",
           "stem": "gameweek-9",
-          "total": 5,
+          "total": 6,
           "covered": 5,
           "matches": [
             {
@@ -1172,6 +1172,14 @@
               "away": "Athletic Club",
               "date": "2026-10-17",
               "covered": true
+            },
+            {
+              "match_id": 564715,
+              "home": "CA Osasuna",
+              "away": "Real Racing Club de Santander",
+              "date": "2026-10-18",
+              "covered": false,
+              "pending": true
             }
           ]
         }
