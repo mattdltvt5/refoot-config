@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-18T18:31:40Z",
+  "generated_at": "2026-10-18T18:36:55Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -1166,7 +1166,7 @@
         {
           "gameweek": "GW9",
           "stem": "gameweek-9",
-          "total": 7,
+          "total": 8,
           "covered": 6,
           "matches": [
             {
@@ -1218,6 +1218,14 @@
               "away": "Deportivo Alavés",
               "date": "2026-10-18",
               "covered": true
+            },
+            {
+              "match_id": 564714,
+              "home": "Málaga CF",
+              "away": "Real Sociedad de Fútbol",
+              "date": "2026-10-18",
+              "covered": false,
+              "pending": true
             }
           ]
         }
