@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-18T16:11:42Z",
+  "generated_at": "2026-10-18T16:16:51Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -1159,7 +1159,7 @@
         {
           "gameweek": "GW9",
           "stem": "gameweek-9",
-          "total": 6,
+          "total": 7,
           "covered": 5,
           "matches": [
             {
@@ -1201,6 +1201,14 @@
               "match_id": 564715,
               "home": "CA Osasuna",
               "away": "Real Racing Club de Santander",
+              "date": "2026-10-18",
+              "covered": false,
+              "pending": true
+            },
+            {
+              "match_id": 564712,
+              "home": "RC Celta de Vigo",
+              "away": "Deportivo Alavés",
               "date": "2026-10-18",
               "covered": false,
               "pending": true
@@ -2592,7 +2600,7 @@
           "gameweek": "GW7",
           "stem": "gameweek-7",
           "total": 5,
-          "covered": 4,
+          "covered": 5,
           "matches": [
             {
               "match_id": 559661,
@@ -2627,8 +2635,7 @@
               "home": "Angers SCO",
               "away": "Olympique de Marseille",
               "date": "2026-10-18",
-              "covered": false,
-              "pending": true
+              "covered": true
             }
           ]
         }

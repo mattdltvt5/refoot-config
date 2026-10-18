@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-18T16:11:12Z",
+  "generated_at": "2026-10-18T16:17:43Z",
   "month": "2026-10",
   "dates": {
     "2026-10-09": [
@@ -2315,7 +2315,7 @@
             },
             "homeScore": 2,
             "awayScore": 1,
-            "status": "IN_PLAY",
+            "status": "FINISHED",
             "utcDate": "2026-10-18T14:15:00Z"
           },
           {
@@ -2497,7 +2497,7 @@
               "crest": "https://crests.football-data.org/2.png"
             },
             "homeScore": 0,
-            "awayScore": 0,
+            "awayScore": 1,
             "status": "IN_PLAY",
             "utcDate": "2026-10-18T15:30:00Z"
           }
@@ -2526,7 +2526,8 @@
             "homeScore": 2,
             "awayScore": 5,
             "status": "FINISHED",
-            "utcDate": "2026-10-18T13:00:00Z"
+            "utcDate": "2026-10-18T13:00:00Z",
+            "videoId": "9TqwIi8QSyo"
           },
           {
             "match_id": 559657,
@@ -2565,8 +2566,8 @@
               "tla": "REN",
               "crest": "https://crests.football-data.org/529.png"
             },
-            "homeScore": 1,
-            "awayScore": 1,
+            "homeScore": 0,
+            "awayScore": 0,
             "status": "IN_PLAY",
             "utcDate": "2026-10-18T15:15:00Z"
           },
@@ -2587,7 +2588,7 @@
               "crest": "https://crests.football-data.org/519.png"
             },
             "homeScore": 0,
-            "awayScore": 1,
+            "awayScore": 0,
             "status": "IN_PLAY",
             "utcDate": "2026-10-18T15:15:00Z"
           },

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-18T15:57:07.893636Z",
+  "generated_at": "2026-10-18T16:17:20.336166Z",
   "competition": "LaLiga",
   "slug": "laliga",
   "season": 2026,
@@ -127,18 +127,37 @@
         "tla": "ALA",
         "crest": "https://crests.football-data.org/263.png"
       },
-      "playedGames": 8,
-      "form": "L,D,L,L,W",
+      "playedGames": 9,
+      "form": "L,L,D,L,L",
       "won": 3,
       "draw": 2,
-      "lost": 3,
+      "lost": 4,
       "points": 11,
-      "goalsFor": 12,
-      "goalsAgainst": 8,
-      "goalDifference": 4
+      "goalsFor": 13,
+      "goalsAgainst": 10,
+      "goalDifference": 3
     },
     {
       "position": 8,
+      "team": {
+        "id": 558,
+        "name": "RC Celta de Vigo",
+        "shortName": "Celta",
+        "tla": "CEL",
+        "crest": "https://crests.football-data.org/558.png"
+      },
+      "playedGames": 9,
+      "form": "W,D,W,D,D",
+      "won": 2,
+      "draw": 5,
+      "lost": 2,
+      "points": 11,
+      "goalsFor": 10,
+      "goalsAgainst": 7,
+      "goalDifference": 3
+    },
+    {
+      "position": 9,
       "team": {
         "id": 560,
         "name": "RC Deportivo La Coruña",
@@ -157,7 +176,7 @@
       "goalDifference": 1
     },
     {
-      "position": 9,
+      "position": 10,
       "team": {
         "id": 79,
         "name": "CA Osasuna",
@@ -176,7 +195,7 @@
       "goalDifference": -8
     },
     {
-      "position": 10,
+      "position": 11,
       "team": {
         "id": 77,
         "name": "Athletic Club",
@@ -195,7 +214,7 @@
       "goalDifference": 1
     },
     {
-      "position": 11,
+      "position": 12,
       "team": {
         "id": 94,
         "name": "Villarreal CF",
@@ -212,25 +231,6 @@
       "goalsFor": 13,
       "goalsAgainst": 13,
       "goalDifference": 0
-    },
-    {
-      "position": 12,
-      "team": {
-        "id": 558,
-        "name": "RC Celta de Vigo",
-        "shortName": "Celta",
-        "tla": "CEL",
-        "crest": "https://crests.football-data.org/558.png"
-      },
-      "playedGames": 8,
-      "form": "D,W,D,D,D",
-      "won": 1,
-      "draw": 5,
-      "lost": 2,
-      "points": 8,
-      "goalsFor": 8,
-      "goalsAgainst": 6,
-      "goalDifference": 2
     },
     {
       "position": 13,
