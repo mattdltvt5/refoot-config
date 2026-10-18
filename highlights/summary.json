@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-17T23:56:08Z",
+  "generated_at": "2026-10-18T00:01:28Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -477,47 +477,42 @@
           "gameweek": "GW7",
           "stem": "gameweek-7",
           "total": 5,
-          "covered": 0,
+          "covered": 5,
           "matches": [
             {
               "match_id": 560603,
               "home": "Everton FC",
               "away": "Chelsea FC",
               "date": "2026-10-17",
-              "covered": false,
-              "pending": true
+              "covered": true
             },
             {
               "match_id": 560602,
               "home": "Fulham FC",
               "away": "Hull City AFC",
               "date": "2026-10-17",
-              "covered": false,
-              "pending": true
+              "covered": true
             },
             {
               "match_id": 560610,
               "home": "Manchester City FC",
               "away": "Ipswich Town FC",
               "date": "2026-10-17",
-              "covered": false,
-              "pending": true
+              "covered": true
             },
             {
               "match_id": 560611,
               "home": "Brentford FC",
               "away": "Liverpool FC",
               "date": "2026-10-17",
-              "covered": false,
-              "pending": true
+              "covered": true
             },
             {
               "match_id": 560607,
               "home": "Newcastle United FC",
               "away": "Aston Villa FC",
               "date": "2026-10-17",
-              "covered": false,
-              "pending": true
+              "covered": true
             }
           ]
         }
@@ -2544,7 +2539,7 @@
           "gameweek": "GW7",
           "stem": "gameweek-7",
           "total": 4,
-          "covered": 2,
+          "covered": 4,
           "matches": [
             {
               "match_id": 559661,
@@ -2565,16 +2560,14 @@
               "home": "Lille OSC",
               "away": "Stade Brestois 29",
               "date": "2026-10-17",
-              "covered": false,
-              "pending": true
+              "covered": true
             },
             {
               "match_id": 559659,
               "home": "ES Troyes AC",
               "away": "Racing Club de Lens",
               "date": "2026-10-17",
-              "covered": false,
-              "pending": true
+              "covered": true
             }
           ]
         }
