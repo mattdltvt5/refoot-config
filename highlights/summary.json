@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-19T18:36:19Z",
+  "generated_at": "2026-10-19T18:41:13Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -1709,7 +1709,7 @@
           "gameweek": "GW7",
           "stem": "gameweek-7",
           "total": 9,
-          "covered": 8,
+          "covered": 9,
           "matches": [
             {
               "match_id": 558573,
@@ -1772,8 +1772,7 @@
               "home": "AC Monza",
               "away": "Cagliari Calcio",
               "date": "2026-10-19",
-              "covered": false,
-              "pending": true
+              "covered": true
             }
           ]
         }
