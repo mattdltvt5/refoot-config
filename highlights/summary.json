@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-19T23:06:15Z",
+  "generated_at": "2026-10-19T23:11:11Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -477,7 +477,7 @@
           "gameweek": "GW7",
           "stem": "gameweek-7",
           "total": 10,
-          "covered": 9,
+          "covered": 10,
           "matches": [
             {
               "match_id": 560603,
@@ -547,8 +547,7 @@
               "home": "Tottenham Hotspur FC",
               "away": "Coventry City FC",
               "date": "2026-10-19",
-              "covered": false,
-              "pending": true
+              "covered": true
             }
           ]
         }
