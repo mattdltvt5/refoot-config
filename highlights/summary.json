@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-19T20:51:20Z",
+  "generated_at": "2026-10-19T20:56:13Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -1709,7 +1709,7 @@
           "gameweek": "GW7",
           "stem": "gameweek-7",
           "total": 10,
-          "covered": 9,
+          "covered": 10,
           "matches": [
             {
               "match_id": 558573,
@@ -1779,8 +1779,7 @@
               "home": "Parma Calcio 1913",
               "away": "Torino FC",
               "date": "2026-10-19",
-              "covered": false,
-              "pending": true
+              "covered": true
             }
           ]
         }
