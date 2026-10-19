@@ -2,7 +2,7 @@
   "competition": "Ligue 1",
   "gameweek": "GW7",
   "stem": "gameweek-7",
-  "generated_at": "2026-10-18T18:26:43Z",
+  "generated_at": "2026-10-19T00:01:41Z",
   "matches": [
     {
       "match_id": 559661,
@@ -113,7 +113,34 @@
       "home_team": "Paris FC",
       "away_team": "Stade Rennais FC 1901",
       "date": "2026-10-18",
-      "videos": []
+      "videos": [
+        {
+          "video_id": "3YMZ_JdOeMY",
+          "title": "Sinayoko STRATOSPHÉRIQUE, MATCH FOU entre le PFC et Rennes | 7ème journée - Ligue 1 McDonald's 26/27",
+          "published_at": "2026-10-18",
+          "tier_used": 2
+        },
+        {
+          "video_id": "wi6gvQXDISY",
+          "title": "PARIS FC - STADE RENNAIS (4-3) | Week 7 - Ligue 1 McDonald's 26/27",
+          "published_at": "2026-10-18",
+          "tier_used": 2
+        }
+      ]
+    },
+    {
+      "match_id": 559665,
+      "home_team": "Olympique Lyonnais",
+      "away_team": "OGC Nice",
+      "date": "2026-10-18",
+      "videos": [
+        {
+          "video_id": "c8I7I0RS2xs",
+          "title": "Résumé : Olympique Lyonnais 2-1 OGC Nice I Ligue 1 McDonald's 26-27",
+          "published_at": "2026-10-18",
+          "tier_used": 1
+        }
+      ]
     }
   ]
 }

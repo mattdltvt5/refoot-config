@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-18T23:56:09Z",
+  "generated_at": "2026-10-19T00:01:43Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -477,7 +477,7 @@
           "gameweek": "GW7",
           "stem": "gameweek-7",
           "total": 9,
-          "covered": 6,
+          "covered": 9,
           "matches": [
             {
               "match_id": 560603,
@@ -519,8 +519,7 @@
               "home": "Leeds United FC",
               "away": "Manchester United FC",
               "date": "2026-10-18",
-              "covered": false,
-              "pending": true
+              "covered": true
             },
             {
               "match_id": 560609,
@@ -534,16 +533,14 @@
               "home": "AFC Bournemouth",
               "away": "Sunderland AFC",
               "date": "2026-10-18",
-              "covered": false,
-              "pending": true
+              "covered": true
             },
             {
               "match_id": 560608,
               "home": "Nottingham Forest FC",
               "away": "Arsenal FC",
               "date": "2026-10-18",
-              "covered": false,
-              "pending": true
+              "covered": true
             }
           ]
         }
@@ -1166,8 +1163,8 @@
         {
           "gameweek": "GW9",
           "stem": "gameweek-9",
-          "total": 8,
-          "covered": 7,
+          "total": 9,
+          "covered": 9,
           "matches": [
             {
               "match_id": 564716,
@@ -1209,8 +1206,7 @@
               "home": "CA Osasuna",
               "away": "Real Racing Club de Santander",
               "date": "2026-10-18",
-              "covered": false,
-              "pending": true
+              "covered": true
             },
             {
               "match_id": 564712,
@@ -1223,6 +1219,13 @@
               "match_id": 564714,
               "home": "Málaga CF",
               "away": "Real Sociedad de Fútbol",
+              "date": "2026-10-18",
+              "covered": true
+            },
+            {
+              "match_id": 564709,
+              "home": "Real Madrid CF",
+              "away": "Sevilla FC",
               "date": "2026-10-18",
               "covered": true
             }
@@ -1705,8 +1708,8 @@
         {
           "gameweek": "GW7",
           "stem": "gameweek-7",
-          "total": 7,
-          "covered": 7,
+          "total": 8,
+          "covered": 8,
           "matches": [
             {
               "match_id": 558573,
@@ -1754,6 +1757,13 @@
               "match_id": 558569,
               "home": "AC Milan",
               "away": "Atalanta BC",
+              "date": "2026-10-18",
+              "covered": true
+            },
+            {
+              "match_id": 558570,
+              "home": "Juventus FC",
+              "away": "SS Lazio",
               "date": "2026-10-18",
               "covered": true
             }
@@ -2626,8 +2636,8 @@
         {
           "gameweek": "GW7",
           "stem": "gameweek-7",
-          "total": 8,
-          "covered": 7,
+          "total": 9,
+          "covered": 9,
           "matches": [
             {
               "match_id": 559661,
@@ -2683,8 +2693,14 @@
               "home": "Paris FC",
               "away": "Stade Rennais FC 1901",
               "date": "2026-10-18",
-              "covered": false,
-              "pending": true
+              "covered": true
+            },
+            {
+              "match_id": 559665,
+              "home": "Olympique Lyonnais",
+              "away": "OGC Nice",
+              "date": "2026-10-18",
+              "covered": true
             }
           ]
         }

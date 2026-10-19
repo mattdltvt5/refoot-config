@@ -2,7 +2,7 @@
   "competition": "Premier League",
   "gameweek": "GW7",
   "stem": "gameweek-7",
-  "generated_at": "2026-10-18T17:36:57Z",
+  "generated_at": "2026-10-19T00:01:42Z",
   "matches": [
     {
       "match_id": 560603,
@@ -79,7 +79,14 @@
       "home_team": "Leeds United FC",
       "away_team": "Manchester United FC",
       "date": "2026-10-18",
-      "videos": []
+      "videos": [
+        {
+          "video_id": "4OTqgha1Mf0",
+          "title": "Leeds 1-1 Man Utd | Highlights",
+          "published_at": "2026-10-18",
+          "tier_used": 1
+        }
+      ]
     },
     {
       "match_id": 560609,
@@ -100,14 +107,28 @@
       "home_team": "AFC Bournemouth",
       "away_team": "Sunderland AFC",
       "date": "2026-10-18",
-      "videos": []
+      "videos": [
+        {
+          "video_id": "5uV-0ZX9KKk",
+          "title": "Cherries pick up first Premier League win of the campaign | AFC Bournemouth 2-0 Sunderland",
+          "published_at": "2026-10-18",
+          "tier_used": 1
+        }
+      ]
     },
     {
       "match_id": 560608,
       "home_team": "Nottingham Forest FC",
       "away_team": "Arsenal FC",
       "date": "2026-10-18",
-      "videos": []
+      "videos": [
+        {
+          "video_id": "5rR7NWafSS4",
+          "title": "Nottingham Forest 0-1 Arsenal | Premier League Highlights 📺",
+          "published_at": "2026-10-18",
+          "tier_used": 1
+        }
+      ]
     }
   ]
 }
