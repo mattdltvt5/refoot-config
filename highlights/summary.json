@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-19T21:06:12Z",
+  "generated_at": "2026-10-19T21:11:31Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -1171,7 +1171,7 @@
         {
           "gameweek": "GW9",
           "stem": "gameweek-9",
-          "total": 9,
+          "total": 10,
           "covered": 9,
           "matches": [
             {
@@ -1236,6 +1236,14 @@
               "away": "Sevilla FC",
               "date": "2026-10-18",
               "covered": true
+            },
+            {
+              "match_id": 564717,
+              "home": "Getafe CF",
+              "away": "Rayo Vallecano de Madrid",
+              "date": "2026-10-19",
+              "covered": false,
+              "pending": true
             }
           ]
         }
