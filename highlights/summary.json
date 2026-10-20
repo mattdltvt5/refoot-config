@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-20T21:36:14Z",
+  "generated_at": "2026-10-20T21:41:12Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -3010,7 +3010,7 @@
           "gameweek": "MD3",
           "stem": "matchday-3",
           "total": 9,
-          "covered": 8,
+          "covered": 9,
           "matches": [
             {
               "match_id": 575359,
@@ -3059,8 +3059,7 @@
               "home": "FC Porto",
               "away": "PSV",
               "date": "2026-10-20",
-              "covered": false,
-              "pending": true
+              "covered": true
             },
             {
               "match_id": 575366,
