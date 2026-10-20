@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-20T20:06:29.715612Z",
+  "generated_at": "2026-10-20T20:11:31.479384Z",
   "slug": "ucl",
   "standings": [
     {
@@ -37,13 +37,13 @@
           },
           "playedGames": 3,
           "form": null,
-          "won": 3,
-          "draw": 0,
+          "won": 2,
+          "draw": 1,
           "lost": 0,
-          "points": 9,
+          "points": 7,
           "goalsFor": 7,
-          "goalsAgainst": 1,
-          "goalDifference": 6
+          "goalsAgainst": 2,
+          "goalDifference": 5
         },
         {
           "position": 3,
@@ -238,6 +238,25 @@
         {
           "position": 13,
           "team": {
+            "id": 100,
+            "name": "AS Roma",
+            "shortName": "Roma",
+            "tla": "ROM",
+            "crest": "https://crests.football-data.org/100.png"
+          },
+          "playedGames": 3,
+          "form": null,
+          "won": 1,
+          "draw": 1,
+          "lost": 1,
+          "points": 4,
+          "goalsFor": 7,
+          "goalsAgainst": 5,
+          "goalDifference": 2
+        },
+        {
+          "position": 14,
+          "team": {
             "id": 1887,
             "name": "FK Shakhtar Donetsk",
             "shortName": "Shaktar",
@@ -255,7 +274,7 @@
           "goalDifference": 2
         },
         {
-          "position": 14,
+          "position": 15,
           "team": {
             "id": 94,
             "name": "Villarreal CF",
@@ -274,13 +293,13 @@
           "goalDifference": 1
         },
         {
-          "position": 15,
+          "position": 16,
           "team": {
-            "id": 100,
-            "name": "AS Roma",
-            "shortName": "Roma",
-            "tla": "ROM",
-            "crest": "https://crests.football-data.org/100.png"
+            "id": 78,
+            "name": "Club Atlético de Madrid",
+            "shortName": "Atleti",
+            "tla": "ATL",
+            "crest": "https://crests.football-data.org/78.png"
           },
           "playedGames": 3,
           "form": null,
@@ -288,12 +307,12 @@
           "draw": 1,
           "lost": 1,
           "points": 4,
-          "goalsFor": 6,
-          "goalsAgainst": 5,
+          "goalsFor": 4,
+          "goalsAgainst": 3,
           "goalDifference": 1
         },
         {
-          "position": 16,
+          "position": 17,
           "team": {
             "id": 7397,
             "name": "Como 1907",
@@ -312,7 +331,7 @@
           "goalDifference": 2
         },
         {
-          "position": 17,
+          "position": 18,
           "team": {
             "id": 66,
             "name": "Manchester United FC",
@@ -331,7 +350,7 @@
           "goalDifference": 2
         },
         {
-          "position": 18,
+          "position": 19,
           "team": {
             "id": 851,
             "name": "Club Brugge KV",
@@ -347,25 +366,6 @@
           "points": 3,
           "goalsFor": 6,
           "goalsAgainst": 6,
-          "goalDifference": 0
-        },
-        {
-          "position": 19,
-          "team": {
-            "id": 78,
-            "name": "Club Atlético de Madrid",
-            "shortName": "Atleti",
-            "tla": "ATL",
-            "crest": "https://crests.football-data.org/78.png"
-          },
-          "playedGames": 3,
-          "form": null,
-          "won": 1,
-          "draw": 0,
-          "lost": 2,
-          "points": 3,
-          "goalsFor": 3,
-          "goalsAgainst": 3,
           "goalDifference": 0
         },
         {
@@ -688,8 +688,8 @@
           "lost": 3,
           "points": 0,
           "goalsFor": 1,
-          "goalsAgainst": 11,
-          "goalDifference": -10
+          "goalsAgainst": 12,
+          "goalDifference": -11
         }
       ]
     }
@@ -1770,7 +1770,7 @@
       "score": {
         "fullTime": {
           "home": 1,
-          "away": 0
+          "away": 1
         }
       },
       "status": "IN_PLAY",
