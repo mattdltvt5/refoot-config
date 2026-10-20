@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-20T17:01:43.701772Z",
+  "generated_at": "2026-10-20T17:12:20.834430Z",
   "slug": "ucl",
   "standings": [
     {
@@ -251,8 +251,8 @@
           "lost": 1,
           "points": 4,
           "goalsFor": 3,
-          "goalsAgainst": 7,
-          "goalDifference": -4
+          "goalsAgainst": 8,
+          "goalDifference": -5
         },
         {
           "position": 14,
@@ -599,6 +599,25 @@
         {
           "position": 32,
           "team": {
+            "id": 930,
+            "name": "SK Slavia Praha",
+            "shortName": "Slavia Praha",
+            "tla": "SLP",
+            "crest": "https://crests.football-data.org/930.png"
+          },
+          "playedGames": 3,
+          "form": null,
+          "won": 0,
+          "draw": 0,
+          "lost": 3,
+          "points": 0,
+          "goalsFor": 3,
+          "goalsAgainst": 7,
+          "goalDifference": -4
+        },
+        {
+          "position": 33,
+          "team": {
             "id": 2016,
             "name": "LASK Linz",
             "shortName": "LASK",
@@ -616,7 +635,7 @@
           "goalDifference": -4
         },
         {
-          "position": 33,
+          "position": 34,
           "team": {
             "id": 521,
             "name": "Lille OSC",
@@ -635,7 +654,7 @@
           "goalDifference": -4
         },
         {
-          "position": 34,
+          "position": 35,
           "team": {
             "id": 610,
             "name": "Galatasaray SK",
@@ -648,25 +667,6 @@
           "won": 0,
           "draw": 0,
           "lost": 2,
-          "points": 0,
-          "goalsFor": 2,
-          "goalsAgainst": 7,
-          "goalDifference": -5
-        },
-        {
-          "position": 35,
-          "team": {
-            "id": 930,
-            "name": "SK Slavia Praha",
-            "shortName": "Slavia Praha",
-            "tla": "SLP",
-            "crest": "https://crests.football-data.org/930.png"
-          },
-          "playedGames": 3,
-          "form": null,
-          "won": 0,
-          "draw": 0,
-          "lost": 3,
           "points": 0,
           "goalsFor": 2,
           "goalsAgainst": 7,
@@ -1715,8 +1715,8 @@
       },
       "score": {
         "fullTime": {
-          "home": 1,
-          "away": 0
+          "home": 2,
+          "away": 1
         }
       },
       "status": "IN_PLAY",
