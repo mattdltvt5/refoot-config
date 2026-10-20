@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-20T17:56:29.561548Z",
+  "generated_at": "2026-10-20T18:01:41.039574Z",
   "slug": "ucl",
   "standings": [
     {
@@ -181,6 +181,25 @@
         {
           "position": 10,
           "team": {
+            "id": 4,
+            "name": "Borussia Dortmund",
+            "shortName": "Dortmund",
+            "tla": "BVB",
+            "crest": "https://crests.football-data.org/4.png"
+          },
+          "playedGames": 3,
+          "form": null,
+          "won": 2,
+          "draw": 0,
+          "lost": 1,
+          "points": 6,
+          "goalsFor": 5,
+          "goalsAgainst": 4,
+          "goalDifference": 1
+        },
+        {
+          "position": 11,
+          "team": {
             "id": 5,
             "name": "FC Bayern München",
             "shortName": "Bayern",
@@ -198,7 +217,7 @@
           "goalDifference": 5
         },
         {
-          "position": 11,
+          "position": 12,
           "team": {
             "id": 1887,
             "name": "FK Shakhtar Donetsk",
@@ -217,45 +236,7 @@
           "goalDifference": 2
         },
         {
-          "position": 12,
-          "team": {
-            "id": 4,
-            "name": "Borussia Dortmund",
-            "shortName": "Dortmund",
-            "tla": "BVB",
-            "crest": "https://crests.football-data.org/4.png"
-          },
-          "playedGames": 3,
-          "form": null,
-          "won": 1,
-          "draw": 1,
-          "lost": 1,
-          "points": 4,
-          "goalsFor": 4,
-          "goalsAgainst": 4,
-          "goalDifference": 0
-        },
-        {
           "position": 13,
-          "team": {
-            "id": 10233,
-            "name": "Sabah FK",
-            "shortName": "Sabah FK",
-            "tla": "SAB",
-            "crest": "https://crests.football-data.org/10233.png"
-          },
-          "playedGames": 3,
-          "form": null,
-          "won": 1,
-          "draw": 1,
-          "lost": 1,
-          "points": 4,
-          "goalsFor": 3,
-          "goalsAgainst": 5,
-          "goalDifference": -2
-        },
-        {
-          "position": 14,
           "team": {
             "id": 613,
             "name": "Fenerbahçe SK",
@@ -274,7 +255,7 @@
           "goalDifference": -5
         },
         {
-          "position": 15,
+          "position": 14,
           "team": {
             "id": 7397,
             "name": "Como 1907",
@@ -293,7 +274,7 @@
           "goalDifference": 2
         },
         {
-          "position": 16,
+          "position": 15,
           "team": {
             "id": 66,
             "name": "Manchester United FC",
@@ -312,7 +293,7 @@
           "goalDifference": 2
         },
         {
-          "position": 17,
+          "position": 16,
           "team": {
             "id": 94,
             "name": "Villarreal CF",
@@ -331,7 +312,7 @@
           "goalDifference": 1
         },
         {
-          "position": 18,
+          "position": 17,
           "team": {
             "id": 78,
             "name": "Club Atlético de Madrid",
@@ -350,7 +331,7 @@
           "goalDifference": 1
         },
         {
-          "position": 19,
+          "position": 18,
           "team": {
             "id": 851,
             "name": "Club Brugge KV",
@@ -369,7 +350,7 @@
           "goalDifference": 0
         },
         {
-          "position": 20,
+          "position": 19,
           "team": {
             "id": 65,
             "name": "Manchester City FC",
@@ -388,7 +369,7 @@
           "goalDifference": 0
         },
         {
-          "position": 21,
+          "position": 20,
           "team": {
             "id": 546,
             "name": "Racing Club de Lens",
@@ -407,7 +388,7 @@
           "goalDifference": -1
         },
         {
-          "position": 22,
+          "position": 21,
           "team": {
             "id": 1899,
             "name": "PAE AEK",
@@ -426,7 +407,7 @@
           "goalDifference": -1
         },
         {
-          "position": 23,
+          "position": 22,
           "team": {
             "id": 721,
             "name": "RB Leipzig",
@@ -445,7 +426,7 @@
           "goalDifference": -2
         },
         {
-          "position": 24,
+          "position": 23,
           "team": {
             "id": 675,
             "name": "Feyenoord Rotterdam",
@@ -461,6 +442,25 @@
           "points": 3,
           "goalsFor": 4,
           "goalsAgainst": 7,
+          "goalDifference": -3
+        },
+        {
+          "position": 24,
+          "team": {
+            "id": 10233,
+            "name": "Sabah FK",
+            "shortName": "Sabah FK",
+            "tla": "SAB",
+            "crest": "https://crests.football-data.org/10233.png"
+          },
+          "playedGames": 3,
+          "form": null,
+          "won": 1,
+          "draw": 0,
+          "lost": 2,
+          "points": 3,
+          "goalsFor": 3,
+          "goalsAgainst": 6,
           "goalDifference": -3
         },
         {
@@ -1688,11 +1688,11 @@
       },
       "score": {
         "fullTime": {
-          "home": 1,
-          "away": 1
+          "home": null,
+          "away": null
         }
       },
-      "status": "IN_PLAY",
+      "status": "TIMED",
       "video_id": null
     },
     {
@@ -1715,11 +1715,11 @@
       },
       "score": {
         "fullTime": {
-          "home": 2,
-          "away": 1
+          "home": null,
+          "away": null
         }
       },
-      "status": "IN_PLAY",
+      "status": "TIMED",
       "video_id": null
     },
     {
