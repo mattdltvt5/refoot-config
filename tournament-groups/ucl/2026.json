@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-20T19:21:37.333683Z",
+  "generated_at": "2026-10-20T19:31:36.847509Z",
   "slug": "ucl",
   "standings": [
     {
@@ -295,6 +295,25 @@
         {
           "position": 16,
           "team": {
+            "id": 100,
+            "name": "AS Roma",
+            "shortName": "Roma",
+            "tla": "ROM",
+            "crest": "https://crests.football-data.org/100.png"
+          },
+          "playedGames": 3,
+          "form": null,
+          "won": 1,
+          "draw": 1,
+          "lost": 1,
+          "points": 4,
+          "goalsFor": 5,
+          "goalsAgainst": 5,
+          "goalDifference": 0
+        },
+        {
+          "position": 17,
+          "team": {
             "id": 7397,
             "name": "Como 1907",
             "shortName": "Como 1907",
@@ -312,7 +331,7 @@
           "goalDifference": 2
         },
         {
-          "position": 17,
+          "position": 18,
           "team": {
             "id": 66,
             "name": "Manchester United FC",
@@ -331,7 +350,7 @@
           "goalDifference": 2
         },
         {
-          "position": 18,
+          "position": 19,
           "team": {
             "id": 851,
             "name": "Club Brugge KV",
@@ -350,7 +369,7 @@
           "goalDifference": 0
         },
         {
-          "position": 19,
+          "position": 20,
           "team": {
             "id": 546,
             "name": "Racing Club de Lens",
@@ -369,7 +388,7 @@
           "goalDifference": -1
         },
         {
-          "position": 20,
+          "position": 21,
           "team": {
             "id": 1899,
             "name": "PAE AEK",
@@ -388,7 +407,7 @@
           "goalDifference": -2
         },
         {
-          "position": 20,
+          "position": 21,
           "team": {
             "id": 721,
             "name": "RB Leipzig",
@@ -407,7 +426,7 @@
           "goalDifference": -2
         },
         {
-          "position": 20,
+          "position": 21,
           "team": {
             "id": 113,
             "name": "SSC Napoli",
@@ -426,7 +445,7 @@
           "goalDifference": -2
         },
         {
-          "position": 23,
+          "position": 24,
           "team": {
             "id": 675,
             "name": "Feyenoord Rotterdam",
@@ -445,7 +464,7 @@
           "goalDifference": -3
         },
         {
-          "position": 24,
+          "position": 25,
           "team": {
             "id": 10233,
             "name": "Sabah FK",
@@ -464,7 +483,7 @@
           "goalDifference": -3
         },
         {
-          "position": 25,
+          "position": 26,
           "team": {
             "id": 5721,
             "name": "FK Bodø/Glimt",
@@ -481,25 +500,6 @@
           "goalsFor": 1,
           "goalsAgainst": 6,
           "goalDifference": -5
-        },
-        {
-          "position": 26,
-          "team": {
-            "id": 100,
-            "name": "AS Roma",
-            "shortName": "Roma",
-            "tla": "ROM",
-            "crest": "https://crests.football-data.org/100.png"
-          },
-          "playedGames": 3,
-          "form": null,
-          "won": 0,
-          "draw": 2,
-          "lost": 1,
-          "points": 2,
-          "goalsFor": 4,
-          "goalsAgainst": 5,
-          "goalDifference": -1
         },
         {
           "position": 27,
@@ -599,25 +599,6 @@
         {
           "position": 32,
           "team": {
-            "id": 7509,
-            "name": "ŠK Slovan Bratislava",
-            "shortName": "Sl. Bratislava",
-            "tla": "SBA",
-            "crest": "https://crests.football-data.org/7509.png"
-          },
-          "playedGames": 3,
-          "form": null,
-          "won": 0,
-          "draw": 1,
-          "lost": 2,
-          "points": 1,
-          "goalsFor": 1,
-          "goalsAgainst": 9,
-          "goalDifference": -8
-        },
-        {
-          "position": 33,
-          "team": {
             "id": 108,
             "name": "FC Internazionale Milano",
             "shortName": "Inter",
@@ -635,7 +616,7 @@
           "goalDifference": -2
         },
         {
-          "position": 34,
+          "position": 33,
           "team": {
             "id": 2016,
             "name": "LASK Linz",
@@ -654,7 +635,7 @@
           "goalDifference": -4
         },
         {
-          "position": 35,
+          "position": 34,
           "team": {
             "id": 521,
             "name": "Lille OSC",
@@ -673,7 +654,7 @@
           "goalDifference": -4
         },
         {
-          "position": 36,
+          "position": 35,
           "team": {
             "id": 610,
             "name": "Galatasaray SK",
@@ -690,6 +671,25 @@
           "goalsFor": 2,
           "goalsAgainst": 7,
           "goalDifference": -5
+        },
+        {
+          "position": 36,
+          "team": {
+            "id": 7509,
+            "name": "ŠK Slovan Bratislava",
+            "shortName": "Sl. Bratislava",
+            "tla": "SBA",
+            "crest": "https://crests.football-data.org/7509.png"
+          },
+          "playedGames": 3,
+          "form": null,
+          "won": 0,
+          "draw": 0,
+          "lost": 3,
+          "points": 0,
+          "goalsFor": 1,
+          "goalsAgainst": 10,
+          "goalDifference": -9
         }
       ]
     }
@@ -1823,7 +1823,7 @@
       },
       "score": {
         "fullTime": {
-          "home": 0,
+          "home": 1,
           "away": 0
         }
       },
