@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-20T18:41:11Z",
+  "generated_at": "2026-10-20T18:46:19Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -3003,6 +3003,30 @@
               "away": "FC Porto",
               "date": "2026-10-14",
               "covered": true
+            }
+          ]
+        },
+        {
+          "gameweek": "MD3",
+          "stem": "matchday-3",
+          "total": 2,
+          "covered": 0,
+          "matches": [
+            {
+              "match_id": 575359,
+              "home": "Sabah FK",
+              "away": "Borussia Dortmund",
+              "date": "2026-10-20",
+              "covered": false,
+              "pending": true
+            },
+            {
+              "match_id": 575360,
+              "home": "Fenerbahçe SK",
+              "away": "SK Slavia Praha",
+              "date": "2026-10-20",
+              "covered": false,
+              "pending": true
             }
           ]
         }
