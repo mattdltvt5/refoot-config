@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-20T12:36:28.465595Z",
+  "generated_at": "2026-10-20T18:41:32.765834Z",
   "competition": "Champions League",
   "slug": "ucl",
   "season": 2026,
@@ -178,6 +178,25 @@
     {
       "position": 10,
       "team": {
+        "id": 4,
+        "name": "Borussia Dortmund",
+        "shortName": "Dortmund",
+        "tla": "BVB",
+        "crest": "https://crests.football-data.org/4.png"
+      },
+      "playedGames": 3,
+      "form": "W,L,W",
+      "won": 2,
+      "draw": 0,
+      "lost": 1,
+      "points": 6,
+      "goalsFor": 5,
+      "goalsAgainst": 4,
+      "goalDifference": 1
+    },
+    {
+      "position": 11,
+      "team": {
         "id": 5,
         "name": "FC Bayern München",
         "shortName": "Bayern",
@@ -195,7 +214,7 @@
       "goalDifference": 5
     },
     {
-      "position": 11,
+      "position": 12,
       "team": {
         "id": 1887,
         "name": "FK Shakhtar Donetsk",
@@ -214,7 +233,7 @@
       "goalDifference": 2
     },
     {
-      "position": 12,
+      "position": 13,
       "team": {
         "id": 7397,
         "name": "Como 1907",
@@ -233,7 +252,7 @@
       "goalDifference": 2
     },
     {
-      "position": 13,
+      "position": 14,
       "team": {
         "id": 66,
         "name": "Manchester United FC",
@@ -252,7 +271,7 @@
       "goalDifference": 2
     },
     {
-      "position": 14,
+      "position": 15,
       "team": {
         "id": 94,
         "name": "Villarreal CF",
@@ -271,7 +290,7 @@
       "goalDifference": 1
     },
     {
-      "position": 15,
+      "position": 16,
       "team": {
         "id": 78,
         "name": "Club Atlético de Madrid",
@@ -290,7 +309,7 @@
       "goalDifference": 1
     },
     {
-      "position": 16,
+      "position": 17,
       "team": {
         "id": 851,
         "name": "Club Brugge KV",
@@ -309,7 +328,7 @@
       "goalDifference": 0
     },
     {
-      "position": 17,
+      "position": 18,
       "team": {
         "id": 65,
         "name": "Manchester City FC",
@@ -325,25 +344,6 @@
       "points": 3,
       "goalsFor": 4,
       "goalsAgainst": 4,
-      "goalDifference": 0
-    },
-    {
-      "position": 18,
-      "team": {
-        "id": 4,
-        "name": "Borussia Dortmund",
-        "shortName": "Dortmund",
-        "tla": "BVB",
-        "crest": "https://crests.football-data.org/4.png"
-      },
-      "playedGames": 2,
-      "form": "L,W",
-      "won": 1,
-      "draw": 0,
-      "lost": 1,
-      "points": 3,
-      "goalsFor": 3,
-      "goalsAgainst": 3,
       "goalDifference": 0
     },
     {
@@ -387,25 +387,6 @@
     {
       "position": 21,
       "team": {
-        "id": 10233,
-        "name": "Sabah FK",
-        "shortName": "Sabah FK",
-        "tla": "SAB",
-        "crest": "https://crests.football-data.org/10233.png"
-      },
-      "playedGames": 2,
-      "form": "W,L",
-      "won": 1,
-      "draw": 0,
-      "lost": 1,
-      "points": 3,
-      "goalsFor": 2,
-      "goalsAgainst": 4,
-      "goalDifference": -2
-    },
-    {
-      "position": 22,
-      "team": {
         "id": 721,
         "name": "RB Leipzig",
         "shortName": "RB Leipzig",
@@ -423,7 +404,7 @@
       "goalDifference": -2
     },
     {
-      "position": 23,
+      "position": 22,
       "team": {
         "id": 675,
         "name": "Feyenoord Rotterdam",
@@ -439,6 +420,25 @@
       "points": 3,
       "goalsFor": 4,
       "goalsAgainst": 7,
+      "goalDifference": -3
+    },
+    {
+      "position": 23,
+      "team": {
+        "id": 10233,
+        "name": "Sabah FK",
+        "shortName": "Sabah FK",
+        "tla": "SAB",
+        "crest": "https://crests.football-data.org/10233.png"
+      },
+      "playedGames": 3,
+      "form": "L,W,L",
+      "won": 1,
+      "draw": 0,
+      "lost": 2,
+      "points": 3,
+      "goalsFor": 3,
+      "goalsAgainst": 6,
       "goalDifference": -3
     },
     {
@@ -463,6 +463,25 @@
     {
       "position": 25,
       "team": {
+        "id": 613,
+        "name": "Fenerbahçe SK",
+        "shortName": "Fenerbahçe",
+        "tla": "FEN",
+        "crest": "https://crests.football-data.org/613.png"
+      },
+      "playedGames": 3,
+      "form": "D,L,D",
+      "won": 0,
+      "draw": 2,
+      "lost": 1,
+      "points": 2,
+      "goalsFor": 3,
+      "goalsAgainst": 9,
+      "goalDifference": -6
+    },
+    {
+      "position": 26,
+      "team": {
         "id": 100,
         "name": "AS Roma",
         "shortName": "Roma",
@@ -480,7 +499,7 @@
       "goalDifference": -1
     },
     {
-      "position": 26,
+      "position": 27,
       "team": {
         "id": 674,
         "name": "PSV",
@@ -499,7 +518,7 @@
       "goalDifference": -1
     },
     {
-      "position": 27,
+      "position": 28,
       "team": {
         "id": 5720,
         "name": "Viking FK",
@@ -518,26 +537,26 @@
       "goalDifference": -2
     },
     {
-      "position": 28,
+      "position": 29,
       "team": {
-        "id": 613,
-        "name": "Fenerbahçe SK",
-        "shortName": "Fenerbahçe",
-        "tla": "FEN",
-        "crest": "https://crests.football-data.org/613.png"
+        "id": 930,
+        "name": "SK Slavia Praha",
+        "shortName": "Slavia Praha",
+        "tla": "SLP",
+        "crest": "https://crests.football-data.org/930.png"
       },
-      "playedGames": 2,
-      "form": "L,D",
+      "playedGames": 3,
+      "form": "D,L,L",
       "won": 0,
       "draw": 1,
-      "lost": 1,
+      "lost": 2,
       "points": 1,
-      "goalsFor": 1,
+      "goalsFor": 4,
       "goalsAgainst": 7,
-      "goalDifference": -6
+      "goalDifference": -3
     },
     {
-      "position": 29,
+      "position": 30,
       "team": {
         "id": 108,
         "name": "FC Internazionale Milano",
@@ -556,32 +575,13 @@
       "goalDifference": -2
     },
     {
-      "position": 30,
+      "position": 31,
       "team": {
         "id": 503,
         "name": "FC Porto",
         "shortName": "Porto",
         "tla": "FCP",
         "crest": "https://crests.football-data.org/503.png"
-      },
-      "playedGames": 2,
-      "form": "L,L",
-      "won": 0,
-      "draw": 0,
-      "lost": 2,
-      "points": 0,
-      "goalsFor": 2,
-      "goalsAgainst": 5,
-      "goalDifference": -3
-    },
-    {
-      "position": 31,
-      "team": {
-        "id": 930,
-        "name": "SK Slavia Praha",
-        "shortName": "Slavia Praha",
-        "tla": "SLP",
-        "crest": "https://crests.football-data.org/930.png"
       },
       "playedGames": 2,
       "form": "L,L",

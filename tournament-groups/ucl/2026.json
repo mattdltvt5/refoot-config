@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-20T18:36:34.099396Z",
+  "generated_at": "2026-10-20T18:41:32.100495Z",
   "slug": "ucl",
   "standings": [
     {
@@ -238,25 +238,6 @@
         {
           "position": 13,
           "team": {
-            "id": 613,
-            "name": "Fenerbahçe SK",
-            "shortName": "Fenerbahçe",
-            "tla": "FEN",
-            "crest": "https://crests.football-data.org/613.png"
-          },
-          "playedGames": 3,
-          "form": null,
-          "won": 1,
-          "draw": 1,
-          "lost": 1,
-          "points": 4,
-          "goalsFor": 3,
-          "goalsAgainst": 8,
-          "goalDifference": -5
-        },
-        {
-          "position": 14,
-          "team": {
             "id": 7397,
             "name": "Como 1907",
             "shortName": "Como 1907",
@@ -274,7 +255,7 @@
           "goalDifference": 2
         },
         {
-          "position": 15,
+          "position": 14,
           "team": {
             "id": 66,
             "name": "Manchester United FC",
@@ -293,7 +274,7 @@
           "goalDifference": 2
         },
         {
-          "position": 16,
+          "position": 15,
           "team": {
             "id": 94,
             "name": "Villarreal CF",
@@ -312,7 +293,7 @@
           "goalDifference": 1
         },
         {
-          "position": 17,
+          "position": 16,
           "team": {
             "id": 78,
             "name": "Club Atlético de Madrid",
@@ -331,7 +312,7 @@
           "goalDifference": 1
         },
         {
-          "position": 18,
+          "position": 17,
           "team": {
             "id": 851,
             "name": "Club Brugge KV",
@@ -350,7 +331,7 @@
           "goalDifference": 0
         },
         {
-          "position": 19,
+          "position": 18,
           "team": {
             "id": 65,
             "name": "Manchester City FC",
@@ -369,7 +350,7 @@
           "goalDifference": 0
         },
         {
-          "position": 20,
+          "position": 19,
           "team": {
             "id": 546,
             "name": "Racing Club de Lens",
@@ -388,7 +369,7 @@
           "goalDifference": -1
         },
         {
-          "position": 21,
+          "position": 20,
           "team": {
             "id": 1899,
             "name": "PAE AEK",
@@ -407,7 +388,7 @@
           "goalDifference": -1
         },
         {
-          "position": 22,
+          "position": 21,
           "team": {
             "id": 721,
             "name": "RB Leipzig",
@@ -426,7 +407,7 @@
           "goalDifference": -2
         },
         {
-          "position": 23,
+          "position": 22,
           "team": {
             "id": 675,
             "name": "Feyenoord Rotterdam",
@@ -445,7 +426,7 @@
           "goalDifference": -3
         },
         {
-          "position": 24,
+          "position": 23,
           "team": {
             "id": 10233,
             "name": "Sabah FK",
@@ -464,7 +445,7 @@
           "goalDifference": -3
         },
         {
-          "position": 25,
+          "position": 24,
           "team": {
             "id": 5721,
             "name": "FK Bodø/Glimt",
@@ -481,6 +462,25 @@
           "goalsFor": 1,
           "goalsAgainst": 5,
           "goalDifference": -4
+        },
+        {
+          "position": 25,
+          "team": {
+            "id": 613,
+            "name": "Fenerbahçe SK",
+            "shortName": "Fenerbahçe",
+            "tla": "FEN",
+            "crest": "https://crests.football-data.org/613.png"
+          },
+          "playedGames": 3,
+          "form": null,
+          "won": 0,
+          "draw": 2,
+          "lost": 1,
+          "points": 2,
+          "goalsFor": 3,
+          "goalsAgainst": 9,
+          "goalDifference": -6
         },
         {
           "position": 26,
@@ -542,6 +542,25 @@
         {
           "position": 29,
           "team": {
+            "id": 930,
+            "name": "SK Slavia Praha",
+            "shortName": "Slavia Praha",
+            "tla": "SLP",
+            "crest": "https://crests.football-data.org/930.png"
+          },
+          "playedGames": 3,
+          "form": null,
+          "won": 0,
+          "draw": 1,
+          "lost": 2,
+          "points": 1,
+          "goalsFor": 4,
+          "goalsAgainst": 7,
+          "goalDifference": -3
+        },
+        {
+          "position": 30,
+          "team": {
             "id": 108,
             "name": "FC Internazionale Milano",
             "shortName": "Inter",
@@ -559,7 +578,7 @@
           "goalDifference": -2
         },
         {
-          "position": 30,
+          "position": 31,
           "team": {
             "id": 503,
             "name": "FC Porto",
@@ -578,7 +597,7 @@
           "goalDifference": -3
         },
         {
-          "position": 31,
+          "position": 32,
           "team": {
             "id": 113,
             "name": "SSC Napoli",
@@ -595,25 +614,6 @@
           "goalsFor": 1,
           "goalsAgainst": 4,
           "goalDifference": -3
-        },
-        {
-          "position": 32,
-          "team": {
-            "id": 930,
-            "name": "SK Slavia Praha",
-            "shortName": "Slavia Praha",
-            "tla": "SLP",
-            "crest": "https://crests.football-data.org/930.png"
-          },
-          "playedGames": 3,
-          "form": null,
-          "won": 0,
-          "draw": 0,
-          "lost": 3,
-          "points": 0,
-          "goalsFor": 3,
-          "goalsAgainst": 7,
-          "goalDifference": -4
         },
         {
           "position": 33,
@@ -1688,11 +1688,11 @@
       },
       "score": {
         "fullTime": {
-          "home": null,
-          "away": null
+          "home": 1,
+          "away": 2
         }
       },
-      "status": "TIMED",
+      "status": "FINISHED",
       "video_id": null
     },
     {
@@ -1715,11 +1715,11 @@
       },
       "score": {
         "fullTime": {
-          "home": null,
-          "away": null
+          "home": 2,
+          "away": 2
         }
       },
-      "status": "TIMED",
+      "status": "IN_PLAY",
       "video_id": null
     },
     {
