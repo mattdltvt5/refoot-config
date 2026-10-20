@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-20T20:56:28.230602Z",
+  "generated_at": "2026-10-20T21:01:43.675639Z",
   "slug": "ucl",
   "standings": [
     {
@@ -22,9 +22,9 @@
           "draw": 0,
           "lost": 0,
           "points": 9,
-          "goalsFor": 13,
+          "goalsFor": 14,
           "goalsAgainst": 5,
-          "goalDifference": 8
+          "goalDifference": 9
         },
         {
           "position": 2,
@@ -99,8 +99,8 @@
           "lost": 1,
           "points": 6,
           "goalsFor": 11,
-          "goalsAgainst": 5,
-          "goalDifference": 6
+          "goalsAgainst": 6,
+          "goalDifference": 5
         },
         {
           "position": 6,
@@ -390,25 +390,6 @@
         {
           "position": 21,
           "team": {
-            "id": 113,
-            "name": "SSC Napoli",
-            "shortName": "Napoli",
-            "tla": "NAP",
-            "crest": "https://crests.football-data.org/113.png"
-          },
-          "playedGames": 3,
-          "form": null,
-          "won": 1,
-          "draw": 0,
-          "lost": 2,
-          "points": 3,
-          "goalsFor": 5,
-          "goalsAgainst": 6,
-          "goalDifference": -1
-        },
-        {
-          "position": 22,
-          "team": {
             "id": 546,
             "name": "Racing Club de Lens",
             "shortName": "RC Lens",
@@ -424,6 +405,25 @@
           "goalsFor": 3,
           "goalsAgainst": 4,
           "goalDifference": -1
+        },
+        {
+          "position": 22,
+          "team": {
+            "id": 113,
+            "name": "SSC Napoli",
+            "shortName": "Napoli",
+            "tla": "NAP",
+            "crest": "https://crests.football-data.org/113.png"
+          },
+          "playedGames": 3,
+          "form": null,
+          "won": 1,
+          "draw": 0,
+          "lost": 2,
+          "points": 3,
+          "goalsFor": 5,
+          "goalsAgainst": 7,
+          "goalDifference": -2
         },
         {
           "position": 23,
@@ -485,6 +485,25 @@
         {
           "position": 26,
           "team": {
+            "id": 5721,
+            "name": "FK Bodø/Glimt",
+            "shortName": "Bodø/Glimt",
+            "tla": "FK",
+            "crest": "https://crests.football-data.org/5721.png"
+          },
+          "playedGames": 3,
+          "form": null,
+          "won": 1,
+          "draw": 0,
+          "lost": 2,
+          "points": 3,
+          "goalsFor": 4,
+          "goalsAgainst": 9,
+          "goalDifference": -5
+        },
+        {
+          "position": 27,
+          "team": {
             "id": 1899,
             "name": "PAE AEK",
             "shortName": "PAE AEK",
@@ -500,25 +519,6 @@
           "goalsFor": 3,
           "goalsAgainst": 8,
           "goalDifference": -5
-        },
-        {
-          "position": 27,
-          "team": {
-            "id": 5721,
-            "name": "FK Bodø/Glimt",
-            "shortName": "Bodø/Glimt",
-            "tla": "FK",
-            "crest": "https://crests.football-data.org/5721.png"
-          },
-          "playedGames": 3,
-          "form": null,
-          "won": 1,
-          "draw": 0,
-          "lost": 2,
-          "points": 3,
-          "goalsFor": 3,
-          "goalsAgainst": 9,
-          "goalDifference": -6
         },
         {
           "position": 28,
@@ -1746,7 +1746,7 @@
           "away": 1
         }
       },
-      "status": "IN_PLAY",
+      "status": "FINISHED",
       "video_id": null
     },
     {
@@ -1800,7 +1800,7 @@
           "away": 3
         }
       },
-      "status": "IN_PLAY",
+      "status": "FINISHED",
       "video_id": null
     },
     {
@@ -1854,7 +1854,7 @@
           "away": 1
         }
       },
-      "status": "IN_PLAY",
+      "status": "FINISHED",
       "video_id": null
     },
     {
@@ -1878,7 +1878,7 @@
       "score": {
         "fullTime": {
           "home": 4,
-          "away": 2
+          "away": 3
         }
       },
       "status": "IN_PLAY",
@@ -1904,7 +1904,7 @@
       },
       "score": {
         "fullTime": {
-          "home": 3,
+          "home": 4,
           "away": 2
         }
       },

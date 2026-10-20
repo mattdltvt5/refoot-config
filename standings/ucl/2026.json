@@ -1,11 +1,30 @@
 {
-  "generated_at": "2026-10-20T20:56:28.889058Z",
+  "generated_at": "2026-10-20T21:01:44.556966Z",
   "competition": "Champions League",
   "slug": "ucl",
   "season": 2026,
   "standings": [
     {
       "position": 1,
+      "team": {
+        "id": 524,
+        "name": "Paris Saint-Germain FC",
+        "shortName": "PSG",
+        "tla": "PSG",
+        "crest": "https://crests.football-data.org/524.png"
+      },
+      "playedGames": 3,
+      "form": "W,W,W",
+      "won": 3,
+      "draw": 0,
+      "lost": 0,
+      "points": 9,
+      "goalsFor": 14,
+      "goalsAgainst": 5,
+      "goalDifference": 9
+    },
+    {
+      "position": 2,
       "team": {
         "id": 64,
         "name": "Liverpool FC",
@@ -24,7 +43,7 @@
       "goalDifference": 5
     },
     {
-      "position": 2,
+      "position": 3,
       "team": {
         "id": 10,
         "name": "VfB Stuttgart",
@@ -41,25 +60,6 @@
       "goalsFor": 7,
       "goalsAgainst": 2,
       "goalDifference": 5
-    },
-    {
-      "position": 3,
-      "team": {
-        "id": 524,
-        "name": "Paris Saint-Germain FC",
-        "shortName": "PSG",
-        "tla": "PSG",
-        "crest": "https://crests.football-data.org/524.png"
-      },
-      "playedGames": 2,
-      "form": "W,W",
-      "won": 2,
-      "draw": 0,
-      "lost": 0,
-      "points": 6,
-      "goalsFor": 10,
-      "goalsAgainst": 3,
-      "goalDifference": 7
     },
     {
       "position": 4,
@@ -89,15 +89,15 @@
         "tla": "FCB",
         "crest": "https://crests.football-data.org/81.png"
       },
-      "playedGames": 2,
-      "form": "W,W",
+      "playedGames": 3,
+      "form": "L,W,W",
       "won": 2,
       "draw": 0,
-      "lost": 0,
+      "lost": 1,
       "points": 6,
-      "goalsFor": 9,
-      "goalsAgainst": 2,
-      "goalDifference": 7
+      "goalsFor": 11,
+      "goalsAgainst": 6,
+      "goalDifference": 5
     },
     {
       "position": 6,
@@ -406,6 +406,25 @@
     {
       "position": 22,
       "team": {
+        "id": 113,
+        "name": "SSC Napoli",
+        "shortName": "Napoli",
+        "tla": "NAP",
+        "crest": "https://crests.football-data.org/113.png"
+      },
+      "playedGames": 3,
+      "form": "W,L,L",
+      "won": 1,
+      "draw": 0,
+      "lost": 2,
+      "points": 3,
+      "goalsFor": 5,
+      "goalsAgainst": 7,
+      "goalDifference": -2
+    },
+    {
+      "position": 23,
+      "team": {
         "id": 721,
         "name": "RB Leipzig",
         "shortName": "RB Leipzig",
@@ -423,7 +442,7 @@
       "goalDifference": -2
     },
     {
-      "position": 23,
+      "position": 24,
       "team": {
         "id": 675,
         "name": "Feyenoord Rotterdam",
@@ -442,7 +461,7 @@
       "goalDifference": -3
     },
     {
-      "position": 24,
+      "position": 25,
       "team": {
         "id": 10233,
         "name": "Sabah FK",
@@ -461,7 +480,7 @@
       "goalDifference": -3
     },
     {
-      "position": 25,
+      "position": 26,
       "team": {
         "id": 5721,
         "name": "FK Bodø/Glimt",
@@ -469,18 +488,18 @@
         "tla": "FK",
         "crest": "https://crests.football-data.org/5721.png"
       },
-      "playedGames": 2,
-      "form": "W,L",
+      "playedGames": 3,
+      "form": "L,W,L",
       "won": 1,
       "draw": 0,
-      "lost": 1,
+      "lost": 2,
       "points": 3,
-      "goalsFor": 1,
-      "goalsAgainst": 5,
-      "goalDifference": -4
+      "goalsFor": 4,
+      "goalsAgainst": 9,
+      "goalDifference": -5
     },
     {
-      "position": 26,
+      "position": 27,
       "team": {
         "id": 1899,
         "name": "PAE AEK",
@@ -499,7 +518,7 @@
       "goalDifference": -5
     },
     {
-      "position": 27,
+      "position": 28,
       "team": {
         "id": 613,
         "name": "Fenerbahçe SK",
@@ -518,7 +537,7 @@
       "goalDifference": -6
     },
     {
-      "position": 28,
+      "position": 29,
       "team": {
         "id": 5720,
         "name": "Viking FK",
@@ -537,7 +556,7 @@
       "goalDifference": -2
     },
     {
-      "position": 29,
+      "position": 30,
       "team": {
         "id": 930,
         "name": "SK Slavia Praha",
@@ -556,7 +575,7 @@
       "goalDifference": -3
     },
     {
-      "position": 30,
+      "position": 31,
       "team": {
         "id": 108,
         "name": "FC Internazionale Milano",
@@ -573,25 +592,6 @@
       "goalsFor": 4,
       "goalsAgainst": 6,
       "goalDifference": -2
-    },
-    {
-      "position": 31,
-      "team": {
-        "id": 113,
-        "name": "SSC Napoli",
-        "shortName": "Napoli",
-        "tla": "NAP",
-        "crest": "https://crests.football-data.org/113.png"
-      },
-      "playedGames": 2,
-      "form": "L,L",
-      "won": 0,
-      "draw": 0,
-      "lost": 2,
-      "points": 0,
-      "goalsFor": 1,
-      "goalsAgainst": 4,
-      "goalDifference": -3
     },
     {
       "position": 32,
