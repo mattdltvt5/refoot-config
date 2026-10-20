@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-20T20:46:34.018341Z",
+  "generated_at": "2026-10-20T20:51:36.552098Z",
   "slug": "ucl",
   "standings": [
     {
@@ -22,8 +22,8 @@
           "draw": 0,
           "lost": 0,
           "points": 9,
-          "goalsFor": 12,
-          "goalsAgainst": 4,
+          "goalsFor": 13,
+          "goalsAgainst": 5,
           "goalDifference": 8
         },
         {
@@ -42,8 +42,8 @@
           "lost": 0,
           "points": 9,
           "goalsFor": 12,
-          "goalsAgainst": 6,
-          "goalDifference": 6
+          "goalsAgainst": 7,
+          "goalDifference": 5
         },
         {
           "position": 3,
@@ -98,8 +98,8 @@
           "draw": 0,
           "lost": 1,
           "points": 6,
-          "goalsFor": 10,
-          "goalsAgainst": 4,
+          "goalsFor": 11,
+          "goalsAgainst": 5,
           "goalDifference": 6
         },
         {
@@ -352,6 +352,25 @@
         {
           "position": 19,
           "team": {
+            "id": 94,
+            "name": "Villarreal CF",
+            "shortName": "Villarreal",
+            "tla": "VIL",
+            "crest": "https://crests.football-data.org/94.png"
+          },
+          "playedGames": 3,
+          "form": null,
+          "won": 1,
+          "draw": 0,
+          "lost": 2,
+          "points": 3,
+          "goalsFor": 8,
+          "goalsAgainst": 8,
+          "goalDifference": 0
+        },
+        {
+          "position": 20,
+          "team": {
             "id": 851,
             "name": "Club Brugge KV",
             "shortName": "Club Brugge",
@@ -369,13 +388,13 @@
           "goalDifference": 0
         },
         {
-          "position": 20,
+          "position": 21,
           "team": {
-            "id": 94,
-            "name": "Villarreal CF",
-            "shortName": "Villarreal",
-            "tla": "VIL",
-            "crest": "https://crests.football-data.org/94.png"
+            "id": 113,
+            "name": "SSC Napoli",
+            "shortName": "Napoli",
+            "tla": "NAP",
+            "crest": "https://crests.football-data.org/113.png"
           },
           "playedGames": 3,
           "form": null,
@@ -383,12 +402,12 @@
           "draw": 0,
           "lost": 2,
           "points": 3,
-          "goalsFor": 7,
-          "goalsAgainst": 8,
+          "goalsFor": 5,
+          "goalsAgainst": 6,
           "goalDifference": -1
         },
         {
-          "position": 21,
+          "position": 22,
           "team": {
             "id": 546,
             "name": "Racing Club de Lens",
@@ -405,25 +424,6 @@
           "goalsFor": 3,
           "goalsAgainst": 4,
           "goalDifference": -1
-        },
-        {
-          "position": 22,
-          "team": {
-            "id": 113,
-            "name": "SSC Napoli",
-            "shortName": "Napoli",
-            "tla": "NAP",
-            "crest": "https://crests.football-data.org/113.png"
-          },
-          "playedGames": 3,
-          "form": null,
-          "won": 1,
-          "draw": 0,
-          "lost": 2,
-          "points": 3,
-          "goalsFor": 4,
-          "goalsAgainst": 6,
-          "goalDifference": -2
         },
         {
           "position": 23,
@@ -502,7 +502,7 @@
           "goalDifference": -5
         },
         {
-          "position": 26,
+          "position": 27,
           "team": {
             "id": 5721,
             "name": "FK Bodø/Glimt",
@@ -517,8 +517,8 @@
           "lost": 2,
           "points": 3,
           "goalsFor": 3,
-          "goalsAgainst": 8,
-          "goalDifference": -5
+          "goalsAgainst": 9,
+          "goalDifference": -6
         },
         {
           "position": 28,
@@ -1797,7 +1797,7 @@
       "score": {
         "fullTime": {
           "home": 4,
-          "away": 2
+          "away": 3
         }
       },
       "status": "IN_PLAY",
@@ -1904,8 +1904,8 @@
       },
       "score": {
         "fullTime": {
-          "home": 2,
-          "away": 1
+          "home": 3,
+          "away": 2
         }
       },
       "status": "IN_PLAY",
