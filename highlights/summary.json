@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-20T21:01:23Z",
+  "generated_at": "2026-10-20T21:06:49Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -3009,8 +3009,8 @@
         {
           "gameweek": "MD3",
           "stem": "matchday-3",
-          "total": 2,
-          "covered": 2,
+          "total": 9,
+          "covered": 3,
           "matches": [
             {
               "match_id": 575359,
@@ -3025,6 +3025,61 @@
               "away": "SK Slavia Praha",
               "date": "2026-10-20",
               "covered": true
+            },
+            {
+              "match_id": 575361,
+              "home": "Manchester City FC",
+              "away": "PAE AEK",
+              "date": "2026-10-20",
+              "covered": false,
+              "pending": true
+            },
+            {
+              "match_id": 575362,
+              "home": "VfB Stuttgart",
+              "away": "Club Atlético de Madrid",
+              "date": "2026-10-20",
+              "covered": false,
+              "pending": true
+            },
+            {
+              "match_id": 575363,
+              "home": "Liverpool FC",
+              "away": "Villarreal CF",
+              "date": "2026-10-20",
+              "covered": false,
+              "pending": true
+            },
+            {
+              "match_id": 575364,
+              "home": "AS Roma",
+              "away": "ŠK Slovan Bratislava",
+              "date": "2026-10-20",
+              "covered": true
+            },
+            {
+              "match_id": 575365,
+              "home": "FC Porto",
+              "away": "PSV",
+              "date": "2026-10-20",
+              "covered": false,
+              "pending": true
+            },
+            {
+              "match_id": 575366,
+              "home": "SSC Napoli",
+              "away": "FK Bodø/Glimt",
+              "date": "2026-10-20",
+              "covered": false,
+              "pending": true
+            },
+            {
+              "match_id": 575367,
+              "home": "Paris Saint-Germain FC",
+              "away": "FC Barcelona",
+              "date": "2026-10-20",
+              "covered": false,
+              "pending": true
             }
           ]
         }
