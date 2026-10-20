@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-20T21:26:27Z",
+  "generated_at": "2026-10-20T21:31:21Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -3010,7 +3010,7 @@
           "gameweek": "MD3",
           "stem": "matchday-3",
           "total": 9,
-          "covered": 5,
+          "covered": 8,
           "matches": [
             {
               "match_id": 575359,
@@ -3045,8 +3045,7 @@
               "home": "Liverpool FC",
               "away": "Villarreal CF",
               "date": "2026-10-20",
-              "covered": false,
-              "pending": true
+              "covered": true
             },
             {
               "match_id": 575364,
@@ -3068,16 +3067,14 @@
               "home": "SSC Napoli",
               "away": "FK Bodø/Glimt",
               "date": "2026-10-20",
-              "covered": false,
-              "pending": true
+              "covered": true
             },
             {
               "match_id": 575367,
               "home": "Paris Saint-Germain FC",
               "away": "FC Barcelona",
               "date": "2026-10-20",
-              "covered": false,
-              "pending": true
+              "covered": true
             }
           ]
         }
