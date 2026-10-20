@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-20T21:11:09Z",
+  "generated_at": "2026-10-20T21:16:41Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -3010,7 +3010,7 @@
           "gameweek": "MD3",
           "stem": "matchday-3",
           "total": 9,
-          "covered": 3,
+          "covered": 4,
           "matches": [
             {
               "match_id": 575359,
@@ -3039,8 +3039,7 @@
               "home": "VfB Stuttgart",
               "away": "Club Atlético de Madrid",
               "date": "2026-10-20",
-              "covered": false,
-              "pending": true
+              "covered": true
             },
             {
               "match_id": 575363,
