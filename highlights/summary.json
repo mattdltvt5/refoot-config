@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-21T18:51:17Z",
+  "generated_at": "2026-10-21T18:56:11Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -3010,7 +3010,7 @@
           "gameweek": "MD3",
           "stem": "matchday-3",
           "total": 11,
-          "covered": 10,
+          "covered": 11,
           "matches": [
             {
               "match_id": 575359,
@@ -3087,8 +3087,7 @@
               "home": "Lille OSC",
               "away": "Galatasaray SK",
               "date": "2026-10-21",
-              "covered": false,
-              "pending": true
+              "covered": true
             }
           ]
         }
