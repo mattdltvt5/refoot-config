@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-21T18:41:12Z",
+  "generated_at": "2026-10-21T18:46:30Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -3009,7 +3009,7 @@
         {
           "gameweek": "MD3",
           "stem": "matchday-3",
-          "total": 9,
+          "total": 11,
           "covered": 9,
           "matches": [
             {
@@ -3074,6 +3074,22 @@
               "away": "FC Barcelona",
               "date": "2026-10-20",
               "covered": true
+            },
+            {
+              "match_id": 575368,
+              "home": "Como 1907",
+              "away": "Manchester United FC",
+              "date": "2026-10-21",
+              "covered": false,
+              "pending": true
+            },
+            {
+              "match_id": 575369,
+              "home": "Lille OSC",
+              "away": "Galatasaray SK",
+              "date": "2026-10-21",
+              "covered": false,
+              "pending": true
             }
           ]
         }
