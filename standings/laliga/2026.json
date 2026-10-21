@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-21T12:47:20.287518Z",
+  "generated_at": "2026-10-21T20:12:02.318222Z",
   "competition": "LaLiga",
   "slug": "laliga",
   "season": 2026,
@@ -197,21 +197,21 @@
     {
       "position": 11,
       "team": {
-        "id": 77,
-        "name": "Athletic Club",
-        "shortName": "Athletic",
-        "tla": "ATH",
-        "crest": "https://crests.football-data.org/77.png"
+        "id": 88,
+        "name": "Levante UD",
+        "shortName": "Levante",
+        "tla": "LEV",
+        "crest": "https://crests.football-data.org/88.png"
       },
-      "playedGames": 7,
-      "form": "D,D,D,W,W",
+      "playedGames": 9,
+      "form": "W,D,D,L,L",
       "won": 2,
-      "draw": 3,
-      "lost": 2,
-      "points": 9,
-      "goalsFor": 7,
-      "goalsAgainst": 6,
-      "goalDifference": 1
+      "draw": 4,
+      "lost": 3,
+      "points": 10,
+      "goalsFor": 15,
+      "goalsAgainst": 17,
+      "goalDifference": -2
     },
     {
       "position": 12,
@@ -235,6 +235,25 @@
     {
       "position": 13,
       "team": {
+        "id": 77,
+        "name": "Athletic Club",
+        "shortName": "Athletic",
+        "tla": "ATH",
+        "crest": "https://crests.football-data.org/77.png"
+      },
+      "playedGames": 8,
+      "form": "L,D,D,D,W",
+      "won": 2,
+      "draw": 3,
+      "lost": 3,
+      "points": 9,
+      "goalsFor": 8,
+      "goalsAgainst": 9,
+      "goalDifference": -1
+    },
+    {
+      "position": 14,
+      "team": {
         "id": 87,
         "name": "Rayo Vallecano de Madrid",
         "shortName": "Rayo Vallecano",
@@ -252,7 +271,7 @@
       "goalDifference": -5
     },
     {
-      "position": 14,
+      "position": 15,
       "team": {
         "id": 82,
         "name": "Getafe CF",
@@ -271,7 +290,7 @@
       "goalDifference": -6
     },
     {
-      "position": 15,
+      "position": 16,
       "team": {
         "id": 80,
         "name": "RCD Espanyol de Barcelona",
@@ -290,7 +309,7 @@
       "goalDifference": -1
     },
     {
-      "position": 16,
+      "position": 17,
       "team": {
         "id": 5335,
         "name": "Real Racing Club de Santander",
@@ -307,25 +326,6 @@
       "goalsFor": 13,
       "goalsAgainst": 25,
       "goalDifference": -12
-    },
-    {
-      "position": 17,
-      "team": {
-        "id": 88,
-        "name": "Levante UD",
-        "shortName": "Levante",
-        "tla": "LEV",
-        "crest": "https://crests.football-data.org/88.png"
-      },
-      "playedGames": 8,
-      "form": "D,D,L,L,D",
-      "won": 1,
-      "draw": 4,
-      "lost": 3,
-      "points": 7,
-      "goalsFor": 12,
-      "goalsAgainst": 16,
-      "goalDifference": -4
     },
     {
       "position": 18,

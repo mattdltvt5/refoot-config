@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-21T20:06:09Z",
+  "generated_at": "2026-10-21T20:11:41Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -950,7 +950,7 @@
         {
           "gameweek": "GW6",
           "stem": "gameweek-6",
-          "total": 9,
+          "total": 10,
           "covered": 9,
           "matches": [
             {
@@ -1015,6 +1015,14 @@
               "away": "Villarreal CF",
               "date": "2026-09-17",
               "covered": true
+            },
+            {
+              "match_id": 564685,
+              "home": "Levante UD",
+              "away": "Athletic Club",
+              "date": "2026-10-21",
+              "covered": false,
+              "pending": true
             }
           ]
         },
