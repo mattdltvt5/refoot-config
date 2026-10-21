@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-21T18:31:39.528761Z",
+  "generated_at": "2026-10-21T18:41:32.342986Z",
   "slug": "ucl",
   "standings": [
     {
@@ -86,25 +86,6 @@
         {
           "position": 5,
           "team": {
-            "id": 7397,
-            "name": "Como 1907",
-            "shortName": "Como 1907",
-            "tla": "COM",
-            "crest": "https://crests.football-data.org/7397.png"
-          },
-          "playedGames": 3,
-          "form": null,
-          "won": 2,
-          "draw": 0,
-          "lost": 1,
-          "points": 6,
-          "goalsFor": 10,
-          "goalsAgainst": 4,
-          "goalDifference": 6
-        },
-        {
-          "position": 6,
-          "team": {
             "id": 81,
             "name": "FC Barcelona",
             "shortName": "Barça",
@@ -119,6 +100,25 @@
           "points": 6,
           "goalsFor": 11,
           "goalsAgainst": 6,
+          "goalDifference": 5
+        },
+        {
+          "position": 6,
+          "team": {
+            "id": 7397,
+            "name": "Como 1907",
+            "shortName": "Como 1907",
+            "tla": "COM",
+            "crest": "https://crests.football-data.org/7397.png"
+          },
+          "playedGames": 3,
+          "form": null,
+          "won": 2,
+          "draw": 0,
+          "lost": 1,
+          "points": 6,
+          "goalsFor": 10,
+          "goalsAgainst": 5,
           "goalDifference": 5
         },
         {
@@ -371,6 +371,25 @@
         {
           "position": 20,
           "team": {
+            "id": 66,
+            "name": "Manchester United FC",
+            "shortName": "Man United",
+            "tla": "MUN",
+            "crest": "https://crests.football-data.org/66.png"
+          },
+          "playedGames": 3,
+          "form": null,
+          "won": 1,
+          "draw": 0,
+          "lost": 2,
+          "points": 3,
+          "goalsFor": 5,
+          "goalsAgainst": 6,
+          "goalDifference": -1
+        },
+        {
+          "position": 21,
+          "team": {
             "id": 546,
             "name": "Racing Club de Lens",
             "shortName": "RC Lens",
@@ -388,7 +407,7 @@
           "goalDifference": -1
         },
         {
-          "position": 21,
+          "position": 22,
           "team": {
             "id": 113,
             "name": "SSC Napoli",
@@ -404,25 +423,6 @@
           "points": 3,
           "goalsFor": 5,
           "goalsAgainst": 7,
-          "goalDifference": -2
-        },
-        {
-          "position": 22,
-          "team": {
-            "id": 66,
-            "name": "Manchester United FC",
-            "shortName": "Man United",
-            "tla": "MUN",
-            "crest": "https://crests.football-data.org/66.png"
-          },
-          "playedGames": 3,
-          "form": null,
-          "won": 1,
-          "draw": 0,
-          "lost": 2,
-          "points": 3,
-          "goalsFor": 4,
-          "goalsAgainst": 6,
           "goalDifference": -2
         },
         {
@@ -1932,7 +1932,7 @@
       "score": {
         "fullTime": {
           "home": 4,
-          "away": 0
+          "away": 1
         }
       },
       "status": "IN_PLAY",
