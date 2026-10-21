@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-21T20:16:31.615056Z",
+  "generated_at": "2026-10-21T20:21:35.425338Z",
   "slug": "ucl",
   "standings": [
     {
@@ -79,12 +79,31 @@
           "draw": 0,
           "lost": 0,
           "points": 9,
+          "goalsFor": 8,
+          "goalsAgainst": 4,
+          "goalDifference": 4
+        },
+        {
+          "position": 5,
+          "team": {
+            "id": 90,
+            "name": "Real Betis Balompié",
+            "shortName": "Real Betis",
+            "tla": "BET",
+            "crest": "https://crests.football-data.org/90.png"
+          },
+          "playedGames": 3,
+          "form": null,
+          "won": 3,
+          "draw": 0,
+          "lost": 0,
+          "points": 9,
           "goalsFor": 7,
           "goalsAgainst": 4,
           "goalDifference": 3
         },
         {
-          "position": 5,
+          "position": 6,
           "team": {
             "id": 10,
             "name": "VfB Stuttgart",
@@ -103,7 +122,7 @@
           "goalDifference": 5
         },
         {
-          "position": 6,
+          "position": 7,
           "team": {
             "id": 498,
             "name": "Sporting Clube de Portugal",
@@ -122,7 +141,7 @@
           "goalDifference": 4
         },
         {
-          "position": 7,
+          "position": 8,
           "team": {
             "id": 57,
             "name": "Arsenal FC",
@@ -139,25 +158,6 @@
           "goalsFor": 5,
           "goalsAgainst": 1,
           "goalDifference": 4
-        },
-        {
-          "position": 8,
-          "team": {
-            "id": 90,
-            "name": "Real Betis Balompié",
-            "shortName": "Real Betis",
-            "tla": "BET",
-            "crest": "https://crests.football-data.org/90.png"
-          },
-          "playedGames": 3,
-          "form": null,
-          "won": 2,
-          "draw": 1,
-          "lost": 0,
-          "points": 7,
-          "goalsFor": 6,
-          "goalsAgainst": 4,
-          "goalDifference": 2
         },
         {
           "position": 9,
@@ -231,9 +231,9 @@
           "draw": 0,
           "lost": 1,
           "points": 6,
-          "goalsFor": 7,
+          "goalsFor": 8,
           "goalsAgainst": 6,
-          "goalDifference": 1
+          "goalDifference": 2
         },
         {
           "position": 13,
@@ -352,25 +352,6 @@
         {
           "position": 19,
           "team": {
-            "id": 675,
-            "name": "Feyenoord Rotterdam",
-            "shortName": "Feyenoord",
-            "tla": "FEY",
-            "crest": "https://crests.football-data.org/675.png"
-          },
-          "playedGames": 3,
-          "form": null,
-          "won": 1,
-          "draw": 1,
-          "lost": 1,
-          "points": 4,
-          "goalsFor": 4,
-          "goalsAgainst": 7,
-          "goalDifference": -3
-        },
-        {
-          "position": 20,
-          "team": {
             "id": 94,
             "name": "Villarreal CF",
             "shortName": "Villarreal",
@@ -388,7 +369,7 @@
           "goalDifference": 0
         },
         {
-          "position": 21,
+          "position": 20,
           "team": {
             "id": 66,
             "name": "Manchester United FC",
@@ -407,7 +388,7 @@
           "goalDifference": -1
         },
         {
-          "position": 22,
+          "position": 21,
           "team": {
             "id": 113,
             "name": "SSC Napoli",
@@ -426,26 +407,7 @@
           "goalDifference": -2
         },
         {
-          "position": 23,
-          "team": {
-            "id": 546,
-            "name": "Racing Club de Lens",
-            "shortName": "RC Lens",
-            "tla": "RCL",
-            "crest": "https://crests.football-data.org/546.png"
-          },
-          "playedGames": 3,
-          "form": null,
-          "won": 1,
-          "draw": 0,
-          "lost": 2,
-          "points": 3,
-          "goalsFor": 3,
-          "goalsAgainst": 5,
-          "goalDifference": -2
-        },
-        {
-          "position": 24,
+          "position": 22,
           "team": {
             "id": 610,
             "name": "Galatasaray SK",
@@ -464,7 +426,26 @@
           "goalDifference": -3
         },
         {
-          "position": 25,
+          "position": 23,
+          "team": {
+            "id": 546,
+            "name": "Racing Club de Lens",
+            "shortName": "RC Lens",
+            "tla": "RCL",
+            "crest": "https://crests.football-data.org/546.png"
+          },
+          "playedGames": 3,
+          "form": null,
+          "won": 1,
+          "draw": 0,
+          "lost": 2,
+          "points": 3,
+          "goalsFor": 3,
+          "goalsAgainst": 6,
+          "goalDifference": -3
+        },
+        {
+          "position": 24,
           "team": {
             "id": 10233,
             "name": "Sabah FK",
@@ -483,6 +464,25 @@
           "goalDifference": -3
         },
         {
+          "position": 25,
+          "team": {
+            "id": 675,
+            "name": "Feyenoord Rotterdam",
+            "shortName": "Feyenoord",
+            "tla": "FEY",
+            "crest": "https://crests.football-data.org/675.png"
+          },
+          "playedGames": 3,
+          "form": null,
+          "won": 1,
+          "draw": 0,
+          "lost": 2,
+          "points": 3,
+          "goalsFor": 4,
+          "goalsAgainst": 8,
+          "goalDifference": -4
+        },
+        {
           "position": 26,
           "team": {
             "id": 721,
@@ -498,8 +498,8 @@
           "lost": 2,
           "points": 3,
           "goalsFor": 2,
-          "goalsAgainst": 5,
-          "goalDifference": -3
+          "goalsAgainst": 6,
+          "goalDifference": -4
         },
         {
           "position": 27,
@@ -1985,7 +1985,7 @@
       },
       "score": {
         "fullTime": {
-          "home": 1,
+          "home": 2,
           "away": 0
         }
       },
