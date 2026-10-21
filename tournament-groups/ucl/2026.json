@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-21T18:01:37.744286Z",
+  "generated_at": "2026-10-21T18:11:32.976379Z",
   "slug": "ucl",
   "standings": [
     {
@@ -105,6 +105,25 @@
         {
           "position": 6,
           "team": {
+            "id": 7397,
+            "name": "Como 1907",
+            "shortName": "Como 1907",
+            "tla": "COM",
+            "crest": "https://crests.football-data.org/7397.png"
+          },
+          "playedGames": 3,
+          "form": null,
+          "won": 2,
+          "draw": 0,
+          "lost": 1,
+          "points": 6,
+          "goalsFor": 9,
+          "goalsAgainst": 4,
+          "goalDifference": 5
+        },
+        {
+          "position": 7,
+          "team": {
             "id": 65,
             "name": "Manchester City FC",
             "shortName": "Man City",
@@ -119,25 +138,6 @@
           "points": 6,
           "goalsFor": 9,
           "goalsAgainst": 5,
-          "goalDifference": 4
-        },
-        {
-          "position": 7,
-          "team": {
-            "id": 7397,
-            "name": "Como 1907",
-            "shortName": "Como 1907",
-            "tla": "COM",
-            "crest": "https://crests.football-data.org/7397.png"
-          },
-          "playedGames": 3,
-          "form": null,
-          "won": 2,
-          "draw": 0,
-          "lost": 1,
-          "points": 6,
-          "goalsFor": 8,
-          "goalsAgainst": 4,
           "goalDifference": 4
         },
         {
@@ -384,8 +384,8 @@
           "lost": 2,
           "points": 3,
           "goalsFor": 4,
-          "goalsAgainst": 4,
-          "goalDifference": 0
+          "goalsAgainst": 5,
+          "goalDifference": -1
         },
         {
           "position": 21,
@@ -447,6 +447,25 @@
         {
           "position": 24,
           "team": {
+            "id": 610,
+            "name": "Galatasaray SK",
+            "shortName": "Galatasaray",
+            "tla": "GAL",
+            "crest": "https://crests.football-data.org/610.png"
+          },
+          "playedGames": 3,
+          "form": null,
+          "won": 1,
+          "draw": 0,
+          "lost": 2,
+          "points": 3,
+          "goalsFor": 6,
+          "goalsAgainst": 9,
+          "goalDifference": -3
+        },
+        {
+          "position": 25,
+          "team": {
             "id": 675,
             "name": "Feyenoord Rotterdam",
             "shortName": "Feyenoord",
@@ -464,7 +483,7 @@
           "goalDifference": -3
         },
         {
-          "position": 25,
+          "position": 26,
           "team": {
             "id": 10233,
             "name": "Sabah FK",
@@ -481,25 +500,6 @@
           "goalsFor": 3,
           "goalsAgainst": 6,
           "goalDifference": -3
-        },
-        {
-          "position": 26,
-          "team": {
-            "id": 610,
-            "name": "Galatasaray SK",
-            "shortName": "Galatasaray",
-            "tla": "GAL",
-            "crest": "https://crests.football-data.org/610.png"
-          },
-          "playedGames": 3,
-          "form": null,
-          "won": 1,
-          "draw": 0,
-          "lost": 2,
-          "points": 3,
-          "goalsFor": 5,
-          "goalsAgainst": 9,
-          "goalDifference": -4
         },
         {
           "position": 27,
@@ -669,8 +669,8 @@
           "lost": 3,
           "points": 0,
           "goalsFor": 4,
-          "goalsAgainst": 9,
-          "goalDifference": -5
+          "goalsAgainst": 10,
+          "goalDifference": -6
         },
         {
           "position": 36,
@@ -1931,7 +1931,7 @@
       },
       "score": {
         "fullTime": {
-          "home": 2,
+          "home": 3,
           "away": 0
         }
       },
@@ -1959,7 +1959,7 @@
       "score": {
         "fullTime": {
           "home": 2,
-          "away": 3
+          "away": 4
         }
       },
       "status": "IN_PLAY",
