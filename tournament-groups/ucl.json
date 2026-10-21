@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-21T19:06:28.789996Z",
+  "generated_at": "2026-10-21T19:11:30.587375Z",
   "slug": "ucl",
   "standings": [
     {
@@ -48,6 +48,25 @@
         {
           "position": 3,
           "team": {
+            "id": 498,
+            "name": "Sporting Clube de Portugal",
+            "shortName": "Sporting CP",
+            "tla": "SPO",
+            "crest": "https://crests.football-data.org/498.png"
+          },
+          "playedGames": 3,
+          "form": null,
+          "won": 3,
+          "draw": 0,
+          "lost": 0,
+          "points": 9,
+          "goalsFor": 6,
+          "goalsAgainst": 1,
+          "goalDifference": 5
+        },
+        {
+          "position": 4,
+          "team": {
             "id": 58,
             "name": "Aston Villa FC",
             "shortName": "Aston Villa",
@@ -65,7 +84,7 @@
           "goalDifference": 7
         },
         {
-          "position": 4,
+          "position": 5,
           "team": {
             "id": 10,
             "name": "VfB Stuttgart",
@@ -82,25 +101,6 @@
           "goalsFor": 7,
           "goalsAgainst": 2,
           "goalDifference": 5
-        },
-        {
-          "position": 5,
-          "team": {
-            "id": 498,
-            "name": "Sporting Clube de Portugal",
-            "shortName": "Sporting CP",
-            "tla": "SPO",
-            "crest": "https://crests.football-data.org/498.png"
-          },
-          "playedGames": 3,
-          "form": null,
-          "won": 2,
-          "draw": 1,
-          "lost": 0,
-          "points": 7,
-          "goalsFor": 5,
-          "goalsAgainst": 1,
-          "goalDifference": 4
         },
         {
           "position": 6,
@@ -618,25 +618,6 @@
         {
           "position": 33,
           "team": {
-            "id": 2016,
-            "name": "LASK Linz",
-            "shortName": "LASK",
-            "tla": "LIN",
-            "crest": "https://crests.football-data.org/2016.png"
-          },
-          "playedGames": 3,
-          "form": null,
-          "won": 0,
-          "draw": 1,
-          "lost": 2,
-          "points": 1,
-          "goalsFor": 3,
-          "goalsAgainst": 7,
-          "goalDifference": -4
-        },
-        {
-          "position": 34,
-          "team": {
             "id": 503,
             "name": "FC Porto",
             "shortName": "Porto",
@@ -652,6 +633,25 @@
           "goalsFor": 2,
           "goalsAgainst": 6,
           "goalDifference": -4
+        },
+        {
+          "position": 34,
+          "team": {
+            "id": 2016,
+            "name": "LASK Linz",
+            "shortName": "LASK",
+            "tla": "LIN",
+            "crest": "https://crests.football-data.org/2016.png"
+          },
+          "playedGames": 3,
+          "form": null,
+          "won": 0,
+          "draw": 0,
+          "lost": 3,
+          "points": 0,
+          "goalsFor": 3,
+          "goalsAgainst": 8,
+          "goalDifference": -5
         },
         {
           "position": 35,
@@ -2066,11 +2066,11 @@
       },
       "score": {
         "fullTime": {
-          "home": null,
-          "away": null
+          "home": 0,
+          "away": 0
         }
       },
-      "status": "TIMED",
+      "status": "IN_PLAY",
       "video_id": null
     },
     {
