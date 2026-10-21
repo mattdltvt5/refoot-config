@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-21T19:26:27.075759Z",
+  "generated_at": "2026-10-21T19:31:35.933921Z",
   "slug": "ucl",
   "standings": [
     {
@@ -29,6 +29,25 @@
         {
           "position": 2,
           "team": {
+            "id": 58,
+            "name": "Aston Villa FC",
+            "shortName": "Aston Villa",
+            "tla": "AVL",
+            "crest": "https://crests.football-data.org/58.png"
+          },
+          "playedGames": 3,
+          "form": null,
+          "won": 3,
+          "draw": 0,
+          "lost": 0,
+          "points": 9,
+          "goalsFor": 10,
+          "goalsAgainst": 2,
+          "goalDifference": 8
+        },
+        {
+          "position": 3,
+          "team": {
             "id": 64,
             "name": "Liverpool FC",
             "shortName": "Liverpool",
@@ -46,26 +65,26 @@
           "goalDifference": 5
         },
         {
-          "position": 3,
+          "position": 4,
           "team": {
-            "id": 58,
-            "name": "Aston Villa FC",
-            "shortName": "Aston Villa",
-            "tla": "AVL",
-            "crest": "https://crests.football-data.org/58.png"
+            "id": 57,
+            "name": "Arsenal FC",
+            "shortName": "Arsenal",
+            "tla": "ARS",
+            "crest": "https://crests.football-data.org/57.png"
           },
           "playedGames": 3,
           "form": null,
-          "won": 2,
-          "draw": 1,
+          "won": 3,
+          "draw": 0,
           "lost": 0,
-          "points": 7,
-          "goalsFor": 9,
-          "goalsAgainst": 2,
-          "goalDifference": 7
+          "points": 9,
+          "goalsFor": 5,
+          "goalsAgainst": 0,
+          "goalDifference": 5
         },
         {
-          "position": 4,
+          "position": 5,
           "team": {
             "id": 10,
             "name": "VfB Stuttgart",
@@ -84,7 +103,7 @@
           "goalDifference": 5
         },
         {
-          "position": 5,
+          "position": 6,
           "team": {
             "id": 498,
             "name": "Sporting Clube de Portugal",
@@ -100,25 +119,6 @@
           "points": 7,
           "goalsFor": 6,
           "goalsAgainst": 2,
-          "goalDifference": 4
-        },
-        {
-          "position": 6,
-          "team": {
-            "id": 57,
-            "name": "Arsenal FC",
-            "shortName": "Arsenal",
-            "tla": "ARS",
-            "crest": "https://crests.football-data.org/57.png"
-          },
-          "playedGames": 3,
-          "form": null,
-          "won": 2,
-          "draw": 1,
-          "lost": 0,
-          "points": 7,
-          "goalsFor": 4,
-          "goalsAgainst": 0,
           "goalDifference": 4
         },
         {
@@ -238,25 +238,6 @@
         {
           "position": 13,
           "team": {
-            "id": 5,
-            "name": "FC Bayern München",
-            "shortName": "Bayern",
-            "tla": "FCB",
-            "crest": "https://crests.football-data.org/5.png"
-          },
-          "playedGames": 3,
-          "form": null,
-          "won": 1,
-          "draw": 2,
-          "lost": 0,
-          "points": 5,
-          "goalsFor": 8,
-          "goalsAgainst": 3,
-          "goalDifference": 5
-        },
-        {
-          "position": 14,
-          "team": {
             "id": 1887,
             "name": "FK Shakhtar Donetsk",
             "shortName": "Shaktar",
@@ -272,6 +253,25 @@
           "goalsFor": 4,
           "goalsAgainst": 2,
           "goalDifference": 2
+        },
+        {
+          "position": 14,
+          "team": {
+            "id": 5,
+            "name": "FC Bayern München",
+            "shortName": "Bayern",
+            "tla": "FCB",
+            "crest": "https://crests.football-data.org/5.png"
+          },
+          "playedGames": 3,
+          "form": null,
+          "won": 1,
+          "draw": 1,
+          "lost": 1,
+          "points": 4,
+          "goalsFor": 8,
+          "goalsAgainst": 4,
+          "goalDifference": 4
         },
         {
           "position": 15,
@@ -542,25 +542,6 @@
         {
           "position": 29,
           "team": {
-            "id": 5720,
-            "name": "Viking FK",
-            "shortName": "Viking",
-            "tla": "VIK",
-            "crest": "https://crests.football-data.org/5720.png"
-          },
-          "playedGames": 3,
-          "form": null,
-          "won": 0,
-          "draw": 2,
-          "lost": 1,
-          "points": 2,
-          "goalsFor": 4,
-          "goalsAgainst": 6,
-          "goalDifference": -2
-        },
-        {
-          "position": 30,
-          "team": {
             "id": 613,
             "name": "Fenerbahçe SK",
             "shortName": "Fenerbahçe",
@@ -578,7 +559,7 @@
           "goalDifference": -6
         },
         {
-          "position": 31,
+          "position": 30,
           "team": {
             "id": 108,
             "name": "FC Internazionale Milano",
@@ -597,13 +578,32 @@
           "goalDifference": -2
         },
         {
-          "position": 32,
+          "position": 31,
           "team": {
             "id": 930,
             "name": "SK Slavia Praha",
             "shortName": "Slavia Praha",
             "tla": "SLP",
             "crest": "https://crests.football-data.org/930.png"
+          },
+          "playedGames": 3,
+          "form": null,
+          "won": 0,
+          "draw": 1,
+          "lost": 2,
+          "points": 1,
+          "goalsFor": 4,
+          "goalsAgainst": 7,
+          "goalDifference": -3
+        },
+        {
+          "position": 32,
+          "team": {
+            "id": 5720,
+            "name": "Viking FK",
+            "shortName": "Viking",
+            "tla": "VIK",
+            "crest": "https://crests.football-data.org/5720.png"
           },
           "playedGames": 3,
           "form": null,
@@ -2093,7 +2093,7 @@
       },
       "score": {
         "fullTime": {
-          "home": 0,
+          "home": 1,
           "away": 0
         }
       },
