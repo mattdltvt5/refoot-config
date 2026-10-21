@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-21T18:46:30Z",
+  "generated_at": "2026-10-21T18:51:17Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -3010,7 +3010,7 @@
           "gameweek": "MD3",
           "stem": "matchday-3",
           "total": 11,
-          "covered": 9,
+          "covered": 10,
           "matches": [
             {
               "match_id": 575359,
@@ -3080,8 +3080,7 @@
               "home": "Como 1907",
               "away": "Manchester United FC",
               "date": "2026-10-21",
-              "covered": false,
-              "pending": true
+              "covered": true
             },
             {
               "match_id": 575369,
