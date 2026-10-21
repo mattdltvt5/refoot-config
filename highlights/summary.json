@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-21T21:01:37Z",
+  "generated_at": "2026-10-21T21:06:28Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -3016,8 +3016,8 @@
         {
           "gameweek": "MD3",
           "stem": "matchday-3",
-          "total": 15,
-          "covered": 11,
+          "total": 18,
+          "covered": 12,
           "matches": [
             {
               "match_id": 575359,
@@ -3117,13 +3117,36 @@
               "home": "Club Brugge KV",
               "away": "Racing Club de Lens",
               "date": "2026-10-21",
-              "covered": false,
-              "pending": true
+              "covered": true
             },
             {
               "match_id": 575376,
               "home": "Real Betis Balompié",
               "away": "Feyenoord Rotterdam",
+              "date": "2026-10-21",
+              "covered": false,
+              "pending": true
+            },
+            {
+              "match_id": 575370,
+              "home": "Real Madrid CF",
+              "away": "RB Leipzig",
+              "date": "2026-10-21",
+              "covered": false,
+              "pending": true
+            },
+            {
+              "match_id": 575374,
+              "home": "Aston Villa FC",
+              "away": "Viking FK",
+              "date": "2026-10-21",
+              "covered": false,
+              "pending": true
+            },
+            {
+              "match_id": 575375,
+              "home": "Sporting Clube de Portugal",
+              "away": "LASK Linz",
               "date": "2026-10-21",
               "covered": false,
               "pending": true
