@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-21T20:46:36.846249Z",
+  "generated_at": "2026-10-21T20:51:35.615156Z",
   "slug": "ucl",
   "standings": [
     {
@@ -9,25 +9,6 @@
       "table": [
         {
           "position": 1,
-          "team": {
-            "id": 58,
-            "name": "Aston Villa FC",
-            "shortName": "Aston Villa",
-            "tla": "AVL",
-            "crest": "https://crests.football-data.org/58.png"
-          },
-          "playedGames": 3,
-          "form": null,
-          "won": 3,
-          "draw": 0,
-          "lost": 0,
-          "points": 9,
-          "goalsFor": 12,
-          "goalsAgainst": 2,
-          "goalDifference": 10
-        },
-        {
-          "position": 2,
           "team": {
             "id": 524,
             "name": "Paris Saint-Germain FC",
@@ -43,6 +24,25 @@
           "points": 9,
           "goalsFor": 14,
           "goalsAgainst": 5,
+          "goalDifference": 9
+        },
+        {
+          "position": 2,
+          "team": {
+            "id": 58,
+            "name": "Aston Villa FC",
+            "shortName": "Aston Villa",
+            "tla": "AVL",
+            "crest": "https://crests.football-data.org/58.png"
+          },
+          "playedGames": 3,
+          "form": null,
+          "won": 3,
+          "draw": 0,
+          "lost": 0,
+          "points": 9,
+          "goalsFor": 12,
+          "goalsAgainst": 3,
           "goalDifference": 9
         },
         {
@@ -79,9 +79,9 @@
           "draw": 0,
           "lost": 0,
           "points": 9,
-          "goalsFor": 8,
-          "goalsAgainst": 4,
-          "goalDifference": 4
+          "goalsFor": 10,
+          "goalsAgainst": 5,
+          "goalDifference": 5
         },
         {
           "position": 5,
@@ -105,25 +105,6 @@
         {
           "position": 6,
           "team": {
-            "id": 5,
-            "name": "FC Bayern München",
-            "shortName": "Bayern",
-            "tla": "FCB",
-            "crest": "https://crests.football-data.org/5.png"
-          },
-          "playedGames": 3,
-          "form": null,
-          "won": 2,
-          "draw": 1,
-          "lost": 0,
-          "points": 7,
-          "goalsFor": 10,
-          "goalsAgainst": 4,
-          "goalDifference": 6
-        },
-        {
-          "position": 7,
-          "team": {
             "id": 10,
             "name": "VfB Stuttgart",
             "shortName": "Stuttgart",
@@ -139,6 +120,25 @@
           "goalsFor": 7,
           "goalsAgainst": 2,
           "goalDifference": 5
+        },
+        {
+          "position": 7,
+          "team": {
+            "id": 57,
+            "name": "Arsenal FC",
+            "shortName": "Arsenal",
+            "tla": "ARS",
+            "crest": "https://crests.football-data.org/57.png"
+          },
+          "playedGames": 3,
+          "form": null,
+          "won": 2,
+          "draw": 1,
+          "lost": 0,
+          "points": 7,
+          "goalsFor": 6,
+          "goalsAgainst": 2,
+          "goalDifference": 4
         },
         {
           "position": 8,
@@ -219,25 +219,6 @@
         {
           "position": 12,
           "team": {
-            "id": 57,
-            "name": "Arsenal FC",
-            "shortName": "Arsenal",
-            "tla": "ARS",
-            "crest": "https://crests.football-data.org/57.png"
-          },
-          "playedGames": 3,
-          "form": null,
-          "won": 2,
-          "draw": 0,
-          "lost": 1,
-          "points": 6,
-          "goalsFor": 5,
-          "goalsAgainst": 2,
-          "goalDifference": 3
-        },
-        {
-          "position": 13,
-          "team": {
             "id": 498,
             "name": "Sporting Clube de Portugal",
             "shortName": "Sporting CP",
@@ -250,12 +231,12 @@
           "draw": 0,
           "lost": 1,
           "points": 6,
-          "goalsFor": 6,
+          "goalsFor": 7,
           "goalsAgainst": 4,
-          "goalDifference": 2
+          "goalDifference": 3
         },
         {
-          "position": 14,
+          "position": 13,
           "team": {
             "id": 4,
             "name": "Borussia Dortmund",
@@ -272,6 +253,25 @@
           "goalsFor": 5,
           "goalsAgainst": 4,
           "goalDifference": 1
+        },
+        {
+          "position": 14,
+          "team": {
+            "id": 5,
+            "name": "FC Bayern München",
+            "shortName": "Bayern",
+            "tla": "FCB",
+            "crest": "https://crests.football-data.org/5.png"
+          },
+          "playedGames": 3,
+          "form": null,
+          "won": 1,
+          "draw": 2,
+          "lost": 0,
+          "points": 5,
+          "goalsFor": 10,
+          "goalsAgainst": 5,
+          "goalDifference": 5
         },
         {
           "position": 15,
@@ -409,25 +409,6 @@
         {
           "position": 22,
           "team": {
-            "id": 2016,
-            "name": "LASK Linz",
-            "shortName": "LASK",
-            "tla": "LIN",
-            "crest": "https://crests.football-data.org/2016.png"
-          },
-          "playedGames": 3,
-          "form": null,
-          "won": 1,
-          "draw": 0,
-          "lost": 2,
-          "points": 3,
-          "goalsFor": 6,
-          "goalsAgainst": 8,
-          "goalDifference": -2
-        },
-        {
-          "position": 23,
-          "team": {
             "id": 113,
             "name": "SSC Napoli",
             "shortName": "Napoli",
@@ -445,13 +426,32 @@
           "goalDifference": -2
         },
         {
-          "position": 24,
+          "position": 23,
           "team": {
             "id": 610,
             "name": "Galatasaray SK",
             "shortName": "Galatasaray",
             "tla": "GAL",
             "crest": "https://crests.football-data.org/610.png"
+          },
+          "playedGames": 3,
+          "form": null,
+          "won": 1,
+          "draw": 0,
+          "lost": 2,
+          "points": 3,
+          "goalsFor": 6,
+          "goalsAgainst": 9,
+          "goalDifference": -3
+        },
+        {
+          "position": 24,
+          "team": {
+            "id": 2016,
+            "name": "LASK Linz",
+            "shortName": "LASK",
+            "tla": "LIN",
+            "crest": "https://crests.football-data.org/2016.png"
           },
           "playedGames": 3,
           "form": null,
@@ -523,25 +523,6 @@
         {
           "position": 28,
           "team": {
-            "id": 721,
-            "name": "RB Leipzig",
-            "shortName": "RB Leipzig",
-            "tla": "RBL",
-            "crest": "https://crests.football-data.org/721.png"
-          },
-          "playedGames": 3,
-          "form": null,
-          "won": 1,
-          "draw": 0,
-          "lost": 2,
-          "points": 3,
-          "goalsFor": 2,
-          "goalsAgainst": 6,
-          "goalDifference": -4
-        },
-        {
-          "position": 29,
-          "team": {
             "id": 5721,
             "name": "FK Bodø/Glimt",
             "shortName": "Bodø/Glimt",
@@ -559,13 +540,32 @@
           "goalDifference": -5
         },
         {
-          "position": 30,
+          "position": 29,
           "team": {
             "id": 1899,
             "name": "PAE AEK",
             "shortName": "PAE AEK",
             "tla": "AEK",
             "crest": "https://crests.football-data.org/1899.png"
+          },
+          "playedGames": 3,
+          "form": null,
+          "won": 1,
+          "draw": 0,
+          "lost": 2,
+          "points": 3,
+          "goalsFor": 3,
+          "goalsAgainst": 8,
+          "goalDifference": -5
+        },
+        {
+          "position": 29,
+          "team": {
+            "id": 721,
+            "name": "RB Leipzig",
+            "shortName": "RB Leipzig",
+            "tla": "RBL",
+            "crest": "https://crests.football-data.org/721.png"
           },
           "playedGames": 3,
           "form": null,
@@ -630,9 +630,9 @@
           "draw": 1,
           "lost": 2,
           "points": 1,
-          "goalsFor": 4,
+          "goalsFor": 5,
           "goalsAgainst": 9,
-          "goalDifference": -5
+          "goalDifference": -4
         },
         {
           "position": 34,
@@ -1985,8 +1985,8 @@
       },
       "score": {
         "fullTime": {
-          "home": 2,
-          "away": 0
+          "home": 3,
+          "away": 1
         }
       },
       "status": "IN_PLAY",
