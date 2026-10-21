@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-21T21:16:21Z",
+  "generated_at": "2026-10-21T21:21:20Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -3017,7 +3017,7 @@
           "gameweek": "MD3",
           "stem": "matchday-3",
           "total": 18,
-          "covered": 15,
+          "covered": 16,
           "matches": [
             {
               "match_id": 575359,
@@ -3123,8 +3123,7 @@
               "home": "Real Betis Balompié",
               "away": "Feyenoord Rotterdam",
               "date": "2026-10-21",
-              "covered": false,
-              "pending": true
+              "covered": true
             },
             {
               "match_id": 575370,
