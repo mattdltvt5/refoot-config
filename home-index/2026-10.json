@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-21T13:26:10Z",
+  "generated_at": "2026-10-21T13:31:22Z",
   "month": "2026-10",
   "dates": {
     "2026-10-09": [
@@ -2968,7 +2968,7 @@
             },
             "homeScore": 0,
             "awayScore": 0,
-            "status": "TIMED",
+            "status": "2026-10-21 18:00:00Z",
             "utcDate": "2026-10-21T18:00:00Z"
           }
         ]
@@ -3219,7 +3219,7 @@
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "TIMED",
+            "status": "2026-10-23 19:00:00Z",
             "utcDate": "2026-10-23T19:00:00Z"
           }
         ]
@@ -3419,7 +3419,7 @@
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "TIMED",
+            "status": "2026-10-24 12:00:00Z",
             "utcDate": "2026-10-24T12:00:00Z"
           },
           {
@@ -3440,7 +3440,7 @@
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "TIMED",
+            "status": "2026-10-24 14:15:00Z",
             "utcDate": "2026-10-24T14:15:00Z"
           },
           {
@@ -3461,7 +3461,7 @@
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "TIMED",
+            "status": "2026-10-24 16:30:00Z",
             "utcDate": "2026-10-24T16:30:00Z"
           },
           {
@@ -3482,7 +3482,7 @@
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "TIMED",
+            "status": "2026-10-24 19:00:00Z",
             "utcDate": "2026-10-24T19:00:00Z"
           }
         ]
@@ -3713,27 +3713,6 @@
         "competition": "ligue-1",
         "name": "Ligue 1",
         "matches": [
-          {
-            "match_id": 559655,
-            "homeTeam": {
-              "id": 511,
-              "name": "Toulouse FC",
-              "shortName": "Toulouse",
-              "tla": "TOU",
-              "crest": "https://crests.football-data.org/511.png"
-            },
-            "awayTeam": {
-              "id": 531,
-              "name": "ES Troyes AC",
-              "shortName": "Troyes",
-              "tla": "ETR",
-              "crest": "https://crests.football-data.org/531.png"
-            },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "TIMED",
-            "utcDate": "2026-10-24T15:15:00Z"
-          },
           {
             "match_id": 559652,
             "homeTeam": {
@@ -4201,6 +4180,27 @@
               "shortName": "Lorient",
               "tla": "FCL",
               "crest": "https://crests.football-data.org/525.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "TIMED",
+            "utcDate": "2026-10-25T16:15:00Z"
+          },
+          {
+            "match_id": 559655,
+            "homeTeam": {
+              "id": 511,
+              "name": "Toulouse FC",
+              "shortName": "Toulouse",
+              "tla": "TOU",
+              "crest": "https://crests.football-data.org/511.png"
+            },
+            "awayTeam": {
+              "id": 531,
+              "name": "ES Troyes AC",
+              "shortName": "Troyes",
+              "tla": "ETR",
+              "crest": "https://crests.football-data.org/531.png"
             },
             "homeScore": null,
             "awayScore": null,

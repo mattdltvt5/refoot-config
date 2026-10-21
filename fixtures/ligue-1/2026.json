@@ -1,7 +1,7 @@
 {
   "competition": "Ligue 1",
   "season": 2026,
-  "generated_at": "2026-10-21T13:26:10Z",
+  "generated_at": "2026-10-21T13:31:22Z",
   "fixtures": [
     {
       "match_id": 559715,
@@ -1796,34 +1796,6 @@
       "utcDate": "2026-10-23T18:45:00Z"
     },
     {
-      "match_id": 559655,
-      "group": "",
-      "matchday": 8,
-      "sourceRound": "Gameweek 8",
-      "homeTeam": {
-        "id": 511,
-        "name": "Toulouse FC",
-        "shortName": "Toulouse",
-        "tla": "TOU",
-        "crest": "https://crests.football-data.org/511.png"
-      },
-      "awayTeam": {
-        "id": 531,
-        "name": "ES Troyes AC",
-        "shortName": "Troyes",
-        "tla": "ETR",
-        "crest": "https://crests.football-data.org/531.png"
-      },
-      "score": {
-        "fullTime": {
-          "home": null,
-          "away": null
-        }
-      },
-      "status": "TIMED",
-      "utcDate": "2026-10-24T15:15:00Z"
-    },
-    {
       "match_id": 559652,
       "group": "",
       "matchday": 8,
@@ -1953,6 +1925,34 @@
         "shortName": "Lorient",
         "tla": "FCL",
         "crest": "https://crests.football-data.org/525.png"
+      },
+      "score": {
+        "fullTime": {
+          "home": null,
+          "away": null
+        }
+      },
+      "status": "TIMED",
+      "utcDate": "2026-10-25T16:15:00Z"
+    },
+    {
+      "match_id": 559655,
+      "group": "",
+      "matchday": 8,
+      "sourceRound": "Gameweek 8",
+      "homeTeam": {
+        "id": 511,
+        "name": "Toulouse FC",
+        "shortName": "Toulouse",
+        "tla": "TOU",
+        "crest": "https://crests.football-data.org/511.png"
+      },
+      "awayTeam": {
+        "id": 531,
+        "name": "ES Troyes AC",
+        "shortName": "Troyes",
+        "tla": "ETR",
+        "crest": "https://crests.football-data.org/531.png"
       },
       "score": {
         "fullTime": {
@@ -3028,23 +3028,23 @@
       "utcDate": "2026-11-29T19:45:00Z"
     },
     {
-      "match_id": 559603,
+      "match_id": 559609,
       "group": "",
       "matchday": 13,
       "sourceRound": "Gameweek 13",
       "homeTeam": {
-        "id": 531,
-        "name": "ES Troyes AC",
-        "shortName": "Troyes",
-        "tla": "ETR",
-        "crest": "https://crests.football-data.org/531.png"
+        "id": 511,
+        "name": "Toulouse FC",
+        "shortName": "Toulouse",
+        "tla": "TOU",
+        "crest": "https://crests.football-data.org/511.png"
       },
       "awayTeam": {
-        "id": 523,
-        "name": "Olympique Lyonnais",
-        "shortName": "Olympique Lyon",
-        "tla": "LYO",
-        "crest": "https://crests.football-data.org/523.png"
+        "id": 524,
+        "name": "Paris Saint-Germain FC",
+        "shortName": "PSG",
+        "tla": "PSG",
+        "crest": "https://crests.football-data.org/524.png"
       },
       "score": {
         "fullTime": {
@@ -3052,64 +3052,8 @@
           "away": null
         }
       },
-      "status": "SCHEDULED",
-      "utcDate": "2026-12-05T00:00:00Z"
-    },
-    {
-      "match_id": 559604,
-      "group": "",
-      "matchday": 13,
-      "sourceRound": "Gameweek 13",
-      "homeTeam": {
-        "id": 548,
-        "name": "AS Monaco FC",
-        "shortName": "Monaco",
-        "tla": "ASM",
-        "crest": "https://crests.football-data.org/548.png"
-      },
-      "awayTeam": {
-        "id": 532,
-        "name": "Angers SCO",
-        "shortName": "Angers SCO",
-        "tla": "ANG",
-        "crest": "https://crests.football-data.org/532.png"
-      },
-      "score": {
-        "fullTime": {
-          "home": null,
-          "away": null
-        }
-      },
-      "status": "SCHEDULED",
-      "utcDate": "2026-12-05T00:00:00Z"
-    },
-    {
-      "match_id": 559605,
-      "group": "",
-      "matchday": 13,
-      "sourceRound": "Gameweek 13",
-      "homeTeam": {
-        "id": 546,
-        "name": "Racing Club de Lens",
-        "shortName": "RC Lens",
-        "tla": "RCL",
-        "crest": "https://crests.football-data.org/546.png"
-      },
-      "awayTeam": {
-        "id": 533,
-        "name": "Le Havre AC",
-        "shortName": "Le Havre",
-        "tla": "HAC",
-        "crest": "https://crests.football-data.org/533.png"
-      },
-      "score": {
-        "fullTime": {
-          "home": null,
-          "away": null
-        }
-      },
-      "status": "SCHEDULED",
-      "utcDate": "2026-12-05T00:00:00Z"
+      "status": "TIMED",
+      "utcDate": "2026-12-04T19:45:00Z"
     },
     {
       "match_id": 559606,
@@ -3136,27 +3080,27 @@
           "away": null
         }
       },
-      "status": "SCHEDULED",
-      "utcDate": "2026-12-05T00:00:00Z"
+      "status": "TIMED",
+      "utcDate": "2026-12-05T16:15:00Z"
     },
     {
-      "match_id": 559607,
+      "match_id": 559604,
       "group": "",
       "matchday": 13,
       "sourceRound": "Gameweek 13",
       "homeTeam": {
-        "id": 516,
-        "name": "Olympique de Marseille",
-        "shortName": "Marseille",
-        "tla": "MAR",
-        "crest": "https://crests.football-data.org/516.png"
+        "id": 548,
+        "name": "AS Monaco FC",
+        "shortName": "Monaco",
+        "tla": "ASM",
+        "crest": "https://crests.football-data.org/548.png"
       },
       "awayTeam": {
-        "id": 522,
-        "name": "OGC Nice",
-        "shortName": "Nice",
-        "tla": "NIC",
-        "crest": "https://crests.football-data.org/522.png"
+        "id": 532,
+        "name": "Angers SCO",
+        "shortName": "Angers SCO",
+        "tla": "ANG",
+        "crest": "https://crests.football-data.org/532.png"
       },
       "score": {
         "fullTime": {
@@ -3164,27 +3108,27 @@
           "away": null
         }
       },
-      "status": "SCHEDULED",
-      "utcDate": "2026-12-05T00:00:00Z"
+      "status": "TIMED",
+      "utcDate": "2026-12-05T19:45:00Z"
     },
     {
-      "match_id": 559608,
+      "match_id": 559605,
       "group": "",
       "matchday": 13,
       "sourceRound": "Gameweek 13",
       "homeTeam": {
-        "id": 529,
-        "name": "Stade Rennais FC 1901",
-        "shortName": "Stade Rennais",
-        "tla": "REN",
-        "crest": "https://crests.football-data.org/529.png"
+        "id": 546,
+        "name": "Racing Club de Lens",
+        "shortName": "RC Lens",
+        "tla": "RCL",
+        "crest": "https://crests.football-data.org/546.png"
       },
       "awayTeam": {
-        "id": 512,
-        "name": "Stade Brestois 29",
-        "shortName": "Brest",
-        "tla": "BRE",
-        "crest": "https://crests.football-data.org/512.png"
+        "id": 533,
+        "name": "Le Havre AC",
+        "shortName": "Le Havre",
+        "tla": "HAC",
+        "crest": "https://crests.football-data.org/533.png"
       },
       "score": {
         "fullTime": {
@@ -3192,36 +3136,8 @@
           "away": null
         }
       },
-      "status": "SCHEDULED",
-      "utcDate": "2026-12-05T00:00:00Z"
-    },
-    {
-      "match_id": 559609,
-      "group": "",
-      "matchday": 13,
-      "sourceRound": "Gameweek 13",
-      "homeTeam": {
-        "id": 511,
-        "name": "Toulouse FC",
-        "shortName": "Toulouse",
-        "tla": "TOU",
-        "crest": "https://crests.football-data.org/511.png"
-      },
-      "awayTeam": {
-        "id": 524,
-        "name": "Paris Saint-Germain FC",
-        "shortName": "PSG",
-        "tla": "PSG",
-        "crest": "https://crests.football-data.org/524.png"
-      },
-      "score": {
-        "fullTime": {
-          "home": null,
-          "away": null
-        }
-      },
-      "status": "SCHEDULED",
-      "utcDate": "2026-12-05T00:00:00Z"
+      "status": "TIMED",
+      "utcDate": "2026-12-05T19:45:00Z"
     },
     {
       "match_id": 559610,
@@ -3248,8 +3164,8 @@
           "away": null
         }
       },
-      "status": "SCHEDULED",
-      "utcDate": "2026-12-05T00:00:00Z"
+      "status": "TIMED",
+      "utcDate": "2026-12-05T19:45:00Z"
     },
     {
       "match_id": 559611,
@@ -3276,139 +3192,27 @@
           "away": null
         }
       },
-      "status": "SCHEDULED",
-      "utcDate": "2026-12-05T00:00:00Z"
+      "status": "TIMED",
+      "utcDate": "2026-12-05T19:45:00Z"
     },
     {
-      "match_id": 559595,
+      "match_id": 559603,
       "group": "",
-      "matchday": 14,
-      "sourceRound": "Gameweek 14",
+      "matchday": 13,
+      "sourceRound": "Gameweek 13",
       "homeTeam": {
-        "id": 522,
-        "name": "OGC Nice",
-        "shortName": "Nice",
-        "tla": "NIC",
-        "crest": "https://crests.football-data.org/522.png"
-      },
-      "awayTeam": {
-        "id": 546,
-        "name": "Racing Club de Lens",
-        "shortName": "RC Lens",
-        "tla": "RCL",
-        "crest": "https://crests.football-data.org/546.png"
-      },
-      "score": {
-        "fullTime": {
-          "home": null,
-          "away": null
-        }
-      },
-      "status": "SCHEDULED",
-      "utcDate": "2026-12-12T00:00:00Z"
-    },
-    {
-      "match_id": 559596,
-      "group": "",
-      "matchday": 14,
-      "sourceRound": "Gameweek 14",
-      "homeTeam": {
-        "id": 524,
-        "name": "Paris Saint-Germain FC",
-        "shortName": "PSG",
-        "tla": "PSG",
-        "crest": "https://crests.football-data.org/524.png"
-      },
-      "awayTeam": {
-        "id": 1045,
-        "name": "Paris FC",
-        "shortName": "Paris FC",
-        "tla": "PFC",
-        "crest": "https://crests.football-data.org/1045.png"
-      },
-      "score": {
-        "fullTime": {
-          "home": null,
-          "away": null
-        }
-      },
-      "status": "SCHEDULED",
-      "utcDate": "2026-12-12T00:00:00Z"
-    },
-    {
-      "match_id": 559597,
-      "group": "",
-      "matchday": 14,
-      "sourceRound": "Gameweek 14",
-      "homeTeam": {
-        "id": 532,
-        "name": "Angers SCO",
-        "shortName": "Angers SCO",
-        "tla": "ANG",
-        "crest": "https://crests.football-data.org/532.png"
-      },
-      "awayTeam": {
-        "id": 576,
-        "name": "RC Strasbourg Alsace",
-        "shortName": "Strasbourg",
-        "tla": "RC ",
-        "crest": "https://crests.football-data.org/576.png"
-      },
-      "score": {
-        "fullTime": {
-          "home": null,
-          "away": null
-        }
-      },
-      "status": "SCHEDULED",
-      "utcDate": "2026-12-12T00:00:00Z"
-    },
-    {
-      "match_id": 559598,
-      "group": "",
-      "matchday": 14,
-      "sourceRound": "Gameweek 14",
-      "homeTeam": {
-        "id": 512,
-        "name": "Stade Brestois 29",
-        "shortName": "Brest",
-        "tla": "BRE",
-        "crest": "https://crests.football-data.org/512.png"
-      },
-      "awayTeam": {
         "id": 531,
         "name": "ES Troyes AC",
         "shortName": "Troyes",
         "tla": "ETR",
         "crest": "https://crests.football-data.org/531.png"
       },
-      "score": {
-        "fullTime": {
-          "home": null,
-          "away": null
-        }
-      },
-      "status": "SCHEDULED",
-      "utcDate": "2026-12-12T00:00:00Z"
-    },
-    {
-      "match_id": 559599,
-      "group": "",
-      "matchday": 14,
-      "sourceRound": "Gameweek 14",
-      "homeTeam": {
-        "id": 533,
-        "name": "Le Havre AC",
-        "shortName": "Le Havre",
-        "tla": "HAC",
-        "crest": "https://crests.football-data.org/533.png"
-      },
       "awayTeam": {
-        "id": 535,
-        "name": "Le Mans FC",
-        "shortName": "Le Mans",
-        "tla": "LMF",
-        "crest": "https://upload.wikimedia.org/wikipedia/en/thumb/5/57/Le_Mans_FC_logo.svg/330px-Le_Mans_FC_logo.svg.png"
+        "id": 523,
+        "name": "Olympique Lyonnais",
+        "shortName": "Olympique Lyon",
+        "tla": "LYO",
+        "crest": "https://crests.football-data.org/523.png"
       },
       "score": {
         "fullTime": {
@@ -3416,14 +3220,14 @@
           "away": null
         }
       },
-      "status": "SCHEDULED",
-      "utcDate": "2026-12-12T00:00:00Z"
+      "status": "TIMED",
+      "utcDate": "2026-12-06T14:00:00Z"
     },
     {
-      "match_id": 559600,
+      "match_id": 559608,
       "group": "",
-      "matchday": 14,
-      "sourceRound": "Gameweek 14",
+      "matchday": 13,
+      "sourceRound": "Gameweek 13",
       "homeTeam": {
         "id": 529,
         "name": "Stade Rennais FC 1901",
@@ -3432,11 +3236,11 @@
         "crest": "https://crests.football-data.org/529.png"
       },
       "awayTeam": {
-        "id": 548,
-        "name": "AS Monaco FC",
-        "shortName": "Monaco",
-        "tla": "ASM",
-        "crest": "https://crests.football-data.org/548.png"
+        "id": 512,
+        "name": "Stade Brestois 29",
+        "shortName": "Brest",
+        "tla": "BRE",
+        "crest": "https://crests.football-data.org/512.png"
       },
       "score": {
         "fullTime": {
@@ -3444,27 +3248,27 @@
           "away": null
         }
       },
-      "status": "SCHEDULED",
-      "utcDate": "2026-12-12T00:00:00Z"
+      "status": "TIMED",
+      "utcDate": "2026-12-06T16:15:00Z"
     },
     {
-      "match_id": 559601,
+      "match_id": 559607,
       "group": "",
-      "matchday": 14,
-      "sourceRound": "Gameweek 14",
+      "matchday": 13,
+      "sourceRound": "Gameweek 13",
       "homeTeam": {
-        "id": 525,
-        "name": "FC Lorient",
-        "shortName": "Lorient",
-        "tla": "FCL",
-        "crest": "https://crests.football-data.org/525.png"
+        "id": 516,
+        "name": "Olympique de Marseille",
+        "shortName": "Marseille",
+        "tla": "MAR",
+        "crest": "https://crests.football-data.org/516.png"
       },
       "awayTeam": {
-        "id": 521,
-        "name": "Lille OSC",
-        "shortName": "Lille",
-        "tla": "LIL",
-        "crest": "https://crests.football-data.org/521.png"
+        "id": 522,
+        "name": "OGC Nice",
+        "shortName": "Nice",
+        "tla": "NIC",
+        "crest": "https://crests.football-data.org/522.png"
       },
       "score": {
         "fullTime": {
@@ -3472,8 +3276,8 @@
           "away": null
         }
       },
-      "status": "SCHEDULED",
-      "utcDate": "2026-12-12T00:00:00Z"
+      "status": "TIMED",
+      "utcDate": "2026-12-06T19:45:00Z"
     },
     {
       "match_id": 559602,
@@ -3500,8 +3304,204 @@
           "away": null
         }
       },
-      "status": "SCHEDULED",
-      "utcDate": "2026-12-12T00:00:00Z"
+      "status": "TIMED",
+      "utcDate": "2026-12-11T19:45:00Z"
+    },
+    {
+      "match_id": 559596,
+      "group": "",
+      "matchday": 14,
+      "sourceRound": "Gameweek 14",
+      "homeTeam": {
+        "id": 524,
+        "name": "Paris Saint-Germain FC",
+        "shortName": "PSG",
+        "tla": "PSG",
+        "crest": "https://crests.football-data.org/524.png"
+      },
+      "awayTeam": {
+        "id": 1045,
+        "name": "Paris FC",
+        "shortName": "Paris FC",
+        "tla": "PFC",
+        "crest": "https://crests.football-data.org/1045.png"
+      },
+      "score": {
+        "fullTime": {
+          "home": null,
+          "away": null
+        }
+      },
+      "status": "TIMED",
+      "utcDate": "2026-12-12T16:15:00Z"
+    },
+    {
+      "match_id": 559595,
+      "group": "",
+      "matchday": 14,
+      "sourceRound": "Gameweek 14",
+      "homeTeam": {
+        "id": 522,
+        "name": "OGC Nice",
+        "shortName": "Nice",
+        "tla": "NIC",
+        "crest": "https://crests.football-data.org/522.png"
+      },
+      "awayTeam": {
+        "id": 546,
+        "name": "Racing Club de Lens",
+        "shortName": "RC Lens",
+        "tla": "RCL",
+        "crest": "https://crests.football-data.org/546.png"
+      },
+      "score": {
+        "fullTime": {
+          "home": null,
+          "away": null
+        }
+      },
+      "status": "TIMED",
+      "utcDate": "2026-12-12T19:45:00Z"
+    },
+    {
+      "match_id": 559597,
+      "group": "",
+      "matchday": 14,
+      "sourceRound": "Gameweek 14",
+      "homeTeam": {
+        "id": 532,
+        "name": "Angers SCO",
+        "shortName": "Angers SCO",
+        "tla": "ANG",
+        "crest": "https://crests.football-data.org/532.png"
+      },
+      "awayTeam": {
+        "id": 576,
+        "name": "RC Strasbourg Alsace",
+        "shortName": "Strasbourg",
+        "tla": "RC ",
+        "crest": "https://crests.football-data.org/576.png"
+      },
+      "score": {
+        "fullTime": {
+          "home": null,
+          "away": null
+        }
+      },
+      "status": "TIMED",
+      "utcDate": "2026-12-12T19:45:00Z"
+    },
+    {
+      "match_id": 559598,
+      "group": "",
+      "matchday": 14,
+      "sourceRound": "Gameweek 14",
+      "homeTeam": {
+        "id": 512,
+        "name": "Stade Brestois 29",
+        "shortName": "Brest",
+        "tla": "BRE",
+        "crest": "https://crests.football-data.org/512.png"
+      },
+      "awayTeam": {
+        "id": 531,
+        "name": "ES Troyes AC",
+        "shortName": "Troyes",
+        "tla": "ETR",
+        "crest": "https://crests.football-data.org/531.png"
+      },
+      "score": {
+        "fullTime": {
+          "home": null,
+          "away": null
+        }
+      },
+      "status": "TIMED",
+      "utcDate": "2026-12-12T19:45:00Z"
+    },
+    {
+      "match_id": 559599,
+      "group": "",
+      "matchday": 14,
+      "sourceRound": "Gameweek 14",
+      "homeTeam": {
+        "id": 533,
+        "name": "Le Havre AC",
+        "shortName": "Le Havre",
+        "tla": "HAC",
+        "crest": "https://crests.football-data.org/533.png"
+      },
+      "awayTeam": {
+        "id": 535,
+        "name": "Le Mans FC",
+        "shortName": "Le Mans",
+        "tla": "LMF",
+        "crest": "https://upload.wikimedia.org/wikipedia/en/thumb/5/57/Le_Mans_FC_logo.svg/330px-Le_Mans_FC_logo.svg.png"
+      },
+      "score": {
+        "fullTime": {
+          "home": null,
+          "away": null
+        }
+      },
+      "status": "TIMED",
+      "utcDate": "2026-12-12T19:45:00Z"
+    },
+    {
+      "match_id": 559601,
+      "group": "",
+      "matchday": 14,
+      "sourceRound": "Gameweek 14",
+      "homeTeam": {
+        "id": 525,
+        "name": "FC Lorient",
+        "shortName": "Lorient",
+        "tla": "FCL",
+        "crest": "https://crests.football-data.org/525.png"
+      },
+      "awayTeam": {
+        "id": 521,
+        "name": "Lille OSC",
+        "shortName": "Lille",
+        "tla": "LIL",
+        "crest": "https://crests.football-data.org/521.png"
+      },
+      "score": {
+        "fullTime": {
+          "home": null,
+          "away": null
+        }
+      },
+      "status": "TIMED",
+      "utcDate": "2026-12-13T14:00:00Z"
+    },
+    {
+      "match_id": 559600,
+      "group": "",
+      "matchday": 14,
+      "sourceRound": "Gameweek 14",
+      "homeTeam": {
+        "id": 529,
+        "name": "Stade Rennais FC 1901",
+        "shortName": "Stade Rennais",
+        "tla": "REN",
+        "crest": "https://crests.football-data.org/529.png"
+      },
+      "awayTeam": {
+        "id": 548,
+        "name": "AS Monaco FC",
+        "shortName": "Monaco",
+        "tla": "ASM",
+        "crest": "https://crests.football-data.org/548.png"
+      },
+      "score": {
+        "fullTime": {
+          "home": null,
+          "away": null
+        }
+      },
+      "status": "TIMED",
+      "utcDate": "2026-12-13T16:15:00Z"
     },
     {
       "match_id": 559594,
@@ -3532,34 +3532,6 @@
       "utcDate": "2026-12-13T19:45:00Z"
     },
     {
-      "match_id": 559586,
-      "group": "",
-      "matchday": 15,
-      "sourceRound": "Gameweek 15",
-      "homeTeam": {
-        "id": 535,
-        "name": "Le Mans FC",
-        "shortName": "Le Mans",
-        "tla": "LMF",
-        "crest": "https://upload.wikimedia.org/wikipedia/en/thumb/5/57/Le_Mans_FC_logo.svg/330px-Le_Mans_FC_logo.svg.png"
-      },
-      "awayTeam": {
-        "id": 523,
-        "name": "Olympique Lyonnais",
-        "shortName": "Olympique Lyon",
-        "tla": "LYO",
-        "crest": "https://crests.football-data.org/523.png"
-      },
-      "score": {
-        "fullTime": {
-          "home": null,
-          "away": null
-        }
-      },
-      "status": "SCHEDULED",
-      "utcDate": "2027-01-02T00:00:00Z"
-    },
-    {
       "match_id": 559587,
       "group": "",
       "matchday": 15,
@@ -3584,8 +3556,8 @@
           "away": null
         }
       },
-      "status": "SCHEDULED",
-      "utcDate": "2027-01-02T00:00:00Z"
+      "status": "TIMED",
+      "utcDate": "2027-01-02T16:00:00Z"
     },
     {
       "match_id": 559588,
@@ -3612,8 +3584,8 @@
           "away": null
         }
       },
-      "status": "SCHEDULED",
-      "utcDate": "2027-01-02T00:00:00Z"
+      "status": "TIMED",
+      "utcDate": "2027-01-02T20:00:00Z"
     },
     {
       "match_id": 559589,
@@ -3640,8 +3612,8 @@
           "away": null
         }
       },
-      "status": "SCHEDULED",
-      "utcDate": "2027-01-02T00:00:00Z"
+      "status": "TIMED",
+      "utcDate": "2027-01-02T20:00:00Z"
     },
     {
       "match_id": 559590,
@@ -3668,8 +3640,8 @@
           "away": null
         }
       },
-      "status": "SCHEDULED",
-      "utcDate": "2027-01-02T00:00:00Z"
+      "status": "TIMED",
+      "utcDate": "2027-01-02T20:00:00Z"
     },
     {
       "match_id": 559591,
@@ -3696,8 +3668,8 @@
           "away": null
         }
       },
-      "status": "SCHEDULED",
-      "utcDate": "2027-01-02T00:00:00Z"
+      "status": "TIMED",
+      "utcDate": "2027-01-02T20:00:00Z"
     },
     {
       "match_id": 559592,
@@ -3724,8 +3696,36 @@
           "away": null
         }
       },
-      "status": "SCHEDULED",
-      "utcDate": "2027-01-02T00:00:00Z"
+      "status": "TIMED",
+      "utcDate": "2027-01-02T20:00:00Z"
+    },
+    {
+      "match_id": 559586,
+      "group": "",
+      "matchday": 15,
+      "sourceRound": "Gameweek 15",
+      "homeTeam": {
+        "id": 535,
+        "name": "Le Mans FC",
+        "shortName": "Le Mans",
+        "tla": "LMF",
+        "crest": "https://upload.wikimedia.org/wikipedia/en/thumb/5/57/Le_Mans_FC_logo.svg/330px-Le_Mans_FC_logo.svg.png"
+      },
+      "awayTeam": {
+        "id": 523,
+        "name": "Olympique Lyonnais",
+        "shortName": "Olympique Lyon",
+        "tla": "LYO",
+        "crest": "https://crests.football-data.org/523.png"
+      },
+      "score": {
+        "fullTime": {
+          "home": null,
+          "away": null
+        }
+      },
+      "status": "TIMED",
+      "utcDate": "2027-01-03T14:00:00Z"
     },
     {
       "match_id": 559593,
@@ -3752,8 +3752,8 @@
           "away": null
         }
       },
-      "status": "SCHEDULED",
-      "utcDate": "2027-01-02T00:00:00Z"
+      "status": "TIMED",
+      "utcDate": "2027-01-03T16:15:00Z"
     },
     {
       "match_id": 559585,
@@ -3808,204 +3808,8 @@
           "away": null
         }
       },
-      "status": "SCHEDULED",
-      "utcDate": "2027-01-16T00:00:00Z"
-    },
-    {
-      "match_id": 559577,
-      "group": "",
-      "matchday": 16,
-      "sourceRound": "Gameweek 16",
-      "homeTeam": {
-        "id": 523,
-        "name": "Olympique Lyonnais",
-        "shortName": "Olympique Lyon",
-        "tla": "LYO",
-        "crest": "https://crests.football-data.org/523.png"
-      },
-      "awayTeam": {
-        "id": 525,
-        "name": "FC Lorient",
-        "shortName": "Lorient",
-        "tla": "FCL",
-        "crest": "https://crests.football-data.org/525.png"
-      },
-      "score": {
-        "fullTime": {
-          "home": null,
-          "away": null
-        }
-      },
-      "status": "SCHEDULED",
-      "utcDate": "2027-01-16T00:00:00Z"
-    },
-    {
-      "match_id": 559578,
-      "group": "",
-      "matchday": 16,
-      "sourceRound": "Gameweek 16",
-      "homeTeam": {
-        "id": 1045,
-        "name": "Paris FC",
-        "shortName": "Paris FC",
-        "tla": "PFC",
-        "crest": "https://crests.football-data.org/1045.png"
-      },
-      "awayTeam": {
-        "id": 511,
-        "name": "Toulouse FC",
-        "shortName": "Toulouse",
-        "tla": "TOU",
-        "crest": "https://crests.football-data.org/511.png"
-      },
-      "score": {
-        "fullTime": {
-          "home": null,
-          "away": null
-        }
-      },
-      "status": "SCHEDULED",
-      "utcDate": "2027-01-16T00:00:00Z"
-    },
-    {
-      "match_id": 559579,
-      "group": "",
-      "matchday": 16,
-      "sourceRound": "Gameweek 16",
-      "homeTeam": {
-        "id": 529,
-        "name": "Stade Rennais FC 1901",
-        "shortName": "Stade Rennais",
-        "tla": "REN",
-        "crest": "https://crests.football-data.org/529.png"
-      },
-      "awayTeam": {
-        "id": 546,
-        "name": "Racing Club de Lens",
-        "shortName": "RC Lens",
-        "tla": "RCL",
-        "crest": "https://crests.football-data.org/546.png"
-      },
-      "score": {
-        "fullTime": {
-          "home": null,
-          "away": null
-        }
-      },
-      "status": "SCHEDULED",
-      "utcDate": "2027-01-16T00:00:00Z"
-    },
-    {
-      "match_id": 559580,
-      "group": "",
-      "matchday": 16,
-      "sourceRound": "Gameweek 16",
-      "homeTeam": {
-        "id": 522,
-        "name": "OGC Nice",
-        "shortName": "Nice",
-        "tla": "NIC",
-        "crest": "https://crests.football-data.org/522.png"
-      },
-      "awayTeam": {
-        "id": 533,
-        "name": "Le Havre AC",
-        "shortName": "Le Havre",
-        "tla": "HAC",
-        "crest": "https://crests.football-data.org/533.png"
-      },
-      "score": {
-        "fullTime": {
-          "home": null,
-          "away": null
-        }
-      },
-      "status": "SCHEDULED",
-      "utcDate": "2027-01-16T00:00:00Z"
-    },
-    {
-      "match_id": 559581,
-      "group": "",
-      "matchday": 16,
-      "sourceRound": "Gameweek 16",
-      "homeTeam": {
-        "id": 519,
-        "name": "AJ Auxerre",
-        "shortName": "Auxerre",
-        "tla": "AJA",
-        "crest": "https://crests.football-data.org/519.png"
-      },
-      "awayTeam": {
-        "id": 531,
-        "name": "ES Troyes AC",
-        "shortName": "Troyes",
-        "tla": "ETR",
-        "crest": "https://crests.football-data.org/531.png"
-      },
-      "score": {
-        "fullTime": {
-          "home": null,
-          "away": null
-        }
-      },
-      "status": "SCHEDULED",
-      "utcDate": "2027-01-16T00:00:00Z"
-    },
-    {
-      "match_id": 559582,
-      "group": "",
-      "matchday": 16,
-      "sourceRound": "Gameweek 16",
-      "homeTeam": {
-        "id": 576,
-        "name": "RC Strasbourg Alsace",
-        "shortName": "Strasbourg",
-        "tla": "RC ",
-        "crest": "https://crests.football-data.org/576.png"
-      },
-      "awayTeam": {
-        "id": 535,
-        "name": "Le Mans FC",
-        "shortName": "Le Mans",
-        "tla": "LMF",
-        "crest": "https://upload.wikimedia.org/wikipedia/en/thumb/5/57/Le_Mans_FC_logo.svg/330px-Le_Mans_FC_logo.svg.png"
-      },
-      "score": {
-        "fullTime": {
-          "home": null,
-          "away": null
-        }
-      },
-      "status": "SCHEDULED",
-      "utcDate": "2027-01-16T00:00:00Z"
-    },
-    {
-      "match_id": 559583,
-      "group": "",
-      "matchday": 16,
-      "sourceRound": "Gameweek 16",
-      "homeTeam": {
-        "id": 548,
-        "name": "AS Monaco FC",
-        "shortName": "Monaco",
-        "tla": "ASM",
-        "crest": "https://crests.football-data.org/548.png"
-      },
-      "awayTeam": {
-        "id": 512,
-        "name": "Stade Brestois 29",
-        "shortName": "Brest",
-        "tla": "BRE",
-        "crest": "https://crests.football-data.org/512.png"
-      },
-      "score": {
-        "fullTime": {
-          "home": null,
-          "away": null
-        }
-      },
-      "status": "SCHEDULED",
-      "utcDate": "2027-01-16T00:00:00Z"
+      "status": "TIMED",
+      "utcDate": "2027-01-15T19:45:00Z"
     },
     {
       "match_id": 559584,
@@ -4032,27 +3836,27 @@
           "away": null
         }
       },
-      "status": "SCHEDULED",
-      "utcDate": "2027-01-16T00:00:00Z"
+      "status": "TIMED",
+      "utcDate": "2027-01-16T16:15:00Z"
     },
     {
-      "match_id": 559567,
+      "match_id": 559579,
       "group": "",
-      "matchday": 17,
-      "sourceRound": "Gameweek 17",
+      "matchday": 16,
+      "sourceRound": "Gameweek 16",
       "homeTeam": {
-        "id": 533,
-        "name": "Le Havre AC",
-        "shortName": "Le Havre",
-        "tla": "HAC",
-        "crest": "https://crests.football-data.org/533.png"
-      },
-      "awayTeam": {
         "id": 529,
         "name": "Stade Rennais FC 1901",
         "shortName": "Stade Rennais",
         "tla": "REN",
         "crest": "https://crests.football-data.org/529.png"
+      },
+      "awayTeam": {
+        "id": 546,
+        "name": "Racing Club de Lens",
+        "shortName": "RC Lens",
+        "tla": "RCL",
+        "crest": "https://crests.football-data.org/546.png"
       },
       "score": {
         "fullTime": {
@@ -4060,14 +3864,70 @@
           "away": null
         }
       },
-      "status": "SCHEDULED",
-      "utcDate": "2027-01-23T00:00:00Z"
+      "status": "TIMED",
+      "utcDate": "2027-01-16T19:45:00Z"
     },
     {
-      "match_id": 559568,
+      "match_id": 559580,
       "group": "",
-      "matchday": 17,
-      "sourceRound": "Gameweek 17",
+      "matchday": 16,
+      "sourceRound": "Gameweek 16",
+      "homeTeam": {
+        "id": 522,
+        "name": "OGC Nice",
+        "shortName": "Nice",
+        "tla": "NIC",
+        "crest": "https://crests.football-data.org/522.png"
+      },
+      "awayTeam": {
+        "id": 533,
+        "name": "Le Havre AC",
+        "shortName": "Le Havre",
+        "tla": "HAC",
+        "crest": "https://crests.football-data.org/533.png"
+      },
+      "score": {
+        "fullTime": {
+          "home": null,
+          "away": null
+        }
+      },
+      "status": "TIMED",
+      "utcDate": "2027-01-16T19:45:00Z"
+    },
+    {
+      "match_id": 559581,
+      "group": "",
+      "matchday": 16,
+      "sourceRound": "Gameweek 16",
+      "homeTeam": {
+        "id": 519,
+        "name": "AJ Auxerre",
+        "shortName": "Auxerre",
+        "tla": "AJA",
+        "crest": "https://crests.football-data.org/519.png"
+      },
+      "awayTeam": {
+        "id": 531,
+        "name": "ES Troyes AC",
+        "shortName": "Troyes",
+        "tla": "ETR",
+        "crest": "https://crests.football-data.org/531.png"
+      },
+      "score": {
+        "fullTime": {
+          "home": null,
+          "away": null
+        }
+      },
+      "status": "TIMED",
+      "utcDate": "2027-01-16T19:45:00Z"
+    },
+    {
+      "match_id": 559582,
+      "group": "",
+      "matchday": 16,
+      "sourceRound": "Gameweek 16",
       "homeTeam": {
         "id": 576,
         "name": "RC Strasbourg Alsace",
@@ -4076,11 +3936,11 @@
         "crest": "https://crests.football-data.org/576.png"
       },
       "awayTeam": {
-        "id": 523,
-        "name": "Olympique Lyonnais",
-        "shortName": "Olympique Lyon",
-        "tla": "LYO",
-        "crest": "https://crests.football-data.org/523.png"
+        "id": 535,
+        "name": "Le Mans FC",
+        "shortName": "Le Mans",
+        "tla": "LMF",
+        "crest": "https://upload.wikimedia.org/wikipedia/en/thumb/5/57/Le_Mans_FC_logo.svg/330px-Le_Mans_FC_logo.svg.png"
       },
       "score": {
         "fullTime": {
@@ -4088,48 +3948,48 @@
           "away": null
         }
       },
-      "status": "SCHEDULED",
-      "utcDate": "2027-01-23T00:00:00Z"
+      "status": "TIMED",
+      "utcDate": "2027-01-16T19:45:00Z"
     },
     {
-      "match_id": 559569,
+      "match_id": 559578,
       "group": "",
-      "matchday": 17,
-      "sourceRound": "Gameweek 17",
+      "matchday": 16,
+      "sourceRound": "Gameweek 16",
       "homeTeam": {
-        "id": 521,
-        "name": "Lille OSC",
-        "shortName": "Lille",
-        "tla": "LIL",
-        "crest": "https://crests.football-data.org/521.png"
-      },
-      "awayTeam": {
         "id": 1045,
         "name": "Paris FC",
         "shortName": "Paris FC",
         "tla": "PFC",
         "crest": "https://crests.football-data.org/1045.png"
       },
+      "awayTeam": {
+        "id": 511,
+        "name": "Toulouse FC",
+        "shortName": "Toulouse",
+        "tla": "TOU",
+        "crest": "https://crests.football-data.org/511.png"
+      },
       "score": {
         "fullTime": {
           "home": null,
           "away": null
         }
       },
-      "status": "SCHEDULED",
-      "utcDate": "2027-01-23T00:00:00Z"
+      "status": "TIMED",
+      "utcDate": "2027-01-17T14:00:00Z"
     },
     {
-      "match_id": 559570,
+      "match_id": 559583,
       "group": "",
-      "matchday": 17,
-      "sourceRound": "Gameweek 17",
+      "matchday": 16,
+      "sourceRound": "Gameweek 16",
       "homeTeam": {
-        "id": 546,
-        "name": "Racing Club de Lens",
-        "shortName": "RC Lens",
-        "tla": "RCL",
-        "crest": "https://crests.football-data.org/546.png"
+        "id": 548,
+        "name": "AS Monaco FC",
+        "shortName": "Monaco",
+        "tla": "ASM",
+        "crest": "https://crests.football-data.org/548.png"
       },
       "awayTeam": {
         "id": 512,
@@ -4144,27 +4004,27 @@
           "away": null
         }
       },
-      "status": "SCHEDULED",
-      "utcDate": "2027-01-23T00:00:00Z"
+      "status": "TIMED",
+      "utcDate": "2027-01-17T16:15:00Z"
     },
     {
-      "match_id": 559571,
+      "match_id": 559577,
       "group": "",
-      "matchday": 17,
-      "sourceRound": "Gameweek 17",
+      "matchday": 16,
+      "sourceRound": "Gameweek 16",
       "homeTeam": {
-        "id": 524,
-        "name": "Paris Saint-Germain FC",
-        "shortName": "PSG",
-        "tla": "PSG",
-        "crest": "https://crests.football-data.org/524.png"
+        "id": 523,
+        "name": "Olympique Lyonnais",
+        "shortName": "Olympique Lyon",
+        "tla": "LYO",
+        "crest": "https://crests.football-data.org/523.png"
       },
       "awayTeam": {
-        "id": 519,
-        "name": "AJ Auxerre",
-        "shortName": "Auxerre",
-        "tla": "AJA",
-        "crest": "https://crests.football-data.org/519.png"
+        "id": 525,
+        "name": "FC Lorient",
+        "shortName": "Lorient",
+        "tla": "FCL",
+        "crest": "https://crests.football-data.org/525.png"
       },
       "score": {
         "fullTime": {
@@ -4172,8 +4032,8 @@
           "away": null
         }
       },
-      "status": "SCHEDULED",
-      "utcDate": "2027-01-23T00:00:00Z"
+      "status": "TIMED",
+      "utcDate": "2027-01-17T19:45:00Z"
     },
     {
       "match_id": 559572,
@@ -4200,27 +4060,27 @@
           "away": null
         }
       },
-      "status": "SCHEDULED",
-      "utcDate": "2027-01-23T00:00:00Z"
+      "status": "TIMED",
+      "utcDate": "2027-01-22T19:45:00Z"
     },
     {
-      "match_id": 559573,
+      "match_id": 559569,
       "group": "",
       "matchday": 17,
       "sourceRound": "Gameweek 17",
       "homeTeam": {
-        "id": 525,
-        "name": "FC Lorient",
-        "shortName": "Lorient",
-        "tla": "FCL",
-        "crest": "https://crests.football-data.org/525.png"
+        "id": 521,
+        "name": "Lille OSC",
+        "shortName": "Lille",
+        "tla": "LIL",
+        "crest": "https://crests.football-data.org/521.png"
       },
       "awayTeam": {
-        "id": 516,
-        "name": "Olympique de Marseille",
-        "shortName": "Marseille",
-        "tla": "MAR",
-        "crest": "https://crests.football-data.org/516.png"
+        "id": 1045,
+        "name": "Paris FC",
+        "shortName": "Paris FC",
+        "tla": "PFC",
+        "crest": "https://crests.football-data.org/1045.png"
       },
       "score": {
         "fullTime": {
@@ -4228,8 +4088,64 @@
           "away": null
         }
       },
-      "status": "SCHEDULED",
-      "utcDate": "2027-01-23T00:00:00Z"
+      "status": "TIMED",
+      "utcDate": "2027-01-23T16:15:00Z"
+    },
+    {
+      "match_id": 559570,
+      "group": "",
+      "matchday": 17,
+      "sourceRound": "Gameweek 17",
+      "homeTeam": {
+        "id": 546,
+        "name": "Racing Club de Lens",
+        "shortName": "RC Lens",
+        "tla": "RCL",
+        "crest": "https://crests.football-data.org/546.png"
+      },
+      "awayTeam": {
+        "id": 512,
+        "name": "Stade Brestois 29",
+        "shortName": "Brest",
+        "tla": "BRE",
+        "crest": "https://crests.football-data.org/512.png"
+      },
+      "score": {
+        "fullTime": {
+          "home": null,
+          "away": null
+        }
+      },
+      "status": "TIMED",
+      "utcDate": "2027-01-23T19:45:00Z"
+    },
+    {
+      "match_id": 559571,
+      "group": "",
+      "matchday": 17,
+      "sourceRound": "Gameweek 17",
+      "homeTeam": {
+        "id": 524,
+        "name": "Paris Saint-Germain FC",
+        "shortName": "PSG",
+        "tla": "PSG",
+        "crest": "https://crests.football-data.org/524.png"
+      },
+      "awayTeam": {
+        "id": 519,
+        "name": "AJ Auxerre",
+        "shortName": "Auxerre",
+        "tla": "AJA",
+        "crest": "https://crests.football-data.org/519.png"
+      },
+      "score": {
+        "fullTime": {
+          "home": null,
+          "away": null
+        }
+      },
+      "status": "TIMED",
+      "utcDate": "2027-01-23T19:45:00Z"
     },
     {
       "match_id": 559574,
@@ -4256,8 +4172,8 @@
           "away": null
         }
       },
-      "status": "SCHEDULED",
-      "utcDate": "2027-01-23T00:00:00Z"
+      "status": "TIMED",
+      "utcDate": "2027-01-23T19:45:00Z"
     },
     {
       "match_id": 559575,
@@ -4284,176 +4200,92 @@
           "away": null
         }
       },
-      "status": "SCHEDULED",
-      "utcDate": "2027-01-23T00:00:00Z"
+      "status": "TIMED",
+      "utcDate": "2027-01-23T19:45:00Z"
     },
     {
-      "match_id": 559558,
+      "match_id": 559567,
       "group": "",
-      "matchday": 18,
-      "sourceRound": "Gameweek 18",
+      "matchday": 17,
+      "sourceRound": "Gameweek 17",
       "homeTeam": {
-        "id": 1045,
-        "name": "Paris FC",
-        "shortName": "Paris FC",
-        "tla": "PFC",
-        "crest": "https://crests.football-data.org/1045.png"
-      },
-      "awayTeam": {
-        "id": 519,
-        "name": "AJ Auxerre",
-        "shortName": "Auxerre",
-        "tla": "AJA",
-        "crest": "https://crests.football-data.org/519.png"
-      },
-      "score": {
-        "fullTime": {
-          "home": null,
-          "away": null
-        }
-      },
-      "status": "SCHEDULED",
-      "utcDate": "2027-01-30T00:00:00Z"
-    },
-    {
-      "match_id": 559559,
-      "group": "",
-      "matchday": 18,
-      "sourceRound": "Gameweek 18",
-      "homeTeam": {
-        "id": 523,
-        "name": "Olympique Lyonnais",
-        "shortName": "Olympique Lyon",
-        "tla": "LYO",
-        "crest": "https://crests.football-data.org/523.png"
-      },
-      "awayTeam": {
-        "id": 521,
-        "name": "Lille OSC",
-        "shortName": "Lille",
-        "tla": "LIL",
-        "crest": "https://crests.football-data.org/521.png"
-      },
-      "score": {
-        "fullTime": {
-          "home": null,
-          "away": null
-        }
-      },
-      "status": "SCHEDULED",
-      "utcDate": "2027-01-30T00:00:00Z"
-    },
-    {
-      "match_id": 559560,
-      "group": "",
-      "matchday": 18,
-      "sourceRound": "Gameweek 18",
-      "homeTeam": {
-        "id": 529,
-        "name": "Stade Rennais FC 1901",
-        "shortName": "Stade Rennais",
-        "tla": "REN",
-        "crest": "https://crests.football-data.org/529.png"
-      },
-      "awayTeam": {
-        "id": 525,
-        "name": "FC Lorient",
-        "shortName": "Lorient",
-        "tla": "FCL",
-        "crest": "https://crests.football-data.org/525.png"
-      },
-      "score": {
-        "fullTime": {
-          "home": null,
-          "away": null
-        }
-      },
-      "status": "SCHEDULED",
-      "utcDate": "2027-01-30T00:00:00Z"
-    },
-    {
-      "match_id": 559561,
-      "group": "",
-      "matchday": 18,
-      "sourceRound": "Gameweek 18",
-      "homeTeam": {
-        "id": 535,
-        "name": "Le Mans FC",
-        "shortName": "Le Mans",
-        "tla": "LMF",
-        "crest": "https://upload.wikimedia.org/wikipedia/en/thumb/5/57/Le_Mans_FC_logo.svg/330px-Le_Mans_FC_logo.svg.png"
-      },
-      "awayTeam": {
-        "id": 522,
-        "name": "OGC Nice",
-        "shortName": "Nice",
-        "tla": "NIC",
-        "crest": "https://crests.football-data.org/522.png"
-      },
-      "score": {
-        "fullTime": {
-          "home": null,
-          "away": null
-        }
-      },
-      "status": "SCHEDULED",
-      "utcDate": "2027-01-30T00:00:00Z"
-    },
-    {
-      "match_id": 559562,
-      "group": "",
-      "matchday": 18,
-      "sourceRound": "Gameweek 18",
-      "homeTeam": {
-        "id": 516,
-        "name": "Olympique de Marseille",
-        "shortName": "Marseille",
-        "tla": "MAR",
-        "crest": "https://crests.football-data.org/516.png"
-      },
-      "awayTeam": {
-        "id": 531,
-        "name": "ES Troyes AC",
-        "shortName": "Troyes",
-        "tla": "ETR",
-        "crest": "https://crests.football-data.org/531.png"
-      },
-      "score": {
-        "fullTime": {
-          "home": null,
-          "away": null
-        }
-      },
-      "status": "SCHEDULED",
-      "utcDate": "2027-01-30T00:00:00Z"
-    },
-    {
-      "match_id": 559563,
-      "group": "",
-      "matchday": 18,
-      "sourceRound": "Gameweek 18",
-      "homeTeam": {
-        "id": 532,
-        "name": "Angers SCO",
-        "shortName": "Angers SCO",
-        "tla": "ANG",
-        "crest": "https://crests.football-data.org/532.png"
-      },
-      "awayTeam": {
         "id": 533,
         "name": "Le Havre AC",
         "shortName": "Le Havre",
         "tla": "HAC",
         "crest": "https://crests.football-data.org/533.png"
       },
+      "awayTeam": {
+        "id": 529,
+        "name": "Stade Rennais FC 1901",
+        "shortName": "Stade Rennais",
+        "tla": "REN",
+        "crest": "https://crests.football-data.org/529.png"
+      },
       "score": {
         "fullTime": {
           "home": null,
           "away": null
         }
       },
-      "status": "SCHEDULED",
-      "utcDate": "2027-01-30T00:00:00Z"
+      "status": "TIMED",
+      "utcDate": "2027-01-24T14:00:00Z"
+    },
+    {
+      "match_id": 559573,
+      "group": "",
+      "matchday": 17,
+      "sourceRound": "Gameweek 17",
+      "homeTeam": {
+        "id": 525,
+        "name": "FC Lorient",
+        "shortName": "Lorient",
+        "tla": "FCL",
+        "crest": "https://crests.football-data.org/525.png"
+      },
+      "awayTeam": {
+        "id": 516,
+        "name": "Olympique de Marseille",
+        "shortName": "Marseille",
+        "tla": "MAR",
+        "crest": "https://crests.football-data.org/516.png"
+      },
+      "score": {
+        "fullTime": {
+          "home": null,
+          "away": null
+        }
+      },
+      "status": "TIMED",
+      "utcDate": "2027-01-24T16:15:00Z"
+    },
+    {
+      "match_id": 559568,
+      "group": "",
+      "matchday": 17,
+      "sourceRound": "Gameweek 17",
+      "homeTeam": {
+        "id": 576,
+        "name": "RC Strasbourg Alsace",
+        "shortName": "Strasbourg",
+        "tla": "RC ",
+        "crest": "https://crests.football-data.org/576.png"
+      },
+      "awayTeam": {
+        "id": 523,
+        "name": "Olympique Lyonnais",
+        "shortName": "Olympique Lyon",
+        "tla": "LYO",
+        "crest": "https://crests.football-data.org/523.png"
+      },
+      "score": {
+        "fullTime": {
+          "home": null,
+          "away": null
+        }
+      },
+      "status": "TIMED",
+      "utcDate": "2027-01-24T19:45:00Z"
     },
     {
       "match_id": 559564,
@@ -4480,8 +4312,8 @@
           "away": null
         }
       },
-      "status": "SCHEDULED",
-      "utcDate": "2027-01-30T00:00:00Z"
+      "status": "TIMED",
+      "utcDate": "2027-01-29T19:45:00Z"
     },
     {
       "match_id": 559565,
@@ -4508,8 +4340,92 @@
           "away": null
         }
       },
-      "status": "SCHEDULED",
-      "utcDate": "2027-01-30T00:00:00Z"
+      "status": "TIMED",
+      "utcDate": "2027-01-30T16:15:00Z"
+    },
+    {
+      "match_id": 559558,
+      "group": "",
+      "matchday": 18,
+      "sourceRound": "Gameweek 18",
+      "homeTeam": {
+        "id": 1045,
+        "name": "Paris FC",
+        "shortName": "Paris FC",
+        "tla": "PFC",
+        "crest": "https://crests.football-data.org/1045.png"
+      },
+      "awayTeam": {
+        "id": 519,
+        "name": "AJ Auxerre",
+        "shortName": "Auxerre",
+        "tla": "AJA",
+        "crest": "https://crests.football-data.org/519.png"
+      },
+      "score": {
+        "fullTime": {
+          "home": null,
+          "away": null
+        }
+      },
+      "status": "TIMED",
+      "utcDate": "2027-01-30T19:45:00Z"
+    },
+    {
+      "match_id": 559561,
+      "group": "",
+      "matchday": 18,
+      "sourceRound": "Gameweek 18",
+      "homeTeam": {
+        "id": 535,
+        "name": "Le Mans FC",
+        "shortName": "Le Mans",
+        "tla": "LMF",
+        "crest": "https://upload.wikimedia.org/wikipedia/en/thumb/5/57/Le_Mans_FC_logo.svg/330px-Le_Mans_FC_logo.svg.png"
+      },
+      "awayTeam": {
+        "id": 522,
+        "name": "OGC Nice",
+        "shortName": "Nice",
+        "tla": "NIC",
+        "crest": "https://crests.football-data.org/522.png"
+      },
+      "score": {
+        "fullTime": {
+          "home": null,
+          "away": null
+        }
+      },
+      "status": "TIMED",
+      "utcDate": "2027-01-30T19:45:00Z"
+    },
+    {
+      "match_id": 559563,
+      "group": "",
+      "matchday": 18,
+      "sourceRound": "Gameweek 18",
+      "homeTeam": {
+        "id": 532,
+        "name": "Angers SCO",
+        "shortName": "Angers SCO",
+        "tla": "ANG",
+        "crest": "https://crests.football-data.org/532.png"
+      },
+      "awayTeam": {
+        "id": 533,
+        "name": "Le Havre AC",
+        "shortName": "Le Havre",
+        "tla": "HAC",
+        "crest": "https://crests.football-data.org/533.png"
+      },
+      "score": {
+        "fullTime": {
+          "home": null,
+          "away": null
+        }
+      },
+      "status": "TIMED",
+      "utcDate": "2027-01-30T19:45:00Z"
     },
     {
       "match_id": 559566,
@@ -4536,8 +4452,92 @@
           "away": null
         }
       },
-      "status": "SCHEDULED",
-      "utcDate": "2027-01-30T00:00:00Z"
+      "status": "TIMED",
+      "utcDate": "2027-01-30T19:45:00Z"
+    },
+    {
+      "match_id": 559560,
+      "group": "",
+      "matchday": 18,
+      "sourceRound": "Gameweek 18",
+      "homeTeam": {
+        "id": 529,
+        "name": "Stade Rennais FC 1901",
+        "shortName": "Stade Rennais",
+        "tla": "REN",
+        "crest": "https://crests.football-data.org/529.png"
+      },
+      "awayTeam": {
+        "id": 525,
+        "name": "FC Lorient",
+        "shortName": "Lorient",
+        "tla": "FCL",
+        "crest": "https://crests.football-data.org/525.png"
+      },
+      "score": {
+        "fullTime": {
+          "home": null,
+          "away": null
+        }
+      },
+      "status": "TIMED",
+      "utcDate": "2027-01-31T14:00:00Z"
+    },
+    {
+      "match_id": 559562,
+      "group": "",
+      "matchday": 18,
+      "sourceRound": "Gameweek 18",
+      "homeTeam": {
+        "id": 516,
+        "name": "Olympique de Marseille",
+        "shortName": "Marseille",
+        "tla": "MAR",
+        "crest": "https://crests.football-data.org/516.png"
+      },
+      "awayTeam": {
+        "id": 531,
+        "name": "ES Troyes AC",
+        "shortName": "Troyes",
+        "tla": "ETR",
+        "crest": "https://crests.football-data.org/531.png"
+      },
+      "score": {
+        "fullTime": {
+          "home": null,
+          "away": null
+        }
+      },
+      "status": "TIMED",
+      "utcDate": "2027-01-31T16:15:00Z"
+    },
+    {
+      "match_id": 559559,
+      "group": "",
+      "matchday": 18,
+      "sourceRound": "Gameweek 18",
+      "homeTeam": {
+        "id": 523,
+        "name": "Olympique Lyonnais",
+        "shortName": "Olympique Lyon",
+        "tla": "LYO",
+        "crest": "https://crests.football-data.org/523.png"
+      },
+      "awayTeam": {
+        "id": 521,
+        "name": "Lille OSC",
+        "shortName": "Lille",
+        "tla": "LIL",
+        "crest": "https://crests.football-data.org/521.png"
+      },
+      "score": {
+        "fullTime": {
+          "home": null,
+          "away": null
+        }
+      },
+      "status": "TIMED",
+      "utcDate": "2027-01-31T19:45:00Z"
     },
     {
       "match_id": 559550,

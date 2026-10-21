@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-18T00:16:33Z",
+  "generated_at": "2026-10-21T13:31:22Z",
   "month": "2027-01",
   "dates": {
     "2027-01-01": [
@@ -301,27 +301,6 @@
         "name": "Ligue 1",
         "matches": [
           {
-            "match_id": 559586,
-            "homeTeam": {
-              "id": 535,
-              "name": "Le Mans FC",
-              "shortName": "Le Mans",
-              "tla": "LMF",
-              "crest": "https://upload.wikimedia.org/wikipedia/en/thumb/5/57/Le_Mans_FC_logo.svg/330px-Le_Mans_FC_logo.svg.png"
-            },
-            "awayTeam": {
-              "id": 523,
-              "name": "Olympique Lyonnais",
-              "shortName": "Olympique Lyon",
-              "tla": "LYO",
-              "crest": "https://crests.football-data.org/523.png"
-            },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "SCHEDULED",
-            "utcDate": "2027-01-02T00:00:00Z"
-          },
-          {
             "match_id": 559587,
             "homeTeam": {
               "id": 512,
@@ -339,8 +318,8 @@
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "SCHEDULED",
-            "utcDate": "2027-01-02T00:00:00Z"
+            "status": "TIMED",
+            "utcDate": "2027-01-02T16:00:00Z"
           },
           {
             "match_id": 559588,
@@ -360,8 +339,8 @@
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "SCHEDULED",
-            "utcDate": "2027-01-02T00:00:00Z"
+            "status": "TIMED",
+            "utcDate": "2027-01-02T20:00:00Z"
           },
           {
             "match_id": 559589,
@@ -381,8 +360,8 @@
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "SCHEDULED",
-            "utcDate": "2027-01-02T00:00:00Z"
+            "status": "TIMED",
+            "utcDate": "2027-01-02T20:00:00Z"
           },
           {
             "match_id": 559590,
@@ -402,8 +381,8 @@
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "SCHEDULED",
-            "utcDate": "2027-01-02T00:00:00Z"
+            "status": "TIMED",
+            "utcDate": "2027-01-02T20:00:00Z"
           },
           {
             "match_id": 559591,
@@ -423,8 +402,8 @@
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "SCHEDULED",
-            "utcDate": "2027-01-02T00:00:00Z"
+            "status": "TIMED",
+            "utcDate": "2027-01-02T20:00:00Z"
           },
           {
             "match_id": 559592,
@@ -444,29 +423,8 @@
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "SCHEDULED",
-            "utcDate": "2027-01-02T00:00:00Z"
-          },
-          {
-            "match_id": 559593,
-            "homeTeam": {
-              "id": 521,
-              "name": "Lille OSC",
-              "shortName": "Lille",
-              "tla": "LIL",
-              "crest": "https://crests.football-data.org/521.png"
-            },
-            "awayTeam": {
-              "id": 576,
-              "name": "RC Strasbourg Alsace",
-              "shortName": "Strasbourg",
-              "tla": "RC ",
-              "crest": "https://crests.football-data.org/576.png"
-            },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "SCHEDULED",
-            "utcDate": "2027-01-02T00:00:00Z"
+            "status": "TIMED",
+            "utcDate": "2027-01-02T20:00:00Z"
           }
         ]
       }
@@ -851,6 +809,48 @@
         "competition": "ligue-1",
         "name": "Ligue 1",
         "matches": [
+          {
+            "match_id": 559586,
+            "homeTeam": {
+              "id": 535,
+              "name": "Le Mans FC",
+              "shortName": "Le Mans",
+              "tla": "LMF",
+              "crest": "https://upload.wikimedia.org/wikipedia/en/thumb/5/57/Le_Mans_FC_logo.svg/330px-Le_Mans_FC_logo.svg.png"
+            },
+            "awayTeam": {
+              "id": 523,
+              "name": "Olympique Lyonnais",
+              "shortName": "Olympique Lyon",
+              "tla": "LYO",
+              "crest": "https://crests.football-data.org/523.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "TIMED",
+            "utcDate": "2027-01-03T14:00:00Z"
+          },
+          {
+            "match_id": 559593,
+            "homeTeam": {
+              "id": 521,
+              "name": "Lille OSC",
+              "shortName": "Lille",
+              "tla": "LIL",
+              "crest": "https://crests.football-data.org/521.png"
+            },
+            "awayTeam": {
+              "id": 576,
+              "name": "RC Strasbourg Alsace",
+              "shortName": "Strasbourg",
+              "tla": "RC ",
+              "crest": "https://crests.football-data.org/576.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "TIMED",
+            "utcDate": "2027-01-03T16:15:00Z"
+          },
           {
             "match_id": 559585,
             "homeTeam": {
@@ -2179,6 +2179,35 @@
         ]
       }
     ],
+    "2027-01-15": [
+      {
+        "competition": "ligue-1",
+        "name": "Ligue 1",
+        "matches": [
+          {
+            "match_id": 559576,
+            "homeTeam": {
+              "id": 516,
+              "name": "Olympique de Marseille",
+              "shortName": "Marseille",
+              "tla": "MAR",
+              "crest": "https://crests.football-data.org/516.png"
+            },
+            "awayTeam": {
+              "id": 521,
+              "name": "Lille OSC",
+              "shortName": "Lille",
+              "tla": "LIL",
+              "crest": "https://crests.football-data.org/521.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "TIMED",
+            "utcDate": "2027-01-15T19:45:00Z"
+          }
+        ]
+      }
+    ],
     "2027-01-16": [
       {
         "competition": "premier-league",
@@ -2596,67 +2625,25 @@
         "name": "Ligue 1",
         "matches": [
           {
-            "match_id": 559576,
+            "match_id": 559584,
             "homeTeam": {
-              "id": 516,
-              "name": "Olympique de Marseille",
-              "shortName": "Marseille",
-              "tla": "MAR",
-              "crest": "https://crests.football-data.org/516.png"
+              "id": 532,
+              "name": "Angers SCO",
+              "shortName": "Angers SCO",
+              "tla": "ANG",
+              "crest": "https://crests.football-data.org/532.png"
             },
             "awayTeam": {
-              "id": 521,
-              "name": "Lille OSC",
-              "shortName": "Lille",
-              "tla": "LIL",
-              "crest": "https://crests.football-data.org/521.png"
+              "id": 524,
+              "name": "Paris Saint-Germain FC",
+              "shortName": "PSG",
+              "tla": "PSG",
+              "crest": "https://crests.football-data.org/524.png"
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "SCHEDULED",
-            "utcDate": "2027-01-16T00:00:00Z"
-          },
-          {
-            "match_id": 559577,
-            "homeTeam": {
-              "id": 523,
-              "name": "Olympique Lyonnais",
-              "shortName": "Olympique Lyon",
-              "tla": "LYO",
-              "crest": "https://crests.football-data.org/523.png"
-            },
-            "awayTeam": {
-              "id": 525,
-              "name": "FC Lorient",
-              "shortName": "Lorient",
-              "tla": "FCL",
-              "crest": "https://crests.football-data.org/525.png"
-            },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "SCHEDULED",
-            "utcDate": "2027-01-16T00:00:00Z"
-          },
-          {
-            "match_id": 559578,
-            "homeTeam": {
-              "id": 1045,
-              "name": "Paris FC",
-              "shortName": "Paris FC",
-              "tla": "PFC",
-              "crest": "https://crests.football-data.org/1045.png"
-            },
-            "awayTeam": {
-              "id": 511,
-              "name": "Toulouse FC",
-              "shortName": "Toulouse",
-              "tla": "TOU",
-              "crest": "https://crests.football-data.org/511.png"
-            },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "SCHEDULED",
-            "utcDate": "2027-01-16T00:00:00Z"
+            "status": "TIMED",
+            "utcDate": "2027-01-16T16:15:00Z"
           },
           {
             "match_id": 559579,
@@ -2676,8 +2663,8 @@
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "SCHEDULED",
-            "utcDate": "2027-01-16T00:00:00Z"
+            "status": "TIMED",
+            "utcDate": "2027-01-16T19:45:00Z"
           },
           {
             "match_id": 559580,
@@ -2697,8 +2684,8 @@
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "SCHEDULED",
-            "utcDate": "2027-01-16T00:00:00Z"
+            "status": "TIMED",
+            "utcDate": "2027-01-16T19:45:00Z"
           },
           {
             "match_id": 559581,
@@ -2718,8 +2705,8 @@
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "SCHEDULED",
-            "utcDate": "2027-01-16T00:00:00Z"
+            "status": "TIMED",
+            "utcDate": "2027-01-16T19:45:00Z"
           },
           {
             "match_id": 559582,
@@ -2739,50 +2726,8 @@
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "SCHEDULED",
-            "utcDate": "2027-01-16T00:00:00Z"
-          },
-          {
-            "match_id": 559583,
-            "homeTeam": {
-              "id": 548,
-              "name": "AS Monaco FC",
-              "shortName": "Monaco",
-              "tla": "ASM",
-              "crest": "https://crests.football-data.org/548.png"
-            },
-            "awayTeam": {
-              "id": 512,
-              "name": "Stade Brestois 29",
-              "shortName": "Brest",
-              "tla": "BRE",
-              "crest": "https://crests.football-data.org/512.png"
-            },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "SCHEDULED",
-            "utcDate": "2027-01-16T00:00:00Z"
-          },
-          {
-            "match_id": 559584,
-            "homeTeam": {
-              "id": 532,
-              "name": "Angers SCO",
-              "shortName": "Angers SCO",
-              "tla": "ANG",
-              "crest": "https://crests.football-data.org/532.png"
-            },
-            "awayTeam": {
-              "id": 524,
-              "name": "Paris Saint-Germain FC",
-              "shortName": "PSG",
-              "tla": "PSG",
-              "crest": "https://crests.football-data.org/524.png"
-            },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "SCHEDULED",
-            "utcDate": "2027-01-16T00:00:00Z"
+            "status": "TIMED",
+            "utcDate": "2027-01-16T19:45:00Z"
           }
         ]
       }
@@ -3219,6 +3164,75 @@
             "utcDate": "2027-01-17T00:00:00Z"
           }
         ]
+      },
+      {
+        "competition": "ligue-1",
+        "name": "Ligue 1",
+        "matches": [
+          {
+            "match_id": 559578,
+            "homeTeam": {
+              "id": 1045,
+              "name": "Paris FC",
+              "shortName": "Paris FC",
+              "tla": "PFC",
+              "crest": "https://crests.football-data.org/1045.png"
+            },
+            "awayTeam": {
+              "id": 511,
+              "name": "Toulouse FC",
+              "shortName": "Toulouse",
+              "tla": "TOU",
+              "crest": "https://crests.football-data.org/511.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "TIMED",
+            "utcDate": "2027-01-17T14:00:00Z"
+          },
+          {
+            "match_id": 559583,
+            "homeTeam": {
+              "id": 548,
+              "name": "AS Monaco FC",
+              "shortName": "Monaco",
+              "tla": "ASM",
+              "crest": "https://crests.football-data.org/548.png"
+            },
+            "awayTeam": {
+              "id": 512,
+              "name": "Stade Brestois 29",
+              "shortName": "Brest",
+              "tla": "BRE",
+              "crest": "https://crests.football-data.org/512.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "TIMED",
+            "utcDate": "2027-01-17T16:15:00Z"
+          },
+          {
+            "match_id": 559577,
+            "homeTeam": {
+              "id": 523,
+              "name": "Olympique Lyonnais",
+              "shortName": "Olympique Lyon",
+              "tla": "LYO",
+              "crest": "https://crests.football-data.org/523.png"
+            },
+            "awayTeam": {
+              "id": 525,
+              "name": "FC Lorient",
+              "shortName": "Lorient",
+              "tla": "FCL",
+              "crest": "https://crests.football-data.org/525.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "TIMED",
+            "utcDate": "2027-01-17T19:45:00Z"
+          }
+        ]
       }
     ],
     "2027-01-19": [
@@ -3611,6 +3625,35 @@
             "awayScore": null,
             "status": "TIMED",
             "utcDate": "2027-01-20T20:00:00Z"
+          }
+        ]
+      }
+    ],
+    "2027-01-22": [
+      {
+        "competition": "ligue-1",
+        "name": "Ligue 1",
+        "matches": [
+          {
+            "match_id": 559572,
+            "homeTeam": {
+              "id": 531,
+              "name": "ES Troyes AC",
+              "shortName": "Troyes",
+              "tla": "ETR",
+              "crest": "https://crests.football-data.org/531.png"
+            },
+            "awayTeam": {
+              "id": 548,
+              "name": "AS Monaco FC",
+              "shortName": "Monaco",
+              "tla": "ASM",
+              "crest": "https://crests.football-data.org/548.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "TIMED",
+            "utcDate": "2027-01-22T19:45:00Z"
           }
         ]
       }
@@ -4032,48 +4075,6 @@
         "name": "Ligue 1",
         "matches": [
           {
-            "match_id": 559567,
-            "homeTeam": {
-              "id": 533,
-              "name": "Le Havre AC",
-              "shortName": "Le Havre",
-              "tla": "HAC",
-              "crest": "https://crests.football-data.org/533.png"
-            },
-            "awayTeam": {
-              "id": 529,
-              "name": "Stade Rennais FC 1901",
-              "shortName": "Stade Rennais",
-              "tla": "REN",
-              "crest": "https://crests.football-data.org/529.png"
-            },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "SCHEDULED",
-            "utcDate": "2027-01-23T00:00:00Z"
-          },
-          {
-            "match_id": 559568,
-            "homeTeam": {
-              "id": 576,
-              "name": "RC Strasbourg Alsace",
-              "shortName": "Strasbourg",
-              "tla": "RC ",
-              "crest": "https://crests.football-data.org/576.png"
-            },
-            "awayTeam": {
-              "id": 523,
-              "name": "Olympique Lyonnais",
-              "shortName": "Olympique Lyon",
-              "tla": "LYO",
-              "crest": "https://crests.football-data.org/523.png"
-            },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "SCHEDULED",
-            "utcDate": "2027-01-23T00:00:00Z"
-          },
-          {
             "match_id": 559569,
             "homeTeam": {
               "id": 521,
@@ -4091,8 +4092,8 @@
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "SCHEDULED",
-            "utcDate": "2027-01-23T00:00:00Z"
+            "status": "TIMED",
+            "utcDate": "2027-01-23T16:15:00Z"
           },
           {
             "match_id": 559570,
@@ -4112,8 +4113,8 @@
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "SCHEDULED",
-            "utcDate": "2027-01-23T00:00:00Z"
+            "status": "TIMED",
+            "utcDate": "2027-01-23T19:45:00Z"
           },
           {
             "match_id": 559571,
@@ -4133,50 +4134,8 @@
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "SCHEDULED",
-            "utcDate": "2027-01-23T00:00:00Z"
-          },
-          {
-            "match_id": 559572,
-            "homeTeam": {
-              "id": 531,
-              "name": "ES Troyes AC",
-              "shortName": "Troyes",
-              "tla": "ETR",
-              "crest": "https://crests.football-data.org/531.png"
-            },
-            "awayTeam": {
-              "id": 548,
-              "name": "AS Monaco FC",
-              "shortName": "Monaco",
-              "tla": "ASM",
-              "crest": "https://crests.football-data.org/548.png"
-            },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "SCHEDULED",
-            "utcDate": "2027-01-23T00:00:00Z"
-          },
-          {
-            "match_id": 559573,
-            "homeTeam": {
-              "id": 525,
-              "name": "FC Lorient",
-              "shortName": "Lorient",
-              "tla": "FCL",
-              "crest": "https://crests.football-data.org/525.png"
-            },
-            "awayTeam": {
-              "id": 516,
-              "name": "Olympique de Marseille",
-              "shortName": "Marseille",
-              "tla": "MAR",
-              "crest": "https://crests.football-data.org/516.png"
-            },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "SCHEDULED",
-            "utcDate": "2027-01-23T00:00:00Z"
+            "status": "TIMED",
+            "utcDate": "2027-01-23T19:45:00Z"
           },
           {
             "match_id": 559574,
@@ -4196,8 +4155,8 @@
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "SCHEDULED",
-            "utcDate": "2027-01-23T00:00:00Z"
+            "status": "TIMED",
+            "utcDate": "2027-01-23T19:45:00Z"
           },
           {
             "match_id": 559575,
@@ -4217,8 +4176,8 @@
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "SCHEDULED",
-            "utcDate": "2027-01-23T00:00:00Z"
+            "status": "TIMED",
+            "utcDate": "2027-01-23T19:45:00Z"
           }
         ]
       }
@@ -4655,6 +4614,75 @@
             "utcDate": "2027-01-24T00:00:00Z"
           }
         ]
+      },
+      {
+        "competition": "ligue-1",
+        "name": "Ligue 1",
+        "matches": [
+          {
+            "match_id": 559567,
+            "homeTeam": {
+              "id": 533,
+              "name": "Le Havre AC",
+              "shortName": "Le Havre",
+              "tla": "HAC",
+              "crest": "https://crests.football-data.org/533.png"
+            },
+            "awayTeam": {
+              "id": 529,
+              "name": "Stade Rennais FC 1901",
+              "shortName": "Stade Rennais",
+              "tla": "REN",
+              "crest": "https://crests.football-data.org/529.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "TIMED",
+            "utcDate": "2027-01-24T14:00:00Z"
+          },
+          {
+            "match_id": 559573,
+            "homeTeam": {
+              "id": 525,
+              "name": "FC Lorient",
+              "shortName": "Lorient",
+              "tla": "FCL",
+              "crest": "https://crests.football-data.org/525.png"
+            },
+            "awayTeam": {
+              "id": 516,
+              "name": "Olympique de Marseille",
+              "shortName": "Marseille",
+              "tla": "MAR",
+              "crest": "https://crests.football-data.org/516.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "TIMED",
+            "utcDate": "2027-01-24T16:15:00Z"
+          },
+          {
+            "match_id": 559568,
+            "homeTeam": {
+              "id": 576,
+              "name": "RC Strasbourg Alsace",
+              "shortName": "Strasbourg",
+              "tla": "RC ",
+              "crest": "https://crests.football-data.org/576.png"
+            },
+            "awayTeam": {
+              "id": 523,
+              "name": "Olympique Lyonnais",
+              "shortName": "Olympique Lyon",
+              "tla": "LYO",
+              "crest": "https://crests.football-data.org/523.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "TIMED",
+            "utcDate": "2027-01-24T19:45:00Z"
+          }
+        ]
       }
     ],
     "2027-01-27": [
@@ -5039,6 +5067,35 @@
             "awayScore": null,
             "status": "TIMED",
             "utcDate": "2027-01-27T20:00:00Z"
+          }
+        ]
+      }
+    ],
+    "2027-01-29": [
+      {
+        "competition": "ligue-1",
+        "name": "Ligue 1",
+        "matches": [
+          {
+            "match_id": 559564,
+            "homeTeam": {
+              "id": 512,
+              "name": "Stade Brestois 29",
+              "shortName": "Brest",
+              "tla": "BRE",
+              "crest": "https://crests.football-data.org/512.png"
+            },
+            "awayTeam": {
+              "id": 576,
+              "name": "RC Strasbourg Alsace",
+              "shortName": "Strasbourg",
+              "tla": "RC ",
+              "crest": "https://crests.football-data.org/576.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "TIMED",
+            "utcDate": "2027-01-29T19:45:00Z"
           }
         ]
       }
@@ -5460,6 +5517,27 @@
         "name": "Ligue 1",
         "matches": [
           {
+            "match_id": 559565,
+            "homeTeam": {
+              "id": 548,
+              "name": "AS Monaco FC",
+              "shortName": "Monaco",
+              "tla": "ASM",
+              "crest": "https://crests.football-data.org/548.png"
+            },
+            "awayTeam": {
+              "id": 524,
+              "name": "Paris Saint-Germain FC",
+              "shortName": "PSG",
+              "tla": "PSG",
+              "crest": "https://crests.football-data.org/524.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "TIMED",
+            "utcDate": "2027-01-30T16:15:00Z"
+          },
+          {
             "match_id": 559558,
             "homeTeam": {
               "id": 1045,
@@ -5477,50 +5555,8 @@
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "SCHEDULED",
-            "utcDate": "2027-01-30T00:00:00Z"
-          },
-          {
-            "match_id": 559559,
-            "homeTeam": {
-              "id": 523,
-              "name": "Olympique Lyonnais",
-              "shortName": "Olympique Lyon",
-              "tla": "LYO",
-              "crest": "https://crests.football-data.org/523.png"
-            },
-            "awayTeam": {
-              "id": 521,
-              "name": "Lille OSC",
-              "shortName": "Lille",
-              "tla": "LIL",
-              "crest": "https://crests.football-data.org/521.png"
-            },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "SCHEDULED",
-            "utcDate": "2027-01-30T00:00:00Z"
-          },
-          {
-            "match_id": 559560,
-            "homeTeam": {
-              "id": 529,
-              "name": "Stade Rennais FC 1901",
-              "shortName": "Stade Rennais",
-              "tla": "REN",
-              "crest": "https://crests.football-data.org/529.png"
-            },
-            "awayTeam": {
-              "id": 525,
-              "name": "FC Lorient",
-              "shortName": "Lorient",
-              "tla": "FCL",
-              "crest": "https://crests.football-data.org/525.png"
-            },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "SCHEDULED",
-            "utcDate": "2027-01-30T00:00:00Z"
+            "status": "TIMED",
+            "utcDate": "2027-01-30T19:45:00Z"
           },
           {
             "match_id": 559561,
@@ -5540,29 +5576,8 @@
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "SCHEDULED",
-            "utcDate": "2027-01-30T00:00:00Z"
-          },
-          {
-            "match_id": 559562,
-            "homeTeam": {
-              "id": 516,
-              "name": "Olympique de Marseille",
-              "shortName": "Marseille",
-              "tla": "MAR",
-              "crest": "https://crests.football-data.org/516.png"
-            },
-            "awayTeam": {
-              "id": 531,
-              "name": "ES Troyes AC",
-              "shortName": "Troyes",
-              "tla": "ETR",
-              "crest": "https://crests.football-data.org/531.png"
-            },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "SCHEDULED",
-            "utcDate": "2027-01-30T00:00:00Z"
+            "status": "TIMED",
+            "utcDate": "2027-01-30T19:45:00Z"
           },
           {
             "match_id": 559563,
@@ -5582,50 +5597,8 @@
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "SCHEDULED",
-            "utcDate": "2027-01-30T00:00:00Z"
-          },
-          {
-            "match_id": 559564,
-            "homeTeam": {
-              "id": 512,
-              "name": "Stade Brestois 29",
-              "shortName": "Brest",
-              "tla": "BRE",
-              "crest": "https://crests.football-data.org/512.png"
-            },
-            "awayTeam": {
-              "id": 576,
-              "name": "RC Strasbourg Alsace",
-              "shortName": "Strasbourg",
-              "tla": "RC ",
-              "crest": "https://crests.football-data.org/576.png"
-            },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "SCHEDULED",
-            "utcDate": "2027-01-30T00:00:00Z"
-          },
-          {
-            "match_id": 559565,
-            "homeTeam": {
-              "id": 548,
-              "name": "AS Monaco FC",
-              "shortName": "Monaco",
-              "tla": "ASM",
-              "crest": "https://crests.football-data.org/548.png"
-            },
-            "awayTeam": {
-              "id": 524,
-              "name": "Paris Saint-Germain FC",
-              "shortName": "PSG",
-              "tla": "PSG",
-              "crest": "https://crests.football-data.org/524.png"
-            },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "SCHEDULED",
-            "utcDate": "2027-01-30T00:00:00Z"
+            "status": "TIMED",
+            "utcDate": "2027-01-30T19:45:00Z"
           },
           {
             "match_id": 559566,
@@ -5645,8 +5618,8 @@
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "SCHEDULED",
-            "utcDate": "2027-01-30T00:00:00Z"
+            "status": "TIMED",
+            "utcDate": "2027-01-30T19:45:00Z"
           }
         ]
       }
@@ -6081,6 +6054,75 @@
             "awayScore": null,
             "status": "SCHEDULED",
             "utcDate": "2027-01-31T00:00:00Z"
+          }
+        ]
+      },
+      {
+        "competition": "ligue-1",
+        "name": "Ligue 1",
+        "matches": [
+          {
+            "match_id": 559560,
+            "homeTeam": {
+              "id": 529,
+              "name": "Stade Rennais FC 1901",
+              "shortName": "Stade Rennais",
+              "tla": "REN",
+              "crest": "https://crests.football-data.org/529.png"
+            },
+            "awayTeam": {
+              "id": 525,
+              "name": "FC Lorient",
+              "shortName": "Lorient",
+              "tla": "FCL",
+              "crest": "https://crests.football-data.org/525.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "TIMED",
+            "utcDate": "2027-01-31T14:00:00Z"
+          },
+          {
+            "match_id": 559562,
+            "homeTeam": {
+              "id": 516,
+              "name": "Olympique de Marseille",
+              "shortName": "Marseille",
+              "tla": "MAR",
+              "crest": "https://crests.football-data.org/516.png"
+            },
+            "awayTeam": {
+              "id": 531,
+              "name": "ES Troyes AC",
+              "shortName": "Troyes",
+              "tla": "ETR",
+              "crest": "https://crests.football-data.org/531.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "TIMED",
+            "utcDate": "2027-01-31T16:15:00Z"
+          },
+          {
+            "match_id": 559559,
+            "homeTeam": {
+              "id": 523,
+              "name": "Olympique Lyonnais",
+              "shortName": "Olympique Lyon",
+              "tla": "LYO",
+              "crest": "https://crests.football-data.org/523.png"
+            },
+            "awayTeam": {
+              "id": 521,
+              "name": "Lille OSC",
+              "shortName": "Lille",
+              "tla": "LIL",
+              "crest": "https://crests.football-data.org/521.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "TIMED",
+            "utcDate": "2027-01-31T19:45:00Z"
           }
         ]
       }

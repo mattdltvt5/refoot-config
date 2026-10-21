@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-20T21:41:11Z",
+  "generated_at": "2026-10-21T13:31:22Z",
   "month": "2026-12",
   "dates": {
     "2026-12-01": [
@@ -256,6 +256,33 @@
               "shortName": "Roma",
               "tla": "ROM",
               "crest": "https://crests.football-data.org/100.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "TIMED",
+            "utcDate": "2026-12-04T19:45:00Z"
+          }
+        ]
+      },
+      {
+        "competition": "ligue-1",
+        "name": "Ligue 1",
+        "matches": [
+          {
+            "match_id": 559609,
+            "homeTeam": {
+              "id": 511,
+              "name": "Toulouse FC",
+              "shortName": "Toulouse",
+              "tla": "TOU",
+              "crest": "https://crests.football-data.org/511.png"
+            },
+            "awayTeam": {
+              "id": 524,
+              "name": "Paris Saint-Germain FC",
+              "shortName": "PSG",
+              "tla": "PSG",
+              "crest": "https://crests.football-data.org/524.png"
             },
             "homeScore": null,
             "awayScore": null,
@@ -688,25 +715,25 @@
         "name": "Ligue 1",
         "matches": [
           {
-            "match_id": 559603,
+            "match_id": 559606,
             "homeTeam": {
-              "id": 531,
-              "name": "ES Troyes AC",
-              "shortName": "Troyes",
-              "tla": "ETR",
-              "crest": "https://crests.football-data.org/531.png"
+              "id": 521,
+              "name": "Lille OSC",
+              "shortName": "Lille",
+              "tla": "LIL",
+              "crest": "https://crests.football-data.org/521.png"
             },
             "awayTeam": {
-              "id": 523,
-              "name": "Olympique Lyonnais",
-              "shortName": "Olympique Lyon",
-              "tla": "LYO",
-              "crest": "https://crests.football-data.org/523.png"
+              "id": 519,
+              "name": "AJ Auxerre",
+              "shortName": "Auxerre",
+              "tla": "AJA",
+              "crest": "https://crests.football-data.org/519.png"
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "SCHEDULED",
-            "utcDate": "2026-12-05T00:00:00Z"
+            "status": "TIMED",
+            "utcDate": "2026-12-05T16:15:00Z"
           },
           {
             "match_id": 559604,
@@ -726,8 +753,8 @@
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "SCHEDULED",
-            "utcDate": "2026-12-05T00:00:00Z"
+            "status": "TIMED",
+            "utcDate": "2026-12-05T19:45:00Z"
           },
           {
             "match_id": 559605,
@@ -747,92 +774,8 @@
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "SCHEDULED",
-            "utcDate": "2026-12-05T00:00:00Z"
-          },
-          {
-            "match_id": 559606,
-            "homeTeam": {
-              "id": 521,
-              "name": "Lille OSC",
-              "shortName": "Lille",
-              "tla": "LIL",
-              "crest": "https://crests.football-data.org/521.png"
-            },
-            "awayTeam": {
-              "id": 519,
-              "name": "AJ Auxerre",
-              "shortName": "Auxerre",
-              "tla": "AJA",
-              "crest": "https://crests.football-data.org/519.png"
-            },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "SCHEDULED",
-            "utcDate": "2026-12-05T00:00:00Z"
-          },
-          {
-            "match_id": 559607,
-            "homeTeam": {
-              "id": 516,
-              "name": "Olympique de Marseille",
-              "shortName": "Marseille",
-              "tla": "MAR",
-              "crest": "https://crests.football-data.org/516.png"
-            },
-            "awayTeam": {
-              "id": 522,
-              "name": "OGC Nice",
-              "shortName": "Nice",
-              "tla": "NIC",
-              "crest": "https://crests.football-data.org/522.png"
-            },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "SCHEDULED",
-            "utcDate": "2026-12-05T00:00:00Z"
-          },
-          {
-            "match_id": 559608,
-            "homeTeam": {
-              "id": 529,
-              "name": "Stade Rennais FC 1901",
-              "shortName": "Stade Rennais",
-              "tla": "REN",
-              "crest": "https://crests.football-data.org/529.png"
-            },
-            "awayTeam": {
-              "id": 512,
-              "name": "Stade Brestois 29",
-              "shortName": "Brest",
-              "tla": "BRE",
-              "crest": "https://crests.football-data.org/512.png"
-            },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "SCHEDULED",
-            "utcDate": "2026-12-05T00:00:00Z"
-          },
-          {
-            "match_id": 559609,
-            "homeTeam": {
-              "id": 511,
-              "name": "Toulouse FC",
-              "shortName": "Toulouse",
-              "tla": "TOU",
-              "crest": "https://crests.football-data.org/511.png"
-            },
-            "awayTeam": {
-              "id": 524,
-              "name": "Paris Saint-Germain FC",
-              "shortName": "PSG",
-              "tla": "PSG",
-              "crest": "https://crests.football-data.org/524.png"
-            },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "SCHEDULED",
-            "utcDate": "2026-12-05T00:00:00Z"
+            "status": "TIMED",
+            "utcDate": "2026-12-05T19:45:00Z"
           },
           {
             "match_id": 559610,
@@ -852,8 +795,8 @@
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "SCHEDULED",
-            "utcDate": "2026-12-05T00:00:00Z"
+            "status": "TIMED",
+            "utcDate": "2026-12-05T19:45:00Z"
           },
           {
             "match_id": 559611,
@@ -873,8 +816,8 @@
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "SCHEDULED",
-            "utcDate": "2026-12-05T00:00:00Z"
+            "status": "TIMED",
+            "utcDate": "2026-12-05T19:45:00Z"
           }
         ]
       }
@@ -1247,6 +1190,75 @@
               "shortName": "Parma",
               "tla": "PAR",
               "crest": "https://crests.football-data.org/112.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "TIMED",
+            "utcDate": "2026-12-06T19:45:00Z"
+          }
+        ]
+      },
+      {
+        "competition": "ligue-1",
+        "name": "Ligue 1",
+        "matches": [
+          {
+            "match_id": 559603,
+            "homeTeam": {
+              "id": 531,
+              "name": "ES Troyes AC",
+              "shortName": "Troyes",
+              "tla": "ETR",
+              "crest": "https://crests.football-data.org/531.png"
+            },
+            "awayTeam": {
+              "id": 523,
+              "name": "Olympique Lyonnais",
+              "shortName": "Olympique Lyon",
+              "tla": "LYO",
+              "crest": "https://crests.football-data.org/523.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "TIMED",
+            "utcDate": "2026-12-06T14:00:00Z"
+          },
+          {
+            "match_id": 559608,
+            "homeTeam": {
+              "id": 529,
+              "name": "Stade Rennais FC 1901",
+              "shortName": "Stade Rennais",
+              "tla": "REN",
+              "crest": "https://crests.football-data.org/529.png"
+            },
+            "awayTeam": {
+              "id": 512,
+              "name": "Stade Brestois 29",
+              "shortName": "Brest",
+              "tla": "BRE",
+              "crest": "https://crests.football-data.org/512.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "TIMED",
+            "utcDate": "2026-12-06T16:15:00Z"
+          },
+          {
+            "match_id": 559607,
+            "homeTeam": {
+              "id": 516,
+              "name": "Olympique de Marseille",
+              "shortName": "Marseille",
+              "tla": "MAR",
+              "crest": "https://crests.football-data.org/516.png"
+            },
+            "awayTeam": {
+              "id": 522,
+              "name": "OGC Nice",
+              "shortName": "Nice",
+              "tla": "NIC",
+              "crest": "https://crests.football-data.org/522.png"
             },
             "homeScore": null,
             "awayScore": null,
@@ -1727,6 +1739,33 @@
             "utcDate": "2026-12-11T19:45:00Z"
           }
         ]
+      },
+      {
+        "competition": "ligue-1",
+        "name": "Ligue 1",
+        "matches": [
+          {
+            "match_id": 559602,
+            "homeTeam": {
+              "id": 519,
+              "name": "AJ Auxerre",
+              "shortName": "Auxerre",
+              "tla": "AJA",
+              "crest": "https://crests.football-data.org/519.png"
+            },
+            "awayTeam": {
+              "id": 511,
+              "name": "Toulouse FC",
+              "shortName": "Toulouse",
+              "tla": "TOU",
+              "crest": "https://crests.football-data.org/511.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "TIMED",
+            "utcDate": "2026-12-11T19:45:00Z"
+          }
+        ]
       }
     ],
     "2026-12-12": [
@@ -2089,27 +2128,6 @@
         "name": "Ligue 1",
         "matches": [
           {
-            "match_id": 559595,
-            "homeTeam": {
-              "id": 522,
-              "name": "OGC Nice",
-              "shortName": "Nice",
-              "tla": "NIC",
-              "crest": "https://crests.football-data.org/522.png"
-            },
-            "awayTeam": {
-              "id": 546,
-              "name": "Racing Club de Lens",
-              "shortName": "RC Lens",
-              "tla": "RCL",
-              "crest": "https://crests.football-data.org/546.png"
-            },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "SCHEDULED",
-            "utcDate": "2026-12-12T00:00:00Z"
-          },
-          {
             "match_id": 559596,
             "homeTeam": {
               "id": 524,
@@ -2127,8 +2145,29 @@
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "SCHEDULED",
-            "utcDate": "2026-12-12T00:00:00Z"
+            "status": "TIMED",
+            "utcDate": "2026-12-12T16:15:00Z"
+          },
+          {
+            "match_id": 559595,
+            "homeTeam": {
+              "id": 522,
+              "name": "OGC Nice",
+              "shortName": "Nice",
+              "tla": "NIC",
+              "crest": "https://crests.football-data.org/522.png"
+            },
+            "awayTeam": {
+              "id": 546,
+              "name": "Racing Club de Lens",
+              "shortName": "RC Lens",
+              "tla": "RCL",
+              "crest": "https://crests.football-data.org/546.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "TIMED",
+            "utcDate": "2026-12-12T19:45:00Z"
           },
           {
             "match_id": 559597,
@@ -2148,8 +2187,8 @@
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "SCHEDULED",
-            "utcDate": "2026-12-12T00:00:00Z"
+            "status": "TIMED",
+            "utcDate": "2026-12-12T19:45:00Z"
           },
           {
             "match_id": 559598,
@@ -2169,8 +2208,8 @@
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "SCHEDULED",
-            "utcDate": "2026-12-12T00:00:00Z"
+            "status": "TIMED",
+            "utcDate": "2026-12-12T19:45:00Z"
           },
           {
             "match_id": 559599,
@@ -2190,71 +2229,8 @@
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "SCHEDULED",
-            "utcDate": "2026-12-12T00:00:00Z"
-          },
-          {
-            "match_id": 559600,
-            "homeTeam": {
-              "id": 529,
-              "name": "Stade Rennais FC 1901",
-              "shortName": "Stade Rennais",
-              "tla": "REN",
-              "crest": "https://crests.football-data.org/529.png"
-            },
-            "awayTeam": {
-              "id": 548,
-              "name": "AS Monaco FC",
-              "shortName": "Monaco",
-              "tla": "ASM",
-              "crest": "https://crests.football-data.org/548.png"
-            },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "SCHEDULED",
-            "utcDate": "2026-12-12T00:00:00Z"
-          },
-          {
-            "match_id": 559601,
-            "homeTeam": {
-              "id": 525,
-              "name": "FC Lorient",
-              "shortName": "Lorient",
-              "tla": "FCL",
-              "crest": "https://crests.football-data.org/525.png"
-            },
-            "awayTeam": {
-              "id": 521,
-              "name": "Lille OSC",
-              "shortName": "Lille",
-              "tla": "LIL",
-              "crest": "https://crests.football-data.org/521.png"
-            },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "SCHEDULED",
-            "utcDate": "2026-12-12T00:00:00Z"
-          },
-          {
-            "match_id": 559602,
-            "homeTeam": {
-              "id": 519,
-              "name": "AJ Auxerre",
-              "shortName": "Auxerre",
-              "tla": "AJA",
-              "crest": "https://crests.football-data.org/519.png"
-            },
-            "awayTeam": {
-              "id": 511,
-              "name": "Toulouse FC",
-              "shortName": "Toulouse",
-              "tla": "TOU",
-              "crest": "https://crests.football-data.org/511.png"
-            },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "SCHEDULED",
-            "utcDate": "2026-12-12T00:00:00Z"
+            "status": "TIMED",
+            "utcDate": "2026-12-12T19:45:00Z"
           }
         ]
       }
@@ -2681,6 +2657,48 @@
         "competition": "ligue-1",
         "name": "Ligue 1",
         "matches": [
+          {
+            "match_id": 559601,
+            "homeTeam": {
+              "id": 525,
+              "name": "FC Lorient",
+              "shortName": "Lorient",
+              "tla": "FCL",
+              "crest": "https://crests.football-data.org/525.png"
+            },
+            "awayTeam": {
+              "id": 521,
+              "name": "Lille OSC",
+              "shortName": "Lille",
+              "tla": "LIL",
+              "crest": "https://crests.football-data.org/521.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "TIMED",
+            "utcDate": "2026-12-13T14:00:00Z"
+          },
+          {
+            "match_id": 559600,
+            "homeTeam": {
+              "id": 529,
+              "name": "Stade Rennais FC 1901",
+              "shortName": "Stade Rennais",
+              "tla": "REN",
+              "crest": "https://crests.football-data.org/529.png"
+            },
+            "awayTeam": {
+              "id": 548,
+              "name": "AS Monaco FC",
+              "shortName": "Monaco",
+              "tla": "ASM",
+              "crest": "https://crests.football-data.org/548.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "TIMED",
+            "utcDate": "2026-12-13T16:15:00Z"
+          },
           {
             "match_id": 559594,
             "homeTeam": {
