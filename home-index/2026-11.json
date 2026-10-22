@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-20T23:31:14Z",
+  "generated_at": "2026-10-22T13:26:09Z",
   "month": "2026-11",
   "dates": {
     "2026-11-01": [
@@ -1953,6 +1953,33 @@
     ],
     "2026-11-20": [
       {
+        "competition": "laliga",
+        "name": "LaLiga",
+        "matches": [
+          {
+            "match_id": 564748,
+            "homeTeam": {
+              "id": 77,
+              "name": "Athletic Club",
+              "shortName": "Athletic",
+              "tla": "ATH",
+              "crest": "https://crests.football-data.org/77.png"
+            },
+            "awayTeam": {
+              "id": 80,
+              "name": "RCD Espanyol de Barcelona",
+              "shortName": "Espanyol",
+              "tla": "ESP",
+              "crest": "https://crests.football-data.org/80.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "TIMED",
+            "utcDate": "2026-11-20T20:00:00Z"
+          }
+        ]
+      },
+      {
         "competition": "bundesliga",
         "name": "Bundesliga",
         "matches": [
@@ -2158,6 +2185,96 @@
             "awayScore": null,
             "status": "TIMED",
             "utcDate": "2026-11-21T17:30:00Z"
+          }
+        ]
+      },
+      {
+        "competition": "laliga",
+        "name": "LaLiga",
+        "matches": [
+          {
+            "match_id": 564755,
+            "homeTeam": {
+              "id": 263,
+              "name": "Deportivo Alavés",
+              "shortName": "Alavés",
+              "tla": "ALA",
+              "crest": "https://crests.football-data.org/263.png"
+            },
+            "awayTeam": {
+              "id": 560,
+              "name": "RC Deportivo La Coruña",
+              "shortName": "Deportivo",
+              "tla": "DEP",
+              "crest": "https://crests.football-data.org/560.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "TIMED",
+            "utcDate": "2026-11-21T13:00:00Z"
+          },
+          {
+            "match_id": 564751,
+            "homeTeam": {
+              "id": 87,
+              "name": "Rayo Vallecano de Madrid",
+              "shortName": "Rayo Vallecano",
+              "tla": "RAY",
+              "crest": "https://crests.football-data.org/87.png"
+            },
+            "awayTeam": {
+              "id": 95,
+              "name": "Valencia CF",
+              "shortName": "Valencia",
+              "tla": "VAL",
+              "crest": "https://crests.football-data.org/95.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "TIMED",
+            "utcDate": "2026-11-21T15:15:00Z"
+          },
+          {
+            "match_id": 564756,
+            "homeTeam": {
+              "id": 559,
+              "name": "Sevilla FC",
+              "shortName": "Sevilla FC",
+              "tla": "SEV",
+              "crest": "https://crests.football-data.org/559.png"
+            },
+            "awayTeam": {
+              "id": 90,
+              "name": "Real Betis Balompié",
+              "shortName": "Real Betis",
+              "tla": "BET",
+              "crest": "https://crests.football-data.org/90.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "TIMED",
+            "utcDate": "2026-11-21T17:30:00Z"
+          },
+          {
+            "match_id": 564754,
+            "homeTeam": {
+              "id": 86,
+              "name": "Real Madrid CF",
+              "shortName": "Real Madrid",
+              "tla": "RMA",
+              "crest": "https://crests.football-data.org/86.png"
+            },
+            "awayTeam": {
+              "id": 558,
+              "name": "RC Celta de Vigo",
+              "shortName": "Celta",
+              "tla": "CEL",
+              "crest": "https://crests.football-data.org/558.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "TIMED",
+            "utcDate": "2026-11-21T20:00:00Z"
           }
         ]
       },
@@ -2549,27 +2666,6 @@
         "name": "LaLiga",
         "matches": [
           {
-            "match_id": 564748,
-            "homeTeam": {
-              "id": 77,
-              "name": "Athletic Club",
-              "shortName": "Athletic",
-              "tla": "ATH",
-              "crest": "https://crests.football-data.org/77.png"
-            },
-            "awayTeam": {
-              "id": 80,
-              "name": "RCD Espanyol de Barcelona",
-              "shortName": "Espanyol",
-              "tla": "ESP",
-              "crest": "https://crests.football-data.org/80.png"
-            },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "SCHEDULED",
-            "utcDate": "2026-11-22T00:00:00Z"
-          },
-          {
             "match_id": 564749,
             "homeTeam": {
               "id": 81,
@@ -2587,8 +2683,8 @@
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "SCHEDULED",
-            "utcDate": "2026-11-22T00:00:00Z"
+            "status": "TIMED",
+            "utcDate": "2026-11-22T13:00:00Z"
           },
           {
             "match_id": 564750,
@@ -2608,29 +2704,8 @@
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "SCHEDULED",
-            "utcDate": "2026-11-22T00:00:00Z"
-          },
-          {
-            "match_id": 564751,
-            "homeTeam": {
-              "id": 87,
-              "name": "Rayo Vallecano de Madrid",
-              "shortName": "Rayo Vallecano",
-              "tla": "RAY",
-              "crest": "https://crests.football-data.org/87.png"
-            },
-            "awayTeam": {
-              "id": 95,
-              "name": "Valencia CF",
-              "shortName": "Valencia",
-              "tla": "VAL",
-              "crest": "https://crests.football-data.org/95.png"
-            },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "SCHEDULED",
-            "utcDate": "2026-11-22T00:00:00Z"
+            "status": "TIMED",
+            "utcDate": "2026-11-22T15:15:00Z"
           },
           {
             "match_id": 564752,
@@ -2650,8 +2725,8 @@
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "SCHEDULED",
-            "utcDate": "2026-11-22T00:00:00Z"
+            "status": "TIMED",
+            "utcDate": "2026-11-22T17:30:00Z"
           },
           {
             "match_id": 564753,
@@ -2671,92 +2746,8 @@
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "SCHEDULED",
-            "utcDate": "2026-11-22T00:00:00Z"
-          },
-          {
-            "match_id": 564754,
-            "homeTeam": {
-              "id": 86,
-              "name": "Real Madrid CF",
-              "shortName": "Real Madrid",
-              "tla": "RMA",
-              "crest": "https://crests.football-data.org/86.png"
-            },
-            "awayTeam": {
-              "id": 558,
-              "name": "RC Celta de Vigo",
-              "shortName": "Celta",
-              "tla": "CEL",
-              "crest": "https://crests.football-data.org/558.png"
-            },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "SCHEDULED",
-            "utcDate": "2026-11-22T00:00:00Z"
-          },
-          {
-            "match_id": 564755,
-            "homeTeam": {
-              "id": 263,
-              "name": "Deportivo Alavés",
-              "shortName": "Alavés",
-              "tla": "ALA",
-              "crest": "https://crests.football-data.org/263.png"
-            },
-            "awayTeam": {
-              "id": 560,
-              "name": "RC Deportivo La Coruña",
-              "shortName": "Deportivo",
-              "tla": "DEP",
-              "crest": "https://crests.football-data.org/560.png"
-            },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "SCHEDULED",
-            "utcDate": "2026-11-22T00:00:00Z"
-          },
-          {
-            "match_id": 564756,
-            "homeTeam": {
-              "id": 559,
-              "name": "Sevilla FC",
-              "shortName": "Sevilla FC",
-              "tla": "SEV",
-              "crest": "https://crests.football-data.org/559.png"
-            },
-            "awayTeam": {
-              "id": 90,
-              "name": "Real Betis Balompié",
-              "shortName": "Real Betis",
-              "tla": "BET",
-              "crest": "https://crests.football-data.org/90.png"
-            },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "SCHEDULED",
-            "utcDate": "2026-11-22T00:00:00Z"
-          },
-          {
-            "match_id": 564757,
-            "homeTeam": {
-              "id": 88,
-              "name": "Levante UD",
-              "shortName": "Levante",
-              "tla": "LEV",
-              "crest": "https://crests.football-data.org/88.png"
-            },
-            "awayTeam": {
-              "id": 285,
-              "name": "Elche CF",
-              "shortName": "Elche",
-              "tla": "ELC",
-              "crest": "https://crests.football-data.org/285.png"
-            },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "SCHEDULED",
-            "utcDate": "2026-11-22T00:00:00Z"
+            "status": "TIMED",
+            "utcDate": "2026-11-22T20:00:00Z"
           }
         ]
       },
@@ -3009,6 +3000,33 @@
               "shortName": "Everton",
               "tla": "EVE",
               "crest": "https://crests.football-data.org/62.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "TIMED",
+            "utcDate": "2026-11-23T20:00:00Z"
+          }
+        ]
+      },
+      {
+        "competition": "laliga",
+        "name": "LaLiga",
+        "matches": [
+          {
+            "match_id": 564757,
+            "homeTeam": {
+              "id": 88,
+              "name": "Levante UD",
+              "shortName": "Levante",
+              "tla": "LEV",
+              "crest": "https://crests.football-data.org/88.png"
+            },
+            "awayTeam": {
+              "id": 285,
+              "name": "Elche CF",
+              "shortName": "Elche",
+              "tla": "ELC",
+              "crest": "https://crests.football-data.org/285.png"
             },
             "homeScore": null,
             "awayScore": null,
