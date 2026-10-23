@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-23T21:01:37Z",
+  "generated_at": "2026-10-23T21:06:44Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -1249,6 +1249,22 @@
               "away": "Rayo Vallecano de Madrid",
               "date": "2026-10-19",
               "covered": true
+            }
+          ]
+        },
+        {
+          "gameweek": "GW10",
+          "stem": "gameweek-10",
+          "total": 1,
+          "covered": 0,
+          "matches": [
+            {
+              "match_id": 564719,
+              "home": "Deportivo Alavés",
+              "away": "Málaga CF",
+              "date": "2026-10-23",
+              "covered": false,
+              "pending": true
             }
           ]
         }
