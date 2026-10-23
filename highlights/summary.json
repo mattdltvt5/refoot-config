@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-23T21:21:22Z",
+  "generated_at": "2026-10-23T21:26:14Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -1839,15 +1839,14 @@
           "gameweek": "GW8",
           "stem": "gameweek-8",
           "total": 1,
-          "covered": 0,
+          "covered": 1,
           "matches": [
             {
               "match_id": 558567,
               "home": "Torino FC",
               "away": "AC Monza",
               "date": "2026-10-23",
-              "covered": false,
-              "pending": true
+              "covered": true
             }
           ]
         }
