@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-23T12:29:15.914144Z",
+  "generated_at": "2026-10-23T20:36:36.070165Z",
   "competition": "Bundesliga",
   "slug": "bundesliga",
   "season": 2026,
@@ -235,25 +235,6 @@
     {
       "position": 13,
       "team": {
-        "id": 10,
-        "name": "VfB Stuttgart",
-        "shortName": "Stuttgart",
-        "tla": "VFB",
-        "crest": "https://crests.football-data.org/10.png"
-      },
-      "playedGames": 6,
-      "form": "L,W,L,L,W",
-      "won": 2,
-      "draw": 0,
-      "lost": 4,
-      "points": 6,
-      "goalsFor": 8,
-      "goalsAgainst": 10,
-      "goalDifference": -2
-    },
-    {
-      "position": 14,
-      "team": {
         "id": 2,
         "name": "TSG 1899 Hoffenheim",
         "shortName": "Hoffenheim",
@@ -268,6 +249,25 @@
       "points": 6,
       "goalsFor": 11,
       "goalsAgainst": 14,
+      "goalDifference": -3
+    },
+    {
+      "position": 14,
+      "team": {
+        "id": 10,
+        "name": "VfB Stuttgart",
+        "shortName": "Stuttgart",
+        "tla": "VFB",
+        "crest": "https://crests.football-data.org/10.png"
+      },
+      "playedGames": 7,
+      "form": "L,L,W,L,L",
+      "won": 2,
+      "draw": 0,
+      "lost": 5,
+      "points": 6,
+      "goalsFor": 10,
+      "goalsAgainst": 13,
       "goalDifference": -3
     },
     {
@@ -336,15 +336,15 @@
         "tla": "BMG",
         "crest": "https://crests.football-data.org/18.png"
       },
-      "playedGames": 6,
-      "form": "L,L,L,L,L",
-      "won": 0,
+      "playedGames": 7,
+      "form": "W,L,L,L,L",
+      "won": 1,
       "draw": 0,
       "lost": 6,
-      "points": 0,
-      "goalsFor": 8,
-      "goalsAgainst": 20,
-      "goalDifference": -12
+      "points": 3,
+      "goalsFor": 11,
+      "goalsAgainst": 22,
+      "goalDifference": -11
     }
   ]
 }
