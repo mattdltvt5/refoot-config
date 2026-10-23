@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-23T21:11:33Z",
+  "generated_at": "2026-10-23T21:16:26Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -2805,15 +2805,14 @@
           "gameweek": "GW8",
           "stem": "gameweek-8",
           "total": 1,
-          "covered": 0,
+          "covered": 1,
           "matches": [
             {
               "match_id": 559654,
               "home": "Stade Brestois 29",
               "away": "OGC Nice",
               "date": "2026-10-23",
-              "covered": false,
-              "pending": true
+              "covered": true
             }
           ]
         }
