@@ -1,7 +1,7 @@
 {
   "competition": "Serie A",
   "season": 2026,
-  "generated_at": "2026-10-23T20:46:11Z",
+  "generated_at": "2026-10-23T20:51:12Z",
   "results": {
     "558629": {
       "status": "FINISHED",
@@ -772,6 +772,17 @@
       },
       "utcDate": "2026-10-19T18:45:00Z",
       "first_finished_at": "2026-10-19T20:46:09Z"
+    },
+    "558567": {
+      "status": "FINISHED",
+      "score": {
+        "fullTime": {
+          "home": 3,
+          "away": 2
+        }
+      },
+      "utcDate": "2026-10-23T18:45:00Z",
+      "first_finished_at": "2026-10-23T20:51:12Z"
     }
   }
 }

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-23T20:46:12Z",
+  "generated_at": "2026-10-23T20:51:33Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -1803,6 +1803,22 @@
               "covered": true
             }
           ]
+        },
+        {
+          "gameweek": "GW8",
+          "stem": "gameweek-8",
+          "total": 1,
+          "covered": 0,
+          "matches": [
+            {
+              "match_id": 558567,
+              "home": "Torino FC",
+              "away": "AC Monza",
+              "date": "2026-10-23",
+              "covered": false,
+              "pending": true
+            }
+          ]
         }
       ]
     },
@@ -2751,6 +2767,22 @@
               "away": "OGC Nice",
               "date": "2026-10-18",
               "covered": true
+            }
+          ]
+        },
+        {
+          "gameweek": "GW8",
+          "stem": "gameweek-8",
+          "total": 1,
+          "covered": 0,
+          "matches": [
+            {
+              "match_id": 559654,
+              "home": "Stade Brestois 29",
+              "away": "OGC Nice",
+              "date": "2026-10-23",
+              "covered": false,
+              "pending": true
             }
           ]
         }
