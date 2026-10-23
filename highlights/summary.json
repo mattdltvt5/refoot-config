@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-23T21:06:44Z",
+  "generated_at": "2026-10-23T21:11:33Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -548,6 +548,22 @@
               "away": "Coventry City FC",
               "date": "2026-10-19",
               "covered": true
+            }
+          ]
+        },
+        {
+          "gameweek": "GW8",
+          "stem": "gameweek-8",
+          "total": 1,
+          "covered": 0,
+          "matches": [
+            {
+              "match_id": 560620,
+              "home": "Ipswich Town FC",
+              "away": "Nottingham Forest FC",
+              "date": "2026-10-23",
+              "covered": false,
+              "pending": true
             }
           ]
         }
@@ -1256,15 +1272,14 @@
           "gameweek": "GW10",
           "stem": "gameweek-10",
           "total": 1,
-          "covered": 0,
+          "covered": 1,
           "matches": [
             {
               "match_id": 564719,
               "home": "Deportivo Alavés",
               "away": "Málaga CF",
               "date": "2026-10-23",
-              "covered": false,
-              "pending": true
+              "covered": true
             }
           ]
         }
