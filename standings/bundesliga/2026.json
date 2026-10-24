@@ -1,30 +1,11 @@
 {
-  "generated_at": "2026-10-24T19:56:32.401095Z",
+  "generated_at": "2026-10-24T20:01:39.620646Z",
   "competition": "Bundesliga",
   "slug": "bundesliga",
   "season": 2026,
   "standings": [
     {
       "position": 1,
-      "team": {
-        "id": 4,
-        "name": "Borussia Dortmund",
-        "shortName": "Dortmund",
-        "tla": "BVB",
-        "crest": "https://crests.football-data.org/4.png"
-      },
-      "playedGames": 7,
-      "form": "W,D,D,W,W",
-      "won": 5,
-      "draw": 2,
-      "lost": 0,
-      "points": 17,
-      "goalsFor": 12,
-      "goalsAgainst": 4,
-      "goalDifference": 8
-    },
-    {
-      "position": 2,
       "team": {
         "id": 5,
         "name": "FC Bayern München",
@@ -41,6 +22,25 @@
       "goalsFor": 22,
       "goalsAgainst": 5,
       "goalDifference": 17
+    },
+    {
+      "position": 2,
+      "team": {
+        "id": 4,
+        "name": "Borussia Dortmund",
+        "shortName": "Dortmund",
+        "tla": "BVB",
+        "crest": "https://crests.football-data.org/4.png"
+      },
+      "playedGames": 6,
+      "form": "D,D,W,W,W",
+      "won": 4,
+      "draw": 2,
+      "lost": 0,
+      "points": 14,
+      "goalsFor": 11,
+      "goalsAgainst": 4,
+      "goalDifference": 7
     },
     {
       "position": 3,
@@ -83,62 +83,24 @@
     {
       "position": 5,
       "team": {
-        "id": 721,
-        "name": "RB Leipzig",
-        "shortName": "RB Leipzig",
-        "tla": "RBL",
-        "crest": "https://crests.football-data.org/721.png"
-      },
-      "playedGames": 7,
-      "form": "W,L,W,L,W",
-      "won": 4,
-      "draw": 0,
-      "lost": 3,
-      "points": 12,
-      "goalsFor": 20,
-      "goalsAgainst": 11,
-      "goalDifference": 9
-    },
-    {
-      "position": 6,
-      "team": {
-        "id": 12,
-        "name": "SV Werder Bremen",
-        "shortName": "Bremen",
-        "tla": "SVW",
-        "crest": "https://crests.football-data.org/12.png"
-      },
-      "playedGames": 7,
-      "form": "W,D,D,W,D",
-      "won": 3,
-      "draw": 3,
-      "lost": 1,
-      "points": 12,
-      "goalsFor": 15,
-      "goalsAgainst": 14,
-      "goalDifference": 1
-    },
-    {
-      "position": 7,
-      "team": {
         "id": 15,
         "name": "1. FSV Mainz 05",
         "shortName": "Mainz",
         "tla": "M05",
         "crest": "https://crests.football-data.org/15.png"
       },
-      "playedGames": 7,
-      "form": "L,W,L,W,L",
+      "playedGames": 6,
+      "form": "W,L,W,L,W",
       "won": 3,
       "draw": 1,
-      "lost": 3,
+      "lost": 2,
       "points": 10,
-      "goalsFor": 16,
-      "goalsAgainst": 13,
-      "goalDifference": 3
+      "goalsFor": 14,
+      "goalsAgainst": 10,
+      "goalDifference": 4
     },
     {
-      "position": 8,
+      "position": 6,
       "team": {
         "id": 719,
         "name": "SV 07 Elversberg",
@@ -146,37 +108,56 @@
         "tla": "ELV",
         "crest": "https://crests.football-data.org/719.png"
       },
-      "playedGames": 7,
-      "form": "L,W,L,D,L",
+      "playedGames": 6,
+      "form": "W,L,D,L,W",
       "won": 3,
       "draw": 1,
-      "lost": 3,
+      "lost": 2,
       "points": 10,
       "goalsFor": 12,
-      "goalsAgainst": 15,
-      "goalDifference": -3
+      "goalsAgainst": 11,
+      "goalDifference": 1
+    },
+    {
+      "position": 7,
+      "team": {
+        "id": 721,
+        "name": "RB Leipzig",
+        "shortName": "RB Leipzig",
+        "tla": "RBL",
+        "crest": "https://crests.football-data.org/721.png"
+      },
+      "playedGames": 6,
+      "form": "L,W,L,W,L",
+      "won": 3,
+      "draw": 0,
+      "lost": 3,
+      "points": 9,
+      "goalsFor": 16,
+      "goalsAgainst": 11,
+      "goalDifference": 5
+    },
+    {
+      "position": 8,
+      "team": {
+        "id": 12,
+        "name": "SV Werder Bremen",
+        "shortName": "Bremen",
+        "tla": "SVW",
+        "crest": "https://crests.football-data.org/12.png"
+      },
+      "playedGames": 6,
+      "form": "D,D,W,D,W",
+      "won": 2,
+      "draw": 3,
+      "lost": 1,
+      "points": 9,
+      "goalsFor": 12,
+      "goalsAgainst": 12,
+      "goalDifference": 0
     },
     {
       "position": 9,
-      "team": {
-        "id": 16,
-        "name": "FC Augsburg",
-        "shortName": "Augsburg",
-        "tla": "FCA",
-        "crest": "https://crests.football-data.org/16.png"
-      },
-      "playedGames": 7,
-      "form": "D,L,D,L,D",
-      "won": 2,
-      "draw": 3,
-      "lost": 2,
-      "points": 9,
-      "goalsFor": 17,
-      "goalsAgainst": 13,
-      "goalDifference": 4
-    },
-    {
-      "position": 10,
       "team": {
         "id": 7,
         "name": "Hamburger SV",
@@ -184,56 +165,37 @@
         "tla": "HSV",
         "crest": "https://crests.football-data.org/7.png"
       },
-      "playedGames": 7,
-      "form": "L,W,W,W,L",
+      "playedGames": 6,
+      "form": "W,W,W,L,L",
       "won": 3,
       "draw": 0,
-      "lost": 4,
+      "lost": 3,
       "points": 9,
       "goalsFor": 6,
-      "goalsAgainst": 16,
-      "goalDifference": -10
+      "goalsAgainst": 15,
+      "goalDifference": -9
+    },
+    {
+      "position": 10,
+      "team": {
+        "id": 16,
+        "name": "FC Augsburg",
+        "shortName": "Augsburg",
+        "tla": "FCA",
+        "crest": "https://crests.football-data.org/16.png"
+      },
+      "playedGames": 6,
+      "form": "L,D,L,D,W",
+      "won": 2,
+      "draw": 2,
+      "lost": 2,
+      "points": 8,
+      "goalsFor": 16,
+      "goalsAgainst": 12,
+      "goalDifference": 4
     },
     {
       "position": 11,
-      "team": {
-        "id": 1,
-        "name": "1. FC Köln",
-        "shortName": "1. FC Köln",
-        "tla": "KOE",
-        "crest": "https://crests.football-data.org/1.png"
-      },
-      "playedGames": 7,
-      "form": "D,L,W,L,D",
-      "won": 2,
-      "draw": 2,
-      "lost": 3,
-      "points": 8,
-      "goalsFor": 8,
-      "goalsAgainst": 11,
-      "goalDifference": -3
-    },
-    {
-      "position": 12,
-      "team": {
-        "id": 29,
-        "name": "SC Paderborn 07",
-        "shortName": "SC Paderborn",
-        "tla": "SCP",
-        "crest": "https://crests.football-data.org/29.png"
-      },
-      "playedGames": 7,
-      "form": "W,D,L,W,L",
-      "won": 2,
-      "draw": 2,
-      "lost": 3,
-      "points": 8,
-      "goalsFor": 6,
-      "goalsAgainst": 9,
-      "goalDifference": -3
-    },
-    {
-      "position": 13,
       "team": {
         "id": 19,
         "name": "Eintracht Frankfurt",
@@ -241,18 +203,37 @@
         "tla": "SGE",
         "crest": "https://crests.football-data.org/19.png"
       },
-      "playedGames": 7,
-      "form": "L,W,L,D,W",
+      "playedGames": 6,
+      "form": "W,L,D,W,L",
       "won": 2,
       "draw": 2,
-      "lost": 3,
+      "lost": 2,
       "points": 8,
       "goalsFor": 10,
-      "goalsAgainst": 17,
-      "goalDifference": -7
+      "goalsAgainst": 16,
+      "goalDifference": -6
     },
     {
-      "position": 14,
+      "position": 12,
+      "team": {
+        "id": 1,
+        "name": "1. FC Köln",
+        "shortName": "1. FC Köln",
+        "tla": "KOE",
+        "crest": "https://crests.football-data.org/1.png"
+      },
+      "playedGames": 6,
+      "form": "L,W,L,D,L",
+      "won": 2,
+      "draw": 1,
+      "lost": 3,
+      "points": 7,
+      "goalsFor": 8,
+      "goalsAgainst": 11,
+      "goalDifference": -3
+    },
+    {
+      "position": 13,
       "team": {
         "id": 2,
         "name": "TSG 1899 Hoffenheim",
@@ -271,7 +252,7 @@
       "goalDifference": -3
     },
     {
-      "position": 15,
+      "position": 14,
       "team": {
         "id": 10,
         "name": "VfB Stuttgart",
@@ -290,7 +271,7 @@
       "goalDifference": -3
     },
     {
-      "position": 16,
+      "position": 15,
       "team": {
         "id": 6,
         "name": "FC Schalke 04",
@@ -298,15 +279,34 @@
         "tla": "S04",
         "crest": "https://crests.football-data.org/6.png"
       },
-      "playedGames": 7,
-      "form": "D,L,L,D,W",
+      "playedGames": 6,
+      "form": "L,L,D,W,D",
       "won": 1,
-      "draw": 3,
+      "draw": 2,
       "lost": 3,
-      "points": 6,
+      "points": 5,
       "goalsFor": 4,
       "goalsAgainst": 7,
       "goalDifference": -3
+    },
+    {
+      "position": 16,
+      "team": {
+        "id": 29,
+        "name": "SC Paderborn 07",
+        "shortName": "SC Paderborn",
+        "tla": "SCP",
+        "crest": "https://crests.football-data.org/29.png"
+      },
+      "playedGames": 6,
+      "form": "D,L,W,L,L",
+      "won": 1,
+      "draw": 2,
+      "lost": 3,
+      "points": 5,
+      "goalsFor": 5,
+      "goalsAgainst": 9,
+      "goalDifference": -4
     },
     {
       "position": 17,
@@ -317,14 +317,14 @@
         "tla": "UNB",
         "crest": "https://crests.football-data.org/28.png"
       },
-      "playedGames": 7,
-      "form": "D,D,W,L,L",
+      "playedGames": 6,
+      "form": "D,W,L,L,L",
       "won": 1,
-      "draw": 3,
+      "draw": 2,
       "lost": 3,
-      "points": 6,
-      "goalsFor": 6,
-      "goalsAgainst": 18,
+      "points": 5,
+      "goalsFor": 5,
+      "goalsAgainst": 17,
       "goalDifference": -12
     },
     {
