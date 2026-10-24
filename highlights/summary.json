@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-24T20:51:12Z",
+  "generated_at": "2026-10-24T20:56:11Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -1877,7 +1877,7 @@
         {
           "gameweek": "GW8",
           "stem": "gameweek-8",
-          "total": 3,
+          "total": 4,
           "covered": 3,
           "matches": [
             {
@@ -1900,6 +1900,14 @@
               "away": "US Sassuolo Calcio",
               "date": "2026-10-24",
               "covered": true
+            },
+            {
+              "match_id": 558565,
+              "home": "SS Lazio",
+              "away": "Parma Calcio 1913",
+              "date": "2026-10-24",
+              "covered": false,
+              "pending": true
             }
           ]
         }
