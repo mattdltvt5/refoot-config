@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-24T18:31:22Z",
+  "generated_at": "2026-10-24T18:36:12Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -2330,7 +2330,7 @@
         {
           "gameweek": "GW7",
           "stem": "gameweek-7",
-          "total": 6,
+          "total": 7,
           "covered": 5,
           "matches": [
             {
@@ -2375,6 +2375,14 @@
               "away": "1. FC Union Berlin",
               "date": "2026-10-24",
               "covered": true
+            },
+            {
+              "match_id": 565837,
+              "home": "Borussia Dortmund",
+              "away": "Eintracht Frankfurt",
+              "date": "2026-10-24",
+              "covered": false,
+              "pending": true
             }
           ]
         }
