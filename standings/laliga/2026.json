@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-24T16:36:41.517256Z",
+  "generated_at": "2026-10-24T16:41:47.642231Z",
   "competition": "LaLiga",
   "slug": "laliga",
   "season": 2026,
@@ -197,6 +197,25 @@
     {
       "position": 11,
       "team": {
+        "id": 5335,
+        "name": "Real Racing Club de Santander",
+        "shortName": "Santander",
+        "tla": "SAN",
+        "crest": "https://crests.football-data.org/5335.png"
+      },
+      "playedGames": 10,
+      "form": "W,L,D,L,L",
+      "won": 3,
+      "draw": 2,
+      "lost": 5,
+      "points": 11,
+      "goalsFor": 15,
+      "goalsAgainst": 26,
+      "goalDifference": -11
+    },
+    {
+      "position": 12,
+      "team": {
         "id": 88,
         "name": "Levante UD",
         "shortName": "Levante",
@@ -214,7 +233,26 @@
       "goalDifference": -2
     },
     {
-      "position": 12,
+      "position": 13,
+      "team": {
+        "id": 285,
+        "name": "Elche CF",
+        "shortName": "Elche",
+        "tla": "ELC",
+        "crest": "https://crests.football-data.org/285.png"
+      },
+      "playedGames": 10,
+      "form": "W,D,D,W,L",
+      "won": 2,
+      "draw": 4,
+      "lost": 4,
+      "points": 10,
+      "goalsFor": 14,
+      "goalsAgainst": 17,
+      "goalDifference": -3
+    },
+    {
+      "position": 14,
       "team": {
         "id": 94,
         "name": "Villarreal CF",
@@ -233,7 +271,7 @@
       "goalDifference": 0
     },
     {
-      "position": 13,
+      "position": 15,
       "team": {
         "id": 77,
         "name": "Athletic Club",
@@ -252,26 +290,7 @@
       "goalDifference": -1
     },
     {
-      "position": 14,
-      "team": {
-        "id": 87,
-        "name": "Rayo Vallecano de Madrid",
-        "shortName": "Rayo Vallecano",
-        "tla": "RAY",
-        "crest": "https://crests.football-data.org/87.png"
-      },
-      "playedGames": 8,
-      "form": "D,D,W,L,W",
-      "won": 2,
-      "draw": 3,
-      "lost": 3,
-      "points": 9,
-      "goalsFor": 12,
-      "goalsAgainst": 17,
-      "goalDifference": -5
-    },
-    {
-      "position": 15,
+      "position": 16,
       "team": {
         "id": 82,
         "name": "Getafe CF",
@@ -290,7 +309,26 @@
       "goalDifference": -6
     },
     {
-      "position": 16,
+      "position": 17,
+      "team": {
+        "id": 87,
+        "name": "Rayo Vallecano de Madrid",
+        "shortName": "Rayo Vallecano",
+        "tla": "RAY",
+        "crest": "https://crests.football-data.org/87.png"
+      },
+      "playedGames": 9,
+      "form": "L,D,D,W,L",
+      "won": 2,
+      "draw": 3,
+      "lost": 4,
+      "points": 9,
+      "goalsFor": 12,
+      "goalsAgainst": 20,
+      "goalDifference": -8
+    },
+    {
+      "position": 18,
       "team": {
         "id": 80,
         "name": "RCD Espanyol de Barcelona",
@@ -298,53 +336,15 @@
         "tla": "ESP",
         "crest": "https://crests.football-data.org/80.png"
       },
-      "playedGames": 9,
-      "form": "L,D,L,L,W",
+      "playedGames": 10,
+      "form": "L,L,D,L,L",
       "won": 2,
       "draw": 2,
-      "lost": 5,
+      "lost": 6,
       "points": 8,
-      "goalsFor": 11,
-      "goalsAgainst": 12,
-      "goalDifference": -1
-    },
-    {
-      "position": 17,
-      "team": {
-        "id": 5335,
-        "name": "Real Racing Club de Santander",
-        "shortName": "Santander",
-        "tla": "SAN",
-        "crest": "https://crests.football-data.org/5335.png"
-      },
-      "playedGames": 9,
-      "form": "L,D,L,L,W",
-      "won": 2,
-      "draw": 2,
-      "lost": 5,
-      "points": 8,
-      "goalsFor": 13,
-      "goalsAgainst": 25,
-      "goalDifference": -12
-    },
-    {
-      "position": 18,
-      "team": {
-        "id": 285,
-        "name": "Elche CF",
-        "shortName": "Elche",
-        "tla": "ELC",
-        "crest": "https://crests.football-data.org/285.png"
-      },
-      "playedGames": 9,
-      "form": "D,D,W,L,D",
-      "won": 1,
-      "draw": 4,
-      "lost": 4,
-      "points": 7,
-      "goalsFor": 11,
-      "goalsAgainst": 17,
-      "goalDifference": -6
+      "goalsFor": 12,
+      "goalsAgainst": 14,
+      "goalDifference": -2
     },
     {
       "position": 19,
