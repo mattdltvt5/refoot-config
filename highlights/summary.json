@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-24T16:21:26Z",
+  "generated_at": "2026-10-24T16:26:10Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -2330,8 +2330,8 @@
         {
           "gameweek": "GW7",
           "stem": "gameweek-7",
-          "total": 4,
-          "covered": 3,
+          "total": 5,
+          "covered": 4,
           "matches": [
             {
               "match_id": 565833,
@@ -2359,6 +2359,13 @@
               "match_id": 565834,
               "home": "SC Paderborn 07",
               "away": "Hamburger SV",
+              "date": "2026-10-24",
+              "covered": true
+            },
+            {
+              "match_id": 565832,
+              "home": "RB Leipzig",
+              "away": "SV 07 Elversberg",
               "date": "2026-10-24",
               "covered": true
             }
