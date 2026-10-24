@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-24T16:54:44Z",
+  "generated_at": "2026-10-24T17:06:48Z",
   "month": "2026-10",
   "dates": {
     "2026-10-09": [
@@ -3701,10 +3701,11 @@
               "tla": "UNB",
               "crest": "https://crests.football-data.org/28.png"
             },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "TIMED",
-            "utcDate": "2026-10-24T13:30:00Z"
+            "homeScore": 1,
+            "awayScore": 1,
+            "status": "FINISHED",
+            "utcDate": "2026-10-24T13:30:00Z",
+            "videoId": "bL0ITmrsgrM"
           },
           {
             "match_id": 565837,
@@ -3722,9 +3723,9 @@
               "tla": "SGE",
               "crest": "https://crests.football-data.org/19.png"
             },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "TIMED",
+            "homeScore": 0,
+            "awayScore": 0,
+            "status": "IN_PLAY",
             "utcDate": "2026-10-24T16:30:00Z"
           }
         ]
