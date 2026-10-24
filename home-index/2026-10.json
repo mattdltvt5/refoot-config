@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-24T17:51:11Z",
+  "generated_at": "2026-10-24T17:56:10Z",
   "month": "2026-10",
   "dates": {
     "2026-10-09": [
@@ -3474,9 +3474,9 @@
               "tla": "VIL",
               "crest": "https://crests.football-data.org/94.png"
             },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "TIMED",
+            "homeScore": 1,
+            "awayScore": 0,
+            "status": "IN_PLAY",
             "utcDate": "2026-10-24T16:30:00Z"
           },
           {
@@ -3566,9 +3566,9 @@
               "tla": "ROM",
               "crest": "https://crests.football-data.org/100.png"
             },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "TIMED",
+            "homeScore": 3,
+            "awayScore": 3,
+            "status": "IN_PLAY",
             "utcDate": "2026-10-24T16:00:00Z"
           },
           {
@@ -3723,9 +3723,9 @@
               "tla": "SGE",
               "crest": "https://crests.football-data.org/19.png"
             },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "TIMED",
+            "homeScore": 0,
+            "awayScore": 0,
+            "status": "IN_PLAY",
             "utcDate": "2026-10-24T16:30:00Z"
           }
         ]
