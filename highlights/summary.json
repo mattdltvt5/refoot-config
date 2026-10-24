@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-24T21:21:10Z",
+  "generated_at": "2026-10-24T21:26:12Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -1301,7 +1301,7 @@
           "gameweek": "GW10",
           "stem": "gameweek-10",
           "total": 2,
-          "covered": 1,
+          "covered": 2,
           "matches": [
             {
               "match_id": 564719,
@@ -1315,8 +1315,7 @@
               "home": "Real Racing Club de Santander",
               "away": "RCD Espanyol de Barcelona",
               "date": "2026-10-24",
-              "covered": false,
-              "pending": true
+              "covered": true
             }
           ]
         }
