@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-24T21:06:11Z",
+  "generated_at": "2026-10-24T21:11:12Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -555,7 +555,7 @@
           "gameweek": "GW8",
           "stem": "gameweek-8",
           "total": 5,
-          "covered": 1,
+          "covered": 3,
           "matches": [
             {
               "match_id": 560620,
@@ -569,8 +569,7 @@
               "home": "Aston Villa FC",
               "away": "Manchester City FC",
               "date": "2026-10-24",
-              "covered": false,
-              "pending": true
+              "covered": true
             },
             {
               "match_id": 560618,
@@ -593,8 +592,7 @@
               "home": "Chelsea FC",
               "away": "Tottenham Hotspur FC",
               "date": "2026-10-24",
-              "covered": false,
-              "pending": true
+              "covered": true
             }
           ]
         }
