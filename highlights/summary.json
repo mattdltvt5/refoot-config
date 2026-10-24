@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-24T15:56:17Z",
+  "generated_at": "2026-10-24T16:01:23Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -2307,7 +2307,7 @@
           "gameweek": "GW7",
           "stem": "gameweek-7",
           "total": 4,
-          "covered": 2,
+          "covered": 3,
           "matches": [
             {
               "match_id": 565833,
@@ -2336,8 +2336,7 @@
               "home": "SC Paderborn 07",
               "away": "Hamburger SV",
               "date": "2026-10-24",
-              "covered": false,
-              "pending": true
+              "covered": true
             }
           ]
         }

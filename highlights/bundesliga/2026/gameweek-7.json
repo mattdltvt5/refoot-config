@@ -2,7 +2,7 @@
   "competition": "Bundesliga",
   "gameweek": "GW7",
   "stem": "gameweek-7",
-  "generated_at": "2026-10-24T15:41:32Z",
+  "generated_at": "2026-10-24T16:01:22Z",
   "matches": [
     {
       "match_id": 565833,
@@ -44,7 +44,14 @@
       "home_team": "SC Paderborn 07",
       "away_team": "Hamburger SV",
       "date": "2026-10-24",
-      "videos": []
+      "videos": [
+        {
+          "video_id": "SDgWBORA1RU",
+          "title": "SC Paderborn 07 vs. Hamburger SV | Matchday 7 - Bundesliga 2026/27",
+          "published_at": "2026-10-24",
+          "tier_used": 2
+        }
+      ]
     }
   ]
 }
