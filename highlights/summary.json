@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-24T16:16:14Z",
+  "generated_at": "2026-10-24T16:21:26Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -1294,7 +1294,7 @@
         {
           "gameweek": "GW10",
           "stem": "gameweek-10",
-          "total": 1,
+          "total": 2,
           "covered": 1,
           "matches": [
             {
@@ -1303,6 +1303,14 @@
               "away": "Málaga CF",
               "date": "2026-10-23",
               "covered": true
+            },
+            {
+              "match_id": 564727,
+              "home": "Real Racing Club de Santander",
+              "away": "RCD Espanyol de Barcelona",
+              "date": "2026-10-24",
+              "covered": false,
+              "pending": true
             }
           ]
         }
