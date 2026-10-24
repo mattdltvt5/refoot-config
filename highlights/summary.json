@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-24T15:36:09Z",
+  "generated_at": "2026-10-24T15:41:35Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -1846,7 +1846,7 @@
           "gameweek": "GW8",
           "stem": "gameweek-8",
           "total": 3,
-          "covered": 2,
+          "covered": 3,
           "matches": [
             {
               "match_id": 558567,
@@ -1867,8 +1867,7 @@
               "home": "Como 1907",
               "away": "US Sassuolo Calcio",
               "date": "2026-10-24",
-              "covered": false,
-              "pending": true
+              "covered": true
             }
           ]
         }
@@ -2307,8 +2306,8 @@
         {
           "gameweek": "GW7",
           "stem": "gameweek-7",
-          "total": 1,
-          "covered": 1,
+          "total": 4,
+          "covered": 2,
           "matches": [
             {
               "match_id": 565833,
@@ -2316,6 +2315,29 @@
               "away": "Borussia Mönchengladbach",
               "date": "2026-10-23",
               "covered": true
+            },
+            {
+              "match_id": 565830,
+              "home": "1. FSV Mainz 05",
+              "away": "SV Werder Bremen",
+              "date": "2026-10-24",
+              "covered": true
+            },
+            {
+              "match_id": 565831,
+              "home": "1. FC Köln",
+              "away": "FC Schalke 04",
+              "date": "2026-10-24",
+              "covered": false,
+              "pending": true
+            },
+            {
+              "match_id": 565834,
+              "home": "SC Paderborn 07",
+              "away": "Hamburger SV",
+              "date": "2026-10-24",
+              "covered": false,
+              "pending": true
             }
           ]
         }
