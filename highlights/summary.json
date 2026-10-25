@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-25T00:26:08Z",
+  "generated_at": "2026-10-25T00:31:21Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -2363,7 +2363,7 @@
           "gameweek": "GW7",
           "stem": "gameweek-7",
           "total": 7,
-          "covered": 6,
+          "covered": 7,
           "matches": [
             {
               "match_id": 565833,
@@ -2384,8 +2384,7 @@
               "home": "1. FC Köln",
               "away": "FC Schalke 04",
               "date": "2026-10-24",
-              "covered": false,
-              "pending": true
+              "covered": true
             },
             {
               "match_id": 565834,
@@ -2923,14 +2922,21 @@
         {
           "gameweek": "GW8",
           "stem": "gameweek-8",
-          "total": 1,
-          "covered": 1,
+          "total": 2,
+          "covered": 2,
           "matches": [
             {
               "match_id": 559654,
               "home": "Stade Brestois 29",
               "away": "OGC Nice",
               "date": "2026-10-23",
+              "covered": true
+            },
+            {
+              "match_id": 559652,
+              "home": "Racing Club de Lens",
+              "away": "Paris FC",
+              "date": "2026-10-24",
               "covered": true
             }
           ]
