@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-25T15:56:10Z",
+  "generated_at": "2026-10-25T16:01:34Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -554,7 +554,7 @@
         {
           "gameweek": "GW8",
           "stem": "gameweek-8",
-          "total": 5,
+          "total": 6,
           "covered": 5,
           "matches": [
             {
@@ -591,6 +591,14 @@
               "away": "Tottenham Hotspur FC",
               "date": "2026-10-24",
               "covered": true
+            },
+            {
+              "match_id": 560619,
+              "home": "Hull City AFC",
+              "away": "Brentford FC",
+              "date": "2026-10-25",
+              "covered": false,
+              "pending": true
             }
           ]
         }
@@ -1900,8 +1908,8 @@
         {
           "gameweek": "GW8",
           "stem": "gameweek-8",
-          "total": 6,
-          "covered": 6,
+          "total": 8,
+          "covered": 7,
           "matches": [
             {
               "match_id": 558567,
@@ -1944,6 +1952,21 @@
               "away": "ACF Fiorentina",
               "date": "2026-10-25",
               "covered": true
+            },
+            {
+              "match_id": 558562,
+              "home": "Atalanta BC",
+              "away": "Frosinone Calcio",
+              "date": "2026-10-25",
+              "covered": true
+            },
+            {
+              "match_id": 558568,
+              "home": "Genoa CFC",
+              "away": "Venezia FC",
+              "date": "2026-10-25",
+              "covered": false,
+              "pending": true
             }
           ]
         }
