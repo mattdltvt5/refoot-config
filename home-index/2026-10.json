@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-25T16:36:08Z",
+  "generated_at": "2026-10-25T16:42:27Z",
   "month": "2026-10",
   "dates": {
     "2026-10-09": [
@@ -3876,9 +3876,9 @@
               "tla": "LEE",
               "crest": "https://crests.football-data.org/341.png"
             },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "TIMED",
+            "homeScore": 0,
+            "awayScore": 0,
+            "status": "IN_PLAY",
             "utcDate": "2026-10-25T16:30:00Z"
           }
         ]
@@ -4110,8 +4110,9 @@
             },
             "homeScore": 3,
             "awayScore": 0,
-            "status": "IN_PLAY",
-            "utcDate": "2026-10-25T14:30:00Z"
+            "status": "FINISHED",
+            "utcDate": "2026-10-25T14:30:00Z",
+            "videoId": "tkfO80xxSYU"
           },
           {
             "match_id": 565836,
@@ -4129,9 +4130,9 @@
               "tla": "FCB",
               "crest": "https://crests.football-data.org/5.png"
             },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "TIMED",
+            "homeScore": 0,
+            "awayScore": 0,
+            "status": "IN_PLAY",
             "utcDate": "2026-10-25T16:30:00Z"
           }
         ]
