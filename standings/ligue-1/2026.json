@@ -1,11 +1,49 @@
 {
-  "generated_at": "2026-10-25T12:24:56.031708Z",
+  "generated_at": "2026-10-25T16:07:39.753467Z",
   "competition": "Ligue 1",
   "slug": "ligue-1",
   "season": 2026,
   "standings": [
     {
       "position": 1,
+      "team": {
+        "id": 521,
+        "name": "Lille OSC",
+        "shortName": "Lille",
+        "tla": "LIL",
+        "crest": "https://crests.football-data.org/521.png"
+      },
+      "playedGames": 8,
+      "form": "D,D,W,L,W",
+      "won": 4,
+      "draw": 3,
+      "lost": 1,
+      "points": 15,
+      "goalsFor": 11,
+      "goalsAgainst": 6,
+      "goalDifference": 5
+    },
+    {
+      "position": 2,
+      "team": {
+        "id": 548,
+        "name": "AS Monaco FC",
+        "shortName": "Monaco",
+        "tla": "ASM",
+        "crest": "https://crests.football-data.org/548.png"
+      },
+      "playedGames": 8,
+      "form": "D,L,D,W,D",
+      "won": 4,
+      "draw": 3,
+      "lost": 1,
+      "points": 15,
+      "goalsFor": 11,
+      "goalsAgainst": 7,
+      "goalDifference": 4
+    },
+    {
+      "position": 3,
       "team": {
         "id": 523,
         "name": "Olympique Lyonnais",
@@ -24,7 +62,7 @@
       "goalDifference": 8
     },
     {
-      "position": 2,
+      "position": 4,
       "team": {
         "id": 524,
         "name": "Paris Saint-Germain FC",
@@ -43,26 +81,7 @@
       "goalDifference": 5
     },
     {
-      "position": 3,
-      "team": {
-        "id": 521,
-        "name": "Lille OSC",
-        "shortName": "Lille",
-        "tla": "LIL",
-        "crest": "https://crests.football-data.org/521.png"
-      },
-      "playedGames": 7,
-      "form": "D,W,L,W,W",
-      "won": 4,
-      "draw": 2,
-      "lost": 1,
-      "points": 14,
-      "goalsFor": 10,
-      "goalsAgainst": 5,
-      "goalDifference": 5
-    },
-    {
-      "position": 4,
+      "position": 5,
       "team": {
         "id": 1045,
         "name": "Paris FC",
@@ -78,25 +97,6 @@
       "points": 14,
       "goalsFor": 13,
       "goalsAgainst": 9,
-      "goalDifference": 4
-    },
-    {
-      "position": 5,
-      "team": {
-        "id": 548,
-        "name": "AS Monaco FC",
-        "shortName": "Monaco",
-        "tla": "ASM",
-        "crest": "https://crests.football-data.org/548.png"
-      },
-      "playedGames": 7,
-      "form": "L,D,W,D,W",
-      "won": 4,
-      "draw": 2,
-      "lost": 1,
-      "points": 14,
-      "goalsFor": 10,
-      "goalsAgainst": 6,
       "goalDifference": 4
     },
     {
