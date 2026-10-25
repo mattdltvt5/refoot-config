@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-25T19:06:56Z",
+  "generated_at": "2026-10-25T19:12:12Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -1946,7 +1946,7 @@
         {
           "gameweek": "GW8",
           "stem": "gameweek-8",
-          "total": 8,
+          "total": 9,
           "covered": 8,
           "matches": [
             {
@@ -2004,6 +2004,14 @@
               "away": "Venezia FC",
               "date": "2026-10-25",
               "covered": true
+            },
+            {
+              "match_id": 558566,
+              "home": "US Lecce",
+              "away": "Juventus FC",
+              "date": "2026-10-25",
+              "covered": false,
+              "pending": true
             }
           ]
         }

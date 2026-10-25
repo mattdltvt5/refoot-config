@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-25T17:57:11.569957Z",
+  "generated_at": "2026-10-25T19:12:48.834643Z",
   "competition": "Serie A",
   "slug": "serie-a",
   "season": 2026,
@@ -121,6 +121,25 @@
     {
       "position": 7,
       "team": {
+        "id": 109,
+        "name": "Juventus FC",
+        "shortName": "Juventus",
+        "tla": "JUV",
+        "crest": "https://crests.football-data.org/109.png"
+      },
+      "playedGames": 8,
+      "form": "W,L,D,W,L",
+      "won": 4,
+      "draw": 2,
+      "lost": 2,
+      "points": 14,
+      "goalsFor": 11,
+      "goalsAgainst": 8,
+      "goalDifference": 3
+    },
+    {
+      "position": 8,
+      "team": {
         "id": 586,
         "name": "Torino FC",
         "shortName": "Torino",
@@ -138,7 +157,7 @@
       "goalDifference": 2
     },
     {
-      "position": 8,
+      "position": 9,
       "team": {
         "id": 104,
         "name": "Cagliari Calcio",
@@ -157,7 +176,7 @@
       "goalDifference": -3
     },
     {
-      "position": 9,
+      "position": 10,
       "team": {
         "id": 113,
         "name": "SSC Napoli",
@@ -174,25 +193,6 @@
       "goalsFor": 13,
       "goalsAgainst": 10,
       "goalDifference": 3
-    },
-    {
-      "position": 10,
-      "team": {
-        "id": 109,
-        "name": "Juventus FC",
-        "shortName": "Juventus",
-        "tla": "JUV",
-        "crest": "https://crests.football-data.org/109.png"
-      },
-      "playedGames": 7,
-      "form": "L,D,W,L,D",
-      "won": 3,
-      "draw": 2,
-      "lost": 2,
-      "points": 11,
-      "goalsFor": 9,
-      "goalsAgainst": 8,
-      "goalDifference": 1
     },
     {
       "position": 11,
@@ -222,15 +222,15 @@
         "tla": "USL",
         "crest": "https://crests.football-data.org/5890.png"
       },
-      "playedGames": 7,
-      "form": "W,L,L,W,L",
+      "playedGames": 8,
+      "form": "L,W,L,L,W",
       "won": 3,
       "draw": 0,
-      "lost": 4,
+      "lost": 5,
       "points": 9,
       "goalsFor": 9,
-      "goalsAgainst": 12,
-      "goalDifference": -3
+      "goalsAgainst": 14,
+      "goalDifference": -5
     },
     {
       "position": 13,
