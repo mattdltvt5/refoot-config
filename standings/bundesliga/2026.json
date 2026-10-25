@@ -1,11 +1,30 @@
 {
-  "generated_at": "2026-10-25T18:22:38.004920Z",
+  "generated_at": "2026-10-25T18:27:44.620355Z",
   "competition": "Bundesliga",
   "slug": "bundesliga",
   "season": 2026,
   "standings": [
     {
       "position": 1,
+      "team": {
+        "id": 5,
+        "name": "FC Bayern München",
+        "shortName": "Bayern",
+        "tla": "FCB",
+        "crest": "https://crests.football-data.org/5.png"
+      },
+      "playedGames": 7,
+      "form": "W,W,D,W,W",
+      "won": 5,
+      "draw": 2,
+      "lost": 0,
+      "points": 17,
+      "goalsFor": 25,
+      "goalsAgainst": 6,
+      "goalDifference": 19
+    },
+    {
+      "position": 2,
       "team": {
         "id": 4,
         "name": "Borussia Dortmund",
@@ -24,25 +43,6 @@
       "goalDifference": 8
     },
     {
-      "position": 2,
-      "team": {
-        "id": 5,
-        "name": "FC Bayern München",
-        "shortName": "Bayern",
-        "tla": "FCB",
-        "crest": "https://crests.football-data.org/5.png"
-      },
-      "playedGames": 6,
-      "form": "W,D,W,W,D",
-      "won": 4,
-      "draw": 2,
-      "lost": 0,
-      "points": 14,
-      "goalsFor": 22,
-      "goalsAgainst": 5,
-      "goalDifference": 17
-    },
-    {
       "position": 3,
       "team": {
         "id": 17,
@@ -51,15 +51,15 @@
         "tla": "SCF",
         "crest": "https://crests.football-data.org/17.png"
       },
-      "playedGames": 6,
-      "form": "L,W,D,W,W",
+      "playedGames": 7,
+      "form": "L,L,W,D,W",
       "won": 4,
       "draw": 1,
-      "lost": 1,
+      "lost": 2,
       "points": 13,
-      "goalsFor": 15,
-      "goalsAgainst": 6,
-      "goalDifference": 9
+      "goalsFor": 16,
+      "goalsAgainst": 9,
+      "goalDifference": 7
     },
     {
       "position": 4,

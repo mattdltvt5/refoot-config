@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-25T18:22:09Z",
+  "generated_at": "2026-10-25T18:27:15Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -3001,8 +3001,8 @@
         {
           "gameweek": "GW8",
           "stem": "gameweek-8",
-          "total": 7,
-          "covered": 2,
+          "total": 8,
+          "covered": 3,
           "matches": [
             {
               "match_id": 559654,
@@ -3023,8 +3023,7 @@
               "home": "AS Monaco FC",
               "away": "Lille OSC",
               "date": "2026-10-25",
-              "covered": false,
-              "pending": true
+              "covered": true
             },
             {
               "match_id": 559653,
@@ -3054,6 +3053,14 @@
               "match_id": 559656,
               "home": "AJ Auxerre",
               "away": "Le Mans FC",
+              "date": "2026-10-25",
+              "covered": false,
+              "pending": true
+            },
+            {
+              "match_id": 559649,
+              "home": "Olympique de Marseille",
+              "away": "Le Havre AC",
               "date": "2026-10-25",
               "covered": false,
               "pending": true
