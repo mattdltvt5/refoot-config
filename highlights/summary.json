@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-25T18:11:31Z",
+  "generated_at": "2026-10-25T18:16:42Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -555,7 +555,7 @@
           "gameweek": "GW8",
           "stem": "gameweek-8",
           "total": 9,
-          "covered": 5,
+          "covered": 6,
           "matches": [
             {
               "match_id": 560620,
@@ -621,8 +621,7 @@
               "home": "Manchester United FC",
               "away": "AFC Bournemouth",
               "date": "2026-10-25",
-              "covered": false,
-              "pending": true
+              "covered": true
             }
           ]
         }
@@ -3002,7 +3001,7 @@
         {
           "gameweek": "GW8",
           "stem": "gameweek-8",
-          "total": 3,
+          "total": 5,
           "covered": 2,
           "matches": [
             {
@@ -3023,6 +3022,22 @@
               "match_id": 559650,
               "home": "AS Monaco FC",
               "away": "Lille OSC",
+              "date": "2026-10-25",
+              "covered": false,
+              "pending": true
+            },
+            {
+              "match_id": 559653,
+              "home": "Angers SCO",
+              "away": "FC Lorient",
+              "date": "2026-10-25",
+              "covered": false,
+              "pending": true
+            },
+            {
+              "match_id": 559655,
+              "home": "Toulouse FC",
+              "away": "ES Troyes AC",
               "date": "2026-10-25",
               "covered": false,
               "pending": true
