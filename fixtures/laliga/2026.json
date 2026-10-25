@@ -1,7 +1,7 @@
 {
   "competition": "LaLiga",
   "season": 2026,
-  "generated_at": "2026-10-25T00:21:12Z",
+  "generated_at": "2026-10-25T00:26:07Z",
   "fixtures": [
     {
       "match_id": 564634,
@@ -2572,11 +2572,11 @@
       },
       "score": {
         "fullTime": {
-          "home": null,
-          "away": null
+          "home": 0,
+          "away": 3
         }
       },
-      "status": "IN_PLAY",
+      "status": "FINISHED",
       "utcDate": "2026-10-24T12:00:00Z"
     },
     {
@@ -2628,11 +2628,11 @@
       },
       "score": {
         "fullTime": {
-          "home": null,
-          "away": null
+          "home": 1,
+          "away": 2
         }
       },
-      "status": "TIMED",
+      "status": "FINISHED",
       "utcDate": "2026-10-24T16:30:00Z"
     },
     {
@@ -2656,11 +2656,11 @@
       },
       "score": {
         "fullTime": {
-          "home": null,
-          "away": null
+          "home": 1,
+          "away": 0
         }
       },
-      "status": "TIMED",
+      "status": "FINISHED",
       "utcDate": "2026-10-24T19:00:00Z"
     },
     {

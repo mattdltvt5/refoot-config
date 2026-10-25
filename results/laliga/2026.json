@@ -1,7 +1,7 @@
 {
   "competition": "LaLiga",
   "season": 2026,
-  "generated_at": "2026-10-25T00:21:12Z",
+  "generated_at": "2026-10-25T00:26:07Z",
   "results": {
     "564634": {
       "status": "FINISHED",
@@ -1003,6 +1003,39 @@
       },
       "utcDate": "2026-10-24T14:15:00Z",
       "first_finished_at": "2026-10-24T16:21:15Z"
+    },
+    "564718": {
+      "status": "FINISHED",
+      "score": {
+        "fullTime": {
+          "home": 0,
+          "away": 3
+        }
+      },
+      "utcDate": "2026-10-24T12:00:00Z",
+      "first_finished_at": "2026-10-25T00:26:07Z"
+    },
+    "564722": {
+      "status": "FINISHED",
+      "score": {
+        "fullTime": {
+          "home": 1,
+          "away": 2
+        }
+      },
+      "utcDate": "2026-10-24T16:30:00Z",
+      "first_finished_at": "2026-10-25T00:26:07Z"
+    },
+    "564724": {
+      "status": "FINISHED",
+      "score": {
+        "fullTime": {
+          "home": 1,
+          "away": 0
+        }
+      },
+      "utcDate": "2026-10-24T19:00:00Z",
+      "first_finished_at": "2026-10-25T00:26:07Z"
     }
   }
 }

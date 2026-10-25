@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-25T00:21:13Z",
+  "generated_at": "2026-10-25T00:26:08Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -1299,8 +1299,8 @@
         {
           "gameweek": "GW10",
           "stem": "gameweek-10",
-          "total": 2,
-          "covered": 2,
+          "total": 5,
+          "covered": 5,
           "matches": [
             {
               "match_id": 564719,
@@ -1313,6 +1313,27 @@
               "match_id": 564727,
               "home": "Real Racing Club de Santander",
               "away": "RCD Espanyol de Barcelona",
+              "date": "2026-10-24",
+              "covered": true
+            },
+            {
+              "match_id": 564718,
+              "home": "Rayo Vallecano de Madrid",
+              "away": "Elche CF",
+              "date": "2026-10-24",
+              "covered": true
+            },
+            {
+              "match_id": 564722,
+              "home": "Valencia CF",
+              "away": "Villarreal CF",
+              "date": "2026-10-24",
+              "covered": true
+            },
+            {
+              "match_id": 564724,
+              "home": "Club Atlético de Madrid",
+              "away": "RC Deportivo La Coruña",
               "date": "2026-10-24",
               "covered": true
             }

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-24T23:51:09Z",
+  "generated_at": "2026-10-25T00:26:28Z",
   "month": "2026-10",
   "dates": {
     "2026-10-09": [
@@ -3435,10 +3435,11 @@
               "tla": "ELC",
               "crest": "https://crests.football-data.org/285.png"
             },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "IN_PLAY",
-            "utcDate": "2026-10-24T12:00:00Z"
+            "homeScore": 0,
+            "awayScore": 3,
+            "status": "FINISHED",
+            "utcDate": "2026-10-24T12:00:00Z",
+            "videoId": "d3jOAyc37Cw"
           },
           {
             "match_id": 564727,
@@ -3478,10 +3479,11 @@
               "tla": "VIL",
               "crest": "https://crests.football-data.org/94.png"
             },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "TIMED",
-            "utcDate": "2026-10-24T16:30:00Z"
+            "homeScore": 1,
+            "awayScore": 2,
+            "status": "FINISHED",
+            "utcDate": "2026-10-24T16:30:00Z",
+            "videoId": "I85JRFbkEs4"
           },
           {
             "match_id": 564724,
@@ -3499,10 +3501,11 @@
               "tla": "DEP",
               "crest": "https://crests.football-data.org/560.png"
             },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "TIMED",
-            "utcDate": "2026-10-24T19:00:00Z"
+            "homeScore": 1,
+            "awayScore": 0,
+            "status": "FINISHED",
+            "utcDate": "2026-10-24T19:00:00Z",
+            "videoId": "KTMI05kRAvE"
           }
         ]
       },
