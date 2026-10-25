@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-25T18:16:42Z",
+  "generated_at": "2026-10-25T18:22:09Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -3001,7 +3001,7 @@
         {
           "gameweek": "GW8",
           "stem": "gameweek-8",
-          "total": 5,
+          "total": 7,
           "covered": 2,
           "matches": [
             {
@@ -3038,6 +3038,22 @@
               "match_id": 559655,
               "home": "Toulouse FC",
               "away": "ES Troyes AC",
+              "date": "2026-10-25",
+              "covered": false,
+              "pending": true
+            },
+            {
+              "match_id": 559651,
+              "home": "Stade Rennais FC 1901",
+              "away": "RC Strasbourg Alsace",
+              "date": "2026-10-25",
+              "covered": false,
+              "pending": true
+            },
+            {
+              "match_id": 559656,
+              "home": "AJ Auxerre",
+              "away": "Le Mans FC",
               "date": "2026-10-25",
               "covered": false,
               "pending": true
