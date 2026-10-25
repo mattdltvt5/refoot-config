@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-25T19:16:56Z",
+  "generated_at": "2026-10-25T19:21:51Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -555,7 +555,7 @@
           "gameweek": "GW8",
           "stem": "gameweek-8",
           "total": 10,
-          "covered": 6,
+          "covered": 7,
           "matches": [
             {
               "match_id": 560620,
@@ -597,8 +597,7 @@
               "home": "Hull City AFC",
               "away": "Brentford FC",
               "date": "2026-10-25",
-              "covered": false,
-              "pending": true
+              "covered": true
             },
             {
               "match_id": 560612,
