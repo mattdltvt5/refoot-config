@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-25T20:56:38.804378Z",
+  "generated_at": "2026-10-25T21:46:34.392374Z",
   "competition": "Serie A",
   "slug": "serie-a",
   "season": 2026,
@@ -64,6 +64,25 @@
     {
       "position": 4,
       "team": {
+        "id": 98,
+        "name": "AC Milan",
+        "shortName": "Milan",
+        "tla": "MIL",
+        "crest": "https://crests.football-data.org/98.png"
+      },
+      "playedGames": 8,
+      "form": "W,W,D,W,D",
+      "won": 5,
+      "draw": 3,
+      "lost": 0,
+      "points": 18,
+      "goalsFor": 16,
+      "goalsAgainst": 7,
+      "goalDifference": 9
+    },
+    {
+      "position": 5,
+      "team": {
         "id": 7397,
         "name": "Como 1907",
         "shortName": "Como 1907",
@@ -76,25 +95,6 @@
       "draw": 2,
       "lost": 1,
       "points": 17,
-      "goalsFor": 14,
-      "goalsAgainst": 7,
-      "goalDifference": 7
-    },
-    {
-      "position": 5,
-      "team": {
-        "id": 98,
-        "name": "AC Milan",
-        "shortName": "Milan",
-        "tla": "MIL",
-        "crest": "https://crests.football-data.org/98.png"
-      },
-      "playedGames": 7,
-      "form": "W,D,W,D,D",
-      "won": 4,
-      "draw": 3,
-      "lost": 0,
-      "points": 15,
       "goalsFor": 14,
       "goalsAgainst": 7,
       "goalDifference": 7
@@ -317,15 +317,15 @@
         "tla": "UDI",
         "crest": "https://crests.football-data.org/115.png"
       },
-      "playedGames": 7,
+      "playedGames": 8,
       "form": "L,L,L,L,L",
       "won": 1,
       "draw": 1,
-      "lost": 5,
+      "lost": 6,
       "points": 4,
       "goalsFor": 9,
-      "goalsAgainst": 16,
-      "goalDifference": -7
+      "goalsAgainst": 18,
+      "goalDifference": -9
     },
     {
       "position": 18,
