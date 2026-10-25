@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-25T14:46:12Z",
+  "generated_at": "2026-10-25T14:56:08Z",
   "month": "2026-10",
   "dates": {
     "2026-10-09": [
@@ -3794,7 +3794,7 @@
             },
             "homeScore": 2,
             "awayScore": 0,
-            "status": "IN_PLAY",
+            "status": "PAUSED",
             "utcDate": "2026-10-25T14:00:00Z"
           },
           {
@@ -3815,7 +3815,7 @@
             },
             "homeScore": 0,
             "awayScore": 0,
-            "status": "IN_PLAY",
+            "status": "PAUSED",
             "utcDate": "2026-10-25T14:00:00Z"
           },
           {
@@ -3835,8 +3835,8 @@
               "crest": "https://crests.football-data.org/bournemouth.png"
             },
             "homeScore": 0,
-            "awayScore": 1,
-            "status": "IN_PLAY",
+            "awayScore": 2,
+            "status": "PAUSED",
             "utcDate": "2026-10-25T14:00:00Z"
           },
           {
@@ -3857,7 +3857,7 @@
             },
             "homeScore": 1,
             "awayScore": 0,
-            "status": "IN_PLAY",
+            "status": "PAUSED",
             "utcDate": "2026-10-25T14:00:00Z"
           },
           {
@@ -4015,7 +4015,7 @@
               "tla": "FRO",
               "crest": "https://crests.football-data.org/470.png"
             },
-            "homeScore": 2,
+            "homeScore": 3,
             "awayScore": 2,
             "status": "IN_PLAY",
             "utcDate": "2026-10-25T14:00:00Z"
