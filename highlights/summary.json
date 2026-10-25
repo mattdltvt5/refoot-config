@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-25T19:26:40Z",
+  "generated_at": "2026-10-25T19:31:56Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -1336,7 +1336,7 @@
         {
           "gameweek": "GW10",
           "stem": "gameweek-10",
-          "total": 7,
+          "total": 8,
           "covered": 7,
           "matches": [
             {
@@ -1387,6 +1387,14 @@
               "away": "Real Betis Balompié",
               "date": "2026-10-25",
               "covered": true
+            },
+            {
+              "match_id": 564726,
+              "home": "Real Sociedad de Fútbol",
+              "away": "Levante UD",
+              "date": "2026-10-25",
+              "covered": false,
+              "pending": true
             }
           ]
         }
