@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-25T15:06:19Z",
+  "generated_at": "2026-10-25T15:11:10Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -1299,7 +1299,7 @@
           "gameweek": "GW10",
           "stem": "gameweek-10",
           "total": 6,
-          "covered": 5,
+          "covered": 6,
           "matches": [
             {
               "match_id": 564719,
@@ -1341,8 +1341,7 @@
               "home": "Athletic Club",
               "away": "Getafe CF",
               "date": "2026-10-25",
-              "covered": false,
-              "pending": true
+              "covered": true
             }
           ]
         }
