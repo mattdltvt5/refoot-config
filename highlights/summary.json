@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-25T18:46:56Z",
+  "generated_at": "2026-10-25T18:51:59Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -3017,7 +3017,7 @@
           "gameweek": "GW8",
           "stem": "gameweek-8",
           "total": 8,
-          "covered": 3,
+          "covered": 5,
           "matches": [
             {
               "match_id": 559654,
@@ -3045,8 +3045,7 @@
               "home": "Angers SCO",
               "away": "FC Lorient",
               "date": "2026-10-25",
-              "covered": false,
-              "pending": true
+              "covered": true
             },
             {
               "match_id": 559655,
@@ -3069,8 +3068,7 @@
               "home": "AJ Auxerre",
               "away": "Le Mans FC",
               "date": "2026-10-25",
-              "covered": false,
-              "pending": true
+              "covered": true
             },
             {
               "match_id": 559649,
