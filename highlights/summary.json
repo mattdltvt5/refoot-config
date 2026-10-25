@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-25T16:11:45Z",
+  "generated_at": "2026-10-25T16:16:40Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -1933,7 +1933,7 @@
           "gameweek": "GW8",
           "stem": "gameweek-8",
           "total": 8,
-          "covered": 7,
+          "covered": 8,
           "matches": [
             {
               "match_id": 558567,
@@ -1989,8 +1989,7 @@
               "home": "Genoa CFC",
               "away": "Venezia FC",
               "date": "2026-10-25",
-              "covered": false,
-              "pending": true
+              "covered": true
             }
           ]
         }
