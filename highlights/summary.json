@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-25T17:16:51Z",
+  "generated_at": "2026-10-25T17:21:35Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -1331,7 +1331,7 @@
           "gameweek": "GW10",
           "stem": "gameweek-10",
           "total": 7,
-          "covered": 6,
+          "covered": 7,
           "matches": [
             {
               "match_id": 564719,
@@ -1380,8 +1380,7 @@
               "home": "RC Celta de Vigo",
               "away": "Real Betis Balompié",
               "date": "2026-10-25",
-              "covered": false,
-              "pending": true
+              "covered": true
             }
           ]
         }
