@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-25T19:12:12Z",
+  "generated_at": "2026-10-25T19:16:56Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -3025,7 +3025,7 @@
           "gameweek": "GW8",
           "stem": "gameweek-8",
           "total": 8,
-          "covered": 5,
+          "covered": 6,
           "matches": [
             {
               "match_id": 559654,
@@ -3083,8 +3083,7 @@
               "home": "Olympique de Marseille",
               "away": "Le Havre AC",
               "date": "2026-10-25",
-              "covered": false,
-              "pending": true
+              "covered": true
             }
           ]
         }
