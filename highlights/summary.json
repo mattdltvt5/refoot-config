@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-25T18:31:54Z",
+  "generated_at": "2026-10-25T18:37:16Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -554,7 +554,7 @@
         {
           "gameweek": "GW8",
           "stem": "gameweek-8",
-          "total": 9,
+          "total": 10,
           "covered": 6,
           "matches": [
             {
@@ -622,6 +622,14 @@
               "away": "AFC Bournemouth",
               "date": "2026-10-25",
               "covered": true
+            },
+            {
+              "match_id": 560621,
+              "home": "Sunderland AFC",
+              "away": "Leeds United FC",
+              "date": "2026-10-25",
+              "covered": false,
+              "pending": true
             }
           ]
         }
@@ -2434,7 +2442,7 @@
         {
           "gameweek": "GW7",
           "stem": "gameweek-7",
-          "total": 8,
+          "total": 9,
           "covered": 8,
           "matches": [
             {
@@ -2492,6 +2500,14 @@
               "away": "Bayer 04 Leverkusen",
               "date": "2026-10-25",
               "covered": true
+            },
+            {
+              "match_id": 565836,
+              "home": "SC Freiburg",
+              "away": "FC Bayern München",
+              "date": "2026-10-25",
+              "covered": false,
+              "pending": true
             }
           ]
         }
