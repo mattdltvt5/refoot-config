@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-25T13:36:13Z",
+  "generated_at": "2026-10-25T13:41:19Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -1893,7 +1893,7 @@
         {
           "gameweek": "GW8",
           "stem": "gameweek-8",
-          "total": 5,
+          "total": 6,
           "covered": 5,
           "matches": [
             {
@@ -1930,6 +1930,14 @@
               "away": "AS Roma",
               "date": "2026-10-24",
               "covered": true
+            },
+            {
+              "match_id": 558563,
+              "home": "FC Internazionale Milano",
+              "away": "ACF Fiorentina",
+              "date": "2026-10-25",
+              "covered": false,
+              "pending": true
             }
           ]
         }

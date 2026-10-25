@@ -1,11 +1,30 @@
 {
-  "generated_at": "2026-10-25T12:24:40.913452Z",
+  "generated_at": "2026-10-25T13:41:40.795160Z",
   "competition": "Serie A",
   "slug": "serie-a",
   "season": 2026,
   "standings": [
     {
       "position": 1,
+      "team": {
+        "id": 108,
+        "name": "FC Internazionale Milano",
+        "shortName": "Inter",
+        "tla": "INT",
+        "crest": "https://crests.football-data.org/108.png"
+      },
+      "playedGames": 8,
+      "form": "W,W,W,D,W",
+      "won": 7,
+      "draw": 1,
+      "lost": 0,
+      "points": 22,
+      "goalsFor": 23,
+      "goalsAgainst": 10,
+      "goalDifference": 13
+    },
+    {
+      "position": 2,
       "team": {
         "id": 110,
         "name": "SS Lazio",
@@ -22,25 +41,6 @@
       "goalsFor": 16,
       "goalsAgainst": 5,
       "goalDifference": 11
-    },
-    {
-      "position": 2,
-      "team": {
-        "id": 108,
-        "name": "FC Internazionale Milano",
-        "shortName": "Inter",
-        "tla": "INT",
-        "crest": "https://crests.football-data.org/108.png"
-      },
-      "playedGames": 7,
-      "form": "W,W,D,W,W",
-      "won": 6,
-      "draw": 1,
-      "lost": 0,
-      "points": 19,
-      "goalsFor": 21,
-      "goalsAgainst": 9,
-      "goalDifference": 12
     },
     {
       "position": 3,
@@ -336,15 +336,15 @@
         "tla": "FIO",
         "crest": "https://crests.football-data.org/99.png"
       },
-      "playedGames": 7,
-      "form": "L,L,D,W,L",
+      "playedGames": 8,
+      "form": "L,L,L,D,W",
       "won": 1,
       "draw": 1,
-      "lost": 5,
+      "lost": 6,
       "points": 4,
-      "goalsFor": 8,
-      "goalsAgainst": 17,
-      "goalDifference": -9
+      "goalsFor": 9,
+      "goalsAgainst": 19,
+      "goalDifference": -10
     },
     {
       "position": 19,
