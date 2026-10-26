@@ -106,6 +106,10 @@ jobs:
           fi
           if [ "$(python scripts/commit_gate.py --heartbeat-hours 3)" = "skip" ]; then
             echo "Timestamp-only changes — skipping commit"
+            # Unstage them: otherwise the notification step's commit below
+            # swept these timestamp-only files in ("chore: push retry queue"
+            # on nearly every run - 156 commits on 2026-10-24).
+            git reset -q
             exit 0
           fi
           git commit -m "chore: update highlights cache [skip ci]"
@@ -138,10 +142,14 @@ jobs:
         run: |
           python scripts/push_events.py --mode deliver
           git add push-events/pending.json
-          if ! git diff --cached --quiet; then
-            git commit -m "chore: push retry queue [skip ci]"
+          # Only the retry queue itself: check and commit just this path, so
+          # nothing else left in the index can ride along.
+          if ! git diff --cached --quiet -- push-events/pending.json; then
+            git commit -m "chore: push retry queue [skip ci]" -- push-events/pending.json
+            # --autostash: a skipped run leaves its timestamp-only edits
+            # unstaged in the tree, which a plain pull --rebase refuses.
             for attempt in 1 2 3; do
-              if git pull --rebase -X theirs origin main && git push; then exit 0; fi
+              if git pull --rebase --autostash -X theirs origin main && git push; then exit 0; fi
               git rebase --abort 2>/dev/null || true
               sleep 3
             done
