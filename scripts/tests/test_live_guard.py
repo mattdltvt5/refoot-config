@@ -77,6 +77,28 @@ class LastUpdatedTest(unittest.TestCase):
         newer = fx("IN_PLAY", 2, 1, updated="2026-10-24T17:36:00Z")
         self.assertIs(merge_preserve_finished(cached, newer, NOW), newer)
 
+    def test_finished_records_ignore_an_older_snapshot(self):
+        # 2026-10-26: two upstream snapshots of the same finished match in turn.
+        newer = fx("FINISHED", 1, 2, updated="2026-10-26T10:20:30Z")
+        older = fx("FINISHED", 1, 2, updated="2026-10-25T00:20:24Z")
+        self.assertIs(merge_preserve_finished(newer, older, NOW), newer)
+        self.assertIs(merge_preserve_finished(older, newer, NOW), newer)
+        # ...and a newer score correction still lands.
+        corrected = fx("FINISHED", 2, 2, updated="2026-10-26T11:00:00Z")
+        self.assertIs(merge_preserve_finished(newer, corrected, NOW), corrected)
+
+    def test_alternating_snapshots_settle_on_the_newest(self):
+        a = fx("FINISHED", 0, 3, updated="2026-10-26T10:20:30Z")
+        b = fx("FINISHED", 0, 3, updated="2026-10-25T00:20:24Z")
+        cached = b
+        for incoming in (a, b, a, b, b, a):
+            cached = merge_preserve_finished(cached, incoming, NOW)
+            if cached is a:
+                break
+        for incoming in (b, a, b, b):
+            cached = merge_preserve_finished(cached, incoming, NOW)
+            self.assertIs(cached, a)
+
     def test_missing_timestamps_fall_back_to_the_other_rules(self):
         self.assertEqual(merge_preserve_finished(fx("TIMED"), fx("IN_PLAY", 0, 0), NOW)["status"],
                          "IN_PLAY")

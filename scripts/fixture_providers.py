@@ -109,7 +109,8 @@ def merge_preserve_finished(cached: dict, incoming: dict, now: datetime | None =
     alternated IN_PLAY-with-score and TIMED-with-no-score copies of the same
     match every few minutes, and left four LaLiga/Serie A games at TIMED/null for
     up to 10 h after they ended, so the app showed them as not started):
-      * Never take an OLDER copy: when both records carry football-data.org's
+      * Never take an OLDER copy (checked first, for every status - finished
+        records too): when both records carry football-data.org's
         `lastUpdated`, an incoming record older than the cached one is rejected.
       * A game under way never goes back to "not started": a cached live record
         (IN_PLAY/PAUSED with a score) is kept when the incoming one is scoreless
@@ -122,6 +123,14 @@ def merge_preserve_finished(cached: dict, incoming: dict, now: datetime | None =
     """
     if not cached:
         return incoming
+    # Older copy first, for every status: football-data.org serves two cached
+    # snapshots in turn (2026-10-26: finished matches alternated lastUpdated
+    # 10-26T10:20 / 10-25T00:20 on every run), so without this a FINISHED
+    # record flipped between them and the data was re-committed every run.
+    cached_lu = _parse_utc(cached.get("lastUpdated"))
+    incoming_lu = _parse_utc(incoming.get("lastUpdated"))
+    if cached_lu and incoming_lu and incoming_lu < cached_lu:
+        return cached
     cached_is_scored_finished = (
         cached.get("status") == FINISHED_STATUS and _has_resolved_score(cached)
     )
@@ -130,10 +139,6 @@ def merge_preserve_finished(cached: dict, incoming: dict, now: datetime | None =
             return incoming
         if incoming.get("status") in TERMINAL_UNPLAYED_STATUSES:
             return incoming
-        return cached
-    cached_lu = _parse_utc(cached.get("lastUpdated"))
-    incoming_lu = _parse_utc(incoming.get("lastUpdated"))
-    if cached_lu and incoming_lu and incoming_lu < cached_lu:
         return cached
     if _holds_live(cached, incoming, now):
         return cached
