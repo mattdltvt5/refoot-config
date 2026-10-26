@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-26T22:06:29Z",
+  "generated_at": "2026-10-26T22:11:11Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -1334,7 +1334,7 @@
           "gameweek": "GW10",
           "stem": "gameweek-10",
           "total": 10,
-          "covered": 9,
+          "covered": 10,
           "matches": [
             {
               "match_id": 564719,
@@ -1404,8 +1404,7 @@
               "home": "Sevilla FC",
               "away": "CA Osasuna",
               "date": "2026-10-26",
-              "covered": false,
-              "pending": true
+              "covered": true
             }
           ]
         }
