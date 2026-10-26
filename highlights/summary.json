@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-25T23:56:07Z",
+  "generated_at": "2026-10-26T00:01:25Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -555,7 +555,7 @@
           "gameweek": "GW8",
           "stem": "gameweek-8",
           "total": 10,
-          "covered": 7,
+          "covered": 10,
           "matches": [
             {
               "match_id": 560620,
@@ -604,16 +604,14 @@
               "home": "Liverpool FC",
               "away": "Brighton & Hove Albion FC",
               "date": "2026-10-25",
-              "covered": false,
-              "pending": true
+              "covered": true
             },
             {
               "match_id": 560613,
               "home": "Crystal Palace FC",
               "away": "Newcastle United FC",
               "date": "2026-10-25",
-              "covered": false,
-              "pending": true
+              "covered": true
             },
             {
               "match_id": 560615,
@@ -627,8 +625,7 @@
               "home": "Sunderland AFC",
               "away": "Leeds United FC",
               "date": "2026-10-25",
-              "covered": false,
-              "pending": true
+              "covered": true
             }
           ]
         }
@@ -1336,8 +1333,8 @@
         {
           "gameweek": "GW10",
           "stem": "gameweek-10",
-          "total": 8,
-          "covered": 8,
+          "total": 9,
+          "covered": 9,
           "matches": [
             {
               "match_id": 564719,
@@ -1392,6 +1389,13 @@
               "match_id": 564726,
               "home": "Real Sociedad de Fútbol",
               "away": "Levante UD",
+              "date": "2026-10-25",
+              "covered": true
+            },
+            {
+              "match_id": 564723,
+              "home": "FC Barcelona",
+              "away": "Real Madrid CF",
               "date": "2026-10-25",
               "covered": true
             }
@@ -1952,8 +1956,8 @@
         {
           "gameweek": "GW8",
           "stem": "gameweek-8",
-          "total": 9,
-          "covered": 9,
+          "total": 10,
+          "covered": 10,
           "matches": [
             {
               "match_id": 558567,
@@ -2015,6 +2019,13 @@
               "match_id": 558566,
               "home": "US Lecce",
               "away": "Juventus FC",
+              "date": "2026-10-25",
+              "covered": true
+            },
+            {
+              "match_id": 558559,
+              "home": "Udinese Calcio",
+              "away": "AC Milan",
               "date": "2026-10-25",
               "covered": true
             }
@@ -3030,7 +3041,7 @@
           "gameweek": "GW8",
           "stem": "gameweek-8",
           "total": 8,
-          "covered": 6,
+          "covered": 8,
           "matches": [
             {
               "match_id": 559654,
@@ -3065,16 +3076,14 @@
               "home": "Toulouse FC",
               "away": "ES Troyes AC",
               "date": "2026-10-25",
-              "covered": false,
-              "pending": true
+              "covered": true
             },
             {
               "match_id": 559651,
               "home": "Stade Rennais FC 1901",
               "away": "RC Strasbourg Alsace",
               "date": "2026-10-25",
-              "covered": false,
-              "pending": true
+              "covered": true
             },
             {
               "match_id": 559656,

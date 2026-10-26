@@ -2,7 +2,7 @@
   "competition": "Premier League",
   "gameweek": "GW8",
   "stem": "gameweek-8",
-  "generated_at": "2026-10-25T19:21:41Z",
+  "generated_at": "2026-10-26T00:01:24Z",
   "matches": [
     {
       "match_id": 560620,
@@ -93,14 +93,28 @@
       "home_team": "Liverpool FC",
       "away_team": "Brighton & Hove Albion FC",
       "date": "2026-10-25",
-      "videos": []
+      "videos": [
+        {
+          "video_id": "Ju2qucCkEYI",
+          "title": "Highlights: Liverpool 2-0 Brighton | Isak Strikes Reds To Victory!",
+          "published_at": "2026-10-25",
+          "tier_used": 1
+        }
+      ]
     },
     {
       "match_id": 560613,
       "home_team": "Crystal Palace FC",
       "away_team": "Newcastle United FC",
       "date": "2026-10-25",
-      "videos": []
+      "videos": [
+        {
+          "video_id": "kwlvbl7okEE",
+          "title": "Crystal Palace 0-2 Newcastle United | Premier League Highlights",
+          "published_at": "2026-10-25",
+          "tier_used": 1
+        }
+      ]
     },
     {
       "match_id": 560615,
@@ -121,7 +135,14 @@
       "home_team": "Sunderland AFC",
       "away_team": "Leeds United FC",
       "date": "2026-10-25",
-      "videos": []
+      "videos": [
+        {
+          "video_id": "S7xGnHvT8Vo",
+          "title": "Sunderland AFC 0-0 Leeds United | Premier League Highlights",
+          "published_at": "2026-10-25",
+          "tier_used": 1
+        }
+      ]
     }
   ]
 }
