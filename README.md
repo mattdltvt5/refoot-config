@@ -4,6 +4,34 @@ Remote channel configuration for the **ReFoot Highlights** Android app.
 
 ## Recent changes
 
+### Live guard: a game under way never goes back to "not started" (2026-10-26)
+
+On 2026-10-24 football-data.org alternated `IN_PLAY`-with-score and `TIMED`-with-no-score copies of the same
+match every few minutes (3-6 flips per game), and left Valencia v Villarreal, Rayo v Elche, Atletico v
+Deportivo and Napoli v Roma at `TIMED/null` for up to 10 h after they ended (it finalised them only at
+2026-10-25T00:20Z, `lastUpdated`). The merge only protected scored FINISHED records, so the app showed live
+games as not started. Read-only audit: 2026-10-26 (one FD request per competition per run; no rows dropped;
+the app faithfully rendered the cache).
+
+`scripts/fixture_providers.py` (`merge_preserve_finished`, shared by the league fixtures and the
+tournament files via `merge_fixtures_preserving_finished` / `preserve_finished`):
+
+1. **Never take an older copy** - league fixtures and tournament `groupMatches` now carry football-data.org's
+   `lastUpdated` (knockouts already did, verbatim); an incoming record older than the cached one is rejected.
+2. **Hold a live record** - a cached `IN_PLAY/PAUSED` record with a score is kept when the incoming one is
+   scoreless and neither live, FINISHED nor terminal-unplayed, once the (incoming) kickoff has passed and for
+   at most `HOLD_LIVE_FOR` (24 h). A new live score (incl. a disallowed goal), FINISHED, a postponement or a
+   kickoff moved later still flow.
+3. **Finalise only what upstream still says is live** - `coerce_stale_live_to_finished` (league write path)
+   and `finalize_stale_live` (tournaments) now run on the incoming data BEFORE the merge, so a held live copy
+   is never turned into a final score (Valencia's last live copy was 1-1; the final was 1-2). Upstream records
+   still `IN_PLAY` 4 h after kickoff are finalised as before. A held game shows its last live score until
+   football-data.org sends the result.
+
+Logs: "held N live record(s)" (leagues), "kept N result(s) / live record(s)" (tournaments). Tests:
+`scripts/tests/test_live_guard.py` (hold rules, `lastUpdated`, the 2026-10-24 Valencia and Rayo sequences
+replayed, held copies never finalised on either write path).
+
 ### Push: publish, then notify (2026-10-14)
 
 **Problem:** tonight every Champions League goal notification arrived 3-5 minutes before the app could show that

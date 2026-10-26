@@ -70,6 +70,11 @@ LIVE_STATUSES = frozenset({"IN_PLAY", "PAUSED"})
 # stoppage — an IN_PLAY/PAUSED status is no longer credible and is finalized.
 STALE_LIVE_AFTER = timedelta(hours=4)
 
+# How long a held live record (see merge_preserve_finished) may outlast an
+# upstream that keeps re-serving the match as not started. Past this the
+# incoming record wins again, so a genuinely changed fixture can't stay stuck.
+HOLD_LIVE_FOR = timedelta(hours=24)
+
 # Terminal non-played statuses: a legitimate forward correction that SHOULD
 # overwrite a previously-FINISHED cache even though it carries no score.  Spelled
 # exactly as football-data.org emits them (see FD v4 match `status` vocabulary).
@@ -88,7 +93,7 @@ def _has_resolved_score(record: dict) -> bool:
     return ft.get("home") is not None and ft.get("away") is not None
 
 
-def merge_preserve_finished(cached: dict, incoming: dict) -> dict:
+def merge_preserve_finished(cached: dict, incoming: dict, now: datetime | None = None) -> dict:
     """Decide which of two records for the SAME match_id to keep.
 
     Treats a scored FINISHED as TERMINAL: if the cached record is FINISHED with a
@@ -100,24 +105,59 @@ def merge_preserve_finished(cached: dict, incoming: dict) -> dict:
     the FINISHED→IN_PLAY/PAUSED reversion where upstream keeps the final score but
     flips the status back to in-play.
 
-    When the cache was not a scored FINISHED to begin with, the incoming record
-    wins, so normal progression (TIMED → IN_PLAY → FINISHED) is never blocked.
+    Two more rules protect a game in progress (2026-10-24: football-data.org
+    alternated IN_PLAY-with-score and TIMED-with-no-score copies of the same
+    match every few minutes, and left four LaLiga/Serie A games at TIMED/null for
+    up to 10 h after they ended, so the app showed them as not started):
+      * Never take an OLDER copy: when both records carry football-data.org's
+        `lastUpdated`, an incoming record older than the cached one is rejected.
+      * A game under way never goes back to "not started": a cached live record
+        (IN_PLAY/PAUSED with a score) is kept when the incoming one is scoreless
+        and neither live, FINISHED nor a terminal non-played status - but only
+        once the (incoming) kickoff has passed and for at most HOLD_LIVE_FOR, so a
+        fixture moved to a later date, or a genuinely changed one, still flows.
+
+    Otherwise the incoming record wins, so normal progression (TIMED → IN_PLAY →
+    FINISHED) and live score changes (incl. a disallowed goal) are never blocked.
     """
     if not cached:
         return incoming
     cached_is_scored_finished = (
         cached.get("status") == FINISHED_STATUS and _has_resolved_score(cached)
     )
-    if not cached_is_scored_finished:
-        return incoming
-    if incoming.get("status") == FINISHED_STATUS:
-        return incoming
-    if incoming.get("status") in TERMINAL_UNPLAYED_STATUSES:
-        return incoming
-    return cached
+    if cached_is_scored_finished:
+        if incoming.get("status") == FINISHED_STATUS:
+            return incoming
+        if incoming.get("status") in TERMINAL_UNPLAYED_STATUSES:
+            return incoming
+        return cached
+    cached_lu = _parse_utc(cached.get("lastUpdated"))
+    incoming_lu = _parse_utc(incoming.get("lastUpdated"))
+    if cached_lu and incoming_lu and incoming_lu < cached_lu:
+        return cached
+    if _holds_live(cached, incoming, now):
+        return cached
+    return incoming
 
 
-def preserve_finished(data, prev):
+def _holds_live(cached: dict, incoming: dict, now: datetime | None = None) -> bool:
+    """True when [cached] is a live record with a score that [incoming] would
+    send back to "not started" (scoreless, not live / FINISHED / called off)
+    after kickoff, within HOLD_LIVE_FOR of it."""
+    if cached.get("status") not in LIVE_STATUSES or not _has_resolved_score(cached):
+        return False
+    status = incoming.get("status")
+    if (status in LIVE_STATUSES or status == FINISHED_STATUS
+            or status in TERMINAL_UNPLAYED_STATUSES or _has_resolved_score(incoming)):
+        return False
+    kickoff = _parse_utc(incoming.get("utcDate") or cached.get("utcDate"))
+    if kickoff is None:
+        return False
+    ref = now or datetime.now(timezone.utc)
+    return kickoff <= ref and ref - kickoff < HOLD_LIVE_FOR
+
+
+def preserve_finished(data, prev, now=None):
     """Keep finished results that football-data.org briefly re-serves unplayed.
 
     The same FINISHED->TIMED/null flicker the league fixtures guard against
@@ -125,7 +165,8 @@ def preserve_finished(data, prev):
     2026-10-15 at 00:46 and 01:16 UTC every UCL game of 13-14 Oct came back
     TIMED with no score, so ucl.json - and the Home index built from it - showed
     them as not started until the next run. A scored FINISHED match on disk is
-    kept unless the new record is FINISHED too or a terminal non-played status.
+    kept unless the new record is FINISHED too or a terminal non-played status,
+    and a live record is held per merge_preserve_finished's live rules.
     Applies to knockout `matches` (keyed by id) and `groupMatches` (match_id);
     used by sync_tournaments (UCL/WC/Euro) and sync_copa_tournament (Copa).
     Returns how many records were kept from disk.
@@ -136,7 +177,7 @@ def preserve_finished(data, prev):
         out = []
         for m in data.get(key, []):
             cached = old.get(m.get(idf))
-            chosen = merge_preserve_finished(cached, m) if cached else m
+            chosen = merge_preserve_finished(cached, m, now) if cached else m
             if chosen is not m:
                 kept += 1
                 # The cached record wins whole, but keep the newest video_id.
@@ -184,7 +225,8 @@ def coerce_stale_live_to_finished(
 
 
 def merge_fixtures_preserving_finished(
-    cached_fixtures: list[dict], incoming_fixtures: list[dict]
+    cached_fixtures: list[dict], incoming_fixtures: list[dict],
+    now: datetime | None = None,
 ) -> list[dict]:
     """Merge an incoming fixtures list against the cached list, keyed by match_id.
 
@@ -203,7 +245,7 @@ def merge_fixtures_preserving_finished(
     for inc in incoming_fixtures:
         mid = inc.get("match_id")
         cached = cached_by_id.get(mid) if mid is not None else None
-        merged.append(merge_preserve_finished(cached, inc) if cached else inc)
+        merged.append(merge_preserve_finished(cached, inc, now) if cached else inc)
     return merged
 
 
@@ -558,6 +600,9 @@ class FootballDataProvider(FixtureProvider):
                 },
                 "status":  status,
                 "utcDate": utc_str,
+                # football-data.org's own "last changed" time: the merge never
+                # replaces a record with an older copy of it.
+                "lastUpdated": m.get("lastUpdated"),
             })
         result.sort(key=lambda x: (x["matchday"], x.get("utcDate", "")))
         finished = sum(1 for r in result if r["status"] == "FINISHED")
