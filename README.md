@@ -4,6 +4,16 @@ Remote channel configuration for the **ReFoot Highlights** Android app.
 
 ## Recent changes
 
+### Older-copy check runs first, finished matches included (2026-10-26)
+
+Follow-up to the live guard (#55). After it, every run made a data commit: football-data.org served two
+cached snapshots of the same finished matches in turn (`lastUpdated` 2026-10-26T10:20:30Z vs
+2026-10-25T00:20:24Z), and the "never take an older copy" rule ran only AFTER the finished-match rule, which
+accepts any incoming FINISHED - so finished records flipped between the two copies each run. The rule now
+runs first, for every status: an incoming record older than the cached one is always rejected, while a newer
+FINISHED (a score correction) still lands. Tests: `test_live_guard.py` (alternating snapshots settle on the
+newest).
+
 ### No more timestamp-only "push retry queue" commits (2026-10-26)
 
 The commit gate (`scripts/commit_gate.py`, 2026-10-07) skips a run whose only changes are timestamps - but it
