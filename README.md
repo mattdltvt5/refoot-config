@@ -4,6 +4,22 @@ Remote channel configuration for the **ReFoot Highlights** Android app.
 
 ## Recent changes
 
+### No more timestamp-only "push retry queue" commits (2026-10-26)
+
+The commit gate (`scripts/commit_gate.py`, 2026-10-07) skips a run whose only changes are timestamps - but it
+`exit 0`'d with those files still staged, and the notification step then ran `git add push-events/pending.json`
++ `git diff --cached --quiet` over the WHOLE index, so it committed them as "chore: push retry queue" on nearly
+every run (156 commits on 2026-10-24, 368 from 23 Oct 22:00Z to 26 Oct; found by the 2026-10-26 audit). In
+`.github/workflows/fetch-highlights.yml`:
+
+- the gate's skip path now runs `git reset -q` (unstage) before exiting;
+- the retry step checks and commits only `push-events/pending.json`
+  (`git diff --cached --quiet -- push-events/pending.json`, `git commit ... -- push-events/pending.json`), and
+  pulls with `--autostash` because a skipped run leaves its timestamp-only edits unstaged in the tree.
+
+A "push retry queue" commit now appears only when a notification send actually failed. Also corrected the
+`fetch_highlights.py` docstring ("every 4 hours" -> every ~5 minutes, dispatched by cron-job.org).
+
 ### Live guard: a game under way never goes back to "not started" (2026-10-26)
 
 On 2026-10-24 football-data.org alternated `IN_PLAY`-with-score and `TIMED`-with-no-score copies of the same

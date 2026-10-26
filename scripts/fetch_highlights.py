@@ -2,7 +2,7 @@
 """
 fetch_highlights.py — Highlights cache update.
 
-Runs every 4 hours via the fetch-highlights GitHub Action.
+Runs every ~5 minutes via the fetch-highlights GitHub Action (dispatched by cron-job.org).
 Fetches all FINISHED fixtures for the current season from football-data.org,
 searches configured YouTube playlists in tier-priority order for any fixture
 not yet covered, and merges results into per-gameweek JSON files under
