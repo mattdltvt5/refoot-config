@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-26T21:51:19Z",
+  "generated_at": "2026-10-26T21:56:12Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -3041,7 +3041,7 @@
           "gameweek": "GW8",
           "stem": "gameweek-8",
           "total": 9,
-          "covered": 8,
+          "covered": 9,
           "matches": [
             {
               "match_id": 559654,
@@ -3104,8 +3104,7 @@
               "home": "Paris Saint-Germain FC",
               "away": "Olympique Lyonnais",
               "date": "2026-10-26",
-              "covered": false,
-              "pending": true
+              "covered": true
             }
           ]
         }
