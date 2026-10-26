@@ -210,6 +210,9 @@ def build_group_matches(matches_payload, normalize_crest=_identity_crest):
                 "fullTime": {"home": ft.get("home"), "away": ft.get("away")},
             },
             "status": m.get("status", ""),
+            # football-data.org's own "last changed" time: the merge never
+            # replaces a record with an older copy of it.
+            "lastUpdated": m.get("lastUpdated"),
         })
     return group_matches
 
@@ -527,14 +530,17 @@ def main(api_key, out_dir="."):
         data = build_tournament_data(
             slug, standings_payload, matches_payload, existing_video_ids
         )
-        kept = preserve_finished(data, read_existing(existing_path))
-        if kept:
-            print(f"⚠ {comp_name}: kept {kept} FINISHED result(s) the API re-served "
-                  f"as unplayed", file=sys.stderr)
+        # Finalize what the API ITSELF still serves live long after kickoff,
+        # BEFORE the merge: a live record held from disk is an old copy whose
+        # score may be out of date, so it is never turned into a final score.
         stuck = finalize_stale_live(data)
         if stuck:
             print(f"⚠ {comp_name}: finalized {stuck} match(es) left live long after "
                   f"kickoff", file=sys.stderr)
+        kept = preserve_finished(data, read_existing(existing_path))
+        if kept:
+            print(f"⚠ {comp_name}: kept {kept} result(s) / live record(s) the API "
+                  f"re-served older or as unplayed", file=sys.stderr)
         path = write_tournament(slug, data, out_dir)
         print(f"✓ {comp_name}: {path} written ({len(data['matches'])} knockout matches)")
 

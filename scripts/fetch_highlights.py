@@ -62,6 +62,7 @@ from highlights_common import (
 )
 from fixture_providers import (
     FootballDataProvider,
+    LIVE_STATUSES,
     merge_fixtures_preserving_finished,
     coerce_stale_live_to_finished,
     update_results_ledger,
@@ -231,13 +232,17 @@ def write_fixtures_artifacts(artifacts: dict[str, list[dict]]) -> None:
     Layers that protect already-played results from an upstream reversion
     (FINISHED→TIMED/null OR a match left stuck IN_PLAY/PAUSED after it ended):
 
+      0. Stale-live finalize — coerce any IN_PLAY/PAUSED record football-data.org
+         ITSELF still serves STALE_LIVE_AFTER past kickoff to FINISHED
+         (coerce_stale_live_to_finished), so an upstream status that never
+         advances can't show as live forever. Applied to the incoming list
+         only: a live record the merge HOLDS from the cache (1) is an old copy
+         whose score may be out of date (2026-10-24: Valencia's last live copy
+         was 1-1, the final 1-2), so it is never turned into a final score.
       1. Overwrite guard — merge the incoming list against the on-disk cache
-         (merge_fixtures_preserving_finished) so a scored FINISHED result is
-         terminal: never clobbered by a scoreless flicker or a stale in-play
-         record.
-      1b. Stale-live finalize — coerce any IN_PLAY/PAUSED record whose kickoff is
-         older than STALE_LIVE_AFTER to FINISHED (coerce_stale_live_to_finished),
-         so an upstream status that never advances can't show as live forever.
+         (merge_fixtures_preserving_finished): a scored FINISHED result is
+         terminal, an older copy (lastUpdated) never replaces a newer one, and a
+         game under way is never sent back to "not started".
       2. Durable ledger — record every FINISHED result in
          results/{slug}/{season}.json (update_results_ledger); an FD-independent
          memory that is never downgraded.
@@ -255,14 +260,27 @@ def write_fixtures_artifacts(artifacts: dict[str, list[dict]]) -> None:
         path.parent.mkdir(parents=True, exist_ok=True)
         led_path.parent.mkdir(parents=True, exist_ok=True)
 
+        # 0. Finalize any match upstream still serves LIVE long after kickoff
+        #    (it never advanced it to FINISHED), so it is recorded + healed below
+        #    rather than shown live forever. Incoming only - see the docstring.
+        fixtures = coerce_stale_live_to_finished(fixtures)
+
         # 1. Guard against a good→bad overwrite using the on-disk cache.
         cached = (load_json_file(path) or {}).get("fixtures", []) or []
         merged = merge_fixtures_preserving_finished(cached, fixtures)
 
-        # 1b. Finalize any match stuck LIVE long after kickoff (upstream never
-        #     advanced it to FINISHED) so it is recorded + healed below rather
-        #     than shown live forever.
-        merged = coerce_stale_live_to_finished(merged)
+        # Observability: live records kept from the cache over a not-started copy.
+        incoming_by_id = {r.get("match_id"): r for r in fixtures}
+        held = sum(
+            1 for r in merged
+            if r.get("status") in LIVE_STATUSES
+            and incoming_by_id.get(r.get("match_id")) is not r
+        )
+        if held:
+            log.warning(
+                f"{comp_name}: held {held} live record(s) over an older or "
+                "not-started copy from upstream"
+            )
 
         # 2. Update the durable, FD-independent results ledger.
         ledger = (load_json_file(led_path) or {}).get("results", {}) or {}
