@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-27T21:56:19Z",
+  "generated_at": "2026-10-27T22:01:31Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -2042,7 +2042,7 @@
           "gameweek": "GW9",
           "stem": "gameweek-9",
           "total": 3,
-          "covered": 1,
+          "covered": 2,
           "matches": [
             {
               "match_id": 558556,
@@ -2064,8 +2064,7 @@
               "home": "Torino FC",
               "away": "Como 1907",
               "date": "2026-10-27",
-              "covered": false,
-              "pending": true
+              "covered": true
             }
           ]
         }
