@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-27T21:26:30.787035Z",
+  "generated_at": "2026-10-27T21:46:43.103193Z",
   "competition": "Serie A",
   "slug": "serie-a",
   "season": 2026,
@@ -51,18 +51,37 @@
         "tla": "ROM",
         "crest": "https://crests.football-data.org/100.png"
       },
-      "playedGames": 8,
-      "form": "D,W,D,D,W",
-      "won": 5,
+      "playedGames": 9,
+      "form": "W,D,W,D,D",
+      "won": 6,
       "draw": 3,
       "lost": 0,
-      "points": 18,
-      "goalsFor": 19,
-      "goalsAgainst": 6,
-      "goalDifference": 13
+      "points": 21,
+      "goalsFor": 23,
+      "goalsAgainst": 8,
+      "goalDifference": 15
     },
     {
       "position": 4,
+      "team": {
+        "id": 7397,
+        "name": "Como 1907",
+        "shortName": "Como 1907",
+        "tla": "COM",
+        "crest": "https://crests.football-data.org/7397.png"
+      },
+      "playedGames": 9,
+      "form": "W,W,W,D,L",
+      "won": 6,
+      "draw": 2,
+      "lost": 1,
+      "points": 20,
+      "goalsFor": 17,
+      "goalsAgainst": 8,
+      "goalDifference": 9
+    },
+    {
+      "position": 5,
       "team": {
         "id": 98,
         "name": "AC Milan",
@@ -79,25 +98,6 @@
       "goalsFor": 16,
       "goalsAgainst": 7,
       "goalDifference": 9
-    },
-    {
-      "position": 5,
-      "team": {
-        "id": 7397,
-        "name": "Como 1907",
-        "shortName": "Como 1907",
-        "tla": "COM",
-        "crest": "https://crests.football-data.org/7397.png"
-      },
-      "playedGames": 8,
-      "form": "W,W,D,L,W",
-      "won": 5,
-      "draw": 2,
-      "lost": 1,
-      "points": 17,
-      "goalsFor": 14,
-      "goalsAgainst": 7,
-      "goalDifference": 7
     },
     {
       "position": 6,
@@ -146,15 +146,15 @@
         "tla": "TOR",
         "crest": "https://crests.football-data.org/586.png"
       },
-      "playedGames": 8,
-      "form": "W,W,W,D,L",
+      "playedGames": 9,
+      "form": "L,W,W,W,D",
       "won": 4,
       "draw": 1,
-      "lost": 3,
+      "lost": 4,
       "points": 13,
-      "goalsFor": 13,
-      "goalsAgainst": 11,
-      "goalDifference": 2
+      "goalsFor": 14,
+      "goalsAgainst": 14,
+      "goalDifference": 0
     },
     {
       "position": 9,
@@ -165,15 +165,15 @@
         "tla": "CAG",
         "crest": "https://crests.football-data.org/104.png"
       },
-      "playedGames": 8,
-      "form": "L,L,D,W,W",
+      "playedGames": 9,
+      "form": "L,L,L,D,W",
       "won": 4,
       "draw": 1,
-      "lost": 3,
+      "lost": 4,
       "points": 13,
-      "goalsFor": 6,
-      "goalsAgainst": 9,
-      "goalDifference": -3
+      "goalsFor": 8,
+      "goalsAgainst": 13,
+      "goalDifference": -5
     },
     {
       "position": 10,
