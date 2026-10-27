@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-26T22:11:39Z",
+  "generated_at": "2026-10-27T14:31:21Z",
   "month": "2026-10",
   "dates": {
     "2026-10-09": [
@@ -4660,6 +4660,27 @@
             "utcDate": "2026-10-30T18:00:00Z"
           },
           {
+            "match_id": 559646,
+            "homeTeam": {
+              "id": 522,
+              "name": "OGC Nice",
+              "shortName": "Nice",
+              "tla": "NIC",
+              "crest": "https://crests.football-data.org/522.png"
+            },
+            "awayTeam": {
+              "id": 529,
+              "name": "Stade Rennais FC 1901",
+              "shortName": "Stade Rennais",
+              "tla": "REN",
+              "crest": "https://crests.football-data.org/529.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "TIMED",
+            "utcDate": "2026-10-30T18:00:00Z"
+          },
+          {
             "match_id": 559639,
             "homeTeam": {
               "id": 521,
@@ -5153,69 +5174,6 @@
         "competition": "ligue-1",
         "name": "Ligue 1",
         "matches": [
-          {
-            "match_id": 559646,
-            "homeTeam": {
-              "id": 522,
-              "name": "OGC Nice",
-              "shortName": "Nice",
-              "tla": "NIC",
-              "crest": "https://crests.football-data.org/522.png"
-            },
-            "awayTeam": {
-              "id": 529,
-              "name": "Stade Rennais FC 1901",
-              "shortName": "Stade Rennais",
-              "tla": "REN",
-              "crest": "https://crests.football-data.org/529.png"
-            },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "TIMED",
-            "utcDate": "2026-10-31T16:15:00Z"
-          },
-          {
-            "match_id": 559640,
-            "homeTeam": {
-              "id": 523,
-              "name": "Olympique Lyonnais",
-              "shortName": "Olympique Lyon",
-              "tla": "LYO",
-              "crest": "https://crests.football-data.org/523.png"
-            },
-            "awayTeam": {
-              "id": 532,
-              "name": "Angers SCO",
-              "shortName": "Angers SCO",
-              "tla": "ANG",
-              "crest": "https://crests.football-data.org/532.png"
-            },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "TIMED",
-            "utcDate": "2026-10-31T19:45:00Z"
-          },
-          {
-            "match_id": 559641,
-            "homeTeam": {
-              "id": 525,
-              "name": "FC Lorient",
-              "shortName": "Lorient",
-              "tla": "FCL",
-              "crest": "https://crests.football-data.org/525.png"
-            },
-            "awayTeam": {
-              "id": 512,
-              "name": "Stade Brestois 29",
-              "shortName": "Brest",
-              "tla": "BRE",
-              "crest": "https://crests.football-data.org/512.png"
-            },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "TIMED",
-            "utcDate": "2026-10-31T19:45:00Z"
-          },
           {
             "match_id": 559643,
             "homeTeam": {

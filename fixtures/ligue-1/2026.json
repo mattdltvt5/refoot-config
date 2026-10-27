@@ -1,7 +1,7 @@
 {
   "competition": "Ligue 1",
   "season": 2026,
-  "generated_at": "2026-10-27T13:41:14Z",
+  "generated_at": "2026-10-27T14:31:21Z",
   "fixtures": [
     {
       "match_id": 559715,
@@ -2121,6 +2121,35 @@
       "lastUpdated": "2026-10-27T05:20:28Z"
     },
     {
+      "match_id": 559646,
+      "group": "",
+      "matchday": 9,
+      "sourceRound": "Gameweek 9",
+      "homeTeam": {
+        "id": 522,
+        "name": "OGC Nice",
+        "shortName": "Nice",
+        "tla": "NIC",
+        "crest": "https://crests.football-data.org/522.png"
+      },
+      "awayTeam": {
+        "id": 529,
+        "name": "Stade Rennais FC 1901",
+        "shortName": "Stade Rennais",
+        "tla": "REN",
+        "crest": "https://crests.football-data.org/529.png"
+      },
+      "score": {
+        "fullTime": {
+          "home": null,
+          "away": null
+        }
+      },
+      "status": "TIMED",
+      "utcDate": "2026-10-30T18:00:00Z",
+      "lastUpdated": "2026-10-27T14:25:10Z"
+    },
+    {
       "match_id": 559639,
       "group": "",
       "matchday": 9,
@@ -2147,93 +2176,6 @@
       },
       "status": "TIMED",
       "utcDate": "2026-10-30T20:05:00Z",
-      "lastUpdated": "2026-10-27T05:20:28Z"
-    },
-    {
-      "match_id": 559646,
-      "group": "",
-      "matchday": 9,
-      "sourceRound": "Gameweek 9",
-      "homeTeam": {
-        "id": 522,
-        "name": "OGC Nice",
-        "shortName": "Nice",
-        "tla": "NIC",
-        "crest": "https://crests.football-data.org/522.png"
-      },
-      "awayTeam": {
-        "id": 529,
-        "name": "Stade Rennais FC 1901",
-        "shortName": "Stade Rennais",
-        "tla": "REN",
-        "crest": "https://crests.football-data.org/529.png"
-      },
-      "score": {
-        "fullTime": {
-          "home": null,
-          "away": null
-        }
-      },
-      "status": "TIMED",
-      "utcDate": "2026-10-31T16:15:00Z",
-      "lastUpdated": "2026-10-27T05:20:28Z"
-    },
-    {
-      "match_id": 559640,
-      "group": "",
-      "matchday": 9,
-      "sourceRound": "Gameweek 9",
-      "homeTeam": {
-        "id": 523,
-        "name": "Olympique Lyonnais",
-        "shortName": "Olympique Lyon",
-        "tla": "LYO",
-        "crest": "https://crests.football-data.org/523.png"
-      },
-      "awayTeam": {
-        "id": 532,
-        "name": "Angers SCO",
-        "shortName": "Angers SCO",
-        "tla": "ANG",
-        "crest": "https://crests.football-data.org/532.png"
-      },
-      "score": {
-        "fullTime": {
-          "home": null,
-          "away": null
-        }
-      },
-      "status": "TIMED",
-      "utcDate": "2026-10-31T19:45:00Z",
-      "lastUpdated": "2026-10-27T05:20:28Z"
-    },
-    {
-      "match_id": 559641,
-      "group": "",
-      "matchday": 9,
-      "sourceRound": "Gameweek 9",
-      "homeTeam": {
-        "id": 525,
-        "name": "FC Lorient",
-        "shortName": "Lorient",
-        "tla": "FCL",
-        "crest": "https://crests.football-data.org/525.png"
-      },
-      "awayTeam": {
-        "id": 512,
-        "name": "Stade Brestois 29",
-        "shortName": "Brest",
-        "tla": "BRE",
-        "crest": "https://crests.football-data.org/512.png"
-      },
-      "score": {
-        "fullTime": {
-          "home": null,
-          "away": null
-        }
-      },
-      "status": "TIMED",
-      "utcDate": "2026-10-31T19:45:00Z",
       "lastUpdated": "2026-10-27T05:20:28Z"
     },
     {
@@ -2295,6 +2237,35 @@
       "lastUpdated": "2026-10-27T05:20:28Z"
     },
     {
+      "match_id": 559640,
+      "group": "",
+      "matchday": 9,
+      "sourceRound": "Gameweek 9",
+      "homeTeam": {
+        "id": 523,
+        "name": "Olympique Lyonnais",
+        "shortName": "Olympique Lyon",
+        "tla": "LYO",
+        "crest": "https://crests.football-data.org/523.png"
+      },
+      "awayTeam": {
+        "id": 532,
+        "name": "Angers SCO",
+        "shortName": "Angers SCO",
+        "tla": "ANG",
+        "crest": "https://crests.football-data.org/532.png"
+      },
+      "score": {
+        "fullTime": {
+          "home": null,
+          "away": null
+        }
+      },
+      "status": "TIMED",
+      "utcDate": "2026-11-01T16:15:00Z",
+      "lastUpdated": "2026-10-27T14:25:10Z"
+    },
+    {
       "match_id": 559642,
       "group": "",
       "matchday": 9,
@@ -2351,6 +2322,35 @@
       "status": "TIMED",
       "utcDate": "2026-11-01T19:45:00Z",
       "lastUpdated": "2026-10-27T05:20:28Z"
+    },
+    {
+      "match_id": 559641,
+      "group": "",
+      "matchday": 9,
+      "sourceRound": "Gameweek 9",
+      "homeTeam": {
+        "id": 525,
+        "name": "FC Lorient",
+        "shortName": "Lorient",
+        "tla": "FCL",
+        "crest": "https://crests.football-data.org/525.png"
+      },
+      "awayTeam": {
+        "id": 512,
+        "name": "Stade Brestois 29",
+        "shortName": "Brest",
+        "tla": "BRE",
+        "crest": "https://crests.football-data.org/512.png"
+      },
+      "score": {
+        "fullTime": {
+          "home": null,
+          "away": null
+        }
+      },
+      "status": "TIMED",
+      "utcDate": "2026-11-02T19:45:00Z",
+      "lastUpdated": "2026-10-27T14:25:10Z"
     },
     {
       "match_id": 559638,
