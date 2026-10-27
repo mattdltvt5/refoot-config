@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-27T19:31:14Z",
+  "generated_at": "2026-10-27T19:36:22Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -2035,6 +2035,22 @@
               "away": "AC Milan",
               "date": "2026-10-25",
               "covered": true
+            }
+          ]
+        },
+        {
+          "gameweek": "GW9",
+          "stem": "gameweek-9",
+          "total": 1,
+          "covered": 0,
+          "matches": [
+            {
+              "match_id": 558556,
+              "home": "US Sassuolo Calcio",
+              "away": "SS Lazio",
+              "date": "2026-10-27",
+              "covered": false,
+              "pending": true
             }
           ]
         }
