@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-27T22:01:31Z",
+  "generated_at": "2026-10-27T22:06:10Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -2042,7 +2042,7 @@
           "gameweek": "GW9",
           "stem": "gameweek-9",
           "total": 3,
-          "covered": 2,
+          "covered": 3,
           "matches": [
             {
               "match_id": 558556,
@@ -2056,8 +2056,7 @@
               "home": "AS Roma",
               "away": "Cagliari Calcio",
               "date": "2026-10-27",
-              "covered": false,
-              "pending": true
+              "covered": true
             },
             {
               "match_id": 558557,
