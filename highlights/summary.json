@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-28T19:41:46Z",
+  "generated_at": "2026-10-28T19:46:33Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -2042,7 +2042,7 @@
           "gameweek": "GW9",
           "stem": "gameweek-9",
           "total": 6,
-          "covered": 3,
+          "covered": 4,
           "matches": [
             {
               "match_id": 558556,
@@ -2086,8 +2086,7 @@
               "home": "Parma Calcio 1913",
               "away": "Udinese Calcio",
               "date": "2026-10-28",
-              "covered": false,
-              "pending": true
+              "covered": true
             }
           ]
         }
