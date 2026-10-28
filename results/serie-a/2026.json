@@ -1,7 +1,7 @@
 {
   "competition": "Serie A",
   "season": 2026,
-  "generated_at": "2026-10-28T19:26:10Z",
+  "generated_at": "2026-10-28T19:31:18Z",
   "results": {
     "558629": {
       "status": "FINISHED",
@@ -915,6 +915,39 @@
       },
       "utcDate": "2026-10-27T19:45:00Z",
       "first_finished_at": "2026-10-27T21:51:12Z"
+    },
+    "558549": {
+      "status": "FINISHED",
+      "score": {
+        "fullTime": {
+          "home": 2,
+          "away": 4
+        }
+      },
+      "utcDate": "2026-10-28T17:30:00Z",
+      "first_finished_at": "2026-10-28T19:31:18Z"
+    },
+    "558550": {
+      "status": "FINISHED",
+      "score": {
+        "fullTime": {
+          "home": 0,
+          "away": 2
+        }
+      },
+      "utcDate": "2026-10-28T17:30:00Z",
+      "first_finished_at": "2026-10-28T19:31:18Z"
+    },
+    "558553": {
+      "status": "FINISHED",
+      "score": {
+        "fullTime": {
+          "home": 0,
+          "away": 0
+        }
+      },
+      "utcDate": "2026-10-28T17:30:00Z",
+      "first_finished_at": "2026-10-28T19:31:18Z"
     }
   }
 }
