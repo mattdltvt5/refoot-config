@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-28T21:46:22Z",
+  "generated_at": "2026-10-28T21:51:26Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -2041,8 +2041,8 @@
         {
           "gameweek": "GW9",
           "stem": "gameweek-9",
-          "total": 7,
-          "covered": 6,
+          "total": 8,
+          "covered": 7,
           "matches": [
             {
               "match_id": 558556,
@@ -2090,6 +2090,13 @@
               "match_id": 558554,
               "home": "AC Monza",
               "away": "SSC Napoli",
+              "date": "2026-10-28",
+              "covered": true
+            },
+            {
+              "match_id": 558552,
+              "home": "Genoa CFC",
+              "away": "Juventus FC",
               "date": "2026-10-28",
               "covered": false,
               "pending": true
