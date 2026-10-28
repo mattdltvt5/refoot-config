@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-28T21:41:14Z",
+  "generated_at": "2026-10-28T21:46:22Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -2041,7 +2041,7 @@
         {
           "gameweek": "GW9",
           "stem": "gameweek-9",
-          "total": 6,
+          "total": 7,
           "covered": 6,
           "matches": [
             {
@@ -2085,6 +2085,14 @@
               "away": "Udinese Calcio",
               "date": "2026-10-28",
               "covered": true
+            },
+            {
+              "match_id": 558554,
+              "home": "AC Monza",
+              "away": "SSC Napoli",
+              "date": "2026-10-28",
+              "covered": false,
+              "pending": true
             }
           ]
         }
