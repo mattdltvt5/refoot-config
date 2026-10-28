@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-28T19:46:33Z",
+  "generated_at": "2026-10-28T19:51:20Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -2042,7 +2042,7 @@
           "gameweek": "GW9",
           "stem": "gameweek-9",
           "total": 6,
-          "covered": 4,
+          "covered": 5,
           "matches": [
             {
               "match_id": 558556,
@@ -2070,8 +2070,7 @@
               "home": "AC Milan",
               "away": "Bologna FC 1909",
               "date": "2026-10-28",
-              "covered": false,
-              "pending": true
+              "covered": true
             },
             {
               "match_id": 558550,
