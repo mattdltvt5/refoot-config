@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-28T21:56:28Z",
+  "generated_at": "2026-10-28T22:01:20Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -2042,7 +2042,7 @@
           "gameweek": "GW9",
           "stem": "gameweek-9",
           "total": 8,
-          "covered": 7,
+          "covered": 8,
           "matches": [
             {
               "match_id": 558556,
@@ -2098,8 +2098,7 @@
               "home": "Genoa CFC",
               "away": "Juventus FC",
               "date": "2026-10-28",
-              "covered": false,
-              "pending": true
+              "covered": true
             }
           ]
         }
