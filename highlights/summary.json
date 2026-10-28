@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-28T19:56:19Z",
+  "generated_at": "2026-10-28T20:01:24Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -2042,7 +2042,7 @@
           "gameweek": "GW9",
           "stem": "gameweek-9",
           "total": 6,
-          "covered": 5,
+          "covered": 6,
           "matches": [
             {
               "match_id": 558556,
@@ -2077,8 +2077,7 @@
               "home": "Venezia FC",
               "away": "FC Internazionale Milano",
               "date": "2026-10-28",
-              "covered": false,
-              "pending": true
+              "covered": true
             },
             {
               "match_id": 558553,
