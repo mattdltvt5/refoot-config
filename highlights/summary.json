@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-29T19:36:11Z",
+  "generated_at": "2026-10-29T19:41:23Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -2041,7 +2041,7 @@
         {
           "gameweek": "GW9",
           "stem": "gameweek-9",
-          "total": 8,
+          "total": 9,
           "covered": 8,
           "matches": [
             {
@@ -2099,6 +2099,14 @@
               "away": "Juventus FC",
               "date": "2026-10-28",
               "covered": true
+            },
+            {
+              "match_id": 558558,
+              "home": "Frosinone Calcio",
+              "away": "US Lecce",
+              "date": "2026-10-29",
+              "covered": false,
+              "pending": true
             }
           ]
         }

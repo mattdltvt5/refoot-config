@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-29T13:59:21.203738Z",
+  "generated_at": "2026-10-29T19:41:45.268998Z",
   "competition": "Serie A",
   "slug": "serie-a",
   "season": 2026,
@@ -102,6 +102,25 @@
     {
       "position": 6,
       "team": {
+        "id": 470,
+        "name": "Frosinone Calcio",
+        "shortName": "Frosinone",
+        "tla": "FRO",
+        "crest": "https://crests.football-data.org/470.png"
+      },
+      "playedGames": 9,
+      "form": "W,D,W,L,W",
+      "won": 5,
+      "draw": 2,
+      "lost": 2,
+      "points": 17,
+      "goalsFor": 22,
+      "goalsAgainst": 14,
+      "goalDifference": 8
+    },
+    {
+      "position": 7,
+      "team": {
         "id": 113,
         "name": "SSC Napoli",
         "shortName": "Napoli",
@@ -117,25 +136,6 @@
       "goalsFor": 17,
       "goalsAgainst": 11,
       "goalDifference": 6
-    },
-    {
-      "position": 7,
-      "team": {
-        "id": 470,
-        "name": "Frosinone Calcio",
-        "shortName": "Frosinone",
-        "tla": "FRO",
-        "crest": "https://crests.football-data.org/470.png"
-      },
-      "playedGames": 8,
-      "form": "D,W,L,W,D",
-      "won": 4,
-      "draw": 2,
-      "lost": 2,
-      "points": 14,
-      "goalsFor": 17,
-      "goalsAgainst": 13,
-      "goalDifference": 4
     },
     {
       "position": 8,
@@ -260,15 +260,15 @@
         "tla": "USL",
         "crest": "https://crests.football-data.org/5890.png"
       },
-      "playedGames": 8,
-      "form": "L,W,L,L,W",
+      "playedGames": 9,
+      "form": "L,L,W,L,L",
       "won": 3,
       "draw": 0,
-      "lost": 5,
+      "lost": 6,
       "points": 9,
-      "goalsFor": 9,
-      "goalsAgainst": 14,
-      "goalDifference": -5
+      "goalsFor": 10,
+      "goalsAgainst": 19,
+      "goalDifference": -9
     },
     {
       "position": 15,
