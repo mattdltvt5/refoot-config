@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-30T21:56:40.365175Z",
+  "generated_at": "2026-10-30T22:07:05.297131Z",
   "competition": "Ligue 1",
   "slug": "ligue-1",
   "season": 2026,
@@ -26,6 +26,25 @@
     {
       "position": 2,
       "team": {
+        "id": 521,
+        "name": "Lille OSC",
+        "shortName": "Lille",
+        "tla": "LIL",
+        "crest": "https://crests.football-data.org/521.png"
+      },
+      "playedGames": 9,
+      "form": "W,D,D,W,L",
+      "won": 5,
+      "draw": 3,
+      "lost": 1,
+      "points": 18,
+      "goalsFor": 12,
+      "goalsAgainst": 6,
+      "goalDifference": 6
+    },
+    {
+      "position": 3,
+      "team": {
         "id": 529,
         "name": "Stade Rennais FC 1901",
         "shortName": "Stade Rennais",
@@ -41,25 +60,6 @@
       "goalsFor": 20,
       "goalsAgainst": 19,
       "goalDifference": 1
-    },
-    {
-      "position": 3,
-      "team": {
-        "id": 521,
-        "name": "Lille OSC",
-        "shortName": "Lille",
-        "tla": "LIL",
-        "crest": "https://crests.football-data.org/521.png"
-      },
-      "playedGames": 8,
-      "form": "D,D,W,L,W",
-      "won": 4,
-      "draw": 3,
-      "lost": 1,
-      "points": 15,
-      "goalsFor": 11,
-      "goalsAgainst": 6,
-      "goalDifference": 5
     },
     {
       "position": 4,
@@ -146,15 +146,15 @@
         "tla": "RCL",
         "crest": "https://crests.football-data.org/546.png"
       },
-      "playedGames": 8,
-      "form": "W,W,W,L,D",
+      "playedGames": 9,
+      "form": "L,W,W,W,L",
       "won": 4,
       "draw": 1,
-      "lost": 3,
+      "lost": 4,
       "points": 13,
       "goalsFor": 16,
-      "goalsAgainst": 12,
-      "goalDifference": 4
+      "goalsAgainst": 13,
+      "goalDifference": 3
     },
     {
       "position": 9,

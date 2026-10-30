@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-30T22:01:31Z",
+  "generated_at": "2026-10-30T22:06:28Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -3227,7 +3227,7 @@
         {
           "gameweek": "GW9",
           "stem": "gameweek-9",
-          "total": 2,
+          "total": 3,
           "covered": 2,
           "matches": [
             {
@@ -3243,6 +3243,14 @@
               "away": "Stade Rennais FC 1901",
               "date": "2026-10-30",
               "covered": true
+            },
+            {
+              "match_id": 559639,
+              "home": "Lille OSC",
+              "away": "Racing Club de Lens",
+              "date": "2026-10-30",
+              "covered": false,
+              "pending": true
             }
           ]
         }
