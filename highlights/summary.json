@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-30T20:26:26Z",
+  "generated_at": "2026-10-30T20:31:31Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -3197,7 +3197,7 @@
           "gameweek": "GW9",
           "stem": "gameweek-9",
           "total": 2,
-          "covered": 0,
+          "covered": 1,
           "matches": [
             {
               "match_id": 559644,
@@ -3212,8 +3212,7 @@
               "home": "OGC Nice",
               "away": "Stade Rennais FC 1901",
               "date": "2026-10-30",
-              "covered": false,
-              "pending": true
+              "covered": true
             }
           ]
         }
