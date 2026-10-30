@@ -1,7 +1,7 @@
 {
   "competition": "LaLiga",
   "season": 2026,
-  "generated_at": "2026-10-30T14:01:20Z",
+  "generated_at": "2026-10-30T14:31:17Z",
   "fixtures": [
     {
       "match_id": 564634,
@@ -2063,35 +2063,6 @@
       "lastUpdated": "2026-10-30T10:20:31Z"
     },
     {
-      "match_id": 564698,
-      "group": "",
-      "matchday": 8,
-      "sourceRound": "Gameweek 8",
-      "homeTeam": {
-        "id": 87,
-        "name": "Rayo Vallecano de Madrid",
-        "shortName": "Rayo Vallecano",
-        "tla": "RAY",
-        "crest": "https://crests.football-data.org/87.png"
-      },
-      "awayTeam": {
-        "id": 77,
-        "name": "Athletic Club",
-        "shortName": "Athletic",
-        "tla": "ATH",
-        "crest": "https://crests.football-data.org/77.png"
-      },
-      "score": {
-        "fullTime": {
-          "home": 0,
-          "away": 0
-        }
-      },
-      "status": "CANCELLED",
-      "utcDate": "2026-10-10T12:00:00Z",
-      "lastUpdated": "2026-10-30T10:20:31Z"
-    },
-    {
       "match_id": 564699,
       "group": "",
       "matchday": 8,
@@ -2322,6 +2293,35 @@
       "status": "FINISHED",
       "utcDate": "2026-10-12T19:00:00Z",
       "lastUpdated": "2026-10-30T10:20:31Z"
+    },
+    {
+      "match_id": 564698,
+      "group": "",
+      "matchday": 8,
+      "sourceRound": "Gameweek 8",
+      "homeTeam": {
+        "id": 87,
+        "name": "Rayo Vallecano de Madrid",
+        "shortName": "Rayo Vallecano",
+        "tla": "RAY",
+        "crest": "https://crests.football-data.org/87.png"
+      },
+      "awayTeam": {
+        "id": 77,
+        "name": "Athletic Club",
+        "shortName": "Athletic",
+        "tla": "ATH",
+        "crest": "https://crests.football-data.org/77.png"
+      },
+      "score": {
+        "fullTime": {
+          "home": 0,
+          "away": 0
+        }
+      },
+      "status": "CANCELLED",
+      "utcDate": "2026-12-09T19:00:00Z",
+      "lastUpdated": "2026-10-30T14:25:10Z"
     },
     {
       "match_id": 564716,

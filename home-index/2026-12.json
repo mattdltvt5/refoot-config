@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-30T01:16:14Z",
+  "generated_at": "2026-10-30T14:31:17Z",
   "month": "2026-12",
   "dates": {
     "2026-12-01": [
@@ -1516,6 +1516,33 @@
       }
     ],
     "2026-12-09": [
+      {
+        "competition": "laliga",
+        "name": "LaLiga",
+        "matches": [
+          {
+            "match_id": 564698,
+            "homeTeam": {
+              "id": 87,
+              "name": "Rayo Vallecano de Madrid",
+              "shortName": "Rayo Vallecano",
+              "tla": "RAY",
+              "crest": "https://crests.football-data.org/87.png"
+            },
+            "awayTeam": {
+              "id": 77,
+              "name": "Athletic Club",
+              "shortName": "Athletic",
+              "tla": "ATH",
+              "crest": "https://crests.football-data.org/77.png"
+            },
+            "homeScore": 0,
+            "awayScore": 0,
+            "status": "CANCELLED",
+            "utcDate": "2026-12-09T19:00:00Z"
+          }
+        ]
+      },
       {
         "competition": "ucl",
         "name": "Champions League",
