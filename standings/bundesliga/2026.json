@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-30T13:54:48.570423Z",
+  "generated_at": "2026-10-30T21:31:40.893001Z",
   "competition": "Bundesliga",
   "slug": "bundesliga",
   "season": 2026,
@@ -83,6 +83,25 @@
     {
       "position": 5,
       "team": {
+        "id": 719,
+        "name": "SV 07 Elversberg",
+        "shortName": "Elversberg",
+        "tla": "ELV",
+        "crest": "https://crests.football-data.org/719.png"
+      },
+      "playedGames": 8,
+      "form": "W,L,W,L,D",
+      "won": 4,
+      "draw": 1,
+      "lost": 3,
+      "points": 13,
+      "goalsFor": 16,
+      "goalsAgainst": 16,
+      "goalDifference": 0
+    },
+    {
+      "position": 6,
+      "team": {
         "id": 721,
         "name": "RB Leipzig",
         "shortName": "RB Leipzig",
@@ -100,7 +119,7 @@
       "goalDifference": 9
     },
     {
-      "position": 6,
+      "position": 7,
       "team": {
         "id": 12,
         "name": "SV Werder Bremen",
@@ -119,7 +138,7 @@
       "goalDifference": 1
     },
     {
-      "position": 7,
+      "position": 8,
       "team": {
         "id": 15,
         "name": "1. FSV Mainz 05",
@@ -127,34 +146,15 @@
         "tla": "M05",
         "crest": "https://crests.football-data.org/15.png"
       },
-      "playedGames": 7,
-      "form": "L,W,L,W,L",
+      "playedGames": 8,
+      "form": "L,L,W,L,W",
       "won": 3,
       "draw": 1,
-      "lost": 3,
+      "lost": 4,
       "points": 10,
-      "goalsFor": 16,
-      "goalsAgainst": 13,
-      "goalDifference": 3
-    },
-    {
-      "position": 8,
-      "team": {
-        "id": 719,
-        "name": "SV 07 Elversberg",
-        "shortName": "Elversberg",
-        "tla": "ELV",
-        "crest": "https://crests.football-data.org/719.png"
-      },
-      "playedGames": 7,
-      "form": "L,W,L,D,L",
-      "won": 3,
-      "draw": 1,
-      "lost": 3,
-      "points": 10,
-      "goalsFor": 12,
-      "goalsAgainst": 15,
-      "goalDifference": -3
+      "goalsFor": 17,
+      "goalsAgainst": 17,
+      "goalDifference": 0
     },
     {
       "position": 9,
