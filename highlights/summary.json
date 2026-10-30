@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-30T22:06:28Z",
+  "generated_at": "2026-10-30T22:11:25Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -1412,15 +1412,14 @@
           "gameweek": "GW11",
           "stem": "gameweek-11",
           "total": 1,
-          "covered": 0,
+          "covered": 1,
           "matches": [
             {
               "match_id": 564737,
               "home": "Villarreal CF",
               "away": "RCD Espanyol de Barcelona",
               "date": "2026-10-30",
-              "covered": false,
-              "pending": true
+              "covered": true
             }
           ]
         }
