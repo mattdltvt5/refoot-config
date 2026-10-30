@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-30T20:31:31Z",
+  "generated_at": "2026-10-30T20:36:13Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -3197,15 +3197,14 @@
           "gameweek": "GW9",
           "stem": "gameweek-9",
           "total": 2,
-          "covered": 1,
+          "covered": 2,
           "matches": [
             {
               "match_id": 559644,
               "home": "Le Havre AC",
               "away": "Paris Saint-Germain FC",
               "date": "2026-10-30",
-              "covered": false,
-              "pending": true
+              "covered": true
             },
             {
               "match_id": 559646,
