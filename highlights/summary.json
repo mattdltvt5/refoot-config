@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-31T15:06:18Z",
+  "generated_at": "2026-10-31T15:11:15Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -1428,7 +1428,7 @@
           "gameweek": "GW11",
           "stem": "gameweek-11",
           "total": 2,
-          "covered": 1,
+          "covered": 2,
           "matches": [
             {
               "match_id": 564737,
@@ -1442,8 +1442,7 @@
               "home": "Levante UD",
               "away": "Club Atlético de Madrid",
               "date": "2026-10-31",
-              "covered": false,
-              "pending": true
+              "covered": true
             }
           ]
         }
