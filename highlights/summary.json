@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-31T16:56:31Z",
+  "generated_at": "2026-10-31T17:01:31Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -632,13 +632,21 @@
         {
           "gameweek": "GW9",
           "stem": "gameweek-9",
-          "total": 1,
+          "total": 2,
           "covered": 0,
           "matches": [
             {
               "match_id": 560626,
               "home": "Chelsea FC",
               "away": "Manchester United FC",
+              "date": "2026-10-31",
+              "covered": false,
+              "pending": true
+            },
+            {
+              "match_id": 560630,
+              "home": "Brentford FC",
+              "away": "Nottingham Forest FC",
               "date": "2026-10-31",
               "covered": false,
               "pending": true
@@ -2676,7 +2684,7 @@
           "gameweek": "GW8",
           "stem": "gameweek-8",
           "total": 6,
-          "covered": 3,
+          "covered": 6,
           "matches": [
             {
               "match_id": 565846,
@@ -2690,16 +2698,14 @@
               "home": "Borussia Mönchengladbach",
               "away": "SC Paderborn 07",
               "date": "2026-10-31",
-              "covered": false,
-              "pending": true
+              "covered": true
             },
             {
               "match_id": 565840,
               "home": "FC Schalke 04",
               "away": "RB Leipzig",
               "date": "2026-10-31",
-              "covered": false,
-              "pending": true
+              "covered": true
             },
             {
               "match_id": 565842,
@@ -2713,8 +2719,7 @@
               "home": "SV Werder Bremen",
               "away": "TSG 1899 Hoffenheim",
               "date": "2026-10-31",
-              "covered": false,
-              "pending": true
+              "covered": true
             },
             {
               "match_id": 565847,
