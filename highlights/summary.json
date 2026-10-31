@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-31T18:56:08Z",
+  "generated_at": "2026-10-31T19:01:50Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -2204,7 +2204,7 @@
         {
           "gameweek": "GW10",
           "stem": "gameweek-10",
-          "total": 1,
+          "total": 2,
           "covered": 1,
           "matches": [
             {
@@ -2213,6 +2213,14 @@
               "away": "AC Monza",
               "date": "2026-10-31",
               "covered": true
+            },
+            {
+              "match_id": 558542,
+              "home": "Udinese Calcio",
+              "away": "AS Roma",
+              "date": "2026-10-31",
+              "covered": false,
+              "pending": true
             }
           ]
         }
