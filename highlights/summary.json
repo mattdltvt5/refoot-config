@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-31T17:01:31Z",
+  "generated_at": "2026-10-31T17:06:34Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -632,7 +632,7 @@
         {
           "gameweek": "GW9",
           "stem": "gameweek-9",
-          "total": 2,
+          "total": 6,
           "covered": 0,
           "matches": [
             {
@@ -647,6 +647,38 @@
               "match_id": 560630,
               "home": "Brentford FC",
               "away": "Nottingham Forest FC",
+              "date": "2026-10-31",
+              "covered": false,
+              "pending": true
+            },
+            {
+              "match_id": 560623,
+              "home": "Manchester City FC",
+              "away": "Brighton & Hove Albion FC",
+              "date": "2026-10-31",
+              "covered": false,
+              "pending": true
+            },
+            {
+              "match_id": 560624,
+              "home": "AFC Bournemouth",
+              "away": "Leeds United FC",
+              "date": "2026-10-31",
+              "covered": false,
+              "pending": true
+            },
+            {
+              "match_id": 560625,
+              "home": "Coventry City FC",
+              "away": "Sunderland AFC",
+              "date": "2026-10-31",
+              "covered": false,
+              "pending": true
+            },
+            {
+              "match_id": 560629,
+              "home": "Hull City AFC",
+              "away": "Ipswich Town FC",
               "date": "2026-10-31",
               "covered": false,
               "pending": true
