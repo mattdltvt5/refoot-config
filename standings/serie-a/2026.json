@@ -1,30 +1,11 @@
 {
-  "generated_at": "2026-10-31T20:57:24.370136Z",
+  "generated_at": "2026-10-31T21:56:31.753702Z",
   "competition": "Serie A",
   "slug": "serie-a",
   "season": 2026,
   "standings": [
     {
       "position": 1,
-      "team": {
-        "id": 108,
-        "name": "FC Internazionale Milano",
-        "shortName": "Inter",
-        "tla": "INT",
-        "crest": "https://crests.football-data.org/108.png"
-      },
-      "playedGames": 9,
-      "form": "W,W,W,W,D",
-      "won": 8,
-      "draw": 1,
-      "lost": 0,
-      "points": 25,
-      "goalsFor": 25,
-      "goalsAgainst": 10,
-      "goalDifference": 15
-    },
-    {
-      "position": 2,
       "team": {
         "id": 110,
         "name": "SS Lazio",
@@ -41,6 +22,25 @@
       "goalsFor": 22,
       "goalsAgainst": 7,
       "goalDifference": 15
+    },
+    {
+      "position": 2,
+      "team": {
+        "id": 108,
+        "name": "FC Internazionale Milano",
+        "shortName": "Inter",
+        "tla": "INT",
+        "crest": "https://crests.football-data.org/108.png"
+      },
+      "playedGames": 10,
+      "form": "L,W,W,W,W",
+      "won": 8,
+      "draw": 1,
+      "lost": 1,
+      "points": 25,
+      "goalsFor": 26,
+      "goalsAgainst": 13,
+      "goalDifference": 13
     },
     {
       "position": 3,
@@ -64,6 +64,25 @@
     {
       "position": 4,
       "team": {
+        "id": 98,
+        "name": "AC Milan",
+        "shortName": "Milan",
+        "tla": "MIL",
+        "crest": "https://crests.football-data.org/98.png"
+      },
+      "playedGames": 10,
+      "form": "W,L,W,W,D",
+      "won": 6,
+      "draw": 3,
+      "lost": 1,
+      "points": 21,
+      "goalsFor": 21,
+      "goalsAgainst": 12,
+      "goalDifference": 9
+    },
+    {
+      "position": 5,
+      "team": {
         "id": 7397,
         "name": "Como 1907",
         "shortName": "Como 1907",
@@ -79,25 +98,6 @@
       "goalsFor": 17,
       "goalsAgainst": 8,
       "goalDifference": 9
-    },
-    {
-      "position": 5,
-      "team": {
-        "id": 98,
-        "name": "AC Milan",
-        "shortName": "Milan",
-        "tla": "MIL",
-        "crest": "https://crests.football-data.org/98.png"
-      },
-      "playedGames": 9,
-      "form": "L,W,W,D,W",
-      "won": 5,
-      "draw": 3,
-      "lost": 1,
-      "points": 18,
-      "goalsFor": 18,
-      "goalsAgainst": 11,
-      "goalDifference": 7
     },
     {
       "position": 6,
