@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-31T19:36:29Z",
+  "generated_at": "2026-10-31T19:41:58Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -1474,7 +1474,7 @@
         {
           "gameweek": "GW11",
           "stem": "gameweek-11",
-          "total": 3,
+          "total": 4,
           "covered": 3,
           "matches": [
             {
@@ -1497,6 +1497,14 @@
               "away": "RC Celta de Vigo",
               "date": "2026-10-31",
               "covered": true
+            },
+            {
+              "match_id": 564736,
+              "home": "Real Betis Balompié",
+              "away": "Málaga CF",
+              "date": "2026-10-31",
+              "covered": false,
+              "pending": true
             }
           ]
         }
@@ -2736,7 +2744,7 @@
         {
           "gameweek": "GW8",
           "stem": "gameweek-8",
-          "total": 6,
+          "total": 7,
           "covered": 6,
           "matches": [
             {
@@ -2780,6 +2788,14 @@
               "away": "VfB Stuttgart",
               "date": "2026-10-31",
               "covered": true
+            },
+            {
+              "match_id": 565845,
+              "home": "FC Bayern München",
+              "away": "Borussia Dortmund",
+              "date": "2026-10-31",
+              "covered": false,
+              "pending": true
             }
           ]
         }

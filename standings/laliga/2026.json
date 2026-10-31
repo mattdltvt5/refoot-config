@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-31T19:11:54.963167Z",
+  "generated_at": "2026-10-31T19:42:26.593158Z",
   "competition": "LaLiga",
   "slug": "laliga",
   "season": 2026,
@@ -70,15 +70,15 @@
         "tla": "BET",
         "crest": "https://crests.football-data.org/90.png"
       },
-      "playedGames": 10,
-      "form": "D,L,W,D,W",
-      "won": 6,
+      "playedGames": 11,
+      "form": "W,D,L,W,D",
+      "won": 7,
       "draw": 2,
       "lost": 2,
-      "points": 20,
-      "goalsFor": 16,
-      "goalsAgainst": 14,
-      "goalDifference": 2
+      "points": 23,
+      "goalsFor": 18,
+      "goalsAgainst": 15,
+      "goalDifference": 3
     },
     {
       "position": 5,
@@ -374,15 +374,15 @@
         "tla": "MAL",
         "crest": "https://crests.football-data.org/84.png"
       },
-      "playedGames": 10,
-      "form": "D,L,D,L,L",
+      "playedGames": 11,
+      "form": "L,D,L,D,L",
       "won": 0,
       "draw": 5,
-      "lost": 5,
+      "lost": 6,
       "points": 5,
-      "goalsFor": 7,
-      "goalsAgainst": 19,
-      "goalDifference": -12
+      "goalsFor": 8,
+      "goalsAgainst": 21,
+      "goalDifference": -13
     }
   ]
 }
