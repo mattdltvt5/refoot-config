@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-31T16:31:49Z",
+  "generated_at": "2026-10-31T16:36:42Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -2676,8 +2676,8 @@
         {
           "gameweek": "GW8",
           "stem": "gameweek-8",
-          "total": 5,
-          "covered": 1,
+          "total": 6,
+          "covered": 2,
           "matches": [
             {
               "match_id": 565846,
@@ -2707,13 +2707,20 @@
               "home": "FC Augsburg",
               "away": "SC Freiburg",
               "date": "2026-10-31",
-              "covered": false,
-              "pending": true
+              "covered": true
             },
             {
               "match_id": 565843,
               "home": "SV Werder Bremen",
               "away": "TSG 1899 Hoffenheim",
+              "date": "2026-10-31",
+              "covered": false,
+              "pending": true
+            },
+            {
+              "match_id": 565847,
+              "home": "Bayer 04 Leverkusen",
+              "away": "VfB Stuttgart",
               "date": "2026-10-31",
               "covered": false,
               "pending": true
