@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-31T17:21:14Z",
+  "generated_at": "2026-10-31T17:42:18Z",
   "month": "2026-10",
   "dates": {
     "2026-10-09": [
@@ -4845,9 +4845,9 @@
               "tla": "CRY",
               "crest": "https://crests.football-data.org/354.png"
             },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "TIMED",
+            "homeScore": 0,
+            "awayScore": 0,
+            "status": "IN_PLAY",
             "utcDate": "2026-10-31T17:30:00Z"
           },
           {
@@ -4918,7 +4918,8 @@
             "homeScore": 3,
             "awayScore": 0,
             "status": "FINISHED",
-            "utcDate": "2026-10-31T15:15:00Z"
+            "utcDate": "2026-10-31T15:15:00Z",
+            "videoId": "2-v5Pi2PLvY"
           },
           {
             "match_id": 564736,
@@ -4936,9 +4937,9 @@
               "tla": "MAL",
               "crest": "https://crests.football-data.org/84.png"
             },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "TIMED",
+            "homeScore": 0,
+            "awayScore": 0,
+            "status": "IN_PLAY",
             "utcDate": "2026-10-31T17:30:00Z"
           },
           {
@@ -5007,7 +5008,7 @@
               "crest": "https://crests.football-data.org/100.png"
             },
             "homeScore": 0,
-            "awayScore": 1,
+            "awayScore": 3,
             "status": "IN_PLAY",
             "utcDate": "2026-10-31T17:00:00Z"
           },

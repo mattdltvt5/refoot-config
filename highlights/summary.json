@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-31T17:36:43Z",
+  "generated_at": "2026-10-31T17:41:34Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -1468,7 +1468,7 @@
           "gameweek": "GW11",
           "stem": "gameweek-11",
           "total": 3,
-          "covered": 2,
+          "covered": 3,
           "matches": [
             {
               "match_id": 564737,
@@ -1489,8 +1489,7 @@
               "home": "Rayo Vallecano de Madrid",
               "away": "RC Celta de Vigo",
               "date": "2026-10-31",
-              "covered": false,
-              "pending": true
+              "covered": true
             }
           ]
         }
