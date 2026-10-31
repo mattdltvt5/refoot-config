@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-31T13:27:06.648516Z",
+  "generated_at": "2026-10-31T16:12:02.346692Z",
   "competition": "Serie A",
   "slug": "serie-a",
   "season": 2026,
@@ -140,6 +140,25 @@
     {
       "position": 8,
       "team": {
+        "id": 103,
+        "name": "Bologna FC 1909",
+        "shortName": "Bologna",
+        "tla": "BOL",
+        "crest": "https://crests.football-data.org/103.png"
+      },
+      "playedGames": 10,
+      "form": "W,W,W,L,W",
+      "won": 4,
+      "draw": 2,
+      "lost": 4,
+      "points": 14,
+      "goalsFor": 14,
+      "goalsAgainst": 13,
+      "goalDifference": 1
+    },
+    {
+      "position": 9,
+      "team": {
         "id": 109,
         "name": "Juventus FC",
         "shortName": "Juventus",
@@ -157,7 +176,7 @@
       "goalDifference": 1
     },
     {
-      "position": 9,
+      "position": 10,
       "team": {
         "id": 586,
         "name": "Torino FC",
@@ -176,7 +195,7 @@
       "goalDifference": 0
     },
     {
-      "position": 10,
+      "position": 11,
       "team": {
         "id": 104,
         "name": "Cagliari Calcio",
@@ -193,25 +212,6 @@
       "goalsFor": 8,
       "goalsAgainst": 13,
       "goalDifference": -5
-    },
-    {
-      "position": 11,
-      "team": {
-        "id": 103,
-        "name": "Bologna FC 1909",
-        "shortName": "Bologna",
-        "tla": "BOL",
-        "crest": "https://crests.football-data.org/103.png"
-      },
-      "playedGames": 9,
-      "form": "W,W,L,W,D",
-      "won": 3,
-      "draw": 2,
-      "lost": 4,
-      "points": 11,
-      "goalsFor": 12,
-      "goalsAgainst": 12,
-      "goalDifference": 0
     },
     {
       "position": 12,
@@ -298,15 +298,15 @@
         "tla": "MON",
         "crest": "https://crests.football-data.org/5911.png"
       },
-      "playedGames": 9,
-      "form": "L,L,W,L,W",
+      "playedGames": 10,
+      "form": "L,L,L,W,L",
       "won": 2,
       "draw": 1,
-      "lost": 6,
+      "lost": 7,
       "points": 7,
-      "goalsFor": 16,
-      "goalsAgainst": 22,
-      "goalDifference": -6
+      "goalsFor": 17,
+      "goalsAgainst": 24,
+      "goalDifference": -7
     },
     {
       "position": 17,
