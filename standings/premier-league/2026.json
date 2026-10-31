@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-31T21:26:32.135731Z",
+  "generated_at": "2026-10-31T22:16:42.979323Z",
   "competition": "Premier League",
   "slug": "premier-league",
   "season": 2026,
@@ -159,6 +159,25 @@
     {
       "position": 9,
       "team": {
+        "id": 58,
+        "name": "Aston Villa FC",
+        "shortName": "Aston Villa",
+        "tla": "AVL",
+        "crest": "https://crests.football-data.org/58.png"
+      },
+      "playedGames": 9,
+      "form": "D,W,W,D,W",
+      "won": 3,
+      "draw": 3,
+      "lost": 3,
+      "points": 12,
+      "goalsFor": 10,
+      "goalsAgainst": 13,
+      "goalDifference": -3
+    },
+    {
+      "position": 10,
+      "team": {
         "id": 322,
         "name": "Hull City AFC",
         "shortName": "Hull City",
@@ -176,7 +195,7 @@
       "goalDifference": 1
     },
     {
-      "position": 10,
+      "position": 11,
       "team": {
         "id": 341,
         "name": "Leeds United FC",
@@ -195,7 +214,7 @@
       "goalDifference": 1
     },
     {
-      "position": 11,
+      "position": 12,
       "team": {
         "id": 67,
         "name": "Newcastle United FC",
@@ -212,25 +231,6 @@
       "goalsFor": 12,
       "goalsAgainst": 14,
       "goalDifference": -2
-    },
-    {
-      "position": 12,
-      "team": {
-        "id": 58,
-        "name": "Aston Villa FC",
-        "shortName": "Aston Villa",
-        "tla": "AVL",
-        "crest": "https://crests.football-data.org/58.png"
-      },
-      "playedGames": 8,
-      "form": "W,W,D,W,L",
-      "won": 3,
-      "draw": 2,
-      "lost": 3,
-      "points": 11,
-      "goalsFor": 9,
-      "goalsAgainst": 12,
-      "goalDifference": -3
     },
     {
       "position": 13,
@@ -273,6 +273,25 @@
     {
       "position": 15,
       "team": {
+        "id": 63,
+        "name": "Fulham FC",
+        "shortName": "Fulham",
+        "tla": "FUL",
+        "crest": "https://crests.football-data.org/63.png"
+      },
+      "playedGames": 9,
+      "form": "D,W,W,L,D",
+      "won": 2,
+      "draw": 3,
+      "lost": 4,
+      "points": 9,
+      "goalsFor": 9,
+      "goalsAgainst": 11,
+      "goalDifference": -2
+    },
+    {
+      "position": 16,
+      "team": {
         "id": 1076,
         "name": "Coventry City FC",
         "shortName": "Coventry City",
@@ -288,25 +307,6 @@
       "goalsFor": 9,
       "goalsAgainst": 16,
       "goalDifference": -7
-    },
-    {
-      "position": 16,
-      "team": {
-        "id": 63,
-        "name": "Fulham FC",
-        "shortName": "Fulham",
-        "tla": "FUL",
-        "crest": "https://crests.football-data.org/63.png"
-      },
-      "playedGames": 8,
-      "form": "W,W,L,D,D",
-      "won": 2,
-      "draw": 2,
-      "lost": 4,
-      "points": 8,
-      "goalsFor": 8,
-      "goalsAgainst": 10,
-      "goalDifference": -2
     },
     {
       "position": 17,
