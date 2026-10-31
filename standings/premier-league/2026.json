@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-31T13:26:51.185873Z",
+  "generated_at": "2026-10-31T14:41:35.249478Z",
   "competition": "Premier League",
   "slug": "premier-league",
   "season": 2026,
@@ -64,6 +64,25 @@
     {
       "position": 4,
       "team": {
+        "id": 61,
+        "name": "Chelsea FC",
+        "shortName": "Chelsea",
+        "tla": "CHE",
+        "crest": "https://crests.football-data.org/61.png"
+      },
+      "playedGames": 9,
+      "form": "W,L,W,W,L",
+      "won": 5,
+      "draw": 1,
+      "lost": 3,
+      "points": 16,
+      "goalsFor": 19,
+      "goalsAgainst": 15,
+      "goalDifference": 4
+    },
+    {
+      "position": 5,
+      "team": {
         "id": 64,
         "name": "Liverpool FC",
         "shortName": "Liverpool",
@@ -79,25 +98,6 @@
       "goalsFor": 11,
       "goalsAgainst": 8,
       "goalDifference": 3
-    },
-    {
-      "position": 5,
-      "team": {
-        "id": 61,
-        "name": "Chelsea FC",
-        "shortName": "Chelsea",
-        "tla": "CHE",
-        "crest": "https://crests.football-data.org/61.png"
-      },
-      "playedGames": 8,
-      "form": "L,W,W,L,D",
-      "won": 4,
-      "draw": 1,
-      "lost": 3,
-      "points": 13,
-      "goalsFor": 17,
-      "goalsAgainst": 15,
-      "goalDifference": 2
     },
     {
       "position": 6,
@@ -298,15 +298,15 @@
         "tla": "MUN",
         "crest": "https://crests.football-data.org/66.png"
       },
-      "playedGames": 8,
-      "form": "L,D,D,D,L",
+      "playedGames": 9,
+      "form": "L,L,D,D,D",
       "won": 1,
       "draw": 4,
-      "lost": 3,
+      "lost": 4,
       "points": 7,
       "goalsFor": 10,
-      "goalsAgainst": 13,
-      "goalDifference": -3
+      "goalsAgainst": 15,
+      "goalDifference": -5
     },
     {
       "position": 17,

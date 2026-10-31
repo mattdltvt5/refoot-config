@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-31T14:36:09Z",
+  "generated_at": "2026-10-31T14:41:14Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -626,6 +626,22 @@
               "away": "Leeds United FC",
               "date": "2026-10-25",
               "covered": true
+            }
+          ]
+        },
+        {
+          "gameweek": "GW9",
+          "stem": "gameweek-9",
+          "total": 1,
+          "covered": 0,
+          "matches": [
+            {
+              "match_id": 560626,
+              "home": "Chelsea FC",
+              "away": "Manchester United FC",
+              "date": "2026-10-31",
+              "covered": false,
+              "pending": true
             }
           ]
         }
