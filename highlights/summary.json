@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-31T16:51:51Z",
+  "generated_at": "2026-10-31T16:56:31Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -2158,15 +2158,14 @@
           "gameweek": "GW10",
           "stem": "gameweek-10",
           "total": 1,
-          "covered": 0,
+          "covered": 1,
           "matches": [
             {
               "match_id": 558539,
               "home": "Bologna FC 1909",
               "away": "AC Monza",
               "date": "2026-10-31",
-              "covered": false,
-              "pending": true
+              "covered": true
             }
           ]
         }
@@ -2677,7 +2676,7 @@
           "gameweek": "GW8",
           "stem": "gameweek-8",
           "total": 6,
-          "covered": 2,
+          "covered": 3,
           "matches": [
             {
               "match_id": 565846,
@@ -2722,8 +2721,7 @@
               "home": "Bayer 04 Leverkusen",
               "away": "VfB Stuttgart",
               "date": "2026-10-31",
-              "covered": false,
-              "pending": true
+              "covered": true
             }
           ]
         }
