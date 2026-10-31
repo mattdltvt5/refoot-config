@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-31T18:56:28.640394Z",
+  "generated_at": "2026-10-31T19:32:04.710365Z",
   "competition": "Premier League",
   "slug": "premier-league",
   "season": 2026,
@@ -140,6 +140,25 @@
     {
       "position": 8,
       "team": {
+        "id": 73,
+        "name": "Tottenham Hotspur FC",
+        "shortName": "Tottenham",
+        "tla": "TOT",
+        "crest": "https://crests.football-data.org/73.png"
+      },
+      "playedGames": 9,
+      "form": "W,W,W,D,L",
+      "won": 3,
+      "draw": 3,
+      "lost": 3,
+      "points": 12,
+      "goalsFor": 10,
+      "goalsAgainst": 10,
+      "goalDifference": 0
+    },
+    {
+      "position": 9,
+      "team": {
         "id": 322,
         "name": "Hull City AFC",
         "shortName": "Hull City",
@@ -157,7 +176,7 @@
       "goalDifference": 1
     },
     {
-      "position": 9,
+      "position": 10,
       "team": {
         "id": 341,
         "name": "Leeds United FC",
@@ -176,7 +195,7 @@
       "goalDifference": 1
     },
     {
-      "position": 10,
+      "position": 11,
       "team": {
         "id": 67,
         "name": "Newcastle United FC",
@@ -195,7 +214,7 @@
       "goalDifference": -2
     },
     {
-      "position": 11,
+      "position": 12,
       "team": {
         "id": 58,
         "name": "Aston Villa FC",
@@ -214,7 +233,7 @@
       "goalDifference": -3
     },
     {
-      "position": 12,
+      "position": 13,
       "team": {
         "id": 349,
         "name": "Ipswich Town FC",
@@ -233,7 +252,7 @@
       "goalDifference": -4
     },
     {
-      "position": 13,
+      "position": 14,
       "team": {
         "id": 62,
         "name": "Everton FC",
@@ -250,25 +269,6 @@
       "goalsFor": 8,
       "goalsAgainst": 9,
       "goalDifference": -1
-    },
-    {
-      "position": 14,
-      "team": {
-        "id": 73,
-        "name": "Tottenham Hotspur FC",
-        "shortName": "Tottenham",
-        "tla": "TOT",
-        "crest": "https://crests.football-data.org/73.png"
-      },
-      "playedGames": 8,
-      "form": "W,W,D,L,D",
-      "won": 2,
-      "draw": 3,
-      "lost": 3,
-      "points": 9,
-      "goalsFor": 8,
-      "goalsAgainst": 10,
-      "goalDifference": -2
     },
     {
       "position": 15,
@@ -336,15 +336,15 @@
         "tla": "CRY",
         "crest": "https://crests.football-data.org/354.png"
       },
-      "playedGames": 8,
-      "form": "L,L,W,D,L",
+      "playedGames": 9,
+      "form": "L,L,L,W,D",
       "won": 2,
       "draw": 1,
-      "lost": 5,
+      "lost": 6,
       "points": 7,
       "goalsFor": 9,
-      "goalsAgainst": 19,
-      "goalDifference": -10
+      "goalsAgainst": 21,
+      "goalDifference": -12
     },
     {
       "position": 19,
