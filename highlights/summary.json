@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-01T21:56:31Z",
+  "generated_at": "2026-11-01T22:01:31Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -633,7 +633,7 @@
           "gameweek": "GW9",
           "stem": "gameweek-9",
           "total": 9,
-          "covered": 8,
+          "covered": 9,
           "matches": [
             {
               "match_id": 560626,
@@ -696,8 +696,7 @@
               "home": "Liverpool FC",
               "away": "Arsenal FC",
               "date": "2026-11-01",
-              "covered": false,
-              "pending": true
+              "covered": true
             }
           ]
         }
@@ -2256,7 +2255,7 @@
           "gameweek": "GW10",
           "stem": "gameweek-10",
           "total": 8,
-          "covered": 7,
+          "covered": 8,
           "matches": [
             {
               "match_id": 558539,
@@ -2312,8 +2311,7 @@
               "home": "Juventus FC",
               "away": "SSC Napoli",
               "date": "2026-11-01",
-              "covered": false,
-              "pending": true
+              "covered": true
             }
           ]
         }
