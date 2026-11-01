@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-01T15:06:13Z",
+  "generated_at": "2026-11-01T15:11:34Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -1475,7 +1475,7 @@
         {
           "gameweek": "GW11",
           "stem": "gameweek-11",
-          "total": 5,
+          "total": 6,
           "covered": 5,
           "matches": [
             {
@@ -1512,6 +1512,14 @@
               "away": "Deportivo Alavés",
               "date": "2026-10-31",
               "covered": true
+            },
+            {
+              "match_id": 564733,
+              "home": "Getafe CF",
+              "away": "Sevilla FC",
+              "date": "2026-11-01",
+              "covered": false,
+              "pending": true
             }
           ]
         }

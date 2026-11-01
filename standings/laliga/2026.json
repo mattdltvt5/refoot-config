@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-01T14:07:55.925973Z",
+  "generated_at": "2026-11-01T15:11:55.423005Z",
   "competition": "LaLiga",
   "slug": "laliga",
   "season": 2026,
@@ -108,15 +108,15 @@
         "tla": "SEV",
         "crest": "https://crests.football-data.org/559.png"
       },
-      "playedGames": 10,
-      "form": "W,L,D,L,W",
+      "playedGames": 11,
+      "form": "L,W,L,D,L",
       "won": 5,
       "draw": 2,
-      "lost": 3,
+      "lost": 4,
       "points": 17,
-      "goalsFor": 16,
-      "goalsAgainst": 16,
-      "goalDifference": 0
+      "goalsFor": 17,
+      "goalsAgainst": 19,
+      "goalDifference": -2
     },
     {
       "position": 7,
@@ -216,6 +216,25 @@
     {
       "position": 12,
       "team": {
+        "id": 82,
+        "name": "Getafe CF",
+        "shortName": "Getafe",
+        "tla": "GET",
+        "crest": "https://crests.football-data.org/82.png"
+      },
+      "playedGames": 11,
+      "form": "W,L,D,L,W",
+      "won": 3,
+      "draw": 3,
+      "lost": 5,
+      "points": 12,
+      "goalsFor": 8,
+      "goalsAgainst": 16,
+      "goalDifference": -8
+    },
+    {
+      "position": 13,
+      "team": {
         "id": 560,
         "name": "RC Deportivo La Coruña",
         "shortName": "Deportivo",
@@ -233,7 +252,7 @@
       "goalDifference": 0
     },
     {
-      "position": 13,
+      "position": 14,
       "team": {
         "id": 80,
         "name": "RCD Espanyol de Barcelona",
@@ -252,7 +271,7 @@
       "goalDifference": -1
     },
     {
-      "position": 14,
+      "position": 15,
       "team": {
         "id": 79,
         "name": "CA Osasuna",
@@ -271,7 +290,7 @@
       "goalDifference": -10
     },
     {
-      "position": 15,
+      "position": 16,
       "team": {
         "id": 5335,
         "name": "Real Racing Club de Santander",
@@ -290,7 +309,7 @@
       "goalDifference": -11
     },
     {
-      "position": 16,
+      "position": 17,
       "team": {
         "id": 285,
         "name": "Elche CF",
@@ -309,7 +328,7 @@
       "goalDifference": -3
     },
     {
-      "position": 17,
+      "position": 18,
       "team": {
         "id": 88,
         "name": "Levante UD",
@@ -326,25 +345,6 @@
       "goalsFor": 16,
       "goalsAgainst": 21,
       "goalDifference": -5
-    },
-    {
-      "position": 18,
-      "team": {
-        "id": 82,
-        "name": "Getafe CF",
-        "shortName": "Getafe",
-        "tla": "GET",
-        "crest": "https://crests.football-data.org/82.png"
-      },
-      "playedGames": 10,
-      "form": "L,D,L,W,L",
-      "won": 2,
-      "draw": 3,
-      "lost": 5,
-      "points": 9,
-      "goalsFor": 5,
-      "goalsAgainst": 15,
-      "goalDifference": -10
     },
     {
       "position": 19,
