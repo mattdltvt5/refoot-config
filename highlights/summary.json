@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-01T16:31:23Z",
+  "generated_at": "2026-11-01T16:36:11Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -2234,7 +2234,7 @@
           "gameweek": "GW10",
           "stem": "gameweek-10",
           "total": 6,
-          "covered": 5,
+          "covered": 6,
           "matches": [
             {
               "match_id": 558539,
@@ -2276,8 +2276,7 @@
               "home": "SS Lazio",
               "away": "Cagliari Calcio",
               "date": "2026-11-01",
-              "covered": false,
-              "pending": true
+              "covered": true
             }
           ]
         }
