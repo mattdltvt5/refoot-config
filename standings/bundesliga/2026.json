@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-01T18:26:48.279274Z",
+  "generated_at": "2026-11-01T18:37:09.043710Z",
   "competition": "Bundesliga",
   "slug": "bundesliga",
   "season": 2026,
@@ -140,6 +140,25 @@
     {
       "position": 8,
       "team": {
+        "id": 19,
+        "name": "Eintracht Frankfurt",
+        "shortName": "Frankfurt",
+        "tla": "SGE",
+        "crest": "https://crests.football-data.org/19.png"
+      },
+      "playedGames": 8,
+      "form": "W,L,W,L,D",
+      "won": 3,
+      "draw": 2,
+      "lost": 3,
+      "points": 11,
+      "goalsFor": 13,
+      "goalsAgainst": 18,
+      "goalDifference": -5
+    },
+    {
+      "position": 9,
+      "team": {
         "id": 15,
         "name": "1. FSV Mainz 05",
         "shortName": "Mainz",
@@ -157,7 +176,7 @@
       "goalDifference": 0
     },
     {
-      "position": 9,
+      "position": 10,
       "team": {
         "id": 16,
         "name": "FC Augsburg",
@@ -176,7 +195,7 @@
       "goalDifference": 3
     },
     {
-      "position": 10,
+      "position": 11,
       "team": {
         "id": 10,
         "name": "VfB Stuttgart",
@@ -195,7 +214,7 @@
       "goalDifference": -1
     },
     {
-      "position": 11,
+      "position": 12,
       "team": {
         "id": 2,
         "name": "TSG 1899 Hoffenheim",
@@ -214,7 +233,7 @@
       "goalDifference": -2
     },
     {
-      "position": 12,
+      "position": 13,
       "team": {
         "id": 1,
         "name": "1. FC Köln",
@@ -233,7 +252,7 @@
       "goalDifference": -3
     },
     {
-      "position": 13,
+      "position": 14,
       "team": {
         "id": 29,
         "name": "SC Paderborn 07",
@@ -252,7 +271,7 @@
       "goalDifference": -3
     },
     {
-      "position": 14,
+      "position": 15,
       "team": {
         "id": 7,
         "name": "Hamburger SV",
@@ -260,34 +279,15 @@
         "tla": "HSV",
         "crest": "https://crests.football-data.org/7.png"
       },
-      "playedGames": 7,
-      "form": "L,W,W,W,L",
+      "playedGames": 8,
+      "form": "L,L,W,W,W",
       "won": 3,
       "draw": 0,
-      "lost": 4,
+      "lost": 5,
       "points": 9,
-      "goalsFor": 6,
-      "goalsAgainst": 16,
-      "goalDifference": -10
-    },
-    {
-      "position": 15,
-      "team": {
-        "id": 19,
-        "name": "Eintracht Frankfurt",
-        "shortName": "Frankfurt",
-        "tla": "SGE",
-        "crest": "https://crests.football-data.org/19.png"
-      },
-      "playedGames": 7,
-      "form": "L,W,L,D,W",
-      "won": 2,
-      "draw": 2,
-      "lost": 3,
-      "points": 8,
-      "goalsFor": 10,
-      "goalsAgainst": 17,
-      "goalDifference": -7
+      "goalsFor": 7,
+      "goalsAgainst": 19,
+      "goalDifference": -12
     },
     {
       "position": 16,

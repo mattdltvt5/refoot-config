@@ -1,11 +1,30 @@
 {
-  "generated_at": "2026-11-01T14:07:48.517771Z",
+  "generated_at": "2026-11-01T18:36:54.244869Z",
   "competition": "Premier League",
   "slug": "premier-league",
   "season": 2026,
   "standings": [
     {
       "position": 1,
+      "team": {
+        "id": 57,
+        "name": "Arsenal FC",
+        "shortName": "Arsenal",
+        "tla": "ARS",
+        "crest": "https://crests.football-data.org/57.png"
+      },
+      "playedGames": 9,
+      "form": "W,W,W,W,L",
+      "won": 8,
+      "draw": 0,
+      "lost": 1,
+      "points": 24,
+      "goalsFor": 14,
+      "goalsAgainst": 5,
+      "goalDifference": 9
+    },
+    {
+      "position": 2,
       "team": {
         "id": 65,
         "name": "Manchester City FC",
@@ -22,25 +41,6 @@
       "goalsFor": 20,
       "goalsAgainst": 10,
       "goalDifference": 10
-    },
-    {
-      "position": 2,
-      "team": {
-        "id": 57,
-        "name": "Arsenal FC",
-        "shortName": "Arsenal",
-        "tla": "ARS",
-        "crest": "https://crests.football-data.org/57.png"
-      },
-      "playedGames": 8,
-      "form": "W,W,W,L,W",
-      "won": 7,
-      "draw": 0,
-      "lost": 1,
-      "points": 21,
-      "goalsFor": 13,
-      "goalsAgainst": 5,
-      "goalDifference": 8
     },
     {
       "position": 3,
@@ -89,15 +89,15 @@
         "tla": "LIV",
         "crest": "https://crests.football-data.org/64.png"
       },
-      "playedGames": 8,
-      "form": "W,W,L,W,D",
+      "playedGames": 9,
+      "form": "L,W,W,L,W",
       "won": 4,
       "draw": 3,
-      "lost": 1,
+      "lost": 2,
       "points": 15,
       "goalsFor": 11,
-      "goalsAgainst": 8,
-      "goalDifference": 3
+      "goalsAgainst": 9,
+      "goalDifference": 2
     },
     {
       "position": 6,
