@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-01T18:16:23Z",
+  "generated_at": "2026-11-01T18:21:26Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -3431,7 +3431,7 @@
         {
           "gameweek": "GW9",
           "stem": "gameweek-9",
-          "total": 6,
+          "total": 7,
           "covered": 5,
           "matches": [
             {
@@ -3473,6 +3473,14 @@
               "match_id": 559640,
               "home": "Olympique Lyonnais",
               "away": "Angers SCO",
+              "date": "2026-11-01",
+              "covered": false,
+              "pending": true
+            },
+            {
+              "match_id": 559642,
+              "home": "Paris FC",
+              "away": "AS Monaco FC",
               "date": "2026-11-01",
               "covered": false,
               "pending": true
