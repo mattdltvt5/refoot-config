@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-01T21:46:29Z",
+  "generated_at": "2026-11-01T21:51:32Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -3468,7 +3468,7 @@
         {
           "gameweek": "GW9",
           "stem": "gameweek-9",
-          "total": 7,
+          "total": 8,
           "covered": 7,
           "matches": [
             {
@@ -3519,6 +3519,14 @@
               "away": "AS Monaco FC",
               "date": "2026-11-01",
               "covered": true
+            },
+            {
+              "match_id": 559645,
+              "home": "Olympique de Marseille",
+              "away": "Toulouse FC",
+              "date": "2026-11-01",
+              "covered": false,
+              "pending": true
             }
           ]
         }
