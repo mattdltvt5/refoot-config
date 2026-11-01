@@ -51,6 +51,8 @@ jobs:
 
       # Commit any newly-resolved owner records so the next run can skip
       # already-verified IDs.  [skip ci] prevents a re-trigger loop.
+      # --autostash: QuotaTracker rewrites highlights/quota-tracker.json, which
+      # stays unstaged in the tree, and a plain pull --rebase refuses that.
       - name: Commit updated playlist-owners.json
         if: always()
         run: |
@@ -61,6 +63,6 @@ jobs:
             && echo "No new owner records — skipping commit" \
             || (
                 git commit -m "data: update playlist-owners.json [skip ci]" \
-                && git pull --rebase \
+                && git pull --rebase --autostash \
                 && git push
                )
