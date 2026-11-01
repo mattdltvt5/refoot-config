@@ -379,8 +379,10 @@ def _stage_stem(stage, matchday):
     return None
 
 
-def _read_video_from_stem(slug, stem, match_id, season, out_dir="."):
-    """Return the first matched video_id in highlights/{slug}/{season}/{stem}.json."""
+def _read_videos_from_stem(slug, stem, match_id, season, out_dir="."):
+    """Return the match's video_ids in highlights/{slug}/{season}/{stem}.json,
+    [] when the match is listed with no videos (e.g. a guard removed them), or
+    None when the file or match isn't there."""
     if match_id is None:
         return None
     p = pathlib.Path(out_dir) / "highlights" / slug / str(season) / f"{stem}.json"
@@ -390,26 +392,39 @@ def _read_video_from_stem(slug, stem, match_id, season, out_dir="."):
         data  = json.loads(p.read_text(encoding="utf-8"))
         items = data if isinstance(data, list) else data.get("matches", [])
         for e in items:
-            if e.get("match_id") == match_id and e.get("videos"):
-                return e["videos"][0]["video_id"]
+            if e.get("match_id") == match_id:
+                return [v["video_id"] for v in e.get("videos") or []]
     except Exception:
         pass
     return None
 
 
-def _lookup_video_id(slug, stage, matchday, match_id, season, out_dir="."):
-    """Find the first matched video_id for a knockout match in highlights/."""
+def _graft(m, vids):
+    """Set m["video_id"] from the highlights cache. A match listed there with no
+    videos is cleared, so a removed video doesn't linger here and on Home.
+    Returns True when m changed."""
+    if vids is None:
+        return False
+    vid = vids[0] if vids else None
+    if vid != m.get("video_id"):
+        m["video_id"] = vid
+        return True
+    return False
+
+
+def _lookup_video_ids(slug, stage, matchday, match_id, season, out_dir="."):
+    """A knockout match's video_ids in highlights/ (see _read_videos_from_stem)."""
     stem = _stage_stem(stage, matchday)
     if not stem:
         return None
-    return _read_video_from_stem(slug, stem, match_id, season, out_dir)
+    return _read_videos_from_stem(slug, stem, match_id, season, out_dir)
 
 
-def _lookup_group_video_id(slug, matchday, match_id, season, out_dir="."):
-    """Find the first matched video_id for a group match in highlights/."""
+def _lookup_group_video_ids(slug, matchday, match_id, season, out_dir="."):
+    """A group match's video_ids in highlights/ (see _read_videos_from_stem)."""
     if matchday is None:
         return None
-    return _read_video_from_stem(slug, f"matchday-{matchday}", match_id, season, out_dir)
+    return _read_videos_from_stem(slug, f"matchday-{matchday}", match_id, season, out_dir)
 
 
 def graft_video_ids(out_dir="."):
@@ -441,20 +456,16 @@ def graft_video_ids(out_dir="."):
         for m in tg.get("matches", []):
             if m.get("stage") not in KNOCKOUT_STAGES:
                 continue
-            vid = _lookup_video_id(
+            vids = _lookup_video_ids(
                 slug, m.get("stage"), m.get("matchday"), m.get("id"), season, out_dir
             )
-            if vid is not None and vid != m.get("video_id"):
-                m["video_id"] = vid
-                changed = True
+            changed |= _graft(m, vids)
 
         for gm in tg.get("groupMatches", []):
-            vid = _lookup_group_video_id(
+            vids = _lookup_group_video_ids(
                 slug, gm.get("matchday"), gm.get("match_id"), season, out_dir
             )
-            if vid is not None and vid != gm.get("video_id"):
-                gm["video_id"] = vid
-                changed = True
+            changed |= _graft(gm, vids)
 
         if changed:
             tg_path.write_text(

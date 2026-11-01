@@ -534,6 +534,10 @@ class FootballDataProvider(FixtureProvider):
                 "date":       utc_str[:10],
                 "matchday":   matchday,
                 "stage":      stage,
+                # Final result, for the highlights scoreline guard
+                # (acceptable_scores). Not persisted to highlights files.
+                "status":     m.get("status"),
+                "score":      m.get("score") or {},
             })
 
         total = sum(len(v) for v in by_stem.values())
@@ -621,6 +625,33 @@ class FootballDataProvider(FixtureProvider):
 # ── ApiSportsProvider ─────────────────────────────────────────────────────────
 
 
+# API-Sports fixture.status.short values for a match that is over.
+_APISPORTS_FINISHED = {"FT", "AET", "PEN"}
+
+
+def _apisports_status(fix: dict) -> str:
+    short = (fix.get("fixture") or {}).get("status", {}).get("short", "")
+    return "FINISHED" if short in _APISPORTS_FINISHED else short
+
+
+def _apisports_score(fix: dict) -> dict:
+    """API-Sports score in the football-data.org shape the scoreline guard reads.
+    API-Sports "fulltime" is the 90-minute score, "extratime" the extra-time
+    goals only, "penalty" the shootout; "goals" is the result before penalties."""
+    raw = fix.get("score") or {}
+
+    def pair(v):
+        v = v or {}
+        return {"home": v.get("home"), "away": v.get("away")}
+
+    return {
+        "fullTime":    pair(fix.get("goals")),
+        "regularTime": pair(raw.get("fulltime")),
+        "extraTime":   pair(raw.get("extratime")),
+        "penalties":   pair(raw.get("penalty")),
+    }
+
+
 class ApiSportsProvider(FixtureProvider):
     """
     Fetches fixtures from API-Sports (free tier, historical backfill only).
@@ -703,6 +734,8 @@ class ApiSportsProvider(FixtureProvider):
                 "date":       date_str,
                 "matchday":   matchday,
                 "stage":      stage_val,
+                "status":     _apisports_status(fix),
+                "score":      _apisports_score(fix),
             })
 
         total = sum(len(v) for v in by_stem.values())

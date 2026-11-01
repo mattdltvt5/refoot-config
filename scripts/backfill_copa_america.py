@@ -34,6 +34,7 @@ from highlights_common import (
     FILE_STEM_LABEL,
     HIGHLIGHTS_DIR,
     QuotaCapReached,
+    apply_existing_record_guards,
     generate_summary,
     gw_path,
     is_same_tournament_edition,
@@ -160,6 +161,10 @@ def main() -> None:
         if not is_same_tournament_edition(existing, fixtures, COMP_NAME):
             existing = None
 
+        # Re-check cached videos before they are reused (same guards as
+        # fetch_highlights.py). Local data only — no API calls.
+        removed = apply_existing_record_guards(existing, fixtures)
+
         existing_by_id = {
             m["match_id"]: m for m in (existing or {}).get("matches", [])
         }
@@ -182,9 +187,9 @@ def main() -> None:
                 )
             except QuotaCapReached as exc:
                 log.info(f"YouTube cap reached: {exc}")
-                if enriched:
+                if enriched or removed:
                     gw_data, changed = merge_into_gw(existing, COMP_NAME, stem, enriched)
-                    if changed:
+                    if changed or removed:
                         write_json_atomic(path, gw_data)
                         written_files.append(path)
                 _finish(fetched_total, matched_total, no_video_total, written_files, as_quota)
@@ -206,9 +211,9 @@ def main() -> None:
 
             enriched.append({**fix, "videos": videos})
 
-        if enriched:
+        if enriched or removed:
             gw_data, changed = merge_into_gw(existing, COMP_NAME, stem, enriched)
-            if changed:
+            if changed or removed:
                 write_json_atomic(path, gw_data)
                 written_files.append(path)
                 log.info(f"    -> Wrote {path.name}")
