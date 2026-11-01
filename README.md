@@ -4,6 +4,15 @@ Remote channel configuration for the **ReFoot Highlights** Android app.
 
 ## Recent changes
 
+### Dead Premier League broadcaster playlist removed (2026-11-01)
+
+`sources.json` `playlists["Premier League"]` held one tier-4 playlist, `PLQ_voP4Q3cfetksvjNLOrMr3h8xtViMuP`,
+which YouTube answers with 404 - every PL fixture that reached tier 4 spent a call on it for nothing.
+Weekly playlist discovery couldn't replace it (flag `channel_unresolvable_reseed`, no 2026 PL resolution), so
+it was the live fallback every run. It is now `"Premier League": {}` (the key stays, per the schema test).
+PL highlights still come from the team playlists (1c/1d), the PL channel (tier 2) and club uploads (1a/1b).
+The stale flag in `highlights/discovered-playlists.json` drops on the next weekly discovery run.
+
 ### Highlights whose title score contradicts the result are rejected (2026-11-01)
 
 Spurs v Palace (2-0) showed a 2025 "Classic" clip titled "Spurs 1-3 Crystal Palace": nothing compared a
