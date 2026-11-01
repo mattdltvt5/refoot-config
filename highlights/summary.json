@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-01T16:11:31Z",
+  "generated_at": "2026-11-01T16:16:27Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -3420,7 +3420,7 @@
           "gameweek": "GW9",
           "stem": "gameweek-9",
           "total": 5,
-          "covered": 4,
+          "covered": 5,
           "matches": [
             {
               "match_id": 559644,
@@ -3455,8 +3455,7 @@
               "home": "RC Strasbourg Alsace",
               "away": "AJ Auxerre",
               "date": "2026-11-01",
-              "covered": false,
-              "pending": true
+              "covered": true
             }
           ]
         }
