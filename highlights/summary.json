@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-01T19:31:27Z",
+  "generated_at": "2026-11-01T19:36:44Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -1483,7 +1483,7 @@
         {
           "gameweek": "GW11",
           "stem": "gameweek-11",
-          "total": 7,
+          "total": 8,
           "covered": 7,
           "matches": [
             {
@@ -1534,6 +1534,14 @@
               "away": "Real Madrid CF",
               "date": "2026-11-01",
               "covered": true
+            },
+            {
+              "match_id": 564728,
+              "home": "Elche CF",
+              "away": "Valencia CF",
+              "date": "2026-11-01",
+              "covered": false,
+              "pending": true
             }
           ]
         }
