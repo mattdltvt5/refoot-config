@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-01T14:21:10Z",
+  "generated_at": "2026-11-01T14:26:10Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -2227,7 +2227,7 @@
           "gameweek": "GW10",
           "stem": "gameweek-10",
           "total": 4,
-          "covered": 3,
+          "covered": 4,
           "matches": [
             {
               "match_id": 558539,
@@ -2255,8 +2255,7 @@
               "home": "Como 1907",
               "away": "Venezia FC",
               "date": "2026-11-01",
-              "covered": false,
-              "pending": true
+              "covered": true
             }
           ]
         }
