@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-01T17:01:17Z",
+  "generated_at": "2026-11-01T17:11:13Z",
   "month": "2026-11",
   "dates": {
     "2026-11-01": [
@@ -207,9 +207,9 @@
               "tla": "GEN",
               "crest": "https://crests.football-data.org/107.png"
             },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "TIMED",
+            "homeScore": 0,
+            "awayScore": 0,
+            "status": "IN_PLAY",
             "utcDate": "2026-11-01T17:00:00Z"
           },
           {
@@ -347,7 +347,7 @@
               "tla": "ASM",
               "crest": "https://crests.football-data.org/548.png"
             },
-            "homeScore": 1,
+            "homeScore": 2,
             "awayScore": 0,
             "status": "IN_PLAY",
             "utcDate": "2026-11-01T16:15:00Z"
