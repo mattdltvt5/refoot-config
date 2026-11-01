@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-01T16:26:24Z",
+  "generated_at": "2026-11-01T16:31:23Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -2234,7 +2234,7 @@
           "gameweek": "GW10",
           "stem": "gameweek-10",
           "total": 6,
-          "covered": 4,
+          "covered": 5,
           "matches": [
             {
               "match_id": 558539,
@@ -2269,8 +2269,7 @@
               "home": "Frosinone Calcio",
               "away": "Torino FC",
               "date": "2026-11-01",
-              "covered": false,
-              "pending": true
+              "covered": true
             },
             {
               "match_id": 558546,
@@ -2788,8 +2787,8 @@
         {
           "gameweek": "GW8",
           "stem": "gameweek-8",
-          "total": 7,
-          "covered": 7,
+          "total": 8,
+          "covered": 8,
           "matches": [
             {
               "match_id": 565846,
@@ -2838,6 +2837,13 @@
               "home": "FC Bayern München",
               "away": "Borussia Dortmund",
               "date": "2026-10-31",
+              "covered": true
+            },
+            {
+              "match_id": 565841,
+              "home": "1. FC Union Berlin",
+              "away": "1. FC Köln",
+              "date": "2026-11-01",
               "covered": true
             }
           ]

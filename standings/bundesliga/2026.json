@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-01T14:08:10.935292Z",
+  "generated_at": "2026-11-01T16:31:59.967677Z",
   "competition": "Bundesliga",
   "slug": "bundesliga",
   "season": 2026,
@@ -216,6 +216,25 @@
     {
       "position": 12,
       "team": {
+        "id": 1,
+        "name": "1. FC Köln",
+        "shortName": "1. FC Köln",
+        "tla": "KOE",
+        "crest": "https://crests.football-data.org/1.png"
+      },
+      "playedGames": 8,
+      "form": "D,D,L,W,L",
+      "won": 2,
+      "draw": 3,
+      "lost": 3,
+      "points": 9,
+      "goalsFor": 9,
+      "goalsAgainst": 12,
+      "goalDifference": -3
+    },
+    {
+      "position": 13,
+      "team": {
         "id": 29,
         "name": "SC Paderborn 07",
         "shortName": "SC Paderborn",
@@ -233,7 +252,7 @@
       "goalDifference": -3
     },
     {
-      "position": 13,
+      "position": 14,
       "team": {
         "id": 7,
         "name": "Hamburger SV",
@@ -250,25 +269,6 @@
       "goalsFor": 6,
       "goalsAgainst": 16,
       "goalDifference": -10
-    },
-    {
-      "position": 14,
-      "team": {
-        "id": 1,
-        "name": "1. FC Köln",
-        "shortName": "1. FC Köln",
-        "tla": "KOE",
-        "crest": "https://crests.football-data.org/1.png"
-      },
-      "playedGames": 7,
-      "form": "D,L,W,L,D",
-      "won": 2,
-      "draw": 2,
-      "lost": 3,
-      "points": 8,
-      "goalsFor": 8,
-      "goalsAgainst": 11,
-      "goalDifference": -3
     },
     {
       "position": 15,
@@ -292,6 +292,25 @@
     {
       "position": 16,
       "team": {
+        "id": 28,
+        "name": "1. FC Union Berlin",
+        "shortName": "Union Berlin",
+        "tla": "UNB",
+        "crest": "https://crests.football-data.org/28.png"
+      },
+      "playedGames": 8,
+      "form": "D,D,D,W,L",
+      "won": 1,
+      "draw": 4,
+      "lost": 3,
+      "points": 7,
+      "goalsFor": 7,
+      "goalsAgainst": 19,
+      "goalDifference": -12
+    },
+    {
+      "position": 17,
+      "team": {
         "id": 6,
         "name": "FC Schalke 04",
         "shortName": "Schalke",
@@ -307,25 +326,6 @@
       "goalsFor": 4,
       "goalsAgainst": 9,
       "goalDifference": -5
-    },
-    {
-      "position": 17,
-      "team": {
-        "id": 28,
-        "name": "1. FC Union Berlin",
-        "shortName": "Union Berlin",
-        "tla": "UNB",
-        "crest": "https://crests.football-data.org/28.png"
-      },
-      "playedGames": 7,
-      "form": "D,D,W,L,L",
-      "won": 1,
-      "draw": 3,
-      "lost": 3,
-      "points": 6,
-      "goalsFor": 6,
-      "goalsAgainst": 18,
-      "goalDifference": -12
     },
     {
       "position": 18,
