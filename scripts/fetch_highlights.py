@@ -33,6 +33,8 @@ from datetime import datetime, timezone
 
 from highlights_common import (
     BACKFILL_LOCK_PATH,
+    EXISTING_RECORD_GUARDS,
+    GUARD_REJECTIONS,
     COMPETITION_CODE_MAP,
     COMPETITION_SLUG_MAP,
     DOMESTIC_LEAGUE_COMPS,
@@ -46,6 +48,7 @@ from highlights_common import (
     season_for_competition,
     QuotaTracker,
     _normalize,
+    apply_existing_record_guards,
     fd_get,
     generate_summary,
     gw_path,
@@ -442,7 +445,18 @@ def main() -> None:
                 if not is_same_tournament_edition(existing, fixtures, comp_name):
                     existing = None
 
+                # Re-check cached videos before they can be reused or mark the
+                # gameweek complete. Rejected videos are dropped; a match left
+                # empty is re-searched below. Local data only — no API calls.
+                removed = apply_existing_record_guards(
+                    existing, fixtures, EXISTING_RECORD_GUARDS
+                )
+
                 if is_gameweek_complete(existing, fixtures):
+                    if removed:
+                        # Every match still has a video; persist the removals.
+                        write_json_atomic(path, {**existing, "generated_at": utc_now_iso()})
+                        total_written += 1
                     log.info(f"{stem} {comp_name}: complete — skipping")
                     continue
 
@@ -497,7 +511,9 @@ def main() -> None:
                         )
 
                 gw_data, changed = merge_into_gw(existing, comp_name, stem, enriched)
-                if changed:
+                if removed and not changed:
+                    gw_data["generated_at"] = utc_now_iso()
+                if changed or removed:
                     write_json_atomic(path, gw_data)
                     total_written += 1
                     log.info(f"  → Wrote {path.relative_to(path.parent.parent.parent)}")
@@ -520,6 +536,7 @@ def main() -> None:
             "last_run":      datetime.now(timezone.utc).isoformat(),
             "files_updated": total_written,
             "additions":     new_additions,
+            **({"rejections": GUARD_REJECTIONS} if GUARD_REJECTIONS else {}),
         },
     )
     generate_summary()

@@ -1754,6 +1754,248 @@ def is_gameweek_complete(existing: dict | None, fixtures: list[dict]) -> bool:
     return True
 
 
+# ── Scoreline guard ───────────────────────────────────────────────────────────
+#
+# A video whose title states a score that contradicts the match's final result
+# is a different game: an archive "Classic", a women's or academy side, an
+# earlier meeting.  The guard acts ONLY on a contradiction — a title without a
+# scoreline, or a match with no final score, is never rejected.
+
+# Highest goal count either side may show for a pair to count as a scoreline.
+_MAX_TITLE_GOALS = 15
+
+# "2-0", "2 – 0", "2:0".  Digit runs are taken whole, so "2025-26" is a 4-digit
+# number (skipped) and never reads as "5-26".
+_SCORELINE_RE = re.compile(r"(?<!\d)(\d+)[ \t]*([-–—:])[ \t]*(\d+)(?!\d)")
+
+# Penalty-shootout / aggregate markers.  A pair inside brackets holding one, or
+# directly next to one, is a shootout or two-leg tally, not the match score.
+_QUALIFIER = (
+    r"(?<![a-z])(?:"
+    r"on\s+penalties|penalt(?:y|ies)|penaltis|penales|penáltis|pénaltis|pens?|pso|p\."
+    r"|rigori|d\.?c\.?r\.?|tirs\s+au\s+but|t\.a\.b\.?|tab|i\.\s?e\.?|n\.\s?e\.?"
+    r"|elfmeter\w*|on\s+aggregate|aggregate|aggregato|agg\.?|global|cumulé|cumule"
+    r"|insgesamt|gesamt|totale|totaal"
+    r")(?![a-z])"
+)
+_QUALIFIER_RE        = re.compile(_QUALIFIER, re.IGNORECASE)
+_QUALIFIER_AFTER_RE  = re.compile(r"[\s.,;:)\]]*" + _QUALIFIER, re.IGNORECASE)
+_QUALIFIER_BEFORE_RE = re.compile(_QUALIFIER + r"[\s.,;:(\[]*\Z", re.IGNORECASE)
+_BRACKETS_RE         = re.compile(r"[(\[{][^()\[\]{}]*[)\]}]")
+
+# Kick-off times: "17:30", "15:00h", "3:00 pm", "8:00 CET".
+_CLOCK_SUFFIX_RE = re.compile(
+    r"\s*(?:h|hrs?|am|pm|a\.m\.|p\.m\.|utc|gmt|bst|cet|cest)(?![a-z])", re.IGNORECASE
+)
+# Numbers that label something other than goals: "Matchday 1 - 2", "Top 10 - 3",
+# "Season 10-11".
+_COUNTER_BEFORE_RE = re.compile(
+    r"(?<![a-z])(?:matchday|md|gw|gameweek|week|wk|round|jornada|journée|journee"
+    r"|spieltag|giornata|rodada|fecha|leg|part|ep|episode|top|no\.|nr\.?|season"
+    r"|temporada|saison|stagione)\s*\.?\s*\Z|#\s*\Z",
+    re.IGNORECASE,
+)
+# Intermediate scores in comeback titles: "From 3-0 To Chaos", "Win After 1-3
+# Down!", "Come Back From 0-2!".
+_NARRATIVE_BEFORE_RE = re.compile(r"(?<![a-z])(?:from|after|trailing|despite)\s*\Z", re.IGNORECASE)
+_NARRATIVE_AFTER_RE  = re.compile(r"\s*(?:down|deficit|lead|up)(?![a-z])", re.IGNORECASE)
+
+
+def extract_title_scorelines(title: str) -> list[tuple[int, int]]:
+    """
+    Return the (left, right) scorelines stated in a video title, in order.
+
+    Bounded tightly so only a real match score is read:
+      - separators "-", "–", "—", ":" with optional spaces; each side 0-15,
+        no zero-padded numbers ("09", "00");
+      - 3+ digit numbers and year/season ranges ("2026/27", "2025-26") skipped;
+      - pairs chained to another number (dates like "31-10-2026") skipped;
+      - clock times skipped: a ":" pair whose second number has two digits
+        >= 16, or any pair followed by h / am / pm / UTC / CET …;
+      - penalty-shootout and aggregate tallies skipped: pairs inside brackets
+        holding a marker ("(4-2 pens)", "(4-3 agg)") or directly next to one
+        ("4-3 on aggregate", "agg. 4-3");
+      - counters skipped ("Matchday 1 - 2", "Season 10-11");
+      - comeback scores skipped ("From 3-0 To Chaos", "After 1-3 Down").
+    """
+    if not title:
+        return []
+    qualified_spans = [
+        b.span() for b in _BRACKETS_RE.finditer(title) if _QUALIFIER_RE.search(b.group())
+    ]
+    out: list[tuple[int, int]] = []
+    for m in _SCORELINE_RE.finditer(title):
+        left, sep, right = m.group(1), m.group(2), m.group(3)
+        if len(left) > 2 or len(right) > 2:
+            continue
+        if (len(left) == 2 and left[0] == "0") or (len(right) == 2 and right[0] == "0"):
+            continue
+        a, b = int(left), int(right)
+        if a > _MAX_TITLE_GOALS or b > _MAX_TITLE_GOALS:
+            continue
+        before, after = title[:m.start()], title[m.end():]
+        if re.search(r"\d[ \t]*[-–—:/.][ \t]*\Z", before) or re.match(r"[ \t]*[-–—:/.][ \t]*\d", after):
+            continue
+        if sep == ":" and len(right) == 2 and b >= 16:
+            continue
+        if _CLOCK_SUFFIX_RE.match(after):
+            continue
+        if any(s <= m.start() and m.end() <= e for s, e in qualified_spans):
+            continue
+        if _QUALIFIER_AFTER_RE.match(after) or _QUALIFIER_BEFORE_RE.search(before):
+            continue
+        if _COUNTER_BEFORE_RE.search(before):
+            continue
+        if _NARRATIVE_BEFORE_RE.search(before) or _NARRATIVE_AFTER_RE.match(after):
+            continue
+        out.append((a, b))
+    return out
+
+
+def _score_pair(score: dict, key: str) -> "tuple[int, int] | None":
+    v = score.get(key) or {}
+    h, a = v.get("home"), v.get("away")
+    if isinstance(h, int) and isinstance(a, int):
+        return (h, a)
+    return None
+
+
+def acceptable_scores(fixture: dict) -> "set[tuple[int, int]] | None":
+    """
+    Every score a correct highlight title may state for this fixture, in both
+    orders (titles list the home side first or second).  None when the match
+    is not FINISHED or has no score — the guard then never rejects.
+
+    Score fields (football-data.org shape; API-Sports is normalised to it):
+      - regularTime: score after 90 minutes (knockouts only);
+      - regularTime + extraTime: score after extra time;
+      - fullTime as stored.  For football-data shootouts (duration
+        PENALTY_SHOOTOUT) fullTime INCLUDES the shootout goals (1-1 + pens
+        3-4 is stored as 4-5), so fullTime - penalties is used instead.
+    A penalty-shootout tally is never acceptable on its own.
+    """
+    if fixture.get("status") != "FINISHED":
+        return None
+    score = fixture.get("score") or {}
+    full  = _score_pair(score, "fullTime")
+    reg   = _score_pair(score, "regularTime")
+    et    = _score_pair(score, "extraTime")
+    pens  = _score_pair(score, "penalties")
+
+    found: set[tuple[int, int]] = set()
+    if reg:
+        found.add(reg)
+        if et:
+            found.add((reg[0] + et[0], reg[1] + et[1]))
+    if full:
+        if pens:
+            net = (full[0] - pens[0], full[1] - pens[1])
+            includes_pens = score.get("duration") == "PENALTY_SHOOTOUT" or (
+                reg is not None
+                and net == (reg[0] + (et[0] if et else 0), reg[1] + (et[1] if et else 0))
+            )
+            if includes_pens:
+                found.add(net)
+            else:
+                # Provider semantics unknown: accept both readings rather than
+                # risk rejecting a correct title.
+                found.add(full)
+                if net[0] >= 0 and net[1] >= 0:
+                    found.add(net)
+        else:
+            found.add(full)
+    if not found:
+        return None
+    return found | {(b, a) for a, b in found}
+
+
+def scoreline_contradicts(title: str, fixture: dict) -> bool:
+    """
+    True only when the fixture has a final score, the title states at least one
+    scoreline, and none of the title's scorelines is an acceptable score.
+    """
+    accepted = acceptable_scores(fixture)
+    if accepted is None:
+        return False
+    stated = extract_title_scorelines(title)
+    if not stated:
+        return False
+    return not any(s in accepted for s in stated)
+
+
+# Guard rejections from this run (candidates refused in search_playlist and
+# cached videos removed by apply_existing_record_guards), for fetch-log.json.
+GUARD_REJECTIONS: list[dict] = []
+
+
+def _record_guard_rejection(fixture: dict, video: dict, reason: str, action: str) -> dict:
+    accepted = acceptable_scores(fixture) or set()
+    entry = {
+        "reason":           reason,
+        "action":           action,
+        "match_id":         fixture.get("match_id"),
+        "video_id":         video.get("video_id"),
+        "title":            video.get("title", ""),
+        "title_scorelines": [list(s) for s in extract_title_scorelines(video.get("title", ""))],
+        "cached_score":     (fixture.get("score") or {}).get("fullTime"),
+        "accepted_scores":  sorted(list(s) for s in accepted),
+    }
+    GUARD_REJECTIONS.append(entry)
+    log.warning(
+        f"{reason}: {action} {entry['video_id']} for match {entry['match_id']} "
+        f"— title {entry['title']!r} states {entry['title_scorelines']}, "
+        f"cached score {entry['cached_score']}"
+    )
+    return entry
+
+
+def scoreline_guard(video: dict, fixture: dict) -> "str | None":
+    """Existing-record guard: 'scoreline_mismatch' when the cached video's title
+    contradicts the fixture's final score, else None."""
+    if scoreline_contradicts(video.get("title", ""), fixture):
+        return "scoreline_mismatch"
+    return None
+
+
+# Checks re-run on every cached video before it is reused.  Each takes
+# (cached video entry, fixture) and returns a rejection reason or None.
+EXISTING_RECORD_GUARDS = [scoreline_guard]
+
+
+def apply_existing_record_guards(
+    existing: dict | None,
+    fixtures: list[dict],
+    guards: "list | None" = None,
+) -> list[dict]:
+    """
+    Remove cached videos that fail an existing-record guard, IN PLACE on
+    ``existing`` (a gameweek file's data).  A match left with no videos is then
+    re-searched by the normal flow.  Local data only — no API calls.
+
+    Returns one log entry per removed video (empty when nothing changed).
+    """
+    if not existing:
+        return []
+    guards = EXISTING_RECORD_GUARDS if guards is None else guards
+    fix_by_id = {f["match_id"]: f for f in fixtures}
+    removed: list[dict] = []
+    for match in existing.get("matches", []):
+        fix = fix_by_id.get(match.get("match_id"))
+        videos = match.get("videos") or []
+        if fix is None or not videos:
+            continue
+        kept = []
+        for video in videos:
+            reason = next((r for g in guards if (r := g(video, fix))), None)
+            if reason:
+                removed.append(_record_guard_rejection(fix, video, reason, "removed_cached"))
+            else:
+                kept.append(video)
+        if len(kept) != len(videos):
+            match["videos"] = kept
+    return removed
+
+
 # ── YouTube playlist search ───────────────────────────────────────────────────
 
 
@@ -1929,6 +2171,17 @@ def search_playlist(
                     else "title-filter:no-allowlist-match"
                 )
                 _rec(video_id, title, norm_title, reason)
+                continue
+
+            # Reject a title whose stated score contradicts the final result
+            # (archive "Classic", women's / academy side, earlier meeting).
+            if scoreline_contradicts(title, fixture):
+                _record_guard_rejection(
+                    fixture, {"video_id": video_id, "title": title},
+                    "scoreline_mismatch", "rejected_candidate",
+                )
+                _rec(video_id, title, norm_title,
+                     f"scoreline_mismatch {extract_title_scorelines(title)}")
                 continue
 
             seen_ids.add(video_id)

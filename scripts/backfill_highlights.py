@@ -42,6 +42,7 @@ from highlights_common import (
     QuotaCapReached,
     QuotaTracker,
     STAGE_AWARE_COMPS,
+    apply_existing_record_guards,
     current_season,
     season_for_competition,
     fd_get,
@@ -465,6 +466,10 @@ def main() -> None:
                 if not is_same_tournament_edition(existing, fixtures, comp_name):
                     existing = None
 
+                # Re-check cached videos before they are reused (same guards
+                # as fetch_highlights.py). Local data only — no API calls.
+                removed = apply_existing_record_guards(existing, fixtures)
+
                 # Build per-match lookup so already-covered fixtures are skipped
                 existing_by_id: dict[int, dict] = {}
                 if existing:
@@ -510,11 +515,13 @@ def main() -> None:
 
                 # Write whatever we have for this stem
                 # (full set when normal; partial set when quota was hit mid-stem)
-                if enriched:
+                if enriched or removed:
                     gw_data, changed = merge_into_gw(
                         existing, comp_name, stem, enriched
                     )
-                    if changed:
+                    if removed and not changed:
+                        gw_data["generated_at"] = utc_now_iso()
+                    if changed or removed:
                         write_json_atomic(path, gw_data)
                         total_written += 1
                         written_this_comp.append(path)

@@ -4,6 +4,41 @@ Remote channel configuration for the **ReFoot Highlights** Android app.
 
 ## Recent changes
 
+### Highlights whose title score contradicts the result are rejected (2026-11-01)
+
+Spurs v Palace (2-0) showed a 2025 "Classic" clip titled "Spurs 1-3 Crystal Palace": nothing compared a
+title's stated score with the match result. New in `scripts/highlights_common.py`:
+
+- `extract_title_scorelines(title)` reads "2-0", "2 – 0", "2:0" (each side 0-15) and skips year/season
+  ranges ("2026/27", "2025-26"), dates, kick-off times ("17:30", "8:15 pm"), counters ("Matchday 1 - 2"),
+  comeback scores ("From 3-0 To Chaos") and penalty / aggregate tallies ("(4-2 pens)", "(4-3 agg)", "i.E.",
+  "t.a.b.", "dcr", ...).
+- `acceptable_scores(fixture)` is None unless the match is FINISHED with a score; otherwise the 90-minute,
+  after-extra-time and final scores in both orders, never a shootout tally. football-data stores a shootout's
+  `fullTime` WITH the shootout goals (1-1 + pens 3-4 = 4-5), so `fullTime - penalties` is used there;
+  API-Sports scores are normalised to the same shape (`fixture_providers._apisports_score`).
+- `scoreline_contradicts(title, fixture)` is True only when the title states a scoreline and none of them is
+  acceptable. A title without a score is never rejected.
+
+Where it runs:
+
+- **New candidates** - in `search_playlist`, the one acceptance point for every tier. The fixtures now carry
+  `status` + `score` (not written to the highlights files).
+- **Cached videos** - `EXISTING_RECORD_GUARDS` (checks taking a cached video + its fixture, returning a
+  reason or None) run via `apply_existing_record_guards` before a gameweek counts as complete and before cached
+  videos are reused, in `fetch_highlights.py`, `backfill_highlights.py` and `backfill_copa_america.py`. A
+  rejected video is removed; a match left empty is searched again by the normal flow. No API calls of their own.
+  (The backfill tier-4 re-check mode rebuilds fixtures without a score, so the guard is a no-op there.)
+- Every rejection is logged and listed in `highlights/fetch-log.json` under `rejections`
+  (`reason: scoreline_mismatch`, match_id, video_id, title, title scorelines, cached score).
+- `sync_tournaments.py`'s video_id graft now CLEARS a tournament `video_id` when the match's highlights record
+  has no videos left (it used to only add), so a removed UCL/WC/Euro/Copa clip leaves the tournament file and
+  the Home index. League games drop out of the Home index directly on its next rebuild.
+
+Dry run on the committed cache: 5 current-season records removed (Spurs v Palace, Liverpool v Fulham,
+Valencia v Athletic [Liga F], Man Utd v Sabah [academy], Le Mans v Brest [title "(0-2)", result 2-2]) and 24
+from 2025 (only touched by a 2025 backfill). Tests: `scripts/tests/test_scoreline_guard.py`.
+
 ### Older-copy check runs first, finished matches included (2026-10-26)
 
 Follow-up to the live guard (#55). After it, every run made a data commit: football-data.org served two
