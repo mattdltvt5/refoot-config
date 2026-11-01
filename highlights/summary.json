@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-01T16:01:18Z",
+  "generated_at": "2026-11-01T16:06:32Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -2233,7 +2233,7 @@
         {
           "gameweek": "GW10",
           "stem": "gameweek-10",
-          "total": 4,
+          "total": 6,
           "covered": 4,
           "matches": [
             {
@@ -2263,6 +2263,22 @@
               "away": "Venezia FC",
               "date": "2026-11-01",
               "covered": true
+            },
+            {
+              "match_id": 558544,
+              "home": "Frosinone Calcio",
+              "away": "Torino FC",
+              "date": "2026-11-01",
+              "covered": false,
+              "pending": true
+            },
+            {
+              "match_id": 558546,
+              "home": "SS Lazio",
+              "away": "Cagliari Calcio",
+              "date": "2026-11-01",
+              "covered": false,
+              "pending": true
             }
           ]
         }
@@ -3403,7 +3419,7 @@
         {
           "gameweek": "GW9",
           "stem": "gameweek-9",
-          "total": 4,
+          "total": 5,
           "covered": 4,
           "matches": [
             {
@@ -3433,6 +3449,14 @@
               "away": "Le Mans FC",
               "date": "2026-10-31",
               "covered": true
+            },
+            {
+              "match_id": 559647,
+              "home": "RC Strasbourg Alsace",
+              "away": "AJ Auxerre",
+              "date": "2026-11-01",
+              "covered": false,
+              "pending": true
             }
           ]
         }

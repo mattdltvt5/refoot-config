@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-01T14:08:18.331106Z",
+  "generated_at": "2026-11-01T16:07:09.010297Z",
   "competition": "Ligue 1",
   "slug": "ligue-1",
   "season": 2026,
@@ -216,24 +216,43 @@
     {
       "position": 12,
       "team": {
+        "id": 576,
+        "name": "RC Strasbourg Alsace",
+        "shortName": "Strasbourg",
+        "tla": "RC ",
+        "crest": "https://crests.football-data.org/576.png"
+      },
+      "playedGames": 9,
+      "form": "W,L,L,L,L",
+      "won": 3,
+      "draw": 1,
+      "lost": 5,
+      "points": 10,
+      "goalsFor": 17,
+      "goalsAgainst": 19,
+      "goalDifference": -2
+    },
+    {
+      "position": 13,
+      "team": {
         "id": 519,
         "name": "AJ Auxerre",
         "shortName": "Auxerre",
         "tla": "AJA",
         "crest": "https://crests.football-data.org/519.png"
       },
-      "playedGames": 8,
-      "form": "D,W,L,W,W",
+      "playedGames": 9,
+      "form": "L,D,W,L,W",
       "won": 3,
       "draw": 1,
-      "lost": 4,
+      "lost": 5,
       "points": 10,
-      "goalsFor": 12,
-      "goalsAgainst": 18,
-      "goalDifference": -6
+      "goalsFor": 13,
+      "goalsAgainst": 23,
+      "goalDifference": -10
     },
     {
-      "position": 13,
+      "position": 14,
       "team": {
         "id": 512,
         "name": "Stade Brestois 29",
@@ -252,7 +271,7 @@
       "goalDifference": 2
     },
     {
-      "position": 14,
+      "position": 15,
       "team": {
         "id": 532,
         "name": "Angers SCO",
@@ -271,7 +290,7 @@
       "goalDifference": -6
     },
     {
-      "position": 15,
+      "position": 16,
       "team": {
         "id": 531,
         "name": "ES Troyes AC",
@@ -288,25 +307,6 @@
       "goalsFor": 7,
       "goalsAgainst": 16,
       "goalDifference": -9
-    },
-    {
-      "position": 16,
-      "team": {
-        "id": 576,
-        "name": "RC Strasbourg Alsace",
-        "shortName": "Strasbourg",
-        "tla": "RC ",
-        "crest": "https://crests.football-data.org/576.png"
-      },
-      "playedGames": 8,
-      "form": "L,L,L,L,D",
-      "won": 2,
-      "draw": 1,
-      "lost": 5,
-      "points": 7,
-      "goalsFor": 12,
-      "goalsAgainst": 18,
-      "goalDifference": -6
     },
     {
       "position": 17,
