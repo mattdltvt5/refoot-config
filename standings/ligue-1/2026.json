@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-01T17:56:51.976272Z",
+  "generated_at": "2026-11-01T18:16:59.293567Z",
   "competition": "Ligue 1",
   "slug": "ligue-1",
   "season": 2026,
@@ -45,6 +45,44 @@
     {
       "position": 3,
       "team": {
+        "id": 523,
+        "name": "Olympique Lyonnais",
+        "shortName": "Olympique Lyon",
+        "tla": "LYO",
+        "crest": "https://crests.football-data.org/523.png"
+      },
+      "playedGames": 9,
+      "form": "W,L,W,L,W",
+      "won": 5,
+      "draw": 2,
+      "lost": 2,
+      "points": 17,
+      "goalsFor": 15,
+      "goalsAgainst": 7,
+      "goalDifference": 8
+    },
+    {
+      "position": 4,
+      "team": {
+        "id": 1045,
+        "name": "Paris FC",
+        "shortName": "Paris FC",
+        "tla": "PFC",
+        "crest": "https://crests.football-data.org/1045.png"
+      },
+      "playedGames": 9,
+      "form": "W,L,W,L,W",
+      "won": 5,
+      "draw": 2,
+      "lost": 2,
+      "points": 17,
+      "goalsFor": 16,
+      "goalsAgainst": 10,
+      "goalDifference": 6
+    },
+    {
+      "position": 5,
+      "team": {
         "id": 529,
         "name": "Stade Rennais FC 1901",
         "shortName": "Stade Rennais",
@@ -62,7 +100,7 @@
       "goalDifference": 1
     },
     {
-      "position": 4,
+      "position": 6,
       "team": {
         "id": 548,
         "name": "AS Monaco FC",
@@ -70,53 +108,15 @@
         "tla": "ASM",
         "crest": "https://crests.football-data.org/548.png"
       },
-      "playedGames": 8,
-      "form": "D,L,D,W,D",
+      "playedGames": 9,
+      "form": "L,D,L,D,W",
       "won": 4,
       "draw": 3,
-      "lost": 1,
+      "lost": 2,
       "points": 15,
-      "goalsFor": 11,
-      "goalsAgainst": 7,
-      "goalDifference": 4
-    },
-    {
-      "position": 5,
-      "team": {
-        "id": 523,
-        "name": "Olympique Lyonnais",
-        "shortName": "Olympique Lyon",
-        "tla": "LYO",
-        "crest": "https://crests.football-data.org/523.png"
-      },
-      "playedGames": 8,
-      "form": "L,W,L,W,D",
-      "won": 4,
-      "draw": 2,
-      "lost": 2,
-      "points": 14,
-      "goalsFor": 13,
-      "goalsAgainst": 7,
-      "goalDifference": 6
-    },
-    {
-      "position": 6,
-      "team": {
-        "id": 1045,
-        "name": "Paris FC",
-        "shortName": "Paris FC",
-        "tla": "PFC",
-        "crest": "https://crests.football-data.org/1045.png"
-      },
-      "playedGames": 8,
-      "form": "L,W,L,W,D",
-      "won": 4,
-      "draw": 2,
-      "lost": 2,
-      "points": 14,
-      "goalsFor": 13,
-      "goalsAgainst": 9,
-      "goalDifference": 4
+      "goalsFor": 12,
+      "goalsAgainst": 10,
+      "goalDifference": 2
     },
     {
       "position": 7,
@@ -279,15 +279,15 @@
         "tla": "ANG",
         "crest": "https://crests.football-data.org/532.png"
       },
-      "playedGames": 8,
-      "form": "D,L,L,W,D",
+      "playedGames": 9,
+      "form": "L,D,L,L,W",
       "won": 2,
       "draw": 2,
-      "lost": 4,
+      "lost": 5,
       "points": 8,
       "goalsFor": 9,
-      "goalsAgainst": 15,
-      "goalDifference": -6
+      "goalsAgainst": 17,
+      "goalDifference": -8
     },
     {
       "position": 16,
