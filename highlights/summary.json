@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-01T17:21:13Z",
+  "generated_at": "2026-11-01T17:26:22Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -1475,7 +1475,7 @@
         {
           "gameweek": "GW11",
           "stem": "gameweek-11",
-          "total": 6,
+          "total": 7,
           "covered": 6,
           "matches": [
             {
@@ -1519,6 +1519,14 @@
               "away": "Sevilla FC",
               "date": "2026-11-01",
               "covered": true
+            },
+            {
+              "match_id": 564734,
+              "home": "Real Racing Club de Santander",
+              "away": "Real Madrid CF",
+              "date": "2026-11-01",
+              "covered": false,
+              "pending": true
             }
           ]
         }
