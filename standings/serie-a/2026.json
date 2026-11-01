@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-01T20:56:51.643818Z",
+  "generated_at": "2026-11-01T21:46:49.961514Z",
   "competition": "Serie A",
   "slug": "serie-a",
   "season": 2026,
@@ -121,24 +121,43 @@
     {
       "position": 7,
       "team": {
+        "id": 109,
+        "name": "Juventus FC",
+        "shortName": "Juventus",
+        "tla": "JUV",
+        "crest": "https://crests.football-data.org/109.png"
+      },
+      "playedGames": 10,
+      "form": "W,L,W,L,D",
+      "won": 5,
+      "draw": 2,
+      "lost": 3,
+      "points": 17,
+      "goalsFor": 13,
+      "goalsAgainst": 10,
+      "goalDifference": 3
+    },
+    {
+      "position": 8,
+      "team": {
         "id": 113,
         "name": "SSC Napoli",
         "shortName": "Napoli",
         "tla": "NAP",
         "crest": "https://crests.football-data.org/113.png"
       },
-      "playedGames": 9,
-      "form": "W,D,L,W,D",
+      "playedGames": 10,
+      "form": "L,W,D,L,W",
       "won": 4,
       "draw": 2,
-      "lost": 3,
+      "lost": 4,
       "points": 14,
       "goalsFor": 17,
-      "goalsAgainst": 11,
-      "goalDifference": 6
+      "goalsAgainst": 13,
+      "goalDifference": 4
     },
     {
-      "position": 8,
+      "position": 9,
       "team": {
         "id": 103,
         "name": "Bologna FC 1909",
@@ -154,25 +173,6 @@
       "points": 14,
       "goalsFor": 14,
       "goalsAgainst": 13,
-      "goalDifference": 1
-    },
-    {
-      "position": 9,
-      "team": {
-        "id": 109,
-        "name": "Juventus FC",
-        "shortName": "Juventus",
-        "tla": "JUV",
-        "crest": "https://crests.football-data.org/109.png"
-      },
-      "playedGames": 9,
-      "form": "L,W,L,D,W",
-      "won": 4,
-      "draw": 2,
-      "lost": 3,
-      "points": 14,
-      "goalsFor": 11,
-      "goalsAgainst": 10,
       "goalDifference": 1
     },
     {

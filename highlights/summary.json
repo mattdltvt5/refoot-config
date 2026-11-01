@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-01T21:41:14Z",
+  "generated_at": "2026-11-01T21:46:29Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -2255,7 +2255,7 @@
         {
           "gameweek": "GW10",
           "stem": "gameweek-10",
-          "total": 7,
+          "total": 8,
           "covered": 7,
           "matches": [
             {
@@ -2306,6 +2306,14 @@
               "away": "Genoa CFC",
               "date": "2026-11-01",
               "covered": true
+            },
+            {
+              "match_id": 558547,
+              "home": "Juventus FC",
+              "away": "SSC Napoli",
+              "date": "2026-11-01",
+              "covered": false,
+              "pending": true
             }
           ]
         }
