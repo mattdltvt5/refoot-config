@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-01T17:56:36.898444Z",
+  "generated_at": "2026-11-01T19:07:05.534447Z",
   "competition": "Serie A",
   "slug": "serie-a",
   "season": 2026,
@@ -197,6 +197,25 @@
     {
       "position": 11,
       "team": {
+        "id": 107,
+        "name": "Genoa CFC",
+        "shortName": "Genoa",
+        "tla": "GEN",
+        "crest": "https://crests.football-data.org/107.png"
+      },
+      "playedGames": 10,
+      "form": "W,W,W,L,W",
+      "won": 4,
+      "draw": 1,
+      "lost": 5,
+      "points": 13,
+      "goalsFor": 10,
+      "goalsAgainst": 14,
+      "goalDifference": -4
+    },
+    {
+      "position": 12,
+      "team": {
         "id": 104,
         "name": "Cagliari Calcio",
         "shortName": "Cagliari",
@@ -214,7 +233,7 @@
       "goalDifference": -6
     },
     {
-      "position": 12,
+      "position": 13,
       "team": {
         "id": 102,
         "name": "Atalanta BC",
@@ -233,25 +252,6 @@
       "goalDifference": -1
     },
     {
-      "position": 13,
-      "team": {
-        "id": 107,
-        "name": "Genoa CFC",
-        "shortName": "Genoa",
-        "tla": "GEN",
-        "crest": "https://crests.football-data.org/107.png"
-      },
-      "playedGames": 9,
-      "form": "W,W,L,W,L",
-      "won": 3,
-      "draw": 1,
-      "lost": 5,
-      "points": 10,
-      "goalsFor": 8,
-      "goalsAgainst": 13,
-      "goalDifference": -5
-    },
-    {
       "position": 14,
       "team": {
         "id": 5890,
@@ -260,15 +260,15 @@
         "tla": "USL",
         "crest": "https://crests.football-data.org/5890.png"
       },
-      "playedGames": 9,
-      "form": "L,L,W,L,L",
+      "playedGames": 10,
+      "form": "L,L,L,W,L",
       "won": 3,
       "draw": 0,
-      "lost": 6,
+      "lost": 7,
       "points": 9,
-      "goalsFor": 10,
-      "goalsAgainst": 19,
-      "goalDifference": -9
+      "goalsFor": 11,
+      "goalsAgainst": 21,
+      "goalDifference": -10
     },
     {
       "position": 15,
