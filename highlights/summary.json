@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-02T22:06:26Z",
+  "generated_at": "2026-11-02T22:11:28Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -1491,7 +1491,7 @@
           "gameweek": "GW11",
           "stem": "gameweek-11",
           "total": 10,
-          "covered": 9,
+          "covered": 10,
           "matches": [
             {
               "match_id": 564737,
@@ -1561,8 +1561,7 @@
               "home": "RC Deportivo La Coruña",
               "away": "CA Osasuna",
               "date": "2026-11-02",
-              "covered": false,
-              "pending": true
+              "covered": true
             }
           ]
         }
