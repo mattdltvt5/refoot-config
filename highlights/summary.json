@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-02T21:56:22Z",
+  "generated_at": "2026-11-02T22:01:26Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -3488,7 +3488,7 @@
           "gameweek": "GW9",
           "stem": "gameweek-9",
           "total": 9,
-          "covered": 8,
+          "covered": 9,
           "matches": [
             {
               "match_id": 559644,
@@ -3551,8 +3551,7 @@
               "home": "FC Lorient",
               "away": "Stade Brestois 29",
               "date": "2026-11-02",
-              "covered": false,
-              "pending": true
+              "covered": true
             }
           ]
         }
