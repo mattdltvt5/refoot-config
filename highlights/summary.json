@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-02T19:56:14Z",
+  "generated_at": "2026-11-02T20:01:24Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -2262,7 +2262,7 @@
           "gameweek": "GW10",
           "stem": "gameweek-10",
           "total": 9,
-          "covered": 8,
+          "covered": 9,
           "matches": [
             {
               "match_id": 558539,
@@ -2325,8 +2325,7 @@
               "home": "US Sassuolo Calcio",
               "away": "ACF Fiorentina",
               "date": "2026-11-02",
-              "covered": false,
-              "pending": true
+              "covered": true
             }
           ]
         }
