@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-02T21:41:14Z",
+  "generated_at": "2026-11-02T21:46:11Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -2261,8 +2261,8 @@
         {
           "gameweek": "GW10",
           "stem": "gameweek-10",
-          "total": 9,
-          "covered": 9,
+          "total": 10,
+          "covered": 10,
           "matches": [
             {
               "match_id": 558539,
@@ -2324,6 +2324,13 @@
               "match_id": 558541,
               "home": "US Sassuolo Calcio",
               "away": "ACF Fiorentina",
+              "date": "2026-11-02",
+              "covered": true
+            },
+            {
+              "match_id": 558545,
+              "home": "Atalanta BC",
+              "away": "Parma Calcio 1913",
               "date": "2026-11-02",
               "covered": true
             }
