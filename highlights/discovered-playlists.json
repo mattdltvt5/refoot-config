@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-26T12:25:32Z",
+  "generated_at": "2026-11-02T14:58:12Z",
   "current_season": 2026,
   "resolved": {
     "2026": {
@@ -184,7 +184,7 @@
         },
         "Villarreal CF": {
           "format": "undetermined",
-          "playlist_id": "PLa_c7PpwQ1HE"
+          "playlist_id": "PLYzhzsb47IUM"
         },
         "CA Osasuna": {
           "format": "undetermined",
@@ -285,12 +285,6 @@
   },
   "team_matcher_version": 4,
   "flags": [
-    {
-      "competition": "Premier League",
-      "source": "Premier League",
-      "mapped_id": "PLQ_voP4Q3cfetksvjNLOrMr3h8xtViMuP",
-      "reason": "channel_unresolvable_reseed"
-    },
     {
       "competition": "Champions League",
       "source": "TUDN USA",
@@ -407,5 +401,5 @@
       "covered_via_other_tier": true
     }
   ],
-  "estimated_units": 198
+  "estimated_units": 197
 }
