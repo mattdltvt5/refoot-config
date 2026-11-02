@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-02T22:01:26Z",
+  "generated_at": "2026-11-02T22:06:26Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -632,7 +632,7 @@
         {
           "gameweek": "GW9",
           "stem": "gameweek-9",
-          "total": 9,
+          "total": 10,
           "covered": 9,
           "matches": [
             {
@@ -697,6 +697,14 @@
               "away": "Arsenal FC",
               "date": "2026-11-01",
               "covered": true
+            },
+            {
+              "match_id": 560622,
+              "home": "Newcastle United FC",
+              "away": "Everton FC",
+              "date": "2026-11-02",
+              "covered": false,
+              "pending": true
             }
           ]
         }
@@ -1482,7 +1490,7 @@
         {
           "gameweek": "GW11",
           "stem": "gameweek-11",
-          "total": 9,
+          "total": 10,
           "covered": 9,
           "matches": [
             {
@@ -1547,6 +1555,14 @@
               "away": "Real Sociedad de Fútbol",
               "date": "2026-11-01",
               "covered": true
+            },
+            {
+              "match_id": 564731,
+              "home": "RC Deportivo La Coruña",
+              "away": "CA Osasuna",
+              "date": "2026-11-02",
+              "covered": false,
+              "pending": true
             }
           ]
         }
