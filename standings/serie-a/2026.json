@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-02T16:54:08.414452Z",
+  "generated_at": "2026-11-02T19:31:45.943159Z",
   "competition": "Serie A",
   "slug": "serie-a",
   "season": 2026,
@@ -273,24 +273,43 @@
     {
       "position": 15,
       "team": {
+        "id": 99,
+        "name": "ACF Fiorentina",
+        "shortName": "Fiorentina",
+        "tla": "FIO",
+        "crest": "https://crests.football-data.org/99.png"
+      },
+      "playedGames": 10,
+      "form": "W,D,L,L,L",
+      "won": 2,
+      "draw": 2,
+      "lost": 6,
+      "points": 8,
+      "goalsFor": 15,
+      "goalsAgainst": 23,
+      "goalDifference": -8
+    },
+    {
+      "position": 16,
+      "team": {
         "id": 471,
         "name": "US Sassuolo Calcio",
         "shortName": "Sassuolo",
         "tla": "SAS",
         "crest": "https://crests.football-data.org/471.png"
       },
-      "playedGames": 9,
-      "form": "L,L,L,D,L",
+      "playedGames": 10,
+      "form": "L,L,L,L,D",
       "won": 2,
       "draw": 2,
-      "lost": 5,
+      "lost": 6,
       "points": 8,
-      "goalsFor": 14,
-      "goalsAgainst": 22,
-      "goalDifference": -8
+      "goalsFor": 16,
+      "goalsAgainst": 26,
+      "goalDifference": -10
     },
     {
-      "position": 16,
+      "position": 17,
       "team": {
         "id": 5911,
         "name": "AC Monza",
@@ -307,25 +326,6 @@
       "goalsFor": 17,
       "goalsAgainst": 24,
       "goalDifference": -7
-    },
-    {
-      "position": 17,
-      "team": {
-        "id": 99,
-        "name": "ACF Fiorentina",
-        "shortName": "Fiorentina",
-        "tla": "FIO",
-        "crest": "https://crests.football-data.org/99.png"
-      },
-      "playedGames": 9,
-      "form": "D,L,L,L,D",
-      "won": 1,
-      "draw": 2,
-      "lost": 6,
-      "points": 5,
-      "goalsFor": 11,
-      "goalsAgainst": 21,
-      "goalDifference": -10
     },
     {
       "position": 18,
