@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-03T20:26:43.426888Z",
+  "generated_at": "2026-11-03T20:31:43.545478Z",
   "slug": "ucl",
   "standings": [
     {
@@ -155,9 +155,9 @@
           "draw": 1,
           "lost": 1,
           "points": 7,
-          "goalsFor": 9,
+          "goalsFor": 10,
           "goalsAgainst": 5,
-          "goalDifference": 4
+          "goalDifference": 5
         },
         {
           "position": 9,
@@ -333,6 +333,25 @@
         {
           "position": 18,
           "team": {
+            "id": 2016,
+            "name": "LASK Linz",
+            "shortName": "LASK",
+            "tla": "LIN",
+            "crest": "https://crests.football-data.org/2016.png"
+          },
+          "playedGames": 4,
+          "form": null,
+          "won": 2,
+          "draw": 0,
+          "lost": 2,
+          "points": 6,
+          "goalsFor": 7,
+          "goalsAgainst": 9,
+          "goalDifference": -2
+        },
+        {
+          "position": 19,
+          "team": {
             "id": 78,
             "name": "Club Atlético de Madrid",
             "shortName": "Atleti",
@@ -350,7 +369,7 @@
           "goalDifference": 1
         },
         {
-          "position": 19,
+          "position": 20,
           "team": {
             "id": 1887,
             "name": "FK Shakhtar Donetsk",
@@ -369,7 +388,7 @@
           "goalDifference": 0
         },
         {
-          "position": 20,
+          "position": 21,
           "team": {
             "id": 674,
             "name": "PSV",
@@ -386,25 +405,6 @@
           "goalsFor": 2,
           "goalsAgainst": 2,
           "goalDifference": 0
-        },
-        {
-          "position": 21,
-          "team": {
-            "id": 2016,
-            "name": "LASK Linz",
-            "shortName": "LASK",
-            "tla": "LIN",
-            "crest": "https://crests.football-data.org/2016.png"
-          },
-          "playedGames": 4,
-          "form": null,
-          "won": 1,
-          "draw": 1,
-          "lost": 2,
-          "points": 4,
-          "goalsFor": 6,
-          "goalsAgainst": 9,
-          "goalDifference": -3
         },
         {
           "position": 22,
@@ -428,25 +428,6 @@
         {
           "position": 23,
           "team": {
-            "id": 66,
-            "name": "Manchester United FC",
-            "shortName": "Man United",
-            "tla": "MUN",
-            "crest": "https://crests.football-data.org/66.png"
-          },
-          "playedGames": 4,
-          "form": null,
-          "won": 1,
-          "draw": 0,
-          "lost": 3,
-          "points": 3,
-          "goalsFor": 5,
-          "goalsAgainst": 7,
-          "goalDifference": -2
-        },
-        {
-          "position": 23,
-          "team": {
             "id": 113,
             "name": "SSC Napoli",
             "shortName": "Napoli",
@@ -462,6 +443,25 @@
           "goalsFor": 5,
           "goalsAgainst": 7,
           "goalDifference": -2
+        },
+        {
+          "position": 24,
+          "team": {
+            "id": 66,
+            "name": "Manchester United FC",
+            "shortName": "Man United",
+            "tla": "MUN",
+            "crest": "https://crests.football-data.org/66.png"
+          },
+          "playedGames": 4,
+          "form": null,
+          "won": 1,
+          "draw": 0,
+          "lost": 3,
+          "points": 3,
+          "goalsFor": 5,
+          "goalsAgainst": 8,
+          "goalDifference": -3
         },
         {
           "position": 25,
@@ -656,25 +656,6 @@
         {
           "position": 35,
           "team": {
-            "id": 7509,
-            "name": "ŠK Slovan Bratislava",
-            "shortName": "Sl. Bratislava",
-            "tla": "SBA",
-            "crest": "https://crests.football-data.org/7509.png"
-          },
-          "playedGames": 4,
-          "form": null,
-          "won": 0,
-          "draw": 1,
-          "lost": 3,
-          "points": 1,
-          "goalsFor": 1,
-          "goalsAgainst": 13,
-          "goalDifference": -12
-        },
-        {
-          "position": 36,
-          "team": {
             "id": 503,
             "name": "FC Porto",
             "shortName": "Porto",
@@ -690,6 +671,25 @@
           "goalsFor": 2,
           "goalsAgainst": 6,
           "goalDifference": -4
+        },
+        {
+          "position": 36,
+          "team": {
+            "id": 7509,
+            "name": "ŠK Slovan Bratislava",
+            "shortName": "Sl. Bratislava",
+            "tla": "SBA",
+            "crest": "https://crests.football-data.org/7509.png"
+          },
+          "playedGames": 4,
+          "form": null,
+          "won": 0,
+          "draw": 0,
+          "lost": 4,
+          "points": 0,
+          "goalsFor": 1,
+          "goalsAgainst": 14,
+          "goalDifference": -13
         }
       ]
     }
@@ -2289,7 +2289,7 @@
         }
       },
       "status": "IN_PLAY",
-      "lastUpdated": "2026-11-03T20:25:55Z",
+      "lastUpdated": "2026-11-03T20:31:15Z",
       "video_id": null
     },
     {
@@ -2317,7 +2317,7 @@
         }
       },
       "status": "IN_PLAY",
-      "lastUpdated": "2026-11-03T20:25:55Z",
+      "lastUpdated": "2026-11-03T20:31:15Z",
       "video_id": null
     },
     {
@@ -2345,7 +2345,7 @@
         }
       },
       "status": "IN_PLAY",
-      "lastUpdated": "2026-11-03T20:25:55Z",
+      "lastUpdated": "2026-11-03T20:31:15Z",
       "video_id": null
     },
     {
@@ -2373,7 +2373,7 @@
         }
       },
       "status": "IN_PLAY",
-      "lastUpdated": "2026-11-03T20:25:24Z",
+      "lastUpdated": "2026-11-03T20:31:15Z",
       "video_id": null
     },
     {
@@ -2401,7 +2401,7 @@
         }
       },
       "status": "IN_PLAY",
-      "lastUpdated": "2026-11-03T20:25:55Z",
+      "lastUpdated": "2026-11-03T20:31:15Z",
       "video_id": null
     },
     {
@@ -2429,7 +2429,7 @@
         }
       },
       "status": "IN_PLAY",
-      "lastUpdated": "2026-11-03T20:24:51Z",
+      "lastUpdated": "2026-11-03T20:30:43Z",
       "video_id": null
     },
     {
@@ -2452,12 +2452,12 @@
       },
       "score": {
         "fullTime": {
-          "home": 0,
+          "home": 1,
           "away": 0
         }
       },
       "status": "IN_PLAY",
-      "lastUpdated": "2026-11-03T20:25:24Z",
+      "lastUpdated": "2026-11-03T20:30:43Z",
       "video_id": null
     },
     {
