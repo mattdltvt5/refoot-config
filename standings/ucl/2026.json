@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-03T14:54:51.966084Z",
+  "generated_at": "2026-11-03T19:46:49.286121Z",
   "competition": "Champions League",
   "slug": "ucl",
   "season": 2026,
@@ -83,6 +83,25 @@
     {
       "position": 5,
       "team": {
+        "id": 498,
+        "name": "Sporting Clube de Portugal",
+        "shortName": "Sporting CP",
+        "tla": "SPO",
+        "crest": "https://crests.football-data.org/498.png"
+      },
+      "playedGames": 4,
+      "form": "W,L,W,W",
+      "won": 3,
+      "draw": 0,
+      "lost": 1,
+      "points": 9,
+      "goalsFor": 8,
+      "goalsAgainst": 4,
+      "goalDifference": 4
+    },
+    {
+      "position": 6,
+      "team": {
         "id": 90,
         "name": "Real Betis Balompié",
         "shortName": "Real Betis",
@@ -98,25 +117,6 @@
       "goalsFor": 7,
       "goalsAgainst": 4,
       "goalDifference": 3
-    },
-    {
-      "position": 6,
-      "team": {
-        "id": 10,
-        "name": "VfB Stuttgart",
-        "shortName": "Stuttgart",
-        "tla": "VFB",
-        "crest": "https://crests.football-data.org/10.png"
-      },
-      "playedGames": 3,
-      "form": "D,W,W",
-      "won": 2,
-      "draw": 1,
-      "lost": 0,
-      "points": 7,
-      "goalsFor": 7,
-      "goalsAgainst": 2,
-      "goalDifference": 5
     },
     {
       "position": 7,
@@ -140,6 +140,25 @@
     {
       "position": 8,
       "team": {
+        "id": 10,
+        "name": "VfB Stuttgart",
+        "shortName": "Stuttgart",
+        "tla": "VFB",
+        "crest": "https://crests.football-data.org/10.png"
+      },
+      "playedGames": 4,
+      "form": "L,D,W,W",
+      "won": 2,
+      "draw": 1,
+      "lost": 1,
+      "points": 7,
+      "goalsFor": 7,
+      "goalsAgainst": 4,
+      "goalDifference": 3
+    },
+    {
+      "position": 9,
+      "team": {
         "id": 81,
         "name": "FC Barcelona",
         "shortName": "Barça",
@@ -157,7 +176,7 @@
       "goalDifference": 5
     },
     {
-      "position": 9,
+      "position": 10,
       "team": {
         "id": 7397,
         "name": "Como 1907",
@@ -176,7 +195,7 @@
       "goalDifference": 5
     },
     {
-      "position": 10,
+      "position": 11,
       "team": {
         "id": 65,
         "name": "Manchester City FC",
@@ -195,7 +214,7 @@
       "goalDifference": 4
     },
     {
-      "position": 11,
+      "position": 12,
       "team": {
         "id": 851,
         "name": "Club Brugge KV",
@@ -211,25 +230,6 @@
       "points": 6,
       "goalsFor": 9,
       "goalsAgainst": 6,
-      "goalDifference": 3
-    },
-    {
-      "position": 12,
-      "team": {
-        "id": 498,
-        "name": "Sporting Clube de Portugal",
-        "shortName": "Sporting CP",
-        "tla": "SPO",
-        "crest": "https://crests.football-data.org/498.png"
-      },
-      "playedGames": 3,
-      "form": "L,W,W",
-      "won": 2,
-      "draw": 0,
-      "lost": 1,
-      "points": 6,
-      "goalsFor": 7,
-      "goalsAgainst": 4,
       "goalDifference": 3
     },
     {
@@ -254,6 +254,25 @@
     {
       "position": 14,
       "team": {
+        "id": 610,
+        "name": "Galatasaray SK",
+        "shortName": "Galatasaray",
+        "tla": "GAL",
+        "crest": "https://crests.football-data.org/610.png"
+      },
+      "playedGames": 4,
+      "form": "W,W,L,L",
+      "won": 2,
+      "draw": 0,
+      "lost": 2,
+      "points": 6,
+      "goalsFor": 8,
+      "goalsAgainst": 9,
+      "goalDifference": -1
+    },
+    {
+      "position": 15,
+      "team": {
         "id": 5,
         "name": "FC Bayern München",
         "shortName": "Bayern",
@@ -271,7 +290,7 @@
       "goalDifference": 5
     },
     {
-      "position": 15,
+      "position": 16,
       "team": {
         "id": 100,
         "name": "AS Roma",
@@ -290,7 +309,7 @@
       "goalDifference": 3
     },
     {
-      "position": 16,
+      "position": 17,
       "team": {
         "id": 78,
         "name": "Club Atlético de Madrid",
@@ -309,7 +328,7 @@
       "goalDifference": 1
     },
     {
-      "position": 17,
+      "position": 18,
       "team": {
         "id": 1887,
         "name": "FK Shakhtar Donetsk",
@@ -317,18 +336,18 @@
         "tla": "SHD",
         "crest": "https://crests.football-data.org/1887.png"
       },
-      "playedGames": 3,
-      "form": "L,W,D",
+      "playedGames": 4,
+      "form": "L,L,W,D",
       "won": 1,
       "draw": 1,
-      "lost": 1,
+      "lost": 2,
       "points": 4,
       "goalsFor": 4,
-      "goalsAgainst": 3,
-      "goalDifference": 1
+      "goalsAgainst": 4,
+      "goalDifference": 0
     },
     {
-      "position": 18,
+      "position": 19,
       "team": {
         "id": 674,
         "name": "PSV",
@@ -347,7 +366,7 @@
       "goalDifference": 0
     },
     {
-      "position": 19,
+      "position": 20,
       "team": {
         "id": 94,
         "name": "Villarreal CF",
@@ -366,7 +385,7 @@
       "goalDifference": 0
     },
     {
-      "position": 20,
+      "position": 21,
       "team": {
         "id": 108,
         "name": "FC Internazionale Milano",
@@ -385,7 +404,7 @@
       "goalDifference": -1
     },
     {
-      "position": 21,
+      "position": 22,
       "team": {
         "id": 66,
         "name": "Manchester United FC",
@@ -404,7 +423,7 @@
       "goalDifference": -1
     },
     {
-      "position": 22,
+      "position": 23,
       "team": {
         "id": 113,
         "name": "SSC Napoli",
@@ -423,32 +442,13 @@
       "goalDifference": -2
     },
     {
-      "position": 23,
+      "position": 24,
       "team": {
         "id": 2016,
         "name": "LASK Linz",
         "shortName": "LASK",
         "tla": "LIN",
         "crest": "https://crests.football-data.org/2016.png"
-      },
-      "playedGames": 3,
-      "form": "W,L,L",
-      "won": 1,
-      "draw": 0,
-      "lost": 2,
-      "points": 3,
-      "goalsFor": 6,
-      "goalsAgainst": 9,
-      "goalDifference": -3
-    },
-    {
-      "position": 24,
-      "team": {
-        "id": 610,
-        "name": "Galatasaray SK",
-        "shortName": "Galatasaray",
-        "tla": "GAL",
-        "crest": "https://crests.football-data.org/610.png"
       },
       "playedGames": 3,
       "form": "W,L,L",
