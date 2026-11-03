@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-03T21:16:36.034135Z",
+  "generated_at": "2026-11-03T21:21:39.013334Z",
   "slug": "ucl",
   "standings": [
     {
@@ -22,12 +22,31 @@
           "draw": 0,
           "lost": 0,
           "points": 12,
-          "goalsFor": 18,
+          "goalsFor": 19,
           "goalsAgainst": 5,
-          "goalDifference": 13
+          "goalDifference": 14
         },
         {
           "position": 2,
+          "team": {
+            "id": 81,
+            "name": "FC Barcelona",
+            "shortName": "Barça",
+            "tla": "FCB",
+            "crest": "https://crests.football-data.org/81.png"
+          },
+          "playedGames": 4,
+          "form": null,
+          "won": 3,
+          "draw": 0,
+          "lost": 1,
+          "points": 9,
+          "goalsFor": 13,
+          "goalsAgainst": 6,
+          "goalDifference": 7
+        },
+        {
+          "position": 3,
           "team": {
             "id": 58,
             "name": "Aston Villa FC",
@@ -42,27 +61,8 @@
           "lost": 1,
           "points": 9,
           "goalsFor": 12,
-          "goalsAgainst": 4,
-          "goalDifference": 8
-        },
-        {
-          "position": 3,
-          "team": {
-            "id": 81,
-            "name": "FC Barcelona",
-            "shortName": "Barça",
-            "tla": "FCB",
-            "crest": "https://crests.football-data.org/81.png"
-          },
-          "playedGames": 4,
-          "form": null,
-          "won": 3,
-          "draw": 0,
-          "lost": 1,
-          "points": 9,
-          "goalsFor": 12,
-          "goalsAgainst": 6,
-          "goalDifference": 6
+          "goalsAgainst": 5,
+          "goalDifference": 7
         },
         {
           "position": 4,
@@ -143,6 +143,25 @@
         {
           "position": 8,
           "team": {
+            "id": 5,
+            "name": "FC Bayern München",
+            "shortName": "Bayern",
+            "tla": "FCB",
+            "crest": "https://crests.football-data.org/5.png"
+          },
+          "playedGames": 4,
+          "form": null,
+          "won": 2,
+          "draw": 2,
+          "lost": 0,
+          "points": 8,
+          "goalsFor": 11,
+          "goalsAgainst": 5,
+          "goalDifference": 6
+        },
+        {
+          "position": 9,
+          "team": {
             "id": 100,
             "name": "AS Roma",
             "shortName": "Roma",
@@ -156,11 +175,11 @@
           "lost": 1,
           "points": 7,
           "goalsFor": 10,
-          "goalsAgainst": 5,
-          "goalDifference": 5
+          "goalsAgainst": 6,
+          "goalDifference": 4
         },
         {
-          "position": 9,
+          "position": 10,
           "team": {
             "id": 57,
             "name": "Arsenal FC",
@@ -179,7 +198,7 @@
           "goalDifference": 4
         },
         {
-          "position": 10,
+          "position": 11,
           "team": {
             "id": 10,
             "name": "VfB Stuttgart",
@@ -196,25 +215,6 @@
           "goalsFor": 7,
           "goalsAgainst": 4,
           "goalDifference": 3
-        },
-        {
-          "position": 11,
-          "team": {
-            "id": 5,
-            "name": "FC Bayern München",
-            "shortName": "Bayern",
-            "tla": "FCB",
-            "crest": "https://crests.football-data.org/5.png"
-          },
-          "playedGames": 4,
-          "form": null,
-          "won": 1,
-          "draw": 3,
-          "lost": 0,
-          "points": 6,
-          "goalsFor": 10,
-          "goalsAgainst": 5,
-          "goalDifference": 5
         },
         {
           "position": 12,
@@ -276,6 +276,25 @@
         {
           "position": 15,
           "team": {
+            "id": 108,
+            "name": "FC Internazionale Milano",
+            "shortName": "Inter",
+            "tla": "INT",
+            "crest": "https://crests.football-data.org/108.png"
+          },
+          "playedGames": 4,
+          "form": null,
+          "won": 2,
+          "draw": 0,
+          "lost": 2,
+          "points": 6,
+          "goalsFor": 8,
+          "goalsAgainst": 6,
+          "goalDifference": 2
+        },
+        {
+          "position": 16,
+          "team": {
             "id": 2016,
             "name": "LASK Linz",
             "shortName": "LASK",
@@ -290,25 +309,6 @@
           "points": 6,
           "goalsFor": 10,
           "goalsAgainst": 9,
-          "goalDifference": 1
-        },
-        {
-          "position": 16,
-          "team": {
-            "id": 108,
-            "name": "FC Internazionale Milano",
-            "shortName": "Inter",
-            "tla": "INT",
-            "crest": "https://crests.football-data.org/108.png"
-          },
-          "playedGames": 4,
-          "form": null,
-          "won": 2,
-          "draw": 0,
-          "lost": 2,
-          "points": 6,
-          "goalsFor": 7,
-          "goalsAgainst": 6,
           "goalDifference": 1
         },
         {
@@ -361,12 +361,12 @@
           "playedGames": 4,
           "form": null,
           "won": 1,
-          "draw": 2,
-          "lost": 1,
-          "points": 5,
+          "draw": 1,
+          "lost": 2,
+          "points": 4,
           "goalsFor": 4,
-          "goalsAgainst": 3,
-          "goalDifference": 1
+          "goalsAgainst": 4,
+          "goalDifference": 0
         },
         {
           "position": 20,
@@ -428,6 +428,25 @@
         {
           "position": 23,
           "team": {
+            "id": 66,
+            "name": "Manchester United FC",
+            "shortName": "Man United",
+            "tla": "MUN",
+            "crest": "https://crests.football-data.org/66.png"
+          },
+          "playedGames": 4,
+          "form": null,
+          "won": 1,
+          "draw": 0,
+          "lost": 3,
+          "points": 3,
+          "goalsFor": 6,
+          "goalsAgainst": 8,
+          "goalDifference": -2
+        },
+        {
+          "position": 24,
+          "team": {
             "id": 113,
             "name": "SSC Napoli",
             "shortName": "Napoli",
@@ -443,25 +462,6 @@
           "goalsFor": 5,
           "goalsAgainst": 7,
           "goalDifference": -2
-        },
-        {
-          "position": 24,
-          "team": {
-            "id": 66,
-            "name": "Manchester United FC",
-            "shortName": "Man United",
-            "tla": "MUN",
-            "crest": "https://crests.football-data.org/66.png"
-          },
-          "playedGames": 4,
-          "form": null,
-          "won": 1,
-          "draw": 0,
-          "lost": 3,
-          "points": 3,
-          "goalsFor": 5,
-          "goalsAgainst": 8,
-          "goalDifference": -3
         },
         {
           "position": 25,
@@ -485,25 +485,6 @@
         {
           "position": 26,
           "team": {
-            "id": 94,
-            "name": "Villarreal CF",
-            "shortName": "Villarreal",
-            "tla": "VIL",
-            "crest": "https://crests.football-data.org/94.png"
-          },
-          "playedGames": 4,
-          "form": null,
-          "won": 1,
-          "draw": 0,
-          "lost": 3,
-          "points": 3,
-          "goalsFor": 8,
-          "goalsAgainst": 12,
-          "goalDifference": -4
-        },
-        {
-          "position": 27,
-          "team": {
             "id": 546,
             "name": "Racing Club de Lens",
             "shortName": "RC Lens",
@@ -519,6 +500,25 @@
           "goalsFor": 3,
           "goalsAgainst": 7,
           "goalDifference": -4
+        },
+        {
+          "position": 27,
+          "team": {
+            "id": 94,
+            "name": "Villarreal CF",
+            "shortName": "Villarreal",
+            "tla": "VIL",
+            "crest": "https://crests.football-data.org/94.png"
+          },
+          "playedGames": 4,
+          "form": null,
+          "won": 1,
+          "draw": 0,
+          "lost": 3,
+          "points": 3,
+          "goalsFor": 8,
+          "goalsAgainst": 13,
+          "goalDifference": -5
         },
         {
           "position": 28,
@@ -574,8 +574,8 @@
           "lost": 3,
           "points": 3,
           "goalsFor": 4,
-          "goalsAgainst": 10,
-          "goalDifference": -6
+          "goalsAgainst": 11,
+          "goalDifference": -7
         },
         {
           "position": 31,
@@ -2285,11 +2285,11 @@
       "score": {
         "fullTime": {
           "home": 0,
-          "away": 2
+          "away": 3
         }
       },
       "status": "IN_PLAY",
-      "lastUpdated": "2026-11-03T21:14:59Z",
+      "lastUpdated": "2026-11-03T21:21:28Z",
       "video_id": null
     },
     {
@@ -2312,12 +2312,12 @@
       },
       "score": {
         "fullTime": {
-          "home": 1,
+          "home": 2,
           "away": 0
         }
       },
       "status": "IN_PLAY",
-      "lastUpdated": "2026-11-03T21:14:59Z",
+      "lastUpdated": "2026-11-03T21:21:28Z",
       "video_id": null
     },
     {
@@ -2341,11 +2341,11 @@
       "score": {
         "fullTime": {
           "home": 0,
-          "away": 0
+          "away": 1
         }
       },
       "status": "IN_PLAY",
-      "lastUpdated": "2026-11-03T21:14:59Z",
+      "lastUpdated": "2026-11-03T21:21:28Z",
       "video_id": null
     },
     {
@@ -2369,11 +2369,11 @@
       "score": {
         "fullTime": {
           "home": 0,
-          "away": 4
+          "away": 5
         }
       },
       "status": "IN_PLAY",
-      "lastUpdated": "2026-11-03T21:14:59Z",
+      "lastUpdated": "2026-11-03T21:20:19Z",
       "video_id": null
     },
     {
@@ -2401,7 +2401,7 @@
         }
       },
       "status": "IN_PLAY",
-      "lastUpdated": "2026-11-03T21:14:59Z",
+      "lastUpdated": "2026-11-03T21:21:28Z",
       "video_id": null
     },
     {
@@ -2429,7 +2429,7 @@
         }
       },
       "status": "IN_PLAY",
-      "lastUpdated": "2026-11-03T21:14:59Z",
+      "lastUpdated": "2026-11-03T21:21:28Z",
       "video_id": null
     },
     {
@@ -2457,7 +2457,7 @@
         }
       },
       "status": "IN_PLAY",
-      "lastUpdated": "2026-11-03T21:14:59Z",
+      "lastUpdated": "2026-11-03T21:21:28Z",
       "video_id": null
     },
     {
