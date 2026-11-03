@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-03T22:11:13Z",
+  "generated_at": "2026-11-03T22:16:25Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -3981,7 +3981,7 @@
           "gameweek": "MD4",
           "stem": "matchday-4",
           "total": 9,
-          "covered": 2,
+          "covered": 5,
           "matches": [
             {
               "match_id": 575377,
@@ -4010,8 +4010,7 @@
               "home": "FC Barcelona",
               "away": "Aston Villa FC",
               "date": "2026-11-03",
-              "covered": false,
-              "pending": true
+              "covered": true
             },
             {
               "match_id": 575381,
@@ -4042,16 +4041,14 @@
               "home": "Feyenoord Rotterdam",
               "away": "FC Internazionale Milano",
               "date": "2026-11-03",
-              "covered": false,
-              "pending": true
+              "covered": true
             },
             {
               "match_id": 575383,
               "home": "Manchester United FC",
               "away": "AS Roma",
               "date": "2026-11-03",
-              "covered": false,
-              "pending": true
+              "covered": true
             }
           ]
         }
