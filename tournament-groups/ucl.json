@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-03T17:56:33.931022Z",
+  "generated_at": "2026-11-03T18:01:46.730285Z",
   "slug": "ucl",
   "standings": [
     {
@@ -114,12 +114,12 @@
           "playedGames": 4,
           "form": null,
           "won": 2,
-          "draw": 2,
-          "lost": 0,
-          "points": 8,
+          "draw": 1,
+          "lost": 1,
+          "points": 7,
           "goalsFor": 7,
-          "goalsAgainst": 2,
-          "goalDifference": 5
+          "goalsAgainst": 3,
+          "goalDifference": 4
         },
         {
           "position": 7,
@@ -257,6 +257,25 @@
         {
           "position": 14,
           "team": {
+            "id": 610,
+            "name": "Galatasaray SK",
+            "shortName": "Galatasaray",
+            "tla": "GAL",
+            "crest": "https://crests.football-data.org/610.png"
+          },
+          "playedGames": 4,
+          "form": null,
+          "won": 2,
+          "draw": 0,
+          "lost": 2,
+          "points": 6,
+          "goalsFor": 7,
+          "goalsAgainst": 9,
+          "goalDifference": -2
+        },
+        {
+          "position": 15,
+          "team": {
             "id": 5,
             "name": "FC Bayern München",
             "shortName": "Bayern",
@@ -274,7 +293,7 @@
           "goalDifference": 5
         },
         {
-          "position": 15,
+          "position": 16,
           "team": {
             "id": 1887,
             "name": "FK Shakhtar Donetsk",
@@ -293,7 +312,7 @@
           "goalDifference": 1
         },
         {
-          "position": 16,
+          "position": 17,
           "team": {
             "id": 100,
             "name": "AS Roma",
@@ -312,7 +331,7 @@
           "goalDifference": 3
         },
         {
-          "position": 17,
+          "position": 18,
           "team": {
             "id": 78,
             "name": "Club Atlético de Madrid",
@@ -331,7 +350,7 @@
           "goalDifference": 1
         },
         {
-          "position": 18,
+          "position": 19,
           "team": {
             "id": 674,
             "name": "PSV",
@@ -348,25 +367,6 @@
           "goalsFor": 2,
           "goalsAgainst": 2,
           "goalDifference": 0
-        },
-        {
-          "position": 19,
-          "team": {
-            "id": 610,
-            "name": "Galatasaray SK",
-            "shortName": "Galatasaray",
-            "tla": "GAL",
-            "crest": "https://crests.football-data.org/610.png"
-          },
-          "playedGames": 4,
-          "form": null,
-          "won": 1,
-          "draw": 1,
-          "lost": 2,
-          "points": 4,
-          "goalsFor": 6,
-          "goalsAgainst": 9,
-          "goalDifference": -3
         },
         {
           "position": 20,
