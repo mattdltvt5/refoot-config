@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-03T20:06:31.809017Z",
+  "generated_at": "2026-11-03T20:11:45.580953Z",
   "slug": "ucl",
   "standings": [
     {
@@ -38,15 +38,34 @@
           "playedGames": 4,
           "form": null,
           "won": 3,
-          "draw": 1,
-          "lost": 0,
-          "points": 10,
+          "draw": 0,
+          "lost": 1,
+          "points": 9,
           "goalsFor": 12,
-          "goalsAgainst": 3,
-          "goalDifference": 9
+          "goalsAgainst": 4,
+          "goalDifference": 8
         },
         {
           "position": 3,
+          "team": {
+            "id": 81,
+            "name": "FC Barcelona",
+            "shortName": "Barça",
+            "tla": "FCB",
+            "crest": "https://crests.football-data.org/81.png"
+          },
+          "playedGames": 4,
+          "form": null,
+          "won": 3,
+          "draw": 0,
+          "lost": 1,
+          "points": 9,
+          "goalsFor": 12,
+          "goalsAgainst": 6,
+          "goalDifference": 6
+        },
+        {
+          "position": 4,
           "team": {
             "id": 64,
             "name": "Liverpool FC",
@@ -65,7 +84,7 @@
           "goalDifference": 5
         },
         {
-          "position": 4,
+          "position": 5,
           "team": {
             "id": 86,
             "name": "Real Madrid CF",
@@ -84,7 +103,7 @@
           "goalDifference": 5
         },
         {
-          "position": 5,
+          "position": 6,
           "team": {
             "id": 498,
             "name": "Sporting Clube de Portugal",
@@ -103,7 +122,7 @@
           "goalDifference": 4
         },
         {
-          "position": 6,
+          "position": 7,
           "team": {
             "id": 90,
             "name": "Real Betis Balompié",
@@ -120,25 +139,6 @@
           "goalsFor": 7,
           "goalsAgainst": 4,
           "goalDifference": 3
-        },
-        {
-          "position": 7,
-          "team": {
-            "id": 81,
-            "name": "FC Barcelona",
-            "shortName": "Barça",
-            "tla": "FCB",
-            "crest": "https://crests.football-data.org/81.png"
-          },
-          "playedGames": 4,
-          "form": null,
-          "won": 2,
-          "draw": 1,
-          "lost": 1,
-          "points": 7,
-          "goalsFor": 11,
-          "goalsAgainst": 6,
-          "goalDifference": 5
         },
         {
           "position": 8,
@@ -2289,7 +2289,7 @@
         }
       },
       "status": "IN_PLAY",
-      "lastUpdated": "2026-11-03T20:05:39Z",
+      "lastUpdated": "2026-11-03T20:10:59Z",
       "video_id": null
     },
     {
@@ -2317,7 +2317,7 @@
         }
       },
       "status": "IN_PLAY",
-      "lastUpdated": "2026-11-03T20:05:39Z",
+      "lastUpdated": "2026-11-03T20:10:59Z",
       "video_id": null
     },
     {
@@ -2345,7 +2345,7 @@
         }
       },
       "status": "IN_PLAY",
-      "lastUpdated": "2026-11-03T20:05:39Z",
+      "lastUpdated": "2026-11-03T20:10:59Z",
       "video_id": null
     },
     {
@@ -2368,12 +2368,12 @@
       },
       "score": {
         "fullTime": {
-          "home": null,
-          "away": null
+          "home": 0,
+          "away": 0
         }
       },
-      "status": "TIMED",
-      "lastUpdated": "2026-11-03T00:20:28Z",
+      "status": "IN_PLAY",
+      "lastUpdated": "2026-11-03T20:11:31Z",
       "video_id": null
     },
     {
@@ -2401,7 +2401,7 @@
         }
       },
       "status": "IN_PLAY",
-      "lastUpdated": "2026-11-03T20:05:39Z",
+      "lastUpdated": "2026-11-03T20:10:59Z",
       "video_id": null
     },
     {
@@ -2429,7 +2429,7 @@
         }
       },
       "status": "IN_PLAY",
-      "lastUpdated": "2026-11-03T20:05:39Z",
+      "lastUpdated": "2026-11-03T20:10:59Z",
       "video_id": null
     },
     {
@@ -2457,7 +2457,7 @@
         }
       },
       "status": "IN_PLAY",
-      "lastUpdated": "2026-11-03T20:05:39Z",
+      "lastUpdated": "2026-11-03T20:10:59Z",
       "video_id": null
     },
     {
