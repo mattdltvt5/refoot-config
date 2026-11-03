@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-02T23:56:20Z",
+  "generated_at": "2026-11-03T00:01:19Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -633,7 +633,7 @@
           "gameweek": "GW9",
           "stem": "gameweek-9",
           "total": 10,
-          "covered": 9,
+          "covered": 10,
           "matches": [
             {
               "match_id": 560626,
@@ -703,8 +703,7 @@
               "home": "Newcastle United FC",
               "away": "Everton FC",
               "date": "2026-11-02",
-              "covered": false,
-              "pending": true
+              "covered": true
             }
           ]
         }
