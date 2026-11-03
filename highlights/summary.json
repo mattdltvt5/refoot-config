@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-03T22:01:47Z",
+  "generated_at": "2026-11-03T22:06:41Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -3980,7 +3980,7 @@
         {
           "gameweek": "MD4",
           "stem": "matchday-4",
-          "total": 7,
+          "total": 9,
           "covered": 2,
           "matches": [
             {
@@ -4033,6 +4033,22 @@
               "match_id": 575385,
               "home": "LASK Linz",
               "away": "ŠK Slovan Bratislava",
+              "date": "2026-11-03",
+              "covered": false,
+              "pending": true
+            },
+            {
+              "match_id": 575379,
+              "home": "Feyenoord Rotterdam",
+              "away": "FC Internazionale Milano",
+              "date": "2026-11-03",
+              "covered": false,
+              "pending": true
+            },
+            {
+              "match_id": 575383,
+              "home": "Manchester United FC",
+              "away": "AS Roma",
               "date": "2026-11-03",
               "covered": false,
               "pending": true
