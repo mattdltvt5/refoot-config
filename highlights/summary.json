@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-03T21:51:15Z",
+  "generated_at": "2026-11-03T21:56:21Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -3980,7 +3980,7 @@
         {
           "gameweek": "MD4",
           "stem": "matchday-4",
-          "total": 2,
+          "total": 3,
           "covered": 2,
           "matches": [
             {
@@ -3996,6 +3996,14 @@
               "away": "VfB Stuttgart",
               "date": "2026-11-03",
               "covered": true
+            },
+            {
+              "match_id": 575384,
+              "home": "FK Bodø/Glimt",
+              "away": "Lille OSC",
+              "date": "2026-11-03",
+              "covered": false,
+              "pending": true
             }
           ]
         }
