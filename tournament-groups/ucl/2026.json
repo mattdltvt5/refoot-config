@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-03T20:56:36.195982Z",
+  "generated_at": "2026-11-03T21:11:36.505809Z",
   "slug": "ucl",
   "standings": [
     {
@@ -276,6 +276,25 @@
         {
           "position": 15,
           "team": {
+            "id": 2016,
+            "name": "LASK Linz",
+            "shortName": "LASK",
+            "tla": "LIN",
+            "crest": "https://crests.football-data.org/2016.png"
+          },
+          "playedGames": 4,
+          "form": null,
+          "won": 2,
+          "draw": 0,
+          "lost": 2,
+          "points": 6,
+          "goalsFor": 10,
+          "goalsAgainst": 9,
+          "goalDifference": 1
+        },
+        {
+          "position": 16,
+          "team": {
             "id": 108,
             "name": "FC Internazionale Milano",
             "shortName": "Inter",
@@ -293,7 +312,7 @@
           "goalDifference": 1
         },
         {
-          "position": 16,
+          "position": 17,
           "team": {
             "id": 4,
             "name": "Borussia Dortmund",
@@ -310,25 +329,6 @@
           "goalsFor": 5,
           "goalsAgainst": 4,
           "goalDifference": 1
-        },
-        {
-          "position": 17,
-          "team": {
-            "id": 2016,
-            "name": "LASK Linz",
-            "shortName": "LASK",
-            "tla": "LIN",
-            "crest": "https://crests.football-data.org/2016.png"
-          },
-          "playedGames": 4,
-          "form": null,
-          "won": 2,
-          "draw": 0,
-          "lost": 2,
-          "points": 6,
-          "goalsFor": 9,
-          "goalsAgainst": 9,
-          "goalDifference": 0
         },
         {
           "position": 18,
@@ -688,8 +688,8 @@
           "lost": 4,
           "points": 0,
           "goalsFor": 1,
-          "goalsAgainst": 16,
-          "goalDifference": -15
+          "goalsAgainst": 17,
+          "goalDifference": -16
         }
       ]
     }
@@ -2345,7 +2345,7 @@
         }
       },
       "status": "IN_PLAY",
-      "lastUpdated": "2026-11-03T20:52:35Z",
+      "lastUpdated": "2026-11-03T21:10:43Z",
       "video_id": null
     },
     {
@@ -2373,7 +2373,7 @@
         }
       },
       "status": "IN_PLAY",
-      "lastUpdated": "2026-11-03T20:54:43Z",
+      "lastUpdated": "2026-11-03T21:10:11Z",
       "video_id": null
     },
     {
@@ -2401,7 +2401,7 @@
         }
       },
       "status": "IN_PLAY",
-      "lastUpdated": "2026-11-03T20:54:43Z",
+      "lastUpdated": "2026-11-03T21:10:43Z",
       "video_id": null
     },
     {
@@ -2429,7 +2429,7 @@
         }
       },
       "status": "IN_PLAY",
-      "lastUpdated": "2026-11-03T20:52:35Z",
+      "lastUpdated": "2026-11-03T21:10:43Z",
       "video_id": null
     },
     {
@@ -2457,7 +2457,7 @@
         }
       },
       "status": "IN_PLAY",
-      "lastUpdated": "2026-11-03T20:55:15Z",
+      "lastUpdated": "2026-11-03T21:10:43Z",
       "video_id": null
     },
     {
