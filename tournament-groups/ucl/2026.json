@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-03T20:36:37.999890Z",
+  "generated_at": "2026-11-03T20:41:42.266951Z",
   "slug": "ucl",
   "standings": [
     {
@@ -276,6 +276,25 @@
         {
           "position": 15,
           "team": {
+            "id": 108,
+            "name": "FC Internazionale Milano",
+            "shortName": "Inter",
+            "tla": "INT",
+            "crest": "https://crests.football-data.org/108.png"
+          },
+          "playedGames": 4,
+          "form": null,
+          "won": 2,
+          "draw": 0,
+          "lost": 2,
+          "points": 6,
+          "goalsFor": 7,
+          "goalsAgainst": 6,
+          "goalDifference": 1
+        },
+        {
+          "position": 16,
+          "team": {
             "id": 4,
             "name": "Borussia Dortmund",
             "shortName": "Dortmund",
@@ -291,25 +310,6 @@
           "goalsFor": 5,
           "goalsAgainst": 4,
           "goalDifference": 1
-        },
-        {
-          "position": 16,
-          "team": {
-            "id": 108,
-            "name": "FC Internazionale Milano",
-            "shortName": "Inter",
-            "tla": "INT",
-            "crest": "https://crests.football-data.org/108.png"
-          },
-          "playedGames": 4,
-          "form": null,
-          "won": 2,
-          "draw": 0,
-          "lost": 2,
-          "points": 6,
-          "goalsFor": 6,
-          "goalsAgainst": 6,
-          "goalDifference": 0
         },
         {
           "position": 17,
@@ -345,9 +345,9 @@
           "draw": 0,
           "lost": 2,
           "points": 6,
-          "goalsFor": 7,
+          "goalsFor": 8,
           "goalsAgainst": 9,
-          "goalDifference": -2
+          "goalDifference": -1
         },
         {
           "position": 19,
@@ -523,25 +523,6 @@
         {
           "position": 28,
           "team": {
-            "id": 675,
-            "name": "Feyenoord Rotterdam",
-            "shortName": "Feyenoord",
-            "tla": "FEY",
-            "crest": "https://crests.football-data.org/675.png"
-          },
-          "playedGames": 4,
-          "form": null,
-          "won": 1,
-          "draw": 0,
-          "lost": 3,
-          "points": 3,
-          "goalsFor": 4,
-          "goalsAgainst": 9,
-          "goalDifference": -5
-        },
-        {
-          "position": 29,
-          "team": {
             "id": 1899,
             "name": "PAE AEK",
             "shortName": "PAE AEK",
@@ -559,7 +540,7 @@
           "goalDifference": -5
         },
         {
-          "position": 29,
+          "position": 28,
           "team": {
             "id": 721,
             "name": "RB Leipzig",
@@ -576,6 +557,25 @@
           "goalsFor": 3,
           "goalsAgainst": 8,
           "goalDifference": -5
+        },
+        {
+          "position": 30,
+          "team": {
+            "id": 675,
+            "name": "Feyenoord Rotterdam",
+            "shortName": "Feyenoord",
+            "tla": "FEY",
+            "crest": "https://crests.football-data.org/675.png"
+          },
+          "playedGames": 4,
+          "form": null,
+          "won": 1,
+          "draw": 0,
+          "lost": 3,
+          "points": 3,
+          "goalsFor": 4,
+          "goalsAgainst": 10,
+          "goalDifference": -6
         },
         {
           "position": 31,
@@ -688,8 +688,8 @@
           "lost": 4,
           "points": 0,
           "goalsFor": 1,
-          "goalsAgainst": 14,
-          "goalDifference": -13
+          "goalsAgainst": 15,
+          "goalDifference": -14
         }
       ]
     }
@@ -2289,7 +2289,7 @@
         }
       },
       "status": "IN_PLAY",
-      "lastUpdated": "2026-11-03T20:36:35Z",
+      "lastUpdated": "2026-11-03T20:40:51Z",
       "video_id": null
     },
     {
@@ -2317,7 +2317,7 @@
         }
       },
       "status": "IN_PLAY",
-      "lastUpdated": "2026-11-03T20:36:35Z",
+      "lastUpdated": "2026-11-03T20:40:51Z",
       "video_id": null
     },
     {
@@ -2345,7 +2345,7 @@
         }
       },
       "status": "IN_PLAY",
-      "lastUpdated": "2026-11-03T20:36:35Z",
+      "lastUpdated": "2026-11-03T20:40:51Z",
       "video_id": null
     },
     {
@@ -2373,7 +2373,7 @@
         }
       },
       "status": "IN_PLAY",
-      "lastUpdated": "2026-11-03T20:36:03Z",
+      "lastUpdated": "2026-11-03T20:41:23Z",
       "video_id": null
     },
     {
@@ -2401,7 +2401,7 @@
         }
       },
       "status": "IN_PLAY",
-      "lastUpdated": "2026-11-03T20:36:35Z",
+      "lastUpdated": "2026-11-03T20:40:51Z",
       "video_id": null
     },
     {
@@ -2429,7 +2429,7 @@
         }
       },
       "status": "IN_PLAY",
-      "lastUpdated": "2026-11-03T20:36:35Z",
+      "lastUpdated": "2026-11-03T20:40:51Z",
       "video_id": null
     },
     {
@@ -2457,7 +2457,7 @@
         }
       },
       "status": "IN_PLAY",
-      "lastUpdated": "2026-11-03T20:36:03Z",
+      "lastUpdated": "2026-11-03T20:41:23Z",
       "video_id": null
     },
     {
