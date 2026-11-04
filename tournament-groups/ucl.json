@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-04T21:46:30.346725Z",
+  "generated_at": "2026-11-04T21:51:41.832345Z",
   "slug": "ucl",
   "standings": [
     {
@@ -61,8 +61,8 @@
           "lost": 0,
           "points": 10,
           "goalsFor": 8,
-          "goalsAgainst": 2,
-          "goalDifference": 6
+          "goalsAgainst": 3,
+          "goalDifference": 5
         },
         {
           "position": 4,
@@ -459,9 +459,9 @@
           "draw": 1,
           "lost": 2,
           "points": 4,
-          "goalsFor": 7,
+          "goalsFor": 8,
           "goalsAgainst": 10,
-          "goalDifference": -3
+          "goalDifference": -2
         },
         {
           "position": 25,
@@ -485,6 +485,25 @@
         {
           "position": 26,
           "team": {
+            "id": 503,
+            "name": "FC Porto",
+            "shortName": "Porto",
+            "tla": "FCP",
+            "crest": "https://crests.football-data.org/503.png"
+          },
+          "playedGames": 4,
+          "form": null,
+          "won": 1,
+          "draw": 0,
+          "lost": 3,
+          "points": 3,
+          "goalsFor": 6,
+          "goalsAgainst": 7,
+          "goalDifference": -1
+        },
+        {
+          "position": 27,
+          "team": {
             "id": 113,
             "name": "SSC Napoli",
             "shortName": "Napoli",
@@ -498,27 +517,8 @@
           "lost": 3,
           "points": 3,
           "goalsFor": 6,
-          "goalsAgainst": 9,
-          "goalDifference": -3
-        },
-        {
-          "position": 27,
-          "team": {
-            "id": 503,
-            "name": "FC Porto",
-            "shortName": "Porto",
-            "tla": "FCP",
-            "crest": "https://crests.football-data.org/503.png"
-          },
-          "playedGames": 4,
-          "form": null,
-          "won": 1,
-          "draw": 0,
-          "lost": 3,
-          "points": 3,
-          "goalsFor": 4,
-          "goalsAgainst": 7,
-          "goalDifference": -3
+          "goalsAgainst": 11,
+          "goalDifference": -5
         },
         {
           "position": 28,
@@ -536,8 +536,8 @@
           "lost": 3,
           "points": 3,
           "goalsFor": 4,
-          "goalsAgainst": 8,
-          "goalDifference": -4
+          "goalsAgainst": 9,
+          "goalDifference": -5
         },
         {
           "position": 29,
@@ -649,9 +649,9 @@
           "draw": 1,
           "lost": 3,
           "points": 1,
-          "goalsFor": 4,
+          "goalsFor": 5,
           "goalsAgainst": 9,
-          "goalDifference": -5
+          "goalDifference": -4
         },
         {
           "position": 35,
@@ -2541,7 +2541,7 @@
         }
       },
       "status": "IN_PLAY",
-      "lastUpdated": "2026-11-04T21:44:51Z",
+      "lastUpdated": "2026-11-04T21:50:11Z",
       "video_id": null
     },
     {
@@ -2569,7 +2569,7 @@
         }
       },
       "status": "IN_PLAY",
-      "lastUpdated": "2026-11-04T21:44:51Z",
+      "lastUpdated": "2026-11-04T21:50:11Z",
       "video_id": null
     },
     {
@@ -2597,7 +2597,7 @@
         }
       },
       "status": "IN_PLAY",
-      "lastUpdated": "2026-11-04T21:44:51Z",
+      "lastUpdated": "2026-11-04T21:50:11Z",
       "video_id": null
     },
     {
@@ -2625,7 +2625,7 @@
         }
       },
       "status": "IN_PLAY",
-      "lastUpdated": "2026-11-04T21:45:23Z",
+      "lastUpdated": "2026-11-04T21:50:43Z",
       "video_id": null
     },
     {
@@ -2648,12 +2648,12 @@
       },
       "score": {
         "fullTime": {
-          "home": 2,
+          "home": 3,
           "away": 1
         }
       },
       "status": "IN_PLAY",
-      "lastUpdated": "2026-11-04T21:45:23Z",
+      "lastUpdated": "2026-11-04T21:50:43Z",
       "video_id": null
     },
     {
@@ -2681,7 +2681,7 @@
         }
       },
       "status": "IN_PLAY",
-      "lastUpdated": "2026-11-04T21:45:23Z",
+      "lastUpdated": "2026-11-04T21:50:43Z",
       "video_id": null
     },
     {
@@ -2704,12 +2704,12 @@
       },
       "score": {
         "fullTime": {
-          "home": 2,
+          "home": 3,
           "away": 1
         }
       },
       "status": "IN_PLAY",
-      "lastUpdated": "2026-11-04T21:44:51Z",
+      "lastUpdated": "2026-11-04T21:50:11Z",
       "video_id": null
     },
     {
