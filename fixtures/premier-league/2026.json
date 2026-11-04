@@ -1,7 +1,7 @@
 {
   "competition": "Premier League",
   "season": 2026,
-  "generated_at": "2026-11-04T17:31:12Z",
+  "generated_at": "2026-11-04T17:36:12Z",
   "fixtures": [
     {
       "match_id": 560542,
@@ -4412,6 +4412,35 @@
       "lastUpdated": "2026-11-04T00:20:29Z"
     },
     {
+      "match_id": 560694,
+      "group": "",
+      "matchday": 16,
+      "sourceRound": "Gameweek 16",
+      "homeTeam": {
+        "id": 351,
+        "name": "Nottingham Forest FC",
+        "shortName": "Nottingham",
+        "tla": "NOT",
+        "crest": "https://crests.football-data.org/351.png"
+      },
+      "awayTeam": {
+        "id": 62,
+        "name": "Everton FC",
+        "shortName": "Everton",
+        "tla": "EVE",
+        "crest": "https://crests.football-data.org/62.png"
+      },
+      "score": {
+        "fullTime": {
+          "home": null,
+          "away": null
+        }
+      },
+      "status": "TIMED",
+      "utcDate": "2026-12-20T14:00:00Z",
+      "lastUpdated": "2026-11-04T14:25:16Z"
+    },
+    {
       "match_id": 560696,
       "group": "",
       "matchday": 16,
@@ -4526,35 +4555,6 @@
       "status": "TIMED",
       "utcDate": "2026-12-20T14:00:00Z",
       "lastUpdated": "2026-11-04T00:20:29Z"
-    },
-    {
-      "match_id": 560694,
-      "group": "",
-      "matchday": 16,
-      "sourceRound": "Gameweek 16",
-      "homeTeam": {
-        "id": 351,
-        "name": "Nottingham Forest FC",
-        "shortName": "Nottingham",
-        "tla": "NOT",
-        "crest": "https://crests.football-data.org/351.png"
-      },
-      "awayTeam": {
-        "id": 62,
-        "name": "Everton FC",
-        "shortName": "Everton",
-        "tla": "EVE",
-        "crest": "https://crests.football-data.org/62.png"
-      },
-      "score": {
-        "fullTime": {
-          "home": null,
-          "away": null
-        }
-      },
-      "status": "TIMED",
-      "utcDate": "2026-12-20T14:00:00Z",
-      "lastUpdated": "2026-11-04T14:25:16Z"
     },
     {
       "match_id": 560697,
