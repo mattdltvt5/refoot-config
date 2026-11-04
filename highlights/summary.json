@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-04T21:56:17Z",
+  "generated_at": "2026-11-04T22:01:27Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -3980,7 +3980,7 @@
         {
           "gameweek": "MD4",
           "stem": "matchday-4",
-          "total": 11,
+          "total": 14,
           "covered": 11,
           "matches": [
             {
@@ -4059,6 +4059,30 @@
               "away": "Liverpool FC",
               "date": "2026-11-04",
               "covered": true
+            },
+            {
+              "match_id": 575389,
+              "home": "SK Slavia Praha",
+              "away": "Arsenal FC",
+              "date": "2026-11-04",
+              "covered": false,
+              "pending": true
+            },
+            {
+              "match_id": 575392,
+              "home": "FC Porto",
+              "away": "SSC Napoli",
+              "date": "2026-11-04",
+              "covered": false,
+              "pending": true
+            },
+            {
+              "match_id": 575394,
+              "home": "Viking FK",
+              "away": "Sabah FK",
+              "date": "2026-11-04",
+              "covered": false,
+              "pending": true
             }
           ]
         }

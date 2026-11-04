@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-04T21:56:37.746419Z",
+  "generated_at": "2026-11-04T22:01:48.699107Z",
   "slug": "ucl",
   "standings": [
     {
@@ -79,9 +79,9 @@
           "draw": 0,
           "lost": 1,
           "points": 9,
-          "goalsFor": 18,
+          "goalsFor": 19,
           "goalsAgainst": 6,
-          "goalDifference": 12
+          "goalDifference": 13
         },
         {
           "position": 5,
@@ -409,6 +409,25 @@
         {
           "position": 22,
           "team": {
+            "id": 5720,
+            "name": "Viking FK",
+            "shortName": "Viking",
+            "tla": "VIK",
+            "crest": "https://crests.football-data.org/5720.png"
+          },
+          "playedGames": 4,
+          "form": null,
+          "won": 1,
+          "draw": 1,
+          "lost": 2,
+          "points": 4,
+          "goalsFor": 9,
+          "goalsAgainst": 10,
+          "goalDifference": -1
+        },
+        {
+          "position": 23,
+          "team": {
             "id": 78,
             "name": "Club Atlético de Madrid",
             "shortName": "Atleti",
@@ -426,7 +445,7 @@
           "goalDifference": -1
         },
         {
-          "position": 23,
+          "position": 24,
           "team": {
             "id": 674,
             "name": "PSV",
@@ -443,25 +462,6 @@
           "goalsFor": 3,
           "goalsAgainst": 4,
           "goalDifference": -1
-        },
-        {
-          "position": 24,
-          "team": {
-            "id": 5720,
-            "name": "Viking FK",
-            "shortName": "Viking",
-            "tla": "VIK",
-            "crest": "https://crests.football-data.org/5720.png"
-          },
-          "playedGames": 4,
-          "form": null,
-          "won": 1,
-          "draw": 1,
-          "lost": 2,
-          "points": 4,
-          "goalsFor": 8,
-          "goalsAgainst": 10,
-          "goalDifference": -2
         },
         {
           "position": 25,
@@ -523,25 +523,6 @@
         {
           "position": 28,
           "team": {
-            "id": 10233,
-            "name": "Sabah FK",
-            "shortName": "Sabah FK",
-            "tla": "SAB",
-            "crest": "https://crests.football-data.org/10233.png"
-          },
-          "playedGames": 4,
-          "form": null,
-          "won": 1,
-          "draw": 0,
-          "lost": 3,
-          "points": 3,
-          "goalsFor": 4,
-          "goalsAgainst": 9,
-          "goalDifference": -5
-        },
-        {
-          "position": 29,
-          "team": {
             "id": 94,
             "name": "Villarreal CF",
             "shortName": "Villarreal",
@@ -559,7 +540,7 @@
           "goalDifference": -6
         },
         {
-          "position": 30,
+          "position": 29,
           "team": {
             "id": 1899,
             "name": "PAE AEK",
@@ -578,7 +559,7 @@
           "goalDifference": -6
         },
         {
-          "position": 30,
+          "position": 29,
           "team": {
             "id": 721,
             "name": "RB Leipzig",
@@ -594,6 +575,25 @@
           "points": 3,
           "goalsFor": 5,
           "goalsAgainst": 11,
+          "goalDifference": -6
+        },
+        {
+          "position": 31,
+          "team": {
+            "id": 10233,
+            "name": "Sabah FK",
+            "shortName": "Sabah FK",
+            "tla": "SAB",
+            "crest": "https://crests.football-data.org/10233.png"
+          },
+          "playedGames": 4,
+          "form": null,
+          "won": 1,
+          "draw": 0,
+          "lost": 3,
+          "points": 3,
+          "goalsFor": 4,
+          "goalsAgainst": 10,
           "goalDifference": -6
         },
         {
@@ -631,8 +631,8 @@
           "lost": 3,
           "points": 3,
           "goalsFor": 4,
-          "goalsAgainst": 15,
-          "goalDifference": -11
+          "goalsAgainst": 16,
+          "goalDifference": -12
         },
         {
           "position": 34,
@@ -2540,8 +2540,8 @@
           "away": 3
         }
       },
-      "status": "IN_PLAY",
-      "lastUpdated": "2026-11-04T21:55:31Z",
+      "status": "FINISHED",
+      "lastUpdated": "2026-11-04T22:00:51Z",
       "video_id": null
     },
     {
@@ -2568,8 +2568,8 @@
           "away": 2
         }
       },
-      "status": "IN_PLAY",
-      "lastUpdated": "2026-11-04T21:55:31Z",
+      "status": "FINISHED",
+      "lastUpdated": "2026-11-04T22:00:19Z",
       "video_id": null
     },
     {
@@ -2596,8 +2596,8 @@
           "away": 2
         }
       },
-      "status": "IN_PLAY",
-      "lastUpdated": "2026-11-04T21:55:31Z",
+      "status": "FINISHED",
+      "lastUpdated": "2026-11-04T22:00:51Z",
       "video_id": null
     },
     {
@@ -2625,7 +2625,7 @@
         }
       },
       "status": "IN_PLAY",
-      "lastUpdated": "2026-11-04T21:54:59Z",
+      "lastUpdated": "2026-11-04T22:00:19Z",
       "video_id": null
     },
     {
@@ -2652,8 +2652,8 @@
           "away": 1
         }
       },
-      "status": "IN_PLAY",
-      "lastUpdated": "2026-11-04T21:54:59Z",
+      "status": "FINISHED",
+      "lastUpdated": "2026-11-04T21:59:15Z",
       "video_id": null
     },
     {
@@ -2677,11 +2677,11 @@
       "score": {
         "fullTime": {
           "home": 1,
-          "away": 8
+          "away": 9
         }
       },
       "status": "IN_PLAY",
-      "lastUpdated": "2026-11-04T21:54:59Z",
+      "lastUpdated": "2026-11-04T22:00:19Z",
       "video_id": null
     },
     {
@@ -2704,12 +2704,12 @@
       },
       "score": {
         "fullTime": {
-          "home": 3,
+          "home": 4,
           "away": 1
         }
       },
-      "status": "IN_PLAY",
-      "lastUpdated": "2026-11-04T21:53:23Z",
+      "status": "FINISHED",
+      "lastUpdated": "2026-11-04T21:59:15Z",
       "video_id": null
     },
     {
