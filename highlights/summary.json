@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-04T19:56:14Z",
+  "generated_at": "2026-11-04T20:01:23Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -3981,7 +3981,7 @@
           "gameweek": "MD4",
           "stem": "matchday-4",
           "total": 11,
-          "covered": 9,
+          "covered": 11,
           "matches": [
             {
               "match_id": 575377,
@@ -4051,16 +4051,14 @@
               "home": "PAE AEK",
               "away": "Real Madrid CF",
               "date": "2026-11-04",
-              "covered": false,
-              "pending": true
+              "covered": true
             },
             {
               "match_id": 575387,
               "home": "Fenerbahçe SK",
               "away": "Liverpool FC",
               "date": "2026-11-04",
-              "covered": false,
-              "pending": true
+              "covered": true
             }
           ]
         }
