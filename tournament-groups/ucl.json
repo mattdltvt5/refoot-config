@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-04T19:36:31.298082Z",
+  "generated_at": "2026-11-04T19:41:31.995967Z",
   "slug": "ucl",
   "standings": [
     {
@@ -37,13 +37,13 @@
           },
           "playedGames": 4,
           "form": null,
-          "won": 3,
-          "draw": 1,
+          "won": 4,
+          "draw": 0,
           "lost": 0,
-          "points": 10,
-          "goalsFor": 12,
+          "points": 12,
+          "goalsFor": 13,
           "goalsAgainst": 7,
-          "goalDifference": 5
+          "goalDifference": 6
         },
         {
           "position": 3,
@@ -447,25 +447,6 @@
         {
           "position": 24,
           "team": {
-            "id": 1899,
-            "name": "PAE AEK",
-            "shortName": "PAE AEK",
-            "tla": "AEK",
-            "crest": "https://crests.football-data.org/1899.png"
-          },
-          "playedGames": 4,
-          "form": null,
-          "won": 1,
-          "draw": 1,
-          "lost": 2,
-          "points": 4,
-          "goalsFor": 5,
-          "goalsAgainst": 10,
-          "goalDifference": -5
-        },
-        {
-          "position": 25,
-          "team": {
             "id": 5721,
             "name": "FK Bodø/Glimt",
             "shortName": "Bodø/Glimt",
@@ -483,7 +464,7 @@
           "goalDifference": -5
         },
         {
-          "position": 26,
+          "position": 25,
           "team": {
             "id": 113,
             "name": "SSC Napoli",
@@ -502,7 +483,7 @@
           "goalDifference": -2
         },
         {
-          "position": 27,
+          "position": 26,
           "team": {
             "id": 10233,
             "name": "Sabah FK",
@@ -521,7 +502,7 @@
           "goalDifference": -3
         },
         {
-          "position": 28,
+          "position": 27,
           "team": {
             "id": 546,
             "name": "Racing Club de Lens",
@@ -540,7 +521,7 @@
           "goalDifference": -4
         },
         {
-          "position": 29,
+          "position": 28,
           "team": {
             "id": 721,
             "name": "RB Leipzig",
@@ -559,7 +540,7 @@
           "goalDifference": -5
         },
         {
-          "position": 30,
+          "position": 29,
           "team": {
             "id": 94,
             "name": "Villarreal CF",
@@ -575,6 +556,25 @@
           "points": 3,
           "goalsFor": 8,
           "goalsAgainst": 14,
+          "goalDifference": -6
+        },
+        {
+          "position": 30,
+          "team": {
+            "id": 1899,
+            "name": "PAE AEK",
+            "shortName": "PAE AEK",
+            "tla": "AEK",
+            "crest": "https://crests.football-data.org/1899.png"
+          },
+          "playedGames": 4,
+          "form": null,
+          "won": 1,
+          "draw": 0,
+          "lost": 3,
+          "points": 3,
+          "goalsFor": 5,
+          "goalsAgainst": 11,
           "goalDifference": -6
         },
         {
