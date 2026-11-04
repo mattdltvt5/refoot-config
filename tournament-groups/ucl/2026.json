@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-04T19:16:32.977232Z",
+  "generated_at": "2026-11-04T19:21:33.892795Z",
   "slug": "ucl",
   "standings": [
     {
@@ -41,31 +41,12 @@
           "draw": 1,
           "lost": 0,
           "points": 10,
-          "goalsFor": 13,
-          "goalsAgainst": 8,
+          "goalsFor": 14,
+          "goalsAgainst": 9,
           "goalDifference": 5
         },
         {
           "position": 3,
-          "team": {
-            "id": 86,
-            "name": "Real Madrid CF",
-            "shortName": "Real Madrid",
-            "tla": "RMA",
-            "crest": "https://crests.football-data.org/86.png"
-          },
-          "playedGames": 4,
-          "form": null,
-          "won": 3,
-          "draw": 1,
-          "lost": 0,
-          "points": 10,
-          "goalsFor": 11,
-          "goalsAgainst": 6,
-          "goalDifference": 5
-        },
-        {
-          "position": 4,
           "team": {
             "id": 81,
             "name": "FC Barcelona",
@@ -84,7 +65,7 @@
           "goalDifference": 8
         },
         {
-          "position": 5,
+          "position": 4,
           "team": {
             "id": 58,
             "name": "Aston Villa FC",
@@ -101,6 +82,25 @@
           "goalsFor": 12,
           "goalsAgainst": 6,
           "goalDifference": 6
+        },
+        {
+          "position": 5,
+          "team": {
+            "id": 86,
+            "name": "Real Madrid CF",
+            "shortName": "Real Madrid",
+            "tla": "RMA",
+            "crest": "https://crests.football-data.org/86.png"
+          },
+          "playedGames": 4,
+          "form": null,
+          "won": 3,
+          "draw": 0,
+          "lost": 1,
+          "points": 9,
+          "goalsFor": 11,
+          "goalsAgainst": 7,
+          "goalDifference": 4
         },
         {
           "position": 6,
@@ -352,6 +352,25 @@
         {
           "position": 19,
           "team": {
+            "id": 1899,
+            "name": "PAE AEK",
+            "shortName": "PAE AEK",
+            "tla": "AEK",
+            "crest": "https://crests.football-data.org/1899.png"
+          },
+          "playedGames": 4,
+          "form": null,
+          "won": 2,
+          "draw": 0,
+          "lost": 2,
+          "points": 6,
+          "goalsFor": 5,
+          "goalsAgainst": 9,
+          "goalDifference": -4
+        },
+        {
+          "position": 20,
+          "team": {
             "id": 100,
             "name": "AS Roma",
             "shortName": "Roma",
@@ -369,7 +388,7 @@
           "goalDifference": 2
         },
         {
-          "position": 20,
+          "position": 21,
           "team": {
             "id": 1887,
             "name": "FK Shakhtar Donetsk",
@@ -388,7 +407,7 @@
           "goalDifference": 0
         },
         {
-          "position": 21,
+          "position": 22,
           "team": {
             "id": 674,
             "name": "PSV",
@@ -407,7 +426,7 @@
           "goalDifference": 0
         },
         {
-          "position": 22,
+          "position": 23,
           "team": {
             "id": 78,
             "name": "Club Atlético de Madrid",
@@ -426,32 +445,13 @@
           "goalDifference": -1
         },
         {
-          "position": 23,
+          "position": 24,
           "team": {
             "id": 5721,
             "name": "FK Bodø/Glimt",
             "shortName": "Bodø/Glimt",
             "tla": "FK",
             "crest": "https://crests.football-data.org/5721.png"
-          },
-          "playedGames": 4,
-          "form": null,
-          "won": 1,
-          "draw": 1,
-          "lost": 2,
-          "points": 4,
-          "goalsFor": 4,
-          "goalsAgainst": 9,
-          "goalDifference": -5
-        },
-        {
-          "position": 24,
-          "team": {
-            "id": 1899,
-            "name": "PAE AEK",
-            "shortName": "PAE AEK",
-            "tla": "AEK",
-            "crest": "https://crests.football-data.org/1899.png"
           },
           "playedGames": 4,
           "form": null,
@@ -573,8 +573,8 @@
           "draw": 3,
           "lost": 1,
           "points": 3,
-          "goalsFor": 4,
-          "goalsAgainst": 10,
+          "goalsFor": 5,
+          "goalsAgainst": 11,
           "goalDifference": -6
         },
         {
@@ -2485,7 +2485,7 @@
         }
       },
       "status": "IN_PLAY",
-      "lastUpdated": "2026-11-04T19:16:03Z",
+      "lastUpdated": "2026-11-04T19:21:23Z",
       "video_id": null
     },
     {
@@ -2509,11 +2509,11 @@
       "score": {
         "fullTime": {
           "home": 1,
-          "away": 1
+          "away": 2
         }
       },
       "status": "IN_PLAY",
-      "lastUpdated": "2026-11-04T19:16:26Z",
+      "lastUpdated": "2026-11-04T19:21:25Z",
       "video_id": null
     },
     {
