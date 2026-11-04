@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-04T22:36:08Z",
+  "generated_at": "2026-11-04T22:41:10Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -3981,7 +3981,7 @@
           "gameweek": "MD4",
           "stem": "matchday-4",
           "total": 18,
-          "covered": 17,
+          "covered": 18,
           "matches": [
             {
               "match_id": 575377,
@@ -4079,8 +4079,7 @@
               "home": "Viking FK",
               "away": "Sabah FK",
               "date": "2026-11-04",
-              "covered": false,
-              "pending": true
+              "covered": true
             },
             {
               "match_id": 575388,
