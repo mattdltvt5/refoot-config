@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-04T22:06:46Z",
+  "generated_at": "2026-11-04T22:11:29Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -3981,7 +3981,7 @@
           "gameweek": "MD4",
           "stem": "matchday-4",
           "total": 18,
-          "covered": 11,
+          "covered": 12,
           "matches": [
             {
               "match_id": 575377,
@@ -4097,8 +4097,7 @@
               "home": "PSV",
               "away": "Club Brugge KV",
               "date": "2026-11-04",
-              "covered": false,
-              "pending": true
+              "covered": true
             },
             {
               "match_id": 575391,
