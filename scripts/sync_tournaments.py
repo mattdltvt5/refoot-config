@@ -40,7 +40,9 @@ import urllib.request
 from datetime import datetime, timezone
 
 from highlights_common import season_for_competition, COMPETITION_SLUG_MAP
-from fixture_providers import coerce_stale_live_to_finished, preserve_finished
+from fixture_providers import (
+    coerce_stale_live_to_finished, preserve_finished, sanitize_status,
+)
 
 FD_BASE = "https://api.football-data.org/v4"
 FD_SLEEP_SECONDS = 6  # pause between football-data.org requests (10 req/min free tier)
@@ -184,6 +186,7 @@ def build_group_matches(matches_payload, normalize_crest=_identity_crest):
         at    = m.get("awayTeam", {}) or {}
         score = m.get("score", {}) or {}
         ft    = score.get("fullTime", {}) or {}
+        status, ft = sanitize_status(m.get("status", ""), ft, m.get("id"))
         group_matches.append({
             "match_id":    m.get("id"),
             # utcDate is present on every FD /matches object (knockout siblings carry
@@ -209,7 +212,7 @@ def build_group_matches(matches_payload, normalize_crest=_identity_crest):
             "score": {
                 "fullTime": {"home": ft.get("home"), "away": ft.get("away")},
             },
-            "status": m.get("status", ""),
+            "status": status,
             # football-data.org's own "last changed" time: the merge never
             # replaces a record with an older copy of it.
             "lastUpdated": m.get("lastUpdated"),
@@ -253,6 +256,14 @@ def build_tournament_data(slug, standings_payload, matches_payload,
 
     def _knockout(m):
         base = {**m, "video_id": existing_video_ids.get(m.get("id"))}
+        # The passthrough stays verbatim except an unreadable status (see
+        # fixture_providers.FD_STATUSES), which can't carry a result.
+        score = base.get("score") or {}
+        status, ft = sanitize_status(base.get("status", ""), score.get("fullTime") or {},
+                                     base.get("id"))
+        if status != base.get("status"):
+            base["status"] = status
+            base["score"] = {**score, "fullTime": ft}
         if not is_national:
             return base
         for side in ("homeTeam", "awayTeam"):

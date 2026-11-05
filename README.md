@@ -4,6 +4,18 @@ Remote channel configuration for the **ReFoot Highlights** Android app.
 
 ## Recent changes
 
+### Unknown match statuses are published as SCHEDULED without a score (2026-11-05)
+
+Rayo Vallecano v Athletic Club (LaLiga, 564698) was abandoned at 0-0 on 10 Oct and re-scheduled for 9 Dec.
+football-data.org then sent it with status `"2026-10-10 12:00:00Z"` (later `"2026-12-09 19:00:00Z"`) and the
+old 0-0; the pipeline copied the status verbatim and the app showed a played 0-0 for a December game.
+`fixture_providers.FD_STATUSES` lists every status football-data.org documents; `sanitize_status` publishes
+anything else as `SCHEDULED` with no score (with a warning). Applied to the league fixtures artifact
+(`_normalize_artifact`) and the FD tournament files (`build_group_matches` and the knockout passthrough in
+`sync_tournaments.py`). Documented statuses - CANCELLED, AWARDED, etc. - pass unchanged; how the app shows
+them is the app's job (refoot_flutter). The merge takes the sanitized record over the cached phantom (the
+cached one has no FINISHED status to protect). Tests: `test_status_sanitize.py`.
+
 ### Dead Premier League broadcaster playlist removed (2026-11-01)
 
 `sources.json` `playlists["Premier League"]` held one tier-4 playlist, `PLQ_voP4Q3cfetksvjNLOrMr3h8xtViMuP`,

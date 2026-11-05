@@ -82,6 +82,28 @@ TERMINAL_UNPLAYED_STATUSES = frozenset({
     "POSTPONED", "CANCELLED", "SUSPENDED", "AWARDED",
 })
 
+# Every match status football-data.org documents. Anything else is unreadable
+# data, not a result: on 2026-11-04 Rayo Vallecano v Athletic Club (564698, an
+# abandoned game re-scheduled for 9 Dec) arrived with status
+# "2026-10-10 12:00:00Z" and its old 0-0, which the app showed as a played 0-0.
+FD_STATUSES = frozenset({
+    "SCHEDULED", "TIMED", "IN_PLAY", "PAUSED", "EXTRA_TIME", "PENALTY_SHOOTOUT",
+    "FINISHED", "SUSPENDED", "POSTPONED", "CANCELLED", "AWARDED",
+})
+
+
+def sanitize_status(status, full_time: dict, match_id=None) -> tuple[str, dict]:
+    """(status, score.fullTime) safe to publish: a status football-data.org
+    doesn't document becomes SCHEDULED with no score (an unreadable status
+    can't vouch for a result), with a warning. Known statuses pass unchanged."""
+    if status in FD_STATUSES:
+        return status, full_time
+    log.warning(
+        f"match {match_id}: unknown status {status!r} - published as SCHEDULED "
+        f"without its score {full_time}"
+    )
+    return "SCHEDULED", {"home": None, "away": None}
+
 
 def _has_resolved_score(record: dict) -> bool:
     """True when both full-time goal fields are genuinely present.
@@ -582,6 +604,7 @@ class FootballDataProvider(FixtureProvider):
             away    = m.get("awayTeam", {}) or {}
             score   = m.get("score", {}) or {}
             ft      = score.get("fullTime", {}) or {}
+            status, ft = sanitize_status(status, ft, m.get("id"))
             result.append({
                 "match_id":    m.get("id"),
                 "group":       "",
