@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-02T01:16:32Z",
+  "generated_at": "2026-11-05T14:31:17Z",
   "month": "2027-01",
   "dates": {
     "2027-01-01": [
@@ -1337,6 +1337,35 @@
         ]
       }
     ],
+    "2027-01-08": [
+      {
+        "competition": "bundesliga",
+        "name": "Bundesliga",
+        "matches": [
+          {
+            "match_id": 565908,
+            "homeTeam": {
+              "id": 4,
+              "name": "Borussia Dortmund",
+              "shortName": "Dortmund",
+              "tla": "BVB",
+              "crest": "https://crests.football-data.org/4.png"
+            },
+            "awayTeam": {
+              "id": 15,
+              "name": "1. FSV Mainz 05",
+              "shortName": "Mainz",
+              "tla": "M05",
+              "crest": "https://crests.football-data.org/15.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "TIMED",
+            "utcDate": "2027-01-08T19:30:00Z"
+          }
+        ]
+      }
+    ],
     "2027-01-09": [
       {
         "competition": "serie-a",
@@ -1429,29 +1458,8 @@
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "SCHEDULED",
-            "utcDate": "2027-01-09T00:00:00Z"
-          },
-          {
-            "match_id": 565903,
-            "homeTeam": {
-              "id": 7,
-              "name": "Hamburger SV",
-              "shortName": "HSV",
-              "tla": "HSV",
-              "crest": "https://crests.football-data.org/7.png"
-            },
-            "awayTeam": {
-              "id": 3,
-              "name": "Bayer 04 Leverkusen",
-              "shortName": "Leverkusen",
-              "tla": "B04",
-              "crest": "https://crests.football-data.org/3.png"
-            },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "SCHEDULED",
-            "utcDate": "2027-01-09T00:00:00Z"
+            "status": "TIMED",
+            "utcDate": "2027-01-09T14:30:00Z"
           },
           {
             "match_id": 565904,
@@ -1471,8 +1479,8 @@
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "SCHEDULED",
-            "utcDate": "2027-01-09T00:00:00Z"
+            "status": "TIMED",
+            "utcDate": "2027-01-09T14:30:00Z"
           },
           {
             "match_id": 565905,
@@ -1492,8 +1500,8 @@
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "SCHEDULED",
-            "utcDate": "2027-01-09T00:00:00Z"
+            "status": "TIMED",
+            "utcDate": "2027-01-09T14:30:00Z"
           },
           {
             "match_id": 565906,
@@ -1513,71 +1521,8 @@
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "SCHEDULED",
-            "utcDate": "2027-01-09T00:00:00Z"
-          },
-          {
-            "match_id": 565907,
-            "homeTeam": {
-              "id": 18,
-              "name": "Borussia Mönchengladbach",
-              "shortName": "M'gladbach",
-              "tla": "BMG",
-              "crest": "https://crests.football-data.org/18.png"
-            },
-            "awayTeam": {
-              "id": 5,
-              "name": "FC Bayern München",
-              "shortName": "Bayern",
-              "tla": "FCB",
-              "crest": "https://crests.football-data.org/5.png"
-            },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "SCHEDULED",
-            "utcDate": "2027-01-09T00:00:00Z"
-          },
-          {
-            "match_id": 565908,
-            "homeTeam": {
-              "id": 4,
-              "name": "Borussia Dortmund",
-              "shortName": "Dortmund",
-              "tla": "BVB",
-              "crest": "https://crests.football-data.org/4.png"
-            },
-            "awayTeam": {
-              "id": 15,
-              "name": "1. FSV Mainz 05",
-              "shortName": "Mainz",
-              "tla": "M05",
-              "crest": "https://crests.football-data.org/15.png"
-            },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "SCHEDULED",
-            "utcDate": "2027-01-09T00:00:00Z"
-          },
-          {
-            "match_id": 565909,
-            "homeTeam": {
-              "id": 12,
-              "name": "SV Werder Bremen",
-              "shortName": "Bremen",
-              "tla": "SVW",
-              "crest": "https://crests.football-data.org/12.png"
-            },
-            "awayTeam": {
-              "id": 28,
-              "name": "1. FC Union Berlin",
-              "shortName": "Union Berlin",
-              "tla": "UNB",
-              "crest": "https://crests.football-data.org/28.png"
-            },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "SCHEDULED",
-            "utcDate": "2027-01-09T00:00:00Z"
+            "status": "TIMED",
+            "utcDate": "2027-01-09T14:30:00Z"
           },
           {
             "match_id": 565910,
@@ -1597,8 +1542,29 @@
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "SCHEDULED",
-            "utcDate": "2027-01-09T00:00:00Z"
+            "status": "TIMED",
+            "utcDate": "2027-01-09T14:30:00Z"
+          },
+          {
+            "match_id": 565907,
+            "homeTeam": {
+              "id": 18,
+              "name": "Borussia Mönchengladbach",
+              "shortName": "M'gladbach",
+              "tla": "BMG",
+              "crest": "https://crests.football-data.org/18.png"
+            },
+            "awayTeam": {
+              "id": 5,
+              "name": "FC Bayern München",
+              "shortName": "Bayern",
+              "tla": "FCB",
+              "crest": "https://crests.football-data.org/5.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "TIMED",
+            "utcDate": "2027-01-09T17:30:00Z"
           }
         ]
       }
@@ -1930,6 +1896,54 @@
             "utcDate": "2027-01-10T19:45:00Z"
           }
         ]
+      },
+      {
+        "competition": "bundesliga",
+        "name": "Bundesliga",
+        "matches": [
+          {
+            "match_id": 565909,
+            "homeTeam": {
+              "id": 12,
+              "name": "SV Werder Bremen",
+              "shortName": "Bremen",
+              "tla": "SVW",
+              "crest": "https://crests.football-data.org/12.png"
+            },
+            "awayTeam": {
+              "id": 28,
+              "name": "1. FC Union Berlin",
+              "shortName": "Union Berlin",
+              "tla": "UNB",
+              "crest": "https://crests.football-data.org/28.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "TIMED",
+            "utcDate": "2027-01-10T14:30:00Z"
+          },
+          {
+            "match_id": 565903,
+            "homeTeam": {
+              "id": 7,
+              "name": "Hamburger SV",
+              "shortName": "HSV",
+              "tla": "HSV",
+              "crest": "https://crests.football-data.org/7.png"
+            },
+            "awayTeam": {
+              "id": 3,
+              "name": "Bayer 04 Leverkusen",
+              "shortName": "Leverkusen",
+              "tla": "B04",
+              "crest": "https://crests.football-data.org/3.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "TIMED",
+            "utcDate": "2027-01-10T16:30:00Z"
+          }
+        ]
       }
     ],
     "2027-01-11": [
@@ -1982,74 +1996,11 @@
         ]
       }
     ],
-    "2027-01-13": [
+    "2027-01-12": [
       {
         "competition": "bundesliga",
         "name": "Bundesliga",
         "matches": [
-          {
-            "match_id": 565911,
-            "homeTeam": {
-              "id": 15,
-              "name": "1. FSV Mainz 05",
-              "shortName": "Mainz",
-              "tla": "M05",
-              "crest": "https://crests.football-data.org/15.png"
-            },
-            "awayTeam": {
-              "id": 2,
-              "name": "TSG 1899 Hoffenheim",
-              "shortName": "Hoffenheim",
-              "tla": "TSG",
-              "crest": "https://crests.football-data.org/2.png"
-            },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "SCHEDULED",
-            "utcDate": "2027-01-13T00:00:00Z"
-          },
-          {
-            "match_id": 565912,
-            "homeTeam": {
-              "id": 17,
-              "name": "SC Freiburg",
-              "shortName": "Freiburg",
-              "tla": "SCF",
-              "crest": "https://crests.football-data.org/17.png"
-            },
-            "awayTeam": {
-              "id": 7,
-              "name": "Hamburger SV",
-              "shortName": "HSV",
-              "tla": "HSV",
-              "crest": "https://crests.football-data.org/7.png"
-            },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "SCHEDULED",
-            "utcDate": "2027-01-13T00:00:00Z"
-          },
-          {
-            "match_id": 565913,
-            "homeTeam": {
-              "id": 6,
-              "name": "FC Schalke 04",
-              "shortName": "Schalke",
-              "tla": "S04",
-              "crest": "https://crests.football-data.org/6.png"
-            },
-            "awayTeam": {
-              "id": 12,
-              "name": "SV Werder Bremen",
-              "shortName": "Bremen",
-              "tla": "SVW",
-              "crest": "https://crests.football-data.org/12.png"
-            },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "SCHEDULED",
-            "utcDate": "2027-01-13T00:00:00Z"
-          },
           {
             "match_id": 565914,
             "homeTeam": {
@@ -2068,50 +2019,29 @@
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "SCHEDULED",
-            "utcDate": "2027-01-13T00:00:00Z"
+            "status": "TIMED",
+            "utcDate": "2027-01-12T17:30:00Z"
           },
           {
-            "match_id": 565915,
+            "match_id": 565911,
             "homeTeam": {
-              "id": 28,
-              "name": "1. FC Union Berlin",
-              "shortName": "Union Berlin",
-              "tla": "UNB",
-              "crest": "https://crests.football-data.org/28.png"
+              "id": 15,
+              "name": "1. FSV Mainz 05",
+              "shortName": "Mainz",
+              "tla": "M05",
+              "crest": "https://crests.football-data.org/15.png"
             },
             "awayTeam": {
-              "id": 29,
-              "name": "SC Paderborn 07",
-              "shortName": "SC Paderborn",
-              "tla": "SCP",
-              "crest": "https://crests.football-data.org/29.png"
+              "id": 2,
+              "name": "TSG 1899 Hoffenheim",
+              "shortName": "Hoffenheim",
+              "tla": "TSG",
+              "crest": "https://crests.football-data.org/2.png"
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "SCHEDULED",
-            "utcDate": "2027-01-13T00:00:00Z"
-          },
-          {
-            "match_id": 565916,
-            "homeTeam": {
-              "id": 5,
-              "name": "FC Bayern München",
-              "shortName": "Bayern",
-              "tla": "FCB",
-              "crest": "https://crests.football-data.org/5.png"
-            },
-            "awayTeam": {
-              "id": 3,
-              "name": "Bayer 04 Leverkusen",
-              "shortName": "Leverkusen",
-              "tla": "B04",
-              "crest": "https://crests.football-data.org/3.png"
-            },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "SCHEDULED",
-            "utcDate": "2027-01-13T00:00:00Z"
+            "status": "TIMED",
+            "utcDate": "2027-01-12T19:30:00Z"
           },
           {
             "match_id": 565917,
@@ -2131,29 +2061,8 @@
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "SCHEDULED",
-            "utcDate": "2027-01-13T00:00:00Z"
-          },
-          {
-            "match_id": 565918,
-            "homeTeam": {
-              "id": 719,
-              "name": "SV 07 Elversberg",
-              "shortName": "Elversberg",
-              "tla": "ELV",
-              "crest": "https://crests.football-data.org/719.png"
-            },
-            "awayTeam": {
-              "id": 19,
-              "name": "Eintracht Frankfurt",
-              "shortName": "Frankfurt",
-              "tla": "SGE",
-              "crest": "https://crests.football-data.org/19.png"
-            },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "SCHEDULED",
-            "utcDate": "2027-01-13T00:00:00Z"
+            "status": "TIMED",
+            "utcDate": "2027-01-12T19:30:00Z"
           },
           {
             "match_id": 565919,
@@ -2173,13 +2082,161 @@
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "SCHEDULED",
-            "utcDate": "2027-01-13T00:00:00Z"
+            "status": "TIMED",
+            "utcDate": "2027-01-12T19:30:00Z"
+          }
+        ]
+      }
+    ],
+    "2027-01-13": [
+      {
+        "competition": "bundesliga",
+        "name": "Bundesliga",
+        "matches": [
+          {
+            "match_id": 565918,
+            "homeTeam": {
+              "id": 719,
+              "name": "SV 07 Elversberg",
+              "shortName": "Elversberg",
+              "tla": "ELV",
+              "crest": "https://crests.football-data.org/719.png"
+            },
+            "awayTeam": {
+              "id": 19,
+              "name": "Eintracht Frankfurt",
+              "shortName": "Frankfurt",
+              "tla": "SGE",
+              "crest": "https://crests.football-data.org/19.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "TIMED",
+            "utcDate": "2027-01-13T17:30:00Z"
+          },
+          {
+            "match_id": 565912,
+            "homeTeam": {
+              "id": 17,
+              "name": "SC Freiburg",
+              "shortName": "Freiburg",
+              "tla": "SCF",
+              "crest": "https://crests.football-data.org/17.png"
+            },
+            "awayTeam": {
+              "id": 7,
+              "name": "Hamburger SV",
+              "shortName": "HSV",
+              "tla": "HSV",
+              "crest": "https://crests.football-data.org/7.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "TIMED",
+            "utcDate": "2027-01-13T19:30:00Z"
+          },
+          {
+            "match_id": 565915,
+            "homeTeam": {
+              "id": 28,
+              "name": "1. FC Union Berlin",
+              "shortName": "Union Berlin",
+              "tla": "UNB",
+              "crest": "https://crests.football-data.org/28.png"
+            },
+            "awayTeam": {
+              "id": 29,
+              "name": "SC Paderborn 07",
+              "shortName": "SC Paderborn",
+              "tla": "SCP",
+              "crest": "https://crests.football-data.org/29.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "TIMED",
+            "utcDate": "2027-01-13T19:30:00Z"
+          },
+          {
+            "match_id": 565916,
+            "homeTeam": {
+              "id": 5,
+              "name": "FC Bayern München",
+              "shortName": "Bayern",
+              "tla": "FCB",
+              "crest": "https://crests.football-data.org/5.png"
+            },
+            "awayTeam": {
+              "id": 3,
+              "name": "Bayer 04 Leverkusen",
+              "shortName": "Leverkusen",
+              "tla": "B04",
+              "crest": "https://crests.football-data.org/3.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "TIMED",
+            "utcDate": "2027-01-13T19:30:00Z"
+          }
+        ]
+      }
+    ],
+    "2027-01-14": [
+      {
+        "competition": "bundesliga",
+        "name": "Bundesliga",
+        "matches": [
+          {
+            "match_id": 565913,
+            "homeTeam": {
+              "id": 6,
+              "name": "FC Schalke 04",
+              "shortName": "Schalke",
+              "tla": "S04",
+              "crest": "https://crests.football-data.org/6.png"
+            },
+            "awayTeam": {
+              "id": 12,
+              "name": "SV Werder Bremen",
+              "shortName": "Bremen",
+              "tla": "SVW",
+              "crest": "https://crests.football-data.org/12.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "TIMED",
+            "utcDate": "2027-01-14T19:30:00Z"
           }
         ]
       }
     ],
     "2027-01-15": [
+      {
+        "competition": "bundesliga",
+        "name": "Bundesliga",
+        "matches": [
+          {
+            "match_id": 565925,
+            "homeTeam": {
+              "id": 10,
+              "name": "VfB Stuttgart",
+              "shortName": "Stuttgart",
+              "tla": "VFB",
+              "crest": "https://crests.football-data.org/10.png"
+            },
+            "awayTeam": {
+              "id": 15,
+              "name": "1. FSV Mainz 05",
+              "shortName": "Mainz",
+              "tla": "M05",
+              "crest": "https://crests.football-data.org/15.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "TIMED",
+            "utcDate": "2027-01-15T19:30:00Z"
+          }
+        ]
+      },
       {
         "competition": "ligue-1",
         "name": "Ligue 1",
@@ -2430,48 +2487,6 @@
         "name": "Bundesliga",
         "matches": [
           {
-            "match_id": 565920,
-            "homeTeam": {
-              "id": 12,
-              "name": "SV Werder Bremen",
-              "shortName": "Bremen",
-              "tla": "SVW",
-              "crest": "https://crests.football-data.org/12.png"
-            },
-            "awayTeam": {
-              "id": 719,
-              "name": "SV 07 Elversberg",
-              "shortName": "Elversberg",
-              "tla": "ELV",
-              "crest": "https://crests.football-data.org/719.png"
-            },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "SCHEDULED",
-            "utcDate": "2027-01-16T00:00:00Z"
-          },
-          {
-            "match_id": 565921,
-            "homeTeam": {
-              "id": 19,
-              "name": "Eintracht Frankfurt",
-              "shortName": "Frankfurt",
-              "tla": "SGE",
-              "crest": "https://crests.football-data.org/19.png"
-            },
-            "awayTeam": {
-              "id": 5,
-              "name": "FC Bayern München",
-              "shortName": "Bayern",
-              "tla": "FCB",
-              "crest": "https://crests.football-data.org/5.png"
-            },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "SCHEDULED",
-            "utcDate": "2027-01-16T00:00:00Z"
-          },
-          {
             "match_id": 565922,
             "homeTeam": {
               "id": 29,
@@ -2489,8 +2504,8 @@
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "SCHEDULED",
-            "utcDate": "2027-01-16T00:00:00Z"
+            "status": "TIMED",
+            "utcDate": "2027-01-16T14:30:00Z"
           },
           {
             "match_id": 565923,
@@ -2510,50 +2525,8 @@
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "SCHEDULED",
-            "utcDate": "2027-01-16T00:00:00Z"
-          },
-          {
-            "match_id": 565924,
-            "homeTeam": {
-              "id": 3,
-              "name": "Bayer 04 Leverkusen",
-              "shortName": "Leverkusen",
-              "tla": "B04",
-              "crest": "https://crests.football-data.org/3.png"
-            },
-            "awayTeam": {
-              "id": 6,
-              "name": "FC Schalke 04",
-              "shortName": "Schalke",
-              "tla": "S04",
-              "crest": "https://crests.football-data.org/6.png"
-            },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "SCHEDULED",
-            "utcDate": "2027-01-16T00:00:00Z"
-          },
-          {
-            "match_id": 565925,
-            "homeTeam": {
-              "id": 10,
-              "name": "VfB Stuttgart",
-              "shortName": "Stuttgart",
-              "tla": "VFB",
-              "crest": "https://crests.football-data.org/10.png"
-            },
-            "awayTeam": {
-              "id": 15,
-              "name": "1. FSV Mainz 05",
-              "shortName": "Mainz",
-              "tla": "M05",
-              "crest": "https://crests.football-data.org/15.png"
-            },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "SCHEDULED",
-            "utcDate": "2027-01-16T00:00:00Z"
+            "status": "TIMED",
+            "utcDate": "2027-01-16T14:30:00Z"
           },
           {
             "match_id": 565926,
@@ -2573,8 +2546,8 @@
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "SCHEDULED",
-            "utcDate": "2027-01-16T00:00:00Z"
+            "status": "TIMED",
+            "utcDate": "2027-01-16T14:30:00Z"
           },
           {
             "match_id": 565927,
@@ -2594,8 +2567,8 @@
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "SCHEDULED",
-            "utcDate": "2027-01-16T00:00:00Z"
+            "status": "TIMED",
+            "utcDate": "2027-01-16T14:30:00Z"
           },
           {
             "match_id": 565928,
@@ -2615,8 +2588,29 @@
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "SCHEDULED",
-            "utcDate": "2027-01-16T00:00:00Z"
+            "status": "TIMED",
+            "utcDate": "2027-01-16T14:30:00Z"
+          },
+          {
+            "match_id": 565921,
+            "homeTeam": {
+              "id": 19,
+              "name": "Eintracht Frankfurt",
+              "shortName": "Frankfurt",
+              "tla": "SGE",
+              "crest": "https://crests.football-data.org/19.png"
+            },
+            "awayTeam": {
+              "id": 5,
+              "name": "FC Bayern München",
+              "shortName": "Bayern",
+              "tla": "FCB",
+              "crest": "https://crests.football-data.org/5.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "TIMED",
+            "utcDate": "2027-01-16T17:30:00Z"
           }
         ]
       },
@@ -3166,6 +3160,54 @@
         ]
       },
       {
+        "competition": "bundesliga",
+        "name": "Bundesliga",
+        "matches": [
+          {
+            "match_id": 565920,
+            "homeTeam": {
+              "id": 12,
+              "name": "SV Werder Bremen",
+              "shortName": "Bremen",
+              "tla": "SVW",
+              "crest": "https://crests.football-data.org/12.png"
+            },
+            "awayTeam": {
+              "id": 719,
+              "name": "SV 07 Elversberg",
+              "shortName": "Elversberg",
+              "tla": "ELV",
+              "crest": "https://crests.football-data.org/719.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "TIMED",
+            "utcDate": "2027-01-17T14:30:00Z"
+          },
+          {
+            "match_id": 565924,
+            "homeTeam": {
+              "id": 3,
+              "name": "Bayer 04 Leverkusen",
+              "shortName": "Leverkusen",
+              "tla": "B04",
+              "crest": "https://crests.football-data.org/3.png"
+            },
+            "awayTeam": {
+              "id": 6,
+              "name": "FC Schalke 04",
+              "shortName": "Schalke",
+              "tla": "S04",
+              "crest": "https://crests.football-data.org/6.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "TIMED",
+            "utcDate": "2027-01-17T16:30:00Z"
+          }
+        ]
+      },
+      {
         "competition": "ligue-1",
         "name": "Ligue 1",
         "matches": [
@@ -3631,6 +3673,33 @@
     ],
     "2027-01-22": [
       {
+        "competition": "bundesliga",
+        "name": "Bundesliga",
+        "matches": [
+          {
+            "match_id": 565929,
+            "homeTeam": {
+              "id": 12,
+              "name": "SV Werder Bremen",
+              "shortName": "Bremen",
+              "tla": "SVW",
+              "crest": "https://crests.football-data.org/12.png"
+            },
+            "awayTeam": {
+              "id": 17,
+              "name": "SC Freiburg",
+              "shortName": "Freiburg",
+              "tla": "SCF",
+              "crest": "https://crests.football-data.org/17.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "TIMED",
+            "utcDate": "2027-01-22T19:30:00Z"
+          }
+        ]
+      },
+      {
         "competition": "ligue-1",
         "name": "Ligue 1",
         "matches": [
@@ -3880,48 +3949,6 @@
         "name": "Bundesliga",
         "matches": [
           {
-            "match_id": 565929,
-            "homeTeam": {
-              "id": 12,
-              "name": "SV Werder Bremen",
-              "shortName": "Bremen",
-              "tla": "SVW",
-              "crest": "https://crests.football-data.org/12.png"
-            },
-            "awayTeam": {
-              "id": 17,
-              "name": "SC Freiburg",
-              "shortName": "Freiburg",
-              "tla": "SCF",
-              "crest": "https://crests.football-data.org/17.png"
-            },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "SCHEDULED",
-            "utcDate": "2027-01-23T00:00:00Z"
-          },
-          {
-            "match_id": 565930,
-            "homeTeam": {
-              "id": 7,
-              "name": "Hamburger SV",
-              "shortName": "HSV",
-              "tla": "HSV",
-              "crest": "https://crests.football-data.org/7.png"
-            },
-            "awayTeam": {
-              "id": 4,
-              "name": "Borussia Dortmund",
-              "shortName": "Dortmund",
-              "tla": "BVB",
-              "crest": "https://crests.football-data.org/4.png"
-            },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "SCHEDULED",
-            "utcDate": "2027-01-23T00:00:00Z"
-          },
-          {
             "match_id": 565931,
             "homeTeam": {
               "id": 29,
@@ -3939,8 +3966,8 @@
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "SCHEDULED",
-            "utcDate": "2027-01-23T00:00:00Z"
+            "status": "TIMED",
+            "utcDate": "2027-01-23T14:30:00Z"
           },
           {
             "match_id": 565932,
@@ -3960,29 +3987,8 @@
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "SCHEDULED",
-            "utcDate": "2027-01-23T00:00:00Z"
-          },
-          {
-            "match_id": 565933,
-            "homeTeam": {
-              "id": 2,
-              "name": "TSG 1899 Hoffenheim",
-              "shortName": "Hoffenheim",
-              "tla": "TSG",
-              "crest": "https://crests.football-data.org/2.png"
-            },
-            "awayTeam": {
-              "id": 1,
-              "name": "1. FC Köln",
-              "shortName": "1. FC Köln",
-              "tla": "KOE",
-              "crest": "https://crests.football-data.org/1.png"
-            },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "SCHEDULED",
-            "utcDate": "2027-01-23T00:00:00Z"
+            "status": "TIMED",
+            "utcDate": "2027-01-23T14:30:00Z"
           },
           {
             "match_id": 565934,
@@ -4002,8 +4008,8 @@
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "SCHEDULED",
-            "utcDate": "2027-01-23T00:00:00Z"
+            "status": "TIMED",
+            "utcDate": "2027-01-23T14:30:00Z"
           },
           {
             "match_id": 565935,
@@ -4023,50 +4029,29 @@
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "SCHEDULED",
-            "utcDate": "2027-01-23T00:00:00Z"
+            "status": "TIMED",
+            "utcDate": "2027-01-23T14:30:00Z"
           },
           {
-            "match_id": 565936,
+            "match_id": 565930,
             "homeTeam": {
-              "id": 19,
-              "name": "Eintracht Frankfurt",
-              "shortName": "Frankfurt",
-              "tla": "SGE",
-              "crest": "https://crests.football-data.org/19.png"
+              "id": 7,
+              "name": "Hamburger SV",
+              "shortName": "HSV",
+              "tla": "HSV",
+              "crest": "https://crests.football-data.org/7.png"
             },
             "awayTeam": {
-              "id": 28,
-              "name": "1. FC Union Berlin",
-              "shortName": "Union Berlin",
-              "tla": "UNB",
-              "crest": "https://crests.football-data.org/28.png"
+              "id": 4,
+              "name": "Borussia Dortmund",
+              "shortName": "Dortmund",
+              "tla": "BVB",
+              "crest": "https://crests.football-data.org/4.png"
             },
             "homeScore": null,
             "awayScore": null,
-            "status": "SCHEDULED",
-            "utcDate": "2027-01-23T00:00:00Z"
-          },
-          {
-            "match_id": 565937,
-            "homeTeam": {
-              "id": 3,
-              "name": "Bayer 04 Leverkusen",
-              "shortName": "Leverkusen",
-              "tla": "B04",
-              "crest": "https://crests.football-data.org/3.png"
-            },
-            "awayTeam": {
-              "id": 719,
-              "name": "SV 07 Elversberg",
-              "shortName": "Elversberg",
-              "tla": "ELV",
-              "crest": "https://crests.football-data.org/719.png"
-            },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "SCHEDULED",
-            "utcDate": "2027-01-23T00:00:00Z"
+            "status": "TIMED",
+            "utcDate": "2027-01-23T17:30:00Z"
           }
         ]
       },
@@ -4612,6 +4597,75 @@
             "awayScore": null,
             "status": "SCHEDULED",
             "utcDate": "2027-01-24T00:00:00Z"
+          }
+        ]
+      },
+      {
+        "competition": "bundesliga",
+        "name": "Bundesliga",
+        "matches": [
+          {
+            "match_id": 565936,
+            "homeTeam": {
+              "id": 19,
+              "name": "Eintracht Frankfurt",
+              "shortName": "Frankfurt",
+              "tla": "SGE",
+              "crest": "https://crests.football-data.org/19.png"
+            },
+            "awayTeam": {
+              "id": 28,
+              "name": "1. FC Union Berlin",
+              "shortName": "Union Berlin",
+              "tla": "UNB",
+              "crest": "https://crests.football-data.org/28.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "TIMED",
+            "utcDate": "2027-01-24T14:30:00Z"
+          },
+          {
+            "match_id": 565937,
+            "homeTeam": {
+              "id": 3,
+              "name": "Bayer 04 Leverkusen",
+              "shortName": "Leverkusen",
+              "tla": "B04",
+              "crest": "https://crests.football-data.org/3.png"
+            },
+            "awayTeam": {
+              "id": 719,
+              "name": "SV 07 Elversberg",
+              "shortName": "Elversberg",
+              "tla": "ELV",
+              "crest": "https://crests.football-data.org/719.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "TIMED",
+            "utcDate": "2027-01-24T16:30:00Z"
+          },
+          {
+            "match_id": 565933,
+            "homeTeam": {
+              "id": 2,
+              "name": "TSG 1899 Hoffenheim",
+              "shortName": "Hoffenheim",
+              "tla": "TSG",
+              "crest": "https://crests.football-data.org/2.png"
+            },
+            "awayTeam": {
+              "id": 1,
+              "name": "1. FC Köln",
+              "shortName": "1. FC Köln",
+              "tla": "KOE",
+              "crest": "https://crests.football-data.org/1.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "TIMED",
+            "utcDate": "2027-01-24T18:30:00Z"
           }
         ]
       },
