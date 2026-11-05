@@ -1,7 +1,7 @@
 {
   "competition": "Bundesliga",
   "season": 2026,
-  "generated_at": "2026-11-05T20:36:10Z",
+  "generated_at": "2026-11-05T20:51:10Z",
   "fixtures": [
     {
       "match_id": 565776,
@@ -2875,35 +2875,6 @@
       "lastUpdated": "2026-11-05T00:20:27Z"
     },
     {
-      "match_id": 565882,
-      "group": "",
-      "matchday": 12,
-      "sourceRound": "Gameweek 12",
-      "homeTeam": {
-        "id": 5,
-        "name": "FC Bayern München",
-        "shortName": "Bayern",
-        "tla": "FCB",
-        "crest": "https://crests.football-data.org/5.png"
-      },
-      "awayTeam": {
-        "id": 29,
-        "name": "SC Paderborn 07",
-        "shortName": "SC Paderborn",
-        "tla": "SCP",
-        "crest": "https://crests.football-data.org/29.png"
-      },
-      "score": {
-        "fullTime": {
-          "home": null,
-          "away": null
-        }
-      },
-      "status": "TIMED",
-      "utcDate": "2026-12-04T19:30:00Z",
-      "lastUpdated": "2026-11-05T14:25:03Z"
-    },
-    {
       "match_id": 565875,
       "group": "",
       "matchday": 12,
@@ -2933,6 +2904,35 @@
       "lastUpdated": "2026-11-05T14:25:03Z"
     },
     {
+      "match_id": 565876,
+      "group": "",
+      "matchday": 12,
+      "sourceRound": "Gameweek 12",
+      "homeTeam": {
+        "id": 6,
+        "name": "FC Schalke 04",
+        "shortName": "Schalke",
+        "tla": "S04",
+        "crest": "https://crests.football-data.org/6.png"
+      },
+      "awayTeam": {
+        "id": 4,
+        "name": "Borussia Dortmund",
+        "shortName": "Dortmund",
+        "tla": "BVB",
+        "crest": "https://crests.football-data.org/4.png"
+      },
+      "score": {
+        "fullTime": {
+          "home": null,
+          "away": null
+        }
+      },
+      "status": "TIMED",
+      "utcDate": "2026-12-06T14:30:00Z",
+      "lastUpdated": "2026-11-05T14:25:03Z"
+    },
+    {
       "match_id": 565877,
       "group": "",
       "matchday": 12,
@@ -2950,93 +2950,6 @@
         "shortName": "M'gladbach",
         "tla": "BMG",
         "crest": "https://crests.football-data.org/18.png"
-      },
-      "score": {
-        "fullTime": {
-          "home": null,
-          "away": null
-        }
-      },
-      "status": "TIMED",
-      "utcDate": "2026-12-05T14:30:00Z",
-      "lastUpdated": "2026-11-05T14:25:03Z"
-    },
-    {
-      "match_id": 565879,
-      "group": "",
-      "matchday": 12,
-      "sourceRound": "Gameweek 12",
-      "homeTeam": {
-        "id": 721,
-        "name": "RB Leipzig",
-        "shortName": "RB Leipzig",
-        "tla": "RBL",
-        "crest": "https://crests.football-data.org/721.png"
-      },
-      "awayTeam": {
-        "id": 15,
-        "name": "1. FSV Mainz 05",
-        "shortName": "Mainz",
-        "tla": "M05",
-        "crest": "https://crests.football-data.org/15.png"
-      },
-      "score": {
-        "fullTime": {
-          "home": null,
-          "away": null
-        }
-      },
-      "status": "TIMED",
-      "utcDate": "2026-12-05T14:30:00Z",
-      "lastUpdated": "2026-11-05T14:25:03Z"
-    },
-    {
-      "match_id": 565881,
-      "group": "",
-      "matchday": 12,
-      "sourceRound": "Gameweek 12",
-      "homeTeam": {
-        "id": 17,
-        "name": "SC Freiburg",
-        "shortName": "Freiburg",
-        "tla": "SCF",
-        "crest": "https://crests.football-data.org/17.png"
-      },
-      "awayTeam": {
-        "id": 2,
-        "name": "TSG 1899 Hoffenheim",
-        "shortName": "Hoffenheim",
-        "tla": "TSG",
-        "crest": "https://crests.football-data.org/2.png"
-      },
-      "score": {
-        "fullTime": {
-          "home": null,
-          "away": null
-        }
-      },
-      "status": "TIMED",
-      "utcDate": "2026-12-05T14:30:00Z",
-      "lastUpdated": "2026-11-05T14:25:03Z"
-    },
-    {
-      "match_id": 565883,
-      "group": "",
-      "matchday": 12,
-      "sourceRound": "Gameweek 12",
-      "homeTeam": {
-        "id": 16,
-        "name": "FC Augsburg",
-        "shortName": "Augsburg",
-        "tla": "FCA",
-        "crest": "https://crests.football-data.org/16.png"
-      },
-      "awayTeam": {
-        "id": 1,
-        "name": "1. FC Köln",
-        "shortName": "1. FC Köln",
-        "tla": "KOE",
-        "crest": "https://crests.football-data.org/1.png"
       },
       "score": {
         "fullTime": {
@@ -3078,23 +2991,23 @@
       "lastUpdated": "2026-11-05T14:25:03Z"
     },
     {
-      "match_id": 565876,
+      "match_id": 565879,
       "group": "",
       "matchday": 12,
       "sourceRound": "Gameweek 12",
       "homeTeam": {
-        "id": 6,
-        "name": "FC Schalke 04",
-        "shortName": "Schalke",
-        "tla": "S04",
-        "crest": "https://crests.football-data.org/6.png"
+        "id": 721,
+        "name": "RB Leipzig",
+        "shortName": "RB Leipzig",
+        "tla": "RBL",
+        "crest": "https://crests.football-data.org/721.png"
       },
       "awayTeam": {
-        "id": 4,
-        "name": "Borussia Dortmund",
-        "shortName": "Dortmund",
-        "tla": "BVB",
-        "crest": "https://crests.football-data.org/4.png"
+        "id": 15,
+        "name": "1. FSV Mainz 05",
+        "shortName": "Mainz",
+        "tla": "M05",
+        "crest": "https://crests.football-data.org/15.png"
       },
       "score": {
         "fullTime": {
@@ -3103,7 +3016,7 @@
         }
       },
       "status": "TIMED",
-      "utcDate": "2026-12-06T14:30:00Z",
+      "utcDate": "2026-12-05T14:30:00Z",
       "lastUpdated": "2026-11-05T14:25:03Z"
     },
     {
@@ -3136,23 +3049,23 @@
       "lastUpdated": "2026-11-05T14:25:03Z"
     },
     {
-      "match_id": 565888,
+      "match_id": 565881,
       "group": "",
-      "matchday": 13,
-      "sourceRound": "Gameweek 13",
+      "matchday": 12,
+      "sourceRound": "Gameweek 12",
       "homeTeam": {
-        "id": 7,
-        "name": "Hamburger SV",
-        "shortName": "HSV",
-        "tla": "HSV",
-        "crest": "https://crests.football-data.org/7.png"
+        "id": 17,
+        "name": "SC Freiburg",
+        "shortName": "Freiburg",
+        "tla": "SCF",
+        "crest": "https://crests.football-data.org/17.png"
       },
       "awayTeam": {
-        "id": 6,
-        "name": "FC Schalke 04",
-        "shortName": "Schalke",
-        "tla": "S04",
-        "crest": "https://crests.football-data.org/6.png"
+        "id": 2,
+        "name": "TSG 1899 Hoffenheim",
+        "shortName": "Hoffenheim",
+        "tla": "TSG",
+        "crest": "https://crests.football-data.org/2.png"
       },
       "score": {
         "fullTime": {
@@ -3161,7 +3074,65 @@
         }
       },
       "status": "TIMED",
-      "utcDate": "2026-12-11T19:30:00Z",
+      "utcDate": "2026-12-05T14:30:00Z",
+      "lastUpdated": "2026-11-05T14:25:03Z"
+    },
+    {
+      "match_id": 565882,
+      "group": "",
+      "matchday": 12,
+      "sourceRound": "Gameweek 12",
+      "homeTeam": {
+        "id": 5,
+        "name": "FC Bayern München",
+        "shortName": "Bayern",
+        "tla": "FCB",
+        "crest": "https://crests.football-data.org/5.png"
+      },
+      "awayTeam": {
+        "id": 29,
+        "name": "SC Paderborn 07",
+        "shortName": "SC Paderborn",
+        "tla": "SCP",
+        "crest": "https://crests.football-data.org/29.png"
+      },
+      "score": {
+        "fullTime": {
+          "home": null,
+          "away": null
+        }
+      },
+      "status": "TIMED",
+      "utcDate": "2026-12-04T19:30:00Z",
+      "lastUpdated": "2026-11-05T14:25:03Z"
+    },
+    {
+      "match_id": 565883,
+      "group": "",
+      "matchday": 12,
+      "sourceRound": "Gameweek 12",
+      "homeTeam": {
+        "id": 16,
+        "name": "FC Augsburg",
+        "shortName": "Augsburg",
+        "tla": "FCA",
+        "crest": "https://crests.football-data.org/16.png"
+      },
+      "awayTeam": {
+        "id": 1,
+        "name": "1. FC Köln",
+        "shortName": "1. FC Köln",
+        "tla": "KOE",
+        "crest": "https://crests.football-data.org/1.png"
+      },
+      "score": {
+        "fullTime": {
+          "home": null,
+          "away": null
+        }
+      },
+      "status": "TIMED",
+      "utcDate": "2026-12-05T14:30:00Z",
       "lastUpdated": "2026-11-05T14:25:03Z"
     },
     {
@@ -3191,6 +3162,35 @@
       },
       "status": "TIMED",
       "utcDate": "2026-12-12T14:30:00Z",
+      "lastUpdated": "2026-11-05T14:25:03Z"
+    },
+    {
+      "match_id": 565885,
+      "group": "",
+      "matchday": 13,
+      "sourceRound": "Gameweek 13",
+      "homeTeam": {
+        "id": 12,
+        "name": "SV Werder Bremen",
+        "shortName": "Bremen",
+        "tla": "SVW",
+        "crest": "https://crests.football-data.org/12.png"
+      },
+      "awayTeam": {
+        "id": 3,
+        "name": "Bayer 04 Leverkusen",
+        "shortName": "Leverkusen",
+        "tla": "B04",
+        "crest": "https://crests.football-data.org/3.png"
+      },
+      "score": {
+        "fullTime": {
+          "home": null,
+          "away": null
+        }
+      },
+      "status": "TIMED",
+      "utcDate": "2026-12-13T18:30:00Z",
       "lastUpdated": "2026-11-05T14:25:03Z"
     },
     {
@@ -3252,23 +3252,23 @@
       "lastUpdated": "2026-11-05T14:25:03Z"
     },
     {
-      "match_id": 565890,
+      "match_id": 565888,
       "group": "",
       "matchday": 13,
       "sourceRound": "Gameweek 13",
       "homeTeam": {
-        "id": 1,
-        "name": "1. FC Köln",
-        "shortName": "1. FC Köln",
-        "tla": "KOE",
-        "crest": "https://crests.football-data.org/1.png"
+        "id": 7,
+        "name": "Hamburger SV",
+        "shortName": "HSV",
+        "tla": "HSV",
+        "crest": "https://crests.football-data.org/7.png"
       },
       "awayTeam": {
-        "id": 721,
-        "name": "RB Leipzig",
-        "shortName": "RB Leipzig",
-        "tla": "RBL",
-        "crest": "https://crests.football-data.org/721.png"
+        "id": 6,
+        "name": "FC Schalke 04",
+        "shortName": "Schalke",
+        "tla": "S04",
+        "crest": "https://crests.football-data.org/6.png"
       },
       "score": {
         "fullTime": {
@@ -3277,36 +3277,7 @@
         }
       },
       "status": "TIMED",
-      "utcDate": "2026-12-12T14:30:00Z",
-      "lastUpdated": "2026-11-05T14:25:03Z"
-    },
-    {
-      "match_id": 565892,
-      "group": "",
-      "matchday": 13,
-      "sourceRound": "Gameweek 13",
-      "homeTeam": {
-        "id": 18,
-        "name": "Borussia Mönchengladbach",
-        "shortName": "M'gladbach",
-        "tla": "BMG",
-        "crest": "https://crests.football-data.org/18.png"
-      },
-      "awayTeam": {
-        "id": 19,
-        "name": "Eintracht Frankfurt",
-        "shortName": "Frankfurt",
-        "tla": "SGE",
-        "crest": "https://crests.football-data.org/19.png"
-      },
-      "score": {
-        "fullTime": {
-          "home": null,
-          "away": null
-        }
-      },
-      "status": "TIMED",
-      "utcDate": "2026-12-12T17:30:00Z",
+      "utcDate": "2026-12-11T19:30:00Z",
       "lastUpdated": "2026-11-05T14:25:03Z"
     },
     {
@@ -3339,6 +3310,35 @@
       "lastUpdated": "2026-11-05T14:25:03Z"
     },
     {
+      "match_id": 565890,
+      "group": "",
+      "matchday": 13,
+      "sourceRound": "Gameweek 13",
+      "homeTeam": {
+        "id": 1,
+        "name": "1. FC Köln",
+        "shortName": "1. FC Köln",
+        "tla": "KOE",
+        "crest": "https://crests.football-data.org/1.png"
+      },
+      "awayTeam": {
+        "id": 721,
+        "name": "RB Leipzig",
+        "shortName": "RB Leipzig",
+        "tla": "RBL",
+        "crest": "https://crests.football-data.org/721.png"
+      },
+      "score": {
+        "fullTime": {
+          "home": null,
+          "away": null
+        }
+      },
+      "status": "TIMED",
+      "utcDate": "2026-12-12T14:30:00Z",
+      "lastUpdated": "2026-11-05T14:25:03Z"
+    },
+    {
       "match_id": 565891,
       "group": "",
       "matchday": 13,
@@ -3368,23 +3368,23 @@
       "lastUpdated": "2026-11-05T14:25:03Z"
     },
     {
-      "match_id": 565885,
+      "match_id": 565892,
       "group": "",
       "matchday": 13,
       "sourceRound": "Gameweek 13",
       "homeTeam": {
-        "id": 12,
-        "name": "SV Werder Bremen",
-        "shortName": "Bremen",
-        "tla": "SVW",
-        "crest": "https://crests.football-data.org/12.png"
+        "id": 18,
+        "name": "Borussia Mönchengladbach",
+        "shortName": "M'gladbach",
+        "tla": "BMG",
+        "crest": "https://crests.football-data.org/18.png"
       },
       "awayTeam": {
-        "id": 3,
-        "name": "Bayer 04 Leverkusen",
-        "shortName": "Leverkusen",
-        "tla": "B04",
-        "crest": "https://crests.football-data.org/3.png"
+        "id": 19,
+        "name": "Eintracht Frankfurt",
+        "shortName": "Frankfurt",
+        "tla": "SGE",
+        "crest": "https://crests.football-data.org/19.png"
       },
       "score": {
         "fullTime": {
@@ -3393,8 +3393,37 @@
         }
       },
       "status": "TIMED",
-      "utcDate": "2026-12-13T18:30:00Z",
+      "utcDate": "2026-12-12T17:30:00Z",
       "lastUpdated": "2026-11-05T14:25:03Z"
+    },
+    {
+      "match_id": 565893,
+      "group": "",
+      "matchday": 14,
+      "sourceRound": "Gameweek 14",
+      "homeTeam": {
+        "id": 6,
+        "name": "FC Schalke 04",
+        "shortName": "Schalke",
+        "tla": "S04",
+        "crest": "https://crests.football-data.org/6.png"
+      },
+      "awayTeam": {
+        "id": 18,
+        "name": "Borussia Mönchengladbach",
+        "shortName": "M'gladbach",
+        "tla": "BMG",
+        "crest": "https://crests.football-data.org/18.png"
+      },
+      "score": {
+        "fullTime": {
+          "home": null,
+          "away": null
+        }
+      },
+      "status": "TIMED",
+      "utcDate": "2026-12-20T18:30:00Z",
+      "lastUpdated": "2026-11-05T14:25:04Z"
     },
     {
       "match_id": 565894,
@@ -3484,23 +3513,23 @@
       "lastUpdated": "2026-11-05T14:25:03Z"
     },
     {
-      "match_id": 565899,
+      "match_id": 565897,
       "group": "",
       "matchday": 14,
       "sourceRound": "Gameweek 14",
       "homeTeam": {
-        "id": 15,
-        "name": "1. FSV Mainz 05",
-        "shortName": "Mainz",
-        "tla": "M05",
-        "crest": "https://crests.football-data.org/15.png"
+        "id": 17,
+        "name": "SC Freiburg",
+        "shortName": "Freiburg",
+        "tla": "SCF",
+        "crest": "https://crests.football-data.org/17.png"
       },
       "awayTeam": {
-        "id": 1,
-        "name": "1. FC Köln",
-        "shortName": "1. FC Köln",
-        "tla": "KOE",
-        "crest": "https://crests.football-data.org/1.png"
+        "id": 10,
+        "name": "VfB Stuttgart",
+        "shortName": "Stuttgart",
+        "tla": "VFB",
+        "crest": "https://crests.football-data.org/10.png"
       },
       "score": {
         "fullTime": {
@@ -3509,37 +3538,8 @@
         }
       },
       "status": "TIMED",
-      "utcDate": "2026-12-19T14:30:00Z",
-      "lastUpdated": "2026-11-05T14:25:03Z"
-    },
-    {
-      "match_id": 565901,
-      "group": "",
-      "matchday": 14,
-      "sourceRound": "Gameweek 14",
-      "homeTeam": {
-        "id": 16,
-        "name": "FC Augsburg",
-        "shortName": "Augsburg",
-        "tla": "FCA",
-        "crest": "https://crests.football-data.org/16.png"
-      },
-      "awayTeam": {
-        "id": 29,
-        "name": "SC Paderborn 07",
-        "shortName": "SC Paderborn",
-        "tla": "SCP",
-        "crest": "https://crests.football-data.org/29.png"
-      },
-      "score": {
-        "fullTime": {
-          "home": null,
-          "away": null
-        }
-      },
-      "status": "TIMED",
-      "utcDate": "2026-12-19T14:30:00Z",
-      "lastUpdated": "2026-11-05T14:25:03Z"
+      "utcDate": "2026-12-20T14:30:00Z",
+      "lastUpdated": "2026-11-05T14:25:04Z"
     },
     {
       "match_id": 565898,
@@ -3571,23 +3571,23 @@
       "lastUpdated": "2026-11-05T14:25:03Z"
     },
     {
-      "match_id": 565897,
+      "match_id": 565899,
       "group": "",
       "matchday": 14,
       "sourceRound": "Gameweek 14",
       "homeTeam": {
-        "id": 17,
-        "name": "SC Freiburg",
-        "shortName": "Freiburg",
-        "tla": "SCF",
-        "crest": "https://crests.football-data.org/17.png"
+        "id": 15,
+        "name": "1. FSV Mainz 05",
+        "shortName": "Mainz",
+        "tla": "M05",
+        "crest": "https://crests.football-data.org/15.png"
       },
       "awayTeam": {
-        "id": 10,
-        "name": "VfB Stuttgart",
-        "shortName": "Stuttgart",
-        "tla": "VFB",
-        "crest": "https://crests.football-data.org/10.png"
+        "id": 1,
+        "name": "1. FC Köln",
+        "shortName": "1. FC Köln",
+        "tla": "KOE",
+        "crest": "https://crests.football-data.org/1.png"
       },
       "score": {
         "fullTime": {
@@ -3596,8 +3596,8 @@
         }
       },
       "status": "TIMED",
-      "utcDate": "2026-12-20T14:30:00Z",
-      "lastUpdated": "2026-11-05T14:25:04Z"
+      "utcDate": "2026-12-19T14:30:00Z",
+      "lastUpdated": "2026-11-05T14:25:03Z"
     },
     {
       "match_id": 565900,
@@ -3629,23 +3629,23 @@
       "lastUpdated": "2026-11-05T14:25:04Z"
     },
     {
-      "match_id": 565893,
+      "match_id": 565901,
       "group": "",
       "matchday": 14,
       "sourceRound": "Gameweek 14",
       "homeTeam": {
-        "id": 6,
-        "name": "FC Schalke 04",
-        "shortName": "Schalke",
-        "tla": "S04",
-        "crest": "https://crests.football-data.org/6.png"
+        "id": 16,
+        "name": "FC Augsburg",
+        "shortName": "Augsburg",
+        "tla": "FCA",
+        "crest": "https://crests.football-data.org/16.png"
       },
       "awayTeam": {
-        "id": 18,
-        "name": "Borussia Mönchengladbach",
-        "shortName": "M'gladbach",
-        "tla": "BMG",
-        "crest": "https://crests.football-data.org/18.png"
+        "id": 29,
+        "name": "SC Paderborn 07",
+        "shortName": "SC Paderborn",
+        "tla": "SCP",
+        "crest": "https://crests.football-data.org/29.png"
       },
       "score": {
         "fullTime": {
@@ -3654,37 +3654,8 @@
         }
       },
       "status": "TIMED",
-      "utcDate": "2026-12-20T18:30:00Z",
-      "lastUpdated": "2026-11-05T14:25:04Z"
-    },
-    {
-      "match_id": 565908,
-      "group": "",
-      "matchday": 15,
-      "sourceRound": "Gameweek 15",
-      "homeTeam": {
-        "id": 4,
-        "name": "Borussia Dortmund",
-        "shortName": "Dortmund",
-        "tla": "BVB",
-        "crest": "https://crests.football-data.org/4.png"
-      },
-      "awayTeam": {
-        "id": 15,
-        "name": "1. FSV Mainz 05",
-        "shortName": "Mainz",
-        "tla": "M05",
-        "crest": "https://crests.football-data.org/15.png"
-      },
-      "score": {
-        "fullTime": {
-          "home": null,
-          "away": null
-        }
-      },
-      "status": "TIMED",
-      "utcDate": "2027-01-08T19:30:00Z",
-      "lastUpdated": "2026-11-05T14:25:04Z"
+      "utcDate": "2026-12-19T14:30:00Z",
+      "lastUpdated": "2026-11-05T14:25:03Z"
     },
     {
       "match_id": 565902,
@@ -3713,6 +3684,35 @@
       },
       "status": "TIMED",
       "utcDate": "2027-01-09T14:30:00Z",
+      "lastUpdated": "2026-11-05T14:25:04Z"
+    },
+    {
+      "match_id": 565903,
+      "group": "",
+      "matchday": 15,
+      "sourceRound": "Gameweek 15",
+      "homeTeam": {
+        "id": 7,
+        "name": "Hamburger SV",
+        "shortName": "HSV",
+        "tla": "HSV",
+        "crest": "https://crests.football-data.org/7.png"
+      },
+      "awayTeam": {
+        "id": 3,
+        "name": "Bayer 04 Leverkusen",
+        "shortName": "Leverkusen",
+        "tla": "B04",
+        "crest": "https://crests.football-data.org/3.png"
+      },
+      "score": {
+        "fullTime": {
+          "home": null,
+          "away": null
+        }
+      },
+      "status": "TIMED",
+      "utcDate": "2027-01-10T16:30:00Z",
       "lastUpdated": "2026-11-05T14:25:04Z"
     },
     {
@@ -3803,35 +3803,6 @@
       "lastUpdated": "2026-11-05T14:25:04Z"
     },
     {
-      "match_id": 565910,
-      "group": "",
-      "matchday": 15,
-      "sourceRound": "Gameweek 15",
-      "homeTeam": {
-        "id": 29,
-        "name": "SC Paderborn 07",
-        "shortName": "SC Paderborn",
-        "tla": "SCP",
-        "crest": "https://crests.football-data.org/29.png"
-      },
-      "awayTeam": {
-        "id": 721,
-        "name": "RB Leipzig",
-        "shortName": "RB Leipzig",
-        "tla": "RBL",
-        "crest": "https://crests.football-data.org/721.png"
-      },
-      "score": {
-        "fullTime": {
-          "home": null,
-          "away": null
-        }
-      },
-      "status": "TIMED",
-      "utcDate": "2027-01-09T14:30:00Z",
-      "lastUpdated": "2026-11-05T14:25:04Z"
-    },
-    {
       "match_id": 565907,
       "group": "",
       "matchday": 15,
@@ -3858,6 +3829,35 @@
       },
       "status": "TIMED",
       "utcDate": "2027-01-09T17:30:00Z",
+      "lastUpdated": "2026-11-05T14:25:04Z"
+    },
+    {
+      "match_id": 565908,
+      "group": "",
+      "matchday": 15,
+      "sourceRound": "Gameweek 15",
+      "homeTeam": {
+        "id": 4,
+        "name": "Borussia Dortmund",
+        "shortName": "Dortmund",
+        "tla": "BVB",
+        "crest": "https://crests.football-data.org/4.png"
+      },
+      "awayTeam": {
+        "id": 15,
+        "name": "1. FSV Mainz 05",
+        "shortName": "Mainz",
+        "tla": "M05",
+        "crest": "https://crests.football-data.org/15.png"
+      },
+      "score": {
+        "fullTime": {
+          "home": null,
+          "away": null
+        }
+      },
+      "status": "TIMED",
+      "utcDate": "2027-01-08T19:30:00Z",
       "lastUpdated": "2026-11-05T14:25:04Z"
     },
     {
@@ -3890,53 +3890,24 @@
       "lastUpdated": "2026-11-05T14:25:04Z"
     },
     {
-      "match_id": 565903,
+      "match_id": 565910,
       "group": "",
       "matchday": 15,
       "sourceRound": "Gameweek 15",
       "homeTeam": {
-        "id": 7,
-        "name": "Hamburger SV",
-        "shortName": "HSV",
-        "tla": "HSV",
-        "crest": "https://crests.football-data.org/7.png"
+        "id": 29,
+        "name": "SC Paderborn 07",
+        "shortName": "SC Paderborn",
+        "tla": "SCP",
+        "crest": "https://crests.football-data.org/29.png"
       },
       "awayTeam": {
-        "id": 3,
-        "name": "Bayer 04 Leverkusen",
-        "shortName": "Leverkusen",
-        "tla": "B04",
-        "crest": "https://crests.football-data.org/3.png"
-      },
-      "score": {
-        "fullTime": {
-          "home": null,
-          "away": null
-        }
-      },
-      "status": "TIMED",
-      "utcDate": "2027-01-10T16:30:00Z",
-      "lastUpdated": "2026-11-05T14:25:04Z"
-    },
-    {
-      "match_id": 565914,
-      "group": "",
-      "matchday": 16,
-      "sourceRound": "Gameweek 16",
-      "homeTeam": {
         "id": 721,
         "name": "RB Leipzig",
         "shortName": "RB Leipzig",
         "tla": "RBL",
         "crest": "https://crests.football-data.org/721.png"
       },
-      "awayTeam": {
-        "id": 10,
-        "name": "VfB Stuttgart",
-        "shortName": "Stuttgart",
-        "tla": "VFB",
-        "crest": "https://crests.football-data.org/10.png"
-      },
       "score": {
         "fullTime": {
           "home": null,
@@ -3944,7 +3915,7 @@
         }
       },
       "status": "TIMED",
-      "utcDate": "2027-01-12T17:30:00Z",
+      "utcDate": "2027-01-09T14:30:00Z",
       "lastUpdated": "2026-11-05T14:25:04Z"
     },
     {
@@ -3977,93 +3948,6 @@
       "lastUpdated": "2026-11-05T14:25:04Z"
     },
     {
-      "match_id": 565917,
-      "group": "",
-      "matchday": 16,
-      "sourceRound": "Gameweek 16",
-      "homeTeam": {
-        "id": 16,
-        "name": "FC Augsburg",
-        "shortName": "Augsburg",
-        "tla": "FCA",
-        "crest": "https://crests.football-data.org/16.png"
-      },
-      "awayTeam": {
-        "id": 18,
-        "name": "Borussia Mönchengladbach",
-        "shortName": "M'gladbach",
-        "tla": "BMG",
-        "crest": "https://crests.football-data.org/18.png"
-      },
-      "score": {
-        "fullTime": {
-          "home": null,
-          "away": null
-        }
-      },
-      "status": "TIMED",
-      "utcDate": "2027-01-12T19:30:00Z",
-      "lastUpdated": "2026-11-05T14:25:04Z"
-    },
-    {
-      "match_id": 565919,
-      "group": "",
-      "matchday": 16,
-      "sourceRound": "Gameweek 16",
-      "homeTeam": {
-        "id": 1,
-        "name": "1. FC Köln",
-        "shortName": "1. FC Köln",
-        "tla": "KOE",
-        "crest": "https://crests.football-data.org/1.png"
-      },
-      "awayTeam": {
-        "id": 4,
-        "name": "Borussia Dortmund",
-        "shortName": "Dortmund",
-        "tla": "BVB",
-        "crest": "https://crests.football-data.org/4.png"
-      },
-      "score": {
-        "fullTime": {
-          "home": null,
-          "away": null
-        }
-      },
-      "status": "TIMED",
-      "utcDate": "2027-01-12T19:30:00Z",
-      "lastUpdated": "2026-11-05T14:25:04Z"
-    },
-    {
-      "match_id": 565918,
-      "group": "",
-      "matchday": 16,
-      "sourceRound": "Gameweek 16",
-      "homeTeam": {
-        "id": 719,
-        "name": "SV 07 Elversberg",
-        "shortName": "Elversberg",
-        "tla": "ELV",
-        "crest": "https://crests.football-data.org/719.png"
-      },
-      "awayTeam": {
-        "id": 19,
-        "name": "Eintracht Frankfurt",
-        "shortName": "Frankfurt",
-        "tla": "SGE",
-        "crest": "https://crests.football-data.org/19.png"
-      },
-      "score": {
-        "fullTime": {
-          "home": null,
-          "away": null
-        }
-      },
-      "status": "TIMED",
-      "utcDate": "2027-01-13T17:30:00Z",
-      "lastUpdated": "2026-11-05T14:25:04Z"
-    },
-    {
       "match_id": 565912,
       "group": "",
       "matchday": 16,
@@ -4090,6 +3974,64 @@
       },
       "status": "TIMED",
       "utcDate": "2027-01-13T19:30:00Z",
+      "lastUpdated": "2026-11-05T14:25:04Z"
+    },
+    {
+      "match_id": 565913,
+      "group": "",
+      "matchday": 16,
+      "sourceRound": "Gameweek 16",
+      "homeTeam": {
+        "id": 6,
+        "name": "FC Schalke 04",
+        "shortName": "Schalke",
+        "tla": "S04",
+        "crest": "https://crests.football-data.org/6.png"
+      },
+      "awayTeam": {
+        "id": 12,
+        "name": "SV Werder Bremen",
+        "shortName": "Bremen",
+        "tla": "SVW",
+        "crest": "https://crests.football-data.org/12.png"
+      },
+      "score": {
+        "fullTime": {
+          "home": null,
+          "away": null
+        }
+      },
+      "status": "TIMED",
+      "utcDate": "2027-01-14T19:30:00Z",
+      "lastUpdated": "2026-11-05T14:25:04Z"
+    },
+    {
+      "match_id": 565914,
+      "group": "",
+      "matchday": 16,
+      "sourceRound": "Gameweek 16",
+      "homeTeam": {
+        "id": 721,
+        "name": "RB Leipzig",
+        "shortName": "RB Leipzig",
+        "tla": "RBL",
+        "crest": "https://crests.football-data.org/721.png"
+      },
+      "awayTeam": {
+        "id": 10,
+        "name": "VfB Stuttgart",
+        "shortName": "Stuttgart",
+        "tla": "VFB",
+        "crest": "https://crests.football-data.org/10.png"
+      },
+      "score": {
+        "fullTime": {
+          "home": null,
+          "away": null
+        }
+      },
+      "status": "TIMED",
+      "utcDate": "2027-01-12T17:30:00Z",
       "lastUpdated": "2026-11-05T14:25:04Z"
     },
     {
@@ -4151,24 +4093,111 @@
       "lastUpdated": "2026-11-05T14:25:04Z"
     },
     {
-      "match_id": 565913,
+      "match_id": 565917,
       "group": "",
       "matchday": 16,
       "sourceRound": "Gameweek 16",
       "homeTeam": {
-        "id": 6,
-        "name": "FC Schalke 04",
-        "shortName": "Schalke",
-        "tla": "S04",
-        "crest": "https://crests.football-data.org/6.png"
+        "id": 16,
+        "name": "FC Augsburg",
+        "shortName": "Augsburg",
+        "tla": "FCA",
+        "crest": "https://crests.football-data.org/16.png"
       },
       "awayTeam": {
+        "id": 18,
+        "name": "Borussia Mönchengladbach",
+        "shortName": "M'gladbach",
+        "tla": "BMG",
+        "crest": "https://crests.football-data.org/18.png"
+      },
+      "score": {
+        "fullTime": {
+          "home": null,
+          "away": null
+        }
+      },
+      "status": "TIMED",
+      "utcDate": "2027-01-12T19:30:00Z",
+      "lastUpdated": "2026-11-05T14:25:04Z"
+    },
+    {
+      "match_id": 565918,
+      "group": "",
+      "matchday": 16,
+      "sourceRound": "Gameweek 16",
+      "homeTeam": {
+        "id": 719,
+        "name": "SV 07 Elversberg",
+        "shortName": "Elversberg",
+        "tla": "ELV",
+        "crest": "https://crests.football-data.org/719.png"
+      },
+      "awayTeam": {
+        "id": 19,
+        "name": "Eintracht Frankfurt",
+        "shortName": "Frankfurt",
+        "tla": "SGE",
+        "crest": "https://crests.football-data.org/19.png"
+      },
+      "score": {
+        "fullTime": {
+          "home": null,
+          "away": null
+        }
+      },
+      "status": "TIMED",
+      "utcDate": "2027-01-13T17:30:00Z",
+      "lastUpdated": "2026-11-05T14:25:04Z"
+    },
+    {
+      "match_id": 565919,
+      "group": "",
+      "matchday": 16,
+      "sourceRound": "Gameweek 16",
+      "homeTeam": {
+        "id": 1,
+        "name": "1. FC Köln",
+        "shortName": "1. FC Köln",
+        "tla": "KOE",
+        "crest": "https://crests.football-data.org/1.png"
+      },
+      "awayTeam": {
+        "id": 4,
+        "name": "Borussia Dortmund",
+        "shortName": "Dortmund",
+        "tla": "BVB",
+        "crest": "https://crests.football-data.org/4.png"
+      },
+      "score": {
+        "fullTime": {
+          "home": null,
+          "away": null
+        }
+      },
+      "status": "TIMED",
+      "utcDate": "2027-01-12T19:30:00Z",
+      "lastUpdated": "2026-11-05T14:25:04Z"
+    },
+    {
+      "match_id": 565920,
+      "group": "",
+      "matchday": 17,
+      "sourceRound": "Gameweek 17",
+      "homeTeam": {
         "id": 12,
         "name": "SV Werder Bremen",
         "shortName": "Bremen",
         "tla": "SVW",
         "crest": "https://crests.football-data.org/12.png"
       },
+      "awayTeam": {
+        "id": 719,
+        "name": "SV 07 Elversberg",
+        "shortName": "Elversberg",
+        "tla": "ELV",
+        "crest": "https://crests.football-data.org/719.png"
+      },
       "score": {
         "fullTime": {
           "home": null,
@@ -4176,27 +4205,27 @@
         }
       },
       "status": "TIMED",
-      "utcDate": "2027-01-14T19:30:00Z",
-      "lastUpdated": "2026-11-05T14:25:04Z"
+      "utcDate": "2027-01-17T14:30:00Z",
+      "lastUpdated": "2026-11-05T14:25:05Z"
     },
     {
-      "match_id": 565925,
+      "match_id": 565921,
       "group": "",
       "matchday": 17,
       "sourceRound": "Gameweek 17",
       "homeTeam": {
-        "id": 10,
-        "name": "VfB Stuttgart",
-        "shortName": "Stuttgart",
-        "tla": "VFB",
-        "crest": "https://crests.football-data.org/10.png"
+        "id": 19,
+        "name": "Eintracht Frankfurt",
+        "shortName": "Frankfurt",
+        "tla": "SGE",
+        "crest": "https://crests.football-data.org/19.png"
       },
       "awayTeam": {
-        "id": 15,
-        "name": "1. FSV Mainz 05",
-        "shortName": "Mainz",
-        "tla": "M05",
-        "crest": "https://crests.football-data.org/15.png"
+        "id": 5,
+        "name": "FC Bayern München",
+        "shortName": "Bayern",
+        "tla": "FCB",
+        "crest": "https://crests.football-data.org/5.png"
       },
       "score": {
         "fullTime": {
@@ -4205,8 +4234,8 @@
         }
       },
       "status": "TIMED",
-      "utcDate": "2027-01-15T19:30:00Z",
-      "lastUpdated": "2026-11-05T14:25:04Z"
+      "utcDate": "2027-01-16T17:30:00Z",
+      "lastUpdated": "2026-11-05T14:25:05Z"
     },
     {
       "match_id": 565922,
@@ -4264,6 +4293,64 @@
       },
       "status": "TIMED",
       "utcDate": "2027-01-16T14:30:00Z",
+      "lastUpdated": "2026-11-05T14:25:04Z"
+    },
+    {
+      "match_id": 565924,
+      "group": "",
+      "matchday": 17,
+      "sourceRound": "Gameweek 17",
+      "homeTeam": {
+        "id": 3,
+        "name": "Bayer 04 Leverkusen",
+        "shortName": "Leverkusen",
+        "tla": "B04",
+        "crest": "https://crests.football-data.org/3.png"
+      },
+      "awayTeam": {
+        "id": 6,
+        "name": "FC Schalke 04",
+        "shortName": "Schalke",
+        "tla": "S04",
+        "crest": "https://crests.football-data.org/6.png"
+      },
+      "score": {
+        "fullTime": {
+          "home": null,
+          "away": null
+        }
+      },
+      "status": "TIMED",
+      "utcDate": "2027-01-17T16:30:00Z",
+      "lastUpdated": "2026-11-05T14:25:05Z"
+    },
+    {
+      "match_id": 565925,
+      "group": "",
+      "matchday": 17,
+      "sourceRound": "Gameweek 17",
+      "homeTeam": {
+        "id": 10,
+        "name": "VfB Stuttgart",
+        "shortName": "Stuttgart",
+        "tla": "VFB",
+        "crest": "https://crests.football-data.org/10.png"
+      },
+      "awayTeam": {
+        "id": 15,
+        "name": "1. FSV Mainz 05",
+        "shortName": "Mainz",
+        "tla": "M05",
+        "crest": "https://crests.football-data.org/15.png"
+      },
+      "score": {
+        "fullTime": {
+          "home": null,
+          "away": null
+        }
+      },
+      "status": "TIMED",
+      "utcDate": "2027-01-15T19:30:00Z",
       "lastUpdated": "2026-11-05T14:25:04Z"
     },
     {
@@ -4354,93 +4441,6 @@
       "lastUpdated": "2026-11-05T14:25:04Z"
     },
     {
-      "match_id": 565921,
-      "group": "",
-      "matchday": 17,
-      "sourceRound": "Gameweek 17",
-      "homeTeam": {
-        "id": 19,
-        "name": "Eintracht Frankfurt",
-        "shortName": "Frankfurt",
-        "tla": "SGE",
-        "crest": "https://crests.football-data.org/19.png"
-      },
-      "awayTeam": {
-        "id": 5,
-        "name": "FC Bayern München",
-        "shortName": "Bayern",
-        "tla": "FCB",
-        "crest": "https://crests.football-data.org/5.png"
-      },
-      "score": {
-        "fullTime": {
-          "home": null,
-          "away": null
-        }
-      },
-      "status": "TIMED",
-      "utcDate": "2027-01-16T17:30:00Z",
-      "lastUpdated": "2026-11-05T14:25:05Z"
-    },
-    {
-      "match_id": 565920,
-      "group": "",
-      "matchday": 17,
-      "sourceRound": "Gameweek 17",
-      "homeTeam": {
-        "id": 12,
-        "name": "SV Werder Bremen",
-        "shortName": "Bremen",
-        "tla": "SVW",
-        "crest": "https://crests.football-data.org/12.png"
-      },
-      "awayTeam": {
-        "id": 719,
-        "name": "SV 07 Elversberg",
-        "shortName": "Elversberg",
-        "tla": "ELV",
-        "crest": "https://crests.football-data.org/719.png"
-      },
-      "score": {
-        "fullTime": {
-          "home": null,
-          "away": null
-        }
-      },
-      "status": "TIMED",
-      "utcDate": "2027-01-17T14:30:00Z",
-      "lastUpdated": "2026-11-05T14:25:05Z"
-    },
-    {
-      "match_id": 565924,
-      "group": "",
-      "matchday": 17,
-      "sourceRound": "Gameweek 17",
-      "homeTeam": {
-        "id": 3,
-        "name": "Bayer 04 Leverkusen",
-        "shortName": "Leverkusen",
-        "tla": "B04",
-        "crest": "https://crests.football-data.org/3.png"
-      },
-      "awayTeam": {
-        "id": 6,
-        "name": "FC Schalke 04",
-        "shortName": "Schalke",
-        "tla": "S04",
-        "crest": "https://crests.football-data.org/6.png"
-      },
-      "score": {
-        "fullTime": {
-          "home": null,
-          "away": null
-        }
-      },
-      "status": "TIMED",
-      "utcDate": "2027-01-17T16:30:00Z",
-      "lastUpdated": "2026-11-05T14:25:05Z"
-    },
-    {
       "match_id": 565929,
       "group": "",
       "matchday": 18,
@@ -4467,6 +4467,35 @@
       },
       "status": "TIMED",
       "utcDate": "2027-01-22T19:30:00Z",
+      "lastUpdated": "2026-11-05T14:25:05Z"
+    },
+    {
+      "match_id": 565930,
+      "group": "",
+      "matchday": 18,
+      "sourceRound": "Gameweek 18",
+      "homeTeam": {
+        "id": 7,
+        "name": "Hamburger SV",
+        "shortName": "HSV",
+        "tla": "HSV",
+        "crest": "https://crests.football-data.org/7.png"
+      },
+      "awayTeam": {
+        "id": 4,
+        "name": "Borussia Dortmund",
+        "shortName": "Dortmund",
+        "tla": "BVB",
+        "crest": "https://crests.football-data.org/4.png"
+      },
+      "score": {
+        "fullTime": {
+          "home": null,
+          "away": null
+        }
+      },
+      "status": "TIMED",
+      "utcDate": "2027-01-23T17:30:00Z",
       "lastUpdated": "2026-11-05T14:25:05Z"
     },
     {
@@ -4528,6 +4557,35 @@
       "lastUpdated": "2026-11-05T14:25:05Z"
     },
     {
+      "match_id": 565933,
+      "group": "",
+      "matchday": 18,
+      "sourceRound": "Gameweek 18",
+      "homeTeam": {
+        "id": 2,
+        "name": "TSG 1899 Hoffenheim",
+        "shortName": "Hoffenheim",
+        "tla": "TSG",
+        "crest": "https://crests.football-data.org/2.png"
+      },
+      "awayTeam": {
+        "id": 1,
+        "name": "1. FC Köln",
+        "shortName": "1. FC Köln",
+        "tla": "KOE",
+        "crest": "https://crests.football-data.org/1.png"
+      },
+      "score": {
+        "fullTime": {
+          "home": null,
+          "away": null
+        }
+      },
+      "status": "TIMED",
+      "utcDate": "2027-01-24T18:30:00Z",
+      "lastUpdated": "2026-11-05T14:25:05Z"
+    },
+    {
       "match_id": 565934,
       "group": "",
       "matchday": 18,
@@ -4586,35 +4644,6 @@
       "lastUpdated": "2026-11-05T14:25:05Z"
     },
     {
-      "match_id": 565930,
-      "group": "",
-      "matchday": 18,
-      "sourceRound": "Gameweek 18",
-      "homeTeam": {
-        "id": 7,
-        "name": "Hamburger SV",
-        "shortName": "HSV",
-        "tla": "HSV",
-        "crest": "https://crests.football-data.org/7.png"
-      },
-      "awayTeam": {
-        "id": 4,
-        "name": "Borussia Dortmund",
-        "shortName": "Dortmund",
-        "tla": "BVB",
-        "crest": "https://crests.football-data.org/4.png"
-      },
-      "score": {
-        "fullTime": {
-          "home": null,
-          "away": null
-        }
-      },
-      "status": "TIMED",
-      "utcDate": "2027-01-23T17:30:00Z",
-      "lastUpdated": "2026-11-05T14:25:05Z"
-    },
-    {
       "match_id": 565936,
       "group": "",
       "matchday": 18,
@@ -4670,35 +4699,6 @@
       },
       "status": "TIMED",
       "utcDate": "2027-01-24T16:30:00Z",
-      "lastUpdated": "2026-11-05T14:25:05Z"
-    },
-    {
-      "match_id": 565933,
-      "group": "",
-      "matchday": 18,
-      "sourceRound": "Gameweek 18",
-      "homeTeam": {
-        "id": 2,
-        "name": "TSG 1899 Hoffenheim",
-        "shortName": "Hoffenheim",
-        "tla": "TSG",
-        "crest": "https://crests.football-data.org/2.png"
-      },
-      "awayTeam": {
-        "id": 1,
-        "name": "1. FC Köln",
-        "shortName": "1. FC Köln",
-        "tla": "KOE",
-        "crest": "https://crests.football-data.org/1.png"
-      },
-      "score": {
-        "fullTime": {
-          "home": null,
-          "away": null
-        }
-      },
-      "status": "TIMED",
-      "utcDate": "2027-01-24T18:30:00Z",
       "lastUpdated": "2026-11-05T14:25:05Z"
     },
     {
