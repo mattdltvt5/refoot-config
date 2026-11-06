@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-06T14:51:18.792446Z",
+  "generated_at": "2026-11-06T22:07:05.447055Z",
   "competition": "LaLiga",
   "slug": "laliga",
   "season": 2026,
@@ -108,12 +108,12 @@
         "tla": "SEV",
         "crest": "https://crests.football-data.org/559.png"
       },
-      "playedGames": 11,
-      "form": "L,W,L,D,L",
+      "playedGames": 12,
+      "form": "D,L,W,L,D",
       "won": 5,
-      "draw": 2,
+      "draw": 3,
       "lost": 4,
-      "points": 17,
+      "points": 18,
       "goalsFor": 17,
       "goalsAgainst": 19,
       "goalDifference": -2
@@ -159,6 +159,25 @@
     {
       "position": 9,
       "team": {
+        "id": 263,
+        "name": "Deportivo Alavés",
+        "shortName": "Alavés",
+        "tla": "ALA",
+        "crest": "https://crests.football-data.org/263.png"
+      },
+      "playedGames": 12,
+      "form": "D,L,D,L,L",
+      "won": 3,
+      "draw": 4,
+      "lost": 5,
+      "points": 13,
+      "goalsFor": 15,
+      "goalsAgainst": 17,
+      "goalDifference": -2
+    },
+    {
+      "position": 10,
+      "team": {
         "id": 94,
         "name": "Villarreal CF",
         "shortName": "Villarreal",
@@ -176,7 +195,7 @@
       "goalDifference": 0
     },
     {
-      "position": 10,
+      "position": 11,
       "team": {
         "id": 558,
         "name": "RC Celta de Vigo",
@@ -193,25 +212,6 @@
       "goalsFor": 10,
       "goalsAgainst": 10,
       "goalDifference": 0
-    },
-    {
-      "position": 11,
-      "team": {
-        "id": 263,
-        "name": "Deportivo Alavés",
-        "shortName": "Alavés",
-        "tla": "ALA",
-        "crest": "https://crests.football-data.org/263.png"
-      },
-      "playedGames": 11,
-      "form": "L,D,L,L,D",
-      "won": 3,
-      "draw": 3,
-      "lost": 5,
-      "points": 12,
-      "goalsFor": 15,
-      "goalsAgainst": 17,
-      "goalDifference": -2
     },
     {
       "position": 12,

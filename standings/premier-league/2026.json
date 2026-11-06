@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-05T15:14:33.415770Z",
+  "generated_at": "2026-11-06T22:06:57.845483Z",
   "competition": "Premier League",
   "slug": "premier-league",
   "season": 2026,
@@ -83,6 +83,25 @@
     {
       "position": 5,
       "team": {
+        "id": 62,
+        "name": "Everton FC",
+        "shortName": "Everton",
+        "tla": "EVE",
+        "crest": "https://crests.football-data.org/62.png"
+      },
+      "playedGames": 10,
+      "form": "W,W,L,L,D",
+      "won": 4,
+      "draw": 4,
+      "lost": 2,
+      "points": 16,
+      "goalsFor": 12,
+      "goalsAgainst": 10,
+      "goalDifference": 2
+    },
+    {
+      "position": 6,
+      "team": {
         "id": 64,
         "name": "Liverpool FC",
         "shortName": "Liverpool",
@@ -100,7 +119,7 @@
       "goalDifference": 2
     },
     {
-      "position": 6,
+      "position": 7,
       "team": {
         "id": 402,
         "name": "Brentford FC",
@@ -117,25 +136,6 @@
       "goalsFor": 16,
       "goalsAgainst": 9,
       "goalDifference": 7
-    },
-    {
-      "position": 7,
-      "team": {
-        "id": 62,
-        "name": "Everton FC",
-        "shortName": "Everton",
-        "tla": "EVE",
-        "crest": "https://crests.football-data.org/62.png"
-      },
-      "playedGames": 9,
-      "form": "W,L,L,D,W",
-      "won": 3,
-      "draw": 4,
-      "lost": 2,
-      "points": 13,
-      "goalsFor": 9,
-      "goalsAgainst": 9,
-      "goalDifference": 0
     },
     {
       "position": 8,
@@ -298,15 +298,15 @@
         "tla": "COV",
         "crest": "https://crests.football-data.org/1076.png"
       },
-      "playedGames": 9,
-      "form": "W,L,L,W,W",
+      "playedGames": 10,
+      "form": "L,W,L,L,W",
       "won": 3,
       "draw": 0,
-      "lost": 6,
+      "lost": 7,
       "points": 9,
-      "goalsFor": 9,
-      "goalsAgainst": 16,
-      "goalDifference": -7
+      "goalsFor": 10,
+      "goalsAgainst": 19,
+      "goalDifference": -9
     },
     {
       "position": 17,
