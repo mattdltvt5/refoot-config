@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-06T21:31:10Z",
+  "generated_at": "2026-11-06T21:36:07Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -2920,6 +2920,21 @@
               "home": "Eintracht Frankfurt",
               "away": "Hamburger SV",
               "date": "2026-11-01",
+              "covered": true
+            }
+          ]
+        },
+        {
+          "gameweek": "GW9",
+          "stem": "gameweek-9",
+          "total": 1,
+          "covered": 1,
+          "matches": [
+            {
+              "match_id": 565852,
+              "home": "Hamburger SV",
+              "away": "Borussia Mönchengladbach",
+              "date": "2026-11-06",
               "covered": true
             }
           ]
