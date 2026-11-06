@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-06T21:41:14Z",
+  "generated_at": "2026-11-06T21:46:25Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -2349,6 +2349,22 @@
               "covered": true
             }
           ]
+        },
+        {
+          "gameweek": "GW11",
+          "stem": "gameweek-11",
+          "total": 1,
+          "covered": 0,
+          "matches": [
+            {
+              "match_id": 558537,
+              "home": "Venezia FC",
+              "away": "Udinese Calcio",
+              "date": "2026-11-06",
+              "covered": false,
+              "pending": true
+            }
+          ]
         }
       ]
     },
@@ -3581,6 +3597,22 @@
               "away": "Stade Brestois 29",
               "date": "2026-11-02",
               "covered": true
+            }
+          ]
+        },
+        {
+          "gameweek": "GW10",
+          "stem": "gameweek-10",
+          "total": 1,
+          "covered": 0,
+          "matches": [
+            {
+              "match_id": 559638,
+              "home": "Toulouse FC",
+              "away": "RC Strasbourg Alsace",
+              "date": "2026-11-06",
+              "covered": false,
+              "pending": true
             }
           ]
         }

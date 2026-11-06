@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-06T14:51:26.169819Z",
+  "generated_at": "2026-11-06T21:46:45.801205Z",
   "competition": "Serie A",
   "slug": "serie-a",
   "season": 2026,
@@ -349,40 +349,40 @@
     {
       "position": 19,
       "team": {
-        "id": 115,
-        "name": "Udinese Calcio",
-        "shortName": "Udinese",
-        "tla": "UDI",
-        "crest": "https://crests.football-data.org/115.png"
-      },
-      "playedGames": 10,
-      "form": "L,D,L,L,L",
-      "won": 1,
-      "draw": 2,
-      "lost": 7,
-      "points": 5,
-      "goalsFor": 11,
-      "goalsAgainst": 23,
-      "goalDifference": -12
-    },
-    {
-      "position": 20,
-      "team": {
         "id": 454,
         "name": "Venezia FC",
         "shortName": "Venezia FC",
         "tla": "VEN",
         "crest": "https://crests.football-data.org/454.png"
       },
-      "playedGames": 10,
-      "form": "L,L,L,W,L",
-      "won": 1,
+      "playedGames": 11,
+      "form": "W,L,L,L,W",
+      "won": 2,
       "draw": 0,
       "lost": 9,
-      "points": 3,
-      "goalsFor": 6,
-      "goalsAgainst": 20,
-      "goalDifference": -14
+      "points": 6,
+      "goalsFor": 8,
+      "goalsAgainst": 21,
+      "goalDifference": -13
+    },
+    {
+      "position": 20,
+      "team": {
+        "id": 115,
+        "name": "Udinese Calcio",
+        "shortName": "Udinese",
+        "tla": "UDI",
+        "crest": "https://crests.football-data.org/115.png"
+      },
+      "playedGames": 11,
+      "form": "L,L,D,L,L",
+      "won": 1,
+      "draw": 2,
+      "lost": 8,
+      "points": 5,
+      "goalsFor": 12,
+      "goalsAgainst": 25,
+      "goalDifference": -13
     }
   ]
 }

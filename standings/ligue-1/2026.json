@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-06T14:51:40.988226Z",
+  "generated_at": "2026-11-06T21:47:00.775805Z",
   "competition": "Ligue 1",
   "slug": "ligue-1",
   "season": 2026,
@@ -178,6 +178,25 @@
     {
       "position": 10,
       "team": {
+        "id": 511,
+        "name": "Toulouse FC",
+        "shortName": "Toulouse",
+        "tla": "TOU",
+        "crest": "https://crests.football-data.org/511.png"
+      },
+      "playedGames": 10,
+      "form": "W,L,D,W,D",
+      "won": 3,
+      "draw": 4,
+      "lost": 3,
+      "points": 13,
+      "goalsFor": 15,
+      "goalsAgainst": 14,
+      "goalDifference": 1
+    },
+    {
+      "position": 11,
+      "team": {
         "id": 512,
         "name": "Stade Brestois 29",
         "shortName": "Brest",
@@ -195,7 +214,7 @@
       "goalDifference": 4
     },
     {
-      "position": 11,
+      "position": 12,
       "team": {
         "id": 525,
         "name": "FC Lorient",
@@ -214,25 +233,6 @@
       "goalDifference": -1
     },
     {
-      "position": 12,
-      "team": {
-        "id": 511,
-        "name": "Toulouse FC",
-        "shortName": "Toulouse",
-        "tla": "TOU",
-        "crest": "https://crests.football-data.org/511.png"
-      },
-      "playedGames": 9,
-      "form": "L,D,W,D,W",
-      "won": 2,
-      "draw": 4,
-      "lost": 3,
-      "points": 10,
-      "goalsFor": 12,
-      "goalsAgainst": 13,
-      "goalDifference": -1
-    },
-    {
       "position": 13,
       "team": {
         "id": 576,
@@ -241,15 +241,15 @@
         "tla": "RC ",
         "crest": "https://crests.football-data.org/576.png"
       },
-      "playedGames": 9,
-      "form": "W,L,L,L,L",
+      "playedGames": 10,
+      "form": "L,W,L,L,L",
       "won": 3,
       "draw": 1,
-      "lost": 5,
+      "lost": 6,
       "points": 10,
-      "goalsFor": 17,
-      "goalsAgainst": 19,
-      "goalDifference": -2
+      "goalsFor": 18,
+      "goalsAgainst": 22,
+      "goalDifference": -4
     },
     {
       "position": 14,
