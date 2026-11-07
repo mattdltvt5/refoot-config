@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-07T14:31:14Z",
+  "generated_at": "2026-11-07T14:36:11Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -710,7 +710,7 @@
         {
           "gameweek": "GW10",
           "stem": "gameweek-10",
-          "total": 1,
+          "total": 2,
           "covered": 1,
           "matches": [
             {
@@ -719,6 +719,14 @@
               "away": "Coventry City FC",
               "date": "2026-11-06",
               "covered": true
+            },
+            {
+              "match_id": 560632,
+              "home": "Leeds United FC",
+              "away": "Tottenham Hotspur FC",
+              "date": "2026-11-07",
+              "covered": false,
+              "pending": true
             }
           ]
         }
