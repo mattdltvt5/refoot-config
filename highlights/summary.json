@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-07T16:16:16Z",
+  "generated_at": "2026-11-07T16:21:26Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -2398,7 +2398,7 @@
         {
           "gameweek": "GW11",
           "stem": "gameweek-11",
-          "total": 2,
+          "total": 3,
           "covered": 1,
           "matches": [
             {
@@ -2412,6 +2412,14 @@
               "match_id": 558534,
               "home": "Cagliari Calcio",
               "away": "Frosinone Calcio",
+              "date": "2026-11-07",
+              "covered": false,
+              "pending": true
+            },
+            {
+              "match_id": 558532,
+              "home": "Torino FC",
+              "away": "US Lecce",
               "date": "2026-11-07",
               "covered": false,
               "pending": true
