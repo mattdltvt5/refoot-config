@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-07T16:31:43Z",
+  "generated_at": "2026-11-07T16:36:40Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -3002,8 +3002,8 @@
         {
           "gameweek": "GW9",
           "stem": "gameweek-9",
-          "total": 3,
-          "covered": 1,
+          "total": 5,
+          "covered": 2,
           "matches": [
             {
               "match_id": 565852,
@@ -3024,6 +3024,21 @@
               "match_id": 565853,
               "home": "SC Paderborn 07",
               "away": "Eintracht Frankfurt",
+              "date": "2026-11-07",
+              "covered": false,
+              "pending": true
+            },
+            {
+              "match_id": 565850,
+              "home": "Borussia Dortmund",
+              "away": "SV 07 Elversberg",
+              "date": "2026-11-07",
+              "covered": true
+            },
+            {
+              "match_id": 565851,
+              "home": "1. FSV Mainz 05",
+              "away": "FC Bayern München",
               "date": "2026-11-07",
               "covered": false,
               "pending": true
