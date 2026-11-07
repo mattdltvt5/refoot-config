@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-07T00:01:20Z",
+  "generated_at": "2026-11-07T00:06:06Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -711,15 +711,14 @@
           "gameweek": "GW10",
           "stem": "gameweek-10",
           "total": 1,
-          "covered": 0,
+          "covered": 1,
           "matches": [
             {
               "match_id": 560634,
               "home": "Everton FC",
               "away": "Coventry City FC",
               "date": "2026-11-06",
-              "covered": false,
-              "pending": true
+              "covered": true
             }
           ]
         }
