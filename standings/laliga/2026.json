@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-07T21:26:50.170202Z",
+  "generated_at": "2026-11-07T22:06:52.256530Z",
   "competition": "LaLiga",
   "slug": "laliga",
   "season": 2026,
@@ -26,6 +26,25 @@
     {
       "position": 2,
       "team": {
+        "id": 86,
+        "name": "Real Madrid CF",
+        "shortName": "Real Madrid",
+        "tla": "RMA",
+        "crest": "https://crests.football-data.org/86.png"
+      },
+      "playedGames": 12,
+      "form": "W,W,W,W,W",
+      "won": 10,
+      "draw": 0,
+      "lost": 2,
+      "points": 30,
+      "goalsFor": 31,
+      "goalsAgainst": 10,
+      "goalDifference": 21
+    },
+    {
+      "position": 3,
+      "team": {
         "id": 78,
         "name": "Club Atlético de Madrid",
         "shortName": "Atleti",
@@ -41,25 +60,6 @@
       "goalsFor": 22,
       "goalsAgainst": 8,
       "goalDifference": 14
-    },
-    {
-      "position": 3,
-      "team": {
-        "id": 86,
-        "name": "Real Madrid CF",
-        "shortName": "Real Madrid",
-        "tla": "RMA",
-        "crest": "https://crests.football-data.org/86.png"
-      },
-      "playedGames": 11,
-      "form": "W,W,W,W,L",
-      "won": 9,
-      "draw": 0,
-      "lost": 2,
-      "points": 27,
-      "goalsFor": 28,
-      "goalsAgainst": 10,
-      "goalDifference": 18
     },
     {
       "position": 4,
@@ -355,15 +355,15 @@
         "tla": "VAL",
         "crest": "https://crests.football-data.org/95.png"
       },
-      "playedGames": 11,
-      "form": "W,L,D,D,L",
+      "playedGames": 12,
+      "form": "L,W,L,D,D",
       "won": 2,
       "draw": 3,
-      "lost": 6,
+      "lost": 7,
       "points": 9,
       "goalsFor": 8,
-      "goalsAgainst": 17,
-      "goalDifference": -9
+      "goalsAgainst": 20,
+      "goalDifference": -12
     },
     {
       "position": 20,

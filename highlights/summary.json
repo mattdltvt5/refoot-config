@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-07T22:01:32Z",
+  "generated_at": "2026-11-07T22:06:31Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -1610,7 +1610,7 @@
         {
           "gameweek": "GW12",
           "stem": "gameweek-12",
-          "total": 4,
+          "total": 5,
           "covered": 4,
           "matches": [
             {
@@ -1640,6 +1640,14 @@
               "away": "Athletic Club",
               "date": "2026-11-07",
               "covered": true
+            },
+            {
+              "match_id": 564741,
+              "home": "Valencia CF",
+              "away": "Real Madrid CF",
+              "date": "2026-11-07",
+              "covered": false,
+              "pending": true
             }
           ]
         }
@@ -3745,7 +3753,7 @@
         {
           "gameweek": "GW10",
           "stem": "gameweek-10",
-          "total": 2,
+          "total": 3,
           "covered": 2,
           "matches": [
             {
@@ -3761,6 +3769,14 @@
               "away": "Paris FC",
               "date": "2026-11-07",
               "covered": true
+            },
+            {
+              "match_id": 559635,
+              "home": "Paris Saint-Germain FC",
+              "away": "ES Troyes AC",
+              "date": "2026-11-07",
+              "covered": false,
+              "pending": true
             }
           ]
         }
