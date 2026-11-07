@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-07T15:01:19Z",
+  "generated_at": "2026-11-07T15:06:24Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -1590,7 +1590,7 @@
         {
           "gameweek": "GW12",
           "stem": "gameweek-12",
-          "total": 1,
+          "total": 2,
           "covered": 1,
           "matches": [
             {
@@ -1599,6 +1599,14 @@
               "away": "Deportivo Alavés",
               "date": "2026-11-06",
               "covered": true
+            },
+            {
+              "match_id": 564744,
+              "home": "Málaga CF",
+              "away": "Real Racing Club de Santander",
+              "date": "2026-11-07",
+              "covered": false,
+              "pending": true
             }
           ]
         }
