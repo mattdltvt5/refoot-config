@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-07T16:26:39.979530Z",
+  "generated_at": "2026-11-07T17:06:46.963911Z",
   "competition": "Premier League",
   "slug": "premier-league",
   "season": 2026,
@@ -13,15 +13,15 @@
         "tla": "ARS",
         "crest": "https://crests.football-data.org/57.png"
       },
-      "playedGames": 9,
-      "form": "W,W,W,W,L",
-      "won": 8,
+      "playedGames": 10,
+      "form": "W,W,W,W,W",
+      "won": 9,
       "draw": 0,
       "lost": 1,
-      "points": 24,
-      "goalsFor": 14,
+      "points": 27,
+      "goalsFor": 15,
       "goalsAgainst": 5,
-      "goalDifference": 9
+      "goalDifference": 10
     },
     {
       "position": 2,
@@ -197,6 +197,25 @@
     {
       "position": 11,
       "team": {
+        "id": 67,
+        "name": "Newcastle United FC",
+        "shortName": "Newcastle",
+        "tla": "NEW",
+        "crest": "https://crests.football-data.org/67.png"
+      },
+      "playedGames": 10,
+      "form": "D,L,W,L,L",
+      "won": 3,
+      "draw": 3,
+      "lost": 4,
+      "points": 12,
+      "goalsFor": 13,
+      "goalsAgainst": 16,
+      "goalDifference": -3
+    },
+    {
+      "position": 12,
+      "team": {
         "id": 58,
         "name": "Aston Villa FC",
         "shortName": "Aston Villa",
@@ -214,7 +233,7 @@
       "goalDifference": -3
     },
     {
-      "position": 12,
+      "position": 13,
       "team": {
         "id": 322,
         "name": "Hull City AFC",
@@ -222,34 +241,15 @@
         "tla": "HUL",
         "crest": "https://crests.football-data.org/322.png"
       },
-      "playedGames": 9,
-      "form": "D,D,L,D,L",
+      "playedGames": 10,
+      "form": "L,D,D,L,D",
       "won": 2,
       "draw": 5,
-      "lost": 2,
+      "lost": 3,
       "points": 11,
       "goalsFor": 11,
-      "goalsAgainst": 10,
-      "goalDifference": 1
-    },
-    {
-      "position": 13,
-      "team": {
-        "id": 67,
-        "name": "Newcastle United FC",
-        "shortName": "Newcastle",
-        "tla": "NEW",
-        "crest": "https://crests.football-data.org/67.png"
-      },
-      "playedGames": 9,
-      "form": "L,W,L,L,W",
-      "won": 3,
-      "draw": 2,
-      "lost": 4,
-      "points": 11,
-      "goalsFor": 12,
-      "goalsAgainst": 15,
-      "goalDifference": -3
+      "goalsAgainst": 11,
+      "goalDifference": 0
     },
     {
       "position": 14,
@@ -279,14 +279,14 @@
         "tla": "FUL",
         "crest": "https://crests.football-data.org/63.png"
       },
-      "playedGames": 9,
-      "form": "D,W,W,L,D",
+      "playedGames": 10,
+      "form": "D,D,W,W,L",
       "won": 2,
-      "draw": 3,
+      "draw": 4,
       "lost": 4,
-      "points": 9,
-      "goalsFor": 9,
-      "goalsAgainst": 11,
+      "points": 10,
+      "goalsFor": 10,
+      "goalsAgainst": 12,
       "goalDifference": -2
     },
     {
