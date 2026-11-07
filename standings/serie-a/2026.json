@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-07T17:56:58.913365Z",
+  "generated_at": "2026-11-07T19:12:03.452443Z",
   "competition": "Serie A",
   "slug": "serie-a",
   "season": 2026,
@@ -140,6 +140,25 @@
     {
       "position": 8,
       "team": {
+        "id": 103,
+        "name": "Bologna FC 1909",
+        "shortName": "Bologna",
+        "tla": "BOL",
+        "crest": "https://crests.football-data.org/103.png"
+      },
+      "playedGames": 11,
+      "form": "W,W,W,W,L",
+      "won": 5,
+      "draw": 2,
+      "lost": 4,
+      "points": 17,
+      "goalsFor": 16,
+      "goalsAgainst": 14,
+      "goalDifference": 2
+    },
+    {
+      "position": 9,
+      "team": {
         "id": 104,
         "name": "Cagliari Calcio",
         "shortName": "Cagliari",
@@ -157,7 +176,7 @@
       "goalDifference": -5
     },
     {
-      "position": 9,
+      "position": 10,
       "team": {
         "id": 113,
         "name": "SSC Napoli",
@@ -174,25 +193,6 @@
       "goalsFor": 17,
       "goalsAgainst": 13,
       "goalDifference": 4
-    },
-    {
-      "position": 10,
-      "team": {
-        "id": 103,
-        "name": "Bologna FC 1909",
-        "shortName": "Bologna",
-        "tla": "BOL",
-        "crest": "https://crests.football-data.org/103.png"
-      },
-      "playedGames": 10,
-      "form": "W,W,W,L,W",
-      "won": 4,
-      "draw": 2,
-      "lost": 4,
-      "points": 14,
-      "goalsFor": 14,
-      "goalsAgainst": 13,
-      "goalDifference": 1
     },
     {
       "position": 11,
@@ -273,25 +273,6 @@
     {
       "position": 15,
       "team": {
-        "id": 112,
-        "name": "Parma Calcio 1913",
-        "shortName": "Parma",
-        "tla": "PAR",
-        "crest": "https://crests.football-data.org/112.png"
-      },
-      "playedGames": 10,
-      "form": "W,D,L,L,L",
-      "won": 2,
-      "draw": 2,
-      "lost": 6,
-      "points": 8,
-      "goalsFor": 8,
-      "goalsAgainst": 15,
-      "goalDifference": -7
-    },
-    {
-      "position": 16,
-      "team": {
         "id": 99,
         "name": "ACF Fiorentina",
         "shortName": "Fiorentina",
@@ -306,6 +287,25 @@
       "points": 8,
       "goalsFor": 15,
       "goalsAgainst": 23,
+      "goalDifference": -8
+    },
+    {
+      "position": 16,
+      "team": {
+        "id": 112,
+        "name": "Parma Calcio 1913",
+        "shortName": "Parma",
+        "tla": "PAR",
+        "crest": "https://crests.football-data.org/112.png"
+      },
+      "playedGames": 11,
+      "form": "L,W,D,L,L",
+      "won": 2,
+      "draw": 2,
+      "lost": 7,
+      "points": 8,
+      "goalsFor": 9,
+      "goalsAgainst": 17,
       "goalDifference": -8
     },
     {
