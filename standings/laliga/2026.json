@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-07T16:56:45.289919Z",
+  "generated_at": "2026-11-07T17:21:47.029467Z",
   "competition": "LaLiga",
   "slug": "laliga",
   "season": 2026,
@@ -146,12 +146,12 @@
         "tla": "DEP",
         "crest": "https://crests.football-data.org/560.png"
       },
-      "playedGames": 11,
-      "form": "W,L,D,L,D",
+      "playedGames": 12,
+      "form": "D,W,L,D,L",
       "won": 3,
-      "draw": 5,
+      "draw": 6,
       "lost": 3,
-      "points": 14,
+      "points": 15,
       "goalsFor": 15,
       "goalsAgainst": 14,
       "goalDifference": 1
@@ -235,6 +235,25 @@
     {
       "position": 13,
       "team": {
+        "id": 80,
+        "name": "RCD Espanyol de Barcelona",
+        "shortName": "Espanyol",
+        "tla": "ESP",
+        "crest": "https://crests.football-data.org/80.png"
+      },
+      "playedGames": 12,
+      "form": "D,W,L,L,D",
+      "won": 3,
+      "draw": 3,
+      "lost": 6,
+      "points": 12,
+      "goalsFor": 13,
+      "goalsAgainst": 14,
+      "goalDifference": -1
+    },
+    {
+      "position": 14,
+      "team": {
         "id": 87,
         "name": "Rayo Vallecano de Madrid",
         "shortName": "Rayo Vallecano",
@@ -252,7 +271,7 @@
       "goalDifference": -5
     },
     {
-      "position": 14,
+      "position": 15,
       "team": {
         "id": 82,
         "name": "Getafe CF",
@@ -269,25 +288,6 @@
       "goalsFor": 8,
       "goalsAgainst": 16,
       "goalDifference": -8
-    },
-    {
-      "position": 15,
-      "team": {
-        "id": 80,
-        "name": "RCD Espanyol de Barcelona",
-        "shortName": "Espanyol",
-        "tla": "ESP",
-        "crest": "https://crests.football-data.org/80.png"
-      },
-      "playedGames": 11,
-      "form": "W,L,L,D,L",
-      "won": 3,
-      "draw": 2,
-      "lost": 6,
-      "points": 11,
-      "goalsFor": 13,
-      "goalsAgainst": 14,
-      "goalDifference": -1
     },
     {
       "position": 16,

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-07T17:16:19Z",
+  "generated_at": "2026-11-07T17:21:19Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -1606,7 +1606,7 @@
         {
           "gameweek": "GW12",
           "stem": "gameweek-12",
-          "total": 2,
+          "total": 3,
           "covered": 2,
           "matches": [
             {
@@ -1622,6 +1622,14 @@
               "away": "Real Racing Club de Santander",
               "date": "2026-11-07",
               "covered": true
+            },
+            {
+              "match_id": 564745,
+              "home": "RCD Espanyol de Barcelona",
+              "away": "RC Deportivo La Coruña",
+              "date": "2026-11-07",
+              "covered": false,
+              "pending": true
             }
           ]
         }
