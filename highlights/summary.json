@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-07T19:56:26Z",
+  "generated_at": "2026-11-07T20:01:55Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -3741,7 +3741,7 @@
         {
           "gameweek": "GW10",
           "stem": "gameweek-10",
-          "total": 1,
+          "total": 2,
           "covered": 1,
           "matches": [
             {
@@ -3750,6 +3750,14 @@
               "away": "RC Strasbourg Alsace",
               "date": "2026-11-06",
               "covered": true
+            },
+            {
+              "match_id": 559637,
+              "home": "AJ Auxerre",
+              "away": "Paris FC",
+              "date": "2026-11-07",
+              "covered": false,
+              "pending": true
             }
           ]
         }
