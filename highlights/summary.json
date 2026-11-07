@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-07T22:46:16Z",
+  "generated_at": "2026-11-07T22:51:14Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -3752,7 +3752,7 @@
           "gameweek": "GW10",
           "stem": "gameweek-10",
           "total": 3,
-          "covered": 2,
+          "covered": 3,
           "matches": [
             {
               "match_id": 559638,
@@ -3773,8 +3773,7 @@
               "home": "Paris Saint-Germain FC",
               "away": "ES Troyes AC",
               "date": "2026-11-07",
-              "covered": false,
-              "pending": true
+              "covered": true
             }
           ]
         }
