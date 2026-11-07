@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-07T19:41:17Z",
+  "generated_at": "2026-11-07T19:46:26Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -2437,7 +2437,7 @@
           "gameweek": "GW11",
           "stem": "gameweek-11",
           "total": 4,
-          "covered": 3,
+          "covered": 4,
           "matches": [
             {
               "match_id": 558537,
@@ -2465,8 +2465,7 @@
               "home": "Parma Calcio 1913",
               "away": "Bologna FC 1909",
               "date": "2026-11-07",
-              "covered": false,
-              "pending": true
+              "covered": true
             }
           ]
         }
@@ -3048,7 +3047,7 @@
           "gameweek": "GW9",
           "stem": "gameweek-9",
           "total": 6,
-          "covered": 5,
+          "covered": 6,
           "matches": [
             {
               "match_id": 565852,
@@ -3090,8 +3089,7 @@
               "home": "VfB Stuttgart",
               "away": "SV Werder Bremen",
               "date": "2026-11-07",
-              "covered": false,
-              "pending": true
+              "covered": true
             }
           ]
         }
