@@ -1,7 +1,7 @@
 {
   "competition": "LaLiga",
   "season": 2026,
-  "generated_at": "2026-11-07T00:11:08Z",
+  "generated_at": "2026-11-07T00:16:07Z",
   "fixtures": [
     {
       "match_id": 564634,
@@ -3774,23 +3774,23 @@
       "lastUpdated": "2026-11-06T00:20:28Z"
     },
     {
-      "match_id": 564765,
+      "match_id": 564758,
       "group": "",
       "matchday": 14,
       "sourceRound": "Gameweek 14",
       "homeTeam": {
-        "id": 88,
-        "name": "Levante UD",
-        "shortName": "Levante",
-        "tla": "LEV",
-        "crest": "https://crests.football-data.org/88.png"
+        "id": 558,
+        "name": "RC Celta de Vigo",
+        "shortName": "Celta",
+        "tla": "CEL",
+        "crest": "https://crests.football-data.org/558.png"
       },
       "awayTeam": {
-        "id": 5335,
-        "name": "Real Racing Club de Santander",
-        "shortName": "Santander",
-        "tla": "SAN",
-        "crest": "https://crests.football-data.org/5335.png"
+        "id": 94,
+        "name": "Villarreal CF",
+        "shortName": "Villarreal",
+        "tla": "VIL",
+        "crest": "https://crests.football-data.org/94.png"
       },
       "score": {
         "fullTime": {
@@ -3799,65 +3799,7 @@
         }
       },
       "status": "TIMED",
-      "utcDate": "2026-11-27T20:00:00Z",
-      "lastUpdated": "2026-11-06T23:25:07Z"
-    },
-    {
-      "match_id": 564760,
-      "group": "",
-      "matchday": 14,
-      "sourceRound": "Gameweek 14",
-      "homeTeam": {
-        "id": 90,
-        "name": "Real Betis Balompié",
-        "shortName": "Real Betis",
-        "tla": "BET",
-        "crest": "https://crests.football-data.org/90.png"
-      },
-      "awayTeam": {
-        "id": 87,
-        "name": "Rayo Vallecano de Madrid",
-        "shortName": "Rayo Vallecano",
-        "tla": "RAY",
-        "crest": "https://crests.football-data.org/87.png"
-      },
-      "score": {
-        "fullTime": {
-          "home": null,
-          "away": null
-        }
-      },
-      "status": "TIMED",
-      "utcDate": "2026-11-28T13:00:00Z",
-      "lastUpdated": "2026-11-06T23:25:07Z"
-    },
-    {
-      "match_id": 564767,
-      "group": "",
-      "matchday": 14,
-      "sourceRound": "Gameweek 14",
-      "homeTeam": {
-        "id": 84,
-        "name": "Málaga CF",
-        "shortName": "Málaga",
-        "tla": "MAL",
-        "crest": "https://crests.football-data.org/84.png"
-      },
-      "awayTeam": {
-        "id": 77,
-        "name": "Athletic Club",
-        "shortName": "Athletic",
-        "tla": "ATH",
-        "crest": "https://crests.football-data.org/77.png"
-      },
-      "score": {
-        "fullTime": {
-          "home": null,
-          "away": null
-        }
-      },
-      "status": "TIMED",
-      "utcDate": "2026-11-28T15:15:00Z",
+      "utcDate": "2026-11-29T17:30:00Z",
       "lastUpdated": "2026-11-06T23:25:07Z"
     },
     {
@@ -3890,23 +3832,23 @@
       "lastUpdated": "2026-11-06T23:25:07Z"
     },
     {
-      "match_id": 564762,
+      "match_id": 564760,
       "group": "",
       "matchday": 14,
       "sourceRound": "Gameweek 14",
       "homeTeam": {
-        "id": 86,
-        "name": "Real Madrid CF",
-        "shortName": "Real Madrid",
-        "tla": "RMA",
-        "crest": "https://crests.football-data.org/86.png"
+        "id": 90,
+        "name": "Real Betis Balompié",
+        "shortName": "Real Betis",
+        "tla": "BET",
+        "crest": "https://crests.football-data.org/90.png"
       },
       "awayTeam": {
-        "id": 263,
-        "name": "Deportivo Alavés",
-        "shortName": "Alavés",
-        "tla": "ALA",
-        "crest": "https://crests.football-data.org/263.png"
+        "id": 87,
+        "name": "Rayo Vallecano de Madrid",
+        "shortName": "Rayo Vallecano",
+        "tla": "RAY",
+        "crest": "https://crests.football-data.org/87.png"
       },
       "score": {
         "fullTime": {
@@ -3915,7 +3857,7 @@
         }
       },
       "status": "TIMED",
-      "utcDate": "2026-11-28T20:00:00Z",
+      "utcDate": "2026-11-28T13:00:00Z",
       "lastUpdated": "2026-11-06T23:25:07Z"
     },
     {
@@ -3948,23 +3890,23 @@
       "lastUpdated": "2026-11-06T23:25:07Z"
     },
     {
-      "match_id": 564766,
+      "match_id": 564762,
       "group": "",
       "matchday": 14,
       "sourceRound": "Gameweek 14",
       "homeTeam": {
-        "id": 560,
-        "name": "RC Deportivo La Coruña",
-        "shortName": "Deportivo",
-        "tla": "DEP",
-        "crest": "https://crests.football-data.org/560.png"
+        "id": 86,
+        "name": "Real Madrid CF",
+        "shortName": "Real Madrid",
+        "tla": "RMA",
+        "crest": "https://crests.football-data.org/86.png"
       },
       "awayTeam": {
-        "id": 81,
-        "name": "FC Barcelona",
-        "shortName": "Barça",
-        "tla": "FCB",
-        "crest": "https://crests.football-data.org/81.png"
+        "id": 263,
+        "name": "Deportivo Alavés",
+        "shortName": "Alavés",
+        "tla": "ALA",
+        "crest": "https://crests.football-data.org/263.png"
       },
       "score": {
         "fullTime": {
@@ -3973,27 +3915,27 @@
         }
       },
       "status": "TIMED",
-      "utcDate": "2026-11-29T15:15:00Z",
+      "utcDate": "2026-11-28T20:00:00Z",
       "lastUpdated": "2026-11-06T23:25:07Z"
     },
     {
-      "match_id": 564758,
+      "match_id": 564763,
       "group": "",
       "matchday": 14,
       "sourceRound": "Gameweek 14",
       "homeTeam": {
-        "id": 558,
-        "name": "RC Celta de Vigo",
-        "shortName": "Celta",
-        "tla": "CEL",
-        "crest": "https://crests.football-data.org/558.png"
+        "id": 80,
+        "name": "RCD Espanyol de Barcelona",
+        "shortName": "Espanyol",
+        "tla": "ESP",
+        "crest": "https://crests.football-data.org/80.png"
       },
       "awayTeam": {
-        "id": 94,
-        "name": "Villarreal CF",
-        "shortName": "Villarreal",
-        "tla": "VIL",
-        "crest": "https://crests.football-data.org/94.png"
+        "id": 82,
+        "name": "Getafe CF",
+        "shortName": "Getafe",
+        "tla": "GET",
+        "crest": "https://crests.football-data.org/82.png"
       },
       "score": {
         "fullTime": {
@@ -4002,7 +3944,7 @@
         }
       },
       "status": "TIMED",
-      "utcDate": "2026-11-29T17:30:00Z",
+      "utcDate": "2026-11-30T20:00:00Z",
       "lastUpdated": "2026-11-06T23:25:07Z"
     },
     {
@@ -4035,23 +3977,23 @@
       "lastUpdated": "2026-11-06T23:25:07Z"
     },
     {
-      "match_id": 564763,
+      "match_id": 564765,
       "group": "",
       "matchday": 14,
       "sourceRound": "Gameweek 14",
       "homeTeam": {
-        "id": 80,
-        "name": "RCD Espanyol de Barcelona",
-        "shortName": "Espanyol",
-        "tla": "ESP",
-        "crest": "https://crests.football-data.org/80.png"
+        "id": 88,
+        "name": "Levante UD",
+        "shortName": "Levante",
+        "tla": "LEV",
+        "crest": "https://crests.football-data.org/88.png"
       },
       "awayTeam": {
-        "id": 82,
-        "name": "Getafe CF",
-        "shortName": "Getafe",
-        "tla": "GET",
-        "crest": "https://crests.football-data.org/82.png"
+        "id": 5335,
+        "name": "Real Racing Club de Santander",
+        "shortName": "Santander",
+        "tla": "SAN",
+        "crest": "https://crests.football-data.org/5335.png"
       },
       "score": {
         "fullTime": {
@@ -4060,7 +4002,65 @@
         }
       },
       "status": "TIMED",
-      "utcDate": "2026-11-30T20:00:00Z",
+      "utcDate": "2026-11-27T20:00:00Z",
+      "lastUpdated": "2026-11-06T23:25:07Z"
+    },
+    {
+      "match_id": 564766,
+      "group": "",
+      "matchday": 14,
+      "sourceRound": "Gameweek 14",
+      "homeTeam": {
+        "id": 560,
+        "name": "RC Deportivo La Coruña",
+        "shortName": "Deportivo",
+        "tla": "DEP",
+        "crest": "https://crests.football-data.org/560.png"
+      },
+      "awayTeam": {
+        "id": 81,
+        "name": "FC Barcelona",
+        "shortName": "Barça",
+        "tla": "FCB",
+        "crest": "https://crests.football-data.org/81.png"
+      },
+      "score": {
+        "fullTime": {
+          "home": null,
+          "away": null
+        }
+      },
+      "status": "TIMED",
+      "utcDate": "2026-11-29T15:15:00Z",
+      "lastUpdated": "2026-11-06T23:25:07Z"
+    },
+    {
+      "match_id": 564767,
+      "group": "",
+      "matchday": 14,
+      "sourceRound": "Gameweek 14",
+      "homeTeam": {
+        "id": 84,
+        "name": "Málaga CF",
+        "shortName": "Málaga",
+        "tla": "MAL",
+        "crest": "https://crests.football-data.org/84.png"
+      },
+      "awayTeam": {
+        "id": 77,
+        "name": "Athletic Club",
+        "shortName": "Athletic",
+        "tla": "ATH",
+        "crest": "https://crests.football-data.org/77.png"
+      },
+      "score": {
+        "fullTime": {
+          "home": null,
+          "away": null
+        }
+      },
+      "status": "TIMED",
+      "utcDate": "2026-11-28T15:15:00Z",
       "lastUpdated": "2026-11-06T23:25:07Z"
     },
     {
