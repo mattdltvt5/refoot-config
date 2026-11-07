@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-07T21:46:22Z",
+  "generated_at": "2026-11-07T21:51:34Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -2436,7 +2436,7 @@
         {
           "gameweek": "GW11",
           "stem": "gameweek-11",
-          "total": 4,
+          "total": 5,
           "covered": 4,
           "matches": [
             {
@@ -2466,6 +2466,14 @@
               "away": "Bologna FC 1909",
               "date": "2026-11-07",
               "covered": true
+            },
+            {
+              "match_id": 558531,
+              "home": "AS Roma",
+              "away": "US Sassuolo Calcio",
+              "date": "2026-11-07",
+              "covered": false,
+              "pending": true
             }
           ]
         }
