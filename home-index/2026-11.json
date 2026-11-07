@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-07T15:06:08Z",
+  "generated_at": "2026-11-07T15:11:11Z",
   "month": "2026-11",
   "dates": {
     "2026-11-01": [
@@ -1118,9 +1118,9 @@
               "tla": "NEW",
               "crest": "https://crests.football-data.org/67.png"
             },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "TIMED",
+            "homeScore": 0,
+            "awayScore": 0,
+            "status": "IN_PLAY",
             "utcDate": "2026-11-07T15:00:00Z"
           },
           {
@@ -1139,9 +1139,9 @@
               "tla": "HUL",
               "crest": "https://crests.football-data.org/322.png"
             },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "TIMED",
+            "homeScore": 0,
+            "awayScore": 0,
+            "status": "IN_PLAY",
             "utcDate": "2026-11-07T15:00:00Z"
           },
           {
@@ -1300,7 +1300,7 @@
             },
             "homeScore": 1,
             "awayScore": 0,
-            "status": "PAUSED",
+            "status": "IN_PLAY",
             "utcDate": "2026-11-07T14:00:00Z"
           },
           {
