@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-07T22:06:31Z",
+  "generated_at": "2026-11-07T22:11:19Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -1611,7 +1611,7 @@
           "gameweek": "GW12",
           "stem": "gameweek-12",
           "total": 5,
-          "covered": 4,
+          "covered": 5,
           "matches": [
             {
               "match_id": 564740,
@@ -1646,8 +1646,7 @@
               "home": "Valencia CF",
               "away": "Real Madrid CF",
               "date": "2026-11-07",
-              "covered": false,
-              "pending": true
+              "covered": true
             }
           ]
         }
@@ -2441,7 +2440,7 @@
           "gameweek": "GW11",
           "stem": "gameweek-11",
           "total": 5,
-          "covered": 4,
+          "covered": 5,
           "matches": [
             {
               "match_id": 558537,
@@ -2476,8 +2475,7 @@
               "home": "AS Roma",
               "away": "US Sassuolo Calcio",
               "date": "2026-11-07",
-              "covered": false,
-              "pending": true
+              "covered": true
             }
           ]
         }
