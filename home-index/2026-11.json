@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-07T20:56:08Z",
+  "generated_at": "2026-11-07T21:02:13Z",
   "month": "2026-11",
   "dates": {
     "2026-11-01": [
@@ -1255,7 +1255,7 @@
             },
             "homeScore": 0,
             "awayScore": 2,
-            "status": "IN_PLAY",
+            "status": "PAUSED",
             "utcDate": "2026-11-07T20:00:00Z"
           }
         ]
@@ -1492,7 +1492,8 @@
             "homeScore": 0,
             "awayScore": 1,
             "status": "FINISHED",
-            "utcDate": "2026-11-07T18:00:00Z"
+            "utcDate": "2026-11-07T18:00:00Z",
+            "videoId": "GDzbo_eIjlk"
           },
           {
             "match_id": 559635,
