@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-07T21:56:28Z",
+  "generated_at": "2026-11-07T22:01:32Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -711,7 +711,7 @@
           "gameweek": "GW10",
           "stem": "gameweek-10",
           "total": 5,
-          "covered": 1,
+          "covered": 5,
           "matches": [
             {
               "match_id": 560634,
@@ -725,32 +725,28 @@
               "home": "Leeds United FC",
               "away": "Tottenham Hotspur FC",
               "date": "2026-11-07",
-              "covered": false,
-              "pending": true
+              "covered": true
             },
             {
               "match_id": 560640,
               "home": "Arsenal FC",
               "away": "Hull City AFC",
               "date": "2026-11-07",
-              "covered": false,
-              "pending": true
+              "covered": true
             },
             {
               "match_id": 560633,
               "home": "Fulham FC",
               "away": "Newcastle United FC",
               "date": "2026-11-07",
-              "covered": false,
-              "pending": true
+              "covered": true
             },
             {
               "match_id": 560641,
               "home": "Nottingham Forest FC",
               "away": "Manchester City FC",
               "date": "2026-11-07",
-              "covered": false,
-              "pending": true
+              "covered": true
             }
           ]
         }
