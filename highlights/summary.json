@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-07T16:56:23Z",
+  "generated_at": "2026-11-07T17:01:27Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -3002,7 +3002,7 @@
           "gameweek": "GW9",
           "stem": "gameweek-9",
           "total": 5,
-          "covered": 3,
+          "covered": 4,
           "matches": [
             {
               "match_id": 565852,
@@ -3038,8 +3038,7 @@
               "home": "1. FSV Mainz 05",
               "away": "FC Bayern München",
               "date": "2026-11-07",
-              "covered": false,
-              "pending": true
+              "covered": true
             }
           ]
         }
