@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-07T19:36:35Z",
+  "generated_at": "2026-11-07T19:41:17Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -1615,7 +1615,7 @@
           "gameweek": "GW12",
           "stem": "gameweek-12",
           "total": 4,
-          "covered": 3,
+          "covered": 4,
           "matches": [
             {
               "match_id": 564740,
@@ -1643,8 +1643,7 @@
               "home": "CA Osasuna",
               "away": "Athletic Club",
               "date": "2026-11-07",
-              "covered": false,
-              "pending": true
+              "covered": true
             }
           ]
         }
