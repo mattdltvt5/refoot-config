@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-07T13:47:32.758594Z",
+  "generated_at": "2026-11-07T16:06:56.613708Z",
   "competition": "Serie A",
   "slug": "serie-a",
   "season": 2026,
@@ -108,15 +108,15 @@
         "tla": "FRO",
         "crest": "https://crests.football-data.org/470.png"
       },
-      "playedGames": 10,
-      "form": "W,W,D,W,L",
+      "playedGames": 11,
+      "form": "L,W,W,D,W",
       "won": 6,
       "draw": 2,
-      "lost": 2,
+      "lost": 3,
       "points": 20,
       "goalsFor": 24,
-      "goalsAgainst": 14,
-      "goalDifference": 10
+      "goalsAgainst": 15,
+      "goalDifference": 9
     },
     {
       "position": 7,
@@ -140,6 +140,25 @@
     {
       "position": 8,
       "team": {
+        "id": 104,
+        "name": "Cagliari Calcio",
+        "shortName": "Cagliari",
+        "tla": "CAG",
+        "crest": "https://crests.football-data.org/104.png"
+      },
+      "playedGames": 11,
+      "form": "W,L,L,L,L",
+      "won": 5,
+      "draw": 1,
+      "lost": 5,
+      "points": 16,
+      "goalsFor": 10,
+      "goalsAgainst": 15,
+      "goalDifference": -5
+    },
+    {
+      "position": 9,
+      "team": {
         "id": 113,
         "name": "SSC Napoli",
         "shortName": "Napoli",
@@ -157,7 +176,7 @@
       "goalDifference": 4
     },
     {
-      "position": 9,
+      "position": 10,
       "team": {
         "id": 103,
         "name": "Bologna FC 1909",
@@ -176,7 +195,7 @@
       "goalDifference": 1
     },
     {
-      "position": 10,
+      "position": 11,
       "team": {
         "id": 586,
         "name": "Torino FC",
@@ -195,7 +214,7 @@
       "goalDifference": -2
     },
     {
-      "position": 11,
+      "position": 12,
       "team": {
         "id": 107,
         "name": "Genoa CFC",
@@ -212,25 +231,6 @@
       "goalsFor": 10,
       "goalsAgainst": 14,
       "goalDifference": -4
-    },
-    {
-      "position": 12,
-      "team": {
-        "id": 104,
-        "name": "Cagliari Calcio",
-        "shortName": "Cagliari",
-        "tla": "CAG",
-        "crest": "https://crests.football-data.org/104.png"
-      },
-      "playedGames": 10,
-      "form": "L,L,L,L,D",
-      "won": 4,
-      "draw": 1,
-      "lost": 5,
-      "points": 13,
-      "goalsFor": 9,
-      "goalsAgainst": 15,
-      "goalDifference": -6
     },
     {
       "position": 13,

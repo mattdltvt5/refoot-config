@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-07T16:01:15Z",
+  "generated_at": "2026-11-07T16:06:20Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -2398,7 +2398,7 @@
         {
           "gameweek": "GW11",
           "stem": "gameweek-11",
-          "total": 1,
+          "total": 2,
           "covered": 1,
           "matches": [
             {
@@ -2407,6 +2407,14 @@
               "away": "Udinese Calcio",
               "date": "2026-11-06",
               "covered": true
+            },
+            {
+              "match_id": 558534,
+              "home": "Cagliari Calcio",
+              "away": "Frosinone Calcio",
+              "date": "2026-11-07",
+              "covered": false,
+              "pending": true
             }
           ]
         }
