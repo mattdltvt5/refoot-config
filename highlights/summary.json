@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-07T16:41:33Z",
+  "generated_at": "2026-11-07T16:46:28Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -2399,7 +2399,7 @@
           "gameweek": "GW11",
           "stem": "gameweek-11",
           "total": 3,
-          "covered": 2,
+          "covered": 3,
           "matches": [
             {
               "match_id": 558537,
@@ -2420,8 +2420,7 @@
               "home": "Torino FC",
               "away": "US Lecce",
               "date": "2026-11-07",
-              "covered": false,
-              "pending": true
+              "covered": true
             }
           ]
         }
@@ -3003,7 +3002,7 @@
           "gameweek": "GW9",
           "stem": "gameweek-9",
           "total": 5,
-          "covered": 2,
+          "covered": 3,
           "matches": [
             {
               "match_id": 565852,
@@ -3017,8 +3016,7 @@
               "home": "RB Leipzig",
               "away": "FC Augsburg",
               "date": "2026-11-07",
-              "covered": false,
-              "pending": true
+              "covered": true
             },
             {
               "match_id": 565853,
