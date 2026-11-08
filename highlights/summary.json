@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-08T20:16:32Z",
+  "generated_at": "2026-11-08T20:21:31Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -3862,7 +3862,7 @@
           "gameweek": "GW10",
           "stem": "gameweek-10",
           "total": 8,
-          "covered": 7,
+          "covered": 8,
           "matches": [
             {
               "match_id": 559638,
@@ -3904,8 +3904,7 @@
               "home": "Stade Brestois 29",
               "away": "Olympique Lyonnais",
               "date": "2026-11-08",
-              "covered": false,
-              "pending": true
+              "covered": true
             },
             {
               "match_id": 559633,
