@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-08T16:06:08Z",
+  "generated_at": "2026-11-08T16:12:33Z",
   "month": "2026-11",
   "dates": {
     "2026-11-01": [
@@ -1570,7 +1570,7 @@
             },
             "homeScore": 1,
             "awayScore": 0,
-            "status": "IN_PLAY",
+            "status": "FINISHED",
             "utcDate": "2026-11-08T14:00:00Z"
           },
           {
@@ -1794,7 +1794,7 @@
             },
             "homeScore": 1,
             "awayScore": 2,
-            "status": "IN_PLAY",
+            "status": "FINISHED",
             "utcDate": "2026-11-08T14:00:00Z"
           },
           {
@@ -1815,8 +1815,9 @@
             },
             "homeScore": 0,
             "awayScore": 1,
-            "status": "IN_PLAY",
-            "utcDate": "2026-11-08T14:00:00Z"
+            "status": "FINISHED",
+            "utcDate": "2026-11-08T14:00:00Z",
+            "videoId": "ZuN3El7fW_w"
           },
           {
             "match_id": 558530,

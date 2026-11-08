@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-08T16:06:20Z",
+  "generated_at": "2026-11-08T16:11:49Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -710,7 +710,7 @@
         {
           "gameweek": "GW10",
           "stem": "gameweek-10",
-          "total": 8,
+          "total": 9,
           "covered": 5,
           "matches": [
             {
@@ -768,6 +768,14 @@
               "match_id": 560638,
               "home": "Brighton & Hove Albion FC",
               "away": "Brentford FC",
+              "date": "2026-11-08",
+              "covered": false,
+              "pending": true
+            },
+            {
+              "match_id": 560636,
+              "home": "Sunderland AFC",
+              "away": "Chelsea FC",
               "date": "2026-11-08",
               "covered": false,
               "pending": true
@@ -2470,8 +2478,8 @@
         {
           "gameweek": "GW11",
           "stem": "gameweek-11",
-          "total": 6,
-          "covered": 6,
+          "total": 8,
+          "covered": 7,
           "matches": [
             {
               "match_id": 558537,
@@ -2512,6 +2520,21 @@
               "match_id": 558533,
               "home": "SSC Napoli",
               "away": "SS Lazio",
+              "date": "2026-11-08",
+              "covered": true
+            },
+            {
+              "match_id": 558536,
+              "home": "Genoa CFC",
+              "away": "AC Milan",
+              "date": "2026-11-08",
+              "covered": false,
+              "pending": true
+            },
+            {
+              "match_id": 558538,
+              "home": "AC Monza",
+              "away": "Atalanta BC",
               "date": "2026-11-08",
               "covered": true
             }

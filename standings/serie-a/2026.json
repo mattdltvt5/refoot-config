@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-08T15:26:35.988558Z",
+  "generated_at": "2026-11-08T16:12:25.618578Z",
   "competition": "Serie A",
   "slug": "serie-a",
   "season": 2026,
@@ -64,6 +64,25 @@
     {
       "position": 4,
       "team": {
+        "id": 98,
+        "name": "AC Milan",
+        "shortName": "Milan",
+        "tla": "MIL",
+        "crest": "https://crests.football-data.org/98.png"
+      },
+      "playedGames": 11,
+      "form": "W,W,L,W,W",
+      "won": 7,
+      "draw": 3,
+      "lost": 1,
+      "points": 24,
+      "goalsFor": 23,
+      "goalsAgainst": 13,
+      "goalDifference": 10
+    },
+    {
+      "position": 5,
+      "team": {
         "id": 7397,
         "name": "Como 1907",
         "shortName": "Como 1907",
@@ -79,25 +98,6 @@
       "goalsFor": 18,
       "goalsAgainst": 8,
       "goalDifference": 10
-    },
-    {
-      "position": 5,
-      "team": {
-        "id": 98,
-        "name": "AC Milan",
-        "shortName": "Milan",
-        "tla": "MIL",
-        "crest": "https://crests.football-data.org/98.png"
-      },
-      "playedGames": 10,
-      "form": "W,L,W,W,D",
-      "won": 6,
-      "draw": 3,
-      "lost": 1,
-      "points": 21,
-      "goalsFor": 21,
-      "goalsAgainst": 12,
-      "goalDifference": 9
     },
     {
       "position": 6,
@@ -216,40 +216,40 @@
     {
       "position": 12,
       "team": {
-        "id": 107,
-        "name": "Genoa CFC",
-        "shortName": "Genoa",
-        "tla": "GEN",
-        "crest": "https://crests.football-data.org/107.png"
-      },
-      "playedGames": 10,
-      "form": "W,W,W,L,W",
-      "won": 4,
-      "draw": 1,
-      "lost": 5,
-      "points": 13,
-      "goalsFor": 10,
-      "goalsAgainst": 14,
-      "goalDifference": -4
-    },
-    {
-      "position": 13,
-      "team": {
         "id": 102,
         "name": "Atalanta BC",
         "shortName": "Atalanta",
         "tla": "ATA",
         "crest": "https://crests.football-data.org/102.png"
       },
-      "playedGames": 10,
-      "form": "L,D,D,L,W",
-      "won": 3,
+      "playedGames": 11,
+      "form": "W,L,D,D,L",
+      "won": 4,
       "draw": 2,
       "lost": 5,
-      "points": 11,
-      "goalsFor": 16,
+      "points": 14,
+      "goalsFor": 17,
       "goalsAgainst": 20,
-      "goalDifference": -4
+      "goalDifference": -3
+    },
+    {
+      "position": 13,
+      "team": {
+        "id": 107,
+        "name": "Genoa CFC",
+        "shortName": "Genoa",
+        "tla": "GEN",
+        "crest": "https://crests.football-data.org/107.png"
+      },
+      "playedGames": 11,
+      "form": "L,W,W,W,L",
+      "won": 4,
+      "draw": 1,
+      "lost": 6,
+      "points": 13,
+      "goalsFor": 11,
+      "goalsAgainst": 16,
+      "goalDifference": -5
     },
     {
       "position": 14,
@@ -336,15 +336,15 @@
         "tla": "MON",
         "crest": "https://crests.football-data.org/5911.png"
       },
-      "playedGames": 10,
-      "form": "L,L,L,W,L",
+      "playedGames": 11,
+      "form": "L,L,L,L,W",
       "won": 2,
       "draw": 1,
-      "lost": 7,
+      "lost": 8,
       "points": 7,
       "goalsFor": 17,
-      "goalsAgainst": 24,
-      "goalDifference": -7
+      "goalsAgainst": 25,
+      "goalDifference": -8
     },
     {
       "position": 19,
