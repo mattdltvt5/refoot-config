@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-08T18:56:27Z",
+  "generated_at": "2026-11-08T19:01:53Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -3841,7 +3841,7 @@
           "gameweek": "GW10",
           "stem": "gameweek-10",
           "total": 8,
-          "covered": 4,
+          "covered": 5,
           "matches": [
             {
               "match_id": 559638,
@@ -3876,8 +3876,7 @@
               "home": "Le Mans FC",
               "away": "AS Monaco FC",
               "date": "2026-11-08",
-              "covered": false,
-              "pending": true
+              "covered": true
             },
             {
               "match_id": 559632,
