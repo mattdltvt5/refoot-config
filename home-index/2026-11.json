@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-08T18:16:10Z",
+  "generated_at": "2026-11-08T18:21:10Z",
   "month": "2026-11",
   "dates": {
     "2026-11-01": [
@@ -1979,7 +1979,7 @@
             },
             "homeScore": 1,
             "awayScore": 1,
-            "status": "IN_PLAY",
+            "status": "FINISHED",
             "utcDate": "2026-11-08T16:15:00Z"
           },
           {
@@ -2000,7 +2000,7 @@
             },
             "homeScore": 2,
             "awayScore": 0,
-            "status": "IN_PLAY",
+            "status": "FINISHED",
             "utcDate": "2026-11-08T16:15:00Z"
           },
           {
@@ -2019,9 +2019,9 @@
               "tla": "FCL",
               "crest": "https://crests.football-data.org/525.png"
             },
-            "homeScore": 1,
-            "awayScore": 1,
-            "status": "IN_PLAY",
+            "homeScore": 0,
+            "awayScore": 2,
+            "status": "FINISHED",
             "utcDate": "2026-11-08T16:15:00Z"
           },
           {
@@ -2042,7 +2042,7 @@
             },
             "homeScore": 0,
             "awayScore": 2,
-            "status": "IN_PLAY",
+            "status": "FINISHED",
             "utcDate": "2026-11-08T16:15:00Z"
           },
           {
