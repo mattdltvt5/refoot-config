@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-08T17:21:51Z",
+  "generated_at": "2026-11-08T17:26:29Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -1643,7 +1643,7 @@
           "gameweek": "GW12",
           "stem": "gameweek-12",
           "total": 7,
-          "covered": 6,
+          "covered": 7,
           "matches": [
             {
               "match_id": 564740,
@@ -1692,8 +1692,7 @@
               "home": "Real Sociedad de Fútbol",
               "away": "Rayo Vallecano de Madrid",
               "date": "2026-11-08",
-              "covered": false,
-              "pending": true
+              "covered": true
             }
           ]
         }
