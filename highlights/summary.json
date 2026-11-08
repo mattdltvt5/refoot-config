@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-08T16:01:20Z",
+  "generated_at": "2026-11-08T16:06:20Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -710,7 +710,7 @@
         {
           "gameweek": "GW10",
           "stem": "gameweek-10",
-          "total": 5,
+          "total": 8,
           "covered": 5,
           "matches": [
             {
@@ -747,6 +747,30 @@
               "away": "Manchester City FC",
               "date": "2026-11-07",
               "covered": true
+            },
+            {
+              "match_id": 560635,
+              "home": "Crystal Palace FC",
+              "away": "Liverpool FC",
+              "date": "2026-11-08",
+              "covered": false,
+              "pending": true
+            },
+            {
+              "match_id": 560637,
+              "home": "Ipswich Town FC",
+              "away": "AFC Bournemouth",
+              "date": "2026-11-08",
+              "covered": false,
+              "pending": true
+            },
+            {
+              "match_id": 560638,
+              "home": "Brighton & Hove Albion FC",
+              "away": "Brentford FC",
+              "date": "2026-11-08",
+              "covered": false,
+              "pending": true
             }
           ]
         }
