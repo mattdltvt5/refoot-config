@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-08T13:31:10Z",
+  "generated_at": "2026-11-08T13:36:22Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -2439,7 +2439,7 @@
         {
           "gameweek": "GW11",
           "stem": "gameweek-11",
-          "total": 5,
+          "total": 6,
           "covered": 5,
           "matches": [
             {
@@ -2476,6 +2476,14 @@
               "away": "US Sassuolo Calcio",
               "date": "2026-11-07",
               "covered": true
+            },
+            {
+              "match_id": 558533,
+              "home": "SSC Napoli",
+              "away": "SS Lazio",
+              "date": "2026-11-08",
+              "covered": false,
+              "pending": true
             }
           ]
         }
