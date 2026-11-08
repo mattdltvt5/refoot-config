@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-08T14:09:02.256168Z",
+  "generated_at": "2026-11-08T16:37:19.102442Z",
   "competition": "Bundesliga",
   "slug": "bundesliga",
   "season": 2026,
@@ -83,6 +83,25 @@
     {
       "position": 5,
       "team": {
+        "id": 3,
+        "name": "Bayer 04 Leverkusen",
+        "shortName": "Leverkusen",
+        "tla": "B04",
+        "crest": "https://crests.football-data.org/3.png"
+      },
+      "playedGames": 9,
+      "form": "W,L,L,W,W",
+      "won": 5,
+      "draw": 1,
+      "lost": 3,
+      "points": 16,
+      "goalsFor": 20,
+      "goalsAgainst": 17,
+      "goalDifference": 3
+    },
+    {
+      "position": 6,
+      "team": {
         "id": 12,
         "name": "SV Werder Bremen",
         "shortName": "Bremen",
@@ -97,25 +116,6 @@
       "points": 15,
       "goalsFor": 17,
       "goalsAgainst": 15,
-      "goalDifference": 2
-    },
-    {
-      "position": 6,
-      "team": {
-        "id": 3,
-        "name": "Bayer 04 Leverkusen",
-        "shortName": "Leverkusen",
-        "tla": "B04",
-        "crest": "https://crests.football-data.org/3.png"
-      },
-      "playedGames": 8,
-      "form": "L,L,W,W,W",
-      "won": 4,
-      "draw": 1,
-      "lost": 3,
-      "points": 13,
-      "goalsFor": 18,
-      "goalsAgainst": 16,
       "goalDifference": 2
     },
     {
@@ -279,15 +279,15 @@
         "tla": "KOE",
         "crest": "https://crests.football-data.org/1.png"
       },
-      "playedGames": 8,
-      "form": "D,D,L,W,L",
+      "playedGames": 9,
+      "form": "L,D,D,L,W",
       "won": 2,
       "draw": 3,
-      "lost": 3,
+      "lost": 4,
       "points": 9,
-      "goalsFor": 9,
-      "goalsAgainst": 12,
-      "goalDifference": -3
+      "goalsFor": 10,
+      "goalsAgainst": 14,
+      "goalDifference": -4
     },
     {
       "position": 16,

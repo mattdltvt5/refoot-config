@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-08T16:31:39Z",
+  "generated_at": "2026-11-08T16:36:34Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -3116,8 +3116,8 @@
         {
           "gameweek": "GW9",
           "stem": "gameweek-9",
-          "total": 6,
-          "covered": 6,
+          "total": 7,
+          "covered": 7,
           "matches": [
             {
               "match_id": 565852,
@@ -3159,6 +3159,13 @@
               "home": "VfB Stuttgart",
               "away": "SV Werder Bremen",
               "date": "2026-11-07",
+              "covered": true
+            },
+            {
+              "match_id": 565855,
+              "home": "1. FC Köln",
+              "away": "Bayer 04 Leverkusen",
+              "date": "2026-11-08",
               "covered": true
             }
           ]
