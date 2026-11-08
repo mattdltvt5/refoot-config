@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-08T17:46:17Z",
+  "generated_at": "2026-11-08T17:51:28Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -3826,7 +3826,7 @@
           "gameweek": "GW10",
           "stem": "gameweek-10",
           "total": 4,
-          "covered": 3,
+          "covered": 4,
           "matches": [
             {
               "match_id": 559638,
@@ -3854,8 +3854,7 @@
               "home": "Stade Rennais FC 1901",
               "away": "Lille OSC",
               "date": "2026-11-08",
-              "covered": false,
-              "pending": true
+              "covered": true
             }
           ]
         }
