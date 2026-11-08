@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-08T19:36:47Z",
+  "generated_at": "2026-11-08T19:42:01Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -1651,7 +1651,7 @@
           "gameweek": "GW12",
           "stem": "gameweek-12",
           "total": 9,
-          "covered": 7,
+          "covered": 8,
           "matches": [
             {
               "match_id": 564740,
@@ -1707,8 +1707,7 @@
               "home": "Villarreal CF",
               "away": "Getafe CF",
               "date": "2026-11-08",
-              "covered": false,
-              "pending": true
+              "covered": true
             },
             {
               "match_id": 564742,
@@ -3864,7 +3863,7 @@
           "gameweek": "GW10",
           "stem": "gameweek-10",
           "total": 8,
-          "covered": 6,
+          "covered": 7,
           "matches": [
             {
               "match_id": 559638,
@@ -3921,8 +3920,7 @@
               "home": "Angers SCO",
               "away": "OGC Nice",
               "date": "2026-11-08",
-              "covered": false,
-              "pending": true
+              "covered": true
             }
           ]
         }
