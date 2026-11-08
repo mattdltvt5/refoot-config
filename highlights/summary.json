@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-08T19:42:01Z",
+  "generated_at": "2026-11-08T19:46:36Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -1651,7 +1651,7 @@
           "gameweek": "GW12",
           "stem": "gameweek-12",
           "total": 9,
-          "covered": 8,
+          "covered": 9,
           "matches": [
             {
               "match_id": 564740,
@@ -1714,8 +1714,7 @@
               "home": "RC Celta de Vigo",
               "away": "Levante UD",
               "date": "2026-11-08",
-              "covered": false,
-              "pending": true
+              "covered": true
             }
           ]
         }
