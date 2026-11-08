@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-08T18:32:10Z",
+  "generated_at": "2026-11-08T18:36:48Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -3124,7 +3124,7 @@
           "gameweek": "GW9",
           "stem": "gameweek-9",
           "total": 8,
-          "covered": 7,
+          "covered": 8,
           "matches": [
             {
               "match_id": 565852,
@@ -3180,8 +3180,7 @@
               "home": "SC Freiburg",
               "away": "1. FC Union Berlin",
               "date": "2026-11-08",
-              "covered": false,
-              "pending": true
+              "covered": true
             }
           ]
         }
