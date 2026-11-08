@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-08T19:06:37Z",
+  "generated_at": "2026-11-08T19:11:59Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -2493,7 +2493,7 @@
         {
           "gameweek": "GW11",
           "stem": "gameweek-11",
-          "total": 8,
+          "total": 9,
           "covered": 8,
           "matches": [
             {
@@ -2551,6 +2551,14 @@
               "away": "Atalanta BC",
               "date": "2026-11-08",
               "covered": true
+            },
+            {
+              "match_id": 558530,
+              "home": "FC Internazionale Milano",
+              "away": "Como 1907",
+              "date": "2026-11-08",
+              "covered": false,
+              "pending": true
             }
           ]
         }
@@ -3841,7 +3849,7 @@
           "gameweek": "GW10",
           "stem": "gameweek-10",
           "total": 8,
-          "covered": 5,
+          "covered": 6,
           "matches": [
             {
               "match_id": 559638,
@@ -3891,8 +3899,7 @@
               "home": "Le Havre AC",
               "away": "FC Lorient",
               "date": "2026-11-08",
-              "covered": false,
-              "pending": true
+              "covered": true
             },
             {
               "match_id": 559634,
