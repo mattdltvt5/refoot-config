@@ -1,7 +1,7 @@
 {
   "competition": "LaLiga",
   "season": 2026,
-  "generated_at": "2026-11-08T00:01:16Z",
+  "generated_at": "2026-11-08T00:31:11Z",
   "fixtures": [
     {
       "match_id": 564634,
@@ -6384,64 +6384,6 @@
       "lastUpdated": "2026-11-07T00:20:31Z"
     },
     {
-      "match_id": 564855,
-      "group": "",
-      "matchday": 23,
-      "sourceRound": "Gameweek 23",
-      "homeTeam": {
-        "id": 92,
-        "name": "Real Sociedad de Fútbol",
-        "shortName": "Real Sociedad",
-        "tla": "RSO",
-        "crest": "https://crests.football-data.org/92.png"
-      },
-      "awayTeam": {
-        "id": 86,
-        "name": "Real Madrid CF",
-        "shortName": "Real Madrid",
-        "tla": "RMA",
-        "crest": "https://crests.football-data.org/86.png"
-      },
-      "score": {
-        "fullTime": {
-          "home": null,
-          "away": null
-        }
-      },
-      "status": "TIMED",
-      "utcDate": "2026-12-02T18:00:00Z",
-      "lastUpdated": "2026-11-07T23:25:08Z"
-    },
-    {
-      "match_id": 564857,
-      "group": "",
-      "matchday": 23,
-      "sourceRound": "Gameweek 23",
-      "homeTeam": {
-        "id": 81,
-        "name": "FC Barcelona",
-        "shortName": "Barça",
-        "tla": "FCB",
-        "crest": "https://crests.football-data.org/81.png"
-      },
-      "awayTeam": {
-        "id": 78,
-        "name": "Club Atlético de Madrid",
-        "shortName": "Atleti",
-        "tla": "ATL",
-        "crest": "https://crests.football-data.org/78.png"
-      },
-      "score": {
-        "fullTime": {
-          "home": null,
-          "away": null
-        }
-      },
-      "status": "TIMED",
-      "utcDate": "2026-12-02T20:30:00Z",
-      "lastUpdated": "2026-11-07T23:25:08Z"
-    },
-    {
       "match_id": 564848,
       "group": "",
       "matchday": 23,
@@ -6645,6 +6587,35 @@
       "lastUpdated": "2026-11-07T00:20:31Z"
     },
     {
+      "match_id": 564855,
+      "group": "",
+      "matchday": 23,
+      "sourceRound": "Gameweek 23",
+      "homeTeam": {
+        "id": 92,
+        "name": "Real Sociedad de Fútbol",
+        "shortName": "Real Sociedad",
+        "tla": "RSO",
+        "crest": "https://crests.football-data.org/92.png"
+      },
+      "awayTeam": {
+        "id": 86,
+        "name": "Real Madrid CF",
+        "shortName": "Real Madrid",
+        "tla": "RMA",
+        "crest": "https://crests.football-data.org/86.png"
+      },
+      "score": {
+        "fullTime": {
+          "home": null,
+          "away": null
+        }
+      },
+      "status": "TIMED",
+      "utcDate": "2026-12-02T18:00:00Z",
+      "lastUpdated": "2026-11-07T23:25:08Z"
+    },
+    {
       "match_id": 564856,
       "group": "",
       "matchday": 23,
@@ -6672,6 +6643,35 @@
       "status": "SCHEDULED",
       "utcDate": "2027-02-07T00:00:00Z",
       "lastUpdated": "2026-11-07T00:20:31Z"
+    },
+    {
+      "match_id": 564857,
+      "group": "",
+      "matchday": 23,
+      "sourceRound": "Gameweek 23",
+      "homeTeam": {
+        "id": 81,
+        "name": "FC Barcelona",
+        "shortName": "Barça",
+        "tla": "FCB",
+        "crest": "https://crests.football-data.org/81.png"
+      },
+      "awayTeam": {
+        "id": 78,
+        "name": "Club Atlético de Madrid",
+        "shortName": "Atleti",
+        "tla": "ATL",
+        "crest": "https://crests.football-data.org/78.png"
+      },
+      "score": {
+        "fullTime": {
+          "home": null,
+          "away": null
+        }
+      },
+      "status": "TIMED",
+      "utcDate": "2026-12-02T20:30:00Z",
+      "lastUpdated": "2026-11-07T23:25:08Z"
     },
     {
       "match_id": 564858,
