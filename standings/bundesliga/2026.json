@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-08T18:22:28.339893Z",
+  "generated_at": "2026-11-08T18:27:14.125820Z",
   "competition": "Bundesliga",
   "slug": "bundesliga",
   "season": 2026,
@@ -45,6 +45,25 @@
     {
       "position": 3,
       "team": {
+        "id": 17,
+        "name": "SC Freiburg",
+        "shortName": "Freiburg",
+        "tla": "SCF",
+        "crest": "https://crests.football-data.org/17.png"
+      },
+      "playedGames": 9,
+      "form": "W,W,L,L,W",
+      "won": 6,
+      "draw": 1,
+      "lost": 2,
+      "points": 19,
+      "goalsFor": 20,
+      "goalsAgainst": 10,
+      "goalDifference": 10
+    },
+    {
+      "position": 4,
+      "team": {
         "id": 721,
         "name": "RB Leipzig",
         "shortName": "RB Leipzig",
@@ -60,25 +79,6 @@
       "goalsFor": 27,
       "goalsAgainst": 13,
       "goalDifference": 14
-    },
-    {
-      "position": 4,
-      "team": {
-        "id": 17,
-        "name": "SC Freiburg",
-        "shortName": "Freiburg",
-        "tla": "SCF",
-        "crest": "https://crests.football-data.org/17.png"
-      },
-      "playedGames": 8,
-      "form": "W,L,L,W,D",
-      "won": 5,
-      "draw": 1,
-      "lost": 2,
-      "points": 16,
-      "goalsFor": 18,
-      "goalsAgainst": 10,
-      "goalDifference": 8
     },
     {
       "position": 5,
@@ -298,15 +298,15 @@
         "tla": "UNB",
         "crest": "https://crests.football-data.org/28.png"
       },
-      "playedGames": 8,
-      "form": "D,D,D,W,L",
+      "playedGames": 9,
+      "form": "L,D,D,D,W",
       "won": 1,
       "draw": 4,
-      "lost": 3,
+      "lost": 4,
       "points": 7,
       "goalsFor": 7,
-      "goalsAgainst": 19,
-      "goalDifference": -12
+      "goalsAgainst": 21,
+      "goalDifference": -14
     },
     {
       "position": 17,
