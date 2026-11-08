@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-08T17:56:48.198262Z",
+  "generated_at": "2026-11-08T18:42:13.549869Z",
   "competition": "Premier League",
   "slug": "premier-league",
   "season": 2026,
@@ -178,6 +178,25 @@
     {
       "position": 10,
       "team": {
+        "id": 58,
+        "name": "Aston Villa FC",
+        "shortName": "Aston Villa",
+        "tla": "AVL",
+        "crest": "https://crests.football-data.org/58.png"
+      },
+      "playedGames": 10,
+      "form": "D,D,W,W,D",
+      "won": 3,
+      "draw": 4,
+      "lost": 3,
+      "points": 13,
+      "goalsFor": 14,
+      "goalsAgainst": 17,
+      "goalDifference": -3
+    },
+    {
+      "position": 11,
+      "team": {
         "id": 73,
         "name": "Tottenham Hotspur FC",
         "shortName": "Tottenham",
@@ -195,7 +214,7 @@
       "goalDifference": -1
     },
     {
-      "position": 11,
+      "position": 12,
       "team": {
         "id": 67,
         "name": "Newcastle United FC",
@@ -211,25 +230,6 @@
       "points": 12,
       "goalsFor": 13,
       "goalsAgainst": 16,
-      "goalDifference": -3
-    },
-    {
-      "position": 12,
-      "team": {
-        "id": 58,
-        "name": "Aston Villa FC",
-        "shortName": "Aston Villa",
-        "tla": "AVL",
-        "crest": "https://crests.football-data.org/58.png"
-      },
-      "playedGames": 9,
-      "form": "D,W,W,D,W",
-      "won": 3,
-      "draw": 3,
-      "lost": 3,
-      "points": 12,
-      "goalsFor": 10,
-      "goalsAgainst": 13,
       "goalDifference": -3
     },
     {
@@ -330,6 +330,25 @@
     {
       "position": 18,
       "team": {
+        "id": 66,
+        "name": "Manchester United FC",
+        "shortName": "Man United",
+        "tla": "MUN",
+        "crest": "https://crests.football-data.org/66.png"
+      },
+      "playedGames": 10,
+      "form": "D,L,L,D,D",
+      "won": 1,
+      "draw": 5,
+      "lost": 4,
+      "points": 8,
+      "goalsFor": 14,
+      "goalsAgainst": 19,
+      "goalDifference": -5
+    },
+    {
+      "position": 19,
+      "team": {
         "id": 71,
         "name": "Sunderland AFC",
         "shortName": "Sunderland",
@@ -345,25 +364,6 @@
       "goalsFor": 8,
       "goalsAgainst": 17,
       "goalDifference": -9
-    },
-    {
-      "position": 19,
-      "team": {
-        "id": 66,
-        "name": "Manchester United FC",
-        "shortName": "Man United",
-        "tla": "MUN",
-        "crest": "https://crests.football-data.org/66.png"
-      },
-      "playedGames": 9,
-      "form": "L,L,D,D,D",
-      "won": 1,
-      "draw": 4,
-      "lost": 4,
-      "points": 7,
-      "goalsFor": 10,
-      "goalsAgainst": 15,
-      "goalDifference": -5
     },
     {
       "position": 20,

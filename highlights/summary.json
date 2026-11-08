@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-08T18:36:48Z",
+  "generated_at": "2026-11-08T18:41:52Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -710,7 +710,7 @@
         {
           "gameweek": "GW10",
           "stem": "gameweek-10",
-          "total": 9,
+          "total": 10,
           "covered": 5,
           "matches": [
             {
@@ -776,6 +776,14 @@
               "match_id": 560636,
               "home": "Sunderland AFC",
               "away": "Chelsea FC",
+              "date": "2026-11-08",
+              "covered": false,
+              "pending": true
+            },
+            {
+              "match_id": 560639,
+              "home": "Manchester United FC",
+              "away": "Aston Villa FC",
               "date": "2026-11-08",
               "covered": false,
               "pending": true
