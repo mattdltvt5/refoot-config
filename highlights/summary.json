@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-08T15:11:11Z",
+  "generated_at": "2026-11-08T15:16:10Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -1611,7 +1611,7 @@
           "gameweek": "GW12",
           "stem": "gameweek-12",
           "total": 6,
-          "covered": 5,
+          "covered": 6,
           "matches": [
             {
               "match_id": 564740,
@@ -1653,8 +1653,7 @@
               "home": "Elche CF",
               "away": "Real Betis Balompié",
               "date": "2026-11-08",
-              "covered": false,
-              "pending": true
+              "covered": true
             }
           ]
         }
