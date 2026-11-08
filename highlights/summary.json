@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-08T15:56:07Z",
+  "generated_at": "2026-11-08T16:01:20Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -3765,7 +3765,7 @@
         {
           "gameweek": "GW10",
           "stem": "gameweek-10",
-          "total": 3,
+          "total": 4,
           "covered": 3,
           "matches": [
             {
@@ -3788,6 +3788,14 @@
               "away": "ES Troyes AC",
               "date": "2026-11-07",
               "covered": true
+            },
+            {
+              "match_id": 559636,
+              "home": "Stade Rennais FC 1901",
+              "away": "Lille OSC",
+              "date": "2026-11-08",
+              "covered": false,
+              "pending": true
             }
           ]
         }
