@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-08T14:08:46.895285Z",
+  "generated_at": "2026-11-08T15:01:49.739523Z",
   "competition": "LaLiga",
   "slug": "laliga",
   "season": 2026,
@@ -70,15 +70,15 @@
         "tla": "BET",
         "crest": "https://crests.football-data.org/90.png"
       },
-      "playedGames": 11,
-      "form": "W,D,L,W,D",
-      "won": 7,
+      "playedGames": 12,
+      "form": "W,W,D,L,W",
+      "won": 8,
       "draw": 2,
       "lost": 2,
-      "points": 23,
-      "goalsFor": 18,
+      "points": 26,
+      "goalsFor": 20,
       "goalsAgainst": 15,
-      "goalDifference": 3
+      "goalDifference": 5
     },
     {
       "position": 5,
@@ -311,25 +311,6 @@
     {
       "position": 17,
       "team": {
-        "id": 285,
-        "name": "Elche CF",
-        "shortName": "Elche",
-        "tla": "ELC",
-        "crest": "https://crests.football-data.org/285.png"
-      },
-      "playedGames": 11,
-      "form": "L,W,D,D,W",
-      "won": 2,
-      "draw": 4,
-      "lost": 5,
-      "points": 10,
-      "goalsFor": 14,
-      "goalsAgainst": 18,
-      "goalDifference": -4
-    },
-    {
-      "position": 18,
-      "team": {
         "id": 88,
         "name": "Levante UD",
         "shortName": "Levante",
@@ -345,6 +326,25 @@
       "goalsFor": 16,
       "goalsAgainst": 21,
       "goalDifference": -5
+    },
+    {
+      "position": 18,
+      "team": {
+        "id": 285,
+        "name": "Elche CF",
+        "shortName": "Elche",
+        "tla": "ELC",
+        "crest": "https://crests.football-data.org/285.png"
+      },
+      "playedGames": 12,
+      "form": "L,L,W,D,D",
+      "won": 2,
+      "draw": 4,
+      "lost": 6,
+      "points": 10,
+      "goalsFor": 14,
+      "goalsAgainst": 20,
+      "goalDifference": -6
     },
     {
       "position": 19,
