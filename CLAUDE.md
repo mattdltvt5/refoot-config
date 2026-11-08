@@ -40,15 +40,19 @@ Common icons already in use in this project:
 
 ## Repository overview
 
-- `sources.json` — YouTube channel/playlist IDs (read by the Android app at runtime)
+- `sources.json` — YouTube channel/playlist IDs, team lists and team colours (`teamPalettes`); read by the pipeline scripts, and by the ReFoot Flutter web app at runtime (teams + palettes). The old Android app is retired.
 - `admin.html` — browser-based admin panel for managing `sources.json`
 - `uicons/` — Flaticon UIcons Bold Rounded webfont (local, no CDN dependency)
 - `highlights/` — pre-built video metadata written by GitHub Actions
 - `scripts/highlights_common.py` — shared utilities for both highlight scripts
 - `scripts/fetch_highlights.py` — incremental update (runs every 4 hours via Actions)
 - `scripts/backfill_highlights.py` — full-season backfill (manual `workflow_dispatch` only)
-- `.github/workflows/fetch-highlights.yml` — scheduled highlight fetch
-- `.github/workflows/backfill-highlights.yml` — manual backfill trigger
+- `.github/workflows/` — 14 workflows; check each file's `on:` for its trigger. Main ones:
+  - `fetch-highlights.yml` (scheduled main run: highlights, `sync_tournaments`, `sync_standings`, `build_home_index`, `push_events` goal/result alerts, `commit_gate`)
+  - `backfill-highlights.yml` / `backfill-copa-america.yml` (manual backfills)
+  - `sync-standings.yml` (league tables), `sync-teams.yml` (team lists), `sync-copa-tournament.yml` (Copa América)
+  - `run-tests.yml` (pytest, `scripts/tests`), `pages.yml` (admin + legal pages on GitHub Pages)
+  - diagnostics / discovery: `audit-no-highlight-buckets.yml`, `detect-alias-gaps.yml`, `discover-playlists-readonly.yml`, `discover-season-playlists.yml`, `find-channel-candidates.yml`, `verify-playlist-owners.yml`
 
 ## Git / commit rules
 
@@ -63,6 +67,6 @@ Source changes are NOT visible to the user until the web build is rebuilt and re
 
 - After completing any change that affects the deployed Flutter web app, redeploy to Firebase Hosting as the final step, so the change is visible in the live app. Do not end the task with an undeployed Flutter change.
 - If you cannot safely auto-deploy for any reason (build failure, uncertainty about the command, or anything ambiguous), explicitly ask whether to redeploy before finishing — never silently skip it.
-- Discover the actual deploy command from the repo (`firebase.json`, any deploy script, or the README) rather than assuming. The standard path is `flutter build web` then `firebase deploy --only hosting`, but confirm against the project's real setup.
+- Deploy recipe (in `refoot_flutter`): build from the deploy worktree `D:/Projects/01_ReFoot/_wt_deploy_flutter` checked out (detached) at `origin/master`, run `bash tool/build_web.sh` (it stamps the version/build shown in Menu → About ReFoot; a plain `flutter build web` doesn't), then `npx.cmd firebase deploy --only hosting` (`npx.cmd` on Windows: PowerShell blocks the `.ps1` shim). Check `npx.cmd firebase use` says `refoot-highlights-app` first. A new web plugin needs `flutter clean; flutter pub get` before the build. Verify by comparing the md5 of `build/web/main.dart.js` with the live `https://refoot-highlights-app.web.app/main.dart.js`.
 - Do NOT deploy if the build fails — report the failure instead of pushing a broken build live.
 - Do NOT redeploy Firebase for `refoot-config` pipeline or data-only changes. Those reach the app via the GitHub push to `raw.githubusercontent.com`, not Firebase. Firebase redeploy applies only to Flutter app source changes.

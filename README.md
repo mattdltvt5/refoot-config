@@ -1,6 +1,6 @@
 # refoot-config
 
-Remote channel configuration for the **ReFoot Highlights** Android app.
+Data pipeline and remote configuration for **ReFoot**, the Flutter web app (`refoot-highlights-app.web.app`): GitHub Actions write the highlights, fixtures, standings and Home index JSON the app reads from `raw.githubusercontent.com`. (The original Android app is retired.)
 
 ## Recent changes
 
@@ -295,7 +295,7 @@ no copied stylesheet, no drift — and `admin.html` itself is untouched. Complet
 
 Introduced a CSS custom-property token layer into `admin.html`'s inline `<style>` and replaced the hardcoded
 color / radius / spacing literals in the rule bodies with `var()` references — the first step toward a shared
-Web-Admin stylesheet. The companion inventory that justifies it, **`DESIGN_AUDIT.md`**, lands in the same change.
+Web-Admin stylesheet. The companion inventory that justifies it, **`DESIGN_AUDIT.md`** (now `docs/DESIGN_AUDIT.md`), lands in the same change.
 
 - **Two surfaces.** A *light* surface (default) keeps the existing 12 `:root` tokens (names unchanged) and adds
   canonical semantic colors (`--accent`/`--success`/`--danger`/`--warning`), surface tints, a 3-step radius
@@ -973,7 +973,7 @@ eyeball the channel before deciding. Human-in-the-loop is the point:
 }
 ```
 
-- Competition names must exactly match those used in the Android app (`competitionName` strings)
+- Competition names must exactly match the keys of `COMPETITION_SLUG_MAP` in `scripts/highlights_common.py` (name → output slug)
 - Team names must exactly match football-data.org `team.name` values
 - Empty string `""` means "not configured" — the app falls through to the next tier
 - `playlists` and `teamPlaylists` are Tier 4 fallbacks; `competitions` and `teams` are Tier 2 / Tier 1
