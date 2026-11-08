@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-08T16:21:12Z",
+  "generated_at": "2026-11-08T16:32:23Z",
   "month": "2026-11",
   "dates": {
     "2026-11-01": [
@@ -1795,7 +1795,8 @@
             "homeScore": 1,
             "awayScore": 2,
             "status": "FINISHED",
-            "utcDate": "2026-11-08T14:00:00Z"
+            "utcDate": "2026-11-08T14:00:00Z",
+            "videoId": "TA52Kb5N5aA"
           },
           {
             "match_id": 558538,
@@ -1973,9 +1974,9 @@
               "tla": "ASM",
               "crest": "https://crests.football-data.org/548.png"
             },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "TIMED",
+            "homeScore": 0,
+            "awayScore": 0,
+            "status": "IN_PLAY",
             "utcDate": "2026-11-08T16:15:00Z"
           },
           {
@@ -1994,9 +1995,9 @@
               "tla": "LYO",
               "crest": "https://crests.football-data.org/523.png"
             },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "TIMED",
+            "homeScore": 0,
+            "awayScore": 0,
+            "status": "IN_PLAY",
             "utcDate": "2026-11-08T16:15:00Z"
           },
           {
@@ -2015,9 +2016,9 @@
               "tla": "FCL",
               "crest": "https://crests.football-data.org/525.png"
             },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "TIMED",
+            "homeScore": 0,
+            "awayScore": 0,
+            "status": "IN_PLAY",
             "utcDate": "2026-11-08T16:15:00Z"
           },
           {
@@ -2036,9 +2037,9 @@
               "tla": "NIC",
               "crest": "https://crests.football-data.org/522.png"
             },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "TIMED",
+            "homeScore": 0,
+            "awayScore": 1,
+            "status": "IN_PLAY",
             "utcDate": "2026-11-08T16:15:00Z"
           },
           {

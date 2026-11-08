@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-08T16:26:40Z",
+  "generated_at": "2026-11-08T16:31:39Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -2479,7 +2479,7 @@
           "gameweek": "GW11",
           "stem": "gameweek-11",
           "total": 8,
-          "covered": 7,
+          "covered": 8,
           "matches": [
             {
               "match_id": 558537,
@@ -2528,8 +2528,7 @@
               "home": "Genoa CFC",
               "away": "AC Milan",
               "date": "2026-11-08",
-              "covered": false,
-              "pending": true
+              "covered": true
             },
             {
               "match_id": 558538,
