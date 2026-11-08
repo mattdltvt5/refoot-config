@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-08T19:26:58Z",
+  "generated_at": "2026-11-08T19:31:51Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -1650,7 +1650,7 @@
         {
           "gameweek": "GW12",
           "stem": "gameweek-12",
-          "total": 7,
+          "total": 8,
           "covered": 7,
           "matches": [
             {
@@ -1701,6 +1701,14 @@
               "away": "Rayo Vallecano de Madrid",
               "date": "2026-11-08",
               "covered": true
+            },
+            {
+              "match_id": 564747,
+              "home": "Villarreal CF",
+              "away": "Getafe CF",
+              "date": "2026-11-08",
+              "covered": false,
+              "pending": true
             }
           ]
         }
@@ -2494,7 +2502,7 @@
           "gameweek": "GW11",
           "stem": "gameweek-11",
           "total": 9,
-          "covered": 8,
+          "covered": 9,
           "matches": [
             {
               "match_id": 558537,
@@ -2557,8 +2565,7 @@
               "home": "FC Internazionale Milano",
               "away": "Como 1907",
               "date": "2026-11-08",
-              "covered": false,
-              "pending": true
+              "covered": true
             }
           ]
         }

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-08T19:21:08Z",
+  "generated_at": "2026-11-08T19:32:44Z",
   "month": "2026-11",
   "dates": {
     "2026-11-01": [
@@ -1723,9 +1723,9 @@
               "tla": "GET",
               "crest": "https://crests.football-data.org/82.png"
             },
-            "homeScore": 1,
+            "homeScore": 2,
             "awayScore": 0,
-            "status": "IN_PLAY",
+            "status": "FINISHED",
             "utcDate": "2026-11-08T17:30:00Z"
           },
           {
@@ -1840,7 +1840,8 @@
             "homeScore": 2,
             "awayScore": 0,
             "status": "FINISHED",
-            "utcDate": "2026-11-08T17:00:00Z"
+            "utcDate": "2026-11-08T17:00:00Z",
+            "videoId": "vBQxonAKFs4"
           },
           {
             "match_id": 558529,
