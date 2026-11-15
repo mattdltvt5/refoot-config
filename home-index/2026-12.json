@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-15T19:31:12Z",
+  "generated_at": "2026-11-15T23:26:08Z",
   "month": "2026-12",
   "dates": {
     "2026-12-01": [
@@ -1068,27 +1068,6 @@
             "utcDate": "2026-12-06T00:00:00Z"
           },
           {
-            "match_id": 564774,
-            "homeTeam": {
-              "id": 82,
-              "name": "Getafe CF",
-              "shortName": "Getafe",
-              "tla": "GET",
-              "crest": "https://crests.football-data.org/82.png"
-            },
-            "awayTeam": {
-              "id": 95,
-              "name": "Valencia CF",
-              "shortName": "Valencia",
-              "tla": "VAL",
-              "crest": "https://crests.football-data.org/95.png"
-            },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "SCHEDULED",
-            "utcDate": "2026-12-06T00:00:00Z"
-          },
-          {
             "match_id": 564768,
             "homeTeam": {
               "id": 79,
@@ -1129,6 +1108,27 @@
             "awayScore": null,
             "status": "TIMED",
             "utcDate": "2026-12-06T15:15:00Z"
+          },
+          {
+            "match_id": 564774,
+            "homeTeam": {
+              "id": 82,
+              "name": "Getafe CF",
+              "shortName": "Getafe",
+              "tla": "GET",
+              "crest": "https://crests.football-data.org/82.png"
+            },
+            "awayTeam": {
+              "id": 95,
+              "name": "Valencia CF",
+              "shortName": "Valencia",
+              "tla": "VAL",
+              "crest": "https://crests.football-data.org/95.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "TIMED",
+            "utcDate": "2026-12-06T17:30:00Z"
           }
         ]
       },

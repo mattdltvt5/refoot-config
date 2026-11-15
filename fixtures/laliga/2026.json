@@ -1,7 +1,7 @@
 {
   "competition": "LaLiga",
   "season": 2026,
-  "generated_at": "2026-11-15T22:36:12Z",
+  "generated_at": "2026-11-15T23:26:08Z",
   "fixtures": [
     {
       "match_id": 564634,
@@ -4267,35 +4267,6 @@
       "lastUpdated": "2026-11-15T00:20:27Z"
     },
     {
-      "match_id": 564774,
-      "group": "",
-      "matchday": 15,
-      "sourceRound": "Gameweek 15",
-      "homeTeam": {
-        "id": 82,
-        "name": "Getafe CF",
-        "shortName": "Getafe",
-        "tla": "GET",
-        "crest": "https://crests.football-data.org/82.png"
-      },
-      "awayTeam": {
-        "id": 95,
-        "name": "Valencia CF",
-        "shortName": "Valencia",
-        "tla": "VAL",
-        "crest": "https://crests.football-data.org/95.png"
-      },
-      "score": {
-        "fullTime": {
-          "home": null,
-          "away": null
-        }
-      },
-      "status": "SCHEDULED",
-      "utcDate": "2026-12-06T00:00:00Z",
-      "lastUpdated": "2026-11-15T00:20:27Z"
-    },
-    {
       "match_id": 564768,
       "group": "",
       "matchday": 15,
@@ -4352,6 +4323,35 @@
       "status": "TIMED",
       "utcDate": "2026-12-06T15:15:00Z",
       "lastUpdated": "2026-11-15T19:25:10Z"
+    },
+    {
+      "match_id": 564774,
+      "group": "",
+      "matchday": 15,
+      "sourceRound": "Gameweek 15",
+      "homeTeam": {
+        "id": 82,
+        "name": "Getafe CF",
+        "shortName": "Getafe",
+        "tla": "GET",
+        "crest": "https://crests.football-data.org/82.png"
+      },
+      "awayTeam": {
+        "id": 95,
+        "name": "Valencia CF",
+        "shortName": "Valencia",
+        "tla": "VAL",
+        "crest": "https://crests.football-data.org/95.png"
+      },
+      "score": {
+        "fullTime": {
+          "home": null,
+          "away": null
+        }
+      },
+      "status": "TIMED",
+      "utcDate": "2026-12-06T17:30:00Z",
+      "lastUpdated": "2026-11-15T23:25:09Z"
     },
     {
       "match_id": 564778,
