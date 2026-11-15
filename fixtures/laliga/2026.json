@@ -1,7 +1,7 @@
 {
   "competition": "LaLiga",
   "season": 2026,
-  "generated_at": "2026-11-15T20:41:09Z",
+  "generated_at": "2026-11-15T20:46:09Z",
   "fixtures": [
     {
       "match_id": 564634,
@@ -4064,64 +4064,6 @@
       "lastUpdated": "2026-11-15T00:20:27Z"
     },
     {
-      "match_id": 564768,
-      "group": "",
-      "matchday": 15,
-      "sourceRound": "Gameweek 15",
-      "homeTeam": {
-        "id": 79,
-        "name": "CA Osasuna",
-        "shortName": "Osasuna",
-        "tla": "OSA",
-        "crest": "https://crests.football-data.org/79.png"
-      },
-      "awayTeam": {
-        "id": 285,
-        "name": "Elche CF",
-        "shortName": "Elche",
-        "tla": "ELC",
-        "crest": "https://crests.football-data.org/285.png"
-      },
-      "score": {
-        "fullTime": {
-          "home": null,
-          "away": null
-        }
-      },
-      "status": "TIMED",
-      "utcDate": "2026-12-06T13:00:00Z",
-      "lastUpdated": "2026-11-15T19:25:10Z"
-    },
-    {
-      "match_id": 564769,
-      "group": "",
-      "matchday": 15,
-      "sourceRound": "Gameweek 15",
-      "homeTeam": {
-        "id": 559,
-        "name": "Sevilla FC",
-        "shortName": "Sevilla FC",
-        "tla": "SEV",
-        "crest": "https://crests.football-data.org/559.png"
-      },
-      "awayTeam": {
-        "id": 84,
-        "name": "Málaga CF",
-        "shortName": "Málaga",
-        "tla": "MAL",
-        "crest": "https://crests.football-data.org/84.png"
-      },
-      "score": {
-        "fullTime": {
-          "home": null,
-          "away": null
-        }
-      },
-      "status": "SCHEDULED",
-      "utcDate": "2026-12-06T00:00:00Z",
-      "lastUpdated": "2026-11-15T00:20:27Z"
-    },
-    {
       "match_id": 564770,
       "group": "",
       "matchday": 15,
@@ -4149,35 +4091,6 @@
       "status": "TIMED",
       "utcDate": "2026-12-04T20:00:00Z",
       "lastUpdated": "2026-11-15T19:25:09Z"
-    },
-    {
-      "match_id": 564771,
-      "group": "",
-      "matchday": 15,
-      "sourceRound": "Gameweek 15",
-      "homeTeam": {
-        "id": 78,
-        "name": "Club Atlético de Madrid",
-        "shortName": "Atleti",
-        "tla": "ATL",
-        "crest": "https://crests.football-data.org/78.png"
-      },
-      "awayTeam": {
-        "id": 90,
-        "name": "Real Betis Balompié",
-        "shortName": "Real Betis",
-        "tla": "BET",
-        "crest": "https://crests.football-data.org/90.png"
-      },
-      "score": {
-        "fullTime": {
-          "home": null,
-          "away": null
-        }
-      },
-      "status": "SCHEDULED",
-      "utcDate": "2026-12-06T00:00:00Z",
-      "lastUpdated": "2026-11-15T00:20:27Z"
     },
     {
       "match_id": 564772,
@@ -4209,23 +4122,23 @@
       "lastUpdated": "2026-11-15T19:25:10Z"
     },
     {
-      "match_id": 564773,
+      "match_id": 564777,
       "group": "",
       "matchday": 15,
       "sourceRound": "Gameweek 15",
       "homeTeam": {
-        "id": 81,
-        "name": "FC Barcelona",
-        "shortName": "Barça",
-        "tla": "FCB",
-        "crest": "https://crests.football-data.org/81.png"
+        "id": 87,
+        "name": "Rayo Vallecano de Madrid",
+        "shortName": "Rayo Vallecano",
+        "tla": "RAY",
+        "crest": "https://crests.football-data.org/87.png"
       },
       "awayTeam": {
-        "id": 558,
-        "name": "RC Celta de Vigo",
-        "shortName": "Celta",
-        "tla": "CEL",
-        "crest": "https://crests.football-data.org/558.png"
+        "id": 88,
+        "name": "Levante UD",
+        "shortName": "Levante",
+        "tla": "LEV",
+        "crest": "https://crests.football-data.org/88.png"
       },
       "score": {
         "fullTime": {
@@ -4234,65 +4147,7 @@
         }
       },
       "status": "TIMED",
-      "utcDate": "2026-12-05T20:00:00Z",
-      "lastUpdated": "2026-11-15T19:25:10Z"
-    },
-    {
-      "match_id": 564774,
-      "group": "",
-      "matchday": 15,
-      "sourceRound": "Gameweek 15",
-      "homeTeam": {
-        "id": 82,
-        "name": "Getafe CF",
-        "shortName": "Getafe",
-        "tla": "GET",
-        "crest": "https://crests.football-data.org/82.png"
-      },
-      "awayTeam": {
-        "id": 95,
-        "name": "Valencia CF",
-        "shortName": "Valencia",
-        "tla": "VAL",
-        "crest": "https://crests.football-data.org/95.png"
-      },
-      "score": {
-        "fullTime": {
-          "home": null,
-          "away": null
-        }
-      },
-      "status": "SCHEDULED",
-      "utcDate": "2026-12-06T00:00:00Z",
-      "lastUpdated": "2026-11-15T00:20:27Z"
-    },
-    {
-      "match_id": 564775,
-      "group": "",
-      "matchday": 15,
-      "sourceRound": "Gameweek 15",
-      "homeTeam": {
-        "id": 77,
-        "name": "Athletic Club",
-        "shortName": "Athletic",
-        "tla": "ATH",
-        "crest": "https://crests.football-data.org/77.png"
-      },
-      "awayTeam": {
-        "id": 86,
-        "name": "Real Madrid CF",
-        "shortName": "Real Madrid",
-        "tla": "RMA",
-        "crest": "https://crests.football-data.org/86.png"
-      },
-      "score": {
-        "fullTime": {
-          "home": null,
-          "away": null
-        }
-      },
-      "status": "TIMED",
-      "utcDate": "2026-12-06T15:15:00Z",
+      "utcDate": "2026-12-05T15:15:00Z",
       "lastUpdated": "2026-11-15T19:25:10Z"
     },
     {
@@ -4325,23 +4180,23 @@
       "lastUpdated": "2026-11-15T19:25:10Z"
     },
     {
-      "match_id": 564777,
+      "match_id": 564773,
       "group": "",
       "matchday": 15,
       "sourceRound": "Gameweek 15",
       "homeTeam": {
-        "id": 87,
-        "name": "Rayo Vallecano de Madrid",
-        "shortName": "Rayo Vallecano",
-        "tla": "RAY",
-        "crest": "https://crests.football-data.org/87.png"
+        "id": 81,
+        "name": "FC Barcelona",
+        "shortName": "Barça",
+        "tla": "FCB",
+        "crest": "https://crests.football-data.org/81.png"
       },
       "awayTeam": {
-        "id": 88,
-        "name": "Levante UD",
-        "shortName": "Levante",
-        "tla": "LEV",
-        "crest": "https://crests.football-data.org/88.png"
+        "id": 558,
+        "name": "RC Celta de Vigo",
+        "shortName": "Celta",
+        "tla": "CEL",
+        "crest": "https://crests.football-data.org/558.png"
       },
       "score": {
         "fullTime": {
@@ -4350,7 +4205,152 @@
         }
       },
       "status": "TIMED",
-      "utcDate": "2026-12-05T15:15:00Z",
+      "utcDate": "2026-12-05T20:00:00Z",
+      "lastUpdated": "2026-11-15T19:25:10Z"
+    },
+    {
+      "match_id": 564769,
+      "group": "",
+      "matchday": 15,
+      "sourceRound": "Gameweek 15",
+      "homeTeam": {
+        "id": 559,
+        "name": "Sevilla FC",
+        "shortName": "Sevilla FC",
+        "tla": "SEV",
+        "crest": "https://crests.football-data.org/559.png"
+      },
+      "awayTeam": {
+        "id": 84,
+        "name": "Málaga CF",
+        "shortName": "Málaga",
+        "tla": "MAL",
+        "crest": "https://crests.football-data.org/84.png"
+      },
+      "score": {
+        "fullTime": {
+          "home": null,
+          "away": null
+        }
+      },
+      "status": "SCHEDULED",
+      "utcDate": "2026-12-06T00:00:00Z",
+      "lastUpdated": "2026-11-15T00:20:27Z"
+    },
+    {
+      "match_id": 564771,
+      "group": "",
+      "matchday": 15,
+      "sourceRound": "Gameweek 15",
+      "homeTeam": {
+        "id": 78,
+        "name": "Club Atlético de Madrid",
+        "shortName": "Atleti",
+        "tla": "ATL",
+        "crest": "https://crests.football-data.org/78.png"
+      },
+      "awayTeam": {
+        "id": 90,
+        "name": "Real Betis Balompié",
+        "shortName": "Real Betis",
+        "tla": "BET",
+        "crest": "https://crests.football-data.org/90.png"
+      },
+      "score": {
+        "fullTime": {
+          "home": null,
+          "away": null
+        }
+      },
+      "status": "SCHEDULED",
+      "utcDate": "2026-12-06T00:00:00Z",
+      "lastUpdated": "2026-11-15T00:20:27Z"
+    },
+    {
+      "match_id": 564774,
+      "group": "",
+      "matchday": 15,
+      "sourceRound": "Gameweek 15",
+      "homeTeam": {
+        "id": 82,
+        "name": "Getafe CF",
+        "shortName": "Getafe",
+        "tla": "GET",
+        "crest": "https://crests.football-data.org/82.png"
+      },
+      "awayTeam": {
+        "id": 95,
+        "name": "Valencia CF",
+        "shortName": "Valencia",
+        "tla": "VAL",
+        "crest": "https://crests.football-data.org/95.png"
+      },
+      "score": {
+        "fullTime": {
+          "home": null,
+          "away": null
+        }
+      },
+      "status": "SCHEDULED",
+      "utcDate": "2026-12-06T00:00:00Z",
+      "lastUpdated": "2026-11-15T00:20:27Z"
+    },
+    {
+      "match_id": 564768,
+      "group": "",
+      "matchday": 15,
+      "sourceRound": "Gameweek 15",
+      "homeTeam": {
+        "id": 79,
+        "name": "CA Osasuna",
+        "shortName": "Osasuna",
+        "tla": "OSA",
+        "crest": "https://crests.football-data.org/79.png"
+      },
+      "awayTeam": {
+        "id": 285,
+        "name": "Elche CF",
+        "shortName": "Elche",
+        "tla": "ELC",
+        "crest": "https://crests.football-data.org/285.png"
+      },
+      "score": {
+        "fullTime": {
+          "home": null,
+          "away": null
+        }
+      },
+      "status": "TIMED",
+      "utcDate": "2026-12-06T13:00:00Z",
+      "lastUpdated": "2026-11-15T19:25:10Z"
+    },
+    {
+      "match_id": 564775,
+      "group": "",
+      "matchday": 15,
+      "sourceRound": "Gameweek 15",
+      "homeTeam": {
+        "id": 77,
+        "name": "Athletic Club",
+        "shortName": "Athletic",
+        "tla": "ATH",
+        "crest": "https://crests.football-data.org/77.png"
+      },
+      "awayTeam": {
+        "id": 86,
+        "name": "Real Madrid CF",
+        "shortName": "Real Madrid",
+        "tla": "RMA",
+        "crest": "https://crests.football-data.org/86.png"
+      },
+      "score": {
+        "fullTime": {
+          "home": null,
+          "away": null
+        }
+      },
+      "status": "TIMED",
+      "utcDate": "2026-12-06T15:15:00Z",
       "lastUpdated": "2026-11-15T19:25:10Z"
     },
     {
