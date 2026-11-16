@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-15T23:26:08Z",
+  "generated_at": "2026-11-16T14:31:12Z",
   "month": "2026-12",
   "dates": {
     "2026-12-01": [
@@ -1026,48 +1026,6 @@
         "name": "LaLiga",
         "matches": [
           {
-            "match_id": 564769,
-            "homeTeam": {
-              "id": 559,
-              "name": "Sevilla FC",
-              "shortName": "Sevilla FC",
-              "tla": "SEV",
-              "crest": "https://crests.football-data.org/559.png"
-            },
-            "awayTeam": {
-              "id": 84,
-              "name": "Málaga CF",
-              "shortName": "Málaga",
-              "tla": "MAL",
-              "crest": "https://crests.football-data.org/84.png"
-            },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "SCHEDULED",
-            "utcDate": "2026-12-06T00:00:00Z"
-          },
-          {
-            "match_id": 564771,
-            "homeTeam": {
-              "id": 78,
-              "name": "Club Atlético de Madrid",
-              "shortName": "Atleti",
-              "tla": "ATL",
-              "crest": "https://crests.football-data.org/78.png"
-            },
-            "awayTeam": {
-              "id": 90,
-              "name": "Real Betis Balompié",
-              "shortName": "Real Betis",
-              "tla": "BET",
-              "crest": "https://crests.football-data.org/90.png"
-            },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "SCHEDULED",
-            "utcDate": "2026-12-06T00:00:00Z"
-          },
-          {
             "match_id": 564768,
             "homeTeam": {
               "id": 79,
@@ -1129,6 +1087,27 @@
             "awayScore": null,
             "status": "TIMED",
             "utcDate": "2026-12-06T17:30:00Z"
+          },
+          {
+            "match_id": 564771,
+            "homeTeam": {
+              "id": 78,
+              "name": "Club Atlético de Madrid",
+              "shortName": "Atleti",
+              "tla": "ATL",
+              "crest": "https://crests.football-data.org/78.png"
+            },
+            "awayTeam": {
+              "id": 90,
+              "name": "Real Betis Balompié",
+              "shortName": "Real Betis",
+              "tla": "BET",
+              "crest": "https://crests.football-data.org/90.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "TIMED",
+            "utcDate": "2026-12-06T20:00:00Z"
           }
         ]
       },
@@ -1341,6 +1320,33 @@
       }
     ],
     "2026-12-07": [
+      {
+        "competition": "laliga",
+        "name": "LaLiga",
+        "matches": [
+          {
+            "match_id": 564769,
+            "homeTeam": {
+              "id": 559,
+              "name": "Sevilla FC",
+              "shortName": "Sevilla FC",
+              "tla": "SEV",
+              "crest": "https://crests.football-data.org/559.png"
+            },
+            "awayTeam": {
+              "id": 84,
+              "name": "Málaga CF",
+              "shortName": "Málaga",
+              "tla": "MAL",
+              "crest": "https://crests.football-data.org/84.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "TIMED",
+            "utcDate": "2026-12-07T20:00:00Z"
+          }
+        ]
+      },
       {
         "competition": "serie-a",
         "name": "Serie A",
