@@ -256,3 +256,38 @@ class TestWriteHomeIndex:
         bhi.regenerate()
         assert not stale.exists()  # removed (no longer backed by data)
         assert (home_index / "index.json").exists()  # manifest preserved
+
+
+# ── Season manifest (fixtures/seasons.json) ─────────────────────────────────────
+
+class TestSeasonManifest:
+    def _fixtures(self, tmp_path, monkeypatch, layout):
+        fixtures = tmp_path / "fixtures"
+        for slug, years in layout.items():
+            (fixtures / slug).mkdir(parents=True)
+            for y in years:
+                (fixtures / slug / f"{y}.json").write_text('{"fixtures": []}', encoding="utf-8")
+        monkeypatch.setattr(bhi, "FIXTURES_DIR", fixtures)
+        return fixtures
+
+    def test_lists_existing_seasons_newest_first(self, tmp_path, monkeypatch):
+        self._fixtures(tmp_path, monkeypatch,
+                       {"premier-league": [2025, 2026], "laliga": [2026], "empty": []})
+        m = bhi.build_season_manifest()
+        assert m["seasons"] == {"laliga": [2026], "premier-league": [2026, 2025]}
+        assert list(m["seasons"]) == ["laliga", "premier-league"]  # stable order
+
+    def test_ignores_non_year_files(self, tmp_path, monkeypatch):
+        fixtures = self._fixtures(tmp_path, monkeypatch, {"serie-a": [2026]})
+        (fixtures / "serie-a" / "notes.json").write_text("{}", encoding="utf-8")
+        (fixtures / "seasons.json").write_text("{}", encoding="utf-8")
+        assert bhi.build_season_manifest()["seasons"] == {"serie-a": [2026]}
+
+    def test_written_once_then_unchanged(self, tmp_path, monkeypatch):
+        fixtures = self._fixtures(tmp_path, monkeypatch, {"premier-league": [2025, 2026]})
+        assert bhi.write_season_manifest() is True
+        data = json.loads((fixtures / "seasons.json").read_text(encoding="utf-8"))
+        assert data["seasons"] == {"premier-league": [2026, 2025]}
+        assert bhi.write_season_manifest() is False  # idempotent: no rewrite
+        (fixtures / "premier-league" / "2027.json").write_text("{}", encoding="utf-8")
+        assert bhi.write_season_manifest() is True
