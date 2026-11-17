@@ -13,9 +13,9 @@ and WRITES per-month index files:
   - fixtures/seasons.json              (season years, newest first: "seasons" for every
                                         league's fixtures/{slug}/{year}.json files and
                                         "tournament_archives" for tournament-groups/
-                                        {slug}/{year}.json - the app's season selectors
-                                        read it instead of probing for files that may
-                                        not exist)
+                                        {slug}/{year}.json, "events" for events/{slug}/
+                                        {year}.json - the app reads it instead of
+                                        requesting files that may not exist)
 
 Design notes
 ------------
@@ -68,6 +68,7 @@ log = logging.getLogger("build_home_index")
 
 HOME_INDEX_DIR = FIXTURES_DIR.parent / "home-index"
 TOURNAMENT_GROUPS_DIR = FIXTURES_DIR.parent / "tournament-groups"
+EVENTS_DIR = FIXTURES_DIR.parent / "events"
 
 
 # ── Canonical competition order ─────────────────────────────────────────────────
@@ -329,18 +330,23 @@ def _years_by_slug(root: Path) -> dict[str, list[int]]:
 
 
 def build_season_manifest() -> dict:
-    """{generated_at, seasons, tournament_archives} - {slug: [years newest first]} each.
+    """{generated_at, seasons, tournament_archives, events} - {slug: [years newest first]} each.
 
     seasons: a league season is listed iff fixtures/{slug}/{year}.json exists.
     tournament_archives: a season-based tournament (UCL) iff its archive
     tournament-groups/{slug}/{year}.json exists. These are the tests the app's
     season selectors used to make with a HEAD request per year (a 404 per load
     for every year before the oldest one).
+    events: goal/card timelines, events/{slug}/{year}.json (Copa America, written
+    by backfill_copa_events.py; none while API-Sports is suspended). The app
+    asks for an events file only when it is listed, so the dormant feature costs
+    no 404 - and switches on by itself on the run after the backfill writes one.
     """
     return {
         "generated_at": utc_now_iso(),
         "seasons": _years_by_slug(FIXTURES_DIR),
         "tournament_archives": _years_by_slug(TOURNAMENT_GROUPS_DIR),
+        "events": _years_by_slug(EVENTS_DIR),
     }
 
 
