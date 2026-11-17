@@ -54,6 +54,14 @@ Common icons already in use in this project:
   - `run-tests.yml` (pytest, `scripts/tests`), `pages.yml` (admin + legal pages on GitHub Pages)
   - diagnostics / discovery: `audit-no-highlight-buckets.yml`, `detect-alias-gaps.yml`, `discover-playlists-readonly.yml`, `discover-season-playlists.yml`, `find-channel-candidates.yml`, `verify-playlist-owners.yml`
 
+## SEO (GitHub Pages)
+
+`pages.yml` publishes every root-level file. Search rules live in `refoot_flutter/SEO.md`:
+admin / dev pages (`admin.html`, `gallery.html`) carry `<meta name="robots" content="noindex,nofollow">`;
+`privacy.html` / `terms.html` are byte-identical copies of `refoot_flutter/web/` with their canonical on
+`https://refoot-highlights-app.web.app/privacy|terms` (edit both copies together). A new root `*.html` must be
+added to `scripts/tests/test_pages_seo.py` (it fails until every published page is classified).
+
 ## Git / commit rules
 
 - Always commit with `[skip ci]` in the message for any commit that touches `highlights/` or other data files, to prevent the fetch-highlights Action from re-triggering and burning YouTube quota
