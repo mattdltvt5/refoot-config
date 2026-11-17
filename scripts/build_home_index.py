@@ -10,10 +10,12 @@ API-Sports, no YouTube). It only READS:
 and WRITES per-month index files:
   - home-index/{YYYY-MM}.json          (that month's dates -> competitions -> matches)
   - home-index/index.json              (manifest: available months + canonical comps)
-  - fixtures/seasons.json              ({slug: [season years, newest first]} for every
-                                        league with fixtures/{slug}/{year}.json files -
-                                        the app's season selector reads it instead of
-                                        probing for files that may not exist)
+  - fixtures/seasons.json              (season years, newest first: "seasons" for every
+                                        league's fixtures/{slug}/{year}.json files and
+                                        "tournament_archives" for tournament-groups/
+                                        {slug}/{year}.json - the app's season selectors
+                                        read it instead of probing for files that may
+                                        not exist)
 
 Design notes
 ------------
@@ -314,21 +316,32 @@ def write_home_index(months: dict[str, dict], manifest: dict) -> None:
 SEASONS_MANIFEST_NAME = "seasons.json"
 
 
-def build_season_manifest() -> dict:
-    """{generated_at, seasons: {slug: [years newest first]}} from fixtures/ on disk.
-
-    A season is listed iff fixtures/{slug}/{year}.json exists - the same test the
-    app's season selector used to make with a HEAD request per year (one 404 per
-    load for the year before the oldest season). Leagues sorted by slug.
-    """
-    seasons: dict[str, list[int]] = {}
-    if FIXTURES_DIR.is_dir():
-        for league_dir in sorted(p for p in FIXTURES_DIR.iterdir() if p.is_dir()):
-            years = sorted((int(p.stem) for p in league_dir.glob("*.json") if p.stem.isdigit()),
+def _years_by_slug(root: Path) -> dict[str, list[int]]:
+    """{subdir: [years newest first]} for every root/{subdir}/{year}.json; sorted by slug."""
+    out: dict[str, list[int]] = {}
+    if root.is_dir():
+        for sub in sorted(p for p in root.iterdir() if p.is_dir()):
+            years = sorted((int(p.stem) for p in sub.glob("*.json") if p.stem.isdigit()),
                            reverse=True)
             if years:
-                seasons[league_dir.name] = years
-    return {"generated_at": utc_now_iso(), "seasons": seasons}
+                out[sub.name] = years
+    return out
+
+
+def build_season_manifest() -> dict:
+    """{generated_at, seasons, tournament_archives} - {slug: [years newest first]} each.
+
+    seasons: a league season is listed iff fixtures/{slug}/{year}.json exists.
+    tournament_archives: a season-based tournament (UCL) iff its archive
+    tournament-groups/{slug}/{year}.json exists. These are the tests the app's
+    season selectors used to make with a HEAD request per year (a 404 per load
+    for every year before the oldest one).
+    """
+    return {
+        "generated_at": utc_now_iso(),
+        "seasons": _years_by_slug(FIXTURES_DIR),
+        "tournament_archives": _years_by_slug(TOURNAMENT_GROUPS_DIR),
+    }
 
 
 def write_season_manifest() -> bool:

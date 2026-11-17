@@ -268,7 +268,19 @@ class TestSeasonManifest:
             for y in years:
                 (fixtures / slug / f"{y}.json").write_text('{"fixtures": []}', encoding="utf-8")
         monkeypatch.setattr(bhi, "FIXTURES_DIR", fixtures)
+        monkeypatch.setattr(bhi, "TOURNAMENT_GROUPS_DIR", tmp_path / "tournament-groups")
         return fixtures
+
+    def test_lists_tournament_archives(self, tmp_path, monkeypatch):
+        self._fixtures(tmp_path, monkeypatch, {"premier-league": [2026]})
+        tg = tmp_path / "tournament-groups"
+        (tg / "ucl").mkdir(parents=True)
+        for y in (2025, 2026):
+            (tg / "ucl" / f"{y}.json").write_text("{}", encoding="utf-8")
+        (tg / "ucl.json").write_text("{}", encoding="utf-8")  # current cache, not an archive
+        m = bhi.build_season_manifest()
+        assert m["tournament_archives"] == {"ucl": [2026, 2025]}
+        assert m["seasons"] == {"premier-league": [2026]}
 
     def test_lists_existing_seasons_newest_first(self, tmp_path, monkeypatch):
         self._fixtures(tmp_path, monkeypatch,
