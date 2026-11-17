@@ -10,6 +10,10 @@ API-Sports, no YouTube). It only READS:
 and WRITES per-month index files:
   - home-index/{YYYY-MM}.json          (that month's dates -> competitions -> matches)
   - home-index/index.json              (manifest: available months + canonical comps)
+  - fixtures/seasons.json              ({slug: [season years, newest first]} for every
+                                        league with fixtures/{slug}/{year}.json files -
+                                        the app's season selector reads it instead of
+                                        probing for files that may not exist)
 
 Design notes
 ------------
@@ -307,11 +311,38 @@ def write_home_index(months: dict[str, dict], manifest: dict) -> None:
     log.info("home-index write: %d month file(s) changed, %d removed", written, removed)
 
 
+SEASONS_MANIFEST_NAME = "seasons.json"
+
+
+def build_season_manifest() -> dict:
+    """{generated_at, seasons: {slug: [years newest first]}} from fixtures/ on disk.
+
+    A season is listed iff fixtures/{slug}/{year}.json exists - the same test the
+    app's season selector used to make with a HEAD request per year (one 404 per
+    load for the year before the oldest season). Leagues sorted by slug.
+    """
+    seasons: dict[str, list[int]] = {}
+    if FIXTURES_DIR.is_dir():
+        for league_dir in sorted(p for p in FIXTURES_DIR.iterdir() if p.is_dir()):
+            years = sorted((int(p.stem) for p in league_dir.glob("*.json") if p.stem.isdigit()),
+                           reverse=True)
+            if years:
+                seasons[league_dir.name] = years
+    return {"generated_at": utc_now_iso(), "seasons": seasons}
+
+
+def write_season_manifest() -> bool:
+    """Write fixtures/seasons.json if its seasons changed (generated_at ignored)."""
+    return _write_if_changed(FIXTURES_DIR / SEASONS_MANIFEST_NAME, build_season_manifest())
+
+
 def regenerate() -> None:
     """Entry point wired into the existing fixtures write path (fetch_highlights)."""
     months, manifest = build_index()
     write_home_index(months, manifest)
     log.info("Wrote home-index/ (%d month file(s) + index.json)", len(months))
+    if write_season_manifest():
+        log.info("Wrote fixtures/%s", SEASONS_MANIFEST_NAME)
 
 
 def main() -> None:
