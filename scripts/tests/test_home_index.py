@@ -269,7 +269,15 @@ class TestSeasonManifest:
                 (fixtures / slug / f"{y}.json").write_text('{"fixtures": []}', encoding="utf-8")
         monkeypatch.setattr(bhi, "FIXTURES_DIR", fixtures)
         monkeypatch.setattr(bhi, "TOURNAMENT_GROUPS_DIR", tmp_path / "tournament-groups")
+        monkeypatch.setattr(bhi, "EVENTS_DIR", tmp_path / "events")
         return fixtures
+
+    def test_lists_events_files(self, tmp_path, monkeypatch):
+        self._fixtures(tmp_path, monkeypatch, {"premier-league": [2026]})
+        assert bhi.build_season_manifest()["events"] == {}  # dormant: no events/ dir
+        (tmp_path / "events" / "copa-america").mkdir(parents=True)
+        (tmp_path / "events" / "copa-america" / "2024.json").write_text("{}", encoding="utf-8")
+        assert bhi.build_season_manifest()["events"] == {"copa-america": [2024]}
 
     def test_lists_tournament_archives(self, tmp_path, monkeypatch):
         self._fixtures(tmp_path, monkeypatch, {"premier-league": [2026]})
