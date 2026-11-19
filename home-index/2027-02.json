@@ -1,7 +1,36 @@
 {
-  "generated_at": "2026-11-07T23:31:14Z",
+  "generated_at": "2026-11-19T14:31:12Z",
   "month": "2027-02",
   "dates": {
+    "2027-02-01": [
+      {
+        "competition": "premier-league",
+        "name": "Premier League",
+        "matches": [
+          {
+            "match_id": 560763,
+            "homeTeam": {
+              "id": 402,
+              "name": "Brentford FC",
+              "shortName": "Brentford",
+              "tla": "BRE",
+              "crest": "https://crests.football-data.org/402.png"
+            },
+            "awayTeam": {
+              "id": 66,
+              "name": "Manchester United FC",
+              "shortName": "Man United",
+              "tla": "MUN",
+              "crest": "https://crests.football-data.org/66.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "TIMED",
+            "utcDate": "2027-02-01T20:00:00Z"
+          }
+        ]
+      }
+    ],
     "2027-02-06": [
       {
         "competition": "premier-league",
