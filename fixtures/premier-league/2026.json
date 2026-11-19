@@ -1,7 +1,7 @@
 {
   "competition": "Premier League",
   "season": 2026,
-  "generated_at": "2026-11-19T22:41:09Z",
+  "generated_at": "2026-11-19T22:46:11Z",
   "fixtures": [
     {
       "match_id": 560542,
@@ -5804,23 +5804,23 @@
       "lastUpdated": "2026-11-19T00:20:28Z"
     },
     {
-      "match_id": 560748,
+      "match_id": 560742,
       "group": "",
       "matchday": 21,
       "sourceRound": "Gameweek 21",
       "homeTeam": {
-        "id": 1076,
-        "name": "Coventry City FC",
-        "shortName": "Coventry City",
-        "tla": "COV",
-        "crest": "https://crests.football-data.org/1076.png"
+        "id": 1044,
+        "name": "AFC Bournemouth",
+        "shortName": "Bournemouth",
+        "tla": "BOU",
+        "crest": "https://crests.football-data.org/bournemouth.png"
       },
       "awayTeam": {
-        "id": 62,
-        "name": "Everton FC",
-        "shortName": "Everton",
-        "tla": "EVE",
-        "crest": "https://crests.football-data.org/62.png"
+        "id": 349,
+        "name": "Ipswich Town FC",
+        "shortName": "Ipswich Town",
+        "tla": "IPS",
+        "crest": "https://crests.football-data.org/349.png"
       },
       "score": {
         "fullTime": {
@@ -5829,7 +5829,7 @@
         }
       },
       "status": "TIMED",
-      "utcDate": "2027-01-16T12:30:00Z",
+      "utcDate": "2027-01-17T14:00:00Z",
       "lastUpdated": "2026-11-19T14:25:14Z"
     },
     {
@@ -5889,6 +5889,122 @@
       "status": "TIMED",
       "utcDate": "2027-01-16T15:00:00Z",
       "lastUpdated": "2026-11-19T00:20:28Z"
+    },
+    {
+      "match_id": 560745,
+      "group": "",
+      "matchday": 21,
+      "sourceRound": "Gameweek 21",
+      "homeTeam": {
+        "id": 402,
+        "name": "Brentford FC",
+        "shortName": "Brentford",
+        "tla": "BRE",
+        "crest": "https://crests.football-data.org/402.png"
+      },
+      "awayTeam": {
+        "id": 397,
+        "name": "Brighton & Hove Albion FC",
+        "shortName": "Brighton Hove",
+        "tla": "BHA",
+        "crest": "https://crests.football-data.org/397.png"
+      },
+      "score": {
+        "fullTime": {
+          "home": null,
+          "away": null
+        }
+      },
+      "status": "TIMED",
+      "utcDate": "2027-01-18T20:00:00Z",
+      "lastUpdated": "2026-11-19T14:25:15Z"
+    },
+    {
+      "match_id": 560746,
+      "group": "",
+      "matchday": 21,
+      "sourceRound": "Gameweek 21",
+      "homeTeam": {
+        "id": 58,
+        "name": "Aston Villa FC",
+        "shortName": "Aston Villa",
+        "tla": "AVL",
+        "crest": "https://crests.football-data.org/58.png"
+      },
+      "awayTeam": {
+        "id": 66,
+        "name": "Manchester United FC",
+        "shortName": "Man United",
+        "tla": "MUN",
+        "crest": "https://crests.football-data.org/66.png"
+      },
+      "score": {
+        "fullTime": {
+          "home": null,
+          "away": null
+        }
+      },
+      "status": "TIMED",
+      "utcDate": "2027-01-16T17:30:00Z",
+      "lastUpdated": "2026-11-19T14:25:14Z"
+    },
+    {
+      "match_id": 560747,
+      "group": "",
+      "matchday": 21,
+      "sourceRound": "Gameweek 21",
+      "homeTeam": {
+        "id": 73,
+        "name": "Tottenham Hotspur FC",
+        "shortName": "Tottenham",
+        "tla": "TOT",
+        "crest": "https://crests.football-data.org/73.png"
+      },
+      "awayTeam": {
+        "id": 341,
+        "name": "Leeds United FC",
+        "shortName": "Leeds United",
+        "tla": "LEE",
+        "crest": "https://crests.football-data.org/341.png"
+      },
+      "score": {
+        "fullTime": {
+          "home": null,
+          "away": null
+        }
+      },
+      "status": "TIMED",
+      "utcDate": "2027-01-17T16:30:00Z",
+      "lastUpdated": "2026-11-19T14:25:15Z"
+    },
+    {
+      "match_id": 560748,
+      "group": "",
+      "matchday": 21,
+      "sourceRound": "Gameweek 21",
+      "homeTeam": {
+        "id": 1076,
+        "name": "Coventry City FC",
+        "shortName": "Coventry City",
+        "tla": "COV",
+        "crest": "https://crests.football-data.org/1076.png"
+      },
+      "awayTeam": {
+        "id": 62,
+        "name": "Everton FC",
+        "shortName": "Everton",
+        "tla": "EVE",
+        "crest": "https://crests.football-data.org/62.png"
+      },
+      "score": {
+        "fullTime": {
+          "home": null,
+          "away": null
+        }
+      },
+      "status": "TIMED",
+      "utcDate": "2027-01-16T12:30:00Z",
+      "lastUpdated": "2026-11-19T14:25:14Z"
     },
     {
       "match_id": 560749,
@@ -5978,122 +6094,6 @@
       "lastUpdated": "2026-11-19T00:20:28Z"
     },
     {
-      "match_id": 560746,
-      "group": "",
-      "matchday": 21,
-      "sourceRound": "Gameweek 21",
-      "homeTeam": {
-        "id": 58,
-        "name": "Aston Villa FC",
-        "shortName": "Aston Villa",
-        "tla": "AVL",
-        "crest": "https://crests.football-data.org/58.png"
-      },
-      "awayTeam": {
-        "id": 66,
-        "name": "Manchester United FC",
-        "shortName": "Man United",
-        "tla": "MUN",
-        "crest": "https://crests.football-data.org/66.png"
-      },
-      "score": {
-        "fullTime": {
-          "home": null,
-          "away": null
-        }
-      },
-      "status": "TIMED",
-      "utcDate": "2027-01-16T17:30:00Z",
-      "lastUpdated": "2026-11-19T14:25:14Z"
-    },
-    {
-      "match_id": 560742,
-      "group": "",
-      "matchday": 21,
-      "sourceRound": "Gameweek 21",
-      "homeTeam": {
-        "id": 1044,
-        "name": "AFC Bournemouth",
-        "shortName": "Bournemouth",
-        "tla": "BOU",
-        "crest": "https://crests.football-data.org/bournemouth.png"
-      },
-      "awayTeam": {
-        "id": 349,
-        "name": "Ipswich Town FC",
-        "shortName": "Ipswich Town",
-        "tla": "IPS",
-        "crest": "https://crests.football-data.org/349.png"
-      },
-      "score": {
-        "fullTime": {
-          "home": null,
-          "away": null
-        }
-      },
-      "status": "TIMED",
-      "utcDate": "2027-01-17T14:00:00Z",
-      "lastUpdated": "2026-11-19T14:25:14Z"
-    },
-    {
-      "match_id": 560747,
-      "group": "",
-      "matchday": 21,
-      "sourceRound": "Gameweek 21",
-      "homeTeam": {
-        "id": 73,
-        "name": "Tottenham Hotspur FC",
-        "shortName": "Tottenham",
-        "tla": "TOT",
-        "crest": "https://crests.football-data.org/73.png"
-      },
-      "awayTeam": {
-        "id": 341,
-        "name": "Leeds United FC",
-        "shortName": "Leeds United",
-        "tla": "LEE",
-        "crest": "https://crests.football-data.org/341.png"
-      },
-      "score": {
-        "fullTime": {
-          "home": null,
-          "away": null
-        }
-      },
-      "status": "TIMED",
-      "utcDate": "2027-01-17T16:30:00Z",
-      "lastUpdated": "2026-11-19T14:25:15Z"
-    },
-    {
-      "match_id": 560745,
-      "group": "",
-      "matchday": 21,
-      "sourceRound": "Gameweek 21",
-      "homeTeam": {
-        "id": 402,
-        "name": "Brentford FC",
-        "shortName": "Brentford",
-        "tla": "BRE",
-        "crest": "https://crests.football-data.org/402.png"
-      },
-      "awayTeam": {
-        "id": 397,
-        "name": "Brighton & Hove Albion FC",
-        "shortName": "Brighton Hove",
-        "tla": "BHA",
-        "crest": "https://crests.football-data.org/397.png"
-      },
-      "score": {
-        "fullTime": {
-          "home": null,
-          "away": null
-        }
-      },
-      "status": "TIMED",
-      "utcDate": "2027-01-18T20:00:00Z",
-      "lastUpdated": "2026-11-19T14:25:15Z"
-    },
-    {
       "match_id": 560752,
       "group": "",
       "matchday": 22,
@@ -6121,93 +6121,6 @@
       "status": "TIMED",
       "utcDate": "2027-01-23T15:00:00Z",
       "lastUpdated": "2026-11-19T00:20:28Z"
-    },
-    {
-      "match_id": 560758,
-      "group": "",
-      "matchday": 22,
-      "sourceRound": "Gameweek 22",
-      "homeTeam": {
-        "id": 63,
-        "name": "Fulham FC",
-        "shortName": "Fulham",
-        "tla": "FUL",
-        "crest": "https://crests.football-data.org/63.png"
-      },
-      "awayTeam": {
-        "id": 58,
-        "name": "Aston Villa FC",
-        "shortName": "Aston Villa",
-        "tla": "AVL",
-        "crest": "https://crests.football-data.org/58.png"
-      },
-      "score": {
-        "fullTime": {
-          "home": null,
-          "away": null
-        }
-      },
-      "status": "TIMED",
-      "utcDate": "2027-01-23T15:00:00Z",
-      "lastUpdated": "2026-11-19T00:20:28Z"
-    },
-    {
-      "match_id": 560756,
-      "group": "",
-      "matchday": 22,
-      "sourceRound": "Gameweek 22",
-      "homeTeam": {
-        "id": 57,
-        "name": "Arsenal FC",
-        "shortName": "Arsenal",
-        "tla": "ARS",
-        "crest": "https://crests.football-data.org/57.png"
-      },
-      "awayTeam": {
-        "id": 67,
-        "name": "Newcastle United FC",
-        "shortName": "Newcastle",
-        "tla": "NEW",
-        "crest": "https://crests.football-data.org/67.png"
-      },
-      "score": {
-        "fullTime": {
-          "home": null,
-          "away": null
-        }
-      },
-      "status": "TIMED",
-      "utcDate": "2027-01-23T17:30:00Z",
-      "lastUpdated": "2026-11-19T14:25:15Z"
-    },
-    {
-      "match_id": 560760,
-      "group": "",
-      "matchday": 22,
-      "sourceRound": "Gameweek 22",
-      "homeTeam": {
-        "id": 397,
-        "name": "Brighton & Hove Albion FC",
-        "shortName": "Brighton Hove",
-        "tla": "BHA",
-        "crest": "https://crests.football-data.org/397.png"
-      },
-      "awayTeam": {
-        "id": 65,
-        "name": "Manchester City FC",
-        "shortName": "Man City",
-        "tla": "MCI",
-        "crest": "https://crests.football-data.org/65.png"
-      },
-      "score": {
-        "fullTime": {
-          "home": null,
-          "away": null
-        }
-      },
-      "status": "TIMED",
-      "utcDate": "2027-01-23T20:00:00Z",
-      "lastUpdated": "2026-11-19T14:25:15Z"
     },
     {
       "match_id": 560753,
@@ -6297,23 +6210,23 @@
       "lastUpdated": "2026-11-19T14:25:15Z"
     },
     {
-      "match_id": 560761,
+      "match_id": 560756,
       "group": "",
       "matchday": 22,
       "sourceRound": "Gameweek 22",
       "homeTeam": {
-        "id": 354,
-        "name": "Crystal Palace FC",
-        "shortName": "Crystal Palace",
-        "tla": "CRY",
-        "crest": "https://crests.football-data.org/354.png"
+        "id": 57,
+        "name": "Arsenal FC",
+        "shortName": "Arsenal",
+        "tla": "ARS",
+        "crest": "https://crests.football-data.org/57.png"
       },
       "awayTeam": {
-        "id": 73,
-        "name": "Tottenham Hotspur FC",
-        "shortName": "Tottenham",
-        "tla": "TOT",
-        "crest": "https://crests.football-data.org/73.png"
+        "id": 67,
+        "name": "Newcastle United FC",
+        "shortName": "Newcastle",
+        "tla": "NEW",
+        "crest": "https://crests.football-data.org/67.png"
       },
       "score": {
         "fullTime": {
@@ -6322,36 +6235,7 @@
         }
       },
       "status": "TIMED",
-      "utcDate": "2027-01-24T14:00:00Z",
-      "lastUpdated": "2026-11-19T14:25:15Z"
-    },
-    {
-      "match_id": 560759,
-      "group": "",
-      "matchday": 22,
-      "sourceRound": "Gameweek 22",
-      "homeTeam": {
-        "id": 66,
-        "name": "Manchester United FC",
-        "shortName": "Man United",
-        "tla": "MUN",
-        "crest": "https://crests.football-data.org/66.png"
-      },
-      "awayTeam": {
-        "id": 64,
-        "name": "Liverpool FC",
-        "shortName": "Liverpool",
-        "tla": "LIV",
-        "crest": "https://crests.football-data.org/64.png"
-      },
-      "score": {
-        "fullTime": {
-          "home": null,
-          "away": null
-        }
-      },
-      "status": "TIMED",
-      "utcDate": "2027-01-24T16:30:00Z",
+      "utcDate": "2027-01-23T17:30:00Z",
       "lastUpdated": "2026-11-19T14:25:15Z"
     },
     {
@@ -6384,82 +6268,24 @@
       "lastUpdated": "2026-11-19T14:25:15Z"
     },
     {
-      "match_id": 560769,
+      "match_id": 560758,
       "group": "",
-      "matchday": 23,
-      "sourceRound": "Gameweek 23",
+      "matchday": 22,
+      "sourceRound": "Gameweek 22",
       "homeTeam": {
-        "id": 64,
-        "name": "Liverpool FC",
-        "shortName": "Liverpool",
-        "tla": "LIV",
-        "crest": "https://crests.football-data.org/64.png"
+        "id": 63,
+        "name": "Fulham FC",
+        "shortName": "Fulham",
+        "tla": "FUL",
+        "crest": "https://crests.football-data.org/63.png"
       },
       "awayTeam": {
-        "id": 62,
-        "name": "Everton FC",
-        "shortName": "Everton",
-        "tla": "EVE",
-        "crest": "https://crests.football-data.org/62.png"
-      },
-      "score": {
-        "fullTime": {
-          "home": null,
-          "away": null
-        }
-      },
-      "status": "TIMED",
-      "utcDate": "2027-01-30T12:30:00Z",
-      "lastUpdated": "2026-11-19T14:25:15Z"
-    },
-    {
-      "match_id": 560764,
-      "group": "",
-      "matchday": 23,
-      "sourceRound": "Gameweek 23",
-      "homeTeam": {
-        "id": 67,
-        "name": "Newcastle United FC",
-        "shortName": "Newcastle",
-        "tla": "NEW",
-        "crest": "https://crests.football-data.org/67.png"
-      },
-      "awayTeam": {
-        "id": 397,
-        "name": "Brighton & Hove Albion FC",
-        "shortName": "Brighton Hove",
-        "tla": "BHA",
-        "crest": "https://crests.football-data.org/397.png"
-      },
-      "score": {
-        "fullTime": {
-          "home": null,
-          "away": null
-        }
-      },
-      "status": "TIMED",
-      "utcDate": "2027-01-30T15:00:00Z",
-      "lastUpdated": "2026-11-19T00:20:28Z"
-    },
-    {
-      "match_id": 560771,
-      "group": "",
-      "matchday": 23,
-      "sourceRound": "Gameweek 23",
-      "homeTeam": {
         "id": 58,
         "name": "Aston Villa FC",
         "shortName": "Aston Villa",
         "tla": "AVL",
         "crest": "https://crests.football-data.org/58.png"
       },
-      "awayTeam": {
-        "id": 349,
-        "name": "Ipswich Town FC",
-        "shortName": "Ipswich Town",
-        "tla": "IPS",
-        "crest": "https://crests.football-data.org/349.png"
-      },
       "score": {
         "fullTime": {
           "home": null,
@@ -6467,27 +6293,27 @@
         }
       },
       "status": "TIMED",
-      "utcDate": "2027-01-30T15:00:00Z",
+      "utcDate": "2027-01-23T15:00:00Z",
       "lastUpdated": "2026-11-19T00:20:28Z"
     },
     {
-      "match_id": 560768,
+      "match_id": 560759,
       "group": "",
-      "matchday": 23,
-      "sourceRound": "Gameweek 23",
+      "matchday": 22,
+      "sourceRound": "Gameweek 22",
       "homeTeam": {
-        "id": 61,
-        "name": "Chelsea FC",
-        "shortName": "Chelsea",
-        "tla": "CHE",
-        "crest": "https://crests.football-data.org/61.png"
+        "id": 66,
+        "name": "Manchester United FC",
+        "shortName": "Man United",
+        "tla": "MUN",
+        "crest": "https://crests.football-data.org/66.png"
       },
       "awayTeam": {
-        "id": 351,
-        "name": "Nottingham Forest FC",
-        "shortName": "Nottingham",
-        "tla": "NOT",
-        "crest": "https://crests.football-data.org/351.png"
+        "id": 64,
+        "name": "Liverpool FC",
+        "shortName": "Liverpool",
+        "tla": "LIV",
+        "crest": "https://crests.football-data.org/64.png"
       },
       "score": {
         "fullTime": {
@@ -6496,7 +6322,65 @@
         }
       },
       "status": "TIMED",
-      "utcDate": "2027-01-30T17:30:00Z",
+      "utcDate": "2027-01-24T16:30:00Z",
+      "lastUpdated": "2026-11-19T14:25:15Z"
+    },
+    {
+      "match_id": 560760,
+      "group": "",
+      "matchday": 22,
+      "sourceRound": "Gameweek 22",
+      "homeTeam": {
+        "id": 397,
+        "name": "Brighton & Hove Albion FC",
+        "shortName": "Brighton Hove",
+        "tla": "BHA",
+        "crest": "https://crests.football-data.org/397.png"
+      },
+      "awayTeam": {
+        "id": 65,
+        "name": "Manchester City FC",
+        "shortName": "Man City",
+        "tla": "MCI",
+        "crest": "https://crests.football-data.org/65.png"
+      },
+      "score": {
+        "fullTime": {
+          "home": null,
+          "away": null
+        }
+      },
+      "status": "TIMED",
+      "utcDate": "2027-01-23T20:00:00Z",
+      "lastUpdated": "2026-11-19T14:25:15Z"
+    },
+    {
+      "match_id": 560761,
+      "group": "",
+      "matchday": 22,
+      "sourceRound": "Gameweek 22",
+      "homeTeam": {
+        "id": 354,
+        "name": "Crystal Palace FC",
+        "shortName": "Crystal Palace",
+        "tla": "CRY",
+        "crest": "https://crests.football-data.org/354.png"
+      },
+      "awayTeam": {
+        "id": 73,
+        "name": "Tottenham Hotspur FC",
+        "shortName": "Tottenham",
+        "tla": "TOT",
+        "crest": "https://crests.football-data.org/73.png"
+      },
+      "score": {
+        "fullTime": {
+          "home": null,
+          "away": null
+        }
+      },
+      "status": "TIMED",
+      "utcDate": "2027-01-24T14:00:00Z",
       "lastUpdated": "2026-11-19T14:25:15Z"
     },
     {
@@ -6527,6 +6411,64 @@
       "status": "TIMED",
       "utcDate": "2027-01-31T14:00:00Z",
       "lastUpdated": "2026-11-19T14:25:15Z"
+    },
+    {
+      "match_id": 560763,
+      "group": "",
+      "matchday": 23,
+      "sourceRound": "Gameweek 23",
+      "homeTeam": {
+        "id": 402,
+        "name": "Brentford FC",
+        "shortName": "Brentford",
+        "tla": "BRE",
+        "crest": "https://crests.football-data.org/402.png"
+      },
+      "awayTeam": {
+        "id": 66,
+        "name": "Manchester United FC",
+        "shortName": "Man United",
+        "tla": "MUN",
+        "crest": "https://crests.football-data.org/66.png"
+      },
+      "score": {
+        "fullTime": {
+          "home": null,
+          "away": null
+        }
+      },
+      "status": "TIMED",
+      "utcDate": "2027-02-01T20:00:00Z",
+      "lastUpdated": "2026-11-19T14:25:15Z"
+    },
+    {
+      "match_id": 560764,
+      "group": "",
+      "matchday": 23,
+      "sourceRound": "Gameweek 23",
+      "homeTeam": {
+        "id": 67,
+        "name": "Newcastle United FC",
+        "shortName": "Newcastle",
+        "tla": "NEW",
+        "crest": "https://crests.football-data.org/67.png"
+      },
+      "awayTeam": {
+        "id": 397,
+        "name": "Brighton & Hove Albion FC",
+        "shortName": "Brighton Hove",
+        "tla": "BHA",
+        "crest": "https://crests.football-data.org/397.png"
+      },
+      "score": {
+        "fullTime": {
+          "home": null,
+          "away": null
+        }
+      },
+      "status": "TIMED",
+      "utcDate": "2027-01-30T15:00:00Z",
+      "lastUpdated": "2026-11-19T00:20:28Z"
     },
     {
       "match_id": 560765,
@@ -6616,6 +6558,64 @@
       "lastUpdated": "2026-11-19T14:25:15Z"
     },
     {
+      "match_id": 560768,
+      "group": "",
+      "matchday": 23,
+      "sourceRound": "Gameweek 23",
+      "homeTeam": {
+        "id": 61,
+        "name": "Chelsea FC",
+        "shortName": "Chelsea",
+        "tla": "CHE",
+        "crest": "https://crests.football-data.org/61.png"
+      },
+      "awayTeam": {
+        "id": 351,
+        "name": "Nottingham Forest FC",
+        "shortName": "Nottingham",
+        "tla": "NOT",
+        "crest": "https://crests.football-data.org/351.png"
+      },
+      "score": {
+        "fullTime": {
+          "home": null,
+          "away": null
+        }
+      },
+      "status": "TIMED",
+      "utcDate": "2027-01-30T17:30:00Z",
+      "lastUpdated": "2026-11-19T14:25:15Z"
+    },
+    {
+      "match_id": 560769,
+      "group": "",
+      "matchday": 23,
+      "sourceRound": "Gameweek 23",
+      "homeTeam": {
+        "id": 64,
+        "name": "Liverpool FC",
+        "shortName": "Liverpool",
+        "tla": "LIV",
+        "crest": "https://crests.football-data.org/64.png"
+      },
+      "awayTeam": {
+        "id": 62,
+        "name": "Everton FC",
+        "shortName": "Everton",
+        "tla": "EVE",
+        "crest": "https://crests.football-data.org/62.png"
+      },
+      "score": {
+        "fullTime": {
+          "home": null,
+          "away": null
+        }
+      },
+      "status": "TIMED",
+      "utcDate": "2027-01-30T12:30:00Z",
+      "lastUpdated": "2026-11-19T14:25:15Z"
+    },
+    {
       "match_id": 560770,
       "group": "",
       "matchday": 23,
@@ -6645,23 +6645,23 @@
       "lastUpdated": "2026-11-19T14:25:15Z"
     },
     {
-      "match_id": 560763,
+      "match_id": 560771,
       "group": "",
       "matchday": 23,
       "sourceRound": "Gameweek 23",
       "homeTeam": {
-        "id": 402,
-        "name": "Brentford FC",
-        "shortName": "Brentford",
-        "tla": "BRE",
-        "crest": "https://crests.football-data.org/402.png"
+        "id": 58,
+        "name": "Aston Villa FC",
+        "shortName": "Aston Villa",
+        "tla": "AVL",
+        "crest": "https://crests.football-data.org/58.png"
       },
       "awayTeam": {
-        "id": 66,
-        "name": "Manchester United FC",
-        "shortName": "Man United",
-        "tla": "MUN",
-        "crest": "https://crests.football-data.org/66.png"
+        "id": 349,
+        "name": "Ipswich Town FC",
+        "shortName": "Ipswich Town",
+        "tla": "IPS",
+        "crest": "https://crests.football-data.org/349.png"
       },
       "score": {
         "fullTime": {
@@ -6670,8 +6670,8 @@
         }
       },
       "status": "TIMED",
-      "utcDate": "2027-02-01T20:00:00Z",
-      "lastUpdated": "2026-11-19T14:25:15Z"
+      "utcDate": "2027-01-30T15:00:00Z",
+      "lastUpdated": "2026-11-19T00:20:28Z"
     },
     {
       "match_id": 560772,
