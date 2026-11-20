@@ -1,0 +1,7 @@
+# ReFoot config - internal admin tools on GitHub Pages. Keep every crawler out.
+# Note: this is a project site (mattdltvt5.github.io/refoot-config/), so this file
+# is served at /refoot-config/robots.txt; crawlers only read robots.txt at the domain
+# root. The <meta name="robots" content="noindex, nofollow"> on every page is what
+# actually keeps these pages out of search.
+User-agent: *
+Disallow: /
