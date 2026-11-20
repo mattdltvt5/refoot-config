@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-20T15:57:52.825419Z",
+  "generated_at": "2026-11-20T21:31:38.924181Z",
   "competition": "Bundesliga",
   "slug": "bundesliga",
   "season": 2026,
@@ -13,14 +13,14 @@
         "tla": "FCB",
         "crest": "https://crests.football-data.org/5.png"
       },
-      "playedGames": 9,
-      "form": "W,D,W,W,D",
+      "playedGames": 10,
+      "form": "D,W,D,W,W",
       "won": 6,
-      "draw": 3,
+      "draw": 4,
       "lost": 0,
-      "points": 21,
-      "goalsFor": 29,
-      "goalsAgainst": 9,
+      "points": 22,
+      "goalsFor": 30,
+      "goalsAgainst": 10,
       "goalDifference": 20
     },
     {
@@ -254,6 +254,25 @@
     {
       "position": 14,
       "team": {
+        "id": 1,
+        "name": "1. FC Köln",
+        "shortName": "1. FC Köln",
+        "tla": "KOE",
+        "crest": "https://crests.football-data.org/1.png"
+      },
+      "playedGames": 10,
+      "form": "D,L,D,D,L",
+      "won": 2,
+      "draw": 4,
+      "lost": 4,
+      "points": 10,
+      "goalsFor": 11,
+      "goalsAgainst": 15,
+      "goalDifference": -4
+    },
+    {
+      "position": 15,
+      "team": {
         "id": 16,
         "name": "FC Augsburg",
         "shortName": "Augsburg",
@@ -269,25 +288,6 @@
       "goalsFor": 20,
       "goalsAgainst": 20,
       "goalDifference": 0
-    },
-    {
-      "position": 15,
-      "team": {
-        "id": 1,
-        "name": "1. FC Köln",
-        "shortName": "1. FC Köln",
-        "tla": "KOE",
-        "crest": "https://crests.football-data.org/1.png"
-      },
-      "playedGames": 9,
-      "form": "L,D,D,L,W",
-      "won": 2,
-      "draw": 3,
-      "lost": 4,
-      "points": 9,
-      "goalsFor": 10,
-      "goalsAgainst": 14,
-      "goalDifference": -4
     },
     {
       "position": 16,
