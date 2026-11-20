@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-20T21:31:18Z",
+  "generated_at": "2026-11-20T21:36:10Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -3233,15 +3233,14 @@
           "gameweek": "GW10",
           "stem": "gameweek-10",
           "total": 1,
-          "covered": 0,
+          "covered": 1,
           "matches": [
             {
               "match_id": 565859,
               "home": "FC Bayern München",
               "away": "1. FC Köln",
               "date": "2026-11-20",
-              "covered": false,
-              "pending": true
+              "covered": true
             }
           ]
         }
