@@ -56,11 +56,16 @@ Common icons already in use in this project:
 
 ## SEO (GitHub Pages)
 
-`pages.yml` publishes every root-level file. Search rules live in `refoot_flutter/SEO.md`:
-admin / dev pages (`admin.html`, `gallery.html`) carry `<meta name="robots" content="noindex,nofollow">`;
-`privacy.html` / `terms.html` are byte-identical copies of `refoot_flutter/web/` with their canonical on
-`https://refoot-highlights-app.web.app/privacy|terms` (edit both copies together). A new root `*.html` must be
-added to `scripts/tests/test_pages_seo.py` (it fails until every published page is classified).
+`pages.yml` publishes every root-level file. This is an internal tool: nothing here belongs in search, and
+nothing is tracked. Rules (search details in `refoot_flutter/SEO.md`), enforced by `scripts/tests/test_pages_seo.py`:
+
+- **Every** root `*.html` carries `<meta name="robots" content="noindex, nofollow">` - including a new page.
+- `robots.txt` (root) has `User-agent: *` / `Disallow: /`. It's served at `/refoot-config/robots.txt` (a project
+  site can't publish at the domain root, the only place crawlers read it), so the meta tag does the real work.
+- `privacy.html` / `terms.html` are copies of `refoot_flutter/web/` - identical except the SEO comment + robots
+  meta block - with their canonical on `https://refoot-highlights-app.web.app/privacy|terms` (edit both copies together).
+- **No Google Analytics / Google tag code**: no googletagmanager.com scripts, `gtag()` / `dataLayer`, Consent Mode,
+  Firebase Analytics (`getAnalytics`, `logEvent`, `firebase/analytics`) or `measurementId` in the Firebase config.
 
 ## Git / commit rules
 
