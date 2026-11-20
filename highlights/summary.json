@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-20T21:56:12Z",
+  "generated_at": "2026-11-20T22:01:37Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -1717,6 +1717,22 @@
               "away": "FC Barcelona",
               "date": "2026-11-08",
               "covered": true
+            }
+          ]
+        },
+        {
+          "gameweek": "GW13",
+          "stem": "gameweek-13",
+          "total": 1,
+          "covered": 0,
+          "matches": [
+            {
+              "match_id": 564748,
+              "home": "Athletic Club",
+              "away": "RCD Espanyol de Barcelona",
+              "date": "2026-11-20",
+              "covered": false,
+              "pending": true
             }
           ]
         }
