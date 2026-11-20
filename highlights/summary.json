@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-20T21:46:08Z",
+  "generated_at": "2026-11-20T21:51:18Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -3957,6 +3957,22 @@
               "away": "Olympique de Marseille",
               "date": "2026-11-08",
               "covered": true
+            }
+          ]
+        },
+        {
+          "gameweek": "GW11",
+          "stem": "gameweek-11",
+          "total": 1,
+          "covered": 0,
+          "matches": [
+            {
+              "match_id": 559622,
+              "home": "ES Troyes AC",
+              "away": "Le Havre AC",
+              "date": "2026-11-20",
+              "covered": false,
+              "pending": true
             }
           ]
         }
