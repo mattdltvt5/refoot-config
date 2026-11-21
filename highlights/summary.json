@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-21T19:26:36Z",
+  "generated_at": "2026-11-21T19:31:52Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -3346,7 +3346,7 @@
         {
           "gameweek": "GW10",
           "stem": "gameweek-10",
-          "total": 6,
+          "total": 7,
           "covered": 6,
           "matches": [
             {
@@ -3390,6 +3390,14 @@
               "away": "TSG 1899 Hoffenheim",
               "date": "2026-11-21",
               "covered": true
+            },
+            {
+              "match_id": 565861,
+              "home": "FC Schalke 04",
+              "away": "VfB Stuttgart",
+              "date": "2026-11-21",
+              "covered": false,
+              "pending": true
             }
           ]
         }

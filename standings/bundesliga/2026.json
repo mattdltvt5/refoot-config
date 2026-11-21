@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-21T18:27:23.504445Z",
+  "generated_at": "2026-11-21T19:32:21.745187Z",
   "competition": "Bundesliga",
   "slug": "bundesliga",
   "season": 2026,
@@ -140,6 +140,25 @@
     {
       "position": 8,
       "team": {
+        "id": 10,
+        "name": "VfB Stuttgart",
+        "shortName": "Stuttgart",
+        "tla": "VFB",
+        "crest": "https://crests.football-data.org/10.png"
+      },
+      "playedGames": 10,
+      "form": "D,W,W,L,L",
+      "won": 4,
+      "draw": 1,
+      "lost": 5,
+      "points": 13,
+      "goalsFor": 15,
+      "goalsAgainst": 15,
+      "goalDifference": 0
+    },
+    {
+      "position": 9,
+      "team": {
         "id": 719,
         "name": "SV 07 Elversberg",
         "shortName": "Elversberg",
@@ -155,25 +174,6 @@
       "goalsFor": 17,
       "goalsAgainst": 19,
       "goalDifference": -2
-    },
-    {
-      "position": 9,
-      "team": {
-        "id": 10,
-        "name": "VfB Stuttgart",
-        "shortName": "Stuttgart",
-        "tla": "VFB",
-        "crest": "https://crests.football-data.org/10.png"
-      },
-      "playedGames": 9,
-      "form": "W,W,L,L,W",
-      "won": 4,
-      "draw": 0,
-      "lost": 5,
-      "points": 12,
-      "goalsFor": 15,
-      "goalsAgainst": 15,
-      "goalDifference": 0
     },
     {
       "position": 10,
@@ -292,6 +292,25 @@
     {
       "position": 16,
       "team": {
+        "id": 6,
+        "name": "FC Schalke 04",
+        "shortName": "Schalke",
+        "tla": "S04",
+        "crest": "https://crests.football-data.org/6.png"
+      },
+      "playedGames": 10,
+      "form": "D,L,L,D,L",
+      "won": 1,
+      "draw": 4,
+      "lost": 5,
+      "points": 7,
+      "goalsFor": 5,
+      "goalsAgainst": 11,
+      "goalDifference": -6
+    },
+    {
+      "position": 17,
+      "team": {
         "id": 28,
         "name": "1. FC Union Berlin",
         "shortName": "Union Berlin",
@@ -307,25 +326,6 @@
       "goalsFor": 8,
       "goalsAgainst": 26,
       "goalDifference": -18
-    },
-    {
-      "position": 17,
-      "team": {
-        "id": 6,
-        "name": "FC Schalke 04",
-        "shortName": "Schalke",
-        "tla": "S04",
-        "crest": "https://crests.football-data.org/6.png"
-      },
-      "playedGames": 9,
-      "form": "L,L,D,L,L",
-      "won": 1,
-      "draw": 3,
-      "lost": 5,
-      "points": 6,
-      "goalsFor": 5,
-      "goalsAgainst": 11,
-      "goalDifference": -6
     },
     {
       "position": 18,
