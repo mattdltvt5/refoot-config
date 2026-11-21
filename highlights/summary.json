@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-21T17:06:38Z",
+  "generated_at": "2026-11-21T17:11:39Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -788,7 +788,7 @@
         {
           "gameweek": "GW11",
           "stem": "gameweek-11",
-          "total": 5,
+          "total": 6,
           "covered": 0,
           "matches": [
             {
@@ -827,6 +827,14 @@
               "match_id": 560650,
               "home": "Coventry City FC",
               "away": "Crystal Palace FC",
+              "date": "2026-11-21",
+              "covered": false,
+              "pending": true
+            },
+            {
+              "match_id": 560642,
+              "home": "Chelsea FC",
+              "away": "Leeds United FC",
               "date": "2026-11-21",
               "covered": false,
               "pending": true
