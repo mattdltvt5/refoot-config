@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-21T19:31:52Z",
+  "generated_at": "2026-11-21T19:36:40Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -788,7 +788,7 @@
         {
           "gameweek": "GW11",
           "stem": "gameweek-11",
-          "total": 6,
+          "total": 7,
           "covered": 0,
           "matches": [
             {
@@ -835,6 +835,14 @@
               "match_id": 560642,
               "home": "Chelsea FC",
               "away": "Leeds United FC",
+              "date": "2026-11-21",
+              "covered": false,
+              "pending": true
+            },
+            {
+              "match_id": 560651,
+              "home": "Newcastle United FC",
+              "away": "Arsenal FC",
               "date": "2026-11-21",
               "covered": false,
               "pending": true
