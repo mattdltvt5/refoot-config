@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-21T17:21:45Z",
+  "generated_at": "2026-11-21T17:26:33Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -1780,7 +1780,7 @@
           "gameweek": "GW13",
           "stem": "gameweek-13",
           "total": 3,
-          "covered": 2,
+          "covered": 3,
           "matches": [
             {
               "match_id": 564748,
@@ -1801,8 +1801,7 @@
               "home": "Rayo Vallecano de Madrid",
               "away": "Valencia CF",
               "date": "2026-11-21",
-              "covered": false,
-              "pending": true
+              "covered": true
             }
           ]
         }
