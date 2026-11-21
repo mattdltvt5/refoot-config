@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-21T15:06:18Z",
+  "generated_at": "2026-11-21T15:12:13Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -1739,14 +1739,21 @@
         {
           "gameweek": "GW13",
           "stem": "gameweek-13",
-          "total": 1,
-          "covered": 1,
+          "total": 2,
+          "covered": 2,
           "matches": [
             {
               "match_id": 564748,
               "home": "Athletic Club",
               "away": "RCD Espanyol de Barcelona",
               "date": "2026-11-20",
+              "covered": true
+            },
+            {
+              "match_id": 564755,
+              "home": "Deportivo Alavés",
+              "away": "RC Deportivo La Coruña",
+              "date": "2026-11-21",
               "covered": true
             }
           ]

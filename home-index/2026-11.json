@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-21T15:06:14Z",
+  "generated_at": "2026-11-21T15:12:41Z",
   "month": "2026-11",
   "dates": {
     "2026-11-01": [
@@ -2214,9 +2214,9 @@
               "tla": "LEE",
               "crest": "https://crests.football-data.org/341.png"
             },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "TIMED",
+            "homeScore": 0,
+            "awayScore": 0,
+            "status": "IN_PLAY",
             "utcDate": "2026-11-21T15:00:00Z"
           },
           {
@@ -2235,9 +2235,9 @@
               "tla": "SUN",
               "crest": "https://crests.football-data.org/71.png"
             },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "TIMED",
+            "homeScore": 0,
+            "awayScore": 0,
+            "status": "IN_PLAY",
             "utcDate": "2026-11-21T15:00:00Z"
           },
           {
@@ -2256,9 +2256,9 @@
               "tla": "NOT",
               "crest": "https://crests.football-data.org/351.png"
             },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "TIMED",
+            "homeScore": 0,
+            "awayScore": 0,
+            "status": "IN_PLAY",
             "utcDate": "2026-11-21T15:00:00Z"
           },
           {
@@ -2277,9 +2277,9 @@
               "tla": "IPS",
               "crest": "https://crests.football-data.org/349.png"
             },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "TIMED",
+            "homeScore": 0,
+            "awayScore": 0,
+            "status": "IN_PLAY",
             "utcDate": "2026-11-21T15:00:00Z"
           },
           {
@@ -2298,9 +2298,9 @@
               "tla": "CRY",
               "crest": "https://crests.football-data.org/354.png"
             },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "TIMED",
+            "homeScore": 0,
+            "awayScore": 0,
+            "status": "IN_PLAY",
             "utcDate": "2026-11-21T15:00:00Z"
           },
           {
@@ -2348,8 +2348,9 @@
             },
             "homeScore": 3,
             "awayScore": 1,
-            "status": "IN_PLAY",
-            "utcDate": "2026-11-21T13:00:00Z"
+            "status": "FINISHED",
+            "utcDate": "2026-11-21T13:00:00Z",
+            "videoId": "IYM7UXWv3tE"
           },
           {
             "match_id": 564751,
