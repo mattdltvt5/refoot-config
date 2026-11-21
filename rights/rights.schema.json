@@ -1,0 +1,81 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/mattdltvt5/refoot-config/rights/rights.schema.json",
+  "title": "ReFoot rights registry (one season)",
+  "description": "Which broadcasters hold live or highlight rights per competition and country for one season. Config, not cache: edited by people, read by scripts/rights_registry.py and scripts/source_health_scan.py. Never written by the pipeline.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["season", "entries"],
+  "properties": {
+    "season": {
+      "description": "Season start year (2026 = 2026/27, August threshold). For tournament competitions (World Cup, Euro Cup, Copa America) the edition year.",
+      "type": "integer",
+      "minimum": 2000,
+      "maximum": 2100
+    },
+    "notes": { "type": "string" },
+    "entries": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/entry" }
+    }
+  },
+  "$defs": {
+    "isoDate": {
+      "type": "string",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+    },
+    "channel": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["channel_id", "playlist_ids"],
+      "properties": {
+        "channel_id": {
+          "description": "YouTube channel ID (UC...). Its uploads playlist is the same ID with UC replaced by UU. Empty string when only playlists are known.",
+          "type": "string",
+          "pattern": "^(UC[A-Za-z0-9_-]{22})?$"
+        },
+        "playlist_ids": {
+          "type": "array",
+          "items": { "type": "string", "pattern": "^(PL|UU)[A-Za-z0-9_-]{10,}$" }
+        },
+        "note": { "type": "string" }
+      }
+    },
+    "entry": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["competition", "country", "holder", "role", "channels", "status"],
+      "properties": {
+        "competition": {
+          "description": "Competition slug, as in COMPETITION_SLUG_MAP (premier-league, laliga, serie-a, bundesliga, ligue-1, ucl, uel, euro-cup, world-cup, copa-america).",
+          "type": "string",
+          "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+        },
+        "country": {
+          "description": "ISO 3166-1 alpha-2 (GB, never UK).",
+          "type": "string",
+          "pattern": "^[A-Z]{2}$",
+          "not": { "const": "UK" }
+        },
+        "holder": {
+          "description": "Display name of the rights holder. null = pair still to confirm (no holder guessed).",
+          "type": ["string", "null"],
+          "minLength": 1
+        },
+        "role": {
+          "description": "live = holds live rights; highlights = posts/holds highlight rights. A live holder is not assumed to post highlights.",
+          "enum": ["live", "highlights"]
+        },
+        "channels": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/channel" }
+        },
+        "status": { "enum": ["unverified", "approved", "rejected"] },
+        "valid_from": { "$ref": "#/$defs/isoDate" },
+        "valid_until": { "$ref": "#/$defs/isoDate" },
+        "notes": { "type": "string" },
+        "source_url": { "type": "string", "pattern": "^https?://" }
+      }
+    }
+  }
+}

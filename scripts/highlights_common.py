@@ -128,6 +128,11 @@ COMPETITION_SLUG_MAP: dict[str, str] = {
     "Copa America":     "copa-america",
 }
 
+# Launch countries (ISO 3166-1 alpha-2; "GB", never "UK"). Drives the rights
+# registry checks and per-country region availability in source_health_scan.py.
+# Adding a country is a config change here (plus its rights/{season}.json entries).
+LAUNCH_COUNTRIES: list[str] = ["US", "GB", "CA", "IE", "ES"]
+
 # UCL/UEL use "matchday-N.json"; domestic leagues use "gameweek-N.json"
 UCL_UEL: set[str] = {"Champions League", "Europa League"}
 
@@ -1254,6 +1259,9 @@ def fetch_video_details(
                 "is_embeddable":        embeddable,
                 "is_region_restricted": region_is_restricted(region),
                 "is_playable_nowhere":  region_is_playable_nowhere(region),
+                # Raw contentDetails.regionRestriction (None = everywhere), for
+                # per-country checks via region_is_playable_in().
+                "region_restriction":   region,
             }
     return out
 
