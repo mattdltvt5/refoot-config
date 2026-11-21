@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-21T17:01:42Z",
+  "generated_at": "2026-11-21T17:06:38Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -788,7 +788,7 @@
         {
           "gameweek": "GW11",
           "stem": "gameweek-11",
-          "total": 2,
+          "total": 5,
           "covered": 0,
           "matches": [
             {
@@ -803,6 +803,30 @@
               "match_id": 560644,
               "home": "Aston Villa FC",
               "away": "Sunderland AFC",
+              "date": "2026-11-21",
+              "covered": false,
+              "pending": true
+            },
+            {
+              "match_id": 560647,
+              "home": "AFC Bournemouth",
+              "away": "Nottingham Forest FC",
+              "date": "2026-11-21",
+              "covered": false,
+              "pending": true
+            },
+            {
+              "match_id": 560648,
+              "home": "Tottenham Hotspur FC",
+              "away": "Ipswich Town FC",
+              "date": "2026-11-21",
+              "covered": false,
+              "pending": true
+            },
+            {
+              "match_id": 560650,
+              "home": "Coventry City FC",
+              "away": "Crystal Palace FC",
               "date": "2026-11-21",
               "covered": false,
               "pending": true
@@ -3301,7 +3325,7 @@
           "gameweek": "GW10",
           "stem": "gameweek-10",
           "total": 6,
-          "covered": 3,
+          "covered": 6,
           "matches": [
             {
               "match_id": 565859,
@@ -3315,8 +3339,7 @@
               "home": "Bayer 04 Leverkusen",
               "away": "SC Paderborn 07",
               "date": "2026-11-21",
-              "covered": false,
-              "pending": true
+              "covered": true
             },
             {
               "match_id": 565860,
@@ -3337,16 +3360,14 @@
               "home": "1. FC Union Berlin",
               "away": "RB Leipzig",
               "date": "2026-11-21",
-              "covered": false,
-              "pending": true
+              "covered": true
             },
             {
               "match_id": 565865,
               "home": "Eintracht Frankfurt",
               "away": "TSG 1899 Hoffenheim",
               "date": "2026-11-21",
-              "covered": false,
-              "pending": true
+              "covered": true
             }
           ]
         }
