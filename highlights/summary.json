@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-21T16:51:37Z",
+  "generated_at": "2026-11-21T16:56:26Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -2626,7 +2626,7 @@
           "gameweek": "GW12",
           "stem": "gameweek-12",
           "total": 2,
-          "covered": 1,
+          "covered": 2,
           "matches": [
             {
               "match_id": 558528,
@@ -2640,8 +2640,7 @@
               "home": "Como 1907",
               "away": "Cagliari Calcio",
               "date": "2026-11-21",
-              "covered": false,
-              "pending": true
+              "covered": true
             }
           ]
         }
