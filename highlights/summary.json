@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-21T16:01:33Z",
+  "generated_at": "2026-11-21T16:06:32Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -2625,13 +2625,21 @@
         {
           "gameweek": "GW12",
           "stem": "gameweek-12",
-          "total": 1,
+          "total": 2,
           "covered": 0,
           "matches": [
             {
               "match_id": 558528,
               "home": "SS Lazio",
               "away": "US Lecce",
+              "date": "2026-11-21",
+              "covered": false,
+              "pending": true
+            },
+            {
+              "match_id": 558525,
+              "home": "Como 1907",
+              "away": "Cagliari Calcio",
               "date": "2026-11-21",
               "covered": false,
               "pending": true
