@@ -93,7 +93,7 @@ def test_fetch_video_details_flags_region_restriction():
         _item("allowed_us", {"allowed": ["US"]}),
         _item("blocked_de", {"blocked": ["DE"]}),
         _item("global", None),
-        _item("empty_lists", {"allowed": []}),  # empty → not a real restriction
+        _item("empty_lists", {"allowed": []}),  # empty allowed → playable NOWHERE
     ]}
     with patch("highlights_common.requests.get", return_value=_http_ok(body)):
         out = fetch_video_details(
@@ -102,7 +102,10 @@ def test_fetch_video_details_flags_region_restriction():
     assert out["allowed_us"]["is_region_restricted"] is True
     assert out["blocked_de"]["is_region_restricted"] is True
     assert out["global"]["is_region_restricted"] is False
-    assert out["empty_lists"]["is_region_restricted"] is False
+    assert out["empty_lists"]["is_region_restricted"] is True
+    assert out["empty_lists"]["is_playable_nowhere"] is True
+    assert out["allowed_us"]["is_playable_nowhere"] is False
+    assert out["global"]["is_playable_nowhere"] is False
     # Existing fields still present.
     assert out["global"]["duration_seconds"] == 300
     assert out["global"]["is_embeddable"] is True

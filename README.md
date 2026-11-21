@@ -4,6 +4,58 @@ Data pipeline and remote configuration for **ReFoot**, the Flutter web app (`ref
 
 ## Recent changes
 
+### Bundesliga full-match / live replays no longer accepted as highlights (2026-11-21)
+
+An audit found 54 of 93 cached Bundesliga 2026/27 entries were the Bundesliga channel's full-match or live
+replays ("SV Elversberg vs. Sport-Club Freiburg | Matchday 10 - Bundesliga 2026/27",
+"LIVE 🔴 Hamburger SV vs. ... | Matchday 9 - ..."), not highlights. They are geo-locked to a few countries
+(e.g. only Myanmar, or only Ireland), mostly non-embeddable, and don't play in the US. The channel's real
+cuts ("... | Highlights | Matchday 9 – Bundesliga 2026/27") play in the US. Changes in
+`scripts/highlights_common.py`:
+
+- **Required title terms for the competition channel (config).** `COMP_CHANNEL_REQUIRED_TERMS`
+  (`{competition: [terms]}`) is an AND gate: at least one term must appear in the hashtag-stripped title. It
+  applies even when a GW playlist's own title bypasses the allowlist. It is passed **only** to the tier-2
+  competition-channel source (2a GW playlist + 2b uploads), never to club channels, team playlists or
+  broadcaster playlists. `"Bundesliga": ["highlights", "| hl |"]` (the channel's short marker, as in
+  "... | HL | MD 11 – Bundesliga"). It is a separate mapping from `COMP_CHANNEL_TITLE_TERMS` because that one
+  *loosens* the allowlist (any term may match), while this one *tightens* it. Adding a competition is a
+  one-line config entry. Debug reason: `title-filter:missing-required-term`.
+- **Live-replay block (every source).** `TITLE_BLOCKLIST_PATTERNS` holds regex blocklist entries, checked
+  with `TITLE_BLOCKLIST` (blocklist always wins). It rejects "LIVE" next to the 🔴 emoji (either order) and
+  a leading "LIVE" token. "live" elsewhere in a title (Liverpool, "lively", "live-stark") is not affected,
+  and no allowlist term in the 11 languages conflicts. `title_block_reason(title)` returns the matching term
+  or pattern.
+- **`MAX_VIDEO_DURATION_SECONDS = 1800`**, enforced in the tier filter next to the 55 s minimum (debug
+  reason `too-long:Ns`). Override it per competition with `MAX_VIDEO_DURATION_OVERRIDES` (read via
+  `max_video_duration(comp)`). Extended highlights (15-25 min) pass. Live streams still in progress report
+  0 s and are already rejected by the minimum.
+- **Region semantics fixed.** Only an absent `regionRestriction` means playable everywhere. A present
+  `allowed` list means only those countries, so an **empty `allowed` list means playable nowhere**
+  (previously treated as everywhere). `blocked` means everywhere except those (an empty list means
+  everywhere). Helpers: `region_is_playable_in(region, country)`, `region_is_restricted(region)`,
+  `region_is_playable_nowhere(region)`. `fetch_video_details` now also reports `is_playable_nowhere`.
+  `prefer_unrestricted` always drops a playable-nowhere clip, even when it is the only candidate, so the
+  next tier gets tried. Region-locked clips are still kept when no global one exists.
+- **Re-check of cached entries.** New existing-record guard `title_gate_guard` (in
+  `EXISTING_RECORD_GUARDS`, so it runs in `fetch_highlights.py`, `backfill_highlights.py` and
+  `backfill_copa_america.py`). It re-applies the current blocklist (all sources) and the required terms
+  (`tier_used == 2` only) to the **cached title**. A failing video is removed, and a match left empty is
+  matched again by the normal flow. No API calls. The allowlist is not re-checked, because curated playlists
+  may have bypassed it. An entry with no stored title is left alone. Each drop is logged and listed in
+  `fetch-log.json` `rejections` (`reason: title_gate_blocked` / `title_gate_missing_required_term`,
+  match_id, video_id, title). Guards now take `(video, fixture, comp_name)`; `comp_name` comes from the
+  gameweek file's `competition`.
+
+Dry run on the committed cache (no API, no writes): **54** Bundesliga 2026 entries would be dropped (49
+missing a required term, 5 LIVE), matching the audit. Every other current-season file is unchanged. Seven
+2025 entries would also fail. They are only touched by an explicit 2025 backfill:
+
+- 4 genuine Bundesliga highlights in the 2025 caps format without "Highlights"/"HL".
+- 3 PL/UCL titles caught by the existing `"goals |"` blocklist term.
+
+Tests: `scripts/tests/test_replay_filter.py`.
+
 ### Unknown match statuses are published as SCHEDULED without a score (2026-11-05)
 
 Rayo Vallecano v Athletic Club (LaLiga, 564698) was abandoned at 0-0 on 10 Oct and re-scheduled for 9 Dec.
@@ -1285,9 +1337,12 @@ python scripts/fetch_highlights.py --debug-matching
 | `no-token-overlap` | Tier 1a/1b: neither team found in title |
 | `title-filter:blocked:<term>` | Global blocklist matched first (e.g. `'press conference'`) |
 | `title-filter:no-allowlist-match` | No allowlist term found after hashtag strip |
+| `title-filter:missing-required-term` | Tier 2 only: title lacks every `COMP_CHANNEL_REQUIRED_TERMS` term for this competition |
 | `laliga-gate:no-highlights-laliga` | Passed all other filters but title lacks `HIGHLIGHTS LALIGA` (tier 2 only) |
 | `too-short:<N>s` | Quality filter: clip shorter than 120 s |
+| `too-long:<N>s` | Quality filter: longer than `max_video_duration(comp)` (default 1800 s) |
 | `portrait-video` | Quality filter: vertical/portrait aspect ratio |
+| `playable-nowhere` | Region: empty `regionRestriction.allowed` list - plays in no country |
 
 **Accent probe:** The `accent-probe` lines show what `_normalize()` does to each team name.  This pinpoints diacritic bugs:
 - `'Deportivo Alavés'` → `'deportivo alaves'` (ÿ/é/á stripped by NFKD combining-mark removal)

@@ -55,6 +55,17 @@ YT_PLAYLIST  = "https://www.googleapis.com/youtube/v3/playlistItems"
 YT_VIDEOS    = "https://www.googleapis.com/youtube/v3/videos"
 YT_PLAYLISTS = "https://www.googleapis.com/youtube/v3/playlists"
 MIN_VIDEO_DURATION_SECONDS = 55    # reject clips shorter than 55s (Shorts, social clips)
+# Reject anything longer than this: full-match and live-stream replays run 90+
+# minutes, while extended highlights packages run up to ~25 minutes.
+MAX_VIDEO_DURATION_SECONDS = 1800
+# Per-competition override of MAX_VIDEO_DURATION_SECONDS: {comp_name: seconds}.
+# Add an entry here (config, not code) if a competition's official cut runs longer.
+MAX_VIDEO_DURATION_OVERRIDES: dict[str, int] = {}
+
+
+def max_video_duration(comp_name: str) -> int:
+    """Maximum accepted highlight duration (seconds) for [comp_name]."""
+    return MAX_VIDEO_DURATION_OVERRIDES.get(comp_name, MAX_VIDEO_DURATION_SECONDS)
 
 # ── Manual crest overrides (per football-data team id) ──────────────────────────
 #
@@ -942,6 +953,33 @@ TITLE_BLOCKLIST: list[str] = [
     "antrenman",             # training
 ]
 
+# Regex blocklist entries for markers a substring can't express narrowly.
+# Checked together with TITLE_BLOCKLIST (blocklist always wins), on the raw
+# lowercase title, for every source.
+#
+# Live-stream / full-match replays: competition channels stream matches live and
+# keep the VOD ("LIVE 🔴 FC Bayern München vs. 1. FC Union Berlin | Matchday 4").
+# Matched narrowly so "live" elsewhere in a title (e.g. "Liverpool", "deliver",
+# "what a lively game") never fires: only LIVE next to the red-circle emoji, or
+# LIVE as the title's leading word.
+TITLE_BLOCKLIST_PATTERNS: list["re.Pattern[str]"] = [
+    re.compile(r"\blive[\s️:|\-–—]*🔴"),   # "LIVE 🔴 …", "LIVE: 🔴 …"
+    re.compile(r"🔴[\s️:|\-–—]*live\b"),   # "🔴 LIVE …", "🔴LIVE …"
+    re.compile(r"^\W*live\b"),                  # leading token: "LIVE | …", "LIVE: …"
+]
+
+
+def title_block_reason(title: str) -> "str | None":
+    """The blocklist entry (term or pattern) that rejects [title], else None."""
+    lower = title.lower()
+    for term in TITLE_BLOCKLIST:
+        if term in lower:
+            return term
+    for pattern in TITLE_BLOCKLIST_PATTERNS:
+        if pattern.search(lower):
+            return pattern.pattern
+    return None
+
 # "entrevista" covers Spanish + Portuguese; "analyse" covers French/German/Dutch;
 # "interview"/"training"/"analyse" appear in multiple languages — one entry handles all.
 # These shared terms are listed once in TITLE_BLOCKLIST above.
@@ -1010,17 +1048,45 @@ TITLE_ALLOWLIST: list[str] = [
 # name.  Entries here are sponsor-agnostic and survive rebranding between seasons.
 COMP_CHANNEL_TITLE_TERMS: dict[str, list[str]] = {
     # "| HL | MD 4 – Bundesliga", "| Highlights | Matchday 21 – Bundesliga 2025/26",
-    # and bare "| Matchday 19" titles that lack "Bundesliga" or "Highlights"
+    # and bare "| Matchday 19" titles that lack "Bundesliga" or "Highlights".
+    # NOTE: COMP_CHANNEL_REQUIRED_TERMS["Bundesliga"] below additionally requires
+    # "highlights" / "| hl |", so these terms alone no longer admit a title (the
+    # bare "A vs. B | Matchday N" format is the channel's full-match replay).
     "Bundesliga": ["bundesliga", "matchday"],
     # "| Week N - Ligue 1 McDonald's 25/26" — survives future sponsor changes
     "Ligue 1":    ["ligue 1"],
 }
+
+# Per-competition REQUIRED title terms for the official competition channel
+# source (tier 2a GW playlist + 2b uploads) ONLY.  Where COMP_CHANNEL_TITLE_TERMS
+# loosens the allowlist (any term may match), this tightens it: at least one of
+# these terms must appear in the hashtag-stripped title, even when the GW
+# playlist's own title would otherwise bypass the allowlist.  Club channels,
+# team playlists and broadcaster playlists are never checked against it.
+# Case-insensitive substring match.
+COMP_CHANNEL_REQUIRED_TERMS: dict[str, list[str]] = {
+    # The Bundesliga channel also uploads full-match / live replays titled
+    # "A vs. B | Matchday N - Bundesliga 2026/27" (geo-locked, mostly
+    # non-embeddable). Its highlights cuts always carry "| Highlights |" or the
+    # short "| HL |" marker ("... | HL | MD 11 – Bundesliga").
+    "Bundesliga": ["highlights", "| hl |"],
+}
+
+
+def has_required_term(title: str, required_terms: "list[str] | tuple[str, ...]") -> bool:
+    """True when [required_terms] is empty or any term appears in the
+    hashtag-stripped, lowercase [title]."""
+    if not required_terms:
+        return True
+    lower_no_tags = re.sub(r"#\S+", "", title.lower())
+    return any(term in lower_no_tags for term in required_terms)
 
 
 def is_highlight_title(
     title: str,
     extra_allowlist: "list[str] | tuple[str, ...]" = (),
     require_allowlist: bool = True,
+    required_terms: "list[str] | tuple[str, ...]" = (),
 ) -> bool:
     """
     Return True only when the video title passes both filters:
@@ -1039,16 +1105,26 @@ def is_highlight_title(
     terms for official competition channel searches) that is checked after the main
     allowlist without affecting other search tiers.
 
+    ``required_terms`` is an optional per-source AND gate (see
+    COMP_CHANNEL_REQUIRED_TERMS): when given, at least one term must appear in
+    the hashtag-stripped title.  It is checked even when ``require_allowlist``
+    is False.
+
     Both checks are case-insensitive and cover 11 languages: English, Spanish,
     French, German, Italian, Portuguese, Arabic, Dutch, Turkish, Japanese, Korean.
     """
     lower = title.lower()
 
     # Step 1 — blocklist on the raw title (hashtags included so "#shorts" fires)
-    for term in TITLE_BLOCKLIST:
-        if term in lower:
-            log.debug(f"Title blocked ({term!r}): {title!r}")
-            return False
+    blocked_by = title_block_reason(title)
+    if blocked_by:
+        log.debug(f"Title blocked ({blocked_by!r}): {title!r}")
+        return False
+
+    # Step 1b — per-source required terms (tightening gate)
+    if not has_required_term(title, required_terms):
+        log.debug(f"Title missing required term {list(required_terms)!r}: {title!r}")
+        return False
 
     if not require_allowlist:
         return True
@@ -1116,9 +1192,11 @@ def fetch_video_details(
     prefer embeddable clips. Absent status defaults to True (don't penalise
     missing metadata, consistent with the duration/portrait filters).
     ``is_region_restricted`` reflects contentDetails.regionRestriction: True when
-    the clip carries an allowed- or blocked-country list (e.g. US-only broadcaster
-    highlights), so it will NOT play for viewers elsewhere (a silent black box in
-    the app). Callers prefer globally-available clips. Absent → False (global).
+    the clip carries an ``allowed`` list (even an empty one) or a non-empty
+    ``blocked`` list (e.g. US-only broadcaster highlights), so it will NOT play
+    for some viewers. Callers prefer globally-available clips. Only an absent
+    regionRestriction object means global. ``is_playable_nowhere`` is True for
+    a present-but-empty ``allowed`` list. See region_is_restricted().
     Costs 1 quota unit regardless of the number of IDs (up to the 50-ID batch limit).
     Raises QuotaCapReached on HTTP 403.
     """
@@ -1168,14 +1246,14 @@ def fetch_video_details(
         embeddable = item.get("status", {}).get("embeddable", True)
         # regionRestriction carries an "allowed" or "blocked" country list when
         # the clip is geo-locked; its absence means the clip plays worldwide.
-        region = item.get("contentDetails", {}).get("regionRestriction", {})
-        region_restricted = bool(region.get("allowed") or region.get("blocked"))
+        region = item.get("contentDetails", {}).get("regionRestriction")
         if vid_id:
             out[vid_id] = {
                 "duration_seconds":     duration,
                 "is_portrait":          portrait,
                 "is_embeddable":        embeddable,
-                "is_region_restricted": region_restricted,
+                "is_region_restricted": region_is_restricted(region),
+                "is_playable_nowhere":  region_is_playable_nowhere(region),
             }
     return out
 
@@ -1207,6 +1285,40 @@ def prefer_embeddable(
     return embeddable, dropped
 
 
+# ── Region availability (contentDetails.regionRestriction) ────────────────────
+#
+# Semantics (YouTube Data API):
+#   - regionRestriction absent      → playable everywhere
+#   - {"allowed": [..]}             → playable ONLY in the listed countries;
+#                                     an EMPTY allowed list = playable nowhere
+#   - {"blocked": [..]}             → playable everywhere except the listed
+#                                     countries; an empty blocked list = everywhere
+# "allowed" takes precedence if both keys are ever present.
+
+
+def region_is_playable_in(region: "dict | None", country: str) -> bool:
+    """True when a clip with this regionRestriction plays in [country] (ISO alpha-2)."""
+    if region is None:
+        return True
+    cc = country.upper()
+    if "allowed" in region:
+        return cc in (region.get("allowed") or [])
+    return cc not in (region.get("blocked") or [])
+
+
+def region_is_restricted(region: "dict | None") -> bool:
+    """True when the clip is unavailable in at least one country (any allowed
+    list, including an empty one, or a non-empty blocked list)."""
+    if region is None:
+        return False
+    return "allowed" in region or bool(region.get("blocked"))
+
+
+def region_is_playable_nowhere(region: "dict | None") -> bool:
+    """True for a present-but-empty allowed list (the clip plays in no country)."""
+    return region is not None and "allowed" in region and not region.get("allowed")
+
+
 def prefer_unrestricted(
     videos: list[dict],
     details: dict[str, dict],
@@ -1225,15 +1337,24 @@ def prefer_unrestricted(
     Region availability is the more severe block (a locked clip is dead with no
     fallback), so callers apply this BEFORE the embeddability preference.
 
+    A clip that plays NOWHERE (empty ``allowed`` list) is always dropped, even
+    when it is the only candidate: it plays for no viewer, so it is worse than
+    no highlight and must not block a later source from being tried.
+
     Pure so it can be unit-tested without the YouTube API.
     """
+    def _nowhere(v: dict) -> bool:
+        return details.get(v["video_id"], {}).get("is_playable_nowhere", False)
+
     def _global(v: dict) -> bool:
         return not details.get(v["video_id"], {}).get("is_region_restricted", False)
 
-    unrestricted = [v for v in videos if _global(v)]
+    nowhere  = [v for v in videos if _nowhere(v)]
+    playable = [v for v in videos if not _nowhere(v)]
+    unrestricted = [v for v in playable if _global(v)]
     if not unrestricted:
-        return videos, []
-    dropped = [v for v in videos if not _global(v)]
+        return playable, nowhere
+    dropped = nowhere + [v for v in playable if not _global(v)]
     return unrestricted, dropped
 
 
@@ -1941,15 +2062,21 @@ def _record_guard_rejection(fixture: dict, video: dict, reason: str, action: str
         "accepted_scores":  sorted(list(s) for s in accepted),
     }
     GUARD_REJECTIONS.append(entry)
-    log.warning(
-        f"{reason}: {action} {entry['video_id']} for match {entry['match_id']} "
-        f"— title {entry['title']!r} states {entry['title_scorelines']}, "
-        f"cached score {entry['cached_score']}"
-    )
+    if reason == "scoreline_mismatch":
+        log.warning(
+            f"{reason}: {action} {entry['video_id']} for match {entry['match_id']} "
+            f"— title {entry['title']!r} states {entry['title_scorelines']}, "
+            f"cached score {entry['cached_score']}"
+        )
+    else:
+        log.warning(
+            f"{reason}: {action} {entry['video_id']} for match {entry['match_id']} "
+            f"— title {entry['title']!r}"
+        )
     return entry
 
 
-def scoreline_guard(video: dict, fixture: dict) -> "str | None":
+def scoreline_guard(video: dict, fixture: dict, comp_name: str = "") -> "str | None":
     """Existing-record guard: 'scoreline_mismatch' when the cached video's title
     contradicts the fixture's final score, else None."""
     if scoreline_contradicts(video.get("title", ""), fixture):
@@ -1957,9 +2084,35 @@ def scoreline_guard(video: dict, fixture: dict) -> "str | None":
     return None
 
 
+def title_gate_guard(video: dict, fixture: dict, comp_name: str = "") -> "str | None":
+    """Existing-record guard: re-applies the CURRENT title gates to a cached
+    video so a clip accepted under older, looser rules is dropped and its match
+    re-searched.  Uses only the cached title — no API calls.
+
+    - Blocklist (terms + patterns) applies to every source, as at search time.
+    - COMP_CHANNEL_REQUIRED_TERMS applies only to competition-channel entries
+      (``tier_used == 2``), exactly as at search time.
+    - The allowlist is NOT re-checked: curated playlists may legitimately have
+      bypassed it, and the cached entry doesn't record whether they did.
+
+    A missing or empty stored title leaves the entry alone (None).
+    """
+    title = video.get("title")
+    if not title:
+        return None
+    if title_block_reason(title):
+        return "title_gate_blocked"
+    if video.get("tier_used") == 2 and not has_required_term(
+        title, COMP_CHANNEL_REQUIRED_TERMS.get(comp_name, ())
+    ):
+        return "title_gate_missing_required_term"
+    return None
+
+
 # Checks re-run on every cached video before it is reused.  Each takes
-# (cached video entry, fixture) and returns a rejection reason or None.
-EXISTING_RECORD_GUARDS = [scoreline_guard]
+# (cached video entry, fixture, competition name) and returns a rejection
+# reason or None.
+EXISTING_RECORD_GUARDS = [scoreline_guard, title_gate_guard]
 
 
 def apply_existing_record_guards(
@@ -1977,6 +2130,7 @@ def apply_existing_record_guards(
     if not existing:
         return []
     guards = EXISTING_RECORD_GUARDS if guards is None else guards
+    comp_name = existing.get("competition", "")
     fix_by_id = {f["match_id"]: f for f in fixtures}
     removed: list[dict] = []
     for match in existing.get("matches", []):
@@ -1986,7 +2140,7 @@ def apply_existing_record_guards(
             continue
         kept = []
         for video in videos:
-            reason = next((r for g in guards if (r := g(video, fix))), None)
+            reason = next((r for g in guards if (r := g(video, fix, comp_name))), None)
             if reason:
                 removed.append(_record_guard_rejection(fix, video, reason, "removed_cached"))
             else:
@@ -2012,6 +2166,7 @@ def search_playlist(
     debug_sink: "list | None" = None,
     date_window_days: int = VIDEO_WINDOW_DAYS,
     bypass_highlight_allowlist: bool = False,
+    required_terms: "list[str] | tuple[str, ...]" = (),
 ) -> list[dict]:
     """
     Search a playlist for videos matching the given fixture.
@@ -2162,14 +2317,18 @@ def search_playlist(
             # Reject press conferences, interviews, previews, training clips, etc.
             # Blocklist always wins; allowlist is skipped when bypass_highlight_allowlist
             # is True (the playlist title already implies these are highlight videos).
-            if not is_highlight_title(title, extra_allowlist, require_allowlist=not bypass_highlight_allowlist):
-                lower = title.lower()
-                blocked_by = next((t for t in TITLE_BLOCKLIST if t in lower), None)
-                reason = (
-                    f"title-filter:blocked:{blocked_by!r}"
-                    if blocked_by
-                    else "title-filter:no-allowlist-match"
-                )
+            if not is_highlight_title(
+                title, extra_allowlist,
+                require_allowlist=not bypass_highlight_allowlist,
+                required_terms=required_terms,
+            ):
+                blocked_by = title_block_reason(title)
+                if blocked_by:
+                    reason = f"title-filter:blocked:{blocked_by!r}"
+                elif not has_required_term(title, required_terms):
+                    reason = "title-filter:missing-required-term"
+                else:
+                    reason = "title-filter:no-allowlist-match"
                 _rec(video_id, title, norm_title, reason)
                 continue
 
@@ -2240,6 +2399,7 @@ def resolve_videos_for_fixture(
         date_window: int = VIDEO_WINDOW_DAYS,
         comp_exclusion_kws: "tuple[str, ...] | list[str]" = (),
         highlight_playlist: bool = False,
+        required_terms: "list[str] | tuple[str, ...]" = (),
     ) -> list[dict] | None:
         if not playlist_id:
             return None
@@ -2254,6 +2414,7 @@ def resolve_videos_for_fixture(
             debug_sink=debug_sink,
             date_window_days=date_window,
             bypass_highlight_allowlist=highlight_playlist,
+            required_terms=required_terms,
         )
         if debug_sink is not None:
             for rec in debug_sink[_sink_start:]:
@@ -2335,6 +2496,22 @@ def resolve_videos_for_fixture(
                         f"{v['title']!r}"
                     )
                     continue
+                max_dur = max_video_duration(comp_name)
+                if d["duration_seconds"] > max_dur:
+                    if debug_sink is not None:
+                        debug_sink.append({
+                            "video_id":    v["video_id"],
+                            "title":       v["title"],
+                            "norm_title":  _normalize(v["title"]),
+                            "reason":      f"too-long:{d['duration_seconds']}s",
+                            "playlist_id": playlist_id,
+                            "tier":        tier,
+                        })
+                    log.info(
+                        f"  Quality: skipping over-long video (full-match/live replay?) "
+                        f"({d['duration_seconds']}s > {max_dur}s): {v['title']!r}"
+                    )
+                    continue
                 if d["is_portrait"]:
                     if debug_sink is not None:
                         debug_sink.append({
@@ -2358,20 +2535,25 @@ def resolve_videos_for_fixture(
         # already fetched above.
         kept, dropped = prefer_unrestricted(filtered, details)
         for v in dropped:
+            nowhere = details.get(v["video_id"], {}).get("is_playable_nowhere", False)
             if debug_sink is not None:
                 debug_sink.append({
                     "video_id":    v["video_id"],
                     "title":       v["title"],
                     "norm_title":  _normalize(v["title"]),
-                    "reason":      "region-restricted",
+                    "reason":      "playable-nowhere" if nowhere else "region-restricted",
                     "playlist_id": playlist_id,
                     "tier":        tier,
                 })
             log.info(
+                f"  Region: skipping clip playable in no country: {v['title']!r}"
+                if nowhere else
                 f"  Region: skipping geo-locked clip "
                 f"(a globally-available candidate exists): {v['title']!r}"
             )
         filtered = kept
+        if not filtered:
+            return None
 
         # Embeddability preference: when this batch has any embeddable clip, drop
         # the non-embeddable ones so the app never picks a clip that can't load in
@@ -2434,6 +2616,8 @@ def resolve_videos_for_fixture(
     ch = comp_ch.get(comp_name, "")
     if ch:
         comp_extra = COMP_CHANNEL_TITLE_TERMS.get(comp_name, ())
+        # Source-scoped AND gate (tier 2 only — never passed to other tiers).
+        comp_required = COMP_CHANNEL_REQUIRED_TERMS.get(comp_name, ())
         gw_pl_result = find_gameweek_playlist(
             ch,
             fixture.get("matchday"),
@@ -2446,7 +2630,7 @@ def resolve_videos_for_fixture(
         )
         if gw_pl_result:
             gw_pl, gw_pl_title = gw_pl_result
-            result = _try(gw_pl, tier=2, both_teams=True, extra_allowlist=comp_extra, date_window=_CURATED_PLAYLIST_WINDOW, highlight_playlist="highlight" in gw_pl_title.lower())
+            result = _try(gw_pl, tier=2, both_teams=True, extra_allowlist=comp_extra, date_window=_CURATED_PLAYLIST_WINDOW, highlight_playlist="highlight" in gw_pl_title.lower(), required_terms=comp_required)
             # LaLiga channel strict gate: only 'HIGHLIGHTS LALIGA' titles accepted from
             # this source.  'RESUMEN LALIGA EA SPORTS' passes is_highlight_title() via
             # the Spanish 'resumen' allowlist term but is rejected here because it is
@@ -2468,7 +2652,7 @@ def resolve_videos_for_fixture(
                 return result
         # Tier 2b: broad channel uploads (original fallback)
         uploads_pl = channel_to_uploads(ch)
-        result = _try(uploads_pl, tier=2, both_teams=True, extra_allowlist=comp_extra)
+        result = _try(uploads_pl, tier=2, both_teams=True, extra_allowlist=comp_extra, required_terms=comp_required)
         if result and comp_name == "LaLiga":
             if debug_sink is not None:
                 for v in result:
