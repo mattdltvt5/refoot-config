@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-21T18:21:36Z",
+  "generated_at": "2026-11-21T18:26:46Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -4105,7 +4105,7 @@
         {
           "gameweek": "GW11",
           "stem": "gameweek-11",
-          "total": 1,
+          "total": 2,
           "covered": 1,
           "matches": [
             {
@@ -4114,6 +4114,14 @@
               "away": "Le Havre AC",
               "date": "2026-11-20",
               "covered": true
+            },
+            {
+              "match_id": 559628,
+              "home": "OGC Nice",
+              "away": "Paris Saint-Germain FC",
+              "date": "2026-11-21",
+              "covered": false,
+              "pending": true
             }
           ]
         }
