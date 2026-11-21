@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-21T20:56:44.093578Z",
+  "generated_at": "2026-11-21T21:46:34.614970Z",
   "competition": "Serie A",
   "slug": "serie-a",
   "season": 2026,
@@ -121,6 +121,25 @@
     {
       "position": 7,
       "team": {
+        "id": 113,
+        "name": "SSC Napoli",
+        "shortName": "Napoli",
+        "tla": "NAP",
+        "crest": "https://crests.football-data.org/113.png"
+      },
+      "playedGames": 12,
+      "form": "W,D,L,W,D",
+      "won": 5,
+      "draw": 3,
+      "lost": 4,
+      "points": 18,
+      "goalsFor": 19,
+      "goalsAgainst": 14,
+      "goalDifference": 5
+    },
+    {
+      "position": 8,
+      "team": {
         "id": 109,
         "name": "Juventus FC",
         "shortName": "Juventus",
@@ -138,7 +157,7 @@
       "goalDifference": 3
     },
     {
-      "position": 8,
+      "position": 9,
       "team": {
         "id": 103,
         "name": "Bologna FC 1909",
@@ -157,7 +176,7 @@
       "goalDifference": 2
     },
     {
-      "position": 9,
+      "position": 10,
       "team": {
         "id": 104,
         "name": "Cagliari Calcio",
@@ -176,45 +195,7 @@
       "goalDifference": -7
     },
     {
-      "position": 10,
-      "team": {
-        "id": 113,
-        "name": "SSC Napoli",
-        "shortName": "Napoli",
-        "tla": "NAP",
-        "crest": "https://crests.football-data.org/113.png"
-      },
-      "playedGames": 11,
-      "form": "D,L,W,D,L",
-      "won": 4,
-      "draw": 3,
-      "lost": 4,
-      "points": 15,
-      "goalsFor": 18,
-      "goalsAgainst": 14,
-      "goalDifference": 4
-    },
-    {
       "position": 11,
-      "team": {
-        "id": 586,
-        "name": "Torino FC",
-        "shortName": "Torino",
-        "tla": "TOR",
-        "crest": "https://crests.football-data.org/586.png"
-      },
-      "playedGames": 11,
-      "form": "D,L,L,W,W",
-      "won": 4,
-      "draw": 2,
-      "lost": 5,
-      "points": 14,
-      "goalsFor": 15,
-      "goalsAgainst": 17,
-      "goalDifference": -2
-    },
-    {
-      "position": 12,
       "team": {
         "id": 102,
         "name": "Atalanta BC",
@@ -230,6 +211,25 @@
       "points": 14,
       "goalsFor": 17,
       "goalsAgainst": 20,
+      "goalDifference": -3
+    },
+    {
+      "position": 12,
+      "team": {
+        "id": 586,
+        "name": "Torino FC",
+        "shortName": "Torino",
+        "tla": "TOR",
+        "crest": "https://crests.football-data.org/586.png"
+      },
+      "playedGames": 12,
+      "form": "L,D,L,L,W",
+      "won": 4,
+      "draw": 2,
+      "lost": 6,
+      "points": 14,
+      "goalsFor": 15,
+      "goalsAgainst": 18,
       "goalDifference": -3
     },
     {
