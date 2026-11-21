@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-21T17:57:13.294635Z",
+  "generated_at": "2026-11-21T19:02:28.512062Z",
   "competition": "Serie A",
   "slug": "serie-a",
   "season": 2026,
@@ -26,6 +26,25 @@
     {
       "position": 2,
       "team": {
+        "id": 100,
+        "name": "AS Roma",
+        "shortName": "Roma",
+        "tla": "ROM",
+        "crest": "https://crests.football-data.org/100.png"
+      },
+      "playedGames": 12,
+      "form": "W,W,W,W,D",
+      "won": 9,
+      "draw": 3,
+      "lost": 0,
+      "points": 30,
+      "goalsFor": 36,
+      "goalsAgainst": 11,
+      "goalDifference": 25
+    },
+    {
+      "position": 3,
+      "team": {
         "id": 108,
         "name": "FC Internazionale Milano",
         "shortName": "Inter",
@@ -41,25 +60,6 @@
       "goalsFor": 28,
       "goalsAgainst": 13,
       "goalDifference": 15
-    },
-    {
-      "position": 3,
-      "team": {
-        "id": 100,
-        "name": "AS Roma",
-        "shortName": "Roma",
-        "tla": "ROM",
-        "crest": "https://crests.football-data.org/100.png"
-      },
-      "playedGames": 11,
-      "form": "W,W,W,D,W",
-      "won": 8,
-      "draw": 3,
-      "lost": 0,
-      "points": 27,
-      "goalsFor": 31,
-      "goalsAgainst": 10,
-      "goalDifference": 21
     },
     {
       "position": 4,
@@ -298,15 +298,15 @@
         "tla": "PAR",
         "crest": "https://crests.football-data.org/112.png"
       },
-      "playedGames": 11,
-      "form": "L,W,D,L,L",
+      "playedGames": 12,
+      "form": "L,L,W,D,L",
       "won": 2,
       "draw": 2,
-      "lost": 7,
+      "lost": 8,
       "points": 8,
-      "goalsFor": 9,
-      "goalsAgainst": 17,
-      "goalDifference": -8
+      "goalsFor": 10,
+      "goalsAgainst": 22,
+      "goalDifference": -12
     },
     {
       "position": 17,

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-21T18:56:37Z",
+  "generated_at": "2026-11-21T19:02:00Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -2672,7 +2672,7 @@
         {
           "gameweek": "GW12",
           "stem": "gameweek-12",
-          "total": 2,
+          "total": 3,
           "covered": 2,
           "matches": [
             {
@@ -2688,6 +2688,14 @@
               "away": "Cagliari Calcio",
               "date": "2026-11-21",
               "covered": true
+            },
+            {
+              "match_id": 558526,
+              "home": "Parma Calcio 1913",
+              "away": "AS Roma",
+              "date": "2026-11-21",
+              "covered": false,
+              "pending": true
             }
           ]
         }
