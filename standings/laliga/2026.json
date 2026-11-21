@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-21T16:56:41.053899Z",
+  "generated_at": "2026-11-21T17:22:06.847813Z",
   "competition": "LaLiga",
   "slug": "laliga",
   "season": 2026,
@@ -260,15 +260,15 @@
         "tla": "RAY",
         "crest": "https://crests.football-data.org/87.png"
       },
-      "playedGames": 11,
-      "form": "L,W,L,D,D",
+      "playedGames": 12,
+      "form": "L,L,W,L,D",
       "won": 3,
       "draw": 3,
-      "lost": 5,
+      "lost": 6,
       "points": 12,
       "goalsFor": 15,
-      "goalsAgainst": 21,
-      "goalDifference": -6
+      "goalsAgainst": 22,
+      "goalDifference": -7
     },
     {
       "position": 15,
@@ -311,6 +311,25 @@
     {
       "position": 17,
       "team": {
+        "id": 95,
+        "name": "Valencia CF",
+        "shortName": "Valencia",
+        "tla": "VAL",
+        "crest": "https://crests.football-data.org/95.png"
+      },
+      "playedGames": 13,
+      "form": "W,L,W,L,D",
+      "won": 3,
+      "draw": 3,
+      "lost": 7,
+      "points": 12,
+      "goalsFor": 9,
+      "goalsAgainst": 20,
+      "goalDifference": -11
+    },
+    {
+      "position": 18,
+      "team": {
         "id": 88,
         "name": "Levante UD",
         "shortName": "Levante",
@@ -328,7 +347,7 @@
       "goalDifference": -5
     },
     {
-      "position": 18,
+      "position": 19,
       "team": {
         "id": 285,
         "name": "Elche CF",
@@ -345,25 +364,6 @@
       "goalsFor": 14,
       "goalsAgainst": 20,
       "goalDifference": -6
-    },
-    {
-      "position": 19,
-      "team": {
-        "id": 95,
-        "name": "Valencia CF",
-        "shortName": "Valencia",
-        "tla": "VAL",
-        "crest": "https://crests.football-data.org/95.png"
-      },
-      "playedGames": 12,
-      "form": "L,W,L,D,D",
-      "won": 2,
-      "draw": 3,
-      "lost": 7,
-      "points": 9,
-      "goalsFor": 8,
-      "goalsAgainst": 20,
-      "goalDifference": -12
     },
     {
       "position": 20,
