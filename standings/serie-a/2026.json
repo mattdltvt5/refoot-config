@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-21T15:10:03.273769Z",
+  "generated_at": "2026-11-21T16:02:08.393244Z",
   "competition": "Serie A",
   "slug": "serie-a",
   "season": 2026,
@@ -13,15 +13,15 @@
         "tla": "LAZ",
         "crest": "https://crests.football-data.org/110.png"
       },
-      "playedGames": 11,
-      "form": "D,W,W,W,W",
-      "won": 9,
+      "playedGames": 12,
+      "form": "W,D,W,W,W",
+      "won": 10,
       "draw": 2,
       "lost": 0,
-      "points": 29,
-      "goalsFor": 25,
+      "points": 32,
+      "goalsFor": 28,
       "goalsAgainst": 9,
-      "goalDifference": 16
+      "goalDifference": 19
     },
     {
       "position": 2,
@@ -64,6 +64,25 @@
     {
       "position": 4,
       "team": {
+        "id": 7397,
+        "name": "Como 1907",
+        "shortName": "Como 1907",
+        "tla": "COM",
+        "crest": "https://crests.football-data.org/7397.png"
+      },
+      "playedGames": 12,
+      "form": "W,L,W,W,W",
+      "won": 8,
+      "draw": 2,
+      "lost": 2,
+      "points": 26,
+      "goalsFor": 20,
+      "goalsAgainst": 10,
+      "goalDifference": 10
+    },
+    {
+      "position": 5,
+      "team": {
         "id": 98,
         "name": "AC Milan",
         "shortName": "Milan",
@@ -79,25 +98,6 @@
       "goalsFor": 23,
       "goalsAgainst": 13,
       "goalDifference": 10
-    },
-    {
-      "position": 5,
-      "team": {
-        "id": 7397,
-        "name": "Como 1907",
-        "shortName": "Como 1907",
-        "tla": "COM",
-        "crest": "https://crests.football-data.org/7397.png"
-      },
-      "playedGames": 11,
-      "form": "L,W,W,W,W",
-      "won": 7,
-      "draw": 2,
-      "lost": 2,
-      "points": 23,
-      "goalsFor": 18,
-      "goalsAgainst": 10,
-      "goalDifference": 8
     },
     {
       "position": 6,
@@ -165,15 +165,15 @@
         "tla": "CAG",
         "crest": "https://crests.football-data.org/104.png"
       },
-      "playedGames": 11,
-      "form": "W,L,L,L,L",
+      "playedGames": 12,
+      "form": "L,W,L,L,L",
       "won": 5,
       "draw": 1,
-      "lost": 5,
+      "lost": 6,
       "points": 16,
       "goalsFor": 10,
-      "goalsAgainst": 15,
-      "goalDifference": -5
+      "goalsAgainst": 17,
+      "goalDifference": -7
     },
     {
       "position": 10,
@@ -260,15 +260,15 @@
         "tla": "USL",
         "crest": "https://crests.football-data.org/5890.png"
       },
-      "playedGames": 11,
-      "form": "D,L,L,L,W",
+      "playedGames": 12,
+      "form": "L,D,L,L,L",
       "won": 3,
       "draw": 1,
-      "lost": 7,
+      "lost": 8,
       "points": 10,
       "goalsFor": 12,
-      "goalsAgainst": 22,
-      "goalDifference": -10
+      "goalsAgainst": 25,
+      "goalDifference": -13
     },
     {
       "position": 15,

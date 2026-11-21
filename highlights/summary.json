@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-21T15:56:09Z",
+  "generated_at": "2026-11-21T16:01:33Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -2619,6 +2619,22 @@
               "away": "Juventus FC",
               "date": "2026-11-08",
               "covered": true
+            }
+          ]
+        },
+        {
+          "gameweek": "GW12",
+          "stem": "gameweek-12",
+          "total": 1,
+          "covered": 0,
+          "matches": [
+            {
+              "match_id": 558528,
+              "home": "SS Lazio",
+              "away": "US Lecce",
+              "date": "2026-11-21",
+              "covered": false,
+              "pending": true
             }
           ]
         }
