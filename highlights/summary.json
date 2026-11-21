@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-21T16:31:35Z",
+  "generated_at": "2026-11-21T16:36:43Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -3293,8 +3293,8 @@
         {
           "gameweek": "GW10",
           "stem": "gameweek-10",
-          "total": 4,
-          "covered": 1,
+          "total": 6,
+          "covered": 3,
           "matches": [
             {
               "match_id": 565859,
@@ -3316,13 +3316,27 @@
               "home": "SV 07 Elversberg",
               "away": "SC Freiburg",
               "date": "2026-11-21",
-              "covered": false,
-              "pending": true
+              "covered": true
             },
             {
               "match_id": 565862,
               "home": "Borussia Mönchengladbach",
               "away": "Borussia Dortmund",
+              "date": "2026-11-21",
+              "covered": true
+            },
+            {
+              "match_id": 565858,
+              "home": "1. FC Union Berlin",
+              "away": "RB Leipzig",
+              "date": "2026-11-21",
+              "covered": false,
+              "pending": true
+            },
+            {
+              "match_id": 565865,
+              "home": "Eintracht Frankfurt",
+              "away": "TSG 1899 Hoffenheim",
               "date": "2026-11-21",
               "covered": false,
               "pending": true

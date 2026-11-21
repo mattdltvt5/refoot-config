@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-21T16:31:12Z",
+  "generated_at": "2026-11-21T16:37:19Z",
   "month": "2026-11",
   "dates": {
     "2026-11-01": [
@@ -2551,7 +2551,7 @@
             },
             "homeScore": 1,
             "awayScore": 5,
-            "status": "IN_PLAY",
+            "status": "FINISHED",
             "utcDate": "2026-11-21T14:30:00Z"
           },
           {
@@ -2573,7 +2573,8 @@
             "homeScore": 0,
             "awayScore": 1,
             "status": "FINISHED",
-            "utcDate": "2026-11-21T14:30:00Z"
+            "utcDate": "2026-11-21T14:30:00Z",
+            "videoId": "_6PZBJ0wf6g"
           },
           {
             "match_id": 565862,
@@ -2594,7 +2595,8 @@
             "homeScore": 0,
             "awayScore": 1,
             "status": "FINISHED",
-            "utcDate": "2026-11-21T14:30:00Z"
+            "utcDate": "2026-11-21T14:30:00Z",
+            "videoId": "ltzEAWvYF1Q"
           },
           {
             "match_id": 565865,
@@ -2614,7 +2616,7 @@
             },
             "homeScore": 1,
             "awayScore": 0,
-            "status": "IN_PLAY",
+            "status": "FINISHED",
             "utcDate": "2026-11-21T14:30:00Z"
           },
           {
@@ -2660,7 +2662,7 @@
               "tla": "PSG",
               "crest": "https://crests.football-data.org/524.png"
             },
-            "homeScore": 0,
+            "homeScore": 1,
             "awayScore": 0,
             "status": "IN_PLAY",
             "utcDate": "2026-11-21T16:15:00Z"
