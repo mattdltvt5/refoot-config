@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-21T14:26:14Z",
+  "generated_at": "2026-11-21T14:31:17Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -782,6 +782,22 @@
               "away": "Aston Villa FC",
               "date": "2026-11-08",
               "covered": true
+            }
+          ]
+        },
+        {
+          "gameweek": "GW11",
+          "stem": "gameweek-11",
+          "total": 1,
+          "covered": 0,
+          "matches": [
+            {
+              "match_id": 560643,
+              "home": "Manchester City FC",
+              "away": "Fulham FC",
+              "date": "2026-11-21",
+              "covered": false,
+              "pending": true
             }
           ]
         }

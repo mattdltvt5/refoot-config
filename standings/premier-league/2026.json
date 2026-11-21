@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-20T15:57:30.228944Z",
+  "generated_at": "2026-11-21T14:31:39.033244Z",
   "competition": "Premier League",
   "slug": "premier-league",
   "season": 2026,
@@ -51,14 +51,14 @@
         "tla": "MCI",
         "crest": "https://crests.football-data.org/65.png"
       },
-      "playedGames": 10,
-      "form": "L,L,L,W,W",
+      "playedGames": 11,
+      "form": "D,L,L,L,W",
       "won": 7,
-      "draw": 0,
+      "draw": 1,
       "lost": 3,
-      "points": 21,
-      "goalsFor": 21,
-      "goalsAgainst": 13,
+      "points": 22,
+      "goalsFor": 22,
+      "goalsAgainst": 14,
       "goalDifference": 8
     },
     {
@@ -254,6 +254,25 @@
     {
       "position": 14,
       "team": {
+        "id": 63,
+        "name": "Fulham FC",
+        "shortName": "Fulham",
+        "tla": "FUL",
+        "crest": "https://crests.football-data.org/63.png"
+      },
+      "playedGames": 11,
+      "form": "D,D,D,W,W",
+      "won": 2,
+      "draw": 5,
+      "lost": 4,
+      "points": 11,
+      "goalsFor": 11,
+      "goalsAgainst": 13,
+      "goalDifference": -2
+    },
+    {
+      "position": 15,
+      "team": {
         "id": 349,
         "name": "Ipswich Town FC",
         "shortName": "Ipswich Town",
@@ -269,25 +288,6 @@
       "goalsFor": 15,
       "goalsAgainst": 20,
       "goalDifference": -5
-    },
-    {
-      "position": 15,
-      "team": {
-        "id": 63,
-        "name": "Fulham FC",
-        "shortName": "Fulham",
-        "tla": "FUL",
-        "crest": "https://crests.football-data.org/63.png"
-      },
-      "playedGames": 10,
-      "form": "D,D,W,W,L",
-      "won": 2,
-      "draw": 4,
-      "lost": 4,
-      "points": 10,
-      "goalsFor": 10,
-      "goalsAgainst": 12,
-      "goalDifference": -2
     },
     {
       "position": 16,
