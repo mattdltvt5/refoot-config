@@ -2,7 +2,7 @@
   "competition": "Serie A",
   "gameweek": "GW12",
   "stem": "gameweek-12",
-  "generated_at": "2026-11-22T16:51:21Z",
+  "generated_at": "2026-11-22T16:56:16Z",
   "matches": [
     {
       "match_id": 558528,
@@ -145,7 +145,19 @@
       "home_team": "US Sassuolo Calcio",
       "away_team": "Genoa CFC",
       "date": "2026-11-22",
-      "videos": []
+      "videos": [
+        {
+          "video_id": "-9b2VmQQrhs",
+          "title": "Osmajic At The Double! | SASSUOLO-GENOA | HIGHLIGHTS | Serie A 2026/27",
+          "published_at": "2026-11-22",
+          "tier_used": 2,
+          "region": {
+            "blocked": [
+              "IT"
+            ]
+          }
+        }
+      ]
     }
   ]
 }
