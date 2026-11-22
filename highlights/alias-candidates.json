@@ -1,8 +1,40 @@
 {
-  "generated_at": "2026-11-21T16:01:49Z",
+  "generated_at": "2026-11-22T16:08:26Z",
   "season": 2026,
-  "estimated_youtube_units": 22,
-  "candidates": {},
+  "estimated_youtube_units": 57,
+  "candidates": {
+    "Bundesliga": {
+      "1. FC Union Berlin": [
+        {
+          "alias": "1. fc",
+          "occurrences": 2,
+          "current_tokens": [
+            "1. fc union berlin",
+            "fc union berlin",
+            "union berlin"
+          ],
+          "evidence": [
+            "Zq0etOjgwi4 | 1. FC Nürnberg vs. Eintracht Braunschweig | Matchday 12 - Bundesliga 2 2026/27",
+            "nIBcXOstadc | 1. FC Kaiserslautern vs. SG Dynamo Dresden | Matchday 12 - Bundesliga 2 2026/27"
+          ]
+        }
+      ],
+      "Eintracht Frankfurt": [
+        {
+          "alias": "eintracht",
+          "occurrences": 2,
+          "current_tokens": [
+            "eintracht frankfurt",
+            "frankfurt"
+          ],
+          "evidence": [
+            "BmuG2ehPc58 | Ein Heimsieg zum Geburtstag von Nina Lührssen für unsere Eintracht Frauen! 🥳",
+            "Zq0etOjgwi4 | 1. FC Nürnberg vs. Eintracht Braunschweig | Matchday 12 - Bundesliga 2 2026/27"
+          ]
+        }
+      ]
+    }
+  },
   "flags": [],
   "note": ""
 }
