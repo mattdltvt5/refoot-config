@@ -1,5 +1,5 @@
 """Alternatives pass: matches whose clips don't play in a launch country get a
-clip that does, from non-broadcaster sources. No API calls: the matcher is
+clip that does, from any configured source that adds a country. No API calls: the matcher is
 patched or its HTTP layer mocked."""
 import json
 from datetime import datetime, timedelta, timezone
@@ -157,14 +157,14 @@ def test_pass_appends_found_clip_and_books_the_check(tmp_path, monkeypatch):
     calls = []
 
     def fake_resolve(fixture, comp, config, key, quota, cap, **kw):
-        calls.append((fixture["match_id"], kw["skip_broadcasters"]))
+        calls.append((fixture["match_id"], kw.get("skip_broadcasters", False)))
         cand = vid("seriea", GLOBAL, "Lazio-Lecce | Highlights")
         return [cand] if kw["accept"](cand) else []
 
     monkeypatch.setattr(ha, "resolve_videos_for_fixture", fake_resolve)
     written = ha.find_alternatives("k", _Quota(), 10**9, {}, now=NOW,
                                    root=tmp_path / "highlights", fixtures_dir=tmp_path / "fixtures")
-    assert written == [p] and calls == [(1, True)]
+    assert written == [p] and calls == [(1, False)]
     m = json.loads(p.read_text())["matches"][0]
     assert [v["video_id"] for v in m["videos"]] == ["cbs", "seriea"]   # existing stays first
     assert m["alternatives"] == {"checks": 1, "last": "2026-11-22T12:00:00Z"}
@@ -230,6 +230,41 @@ def test_quota_cap_midway_writes_what_was_found(tmp_path, monkeypatch):
         pass
     m = json.loads(p.read_text())["matches"]
     assert [v["video_id"] for v in m[0]["videos"]] == ["a", "g"]
+
+
+def test_broadcaster_clip_taken_only_when_it_adds_a_missing_country(monkeypatch):
+    """A match missing the US (channel clip blocks US/CA/ES) takes the US
+    broadcaster's clip; a match missing only GB/IE/ES refuses it and moves on."""
+    regions = {"UUcomp": {"blocked": ["CA", "ES", "US"]},
+               "PLbroadcaster": {"allowed": ["PR", "US"]},
+               "UUhome": None}
+    searched = []
+
+    def fake_search(playlist_id, *a, **k):
+        searched.append(playlist_id)
+        return [{"video_id": playlist_id, "title": f"Arsenal v Chelsea | Highlights {playlist_id}",
+                 "published_at": "2026-11-21"}]
+
+    monkeypatch.setattr(hc, "search_playlist", fake_search)
+    monkeypatch.setattr(hc, "find_gameweek_playlist", lambda *a, **k: None)
+    monkeypatch.setattr(hc, "fetch_video_details", lambda ids, *a: {
+        i: {"duration_seconds": 300, "is_portrait": False, "is_embeddable": True,
+            "is_region_restricted": regions[i] is not None, "is_playable_nowhere": False,
+            "region_restriction": regions[i]} for i in ids})
+
+    missing_us = [vid("laliga", {"blocked": ["CA", "ES", "US"]})]
+    got = hc.resolve_videos_for_fixture(FIX, "Premier League", _config(), "k", object(), 10**9,
+                                        accept=ha.make_accept(missing_us))
+    assert [v["video_id"] for v in got] == ["PLbroadcaster"]
+    assert ha.uncovered(missing_us + got) == ["CA", "ES"]
+
+    searched.clear()
+    regions["UUcomp"] = {"allowed": ["US"]}    # now every clip before the club's is US-only
+    missing_gb = [vid("cbs", US_ONLY)]
+    got = hc.resolve_videos_for_fixture(FIX, "Premier League", _config(), "k", object(), 10**9,
+                                        accept=ha.make_accept(missing_gb))
+    assert searched == ["UUcomp", "PLbroadcaster", "UUhome"]   # US-only clips refused
+    assert [v["video_id"] for v in got] == ["UUhome"]
 
 
 def test_fixture_index_matches_the_matchers_shape(tmp_path):

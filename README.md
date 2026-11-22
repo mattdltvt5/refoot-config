@@ -1380,8 +1380,10 @@ clips that play almost everywhere. `scripts/highlight_alternatives.py` runs at t
 - **Which matches:** current-season domestic league matches whose clips leave some `LAUNCH_COUNTRIES`
   country uncovered (a clip without `region` counts as playable). UCL and the summer tournaments have no
   worldwide source configured, so they're out of scope until per-country sources are added.
-- **How:** `resolve_videos_for_fixture(..., skip_broadcasters=True, accept=...)` skips tier 4 and keeps only
-  new clips that play in a still-uncovered country; a tier whose clips are all refused counts as empty.
+- **How:** `resolve_videos_for_fixture(..., accept=...)` keeps only new clips that play in a still-uncovered
+  country; a tier whose clips are all refused counts as empty. Broadcaster playlists are searched too: a
+  US-only clip is refused for a match missing GB/IE/ES but taken for one missing the US (e.g. a LaLiga
+  channel clip that blocks the US, Canada and Spain). `skip_broadcasters` stays available but unused.
   Found clips are appended, so the existing first clip stays and the app opens whichever plays where the
   viewer is.
 - **When:** recent matches (within 7 days) are re-checked 2, 4, 8, 16, 32 and 64 hours after the previous
