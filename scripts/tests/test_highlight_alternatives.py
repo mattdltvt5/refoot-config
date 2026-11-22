@@ -280,3 +280,44 @@ def test_fetch_run_calls_pass_after_region_fill():
     from pathlib import Path
     src = (Path(hc.__file__).parent / "fetch_highlights.py").read_text(encoding="utf-8")
     assert src.index("find_alternatives(") > src.index("fill_missing_regions(yt_key")
+
+
+# ── last season + records without fixture data ────────────────────────────────
+
+def test_fixture_from_record_builds_a_matcher_fixture(tmp_path):
+    p = tmp_path / "matchday-3.json"
+    f = ha.fixture_from_record({"match_id": 5, "home_team": "Arsenal FC", "away_team": "SSC Napoli",
+                                "date": "2025-10-01", "videos": []}, p)
+    assert (f["home_short"], f["away_short"], f["matchday"], f["stage"], f["score"]) == \
+        ("Arsenal FC", "SSC Napoli", 3, "LEAGUE_STAGE", {})
+    assert ha.fixture_from_record({"match_id": 6, "home_team": "A", "date": "2025-10-01"}, p) is None
+    g = ha.fixture_from_record({"match_id": 7, "home_team": "A", "away_team": "B", "date": "2025-10-01"},
+                               tmp_path / "final.json")
+    assert g["matchday"] is None and g["stage"] == "REGULAR_SEASON"
+
+
+def test_catchup_includes_last_season_after_this_one(tmp_path, monkeypatch):
+    monkeypatch.setattr(ha, "ALT_COMPS", {"Serie A"})
+    monkeypatch.setattr(ha, "season_for_competition", lambda comp, now=None: 2026)
+    root = tmp_path / "highlights" / "serie-a"
+    for season, date, mid in [(2026, "2026-10-04", 1), (2025, "2026-05-24", 2), (2024, "2025-05-25", 3)]:
+        (root / str(season)).mkdir(parents=True)
+        (root / str(season) / "gameweek-38.json").write_text(json.dumps({"matches": [
+            {"match_id": mid, "home_team": "SS Lazio", "away_team": "US Lecce", "date": date,
+             "videos": [vid(f"c{mid}")]}]}), encoding="utf-8")
+    recent, catchup = ha._candidates(tmp_path / "highlights", tmp_path / "fixtures", NOW,
+                                     tmp_path / "tournament-groups")
+    assert recent == []
+    assert [it[3]["match_id"] for it in catchup] == [1, 2]     # 2024 is out of range
+    assert catchup[1][4]["home_short"] == "SS Lazio"           # built from the record
+
+
+def test_ucl_archive_season_is_read(tmp_path):
+    arch = tmp_path / "tournament-groups" / "ucl"
+    arch.mkdir(parents=True)
+    (arch / "2025.json").write_text(json.dumps({"season": 2025, "groupMatches": [], "matches": [
+        {"id": 77, "utcDate": "2026-05-30T16:00:00Z", "stage": "FINAL",
+         "homeTeam": {"name": "Paris Saint-Germain FC", "tla": "PSG"},
+         "awayTeam": {"name": "Arsenal FC", "tla": "ARS"}}]}))
+    idx = ha.fixture_index("ucl", 2025, tmp_path / "fixtures", tmp_path / "tournament-groups")
+    assert idx[77]["stage"] == "FINAL" and idx[77]["home_tla"] == "PSG"
