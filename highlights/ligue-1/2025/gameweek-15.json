@@ -13,7 +13,8 @@
           "video_id": "og4DePhTKCQ",
           "title": "Résumé Stade Brestois 1-0 AS Monaco - 15e journée",
           "published_at": "2025-12-08",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -27,7 +28,14 @@
           "video_id": "0sdXLuCIGbQ",
           "title": "Lille OSC vs Olympique Marseille | HIGHLIGHTS Ligue 1 | 12/05/2025 | beIN SPORTS USA",
           "published_at": "2025-12-05",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "PR",
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -41,7 +49,8 @@
           "video_id": "6L7-RZa7HNU",
           "title": "⚽ [J15] Le résumé de FC Nantes - RC Lens (1-2)",
           "published_at": "2025-12-07",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -55,7 +64,14 @@
           "video_id": "YVf6r2ck_xM",
           "title": "Toulouse vs Strasbourg | HIGHLIGHTS Ligue 1 | 12/06/2025 | beIN SPORTS USA",
           "published_at": "2025-12-06",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "PR",
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -69,7 +85,14 @@
           "video_id": "lLpOmlbYqR4",
           "title": "PSG vs Stade Rennes | HIGHLIGHTS Ligue 1 | 12/06/2025 | beIN SPORTS USA",
           "published_at": "2025-12-06",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "PR",
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -83,7 +106,8 @@
           "video_id": "k4_2brTs5-c",
           "title": "Résumé : OGC Nice - SCO Angers (0-1) | J15 Ligue 1 McDonald's 2025-2026",
           "published_at": "2025-12-07",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -97,7 +121,14 @@
           "video_id": "0JArarDDLWQ",
           "title": "Le Havre vs Paris FC | HIGHLIGHTS Ligue 1 | 12/07/2025 | beIN SPORTS USA",
           "published_at": "2025-12-07",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "PR",
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -111,7 +142,14 @@
           "video_id": "OAl0MHCrrlM",
           "title": "Auxerre vs Metz | HIGHLIGHTS Ligue 1 | 12/07/2025 | beIN SPORTS USA",
           "published_at": "2025-12-07",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "PR",
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -125,7 +163,8 @@
           "video_id": "v5LrxJRNtzY",
           "title": "Résumé FC Lorient - OL : Réduit à 10, l'OL s'incline au Moustoir (1-0)",
           "published_at": "2025-12-07",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     }

@@ -13,7 +13,8 @@
           "video_id": "yQ8R6GDopYQ",
           "title": "OM 4-0 Lorient | Le résumé de la victoire 🔥",
           "published_at": "2025-09-13",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -27,7 +28,8 @@
           "video_id": "bb8hUlcBGi4",
           "title": "⚽ [J04] Le résumé de OGC Nice - FC Nantes (1-0)",
           "published_at": "2025-09-15",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -41,7 +43,8 @@
           "video_id": "y4dVfcyiu-8",
           "title": "Résumé AJ Auxerre - AS Monaco - 4ème journée",
           "published_at": "2025-09-15",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -55,7 +58,8 @@
           "video_id": "5y0w74SRcAM",
           "title": "#Ligue1 Le résumé vidéo de Lille-TéFéCé, 4ème  journée de Ligue 1 McDonald's",
           "published_at": "2025-09-15",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -69,7 +73,14 @@
           "video_id": "yfYiTPhMUuM",
           "title": "Metz vs Angers | HIGHLIGHTS Ligue 1 | beIN SPORTS USA | 09/14/2025",
           "published_at": "2025-09-14",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "PR",
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -83,7 +94,8 @@
           "video_id": "_IkG68KRncE",
           "title": "Barcola en FEU, le PSG MATE Lens et attend l'Atalanta | 4ème journée - Ligue 1 McDonald's 25/26",
           "published_at": "2025-09-14",
-          "tier_used": 2
+          "tier_used": 2,
+          "region": {}
         }
       ]
     },
@@ -97,7 +109,14 @@
           "video_id": "RNfKYIao6cE",
           "title": "Strasbourg vs Le Havre | Ligue 1 HIGHLIGHTS | 09/14/25 | beIN SPORTS USA",
           "published_at": "2025-09-14",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "PR",
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -111,7 +130,14 @@
           "video_id": "_QhNwegJumI",
           "title": "Brest vs Paris FC  | Ligue 1 HIGHLIGHTS | 09/14/25 beIN SPORTS USA",
           "published_at": "2025-09-15",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "PR",
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -125,7 +151,14 @@
           "video_id": "QkqdZ6amAr0",
           "title": "Stade Rennes vs Lyon | Ligue 1 HIGHLIGHTS | 09/14/25 | beIN SPORTS USA",
           "published_at": "2025-09-14",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "PR",
+              "US"
+            ]
+          }
         }
       ]
     }

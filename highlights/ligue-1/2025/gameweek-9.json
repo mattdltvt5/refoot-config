@@ -13,7 +13,8 @@
           "video_id": "2I5gi6XGmeo",
           "title": "⚽ [J09] Le résumé de Paris FC - FC Nantes (1-2)",
           "published_at": "2025-10-29",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -27,7 +28,14 @@
           "video_id": "tN6x4pthA3Y",
           "title": "Stade Brest vs PSG | Ligue 1 RESUMEN | 10/25/25 beIN SPORTS USA",
           "published_at": "2025-10-25",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "PR",
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -41,7 +49,8 @@
           "video_id": "3q4YFmL1tuw",
           "title": "Résumé AS Monaco - Toulouse FC - 9ème journée",
           "published_at": "2025-10-27",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -55,7 +64,14 @@
           "video_id": "FB9d5GWygNc",
           "title": "Lens vs Marseille   | Ligue 1 HIGHLIGHTS | 10/25/25 beIN SPORTS USA",
           "published_at": "2025-10-25",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "PR",
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -69,7 +85,8 @@
           "video_id": "y6R7jxajiT8",
           "title": "Igamane et Correia EN FEU, Lille ÉTRILLE Metz | 9ème journée - Ligue 1 McDonald's",
           "published_at": "2025-10-26",
-          "tier_used": 2
+          "tier_used": 2,
+          "region": {}
         }
       ]
     },
@@ -83,7 +100,14 @@
           "video_id": "HMYUPuZoS9M",
           "title": "Auxerre vs Le Havre | HIGHLIGHTS Ligue 1 | 10/26/2025 | beIN SPORTS USA",
           "published_at": "2025-10-26",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "PR",
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -97,7 +121,8 @@
           "video_id": "tDYqSsfXFX8",
           "title": "Le résumé de la rencontre Angers SCO - FC Lorient (2-0). Journée 9 Ligue 1 McDonald's 25/26",
           "published_at": "2025-10-27",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -111,7 +136,8 @@
           "video_id": "jU3cYHFtIqE",
           "title": "Résumé : Rennes - Nice (1-2) I J9 - Ligue 1 McDonald's 2025-2026",
           "published_at": "2025-10-26",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -125,7 +151,8 @@
           "video_id": "rg1ki0D4Kdc",
           "title": "OL - Strasbourg : le résumé d’un match fou remporté en toute fin de rencontre !",
           "published_at": "2025-10-26",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     }

@@ -13,7 +13,8 @@
           "video_id": "yBF2VSwyB_U",
           "title": "⚽️ Résumé : HAC - Stade Brestois (1-0) I J10 - L1 McDonald's 2025-2026",
           "published_at": "2025-10-30",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -27,7 +28,8 @@
           "video_id": "9-HA3r1BI-k",
           "title": "Le résumé de FC Lorient - Paris SG (1-1) Journée 10 Ligue 1 McDonald's 25/26",
           "published_at": "2025-10-30",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -41,7 +43,14 @@
           "video_id": "7k6bOphYoVA",
           "title": "Metz vs Lens | HIGHLIGHTS Ligue 1 | 10/29/2025 | beIN SPORTS USA",
           "published_at": "2025-10-29",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "PR",
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -55,7 +64,14 @@
           "video_id": "juPLeYIwy1w",
           "title": "Nice vs Lille | Ligue 1 HIGHLIGHTS | 10/29/25 | beIN SPORTS USA",
           "published_at": "2025-10-29",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "PR",
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -69,7 +85,8 @@
           "video_id": "tXjIpzTRJPs",
           "title": "⚽ [J10] Le résumé de FC Nantes - AS Monaco (3-5)",
           "published_at": "2025-10-30",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -83,7 +100,14 @@
           "video_id": "tQz_H0vxENE",
           "title": "Paris FC vs Lyon | Ligue 1 HIGHLIGHTS | 10/29/25 beIN SPORTS USA",
           "published_at": "2025-10-29",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "PR",
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -97,7 +121,8 @@
           "video_id": "N6t4uqWBM_Y",
           "title": "#Ligue1 Le résumé vidéo de TéFéCé-Rennes (2-2), 10ème journée de Ligue 1 McDonald's",
           "published_at": "2025-10-30",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -111,7 +136,14 @@
           "video_id": "1A4q4s3doW0",
           "title": "Marseille vs Angers | HIGHLIGHTS Ligue 1 | 10/29/2025 | beIN SPORTS USA",
           "published_at": "2025-10-29",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "PR",
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -125,7 +157,14 @@
           "video_id": "PHQXUXqIQ8I",
           "title": "Strasbourg vs Auxerre  | HIGHLIGHTS Ligue 1 | 10/29/2025 | beIN SPORTS USA",
           "published_at": "2025-10-29",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "PR",
+              "US"
+            ]
+          }
         }
       ]
     }

@@ -13,7 +13,14 @@
           "video_id": "HEnL7ZsOI74",
           "title": "AS Monaco vs Lorient | HIGHLIGHTS Ligue 1 | 01/16/2026 | beIN SPORTS USA",
           "published_at": "2026-01-16",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "PR",
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -27,19 +34,40 @@
           "video_id": "UfGgfVVR6xM",
           "title": "PSG vs Lille | EXTENDED HIGHLIGHTS Ligue 1 | 01/16/2026 | beIN SPORTS USA",
           "published_at": "2026-01-16",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "PR",
+              "US"
+            ]
+          }
         },
         {
           "video_id": "RFzqP4eNi44",
           "title": "PSG vs Lille | HIGHLIGHTS Ligue 1 | 01/16/2026 | beIN SPORTS USA",
           "published_at": "2026-01-16",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "PR",
+              "US"
+            ]
+          }
         },
         {
           "video_id": "rP7COi7Zg8M",
           "title": "PSG vs Lille | RESUMEN Ligue 1 | 01/16/2026 | beIN SPORTS USA",
           "published_at": "2026-01-16",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "PR",
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -53,7 +81,14 @@
           "video_id": "c19s3WPOQWk",
           "title": "Lens vs Auxerre | HIGHLIGHTS Ligue 1 | 01/17/2026 | beIN SPORTS USA",
           "published_at": "2026-01-17",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "PR",
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -67,7 +102,14 @@
           "video_id": "G5KQAweccbQ",
           "title": "Toulouse vs Nice | HIGHLIGHTS Ligue 1 | 01/17/2025 | beIN SPORTS USA",
           "published_at": "2026-01-17",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "PR",
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -81,7 +123,14 @@
           "video_id": "tL9FYNpjxgo",
           "title": "Angers SCO vs Olympique Marseille | HIGHLIGHTS Ligue 1 | 01/17/2025 | beIN SPORTS USA",
           "published_at": "2026-01-17",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "PR",
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -95,7 +144,14 @@
           "video_id": "iDDgIgZcjjU",
           "title": "Strasbourg vs Metz | HIGHLIGHTS Ligue 1 | 01/18/2025 | beIN SPORTS USA",
           "published_at": "2026-01-18",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "PR",
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -109,7 +165,8 @@
           "video_id": "iEFtU19bWN4",
           "title": "⚽ [J18] Le résumé de FC Nantes - Paris FC",
           "published_at": "2026-01-18",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -123,7 +180,14 @@
           "video_id": "FTdTsQUZsVg",
           "title": "Stade Rennes vs Le Havre | HIGHLIGHTS Ligue 1 | 01/18/2026 | beIN SPORTS USA",
           "published_at": "2026-01-18",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "PR",
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -137,7 +201,14 @@
           "video_id": "J9Zy3FuldF0",
           "title": "Lyon vs Stade Brest | HIGHLIGHTS Ligue 1 | 01/18/2026 | beIN SPORTS USA",
           "published_at": "2026-01-18",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "PR",
+              "US"
+            ]
+          }
         }
       ]
     }

@@ -13,7 +13,8 @@
           "video_id": "r87oN3FeeO0",
           "title": "Strasbourg 1-2 OM | Le résumé de la victoire 🔥",
           "published_at": "2025-09-28",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -27,7 +28,14 @@
           "video_id": "qSObxAcN9tg",
           "title": "Lorient vs Monaco | HIGHLIGHTS Ligue 1 | 09/27/2025 | beIN SPORTS USA",
           "published_at": "2025-09-27",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "PR",
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -41,7 +49,8 @@
           "video_id": "DEReCXmymoc",
           "title": "⚽ [J06] Le résumé de Toulouse FC - FC Nantes (2-2)",
           "published_at": "2025-09-29",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -55,7 +64,14 @@
           "video_id": "uaglWZkUydg",
           "title": "PSG vs Auxerre | HIGHLIGHTS Ligue 1 | 09/27/2025 | beIN SPORTS USA",
           "published_at": "2025-09-27",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "PR",
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -69,7 +85,8 @@
           "video_id": "JsCFrslZg-0",
           "title": "Résumé : Nice - Paris FC (1-1) I J6 - Ligue 1 McDonald's 2025-2026",
           "published_at": "2025-09-28",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -83,7 +100,8 @@
           "video_id": "jEHnQUm51E4",
           "title": "Metz & Le Havre se NEUTRALISENT | 6ème journée - Ligue 1 McDonald's 25/26",
           "published_at": "2025-09-28",
-          "tier_used": 2
+          "tier_used": 2,
+          "region": {}
         }
       ]
     },
@@ -97,7 +115,14 @@
           "video_id": "raEO7aa2RV0",
           "title": "Lille vs Lyon | HIGHLIGHTS Ligue 1 | 09/28/2025 | beIN SPORTS USA",
           "published_at": "2025-09-28",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "PR",
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -111,7 +136,8 @@
           "video_id": "bcxuNwFDa1Q",
           "title": "Brest ENCHAINE après son match à Angers | 6ème journée - Ligue 1 McDonald's 25/26",
           "published_at": "2025-09-28",
-          "tier_used": 2
+          "tier_used": 2,
+          "region": {}
         }
       ]
     },
@@ -125,7 +151,14 @@
           "video_id": "qRoqni7uil8",
           "title": "Stade Rennes vs Lens | Ligue 1 HIGHLIGHTS | 09/28/25 | beIN SPORTS USA",
           "published_at": "2025-09-28",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "PR",
+              "US"
+            ]
+          }
         }
       ]
     }

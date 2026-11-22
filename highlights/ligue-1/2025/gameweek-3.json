@@ -13,7 +13,14 @@
           "video_id": "2kzhdbuMj0Y",
           "title": "RC Lens vs Stade Brestois | Ligue 1 HIGHLIGHTS | 08/29/25 beIN SPORTS USA",
           "published_at": "2025-08-29",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "PR",
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -27,7 +34,14 @@
           "video_id": "NBbSfCxntLU",
           "title": "Lorient vs Lille | Ligue 1 HIGHLIGHTS | 08/30/25 | beIN SPORTS USA",
           "published_at": "2025-08-30",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "PR",
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -41,7 +55,8 @@
           "video_id": "7f6NIyY1tDQ",
           "title": "⚽ [J03] Le résumé de FC Nantes - AJ Auxerre (1-0)",
           "published_at": "2025-08-31",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -55,7 +70,14 @@
           "video_id": "0jAE2cJ2tsQ",
           "title": "Toulouse vs PSG | Ligue 1 HIGHLIGHTS | 08/30/25 | beIN SPORTS USA",
           "published_at": "2025-08-30",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "PR",
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -69,7 +91,14 @@
           "video_id": "bKaWDXTMF3I",
           "title": "Angers vs Stade Rennes | HIGHLIGHTS Ligue 1 | 08/31/2025 | beIN SPORTS USA",
           "published_at": "2025-08-31",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "PR",
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -83,7 +112,8 @@
           "video_id": "7zbyMAHGNNk",
           "title": "Résumé : Le Havre - Nice (3-1) I J3 - Ligue 1 McDonald's 2025-2026",
           "published_at": "2025-08-31",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -97,7 +127,8 @@
           "video_id": "9p4UpVozQNo",
           "title": "Résumé AS Monaco - RC Strasbourg - 3ème journée",
           "published_at": "2025-09-01",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -111,7 +142,8 @@
           "video_id": "m_Nytu5qhYA",
           "title": "Le résumé de Paris FC - FC Metz",
           "published_at": "2025-09-01",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -125,7 +157,8 @@
           "video_id": "FSyTXv4xD4k",
           "title": "Résumé OL - Marseille : L'Olympico est Lyonnais (1-0) !",
           "published_at": "2025-08-31",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     }

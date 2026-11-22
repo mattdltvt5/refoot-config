@@ -13,7 +13,8 @@
           "video_id": "x1d0_g1RLQs",
           "title": "Nice 1-5 OM | Le résumé de la victoire 💪",
           "published_at": "2025-11-23",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -27,7 +28,14 @@
           "video_id": "Kc9OSYrPTmM",
           "title": "Lens vs Strasbourg | HIGHLIGHTS Ligue 1 | 11/22/2025 | beIN SPORTS USA",
           "published_at": "2025-11-22",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "PR",
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -41,7 +49,8 @@
           "video_id": "0flDp9tNBQI",
           "title": "Résumé Stade Rennais - AS Monaco - 13ème journée",
           "published_at": "2025-11-24",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -55,7 +64,14 @@
           "video_id": "27GkcIoLFEo",
           "title": "PSG vs Le Havre | HIGHLIGHTS Ligue 1 | 11/22/2025 | beIN SPORTS USA",
           "published_at": "2025-11-22",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "PR",
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -69,7 +85,8 @@
           "video_id": "rWpam_yqrbA",
           "title": "Résumé AJ Auxerre - OL : Greif héroïque offre le nul aux Gones",
           "published_at": "2025-11-24",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -83,7 +100,8 @@
           "video_id": "iBugUOH-Ooc",
           "title": "⚽ [J13] Le résumé de FC Nantes - FC Lorient (1-1)",
           "published_at": "2025-11-23",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -97,7 +115,8 @@
           "video_id": "dqAiXDz3wbI",
           "title": "#Ligue1 Le résumé vidéo deTéFéCé - Angers SCO, 13ème journée de Ligue 1 McDonald's",
           "published_at": "2025-11-24",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -111,7 +130,8 @@
           "video_id": "EsQF_onkGXw",
           "title": "Stade Brestois 29 3-2 FC Metz : le résumé et les buts",
           "published_at": "2025-11-24",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -125,7 +145,14 @@
           "video_id": "2qJY4l-8KA0",
           "title": "Lille vs Paris FC | HIGHLIGHTS Ligue 1 | 11/23/2025 | beIN SPORTS USA",
           "published_at": "2025-11-23",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "PR",
+              "US"
+            ]
+          }
         }
       ]
     }

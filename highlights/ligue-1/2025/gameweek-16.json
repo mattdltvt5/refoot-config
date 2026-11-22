@@ -13,7 +13,8 @@
           "video_id": "Rf_7DFgHM9U",
           "title": "⚽ [J16] Le résumé de Angers SCO - FC Nantes (4-1)",
           "published_at": "2025-12-15",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -27,7 +28,14 @@
           "video_id": "MWJnMEI6w60",
           "title": "Rennes vs Stade Brestois | HIGHLIGHTS Ligue 1 | 12/13/2025 | beIN SPORTS USA",
           "published_at": "2025-12-13",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "PR",
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -41,7 +49,14 @@
           "video_id": "RdAXKgWuo5E",
           "title": "FC Metz vs Paris Saint-Germain | HIGHLIGHTS Ligue 1 | 12/13/2025 | beIN SPORTS USA",
           "published_at": "2025-12-13",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "PR",
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -55,7 +70,14 @@
           "video_id": "CA4W_u5-KSk",
           "title": "Paris FC vs Toulouse | HIGHLIGHTS - Ligue 1 | 12/13/2025 | beIN SPORTS USA",
           "published_at": "2025-12-13",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "PR",
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -69,7 +91,8 @@
           "video_id": "_N5OrsiyToE",
           "title": "Résumé OL - Le Havre : Un succès précieux pour la dernière en Ligue 1 de l'année (1-0)",
           "published_at": "2025-12-14",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -83,7 +106,14 @@
           "video_id": "jU4JpKUDGxA",
           "title": "Auxerre vs Lille | HIGHLIGHTS Ligue 1 | 12/14/2025 | beIN SPORTS USA",
           "published_at": "2025-12-14",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "PR",
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -97,7 +127,14 @@
           "video_id": "_vx0LKxLTHU",
           "title": "Strasbourg vs Lorient | HIGHLIGHTS Ligue 1 | 12/14/2025 | beIN SPORTS USA",
           "published_at": "2025-12-14",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "PR",
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -111,7 +148,8 @@
           "video_id": "_tLeZHtl6TI",
           "title": "Résumé : RC Lens - OGC Nice (2-0) | J16 Ligue 1 McDonald's",
           "published_at": "2025-12-14",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -125,7 +163,8 @@
           "video_id": "diR1VLz1dCI",
           "title": "OM 1-0 Monaco | Le résumé de la victoire 🔥",
           "published_at": "2025-12-14",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     }

@@ -13,7 +13,8 @@
           "video_id": "V19aDCSgIsQ",
           "title": "GIRONA FC 0 - 0 RCD ESPANYOL | RESUMEN LALIGA EA SPORTS",
           "published_at": "2025-09-26",
-          "tier_used": 2
+          "tier_used": 2,
+          "region": {}
         }
       ]
     },
@@ -27,7 +28,8 @@
           "video_id": "Q0NuClItKgI",
           "title": "⚽ Resumen | Getafe CF 1 - 1 Levante UD | J7 LALIGA",
           "published_at": "2025-09-27",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -41,7 +43,8 @@
           "video_id": "0BYKFReKtsE",
           "title": "Atlético de Madrid 5-2 Real Madrid | ⚽ Le Normand, Sørloth, J. Alvarez (2) & Griezmann | HIGHLIGHTS",
           "published_at": "2025-09-27",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -55,7 +58,8 @@
           "video_id": "s9m_TIm0E1A",
           "title": "Resumen J7 RCD Mallorca 1-0 Deportivo Alavés | RCD Mallorca",
           "published_at": "2025-09-27",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -69,7 +73,8 @@
           "video_id": "gt-KNcAHKvE",
           "title": "HIGHLIGHTS | VILLARREAL 1-0 ATHLETIC | LALIGA 25/26",
           "published_at": "2025-09-27",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -83,7 +88,8 @@
           "video_id": "0Zil9VESnkQ",
           "title": "Rayo Vallecano vs Sevilla FC (0-1) LALIGA | Resumen",
           "published_at": "2025-09-28",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -97,7 +103,8 @@
           "video_id": "Ljs8lYV0Ob4",
           "title": "RESUMEN | Elche CF 2-1 Celta de Vigo | J7 | #LALIGAEASPORTS",
           "published_at": "2025-09-29",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -111,7 +118,8 @@
           "video_id": "5OAoKmqm7pg",
           "title": "HIGHLIGHTS | LaLiga 25-26 | J7 | FC Barcelona 2 - 1 Real Sociedad",
           "published_at": "2025-09-28",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -125,7 +133,14 @@
           "video_id": "YnwRFTL1Qok",
           "title": "A CLEAN SHEET 😤 Real Betis vs. Osasuna | LALIGA Highlights | ESPN FC",
           "published_at": "2025-09-28",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "UM",
+              "US",
+              "VI"
+            ]
+          }
         }
       ]
     },
@@ -139,7 +154,8 @@
           "video_id": "hAAaQcS1edM",
           "title": "Resumen Valencia CF - Real Oviedo I Jornada 7 I 2025 2026",
           "published_at": "2025-09-30",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     }

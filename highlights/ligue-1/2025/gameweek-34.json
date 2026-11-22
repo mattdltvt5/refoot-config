@@ -13,7 +13,8 @@
           "video_id": "N0POk5IyJuQ",
           "title": "Boufal et Soumaré ASSURENT au HAC son MAINTIEN à Lorient | 34ème journée - Ligue 1 McDonald's 25/26",
           "published_at": "2026-05-18",
-          "tier_used": 2
+          "tier_used": 2,
+          "region": {}
         }
       ]
     },
@@ -27,13 +28,27 @@
           "video_id": "8WoJ4MEbE1U",
           "title": "Paris FC vs PSG | HIGHLIGHTS Ligue 1 | 05/17/2026 | beIN SPORTS USA",
           "published_at": "2026-05-17",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "PR",
+              "US"
+            ]
+          }
         },
         {
           "video_id": "ffFVueRoUxk",
           "title": "Paris FC vs PSG | EXTENDED HIGHLIGHTS Ligue 1 | 05/17/2026 | beIN SPORTS USA",
           "published_at": "2026-05-17",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "PR",
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -47,7 +62,8 @@
           "video_id": "gTLeknV084k",
           "title": "Résumé : OGC Nice - FC Metz (0-0) | J34 Ligue 1 McDonald's 2025-2026",
           "published_at": "2026-05-17",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -61,7 +77,14 @@
           "video_id": "DMtJUmSofUY",
           "title": "Lyon vs Lens | HIGHLIGHTS Ligue 1 | 05/17/2026 | beIN SPORTS USA",
           "published_at": "2026-05-17",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "PR",
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -75,7 +98,14 @@
           "video_id": "qchO7uc12Gs",
           "title": "Marseille vs Stade Rennes | HIGHLIGHTS Ligue 1 | 05/17/2026 | beIN SPORTS USA",
           "published_at": "2026-05-17",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "PR",
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -89,7 +119,14 @@
           "video_id": "W_jBIikdmp4",
           "title": "Lille vs Auxerre | HIGHLIGHTS Ligue 1 | 05/17/2026 | beIN SPORTS USA",
           "published_at": "2026-05-17",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "PR",
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -103,7 +140,14 @@
           "video_id": "makTAKAXi3o",
           "title": "Strasbourg vs AS Monaco | HIGHLIGHTS Ligue 1 | 05/17/2026 | beIN SPORTS USA",
           "published_at": "2026-05-17",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "PR",
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -117,7 +161,8 @@
           "video_id": "hgJO84HvpV8",
           "title": "SUPERBE BUT de Sbaï, Angers TIENT EN ÉCHEC Brest | 34ème journée - Ligue 1 McDonald's 25/26",
           "published_at": "2026-05-18",
-          "tier_used": 2
+          "tier_used": 2,
+          "region": {}
         }
       ]
     }

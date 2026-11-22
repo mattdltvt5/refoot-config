@@ -13,7 +13,8 @@
           "video_id": "Y37b_U4AWjM",
           "title": "Résumé : Un scénario cruel pour le Gym face au PSG l J11 - Ligue 1 McDonald's 2025-2026",
           "published_at": "2025-11-02",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -27,7 +28,8 @@
           "video_id": "RFXbr-2BYok",
           "title": "Résumé AS Monaco - Paris FC - 11ème journée",
           "published_at": "2025-11-03",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -41,7 +43,8 @@
           "video_id": "QrNbC1EZ9Go",
           "title": "Auxerre 0-1 OM | Le résumé de la victoire 💪",
           "published_at": "2025-11-02",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -55,7 +58,14 @@
           "video_id": "Yqfz7eyeza8",
           "title": "Stade Rennes vs Strasbourg | Ligue 1 HIGHLIGHTS | 11/02/25 beIN SPORTS USA",
           "published_at": "2025-11-02",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "PR",
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -69,7 +79,14 @@
           "video_id": "TsfXXjeMFyU",
           "title": "Nantes vs Metz | HIGHLIGHTS Ligue 1 | 11/02/2025 | beIN SPORTS USA",
           "published_at": "2025-11-02",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "PR",
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -83,7 +100,14 @@
           "video_id": "ebJ8nAKeCck",
           "title": "Toulouse vs Le Havre | Ligue 1 HIGHLIGHTS | 11/02/25 | beIN SPORTS USA",
           "published_at": "2025-11-02",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "PR",
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -97,7 +121,14 @@
           "video_id": "QuVN9ER-EnY",
           "title": "Lille vs Angers | HIGHLIGHTS Ligue 1 | 11/02/2025 | beIN SPORTS USA",
           "published_at": "2025-11-02",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "PR",
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -111,7 +142,14 @@
           "video_id": "1Qpew3LWFQY",
           "title": "Lens vs Lorient | Ligue 1 HIGHLIGHTS | 11/02/25 beIN SPORTS USA",
           "published_at": "2025-11-02",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "PR",
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -125,7 +163,14 @@
           "video_id": "OjFG-qF566c",
           "title": "Brestois vs Lyon | HIGHLIGHTS Ligue 1 | 11/02/2025 | beIN SPORTS USA",
           "published_at": "2025-11-02",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "PR",
+              "US"
+            ]
+          }
         }
       ]
     }

@@ -13,7 +13,8 @@
           "video_id": "Ci8aER_5zRQ",
           "title": "⚽ [J32] Le résumé de FC Nantes - OM (3-0)",
           "published_at": "2026-05-03",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -27,13 +28,27 @@
           "video_id": "e2dwcIJUZZY",
           "title": "Paris Saint-Germain vs Lorient | EXTENDED HIGHLIGHTS Ligue 1 | 05/02/2026 | beIN SPORTS USA",
           "published_at": "2026-05-02",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "PR",
+              "US"
+            ]
+          }
         },
         {
           "video_id": "FJ1nsIkNRUc",
           "title": "Paris Saint German vs Lorient | HIGHLIGHTS Ligue 1 | 05/02/2026 | beIN SPORTS USA",
           "published_at": "2026-05-02",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "PR",
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -47,7 +62,8 @@
           "video_id": "queq-IWfA6A",
           "title": "Résumé, FC Metz 1-2 AS Monaco (but de Fati 91' & première titu' de Pogba)",
           "published_at": "2026-05-04",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -61,7 +77,14 @@
           "video_id": "DaFLKFIPzSo",
           "title": "Nice vs Lens | HIGHLIGHTS Ligue 1 | 05/02/2026 | beIN SPORTS USA",
           "published_at": "2026-05-02",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "PR",
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -75,7 +98,14 @@
           "video_id": "9i3GUAjKEYM",
           "title": "Lille vs Le Havre | HIGHLIGHTS Ligue 1 | 05/03/2026 | beIN SPORTS USA",
           "published_at": "2026-05-03",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "PR",
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -89,7 +119,14 @@
           "video_id": "TMaG1t5S3rw",
           "title": "Auxerre vs Angers | HIGHLIGHTS Ligue 1 | 05/03/2026 | beIN SPORTS USA",
           "published_at": "2026-05-03",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "PR",
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -103,7 +140,14 @@
           "video_id": "jU9aMITJAW8",
           "title": "Paris FC vs Stade Brest | HIGHLIGHTS Ligue 1 | 05/03/2026 | beIN SPORTS USA",
           "published_at": "2026-05-03",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "PR",
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -117,7 +161,14 @@
           "video_id": "Ocm31W90C-g",
           "title": "Strasbourg vs Toulouse | HIGHLIGHTS Ligue 1 | 05/03/2026 | beIN SPORTS USA",
           "published_at": "2026-05-03",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "PR",
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -131,7 +182,8 @@
           "video_id": "xySY2wnFQck",
           "title": "GOLAZO d'Al-Tamari mais l'OL RENVERSE Rennes en RUGISSANT | 32ème journée - Ligue 1 McDonald's 25/26",
           "published_at": "2026-05-03",
-          "tier_used": 2
+          "tier_used": 2,
+          "region": {}
         }
       ]
     }

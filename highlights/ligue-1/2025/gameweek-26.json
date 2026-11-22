@@ -13,7 +13,8 @@
           "video_id": "N2msUAuA0Lo",
           "title": "OM 1-0 Auxerre : le résumé de la victoire 💪",
           "published_at": "2026-03-15",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -27,7 +28,14 @@
           "video_id": "AS2Fxpesxd0",
           "title": "Lorient vs Lens | HIGHLIGHTS Ligue 1 | 03/14/2026 | beIN SPORTS USA",
           "published_at": "2026-03-14",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "PR",
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -41,7 +49,14 @@
           "video_id": "MUPeLpGIwik",
           "title": "Angers vs Nice  | HIGHLIGHTS Ligue 1 | 03/14/2026 | beIN SPORTS USA",
           "published_at": "2026-03-14",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "PR",
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -55,7 +70,8 @@
           "video_id": "eIexI3VRvxg",
           "title": "Résumé, AS Monaco 2-0 Stade Brestois - 26e journée",
           "published_at": "2026-03-15",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -69,7 +85,14 @@
           "video_id": "fPJsPDivOew",
           "title": "Strasbourg vs Paris FC | HIGHLIGHTS Ligue 1 | 03/15/2026 | beIN SPORTS USA",
           "published_at": "2026-03-15",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "PR",
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -83,7 +106,14 @@
           "video_id": "-lLDCMyiU2U",
           "title": "Le Havre vs Lyon | HIGHLIGHTS Ligue 1 | 03/15/2026 | beIN SPORTS USA",
           "published_at": "2026-03-15",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "PR",
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -97,7 +127,14 @@
           "video_id": "lxp4vvxXQFA",
           "title": "Metz vs Toulouse | HIGHLIGHTS Ligue 1 | 03/15/2026 | beIN SPORTS USA",
           "published_at": "2026-03-15",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "PR",
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -111,7 +148,14 @@
           "video_id": "ZP2zn8GeTNI",
           "title": "Stade Rennes vs Lille | HIGHLIGHTS Ligue 1 | 03/15/2026 | beIN SPORTS USA",
           "published_at": "2026-03-15",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "PR",
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -125,7 +169,8 @@
           "video_id": "Qx5sob1icaA",
           "title": "⚽ [J26] Le résumé de Paris SG - FC Nantes (3-0)",
           "published_at": "2026-04-22",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     }

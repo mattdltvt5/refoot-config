@@ -13,13 +13,27 @@
           "video_id": "Jgxp8_caVwg",
           "title": "Paris Saint-Germain vs Strasbourg | Ligue 1 RESUMEN | 10/17/25 | beIN SPORTS USA",
           "published_at": "2025-10-17",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "PR",
+              "US"
+            ]
+          }
         },
         {
           "video_id": "C-QB5NTD-bA",
           "title": "Paris Saint-Germain vs Strasbourg | Ligue 1 HIGHLIGHTS | 10/17/25 | beIN SPORTS USA",
           "published_at": "2025-10-17",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "PR",
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -33,7 +47,8 @@
           "video_id": "eF_1rT1tbeY",
           "title": "Résumé OGC Nice - OL : Des Gones en manque de réalisme et défaits sur la Côte d'Azur (3-2)",
           "published_at": "2025-10-19",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -47,7 +62,14 @@
           "video_id": "oJvdt-vTHAo",
           "title": "Angers SCO vs AS Monaco | Ligue 1 HIGHLIGHTS | 10/18/25 beIN SPORTS USA",
           "published_at": "2025-10-18",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "PR",
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -61,7 +83,8 @@
           "video_id": "clwID175JLQ",
           "title": "OM 6-2 Le Havre | Le résumé de la victoire 🤯",
           "published_at": "2025-10-19",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -75,7 +98,14 @@
           "video_id": "Uh-MXidq5j0",
           "title": "Lens vs Paris FC | HIGHLIGHTS Ligue 1 | 10/19/2025 | beIN SPORTS USA",
           "published_at": "2025-10-19",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "PR",
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -89,7 +119,8 @@
           "video_id": "Kk3OrrG-CEs",
           "title": "Le résumé de FC Lorient - Stade Brestois 29 (3-3) Journée 8 Ligue 1 McDonald's",
           "published_at": "2025-10-20",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -103,7 +134,14 @@
           "video_id": "1Eui1cNaxcM",
           "title": "Toulouse vs FC Metz | Ligue 1 HIGHLIGHTS | 10/19/25 | beIN SPORTS USA",
           "published_at": "2025-10-19",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "PR",
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -117,7 +155,14 @@
           "video_id": "jV-CH_U9Lo0",
           "title": "Stade Rennes vs Auxerre | Ligue 1 HIGHLIGHTS | 10/19/25 beIN SPORTS USA",
           "published_at": "2025-10-19",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "PR",
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -131,7 +176,14 @@
           "video_id": "jRI-zMptyrk",
           "title": "Nantes vs Lille | Ligue 1 HIGHLIGHTS | 10/19/25 | beIN SPORTS USA",
           "published_at": "2025-10-19",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "PR",
+              "US"
+            ]
+          }
         }
       ]
     }

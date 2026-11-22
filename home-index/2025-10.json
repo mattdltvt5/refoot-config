@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-22T15:06:36Z",
+  "generated_at": "2026-11-22T15:11:33Z",
   "month": "2025-10",
   "dates": {
     "2025-10-03": [
@@ -153,7 +153,19 @@
             "awayScore": 0,
             "status": "FINISHED",
             "utcDate": "2025-10-03T18:45:00Z",
-            "videoId": "TCHc_h31Cj0"
+            "videoId": "TCHc_h31Cj0",
+            "videoOptions": [
+              {
+                "videoId": "TCHc_h31Cj0",
+                "region": {
+                  "allowed": [
+                    "CA",
+                    "PR",
+                    "US"
+                  ]
+                }
+              }
+            ]
           }
         ]
       }
@@ -663,7 +675,19 @@
             "awayScore": 3,
             "status": "FINISHED",
             "utcDate": "2025-10-04T15:00:00Z",
-            "videoId": "0R4aPfd7yz8"
+            "videoId": "0R4aPfd7yz8",
+            "videoOptions": [
+              {
+                "videoId": "0R4aPfd7yz8",
+                "region": {
+                  "allowed": [
+                    "CA",
+                    "PR",
+                    "US"
+                  ]
+                }
+              }
+            ]
           },
           {
             "match_id": 542468,
@@ -707,7 +731,19 @@
             "awayScore": 2,
             "status": "FINISHED",
             "utcDate": "2025-10-04T19:05:00Z",
-            "videoId": "VbGj3FJ7kQk"
+            "videoId": "VbGj3FJ7kQk",
+            "videoOptions": [
+              {
+                "videoId": "VbGj3FJ7kQk",
+                "region": {
+                  "allowed": [
+                    "CA",
+                    "PR",
+                    "US"
+                  ]
+                }
+              }
+            ]
           }
         ]
       }
@@ -897,7 +933,19 @@
             "awayScore": 2,
             "status": "FINISHED",
             "utcDate": "2025-10-05T16:30:00Z",
-            "videoId": "rt2TyUMuxJA"
+            "videoId": "rt2TyUMuxJA",
+            "videoOptions": [
+              {
+                "videoId": "rt2TyUMuxJA",
+                "region": {
+                  "allowed": [
+                    "UM",
+                    "US",
+                    "VI"
+                  ]
+                }
+              }
+            ]
           },
           {
             "match_id": 544290,
@@ -1243,7 +1291,19 @@
             "awayScore": 2,
             "status": "FINISHED",
             "utcDate": "2025-10-05T15:15:00Z",
-            "videoId": "MRq3I-5EdxE"
+            "videoId": "MRq3I-5EdxE",
+            "videoOptions": [
+              {
+                "videoId": "MRq3I-5EdxE",
+                "region": {
+                  "allowed": [
+                    "CA",
+                    "PR",
+                    "US"
+                  ]
+                }
+              }
+            ]
           },
           {
             "match_id": 542467,
@@ -1265,7 +1325,19 @@
             "awayScore": 0,
             "status": "FINISHED",
             "utcDate": "2025-10-05T15:15:00Z",
-            "videoId": "DV0AUMrYitw"
+            "videoId": "DV0AUMrYitw",
+            "videoOptions": [
+              {
+                "videoId": "DV0AUMrYitw",
+                "region": {
+                  "allowed": [
+                    "CA",
+                    "PR",
+                    "US"
+                  ]
+                }
+              }
+            ]
           },
           {
             "match_id": 542466,
@@ -1287,7 +1359,19 @@
             "awayScore": 1,
             "status": "FINISHED",
             "utcDate": "2025-10-05T18:45:00Z",
-            "videoId": "sRp53W45HAE"
+            "videoId": "sRp53W45HAE",
+            "videoOptions": [
+              {
+                "videoId": "sRp53W45HAE",
+                "region": {
+                  "allowed": [
+                    "CA",
+                    "PR",
+                    "US"
+                  ]
+                }
+              }
+            ]
           }
         ]
       }
@@ -1387,7 +1471,29 @@
             "awayScore": 3,
             "status": "FINISHED",
             "utcDate": "2025-10-17T18:45:00Z",
-            "videoId": "Jgxp8_caVwg"
+            "videoId": "Jgxp8_caVwg",
+            "videoOptions": [
+              {
+                "videoId": "Jgxp8_caVwg",
+                "region": {
+                  "allowed": [
+                    "CA",
+                    "PR",
+                    "US"
+                  ]
+                }
+              },
+              {
+                "videoId": "C-QB5NTD-bA",
+                "region": {
+                  "allowed": [
+                    "CA",
+                    "PR",
+                    "US"
+                  ]
+                }
+              }
+            ]
           }
         ]
       }
@@ -1599,7 +1705,19 @@
             "awayScore": 1,
             "status": "FINISHED",
             "utcDate": "2025-10-18T14:15:00Z",
-            "videoId": "BJgwLmfP0DU"
+            "videoId": "BJgwLmfP0DU",
+            "videoOptions": [
+              {
+                "videoId": "BJgwLmfP0DU",
+                "region": {
+                  "allowed": [
+                    "UM",
+                    "US",
+                    "VI"
+                  ]
+                }
+              }
+            ]
           },
           {
             "match_id": 544298,
@@ -2033,7 +2151,19 @@
             "awayScore": 1,
             "status": "FINISHED",
             "utcDate": "2025-10-18T17:00:00Z",
-            "videoId": "oJvdt-vTHAo"
+            "videoId": "oJvdt-vTHAo",
+            "videoOptions": [
+              {
+                "videoId": "oJvdt-vTHAo",
+                "region": {
+                  "allowed": [
+                    "CA",
+                    "PR",
+                    "US"
+                  ]
+                }
+              }
+            ]
           },
           {
             "match_id": 542473,
@@ -2447,7 +2577,19 @@
             "awayScore": 1,
             "status": "FINISHED",
             "utcDate": "2025-10-19T13:00:00Z",
-            "videoId": "Uh-MXidq5j0"
+            "videoId": "Uh-MXidq5j0",
+            "videoOptions": [
+              {
+                "videoId": "Uh-MXidq5j0",
+                "region": {
+                  "allowed": [
+                    "CA",
+                    "PR",
+                    "US"
+                  ]
+                }
+              }
+            ]
           },
           {
             "match_id": 542469,
@@ -2491,7 +2633,19 @@
             "awayScore": 0,
             "status": "FINISHED",
             "utcDate": "2025-10-19T15:15:00Z",
-            "videoId": "1Eui1cNaxcM"
+            "videoId": "1Eui1cNaxcM",
+            "videoOptions": [
+              {
+                "videoId": "1Eui1cNaxcM",
+                "region": {
+                  "allowed": [
+                    "CA",
+                    "PR",
+                    "US"
+                  ]
+                }
+              }
+            ]
           },
           {
             "match_id": 542477,
@@ -2513,7 +2667,19 @@
             "awayScore": 2,
             "status": "FINISHED",
             "utcDate": "2025-10-19T15:15:00Z",
-            "videoId": "jV-CH_U9Lo0"
+            "videoId": "jV-CH_U9Lo0",
+            "videoOptions": [
+              {
+                "videoId": "jV-CH_U9Lo0",
+                "region": {
+                  "allowed": [
+                    "CA",
+                    "PR",
+                    "US"
+                  ]
+                }
+              }
+            ]
           },
           {
             "match_id": 542470,
@@ -2535,7 +2701,19 @@
             "awayScore": 2,
             "status": "FINISHED",
             "utcDate": "2025-10-19T18:45:00Z",
-            "videoId": "jRI-zMptyrk"
+            "videoId": "jRI-zMptyrk",
+            "videoOptions": [
+              {
+                "videoId": "jRI-zMptyrk",
+                "region": {
+                  "allowed": [
+                    "CA",
+                    "PR",
+                    "US"
+                  ]
+                }
+              }
+            ]
           }
         ]
       }
@@ -3335,7 +3513,19 @@
             "awayScore": 3,
             "status": "FINISHED",
             "utcDate": "2025-10-25T15:00:00Z",
-            "videoId": "tN6x4pthA3Y"
+            "videoId": "tN6x4pthA3Y",
+            "videoOptions": [
+              {
+                "videoId": "tN6x4pthA3Y",
+                "region": {
+                  "allowed": [
+                    "CA",
+                    "PR",
+                    "US"
+                  ]
+                }
+              }
+            ]
           },
           {
             "match_id": 542479,
@@ -3379,7 +3569,19 @@
             "awayScore": 1,
             "status": "FINISHED",
             "utcDate": "2025-10-25T19:05:00Z",
-            "videoId": "FB9d5GWygNc"
+            "videoId": "FB9d5GWygNc",
+            "videoOptions": [
+              {
+                "videoId": "FB9d5GWygNc",
+                "region": {
+                  "allowed": [
+                    "CA",
+                    "PR",
+                    "US"
+                  ]
+                }
+              }
+            ]
           }
         ]
       }
@@ -3847,7 +4049,19 @@
             "awayScore": 1,
             "status": "FINISHED",
             "utcDate": "2025-10-26T16:15:00Z",
-            "videoId": "HMYUPuZoS9M"
+            "videoId": "HMYUPuZoS9M",
+            "videoOptions": [
+              {
+                "videoId": "HMYUPuZoS9M",
+                "region": {
+                  "allowed": [
+                    "CA",
+                    "PR",
+                    "US"
+                  ]
+                }
+              }
+            ]
           },
           {
             "match_id": 542484,
@@ -4219,7 +4433,19 @@
             "awayScore": 0,
             "status": "FINISHED",
             "utcDate": "2025-10-29T18:00:00Z",
-            "videoId": "7k6bOphYoVA"
+            "videoId": "7k6bOphYoVA",
+            "videoOptions": [
+              {
+                "videoId": "7k6bOphYoVA",
+                "region": {
+                  "allowed": [
+                    "CA",
+                    "PR",
+                    "US"
+                  ]
+                }
+              }
+            ]
           },
           {
             "match_id": 542493,
@@ -4241,7 +4467,19 @@
             "awayScore": 0,
             "status": "FINISHED",
             "utcDate": "2025-10-29T18:00:00Z",
-            "videoId": "juPLeYIwy1w"
+            "videoId": "juPLeYIwy1w",
+            "videoOptions": [
+              {
+                "videoId": "juPLeYIwy1w",
+                "region": {
+                  "allowed": [
+                    "CA",
+                    "PR",
+                    "US"
+                  ]
+                }
+              }
+            ]
           },
           {
             "match_id": 542490,
@@ -4285,7 +4523,19 @@
             "awayScore": 3,
             "status": "FINISHED",
             "utcDate": "2025-10-29T20:05:00Z",
-            "videoId": "tQz_H0vxENE"
+            "videoId": "tQz_H0vxENE",
+            "videoOptions": [
+              {
+                "videoId": "tQz_H0vxENE",
+                "region": {
+                  "allowed": [
+                    "CA",
+                    "PR",
+                    "US"
+                  ]
+                }
+              }
+            ]
           },
           {
             "match_id": 542492,
@@ -4329,7 +4579,19 @@
             "awayScore": 2,
             "status": "FINISHED",
             "utcDate": "2025-10-29T20:05:00Z",
-            "videoId": "1A4q4s3doW0"
+            "videoId": "1A4q4s3doW0",
+            "videoOptions": [
+              {
+                "videoId": "1A4q4s3doW0",
+                "region": {
+                  "allowed": [
+                    "CA",
+                    "PR",
+                    "US"
+                  ]
+                }
+              }
+            ]
           },
           {
             "match_id": 542495,
@@ -4351,7 +4613,19 @@
             "awayScore": 0,
             "status": "FINISHED",
             "utcDate": "2025-10-29T20:05:00Z",
-            "videoId": "PHQXUXqIQ8I"
+            "videoId": "PHQXUXqIQ8I",
+            "videoOptions": [
+              {
+                "videoId": "PHQXUXqIQ8I",
+                "region": {
+                  "allowed": [
+                    "CA",
+                    "PR",
+                    "US"
+                  ]
+                }
+              }
+            ]
           }
         ]
       }

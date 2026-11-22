@@ -13,7 +13,14 @@
           "video_id": "JYTo2YQ_G8I",
           "title": "Strasbourg vs Lens | HIGHLIGHTS Ligue 1 | 02/27/2026 | beIN SPORTS USA",
           "published_at": "2026-02-27",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "PR",
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -27,7 +34,14 @@
           "video_id": "M2BsSy7r6lU",
           "title": "Rennes vs Toulouse | HIGHLIGHTS Ligue 1 | 02/28/2026 | beIN SPORTS USA",
           "published_at": "2026-02-28",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "PR",
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -41,7 +55,8 @@
           "video_id": "DRL7bg65upI",
           "title": "Résumé - AS Monaco 2-0 Angers - 24e journée Ligue 1",
           "published_at": "2026-03-02",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -55,7 +70,14 @@
           "video_id": "dIVFQKZ-Azs",
           "title": "Le Havre vs PSG | HIGHLIGHTS Ligue 1 | 02/28/2026 | beIN SPORTS USA",
           "published_at": "2026-02-28",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "PR",
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -69,7 +91,14 @@
           "video_id": "KNOTztZWX1Q",
           "title": "Paris FC vs Nice | HIGHLIGHTS Ligue 1 | 03/01/2026 | beIN SPORTS USA",
           "published_at": "2026-03-01",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "PR",
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -83,7 +112,14 @@
           "video_id": "sxx5s8cUHCY",
           "title": "Lorient vs Auxerre | HIGHLIGHTS Ligue 1 | 03/01/2026 | beIN SPORTS USA",
           "published_at": "2026-03-01",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "PR",
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -97,7 +133,14 @@
           "video_id": "Rsc_NY5cEPU",
           "title": "Metz vs Brest | HIGHLIGHTS Ligue 1 | 03/01/2026 | beIN SPORTS USA",
           "published_at": "2026-03-01",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "PR",
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -111,7 +154,14 @@
           "video_id": "JCUcObJO5cU",
           "title": "Lille vs Nantes | HIGHLIGHTS Ligue 1 | 03/01/2026 | beIN SPORTS USA",
           "published_at": "2026-03-01",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "PR",
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -125,7 +175,14 @@
           "video_id": "Do30HH_SEZE",
           "title": "Marseille vs Lyon | HIGHLIGHTS Ligue 1 | 03/01/2026 | beIN SPORTS USA",
           "published_at": "2026-03-01",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "PR",
+              "US"
+            ]
+          }
         }
       ]
     }

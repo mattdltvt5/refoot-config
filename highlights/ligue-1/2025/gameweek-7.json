@@ -13,7 +13,14 @@
           "video_id": "TCHc_h31Cj0",
           "title": "Paris FC vs Lorient | HIGHLIGHTS Ligue 1 | 10/03/2025 | beIN SPORTS USA",
           "published_at": "2025-10-03",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "PR",
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -27,7 +34,14 @@
           "video_id": "0R4aPfd7yz8",
           "title": "Metz vs Marseille | Ligue 1 HIGHLIGHTS | 10/04/25 beIN SPORTS USA",
           "published_at": "2025-10-04",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "PR",
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -41,7 +55,8 @@
           "video_id": "nzAgyirgloQ",
           "title": "⚽ [J07] Le résumé de Stade Brestois - FC Nantes (0-0)",
           "published_at": "2025-10-06",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -55,7 +70,14 @@
           "video_id": "VbGj3FJ7kQk",
           "title": "Auxerre vs Lens | Ligue 1 HIGHLIGHTS | 10/04/25 beIN SPORTS USA",
           "published_at": "2025-10-04",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "PR",
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -69,7 +91,8 @@
           "video_id": "Td5ZARPxaEE",
           "title": "Résumé OL - Toulouse FC : Première défaite à domicile pour nos Gones (1-2)",
           "published_at": "2025-10-05",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -83,7 +106,14 @@
           "video_id": "DV0AUMrYitw",
           "title": "Strasbourg vs Angers | HIGHLIGHTS Ligue 1 | 10/05/2025 | beIN SPORTS USA",
           "published_at": "2025-10-05",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "PR",
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -97,7 +127,8 @@
           "video_id": "01EWpnakOkE",
           "title": "Le Havre REMONTE 2 buts à Rennes et ARRACHE le nul | 7ème journée - Ligue 1 McDonald's 25/26",
           "published_at": "2025-10-05",
-          "tier_used": 2
+          "tier_used": 2,
+          "region": {}
         }
       ]
     },
@@ -111,7 +142,14 @@
           "video_id": "MRq3I-5EdxE",
           "title": "AS Monaco vs Nice | Ligue 1 HIGHLIGHTS | 10/05/25 beIN SPORTS USA",
           "published_at": "2025-10-05",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "PR",
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -125,7 +163,14 @@
           "video_id": "sRp53W45HAE",
           "title": "Lille vs PSG | Ligue 1 HIGHLIGHTS | 10/05/25 | beIN SPORTS USA",
           "published_at": "2025-10-05",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "PR",
+              "US"
+            ]
+          }
         }
       ]
     }

@@ -13,7 +13,14 @@
           "video_id": "-6BL3o56daE",
           "title": "PSG vs Toulouse | HIGHLIGHTS Ligue 1 | 04/03/2026 | beIN SPORTS USA",
           "published_at": "2026-04-03",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "PR",
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -27,7 +34,14 @@
           "video_id": "Nkb9jxlZqXg",
           "title": "Strasbourg vs Nice | HIGHLIGHTS Ligue 1 | 04/04/2026 | beIN SPORTS USA",
           "published_at": "2026-04-04",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "PR",
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -41,7 +55,8 @@
           "video_id": "kVvbtoenApU",
           "title": "PLUIE DE BUTS dans le derby breton, Rennes RENVERSE Brest | 28ème journée - Ligue 1 McDonald's 25/26",
           "published_at": "2026-04-05",
-          "tier_used": 2
+          "tier_used": 2,
+          "region": {}
         }
       ]
     },
@@ -55,7 +70,14 @@
           "video_id": "-_I1K0FL7Kk",
           "title": "Lille vs Lens | HIGHLIGHTS Ligue 1 | 04/04/2026 | beIN SPORTS USA",
           "published_at": "2026-04-04",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "PR",
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -69,7 +91,14 @@
           "video_id": "ywBPj2S7j7A",
           "title": "Angers vs Lyon | HIGHLIGHTS Ligue 1 | 04/05/2026 | beIN SPORTS USA",
           "published_at": "2026-04-05",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "PR",
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -83,7 +112,14 @@
           "video_id": "T4ubby_qGnY",
           "title": "Le Havre vs Auxerre | HIGHLIGHTS Ligue 1 | 04/05/2026 | beIN SPORTS USA",
           "published_at": "2026-04-06",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "PR",
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -97,7 +133,8 @@
           "video_id": "uxPoaQeggDg",
           "title": "Munetsi RÉPOND à Dieng : Lorient et le PFC font JEU ÉGAL | 28ème journée - Ligue 1 McDonald's 25/26",
           "published_at": "2026-04-05",
-          "tier_used": 2
+          "tier_used": 2,
+          "region": {}
         }
       ]
     },
@@ -111,13 +148,15 @@
           "video_id": "0NGyMRMUT6I",
           "title": "⚽ [J28] Le résumé de FC Metz - FC Nantes (0-0)",
           "published_at": "2026-04-05",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         },
         {
           "video_id": "g9sb50VUr2Q",
           "title": "⚽ [J11] Le résumé de FC Nantes - FC Metz",
           "published_at": "2026-04-07",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -131,7 +170,8 @@
           "video_id": "23VmKHnkJcg",
           "title": "Résumé, AS Monaco 2-1 OM - 28e journée",
           "published_at": "2026-04-06",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     }

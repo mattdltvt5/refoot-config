@@ -13,7 +13,8 @@
           "video_id": "Gsopc35s7Gw",
           "title": "⚽ [J33] Le résumé de RC Lens - FC Nantes (1-0)",
           "published_at": "2026-05-08",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -27,7 +28,14 @@
           "video_id": "Qss3ZT4OP3E",
           "title": "Le Havre vs Marseille | HIGHLIGHTS Ligue 1 | 05/10/2026 | beIN SPORTS USA",
           "published_at": "2026-05-10",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "PR",
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -41,7 +49,8 @@
           "video_id": "MHfYYo_PY_8",
           "title": "Résumé : AJ Auxerre - OGC Nice (2-1) | J33 Ligue 1 McDonald's 2025-2026",
           "published_at": "2026-05-10",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -55,7 +64,8 @@
           "video_id": "q2vBYlKaJPM",
           "title": "Résumé, AS Monaco 0-1 LOSC (33e journée Ligue 1)",
           "published_at": "2026-05-11",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -69,7 +79,8 @@
           "video_id": "yr7SoS5GJu8",
           "title": "Le BIJOU d'Arthur Avom Ebong, Lorient CARTONNE à Metz | 33ème journée - Ligue 1 McDonald's 25/26",
           "published_at": "2026-05-11",
-          "tier_used": 2
+          "tier_used": 2,
+          "region": {}
         }
       ]
     },
@@ -83,7 +94,14 @@
           "video_id": "OnAJCry6EVU",
           "title": "Toulouse vs Lyon | HIGHLIGHTS Ligue 1 | 05/10/2026 | beIN SPORTS USA",
           "published_at": "2026-05-10",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "PR",
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -97,13 +115,27 @@
           "video_id": "Wdku5euu6o4",
           "title": "Paris Saint Germain vs Brest | EXTENDED HIGHLIGHTS Ligue 1 | 05/10/2026 | beIN SPORTS USA",
           "published_at": "2026-05-10",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "PR",
+              "US"
+            ]
+          }
         },
         {
           "video_id": "SHmX0RlJS3o",
           "title": "PSG vs Brest | HIGHLIGHTS Ligue 1 | 05/10/2026 | beIN SPORTS USA",
           "published_at": "2026-05-10",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "PR",
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -117,7 +149,8 @@
           "video_id": "NU9InqV3vDQ",
           "title": "Angers SE MAINTIENT, Strasbourg dit ADIEU à l'Europe | 33ème journée - Ligue 1 McDonald's 25/26",
           "published_at": "2026-05-10",
-          "tier_used": 2
+          "tier_used": 2,
+          "region": {}
         }
       ]
     },
@@ -131,7 +164,8 @@
           "video_id": "-FjEEBUSDTU",
           "title": "Lepaul et Embolo RENVERSENT le PFC, Rennes ASSURÉ de C3 | 33ème journée - Ligue 1 McDonald's 25/26",
           "published_at": "2026-05-11",
-          "tier_used": 2
+          "tier_used": 2,
+          "region": {}
         }
       ]
     }

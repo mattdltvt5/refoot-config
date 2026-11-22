@@ -13,7 +13,8 @@
           "video_id": "TuDG0xR3u3s",
           "title": "Résumé, PSG 1-3 AS Monaco : l’ASM frappe fort au Parc - 25e journée Ligue 1",
           "published_at": "2026-03-08",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -27,7 +28,14 @@
           "video_id": "o2syFruj5xg",
           "title": "Nantes vs Angers | HIGHLIGHTS Ligue 1 | 03/07/2026 | beIN SPORTS USA",
           "published_at": "2026-03-07",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "PR",
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -41,7 +49,14 @@
           "video_id": "H2zKcZggs1I",
           "title": "Auxerre vs Strasbourg | HIGHLIGHTS Ligue 1 | 03/07/2026 | bien SPORTS USA",
           "published_at": "2026-03-07",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "PR",
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -55,7 +70,8 @@
           "video_id": "tOoUIKruOPc",
           "title": "Toulouse 0-1 OM | Le résumé de la victoire 👊",
           "published_at": "2026-03-08",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -69,7 +85,8 @@
           "video_id": "gqGc_4qGiX8",
           "title": "1ers buts de Abdulhamid et Haidara, Lens ÉCRASE Metz | 25ème journée - Ligue 1 McDonald's 25/26",
           "published_at": "2026-03-08",
-          "tier_used": 2
+          "tier_used": 2,
+          "region": {}
         }
       ]
     },
@@ -83,7 +100,14 @@
           "video_id": "bJhTknpDg80",
           "title": "Nice vs Stade Rennes | HIGHLIGHTS Ligue 1 | 03/08/2026 | beIN SPORTS USA",
           "published_at": "2026-03-08",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "PR",
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -97,7 +121,14 @@
           "video_id": "9R4RZm7DAdo",
           "title": "Lille vs Lorient | HIGHLIGHTS Ligue 1 | 03/08/2026 | beIN SPORTS USA",
           "published_at": "2026-03-08",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "PR",
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -111,7 +142,14 @@
           "video_id": "ltNQYT5ES_Q",
           "title": "Stade Brest vs Le Havre | HIGHLIGHTS Ligue 1 | 03/08/2026 | beIN SPORTS USA",
           "published_at": "2026-03-08",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "PR",
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -125,7 +163,14 @@
           "video_id": "Fk5PuU3Ftic",
           "title": "Lyon vs Paris FC | HIGHLIGHTS Ligue 1 | 03/08/2026 | beIN SPORTS USA",
           "published_at": "2026-03-08",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "PR",
+              "US"
+            ]
+          }
         }
       ]
     }

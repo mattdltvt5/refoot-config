@@ -13,7 +13,8 @@
           "video_id": "HjRs4CmaxgY",
           "title": "Résumé, Paris FC 4-1 AS Monaco - 29e journée Ligue 1",
           "published_at": "2026-04-13",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -27,7 +28,14 @@
           "video_id": "zs_Y_YoRWO4",
           "title": "Marseille vs Metz | Ligue 1 HIGHLIGHTS | 04/10/2026 | beIN SPORTS USA",
           "published_at": "2026-04-10",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "PR",
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -41,7 +49,8 @@
           "video_id": "etwiPzkdeCA",
           "title": "⚽ [J29] Le résumé du match AJ Auxerre - FC Nantes (0-0)",
           "published_at": "2026-04-12",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -55,7 +64,14 @@
           "video_id": "dneHcionMtg",
           "title": "Stade Rennes vs Angers | HIGHLIGHTS Ligue 1 | 04/11/2026 | beIN SPORTS USA",
           "published_at": "2026-04-11",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "PR",
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -69,7 +85,14 @@
           "video_id": "HkyDcHi9HEM",
           "title": "Toulouse vs Lille | HIGHLIGHTS Ligue 1 | 04/12/2026 | beIN SPORTS USA",
           "published_at": "2026-04-12",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "PR",
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -83,7 +106,14 @@
           "video_id": "0lXvz8Fe2y0",
           "title": "Nice vs Le Havre | HIGHLIGHTS Ligue 1 | 04/12/2026 | beIN SPORTS USA",
           "published_at": "2026-04-12",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "PR",
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -97,7 +127,14 @@
           "video_id": "Qfq963bIhxg",
           "title": "Lyon vs Lorient | HIGHLIGHTS Ligue 1 | 04/12/2026 | beIN SPORTS USA",
           "published_at": "2026-04-12",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "PR",
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -111,7 +148,14 @@
           "video_id": "YGH1l5fn_dE",
           "title": "Stade Brest vs Strasbourg | HIGHLIGHTS Ligue 1 | 05/13/2026 | beIN SPORTS USA",
           "published_at": "2026-05-13",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "PR",
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -125,13 +169,27 @@
           "video_id": "_TSropEBRsc",
           "title": "Lens vs PSG | EXTENDED HIGHLIGHTS Ligue 1 | 05/13/2026 | beIN SPORTS USA",
           "published_at": "2026-05-13",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "PR",
+              "US"
+            ]
+          }
         },
         {
           "video_id": "E3nX22a6-Mg",
           "title": "Lens vs PSG | HIGHLIGHTS Ligue 1 | 05/13/2026 | beIN SPORTS USA",
           "published_at": "2026-05-13",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "PR",
+              "US"
+            ]
+          }
         }
       ]
     }

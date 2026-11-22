@@ -13,7 +13,14 @@
           "video_id": "a6Siip1CDts",
           "title": "PSG vs Angers | Ligue 1 HIGHLIGHTS | 08/22/25 | beIN SPORTS USA",
           "published_at": "2025-08-22",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "PR",
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -27,7 +34,8 @@
           "video_id": "OPbHdcKThH8",
           "title": "OM 5-2 Paris FC | Le résumé de la rencontre",
           "published_at": "2025-08-23",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -41,7 +49,8 @@
           "video_id": "WvYHiabFCvU",
           "title": "Résumé : Nice - Auxerre (3-1) I J2 - Ligue 1 McDonald's 2025-2026",
           "published_at": "2025-08-24",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -55,7 +64,8 @@
           "video_id": "OHO9TzEedSI",
           "title": "Le résumé de OL - FC Metz : Deuxième succès en Ligue 1 pour un début de saison canon (3-0)",
           "published_at": "2025-08-23",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -69,7 +79,14 @@
           "video_id": "Wpfdcoxy01Q",
           "title": "Lorient vs Stade Rennes | Ligue 1 HIGHLIGHTS | 08/24/25 beIN SPORTS USA",
           "published_at": "2025-08-24",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "PR",
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -83,7 +100,14 @@
           "video_id": "Uas0ZT3sBVQ",
           "title": "Le Havre vs RC Lens | Ligue 1 HIGHLIGHTS | 08/24/25 beIN SPORTS USA",
           "published_at": "2025-08-24",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "PR",
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -97,7 +121,14 @@
           "video_id": "LYyckW0VrxI",
           "title": "Toulouse vs Stade Brestois | Ligue 1 HIGHLIGHTS | 08/24/2025 | beIN SPORTS USA",
           "published_at": "2025-08-24",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "PR",
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -111,7 +142,8 @@
           "video_id": "epxR2w6LvSg",
           "title": "⚽ [J02] Le résumé de RC Strasbourg - FC Nantes (1-0)",
           "published_at": "2025-08-28",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -125,7 +157,8 @@
           "video_id": "9KrdijMUXTg",
           "title": "Résumé Lille LOSC - AS Monaco - 2ème journée",
           "published_at": "2025-08-25",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     }
