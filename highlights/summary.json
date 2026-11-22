@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-22T16:46:15Z",
+  "generated_at": "2026-11-22T16:51:21Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -2703,7 +2703,7 @@
           "gameweek": "GW12",
           "stem": "gameweek-12",
           "total": 7,
-          "covered": 5,
+          "covered": 6,
           "matches": [
             {
               "match_id": 558528,
@@ -2745,8 +2745,7 @@
               "home": "Bologna FC 1909",
               "away": "Udinese Calcio",
               "date": "2026-11-22",
-              "covered": false,
-              "pending": true
+              "covered": true
             },
             {
               "match_id": 558524,
