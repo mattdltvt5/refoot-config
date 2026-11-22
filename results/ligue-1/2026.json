@@ -1,7 +1,7 @@
 {
   "competition": "Ligue 1",
   "season": 2026,
-  "generated_at": "2026-11-22T16:01:16Z",
+  "generated_at": "2026-11-22T16:06:07Z",
   "results": {
     "559715": {
       "status": "FINISHED",
@@ -1058,6 +1058,17 @@
       },
       "utcDate": "2026-11-21T19:45:00Z",
       "first_finished_at": "2026-11-21T21:56:12Z"
+    },
+    "559625": {
+      "status": "FINISHED",
+      "score": {
+        "fullTime": {
+          "home": 4,
+          "away": 0
+        }
+      },
+      "utcDate": "2026-11-22T14:00:00Z",
+      "first_finished_at": "2026-11-22T16:06:07Z"
     }
   }
 }
