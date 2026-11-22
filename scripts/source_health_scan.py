@@ -26,7 +26,7 @@ For the current season of each competition in sources.json:
 
 YouTube API: playlistItems.list + videos.list only. Never search.list,
 playlists.list or channels.list (a channel's uploads playlist is UC→UU), and
-never API-Sports. Quota: its own budget (SCAN_BUDGET_UNITS, default 300) on top
+never API-Sports. Quota: its own budget (SCAN_BUDGET_UNITS, default 500) on top
 of the shared daily tracker (highlights/quota-tracker.json); when either runs
 low the scan stops, marks the report ``partial: true`` and lists what it skipped.
 
@@ -92,7 +92,7 @@ log = logging.getLogger(__name__)
 
 # ── Configuration (overridable by CLI flags) ──────────────────────────────────
 
-SCAN_BUDGET_UNITS        = 300   # this scan's own YouTube budget per run
+SCAN_BUDGET_UNITS        = 500   # this scan's own YouTube budget per run (--budget)
 STALE_DAYS               = 14    # STALE: no upload in this many days
 RECENT_DAYS              = 14    # "recent" uploads + coverage window
 COVERAGE_MIN_RATIO       = 0.8   # LOW_COVERAGE below this share of finished fixtures

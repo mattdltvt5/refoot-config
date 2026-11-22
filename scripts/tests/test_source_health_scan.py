@@ -103,8 +103,9 @@ def fixtures(monkeypatch):
     return state
 
 
-def run(client, rights_dir, budget=300, tracker=None, **kw):
-    quota = scan.ScanQuota(tracker or FakeTracker(), budget)
+def run(client, rights_dir, budget=None, tracker=None, **kw):
+    quota = scan.ScanQuota(tracker or FakeTracker(),
+                           scan.SCAN_BUDGET_UNITS if budget is None else budget)
     return scan.run_scan(client=client, quota=quota, now=NOW, sources_raw=SOURCES_RAW,
                          config=CONFIG, rights_dir=rights_dir, **kw)
 
@@ -385,6 +386,50 @@ def test_scan_never_modifies_sources_cache_or_registry(rights, tmp_path, fixture
 
 
 # ── Budget ────────────────────────────────────────────────────────────────────
+
+def test_default_budget_is_500_and_configurable():
+    assert scan.SCAN_BUDGET_UNITS == 500
+    src_text = Path(scan.__file__).read_text(encoding="utf-8")
+    assert 'ap.add_argument("--budget", type=int, default=SCAN_BUDGET_UNITS)' in src_text
+
+
+class FullPageClient(FakeClient):
+    """Every playlist returns a FULL first page (50 items, more pages exist) of
+    recent titles that pass every source's title gate — so every source sends
+    the maximum region sample to videos.list. Worst case for quota."""
+
+    TITLE = "Match Highlights LaLiga"   # passes tier-2 (incl. LaLiga gate / BL
+                                        # required term), curated and club gates
+
+    def playlist_page(self, pid):
+        self.page_calls.append(pid)
+        return page([item(f"{pid}-{i}", self.TITLE) for i in range(50)], has_more=True)
+
+    def video_details(self, ids, quota, cap):
+        self.detail_calls.append(list(ids))
+        quota.increment(cap)
+        return {i: {"duration_seconds": 600, "is_embeddable": True,
+                    "region_restriction": None} for i in ids}
+
+
+def test_full_pass_with_full_pages_completes_under_default_budget(tmp_path):
+    """Real sources.json + config, every configured source a full first page,
+    all region batches: the default budget finishes the pass (partial: false)."""
+    client = FullPageClient()
+    quota = scan.ScanQuota(FakeTracker(), scan.SCAN_BUDGET_UNITS)
+    r = scan.run_scan(client=client, quota=quota, now=NOW, rights_dir=tmp_path)
+
+    assert r["partial"] is False and r["skipped"] == [] and r["stop_reason"] is None
+    pages = len(set(client.page_calls))
+    batches = len(client.detail_calls)
+    assert r["quota_used"] == pages + batches <= scan.SCAN_BUDGET_UNITS
+    for comp in r["competitions"].values():
+        for s in comp["sources"]:
+            assert s["checked"] and s["recent_passing"] == 50, (comp["slug"], s["label"])
+            assert s["region"]["checked"] == scan.REGION_SAMPLE_PER_SOURCE
+    # Headroom left for growth (new sources, proposal fetches, error pages).
+    assert scan.SCAN_BUDGET_UNITS - r["quota_used"] >= 100
+
 
 def test_budget_stop_marks_partial_and_lists_skipped(rights, fixtures):
     client = FakeClient(healthy_pages())

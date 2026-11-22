@@ -17,7 +17,7 @@ and full-match replays were accepted until #69. This adds:
 - **`scripts/source_health_scan.py`** + **`source-health-scan.yml`**: a weekly (Mon 06:00 UTC) read-only scan
   of every configured source. It checks for empty, stale, unreachable and title-drift sources, highlight
   coverage, per-country region availability, registry findings and proposals. It writes
-  `reports/source-health/{season}/latest.json`, inside a 300-unit budget. It proposes only, never editing
+  `reports/source-health/{season}/latest.json`, inside a 500-unit budget. It proposes only, never editing
   `sources.json`, the cache or the registry. See [Source health scan](#source-health-scan).
 - `fetch_video_details` now also returns the raw `region_restriction`, so per-country checks can use
   `region_is_playable_in()`.
@@ -1185,12 +1185,19 @@ and how many exceed `max_video_duration(comp)`. The results reflect the uploader
 read them with `generated_at`.
 
 **Quota.**
-- The scan has its own budget (`SCAN_BUDGET_UNITS = 300`, `--budget`). It also stops before the shared daily
+- The scan has its own budget (`SCAN_BUDGET_UNITS = 500`, `--budget`). It also stops before the shared daily
   tracker (`highlights/quota-tracker.json`) would reach `INCREMENTAL_CAP`.
 - Both limits are checked **before** every call. When either is too low, the scan stops, sets `partial: true`
   and lists everything not checked in `skipped[]`.
-- Units are recorded in `quota_used` and in the shared tracker. The workflow does not commit
-  `quota-tracker.json`; the fetch commits own that file.
+- A full worst-case pass (every configured source returns a full first page, plus all the `videos.list`
+  region batches) measured **283 units** with the current config: 232 first pages and 51 batches. The 500
+  default leaves room for new sources and proposal fetches. `test_full_pass_with_full_pages_completes_under_default_budget`
+  checks the pass finishes with `partial: false` and at least 100 units to spare.
+- Units are recorded in `quota_used` and, during the run, in the shared tracker
+  (`highlights/quota-tracker.json`). The workflow does **not** commit that file, because the fetch commits own
+  it. This is safe: the fetch caps itself at 8,000 units a day (`INCREMENTAL_CAP`) against YouTube's
+  10,000 daily limit, so a once-a-week scan of at most 500 units fits in the 2,000-unit margin even though
+  the fetch never sees it.
 - Without `YOUTUBE_API_KEY`, every source is skipped (`partial: true`). Coverage and registry findings are
   still written.
 
@@ -1205,7 +1212,7 @@ competition also carries its own `season`, which is the edition year for tournam
   "report_season": 2026,
   "launch_countries": ["US", "GB", "CA", "IE", "ES"],
   "partial": false, "stop_reason": null,          // scan_budget | daily_quota | youtube_403
-  "quota_used": 241, "quota_budget": 300,
+  "quota_used": 241, "quota_budget": 500,
   "settings": {"stale_days": 14, "recent_days": 14, "coverage_min_ratio": 0.8, …},
   "summary": {"EMPTY": 16, "STALE": 0, …, "NO_HOLDER": 3, "proposals": 0},
   "skipped": [{"competition": "…", "source": "…", "playlist_id": "…", "reason": "scan_budget"}],

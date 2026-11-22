@@ -4,7 +4,7 @@ name: Source health scan (weekly, read-only)
 # rights registry (rights/{season}.json). It PROPOSES only: it never edits
 # sources.json, the highlights cache, fixtures or the registry, and never runs
 # fetch_highlights / backfill. YouTube calls: playlistItems.list + videos.list
-# only, inside the scan's own budget (default 300 units).
+# only, inside the scan's own budget (default 500 units).
 #
 # Commits ONLY reports/source-health/ (latest.json + dated copies, last 8 kept)
 # with [skip ci], as github-actions[bot]. The QuotaTracker rewrite of
@@ -17,7 +17,7 @@ on:
   workflow_dispatch:
     inputs:
       budget:
-        description: "YouTube unit budget for this run (blank = 300)"
+        description: "YouTube unit budget for this run (blank = 500)"
         required: false
         default: ""
 
