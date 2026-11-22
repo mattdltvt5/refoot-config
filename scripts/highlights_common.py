@@ -95,6 +95,12 @@ VIDEO_WINDOW_DAYS = 3    # accept videos published up to N days after fixture da
                          # (was 5 — reduced to avoid catching the next fixture's
                          # highlights when two matches are played within 5 days)
 MAX_YT_PAGES      = 10  # cap per playlist (50 items/page → max 500 items, 10 units)
+# Channel uploads playlists (UU…) list newest first, so once a page reaches
+# videos older than the fixture, later pages can't match. Stop there, with a
+# day's margin for ordering slop. Without this an unmatched fixture paged both
+# club uploads feeds to MAX_YT_PAGES on every run: 22 units per Premier League
+# fixture every 5 minutes on 2026-11-21, roughly 80% of the 8,000 daily cap.
+UPLOADS_EARLY_STOP_MARGIN = timedelta(days=1)
 FD_SLEEP_SECONDS  = 6   # pause between football-data.org requests (10 req/min free tier)
 INCREMENTAL_CAP   = 8_000  # max YouTube units/day for incremental runs
 BACKFILL_CAP      = 9_500  # max YouTube units/day for backfill runs
@@ -2263,6 +2269,7 @@ def search_playlist(
     date_window_days: int = VIDEO_WINDOW_DAYS,
     bypass_highlight_allowlist: bool = False,
     required_terms: "list[str] | tuple[str, ...]" = (),
+    page_cache: "dict | None" = None,
 ) -> list[dict]:
     """
     Search a playlist for videos matching the given fixture.
@@ -2284,6 +2291,11 @@ def search_playlist(
     to one club, so only the opponent needs to appear in the title.
 
     Pagination capped at MAX_YT_PAGES; stops after the first page with an accepted video.
+    Channel uploads playlists (``UU…``, newest first) also stop once a page reaches
+    items older than the fixture date minus UPLOADS_EARLY_STOP_MARGIN.
+    ``page_cache`` (one dict per run, shared across fixtures) memoises fetched pages
+    by (playlist_id, page_token): a page another fixture already fetched this run
+    costs no quota and no request.
     Calls quota.increment(cap) per page fetched — raises QuotaCapReached if cap hit.
     Raises QuotaCapReached on HTTP 403 (YouTube's own quota exhaustion) so callers can
     save state and exit cleanly rather than crashing with a non-zero exit code.
@@ -2321,43 +2333,12 @@ def search_playlist(
                 "tier":        None,  # patched by _try() after the call returns
             })
 
-    while pages_fetched < MAX_YT_PAGES:
-        params: dict = {
-            "part":       "snippet",
-            "playlistId": playlist_id,
-            "key":        yt_key,
-            "maxResults": 50,
-        }
-        if page_token:
-            params["pageToken"] = page_token
+    newest_first = playlist_id.startswith("UU")
+    early_stop_before = fixture_date - UPLOADS_EARLY_STOP_MARGIN
 
-        try:
-            resp = requests.get(YT_PLAYLIST, params=params, timeout=15)
-        except requests.RequestException as exc:
-            log.warning(f"Network error searching playlist {playlist_id}: {exc}")
-            return accepted
-
-        if resp.status_code == 403:
-            log.warning(
-                f"YouTube API quota exhausted (403) on playlist {playlist_id} "
-                "— saving checkpoint and exiting cleanly"
-            )
-            raise QuotaCapReached(
-                f"YouTube returned HTTP 403 on playlist {playlist_id} — quota exhausted"
-            )
-        if resp.status_code == 404:
-            log.warning(f"Playlist {playlist_id} not found (404) — skipping")
-            return accepted
-        if not resp.ok:
-            log.warning(
-                f"YouTube API HTTP {resp.status_code} on playlist {playlist_id} — skipping"
-            )
-            return accepted
-
-        data = resp.json()
-        quota.increment(cap)  # raises QuotaCapReached if cap hit
-        pages_fetched += 1
-
+    def _scan_page(data: dict) -> bool:
+        """Match one page's items into ``accepted``; True = stop paginating."""
+        oldest: "datetime | None" = None
         for item in data.get("items", []):
             snippet  = item.get("snippet", {})
             title    = snippet.get("title", "")
@@ -2374,6 +2355,8 @@ def search_playlist(
                 )
             except ValueError:
                 continue
+            if oldest is None or pub_date < oldest:
+                oldest = pub_date
 
             # Normalise up front so every debug record sees the same form
             # the matcher actually compares against.
@@ -2446,8 +2429,56 @@ def search_playlist(
                 "title":        title,
                 "published_at": pub_str_date,
             })
-
         if accepted:
+            return True
+        # Newest-first uploads: this page already reaches before the fixture.
+        return bool(newest_first and oldest is not None and oldest < early_stop_before)
+
+    while pages_fetched < MAX_YT_PAGES:
+        cache_key = (playlist_id, page_token)
+        if page_cache is not None and cache_key in page_cache:
+            data = page_cache[cache_key]
+            pages_fetched += 1
+        else:
+            params: dict = {
+                "part":       "snippet",
+                "playlistId": playlist_id,
+                "key":        yt_key,
+                "maxResults": 50,
+            }
+            if page_token:
+                params["pageToken"] = page_token
+
+            try:
+                resp = requests.get(YT_PLAYLIST, params=params, timeout=15)
+            except requests.RequestException as exc:
+                log.warning(f"Network error searching playlist {playlist_id}: {exc}")
+                return accepted
+
+            if resp.status_code == 403:
+                log.warning(
+                    f"YouTube API quota exhausted (403) on playlist {playlist_id} "
+                    "— saving checkpoint and exiting cleanly"
+                )
+                raise QuotaCapReached(
+                    f"YouTube returned HTTP 403 on playlist {playlist_id} — quota exhausted"
+                )
+            if resp.status_code == 404:
+                log.warning(f"Playlist {playlist_id} not found (404) — skipping")
+                return accepted
+            if not resp.ok:
+                log.warning(
+                    f"YouTube API HTTP {resp.status_code} on playlist {playlist_id} — skipping"
+                )
+                return accepted
+
+            data = resp.json()
+            quota.increment(cap)  # raises QuotaCapReached if cap hit
+            pages_fetched += 1
+            if page_cache is not None:
+                page_cache[cache_key] = data
+
+        if _scan_page(data):
             break
 
         page_token = data.get("nextPageToken", "")
@@ -2469,10 +2500,14 @@ def resolve_videos_for_fixture(
     cap: int,
     gw_playlist_cache: dict | None = None,
     debug_sink: "list | None" = None,
+    page_cache: "dict | None" = None,
 ) -> list[dict]:
     """
     Try each tier in priority order, stopping at the first that yields ≥1 video.
     Raises QuotaCapReached (propagated from search_playlist) if cap is hit.
+
+    ``page_cache``: pass one dict per run (like ``gw_playlist_cache``) so playlist
+    pages shared by several fixtures are fetched once; see search_playlist().
 
     Tier order: 1c → 1d → 2 → 4 → 1a → 1b
     """
@@ -2511,6 +2546,7 @@ def resolve_videos_for_fixture(
             date_window_days=date_window,
             bypass_highlight_allowlist=highlight_playlist,
             required_terms=required_terms,
+            page_cache=page_cache,
         )
         if debug_sink is not None:
             for rec in debug_sink[_sink_start:]:

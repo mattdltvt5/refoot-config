@@ -432,6 +432,7 @@ def main() -> None:
     total_written = 0
     new_additions: list[dict] = []
     gw_playlist_cache: dict = {}  # shared across all fixtures to avoid redundant playlists.list calls
+    page_cache: dict = {}  # playlist pages fetched this run, shared across fixtures (search_playlist)
     try:
         for comp_name, by_stem in sorted(all_highlights.items()):
             season = season_for_competition(comp_name)
@@ -485,6 +486,7 @@ def main() -> None:
                     videos = resolve_videos_for_fixture(
                         fix, comp_name, config, yt_key, quota, INCREMENTAL_CAP,
                         gw_playlist_cache=gw_playlist_cache,
+                        page_cache=page_cache,
                         debug_sink=_sink,
                     )
                     enriched.append({**fix, "videos": videos})

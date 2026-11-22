@@ -1613,6 +1613,16 @@ Only `playlistItems.list` is used (**1 unit per page**). `search.list` (100 unit
 | Worst case per run (all tiers tried, 10 pages each) | ~700 units |
 | Complete gameweeks skipped | 0 units |
 
+**Page savings** (`search_playlist`), neither of which changes which videos match:
+- **Uploads early stop:** channel uploads playlists (`UU…`) list newest first, so paging stops once a page
+  reaches videos more than a day (`UPLOADS_EARLY_STOP_MARGIN`) older than the fixture. Curated `PL…`
+  playlists can be in any order and still page up to `MAX_YT_PAGES`. Before this, an unmatched fixture
+  read both club uploads feeds to 10 pages on every run: 22 units per Premier League fixture every
+  5 minutes, roughly 80% of the 8,000 cap on 2026-11-21.
+- **Per-run page cache:** `fetch_highlights.py` and `backfill_highlights.py` pass one `page_cache` dict per
+  run, so a page that several fixtures need (competition channel, matchday and broadcaster playlists) is
+  fetched once.
+
 YouTube Data API free quota: **10,000 units/day**. The day is YouTube's: it resets at **midnight US Pacific
 time** (07:00 UTC in summer, 08:00 UTC in winter), and `QuotaTracker` uses the same day
 (`youtube_quota_day()`, `day_basis: "America/Los_Angeles"` in the tracker file). Until 2026-11 the tracker
