@@ -2143,5 +2143,20 @@
       "primary": "#007A4D",
       "secondary": "#FFB612"
     }
+  },
+  "broadcasterChannels": {
+    "Champions League": [
+      {
+        "label": "TNT Sports Football",
+        "channelId": "UC4i_9WvfPRTuRWEaWyfKuFw",
+        "requiredTerms": [
+          "Champions League Highlights"
+        ],
+        "countries": [
+          "GB",
+          "IE"
+        ]
+      }
+    ]
   }
 }

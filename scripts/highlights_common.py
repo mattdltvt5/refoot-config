@@ -1880,7 +1880,29 @@ def load_sources() -> dict:
         f"{len(competition_playlists)} competitions with broadcaster playlists, "
         f"{len(team_playlists)} competitions with team playlists"
     )
+    # Broadcaster channel uploads  —  {competition: [{label, channel_id,
+    # required_terms, countries}]}. For broadcasters whose highlights sit only in
+    # their general uploads (e.g. TNT Sports Football's UCL highlights, GB/IE), so a
+    # required title phrase keeps their other competitions out. Tier 4, after the
+    # curated broadcaster playlists.
+    broadcaster_channels: dict[str, list[dict]] = {}
+    for comp, entries in (raw.get("broadcasterChannels") or {}).items():
+        for e in entries or []:
+            cid = extract_channel_id((e or {}).get("channelId", ""))
+            terms = [t.strip().lower() for t in (e.get("requiredTerms") or []) if t and t.strip()]
+            if not cid or not terms:
+                log.warning(f"broadcasterChannels[{comp!r}]: skipping entry without a "
+                            f"channelId or requiredTerms: {e!r}")
+                continue
+            broadcaster_channels.setdefault(comp, []).append({
+                "label": e.get("label") or cid,
+                "channel_id": cid,
+                "required_terms": terms,
+                "countries": [c.upper() for c in (e.get("countries") or [])],
+            })
+
     return {
+        "broadcaster_channels": broadcaster_channels,
         "competition_channels":  competition_channels,
         "team_channels":         team_channels,
         "competition_playlists": competition_playlists,
@@ -2862,6 +2884,16 @@ def resolve_videos_for_fixture(
             result = _try(pl_id, tier=4, both_teams=True, date_window=_CURATED_PLAYLIST_WINDOW, highlight_playlist=True)
             if result:
                 return result
+
+    # Tier 4 (channel uploads) — broadcasters whose highlights live only in their
+    # general uploads (sources.json broadcasterChannels). Multi-competition feeds,
+    # so: both teams, the full title allowlist, and the entry's required phrase
+    # (e.g. "champions league highlights").
+    for bc in ([] if skip_broadcasters else config.get("broadcaster_channels", {}).get(comp_name, [])):
+        result = _try(channel_to_uploads(bc["channel_id"]), tier=4, both_teams=True,
+                      required_terms=bc["required_terms"])
+        if result:
+            return result
 
     # Tier 1a — home team club channel uploads.
     # Channel uploads contain ALL competitions, so we require both team names

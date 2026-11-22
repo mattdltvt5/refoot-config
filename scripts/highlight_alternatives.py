@@ -8,8 +8,9 @@ in the US, while the competition and club channels - tried earlier or never -
 publish clips that play almost everywhere. On 2026-11-22, 878 matches had no
 clip playable in GB/IE (877 in ES, 624 in CA, 13 in the US).
 
-What it does, for current-season domestic league matches only (UCL and the
-tournaments have no worldwide source configured - phase 2):
+What it does, for current-season domestic league and Champions League matches
+(ALT_COMPS; UCL gets its GB/IE clips from TNT Sports Football's uploads, a
+broadcasterChannels source - the summer tournaments have no non-US source):
 
   * A match "needs alternatives" when some LAUNCH_COUNTRIES country can play
     none of its clips (a clip without ``region`` counts as playable).
@@ -42,6 +43,7 @@ from highlights_common import (
     DOMESTIC_LEAGUE_COMPS,
     FIXTURES_DIR,
     HIGHLIGHTS_DIR,
+    REPO_ROOT,
     LAUNCH_COUNTRIES,
     QuotaCapReached,
     load_json_file,
@@ -54,6 +56,8 @@ from highlights_common import (
 
 log = logging.getLogger(__name__)
 
+ALT_COMPS = set(DOMESTIC_LEAGUE_COMPS) | {"Champions League"}
+TOURNAMENT_GROUPS_DIR = REPO_ROOT / "tournament-groups"
 ALT_RECENT_DAYS = 7
 ALT_MAX_RECENT_CHECKS = 6            # 2+4+8+16+32+64 h ~= 5 days of re-checks
 ALT_CATCHUP_UNITS_PER_RUN = 20
@@ -127,11 +131,27 @@ def make_accept(videos: list[dict]):
     return accept
 
 
-def fixture_index(slug: str, season: int, fixtures_dir: Path = FIXTURES_DIR) -> dict[int, dict]:
-    """match_id -> the matcher's fixture dict, from fixtures/{slug}/{season}.json."""
-    data = load_json_file(fixtures_dir / slug / f"{season}.json") or {}
+def _raw_fixtures(slug: str, season: int, fixtures_dir: Path, groups_dir: Path) -> list[dict]:
+    """Domestic: fixtures/{slug}/{season}.json. UCL: tournament-groups/{slug}.json
+    (league phase groupMatches + knockout matches), when it is that season's."""
+    data = load_json_file(fixtures_dir / slug / f"{season}.json")
+    if isinstance(data, dict) and data.get("fixtures"):
+        return data["fixtures"]
+    tg = load_json_file(groups_dir / f"{slug}.json")
+    if isinstance(tg, dict) and tg.get("season") == season:
+        out = []
+        for f in list(tg.get("groupMatches") or []) + list(tg.get("matches") or []):
+            out.append({**f, "match_id": f.get("match_id", f.get("id"))})
+        return out
+    return []
+
+
+def fixture_index(slug: str, season: int, fixtures_dir: Path = FIXTURES_DIR,
+                  groups_dir: "Path | None" = None) -> dict[int, dict]:
+    """match_id -> the matcher's fixture dict (see _raw_fixtures for sources)."""
+    groups_dir = TOURNAMENT_GROUPS_DIR if groups_dir is None else groups_dir
     out: dict[int, dict] = {}
-    for f in data.get("fixtures", []):
+    for f in _raw_fixtures(slug, season, fixtures_dir, groups_dir):
         h, a = f.get("homeTeam") or {}, f.get("awayTeam") or {}
         mid = f.get("match_id")
         if mid is None:
@@ -146,18 +166,18 @@ def fixture_index(slug: str, season: int, fixtures_dir: Path = FIXTURES_DIR) -> 
             "away_tla":   a.get("tla", ""),
             "date":       (f.get("utcDate") or "")[:10],
             "matchday":   f.get("matchday"),
-            "stage":      "REGULAR_SEASON",
+            "stage":      f.get("stage") or ("LEAGUE_STAGE" if f.get("group") else "REGULAR_SEASON"),
             "status":     f.get("status"),
             "score":      f.get("score") or {},
         }
     return out
 
 
-def _candidates(root: Path, fixtures_dir: Path, now: datetime):
+def _candidates(root: Path, fixtures_dir: Path, now: datetime, groups_dir: "Path | None" = None):
     """(comp, path, data, match, fixture) for every due match, recent first,
     then catch-up newest first."""
     recent, catchup = [], []
-    for comp in sorted(DOMESTIC_LEAGUE_COMPS):
+    for comp in sorted(ALT_COMPS):
         slug = COMPETITION_SLUG_MAP.get(comp)
         if not slug:
             continue
@@ -165,7 +185,7 @@ def _candidates(root: Path, fixtures_dir: Path, now: datetime):
         season_dir = root / slug / str(season)
         if not season_dir.is_dir():
             continue
-        fx = fixture_index(slug, season, fixtures_dir)
+        fx = fixture_index(slug, season, fixtures_dir, groups_dir)
         for path in sorted(season_dir.glob("*.json")):
             data = load_json_file(path)
             if not isinstance(data, dict):
@@ -190,6 +210,7 @@ def find_alternatives(
     now: "datetime | None" = None,
     root: Path = HIGHLIGHTS_DIR,
     fixtures_dir: Path = FIXTURES_DIR,
+    groups_dir: "Path | None" = None,
     catchup_units: int = ALT_CATCHUP_UNITS_PER_RUN,
     catchup_ceiling: int = ALT_CATCHUP_CEILING,
 ) -> list[Path]:
@@ -198,7 +219,7 @@ def find_alternatives(
     now = now or datetime.now(timezone.utc)
     gw_playlist_cache = {} if gw_playlist_cache is None else gw_playlist_cache
     page_cache = {} if page_cache is None else page_cache
-    recent, catchup = _candidates(root, fixtures_dir, now)
+    recent, catchup = _candidates(root, fixtures_dir, now, groups_dir)
     touched: dict[Path, dict] = {}
     found = 0
     stamp = now.strftime("%Y-%m-%dT%H:%M:%SZ")

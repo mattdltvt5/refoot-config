@@ -401,9 +401,14 @@ class FullPageClient(FakeClient):
     TITLE = "Match Highlights LaLiga"   # passes tier-2 (incl. LaLiga gate / BL
                                         # required term), curated and club gates
 
+    # Broadcaster channel uploads need their entry's phrase (and club gates
+    # reject "champions league", so it can't go in the shared TITLE).
+    TITLE_BY_PID = {"UU4i_9WvfPRTuRWEaWyfKuFw": "Arsenal v Chelsea | UEFA Champions League Highlights"}
+
     def playlist_page(self, pid):
         self.page_calls.append(pid)
-        return page([item(f"{pid}-{i}", self.TITLE) for i in range(50)], has_more=True)
+        title = self.TITLE_BY_PID.get(pid, self.TITLE)
+        return page([item(f"{pid}-{i}", title) for i in range(50)], has_more=True)
 
     def video_details(self, ids, quota, cap):
         self.detail_calls.append(list(ids))
