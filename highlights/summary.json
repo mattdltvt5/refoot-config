@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-22T17:41:18Z",
+  "generated_at": "2026-11-22T17:46:30Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -4192,7 +4192,7 @@
           "gameweek": "GW11",
           "stem": "gameweek-11",
           "total": 7,
-          "covered": 6,
+          "covered": 7,
           "matches": [
             {
               "match_id": 559622,
@@ -4241,8 +4241,7 @@
               "home": "Paris FC",
               "away": "Angers SCO",
               "date": "2026-11-22",
-              "covered": false,
-              "pending": true
+              "covered": true
             }
           ]
         }

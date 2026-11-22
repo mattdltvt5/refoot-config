@@ -2,7 +2,7 @@
   "competition": "Ligue 1",
   "gameweek": "GW11",
   "stem": "gameweek-11",
-  "generated_at": "2026-11-22T16:06:13Z",
+  "generated_at": "2026-11-22T17:46:16Z",
   "matches": [
     {
       "match_id": 559622,
@@ -25,8 +25,8 @@
         }
       ],
       "alternatives": {
-        "checks": 1,
-        "last": "2026-11-22T15:46:16Z"
+        "checks": 2,
+        "last": "2026-11-22T17:46:17Z"
       }
     },
     {
@@ -50,8 +50,8 @@
         }
       ],
       "alternatives": {
-        "checks": 1,
-        "last": "2026-11-22T15:46:16Z"
+        "checks": 2,
+        "last": "2026-11-22T17:46:17Z"
       }
     },
     {
@@ -75,8 +75,8 @@
         }
       ],
       "alternatives": {
-        "checks": 1,
-        "last": "2026-11-22T15:46:16Z"
+        "checks": 2,
+        "last": "2026-11-22T17:46:17Z"
       }
     },
     {
@@ -100,8 +100,8 @@
         }
       ],
       "alternatives": {
-        "checks": 1,
-        "last": "2026-11-22T15:46:16Z"
+        "checks": 2,
+        "last": "2026-11-22T17:46:17Z"
       }
     },
     {
@@ -125,8 +125,8 @@
         }
       ],
       "alternatives": {
-        "checks": 1,
-        "last": "2026-11-22T15:46:16Z"
+        "checks": 2,
+        "last": "2026-11-22T17:46:17Z"
       }
     },
     {
@@ -150,8 +150,8 @@
         }
       ],
       "alternatives": {
-        "checks": 1,
-        "last": "2026-11-22T15:46:16Z"
+        "checks": 2,
+        "last": "2026-11-22T17:46:17Z"
       }
     },
     {
@@ -159,7 +159,25 @@
       "home_team": "Paris FC",
       "away_team": "Angers SCO",
       "date": "2026-11-22",
-      "videos": []
+      "videos": [
+        {
+          "video_id": "MqKB-zcByoA",
+          "title": "Paris FC vs Angers | HIGHLIGHTS Ligue 1 | 11/22/2026 | beIN SPORTS USA",
+          "published_at": "2026-11-22",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "PR",
+              "US"
+            ]
+          }
+        }
+      ],
+      "alternatives": {
+        "checks": 1,
+        "last": "2026-11-22T17:46:17Z"
+      }
     }
   ]
 }
