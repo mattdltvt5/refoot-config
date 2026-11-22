@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-22T17:31:24Z",
+  "generated_at": "2026-11-22T17:36:18Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -1789,7 +1789,7 @@
           "gameweek": "GW13",
           "stem": "gameweek-13",
           "total": 7,
-          "covered": 6,
+          "covered": 7,
           "matches": [
             {
               "match_id": 564748,
@@ -1838,8 +1838,7 @@
               "home": "Real Racing Club de Santander",
               "away": "Real Sociedad de Fútbol",
               "date": "2026-11-22",
-              "covered": false,
-              "pending": true
+              "covered": true
             }
           ]
         }

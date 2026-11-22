@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-22T17:31:14Z",
+  "generated_at": "2026-11-22T17:37:08Z",
   "month": "2026-11",
   "dates": {
     "2026-11-01": [
@@ -3767,7 +3767,20 @@
             "homeScore": 3,
             "awayScore": 2,
             "status": "FINISHED",
-            "utcDate": "2026-11-22T15:15:00Z"
+            "utcDate": "2026-11-22T15:15:00Z",
+            "videoId": "2Qr_Gf_zgWk",
+            "videoOptions": [
+              {
+                "videoId": "2Qr_Gf_zgWk",
+                "region": {
+                  "allowed": [
+                    "UM",
+                    "US",
+                    "VI"
+                  ]
+                }
+              }
+            ]
           },
           {
             "match_id": 564752,
@@ -3930,7 +3943,7 @@
               "crest": "https://crests.football-data.org/470.png"
             },
             "homeScore": 2,
-            "awayScore": 0,
+            "awayScore": 1,
             "status": "IN_PLAY",
             "utcDate": "2026-11-22T17:00:00Z"
           },

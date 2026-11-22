@@ -2,7 +2,7 @@
   "competition": "LaLiga",
   "gameweek": "GW13",
   "stem": "gameweek-13",
-  "generated_at": "2026-11-22T17:21:19Z",
+  "generated_at": "2026-11-22T17:36:16Z",
   "matches": [
     {
       "match_id": 564748,
@@ -143,7 +143,25 @@
       "home_team": "Real Racing Club de Santander",
       "away_team": "Real Sociedad de Fútbol",
       "date": "2026-11-22",
-      "videos": []
+      "videos": [
+        {
+          "video_id": "2Qr_Gf_zgWk",
+          "title": "Racing Santander vs. Real Sociedad | LALIGA Highlights | ESPN FC",
+          "published_at": "2026-11-22",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "UM",
+              "US",
+              "VI"
+            ]
+          }
+        }
+      ],
+      "alternatives": {
+        "checks": 1,
+        "last": "2026-11-22T17:36:18Z"
+      }
     }
   ]
 }
