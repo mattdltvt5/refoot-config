@@ -39,7 +39,7 @@ import urllib.error
 import urllib.request
 from datetime import datetime, timezone
 
-from highlights_common import season_for_competition, COMPETITION_SLUG_MAP
+from highlights_common import season_for_competition, video_options, COMPETITION_SLUG_MAP
 from fixture_providers import (
     coerce_stale_live_to_finished, preserve_finished, sanitize_status,
 )
@@ -391,9 +391,9 @@ def _stage_stem(stage, matchday):
 
 
 def _read_videos_from_stem(slug, stem, match_id, season, out_dir="."):
-    """Return the match's video_ids in highlights/{slug}/{season}/{stem}.json,
-    [] when the match is listed with no videos (e.g. a guard removed them), or
-    None when the file or match isn't there."""
+    """Return the match's videos (dicts with video_id, region, ...) in
+    highlights/{slug}/{season}/{stem}.json, [] when the match is listed with no
+    videos (e.g. a guard removed them), or None when the file or match isn't there."""
     if match_id is None:
         return None
     p = pathlib.Path(out_dir) / "highlights" / slug / str(season) / f"{stem}.json"
@@ -404,23 +404,36 @@ def _read_videos_from_stem(slug, stem, match_id, season, out_dir="."):
         items = data if isinstance(data, list) else data.get("matches", [])
         for e in items:
             if e.get("match_id") == match_id:
-                return [v["video_id"] for v in e.get("videos") or []]
+                return [v for v in e.get("videos") or [] if v.get("video_id")]
     except Exception:
         pass
     return None
 
 
 def _graft(m, vids):
-    """Set m["video_id"] from the highlights cache. A match listed there with no
-    videos is cleared, so a removed video doesn't linger here and on Home.
-    Returns True when m changed."""
+    """Set m["video_id"] (and m["video_options"]) from the highlights cache.
+
+    ``vids`` holds the cache's video dicts (bare id strings are accepted too).
+    A match listed there with no videos is cleared, so a removed video doesn't
+    linger here and on Home. ``video_options`` lists every candidate's region
+    when one is geo-locked, so the app can pick one that plays in the viewer's
+    country; it is absent otherwise. Returns True when m changed."""
     if vids is None:
         return False
-    vid = vids[0] if vids else None
+    vids = [{"video_id": v} if isinstance(v, str) else v for v in vids]
+    vid = vids[0]["video_id"] if vids else None
+    opts = video_options(vids)
+    changed = False
     if vid != m.get("video_id"):
         m["video_id"] = vid
-        return True
-    return False
+        changed = True
+    if opts != m.get("video_options"):
+        if opts is None:
+            m.pop("video_options", None)
+        else:
+            m["video_options"] = opts
+        changed = True
+    return changed
 
 
 def _lookup_video_ids(slug, stage, matchday, match_id, season, out_dir="."):

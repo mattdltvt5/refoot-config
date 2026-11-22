@@ -1367,6 +1367,20 @@ def compact_region(region: "dict | None") -> dict:
     return {"blocked": blocked} if blocked else {}
 
 
+def video_options(videos: "list[dict] | None") -> "list[dict] | None":
+    """Every candidate's (video_id, region), for files that publish only one
+    video per match (home-index, tournament-groups), so the app can pick one
+    that plays in the viewer's country. None when no candidate is restricted:
+    then the first video plays everywhere and the single id is enough (keeps
+    those files small). A video without ``region`` (not checked yet) counts as
+    unrestricted.
+    """
+    vids = [v for v in (videos or []) if v.get("video_id")]
+    if not any(v.get("region") for v in vids):
+        return None
+    return [{"video_id": v["video_id"], "region": v.get("region") or {}} for v in vids]
+
+
 def region_is_restricted(region: "dict | None") -> bool:
     """True when the clip is unavailable in at least one country (any allowed
     list, including an empty one, or a non-empty blocked list)."""

@@ -157,3 +157,42 @@ def test_matcher_results_carry_region(monkeypatch):
     by_id = {v["video_id"]: v for v in got}
     assert by_id["g"]["region"] == {}
     assert "region" not in by_id["u"]   # no details: unknown, left for the fill pass
+
+
+# ── alternatives copied to home-index / tournament-groups ─────────────────────
+
+def test_video_options_only_when_something_is_restricted():
+    from highlights_common import video_options
+    assert video_options(None) is None
+    assert video_options([{"video_id": "a", "region": {}}, {"video_id": "b"}]) is None
+    opts = video_options([{"video_id": "a", "region": {"blocked": ["US"]}, "title": "x"},
+                          {"video_id": "b"}])
+    assert opts == [{"video_id": "a", "region": {"blocked": ["US"]}},
+                    {"video_id": "b", "region": {}}]
+
+
+def test_home_index_carries_options_for_domestic_and_tournament():
+    import build_home_index as bhi
+    raw = {"match_id": 1, "utcDate": "2026-11-21T14:30:00Z", "status": "FINISHED",
+           "homeTeam": {"id": 1, "name": "A"}, "awayTeam": {"id": 2, "name": "B"},
+           "score": {"fullTime": {"home": 1, "away": 0}}}
+    opts = [{"video_id": "a", "region": {"blocked": ["US"]}}, {"video_id": "b", "region": {}}]
+    m = bhi.normalize_match(raw, "a", opts)
+    assert m["videoId"] == "a"
+    assert m["videoOptions"] == [{"videoId": "a", "region": {"blocked": ["US"]}},
+                                 {"videoId": "b", "region": {}}]
+    assert "videoOptions" not in bhi.normalize_match(raw, "a", None)
+    t = bhi.normalize_match({**raw, "video_id": "a", "video_options": opts}, None)
+    assert [o["videoId"] for o in t["videoOptions"]] == ["a", "b"]
+
+
+def test_tournament_graft_sets_and_clears_options():
+    import sync_tournaments as st
+    m = {"id": 9}
+    locked = [{"video_id": "a", "region": {"allowed": ["GB"]}}, {"video_id": "b", "region": {}}]
+    assert st._graft(m, locked) is True
+    assert m["video_id"] == "a" and [o["video_id"] for o in m["video_options"]] == ["a", "b"]
+    assert st._graft(m, locked) is False                       # stable
+    assert st._graft(m, [{"video_id": "a", "region": {}}]) is True
+    assert "video_options" not in m                            # nothing locked any more
+    assert st._graft(m, ["c"]) is True and m["video_id"] == "c"  # bare ids still work

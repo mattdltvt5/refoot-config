@@ -800,7 +800,9 @@ means "no games" (empty day). Competitions with no games on a date are omitted.
 **Per-match schema** (all home-card fields): `match_id`, `homeTeam{name,shortName,tla,crest}`,
 `awayTeam{…}`, `homeScore`, `awayScore`, `status` (**raw token**, e.g.
 `TIMED`/`IN_PLAY`/`PAUSED`/`FINISHED` — never collapsed or renamed), `utcDate`, and
-`videoId` (omitted when none). **No server-side "live" flag** — the client owns the strict
+`videoId` (omitted when none), plus `videoOptions: [{videoId, region}]` when any of the match's clips is
+geo-locked (every candidate with its `region`, so the app can pick one that plays in the viewer's country;
+tournament-groups carries the same as `video_options`). **No server-side "live" flag** — the client owns the strict
 `{IN_PLAY, PAUSED}` gate.
 
 **UTC bucketing (documented limitation).** Matches bucket by their **UTC** calendar date
