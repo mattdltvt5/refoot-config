@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-22T21:26:33.036689Z",
+  "generated_at": "2026-11-22T22:06:29.309627Z",
   "competition": "LaLiga",
   "slug": "laliga",
   "season": 2026,
@@ -51,15 +51,15 @@
         "tla": "ATL",
         "crest": "https://crests.football-data.org/78.png"
       },
-      "playedGames": 12,
-      "form": "L,W,W,W,W",
-      "won": 9,
+      "playedGames": 13,
+      "form": "W,L,W,W,W",
+      "won": 10,
       "draw": 1,
       "lost": 2,
-      "points": 28,
-      "goalsFor": 23,
+      "points": 31,
+      "goalsFor": 26,
       "goalsAgainst": 10,
-      "goalDifference": 13
+      "goalDifference": 16
     },
     {
       "position": 4,
@@ -292,25 +292,6 @@
     {
       "position": 16,
       "team": {
-        "id": 82,
-        "name": "Getafe CF",
-        "shortName": "Getafe",
-        "tla": "GET",
-        "crest": "https://crests.football-data.org/82.png"
-      },
-      "playedGames": 12,
-      "form": "L,W,L,D,L",
-      "won": 3,
-      "draw": 3,
-      "lost": 6,
-      "points": 12,
-      "goalsFor": 8,
-      "goalsAgainst": 18,
-      "goalDifference": -10
-    },
-    {
-      "position": 17,
-      "team": {
         "id": 95,
         "name": "Valencia CF",
         "shortName": "Valencia",
@@ -326,6 +307,25 @@
       "goalsFor": 9,
       "goalsAgainst": 20,
       "goalDifference": -11
+    },
+    {
+      "position": 17,
+      "team": {
+        "id": 82,
+        "name": "Getafe CF",
+        "shortName": "Getafe",
+        "tla": "GET",
+        "crest": "https://crests.football-data.org/82.png"
+      },
+      "playedGames": 13,
+      "form": "L,L,W,L,D",
+      "won": 3,
+      "draw": 3,
+      "lost": 7,
+      "points": 12,
+      "goalsFor": 8,
+      "goalsAgainst": 21,
+      "goalDifference": -13
     },
     {
       "position": 18,
