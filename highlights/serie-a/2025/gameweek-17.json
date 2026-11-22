@@ -13,7 +13,8 @@
           "video_id": "n-1-7xfUeVE",
           "title": "Highlights | Parma-Fiorentina | Serie A Enilive 2025/26",
           "published_at": "2025-12-27",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -27,7 +28,8 @@
           "video_id": "vzf387t0vVg",
           "title": "Highlights | Torino-Cagliari 1-2 | Serie A Enilive",
           "published_at": "2025-12-28",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -41,7 +43,12 @@
           "video_id": "NpJz143zZ3A",
           "title": "Lecce vs. Como: Extended Highlights | Serie A | CBS Sports Golazo",
           "published_at": "2025-12-27",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -55,7 +62,12 @@
           "video_id": "Yp0v7YLy-Po",
           "title": "Udinese vs. Lazio: Extended Highlights | Serie A | CBS Sports Golazo",
           "published_at": "2025-12-27",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -69,13 +81,15 @@
           "video_id": "TWKlGf4zP1A",
           "title": "Extended HIGHLIGHTS Pisa 0-2 Juventus | Serie A",
           "published_at": "2025-12-28",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         },
         {
           "video_id": "43bpLDJPnyY",
           "title": "PERFECT WAY TO CLOSE THE YEAR | Pisa 0-2 Juventus | HIGHLIGHTS Serie A",
           "published_at": "2025-12-27",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -89,7 +103,8 @@
           "video_id": "aJqZdjJUbzU",
           "title": "Extended Highlights | Pulisic e doppio Nkunku | AC Milan 3-0 Hellas Verona | Serie A 2025/26",
           "published_at": "2025-12-29",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -103,7 +118,8 @@
           "video_id": "tGoVEzRzMMM",
           "title": "Highlights | Cremonese - Napoli 0-2 | Serie A - 17ª giornata",
           "published_at": "2025-12-30",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -117,7 +133,8 @@
           "video_id": "bjJovuTaz4I",
           "title": "Serie A Enilive | Gli highlights di Bologna-Sassuolo 1-1",
           "published_at": "2025-12-28",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -131,7 +148,8 @@
           "video_id": "wWbxIwYtmqE",
           "title": "Highlights Atalanta-Inter 0-1 | 17ª Serie A Enilive 2025/26",
           "published_at": "2025-12-29",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -145,7 +163,8 @@
           "video_id": "L1iv1l4-6iw",
           "title": "ROMA 3-1 GENOA | SERIE A HIGHLIGHTS 2025-26",
           "published_at": "2025-12-29",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     }

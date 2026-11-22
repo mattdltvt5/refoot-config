@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-22T15:11:12Z",
+  "generated_at": "2026-11-22T15:16:21Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -1780,8 +1780,8 @@
         {
           "gameweek": "GW13",
           "stem": "gameweek-13",
-          "total": 5,
-          "covered": 5,
+          "total": 6,
+          "covered": 6,
           "matches": [
             {
               "match_id": 564748,
@@ -1816,6 +1816,13 @@
               "home": "Real Madrid CF",
               "away": "RC Celta de Vigo",
               "date": "2026-11-21",
+              "covered": true
+            },
+            {
+              "match_id": 564749,
+              "home": "FC Barcelona",
+              "away": "Villarreal CF",
+              "date": "2026-11-22",
               "covered": true
             }
           ]

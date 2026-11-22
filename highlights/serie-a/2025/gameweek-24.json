@@ -13,7 +13,8 @@
           "video_id": "LqI6yA13mG8",
           "title": "Highlights Serie A Enilive 2025/26 | Hellas Verona-Pisa 0-0",
           "published_at": "2026-02-06",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -27,7 +28,8 @@
           "video_id": "geFMqbCIrbw",
           "title": "Highlights | Genoa - Napoli 2-3 | Serie A - 24ª giornata",
           "published_at": "2026-02-08",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -41,7 +43,8 @@
           "video_id": "zAT4rReRymc",
           "title": "FIORENTINA-TORINO 2-2 | HIGHLIGHTS",
           "published_at": "2026-02-09",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -55,7 +58,8 @@
           "video_id": "Yi77BnB33dk",
           "title": "Highlights | Bologna-Parma | Serie A Enilive 2025/26",
           "published_at": "2026-02-08",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -69,7 +73,12 @@
           "video_id": "iwrHmTDx6t0",
           "title": "Lecce vs. Udinese: Extended Highlights | Serie A | CBS Sports Golazo",
           "published_at": "2026-02-08",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -83,7 +92,12 @@
           "video_id": "0ykygiZ5Ox8",
           "title": "Sassuolo vs. Inter: Extended Highlights | Serie A | CBS Sports Golazo",
           "published_at": "2026-02-08",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -97,7 +111,8 @@
           "video_id": "Az-CEJfvgoo",
           "title": "Juventus 2-2 Lazio | HIGHLIGHTS Serie A",
           "published_at": "2026-02-08",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -111,7 +126,8 @@
           "video_id": "TytOgTKTYhg",
           "title": "Tre punti sotto la pioggia 🌧️☔️ | Highlights Atalanta-Cremonese 2-1 | 24ª Serie A Enilive 2025/26",
           "published_at": "2026-02-10",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -125,7 +141,8 @@
           "video_id": "wDPtPhDmTgI",
           "title": "ROMA 2-0 CAGLIARI | SERIE A HIGHLIGHTS 2025-26",
           "published_at": "2026-02-09",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -139,13 +156,15 @@
           "video_id": "k_Jbk7jOkw0",
           "title": "Extended Highlights | L'errore di Maignan e il pallonetto di Leão | Milan 1-1 Como | Serie A 2025/26",
           "published_at": "2026-02-19",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         },
         {
           "video_id": "WVA-DQU-6ik",
           "title": "Il pallonetto di Leão vale il pari | AC Milan 1-1 Como | highlights Serie A 2025/26",
           "published_at": "2026-02-18",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     }

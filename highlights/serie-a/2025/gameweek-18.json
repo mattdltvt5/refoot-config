@@ -13,7 +13,8 @@
           "video_id": "Mq6w8-H3pSg",
           "title": "Highlights | Cagliari-Milan 0-1 | Serie A Enilive",
           "published_at": "2026-01-03",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -27,7 +28,12 @@
           "video_id": "rRkUf3Xc0C4",
           "title": "COMO-UDINESE 1-0 | HIGHLIGHTS | Da Cunha Wins It For Como | Serie A 2025/26",
           "published_at": "2026-01-03",
-          "tier_used": 2
+          "tier_used": 2,
+          "region": {
+            "blocked": [
+              "IT"
+            ]
+          }
         }
       ]
     },
@@ -41,7 +47,12 @@
           "video_id": "3Pb5X-CpMqU",
           "title": "GENOA-PISA 1-1 | HIGHLIGHTS | Pisa Continue Unbeaten Run On The Road | Serie A 2025/26",
           "published_at": "2026-01-03",
-          "tier_used": 2
+          "tier_used": 2,
+          "region": {
+            "blocked": [
+              "IT"
+            ]
+          }
         }
       ]
     },
@@ -55,7 +66,8 @@
           "video_id": "gm23Z7TzXmI",
           "title": "Serie A Enilive | Gli highlights di Sassuolo-Juventus 0-3",
           "published_at": "2026-01-06",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -69,13 +81,15 @@
           "video_id": "d1NvZFXqIaQ",
           "title": "Extended HIGHLIGHTS Juventus 1-1 Lecce | Serie A",
           "published_at": "2026-01-04",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         },
         {
           "video_id": "glFE1BtA30E",
           "title": "HIGHLIGHTS Serie A | Juventus 1-1 Lecce | 2026 starts with a draw",
           "published_at": "2026-01-03",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -89,7 +103,8 @@
           "video_id": "SB4eYjr8HPs",
           "title": "Buona la prima del 2026 😎 | Highlights Atalanta-Roma 1-0 | 18ª Serie A Enilive 2025/26",
           "published_at": "2026-01-05",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -103,7 +118,8 @@
           "video_id": "OSFyqMWbec8",
           "title": "Highlights | Lazio - Napoli 0-2 | Serie A - 18ª giornata",
           "published_at": "2026-01-04",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -117,7 +133,12 @@
           "video_id": "mmeVJebZXmQ",
           "title": "Fiorentina vs. Cremonese: Extended Highlights | Serie A | CBS Sports Golazo",
           "published_at": "2026-01-04",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -131,7 +152,12 @@
           "video_id": "leuWErReZwc",
           "title": "Hellas Verona vs. Torino: Extended Highlights | Serie A | CBS Sports Golazo",
           "published_at": "2026-01-04",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -145,7 +171,12 @@
           "video_id": "YxlC_2vgi6E",
           "title": "Inter vs. Bologna: Extended Highlights | Serie A | CBS Sports Golazo",
           "published_at": "2026-01-04",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "US"
+            ]
+          }
         }
       ]
     }

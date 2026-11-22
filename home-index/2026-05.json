@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-22T15:11:33Z",
+  "generated_at": "2026-11-22T15:16:50Z",
   "month": "2026-05",
   "dates": {
     "2026-05-01": [
@@ -1571,7 +1571,21 @@
             "awayScore": 1,
             "status": "FINISHED",
             "utcDate": "2026-05-09T11:30:00Z",
-            "videoId": "ZxYpnXreVhI"
+            "videoId": "ZxYpnXreVhI",
+            "videoOptions": [
+              {
+                "videoId": "ZxYpnXreVhI",
+                "region": {
+                  "allowed": [
+                    "GU",
+                    "MP",
+                    "PR",
+                    "US",
+                    "VI"
+                  ]
+                }
+              }
+            ]
           },
           {
             "match_id": 538135,

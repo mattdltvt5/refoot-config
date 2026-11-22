@@ -13,7 +13,12 @@
           "video_id": "8jm7QmKmd4o",
           "title": "PISA-COMO 0-3 | HIGHLIGHTS | Douvikas Nets Brace As Como Break Into Top 4! | Serie A 2025/26",
           "published_at": "2026-01-06",
-          "tier_used": 2
+          "tier_used": 2,
+          "region": {
+            "blocked": [
+              "IT"
+            ]
+          }
         }
       ]
     },
@@ -27,7 +32,8 @@
           "video_id": "DzzPS4lO_6M",
           "title": "LECCE 0-2 ROMA | SERIE A HIGHLIGHTS 2025-26",
           "published_at": "2026-01-06",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -41,7 +47,8 @@
           "video_id": "gm23Z7TzXmI",
           "title": "Serie A Enilive | Gli highlights di Sassuolo-Juventus 0-3",
           "published_at": "2026-01-06",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -55,7 +62,8 @@
           "video_id": "34b7e-LqZr0",
           "title": "Doppio Nikola per i tre punti 🫶 | Highlights Bologna-Atalanta 0-2 | 19ª Serie A Enilive 2025/26",
           "published_at": "2026-01-08",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -69,7 +77,8 @@
           "video_id": "JimIXHkOjmM",
           "title": "Highlights | Napoli - Verona 2-2 | Serie A - 19ª giornata",
           "published_at": "2026-01-08",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -83,7 +92,12 @@
           "video_id": "O7ctjmWQX2Y",
           "title": "Torino vs. Udinese: Extended Highlights | Serie A | CBS Sports Golazo",
           "published_at": "2026-01-07",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -97,7 +111,12 @@
           "video_id": "CjGaEpQiPNw",
           "title": "Lazio vs. Fiorentina: Extended Highlights | Serie A | CBS Sports Golazo",
           "published_at": "2026-01-07",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -111,7 +130,8 @@
           "video_id": "7N3ql6-WOlI",
           "title": "Highlights | Parma-Inter | Serie A Enilive 2025/26",
           "published_at": "2026-01-08",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -125,7 +145,8 @@
           "video_id": "CIxGRMOfSd8",
           "title": "Highlights | Cremonese-Cagliari 2-2 | Serie A Enilive",
           "published_at": "2026-01-09",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -139,7 +160,8 @@
           "video_id": "za7HrO99ps0",
           "title": "Leão gol nel recupero e rigore sbagliato al 98' | AC Milan 1-1 Genoa | Highlights Serie A",
           "published_at": "2026-01-08",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     }

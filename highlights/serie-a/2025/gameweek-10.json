@@ -13,7 +13,8 @@
           "video_id": "lnB0AGe3kzI",
           "title": "Udinese-Atalanta 1-0 | Highlights 10ª Serie A Enilive 2025/26",
           "published_at": "2025-11-02",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -27,7 +28,8 @@
           "video_id": "NZDa7P1WiIs",
           "title": "Highlights | Napoli - Como 0-0 | Serie A - 10ª giornata",
           "published_at": "2025-11-02",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -41,7 +43,8 @@
           "video_id": "yyIq9ivFI8I",
           "title": "HIGHLIGHTS Serie A | Cremonese 1-2 Juventus | Kostić & Cambiaso score in Spalletti’s debut",
           "published_at": "2025-11-01",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -55,7 +58,12 @@
           "video_id": "QMP9bN02RiU",
           "title": "Hellas Verona vs. Inter: Extended Highlights | Serie A | CBS Sports Golazo",
           "published_at": "2025-11-02",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -69,7 +77,12 @@
           "video_id": "OP2tA-BWcjw",
           "title": "Fiorentina vs. Lecce: Extended Highlights | Serie A | CBS Sports Golazo",
           "published_at": "2025-11-02",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -83,7 +96,8 @@
           "video_id": "OXMAGsBo6RU",
           "title": "TORINO-PISA 2-2 | HIGHLIGHTS",
           "published_at": "2025-11-04",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -97,7 +111,8 @@
           "video_id": "hEfI982FF0E",
           "title": "Highlights | Parma-Bologna | Serie A Enilive 2025/26",
           "published_at": "2025-11-03",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -111,7 +126,8 @@
           "video_id": "pVEdMOaKLu0",
           "title": "Pavlović segna, Maignan para, i Rossoneri vincono! | AC Milan 1-0 Roma | Highlights Serie A 2025/26",
           "published_at": "2025-11-02",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -125,7 +141,8 @@
           "video_id": "Qmi_lefWhUk",
           "title": "Serie A Enilive | Gli highlights di Sassuolo-Genoa 1-2",
           "published_at": "2025-11-04",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -139,7 +156,8 @@
           "video_id": "pwgviW9g4JQ",
           "title": "Highlights | Lazio-Cagliari 2-0 | Serie A Enilive",
           "published_at": "2025-11-04",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     }

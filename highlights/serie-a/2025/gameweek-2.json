@@ -13,7 +13,8 @@
           "video_id": "aI2GOZYlCAs",
           "title": "Serie A Enilive | Cremonese-Sassuolo 3-2 | Highlights",
           "published_at": "2025-08-29",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -27,13 +28,15 @@
           "video_id": "71IWCkux9Dc",
           "title": "Loftus-Cheek e Pulisic: successo esterno in Serie A | Lecce 0-2 Milan | Extended Highlights 2025/26",
           "published_at": "2025-08-30",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         },
         {
           "video_id": "geT_DWwIIfc",
           "title": "Assist di Modric gol di Loftus-Cheek e Pulisic | Lecce 0-2 AC Milan | Highlights Serie A",
           "published_at": "2025-08-29",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -47,7 +50,12 @@
           "video_id": "hiM2giFogcc",
           "title": "Bologna vs. Como: Extended Highlights | Serie A | CBS Sports Golazo",
           "published_at": "2025-08-30",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -61,7 +69,8 @@
           "video_id": "5yKtJuHjdzw",
           "title": "Parma vs Atalanta | Match Highlights | Serie A Enilive 2025/26",
           "published_at": "2025-08-31",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -75,7 +84,8 @@
           "video_id": "Bf7UcXilymw",
           "title": "Highlights | Napoli-Cagliari 1-0 | Serie A Enilive",
           "published_at": "2025-08-31",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -89,7 +99,12 @@
           "video_id": "MQDNqaRdCuE",
           "title": "Pisa SC vs. AS Roma: Extended Highlights | Serie A | CBS Sports Golazo",
           "published_at": "2025-08-30",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -103,7 +118,8 @@
           "video_id": "Gf1JlBffBi8",
           "title": "HIGHLIGHTS Serie A | Genoa 0-1 Juventus | Dusan delivers the first away win",
           "published_at": "2025-09-02",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -117,7 +133,8 @@
           "video_id": "fKdorhyTfaw",
           "title": "TORINO-FIORENTINA 0-0 | HIGHLIGHTS 🎥 | SERIE A ENILIVE 2025/26",
           "published_at": "2025-09-04",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -131,7 +148,12 @@
           "video_id": "cvSRURyZoNA",
           "title": "Inter vs. Udinese: Extended Highlights | Serie A | CBS Sports Golazo",
           "published_at": "2025-08-31",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -145,7 +167,12 @@
           "video_id": "PPxTrngVQsE",
           "title": "Lazio vs. Hellas Verona | Extended Highlights | Serie A | CBS Sports Golazo",
           "published_at": "2025-08-31",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "US"
+            ]
+          }
         }
       ]
     }

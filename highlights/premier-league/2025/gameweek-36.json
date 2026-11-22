@@ -13,7 +13,16 @@
           "video_id": "ZxYpnXreVhI",
           "title": "Liverpool v. Chelsea | PREMIER LEAGUE HIGHLIGHTS | 5/9/2026 | NBC Sports",
           "published_at": "2026-05-09",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "GU",
+              "MP",
+              "PR",
+              "US",
+              "VI"
+            ]
+          }
         }
       ]
     },
@@ -27,13 +36,15 @@
           "video_id": "sIQgKii4J-A",
           "title": "Extended Premier League Highlights | Sunderland AFC 0 - 0 Manchester United",
           "published_at": "2026-05-09",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         },
         {
           "video_id": "Afb1GA6Ne5A",
           "title": "Points Are Shared At The SoL | Sunderland AFC 0 - 0 Manchester United | Premier League Highlights",
           "published_at": "2026-05-09",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -47,7 +58,8 @@
           "video_id": "Z0SsgS0UfhY",
           "title": "EXTENDED HIGHLIGHTS | Brighton v Wolves | Premier League",
           "published_at": "2026-05-11",
-          "tier_used": 2
+          "tier_used": 2,
+          "region": {}
         }
       ]
     },
@@ -61,7 +73,8 @@
           "video_id": "mEoYpCfSioU",
           "title": "Both teams reduced to 10-men in one goal defeat 🟥 | Extended highlights of Fulham v Bournemouth",
           "published_at": "2026-05-09",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -75,7 +88,8 @@
           "video_id": "hmSNzkaHpCk",
           "title": "EXTENDED HIGHLIGHTS | Man City 3-0 Brentford | Doku inspires Blues to crucial victory!",
           "published_at": "2026-05-10",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -89,13 +103,15 @@
           "video_id": "7HR0pouylWU",
           "title": "Crystal Palace 2-2 Everton | Premier League Highlights",
           "published_at": "2026-05-10",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         },
         {
           "video_id": "n5-2Mznyy14",
           "title": "EXTENDED HIGHLIGHTS | Crystal Palace 2-2 Everton | Premier League",
           "published_at": "2026-05-11",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -109,13 +125,15 @@
           "video_id": "VzR2QxfNY6Y",
           "title": "Burnley v Aston Villa | Extended Premier League Highlights",
           "published_at": "2026-05-10",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         },
         {
           "video_id": "dFEM18RSGVU",
           "title": "Burnley v Aston Villa | Premier League Highlights",
           "published_at": "2026-05-10",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -129,13 +147,15 @@
           "video_id": "qmNVzfJQZuk",
           "title": "Nottingham Forest 1 Newcastle United 1 | EXTENDED Premier League Highlights",
           "published_at": "2026-05-10",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         },
         {
           "video_id": "Lepz7A4xe6o",
           "title": "Nottingham Forest 1 Newcastle United 1 | Premier League Highlights",
           "published_at": "2026-05-10",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -149,7 +169,8 @@
           "video_id": "ZKSefqBTW8A",
           "title": "West Ham 0-1 Arsenal | Premier League Highlights",
           "published_at": "2026-05-10",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -163,7 +184,8 @@
           "video_id": "g_HVJtturm8",
           "title": "Spurs 1-1 Leeds United | Premier League Highlights",
           "published_at": "2026-05-11",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     }
