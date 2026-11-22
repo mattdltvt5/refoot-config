@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-22T16:06:17Z",
+  "generated_at": "2026-11-22T16:11:20Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -788,7 +788,7 @@
         {
           "gameweek": "GW11",
           "stem": "gameweek-11",
-          "total": 7,
+          "total": 8,
           "covered": 7,
           "matches": [
             {
@@ -839,6 +839,14 @@
               "away": "Arsenal FC",
               "date": "2026-11-21",
               "covered": true
+            },
+            {
+              "match_id": 560646,
+              "home": "Hull City AFC",
+              "away": "Brighton & Hove Albion FC",
+              "date": "2026-11-22",
+              "covered": false,
+              "pending": true
             }
           ]
         }

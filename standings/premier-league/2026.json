@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-22T15:07:17.773503Z",
+  "generated_at": "2026-11-22T16:11:41.353739Z",
   "competition": "Premier League",
   "slug": "premier-league",
   "season": 2026,
@@ -32,15 +32,15 @@
         "tla": "BHA",
         "crest": "https://crests.football-data.org/397.png"
       },
-      "playedGames": 10,
-      "form": "W,W,L,W,W",
+      "playedGames": 11,
+      "form": "L,W,W,L,W",
       "won": 7,
       "draw": 1,
-      "lost": 2,
+      "lost": 3,
       "points": 22,
       "goalsFor": 26,
-      "goalsAgainst": 7,
-      "goalDifference": 19
+      "goalsAgainst": 9,
+      "goalDifference": 17
     },
     {
       "position": 3,
@@ -197,6 +197,25 @@
     {
       "position": 11,
       "team": {
+        "id": 322,
+        "name": "Hull City AFC",
+        "shortName": "Hull City",
+        "tla": "HUL",
+        "crest": "https://crests.football-data.org/322.png"
+      },
+      "playedGames": 11,
+      "form": "W,L,D,D,L",
+      "won": 3,
+      "draw": 5,
+      "lost": 3,
+      "points": 14,
+      "goalsFor": 13,
+      "goalsAgainst": 11,
+      "goalDifference": 2
+    },
+    {
+      "position": 12,
+      "team": {
         "id": 58,
         "name": "Aston Villa FC",
         "shortName": "Aston Villa",
@@ -214,7 +233,7 @@
       "goalDifference": -3
     },
     {
-      "position": 12,
+      "position": 13,
       "team": {
         "id": 67,
         "name": "Newcastle United FC",
@@ -233,7 +252,7 @@
       "goalDifference": -3
     },
     {
-      "position": 13,
+      "position": 14,
       "team": {
         "id": 1076,
         "name": "Coventry City FC",
@@ -250,25 +269,6 @@
       "goalsFor": 13,
       "goalsAgainst": 21,
       "goalDifference": -8
-    },
-    {
-      "position": 14,
-      "team": {
-        "id": 322,
-        "name": "Hull City AFC",
-        "shortName": "Hull City",
-        "tla": "HUL",
-        "crest": "https://crests.football-data.org/322.png"
-      },
-      "playedGames": 10,
-      "form": "L,D,D,L,D",
-      "won": 2,
-      "draw": 5,
-      "lost": 3,
-      "points": 11,
-      "goalsFor": 11,
-      "goalsAgainst": 11,
-      "goalDifference": 0
     },
     {
       "position": 15,

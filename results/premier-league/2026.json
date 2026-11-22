@@ -1,7 +1,7 @@
 {
   "competition": "Premier League",
   "season": 2026,
-  "generated_at": "2026-11-22T16:06:07Z",
+  "generated_at": "2026-11-22T16:11:10Z",
   "results": {
     "560542": {
       "status": "FINISHED",
@@ -1179,6 +1179,17 @@
       },
       "utcDate": "2026-11-21T17:30:00Z",
       "first_finished_at": "2026-11-21T19:36:07Z"
+    },
+    "560646": {
+      "status": "FINISHED",
+      "score": {
+        "fullTime": {
+          "home": 2,
+          "away": 0
+        }
+      },
+      "utcDate": "2026-11-22T14:00:00Z",
+      "first_finished_at": "2026-11-22T16:11:10Z"
     }
   }
 }
