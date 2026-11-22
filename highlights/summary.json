@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-22T14:11:14Z",
+  "generated_at": "2026-11-22T14:16:17Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -2688,7 +2688,7 @@
           "gameweek": "GW12",
           "stem": "gameweek-12",
           "total": 5,
-          "covered": 4,
+          "covered": 5,
           "matches": [
             {
               "match_id": 558528,
@@ -2723,8 +2723,7 @@
               "home": "Juventus FC",
               "away": "Venezia FC",
               "date": "2026-11-22",
-              "covered": false,
-              "pending": true
+              "covered": true
             }
           ]
         }
