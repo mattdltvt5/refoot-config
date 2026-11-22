@@ -1370,6 +1370,26 @@ highlights/
   that plays in the viewer's country. It records availability when checked; uploaders can change it later.
 - `generated_at` is always UTC; updated on every write
 
+### Alternatives pass (clips that play outside the US)
+
+The tier order stops at the first source with a clip, and a covered match is never searched again. For
+Serie A, Ligue 1 and LaLiga that first clip is often a US broadcaster's (CBS Sports Golazo, beIN Sports US,
+ESPN US) that only plays in the US and its territories, while the competition and club channels publish
+clips that play almost everywhere. `scripts/highlight_alternatives.py` runs at the end of each fetch run:
+
+- **Which matches:** current-season domestic league matches whose clips leave some `LAUNCH_COUNTRIES`
+  country uncovered (a clip without `region` counts as playable). UCL and the summer tournaments have no
+  worldwide source configured, so they're out of scope until per-country sources are added.
+- **How:** `resolve_videos_for_fixture(..., skip_broadcasters=True, accept=...)` skips tier 4 and keeps only
+  new clips that play in a still-uncovered country; a tier whose clips are all refused counts as empty.
+  Found clips are appended, so the existing first clip stays and the app opens whichever plays where the
+  viewer is.
+- **When:** recent matches (within 7 days) are re-checked 2, 4, 8, 16, 32 and 64 hours after the previous
+  check; older matches get one catch-up check, newest first, within 20 units per run and only while the
+  day's `units_used` is below 5,000. Each match records `alternatives: {"checks": n, "last": ISO}`.
+- **Measured** on 2026-11-22 (a capped run on a copy of the cache): 18 matches checked for 80 units,
+  11 of them then played in all five launch countries.
+
 ### Tier priority order
 
 The script tries sources in this order and stops at the **first tier that yields at least one accepted video** for the fixture:
