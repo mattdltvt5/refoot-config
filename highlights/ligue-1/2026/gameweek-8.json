@@ -14,7 +14,14 @@
           "video_id": "a22vOi0cJqU",
           "title": "Stade Brest vs Nice | HIGHLIGHTS Ligue 1 | 10/23/2026 | beIN SPORTS USA",
           "published_at": "2026-10-23",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "PR",
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -28,25 +35,53 @@
           "video_id": "DJJ9FnHvk3I",
           "title": "THAUVIN SCORES AND ASSISTS IN 300TH LIGUE 1 GAME AS LENS BEAT PARIS FC | beIN SPORTS USA",
           "published_at": "2026-10-24",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "PR",
+              "US"
+            ]
+          }
         },
         {
           "video_id": "meLhLEZVDTc",
           "title": "LUCA KOLEOSHO’S STUNNING GOAL FOR PARIS FC AGAINST LENS, COMPLETE WITH A NUTMEG | beIN SPORTS USA",
           "published_at": "2026-10-24",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "PR",
+              "US"
+            ]
+          }
         },
         {
           "video_id": "OEY1KhGkcVM",
           "title": "Lens vs Paris FC | EXTENDED HIGHLIGHTS Ligue 1 | 10/24/2026 | beIN SPORTS USA",
           "published_at": "2026-10-24",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "PR",
+              "US"
+            ]
+          }
         },
         {
           "video_id": "BX9i3_zF-n0",
           "title": "Lens vs Paris FC | HIGHLIGHTS Ligue 1 | 10/24/2026 | beIN SPORTS USA",
           "published_at": "2026-10-24",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "PR",
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -60,7 +95,14 @@
           "video_id": "KGJuPWOMtHQ",
           "title": "AS Monaco vs Lille  | EXTENDED HIGHLIGHTS Ligue 1 | 10/19/2026 | beIN SPORTS USA",
           "published_at": "2026-10-25",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "PR",
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -74,7 +116,14 @@
           "video_id": "atpxVj_1vNU",
           "title": "Angers vs Lorient | HIGHLIGHTS Ligue 1 | 10/25/2026 | beIN SPORTS USA",
           "published_at": "2026-10-25",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "PR",
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -88,13 +137,23 @@
           "video_id": "MjEeXM3GsIw",
           "title": "Konaté SOLIDE, Toulouse et Troyes PARTAGENT les points | 8ème journée - Ligue 1 McDonald's 26/27",
           "published_at": "2026-10-25",
-          "tier_used": 2
+          "tier_used": 2,
+          "region": {
+            "allowed": [
+              "FR"
+            ]
+          }
         },
         {
           "video_id": "CYR2XmCCYBk",
           "title": "TOULOUSE FC - ESTAC TROYES (0-0) | Week 8 - Ligue 1 McDonald's 26/27",
           "published_at": "2026-10-25",
-          "tier_used": 2
+          "tier_used": 2,
+          "region": {
+            "blocked": [
+              "FR"
+            ]
+          }
         }
       ]
     },
@@ -108,13 +167,23 @@
           "video_id": "0m-jsPja1hI",
           "title": "DOUBLÉ de Szymanski, JOLI COUP de Rennes face à Strasbourg | 8ème journée - Ligue 1 McDonald's 26/27",
           "published_at": "2026-10-25",
-          "tier_used": 2
+          "tier_used": 2,
+          "region": {
+            "allowed": [
+              "FR"
+            ]
+          }
         },
         {
           "video_id": "GZjfM4EWWU4",
           "title": "STADE RENNAIS - RC STRASBOURG ALSACE (3-0) | Week 8 - Ligue 1 McDonald's 26/27",
           "published_at": "2026-10-25",
-          "tier_used": 2
+          "tier_used": 2,
+          "region": {
+            "blocked": [
+              "FR"
+            ]
+          }
         }
       ]
     },
@@ -128,7 +197,14 @@
           "video_id": "2xAmlnF2RrE",
           "title": "Auxerre vs Le Mans | HIGHLIGHTS Ligue 1 | 10/25/2026 | beIN SPORTS USA",
           "published_at": "2026-10-25",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "PR",
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -142,7 +218,14 @@
           "video_id": "CnvfO9h4rWQ",
           "title": "Marseille vs Le Havre | EXTENDED HIGHLIGHTS Ligue 1 | 10/25/2026 | beIN SPORTS USA",
           "published_at": "2026-10-25",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "PR",
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -156,7 +239,14 @@
           "video_id": "L2Ld8QdNgqA",
           "title": "PSG vs Lyon | HIGHLIGHTS Ligue 1 | 10/26/2026 | beIN SPORTS USA",
           "published_at": "2026-10-26",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "PR",
+              "US"
+            ]
+          }
         }
       ]
     }

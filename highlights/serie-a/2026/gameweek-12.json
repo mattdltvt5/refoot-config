@@ -14,7 +14,12 @@
           "video_id": "KtYyXtfmj1g",
           "title": "Lazio vs. Lecce: Extended Highlights | Serie A | CBS Sports Golazo",
           "published_at": "2026-11-21",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -28,7 +33,12 @@
           "video_id": "jx_IzHIRrps",
           "title": "Como Back To Winning Ways | COMO-CAGLIARI | HIGHLIGHTS | Serie A 2026/27",
           "published_at": "2026-11-21",
-          "tier_used": 2
+          "tier_used": 2,
+          "region": {
+            "blocked": [
+              "IT"
+            ]
+          }
         }
       ]
     },
@@ -42,7 +52,12 @@
           "video_id": "Bklic7WshZw",
           "title": "Parma vs Roma: Extended Highlights | Serie A | CBS Sports Golazo",
           "published_at": "2026-11-21",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -56,7 +71,8 @@
           "video_id": "hIn0YqsC8Cg",
           "title": "McTominay Does It For Napoli | NAPOLI-TORINO | HIGHLIGHTS | Serie A 2026/27",
           "published_at": "2026-11-21",
-          "tier_used": 2
+          "tier_used": 2,
+          "region": {}
         }
       ]
     },
@@ -70,7 +86,12 @@
           "video_id": "qSa3PFh2Q24",
           "title": "Kolo Muani and Woltemade On Target | JUVENTUS-VENEZIA | HIGHLIGHTS | Serie A 2026/27",
           "published_at": "2026-11-22",
-          "tier_used": 2
+          "tier_used": 2,
+          "region": {
+            "blocked": [
+              "IT"
+            ]
+          }
         }
       ]
     }

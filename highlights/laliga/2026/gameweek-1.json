@@ -14,7 +14,8 @@
           "video_id": "9WlsPzrTSqU",
           "title": "DEPORTIVO ALAVÉS 3 - 0 GETAFE CF | RESUMEN LALIGA EA SPORTS",
           "published_at": "2026-08-15",
-          "tier_used": 2
+          "tier_used": 2,
+          "region": {}
         }
       ]
     },
@@ -28,7 +29,8 @@
           "video_id": "IPEloYT9B7M",
           "title": "SEVILLA FC 2 - 1 RAYO VALLECANO | RESUMEN LALIGA EA SPORTS",
           "published_at": "2026-08-15",
-          "tier_used": 2
+          "tier_used": 2,
+          "region": {}
         }
       ]
     },
@@ -42,7 +44,8 @@
           "video_id": "PXmNSmP_7p0",
           "title": "RESUMEN ı Real Racing Club 2-2 Villarreal CF ı Jornada 1 | Temporada 26/27 LaLiga EA Sports",
           "published_at": "2026-08-17",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -56,7 +59,8 @@
           "video_id": "eOe1TvZqRH0",
           "title": "RCD ESPANYOL 3 - 0 LEVANTE UD | RESUMEN LALIGA EA SPORTS",
           "published_at": "2026-08-16",
-          "tier_used": 2
+          "tier_used": 2,
+          "region": {}
         }
       ]
     },
@@ -70,7 +74,8 @@
           "video_id": "feJQC4Ofqg4",
           "title": "RC DEPORTIVO 1 - 1 ELCHE CF | RESUMEN LALIGA EA SPORTS",
           "published_at": "2026-08-17",
-          "tier_used": 2
+          "tier_used": 2,
+          "region": {}
         }
       ]
     },
@@ -84,7 +89,8 @@
           "video_id": "WzJJ5cR49No",
           "title": "Atlético de Madrid 2-0 Málaga | ⚽ Kang In & Álex Baena | HIGHLIGHTS, LaLiga - MD1",
           "published_at": "2026-08-19",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -98,7 +104,8 @@
           "video_id": "6necjALien0",
           "title": "VALENCIA CF 0 - 1 REAL BETIS | RESUMEN LALIGA EA SPORTS",
           "published_at": "2026-08-25",
-          "tier_used": 2
+          "tier_used": 2,
+          "region": {}
         }
       ]
     },
@@ -112,7 +119,14 @@
           "video_id": "K_4yDlQknUI",
           "title": "MBAPPE HAT TRICK 🤩 Real Madrid vs. Real Sociedad | LALIGA Highlights | ESPN FC",
           "published_at": "2026-08-26",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "UM",
+              "US",
+              "VI"
+            ]
+          }
         }
       ]
     },
@@ -126,7 +140,8 @@
           "video_id": "Dirz0wdnpoM",
           "title": "CELTA 1 - 2 CA OSASUNA | RESUMEN LALIGA EA SPORTS",
           "published_at": "2026-08-27",
-          "tier_used": 2
+          "tier_used": 2,
+          "region": {}
         }
       ]
     },
@@ -140,7 +155,8 @@
           "video_id": "ejyZPCDZbCM",
           "title": "FC BARCELONA 2 - 0 ATHLETIC CLUB | RESUMEN LALIGA EA SPORTS",
           "published_at": "2026-08-27",
-          "tier_used": 2
+          "tier_used": 2,
+          "region": {}
         }
       ]
     }

@@ -14,7 +14,14 @@
           "video_id": "nMCCjPUTgg8",
           "title": "Lille vs PSG | EXTENDED HIGHLIGHTS Ligue 1 | 08/28/2026 | beIN SPORTS USA",
           "published_at": "2026-08-28",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "PR",
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -28,7 +35,14 @@
           "video_id": "gICLZydYQ3A",
           "title": "Strasbourg vs RC Lens | HIGHLIGHTS Ligue 1 | 08/29/2026 | beIN SPORTS USA",
           "published_at": "2026-08-29",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "PR",
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -42,7 +56,14 @@
           "video_id": "sdWzy-phX6o",
           "title": "Lorient vs Troyes | HIGHLIGHTS Ligue 1 | 08/29/2026 | beIN SPORTS USA",
           "published_at": "2026-08-29",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "PR",
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -56,7 +77,14 @@
           "video_id": "7n1JxqDYPeU",
           "title": "Lyon vs Le Havre | HIGHLIGHTS Ligue 1 | 08/29/2026 | beIN SPORTS USA",
           "published_at": "2026-08-30",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "PR",
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -70,7 +98,14 @@
           "video_id": "eUXZ34E2vCc",
           "title": "AJ Auxerre vs Angers SCO | HIGHLIGHTS Ligue 1 | 08/29/2026 | beIN SPORTS USA",
           "published_at": "2026-08-29",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "PR",
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -84,7 +119,14 @@
           "video_id": "jI4BxDZHG1c",
           "title": "Brest vs Toulouse | HIGHLIGHTS Ligue 1 | 08/29/2026 | beIN SPORTS USA",
           "published_at": "2026-08-29",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "PR",
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -98,7 +140,12 @@
           "video_id": "2yYAUENO5wk",
           "title": "PARIS FC - OGC NICE (3-0) | Week 2 - Ligue 1 McDonald's 26/27",
           "published_at": "2026-08-30",
-          "tier_used": 2
+          "tier_used": 2,
+          "region": {
+            "blocked": [
+              "FR"
+            ]
+          }
         }
       ]
     },
@@ -112,7 +159,12 @@
           "video_id": "5sryC3To4wY",
           "title": "STADE RENNAIS - LE MANS FC (3-2) | Week 2 - Ligue 1 McDonald's 26/27",
           "published_at": "2026-08-30",
-          "tier_used": 2
+          "tier_used": 2,
+          "region": {
+            "blocked": [
+              "FR"
+            ]
+          }
         }
       ]
     },
@@ -126,7 +178,12 @@
           "video_id": "ouMSzjPSIKs",
           "title": "AS MONACO - OLYMPIQUE DE MARSEILLE (2-0) | Week 2 - Ligue 1 McDonald's 26/27",
           "published_at": "2026-08-30",
-          "tier_used": 2
+          "tier_used": 2,
+          "region": {
+            "blocked": [
+              "FR"
+            ]
+          }
         }
       ]
     }

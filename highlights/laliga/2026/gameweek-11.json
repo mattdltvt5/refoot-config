@@ -14,7 +14,8 @@
           "video_id": "21rmDFisqG8",
           "title": "VILLARREAL CF 0 - 1 RCD ESPANYOL | RESUMEN LALIGA EA SPORTS",
           "published_at": "2026-10-30",
-          "tier_used": 2
+          "tier_used": 2,
+          "region": {}
         }
       ]
     },
@@ -28,7 +29,8 @@
           "video_id": "f0Qo1Dssk-I",
           "title": "Levante 0-2 Atlético de Madrid | ⚽ Grimaldo & Giuliano | HIGHLIGHTS, LaLiga - MD11",
           "published_at": "2026-10-31",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -42,7 +44,8 @@
           "video_id": "2-v5Pi2PLvY",
           "title": "RAYO VALLECANO 3 - 0 CELTA | RESUMEN LALIGA EA SPORTS",
           "published_at": "2026-10-31",
-          "tier_used": 2
+          "tier_used": 2,
+          "region": {}
         }
       ]
     },
@@ -56,7 +59,8 @@
           "video_id": "tZJRWJMkoDQ",
           "title": "REAL BETIS 2 - 1 MÁLAGA CF | RESUMEN LALIGA EA SPORTS",
           "published_at": "2026-10-31",
-          "tier_used": 2
+          "tier_used": 2,
+          "region": {}
         }
       ]
     },
@@ -70,7 +74,8 @@
           "video_id": "UJpuIXIJAHM",
           "title": "FC BARCELONA 6 vs 1 ALAVÉS | LALIGA 2026/27 MD11 🔵🔴",
           "published_at": "2026-10-31",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -84,7 +89,13 @@
           "video_id": "AhV6zHPzIKA",
           "title": "GETAFE CF 3 - 1 SEVILLA FC | RESUMEN LALIGA EA SPORTS",
           "published_at": "2026-11-01",
-          "tier_used": 2
+          "tier_used": 2,
+          "region": {
+            "blocked": [
+              "JP",
+              "KR"
+            ]
+          }
         }
       ]
     },
@@ -98,7 +109,14 @@
           "video_id": "Ggtws6t5Nwo",
           "title": "Racing Santander vs. Real Madrid | LALIGA Highlights | ESPN FC",
           "published_at": "2026-11-01",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "UM",
+              "US",
+              "VI"
+            ]
+          }
         }
       ]
     },
@@ -112,7 +130,13 @@
           "video_id": "C-TgaCuzua4",
           "title": "ELCHE CF 0 - 1 VALENCIA CF | RESUMEN LALIGA EA SPORTS",
           "published_at": "2026-11-01",
-          "tier_used": 2
+          "tier_used": 2,
+          "region": {
+            "blocked": [
+              "JP",
+              "KR"
+            ]
+          }
         }
       ]
     },
@@ -126,7 +150,13 @@
           "video_id": "vezTrOsT6JU",
           "title": "ATHLETIC CLUB 2 - 1 REAL SOCIEDAD | RESUMEN LALIGA EA SPORTS",
           "published_at": "2026-11-01",
-          "tier_used": 2
+          "tier_used": 2,
+          "region": {
+            "blocked": [
+              "JP",
+              "KR"
+            ]
+          }
         }
       ]
     },
@@ -140,7 +170,8 @@
           "video_id": "nYFcrFUwioo",
           "title": "RC DEPORTIVO 2 - 1 CA OSASUNA | RESUMEN LALIGA EA SPORTS",
           "published_at": "2026-11-02",
-          "tier_used": 2
+          "tier_used": 2,
+          "region": {}
         }
       ]
     }

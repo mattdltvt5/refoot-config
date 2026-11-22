@@ -14,7 +14,14 @@
           "video_id": "n6XiYmhkIPw",
           "title": "Lens vs Lyon | EXTENDED HIGHLIGHTS Ligue 1 | 10/09/2026 | beIN SPORTS USA",
           "published_at": "2026-10-09",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "PR",
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -28,7 +35,14 @@
           "video_id": "QGDbCWQ_yWs",
           "title": "Lille vs Le Havre | HIGHLIGHTS Ligue 1 | 10/10/2026 | beIN SPORTS USA",
           "published_at": "2026-10-10",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "PR",
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -42,7 +56,14 @@
           "video_id": "rZ1S7J8kIpQ",
           "title": "Stade Brest vs Angers | HIGHLIGHTS Ligue 1 | 10/10/2026 | beIN SPORTS USA",
           "published_at": "2026-10-10",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "PR",
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -56,7 +77,14 @@
           "video_id": "h2mPLCUFodU",
           "title": "Lorient vs Paris FC | HIGHLIGHTS Ligue 1 | 10/10/2026 | beIN SPORTS USA",
           "published_at": "2026-10-10",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "PR",
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -70,13 +98,27 @@
           "video_id": "AdOSVyEmSbM",
           "title": "PSG vs Le Mans | EXTENDED HIGHLIGHTS Ligue 1 | 10/10/2026 | beIN SPORTS USA",
           "published_at": "2026-10-10",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "PR",
+              "US"
+            ]
+          }
         },
         {
           "video_id": "ttywuMC5yuA",
           "title": "PSG vs Le Mans | HIGHLIGHTS Ligue 1 | 10/10/2026 | beIN SPORTS USA",
           "published_at": "2026-10-10",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "PR",
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -90,13 +132,23 @@
           "video_id": "nglNvYsH1Rk",
           "title": "Malgré un BIJOU d'Abline, Monaco FREINÉ par Toulouse | 6ème journée - Ligue 1 McDonald's 26/27",
           "published_at": "2026-10-11",
-          "tier_used": 2
+          "tier_used": 2,
+          "region": {
+            "allowed": [
+              "FR"
+            ]
+          }
         },
         {
           "video_id": "ZgACoGRzPpg",
           "title": "AS MONACO - TOULOUSE FC (2-2) | Week 6 - Ligue 1 McDonald's 26/27",
           "published_at": "2026-10-11",
-          "tier_used": 2
+          "tier_used": 2,
+          "region": {
+            "blocked": [
+              "FR"
+            ]
+          }
         }
       ]
     },
@@ -110,7 +162,8 @@
           "video_id": "xICFGHdjdUo",
           "title": "Résumé : Coup de CANON de CLAUSS pour inverser la tendance I Nice 2-1 Strasbourg (Ligue 1 26-27)",
           "published_at": "2026-10-11",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -124,13 +177,23 @@
           "video_id": "tZfm-IKxUfI",
           "title": "Une VOLÉE de Lepaul, DOUBLÉ de Dia : Rennes PUNIT Auxerre | 6ème journée - Ligue 1 McDonald's 26/27",
           "published_at": "2026-10-11",
-          "tier_used": 2
+          "tier_used": 2,
+          "region": {
+            "allowed": [
+              "FR"
+            ]
+          }
         },
         {
           "video_id": "-x3Qflv_DFU",
           "title": "STADE RENNAIS - AJ AUXERRE (4-1) | Week 6 - Ligue 1 McDonald's 26/27",
           "published_at": "2026-10-11",
-          "tier_used": 2
+          "tier_used": 2,
+          "region": {
+            "blocked": [
+              "FR"
+            ]
+          }
         }
       ]
     },
@@ -144,7 +207,8 @@
           "video_id": "yV2nD5yuGGo",
           "title": "Troyes 0-2 OM : Le résumé de la victoire ✅",
           "published_at": "2026-10-11",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     }

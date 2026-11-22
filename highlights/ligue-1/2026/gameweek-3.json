@@ -14,7 +14,14 @@
           "video_id": "6ChKMMQGmMM",
           "title": "Toulouse vs Lille | HIGHLIGHTS Ligue 1 | 09/03/2026 | beIN SPORTS USA",
           "published_at": "2026-09-03",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "PR",
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -28,7 +35,14 @@
           "video_id": "5__L5__2O50",
           "title": "Lyon vs Auxerre | EXTENDED HIGHLIGHTS Ligue 1 | 09/04/2026 | beIN SPORTS USA",
           "published_at": "2026-09-04",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "PR",
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -42,7 +56,14 @@
           "video_id": "1cwTcSOxpOU",
           "title": "PSG vs AS Monaco | EXTENDED HIGHLIGHTS Ligue 1 | 09/04/2026 | beIN SPORTS USA",
           "published_at": "2026-09-04",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "PR",
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -56,7 +77,14 @@
           "video_id": "rcO-Ze7Z6wQ",
           "title": "Lens vs Lorient | HIGHLIGHTS Ligue 1 | 09/05/2026 | beIN SPORTS USA",
           "published_at": "2026-09-05",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "PR",
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -70,7 +98,14 @@
           "video_id": "fJEx_-YUYGw",
           "title": "Le Havre vs Stade Brest | HIGHLIGHTS Ligue 1 | 09/05/2026 | beIN SPORTS USA",
           "published_at": "2026-09-05",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "PR",
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -84,7 +119,14 @@
           "video_id": "RmbbPpN8fec",
           "title": "Nice vs Le Mans | HIGHLIGHTS Ligue 1 | 09/05/2026 | beIN SPORTS USA",
           "published_at": "2026-09-05",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "PR",
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -98,13 +140,23 @@
           "video_id": "1PrVqHg9RgI",
           "title": "Strasbourg CONFIRME avec un FESTIVAL OFFENSIF à Troyes | 3ème journée - Ligue 1 McDonald's 26/27",
           "published_at": "2026-09-06",
-          "tier_used": 2
+          "tier_used": 2,
+          "region": {
+            "allowed": [
+              "FR"
+            ]
+          }
         },
         {
           "video_id": "NlzTP_sJeyk",
           "title": "ESTAC TROYES - RC STRASBOURG ALSACE (2-6) | Week 3 - Ligue 1 McDonald's 26/27",
           "published_at": "2026-09-06",
-          "tier_used": 2
+          "tier_used": 2,
+          "region": {
+            "blocked": [
+              "FR"
+            ]
+          }
         }
       ]
     },
@@ -118,13 +170,23 @@
           "video_id": "8co_qLHNnQQ",
           "title": "Rennes ENCHAINE, Angers peut S'EN VOULOIR | 3ème journée - Ligue 1 McDonald's 26/27",
           "published_at": "2026-09-06",
-          "tier_used": 2
+          "tier_used": 2,
+          "region": {
+            "allowed": [
+              "FR"
+            ]
+          }
         },
         {
           "video_id": "jkXH_1GUYtE",
           "title": "ANGERS SCO - STADE RENNAIS (1-2) | Week 3 - Ligue 1 McDonald's 26/27",
           "published_at": "2026-09-06",
-          "tier_used": 2
+          "tier_used": 2,
+          "region": {
+            "blocked": [
+              "FR"
+            ]
+          }
         }
       ]
     },
@@ -138,13 +200,23 @@
           "video_id": "90mamjgtLN8",
           "title": "Sinayoko EN FEU, Gouri XXL, match FOU entre l'OM et le PFC | 3ème journée - Ligue 1 McDonald's 26/27",
           "published_at": "2026-09-06",
-          "tier_used": 2
+          "tier_used": 2,
+          "region": {
+            "allowed": [
+              "FR"
+            ]
+          }
         },
         {
           "video_id": "78CfgkD721Q",
           "title": "OLYMPIQUE DE MARSEILLE - PARIS FC (2-3) | Week 3 - Ligue 1 McDonald's 26/27",
           "published_at": "2026-09-06",
-          "tier_used": 2
+          "tier_used": 2,
+          "region": {
+            "blocked": [
+              "FR"
+            ]
+          }
         }
       ]
     }

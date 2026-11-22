@@ -14,7 +14,12 @@
           "video_id": "jpKlxRNIjA8",
           "title": "Venezia vs. Udinese: Extended Highlights | Serie A | CBS Sports Golazo",
           "published_at": "2026-11-06",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -28,7 +33,12 @@
           "video_id": "k0lReMd3pHs",
           "title": "Cagliari vs. Frosinone: Extended Highlights | Serie A | CBS Sports Golazo",
           "published_at": "2026-11-07",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -42,7 +52,12 @@
           "video_id": "SeiBIcIu-1Q",
           "title": "Torino vs. Lecce: Extended Highlights | Serie A | CBS Sports Golazo",
           "published_at": "2026-11-07",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -56,7 +71,12 @@
           "video_id": "NCBFBqy0INQ",
           "title": "Two Penalties and a Red Card at the Tardini | PARMA-BOLOGNA | HIGHLIGHTS | Serie A 2026/27",
           "published_at": "2026-11-07",
-          "tier_used": 2
+          "tier_used": 2,
+          "region": {
+            "blocked": [
+              "IT"
+            ]
+          }
         }
       ]
     },
@@ -70,7 +90,12 @@
           "video_id": "f5zHzz0ZyDs",
           "title": "Roma vs. Sassuolo: Extended Highlights | Serie A | CBS Sports Golazo",
           "published_at": "2026-11-07",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -84,7 +109,12 @@
           "video_id": "qyb5js0T2bw",
           "title": "Napoli vs. Lazio: Extended Highlights | Serie A | CBS Sports Golazo",
           "published_at": "2026-11-08",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -98,7 +128,12 @@
           "video_id": "TA52Kb5N5aA",
           "title": "Genoa vs. Milan: Extended Highlights | WSL | CBS Sports Golazo",
           "published_at": "2026-11-08",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -112,7 +147,8 @@
           "video_id": "ZuN3El7fW_w",
           "title": "Monza-Atalanta | Our Starting XI | 11ª Serie A Enilive 2026/27",
           "published_at": "2026-11-08",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -126,7 +162,12 @@
           "video_id": "vBQxonAKFs4",
           "title": "Inter vs. Como: Extended Highlights | Serie A | CBS Sports Golazo",
           "published_at": "2026-11-08",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -140,7 +181,8 @@
           "video_id": "4H28grJiXU4",
           "title": "WOLTEMADE SCORES HIS FIRST SERIE A GOAL! | Fiorentina 2-2 Juventus | Highlights",
           "published_at": "2026-11-08",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     }

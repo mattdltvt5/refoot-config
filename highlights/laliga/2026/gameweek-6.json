@@ -14,7 +14,8 @@
           "video_id": "jmrGAcizaCk",
           "title": "REAL SOCIEDAD 0 - 0 CELTA | RESUMEN LALIGA EA SPORTS",
           "published_at": "2026-09-03",
-          "tier_used": 2
+          "tier_used": 2,
+          "region": {}
         }
       ]
     },
@@ -28,7 +29,8 @@
           "video_id": "k_7CA-nC1Rc",
           "title": "RAYO VALLECANO 2 - 1 RCD ESPANYOL | RESUMEN LALIGA EA SPORTS",
           "published_at": "2026-09-15",
-          "tier_used": 2
+          "tier_used": 2,
+          "region": {}
         }
       ]
     },
@@ -42,7 +44,8 @@
           "video_id": "2CvGVvagr5E",
           "title": "DEPORTIVO ALAVÉS 0 - 1 VALENCIA CF | RESUMEN LALIGA EA SPORTS",
           "published_at": "2026-09-15",
-          "tier_used": 2
+          "tier_used": 2,
+          "region": {}
         }
       ]
     },
@@ -56,7 +59,8 @@
           "video_id": "s7gWTLWzW_k",
           "title": "ELCHE CF 2 - 3 REAL MADRID | RESUMEN LALIGA EA SPORTS",
           "published_at": "2026-09-15",
-          "tier_used": 2
+          "tier_used": 2,
+          "region": {}
         }
       ]
     },
@@ -70,7 +74,8 @@
           "video_id": "4whJXH2u2A0",
           "title": "RC DEPORTIVO 0 - 1 SEVILLA FC | RESUMEN LALIGA EA SPORTS",
           "published_at": "2026-09-16",
-          "tier_used": 2
+          "tier_used": 2,
+          "region": {}
         }
       ]
     },
@@ -84,7 +89,8 @@
           "video_id": "16bLCcN5j2k",
           "title": "ATLÉTICO DE MADRID 4 - 0 CA OSASUNA | RESUMEN LALIGA EA SPORTS",
           "published_at": "2026-09-16",
-          "tier_used": 2
+          "tier_used": 2,
+          "region": {}
         }
       ]
     },
@@ -98,7 +104,14 @@
           "video_id": "bWC2XazMFK8",
           "title": "Barcelona vs. Racing Santander | LALIGA Highlights | ESPN FC",
           "published_at": "2026-09-16",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "UM",
+              "US",
+              "VI"
+            ]
+          }
         }
       ]
     },
@@ -112,7 +125,8 @@
           "video_id": "CsZpc8JbxOk",
           "title": "REAL BETIS 1 - 0 GETAFE CF | RESUMEN LALIGA EA SPORTS",
           "published_at": "2026-09-17",
-          "tier_used": 2
+          "tier_used": 2,
+          "region": {}
         }
       ]
     },
@@ -126,7 +140,8 @@
           "video_id": "BJc1O4T2a0E",
           "title": "MÁLAGA CF 1 - 3 VILLARREAL CF | RESUMEN LALIGA EA SPORTS",
           "published_at": "2026-09-17",
-          "tier_used": 2
+          "tier_used": 2,
+          "region": {}
         }
       ]
     },
@@ -140,7 +155,8 @@
           "video_id": "7YdRog5hqQU",
           "title": "LEVANTE UD 3 - 1 ATHLETIC CLUB | RESUMEN LALIGA EA SPORTS",
           "published_at": "2026-10-21",
-          "tier_used": 2
+          "tier_used": 2,
+          "region": {}
         }
       ]
     }

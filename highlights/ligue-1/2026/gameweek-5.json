@@ -14,7 +14,14 @@
           "video_id": "B8FoqS80BRs",
           "title": "Monaco vs Lens | HIGHLIGHTS Ligue 1 | 09/18/2026 | beIN SPORTS USA",
           "published_at": "2026-09-18",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "PR",
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -28,7 +35,14 @@
           "video_id": "7QLhXZexo_I",
           "title": "Paris FC vs Strasbourg | HIGHLIGHTS Ligue 1 | 09/19/2026 | beIN SPORTS USA",
           "published_at": "2026-09-19",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "PR",
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -42,7 +56,14 @@
           "video_id": "Fijom3rh9rI",
           "title": "Le Mans vs Lorient | HIGHLIGHTS Ligue 1 | 09/19/2026 | beIN SPORTS USA",
           "published_at": "2026-09-19",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "PR",
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -56,7 +77,14 @@
           "video_id": "xamQRh9TuZU",
           "title": "Toulouse vs Le Havre | HIGHLIGHTS Ligue 1 | 09/19/2026 | beIN SPORTS USA",
           "published_at": "2026-09-19",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "PR",
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -70,7 +98,14 @@
           "video_id": "Mw3qWlwSwoQ",
           "title": "Angers vs Troyes | HIGHLIGHTS Ligue 1 | 09/19/2026 | beIN SPORTS USA",
           "published_at": "2026-09-19",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "PR",
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -84,19 +119,40 @@
           "video_id": "ukptqfA_wes",
           "title": "Lyon vs Stade Rennes | HIGHLIGHTS Ligue 1 | 09/19/2026 | beIN SPORTS USA",
           "published_at": "2026-09-19",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "PR",
+              "US"
+            ]
+          }
         },
         {
           "video_id": "I-S_CS808cc",
           "title": "Lyon vs Stade Rennes | EXTENDED HIGHLIGHTS Ligue 1 | 09/19/2026 | beIN SPORTS USA",
           "published_at": "2026-09-19",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "PR",
+              "US"
+            ]
+          }
         },
         {
           "video_id": "TNBMpyaFR2Q",
           "title": "Why Was Lyon vs Rennes Stopped? ⚠️ Players Sent to Dressing Rooms",
           "published_at": "2026-09-19",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "PR",
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -110,7 +166,14 @@
           "video_id": "euuVT9hFSrY",
           "title": "Auxerre vs Stade Brest | HIGHLIGHTS Ligue 1 | 09/20/2026 | beIN SPORTS USA",
           "published_at": "2026-09-20",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "PR",
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -124,7 +187,14 @@
           "video_id": "VA56V1kgXEM",
           "title": "Nice vs Lille | HIGHLIGHTS Ligue 1 | 09/20/2026 | beIN SPORTS USA",
           "published_at": "2026-09-20",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "PR",
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -138,7 +208,12 @@
           "video_id": "G_cQy-bcaRg",
           "title": "OLYMPIQUE DE MARSEILLE - PARIS SAINT-GERMAIN (1-2) | Week 5 - Ligue 1 McDonald's 26/27",
           "published_at": "2026-09-20",
-          "tier_used": 2
+          "tier_used": 2,
+          "region": {
+            "blocked": [
+              "FR"
+            ]
+          }
         }
       ]
     }

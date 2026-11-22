@@ -14,7 +14,14 @@
           "video_id": "BIMFwj7LPpE",
           "title": "Le Mans vs Toulouse | EXTENDED HIGHLIGHTS Ligue 1 | 10/16/2026 | beIN SPORTS USA",
           "published_at": "2026-10-16",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "PR",
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -28,7 +35,14 @@
           "video_id": "BOtAGzgYhA0",
           "title": "RC Strasbourg vs Paris Saint-Germain | HIGHLIGHTS Ligue 1 | 10/17/2026 | beIN SPORTS USA",
           "published_at": "2026-10-17",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "PR",
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -42,13 +56,27 @@
           "video_id": "SlCbDukwNRw",
           "title": "Lille vs Stade Brest | HIGHLIGHTS Ligue 1 | 10/17/2026 | beIN SPORTS USA",
           "published_at": "2026-10-17",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "PR",
+              "US"
+            ]
+          }
         },
         {
           "video_id": "sQgQS8T8uG4",
           "title": "Lille vs Stade Brest | EXTENDED HIGHLIGHTS Ligue 1 | 10/17/2026 | beIN SPORTS USA",
           "published_at": "2026-10-17",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "PR",
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -62,7 +90,14 @@
           "video_id": "cBvHuyXjd7M",
           "title": "Troyes vs Lens | HIGHLIGHTS Ligue 1 | 10/17/2026 | beIN SPORTS USA",
           "published_at": "2026-10-17",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "PR",
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -76,7 +111,14 @@
           "video_id": "9TqwIi8QSyo",
           "title": "Angers vs Marseille | EXTENDED HIGHLIGHTS Ligue 1 | 10/!8/2026 | beIN SPORTS USA",
           "published_at": "2026-10-18",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "PR",
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -90,7 +132,14 @@
           "video_id": "pg65PgYDJX0",
           "title": "Le Havre vs Auxerre | HIGHLIGHTS Ligue 1 | 10/18/2026 | beIN SPORTS USA",
           "published_at": "2026-10-18",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "PR",
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -104,7 +153,14 @@
           "video_id": "11swA09e6sQ",
           "title": "Lorient vs AS Monaco | EXTENDED HIGHLIGHTS Ligue 1 | 10/18/2026 | beIN SPORTS USA",
           "published_at": "2026-10-18",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "PR",
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -118,13 +174,23 @@
           "video_id": "3YMZ_JdOeMY",
           "title": "Sinayoko STRATOSPHÉRIQUE, MATCH FOU entre le PFC et Rennes | 7ème journée - Ligue 1 McDonald's 26/27",
           "published_at": "2026-10-18",
-          "tier_used": 2
+          "tier_used": 2,
+          "region": {
+            "allowed": [
+              "FR"
+            ]
+          }
         },
         {
           "video_id": "wi6gvQXDISY",
           "title": "PARIS FC - STADE RENNAIS (4-3) | Week 7 - Ligue 1 McDonald's 26/27",
           "published_at": "2026-10-18",
-          "tier_used": 2
+          "tier_used": 2,
+          "region": {
+            "blocked": [
+              "FR"
+            ]
+          }
         }
       ]
     },
@@ -138,7 +204,8 @@
           "video_id": "c8I7I0RS2xs",
           "title": "Résumé : Olympique Lyonnais 2-1 OGC Nice I Ligue 1 McDonald's 26-27",
           "published_at": "2026-10-18",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     }

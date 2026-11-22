@@ -14,7 +14,12 @@
           "video_id": "2hZTxhyXeII",
           "title": "AC Milan vs. Venezia: Extended Highlights | Serie A | CBS Sports Golazo",
           "published_at": "2026-08-28",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -28,7 +33,8 @@
           "video_id": "hkKXLl8ZvCs",
           "title": "Serie A Enilive | Gli highlights di Sassuolo-Torino 2-1",
           "published_at": "2026-08-29",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -42,7 +48,12 @@
           "video_id": "GZKuIpjj_FY",
           "title": "Spettacolo al Brianteo! | MONZA-UDINESE | HIGHLIGHTS | SERIE A ENILIVE 2026/27",
           "published_at": "2026-08-29",
-          "tier_used": 2
+          "tier_used": 2,
+          "region": {
+            "allowed": [
+              "IT"
+            ]
+          }
         }
       ]
     },
@@ -56,7 +67,12 @@
           "video_id": "7T-rAoxlAWw",
           "title": "Shocker in Florence! | FIORENTINA-FROSINONE | HIGHLIGHTS | Serie A 2026/27",
           "published_at": "2026-08-29",
-          "tier_used": 2
+          "tier_used": 2,
+          "region": {
+            "blocked": [
+              "IT"
+            ]
+          }
         }
       ]
     },
@@ -70,7 +86,12 @@
           "video_id": "0c-wpIQS6Yc",
           "title": "The Bianconeri Continue Perfect Start | JUVENTUS-PARMA | HIGHLIGHTS | Serie A 2026/27",
           "published_at": "2026-08-29",
-          "tier_used": 2
+          "tier_used": 2,
+          "region": {
+            "blocked": [
+              "IT"
+            ]
+          }
         }
       ]
     },
@@ -84,7 +105,12 @@
           "video_id": "gCL4nQnqr9Y",
           "title": "Entertaining First Half Rewards Como! | NAPOLI-COMO | HIGHLIGHTS | Serie A 2026/27",
           "published_at": "2026-08-30",
-          "tier_used": 2
+          "tier_used": 2,
+          "region": {
+            "blocked": [
+              "IT"
+            ]
+          }
         }
       ]
     },
@@ -98,7 +124,12 @@
           "video_id": "YtfUV294hGo",
           "title": "Frattesi Does It Again!| LAZIO-GENOA | HIGHLIGHTS | Serie A 2026/27",
           "published_at": "2026-08-30",
-          "tier_used": 2
+          "tier_used": 2,
+          "region": {
+            "blocked": [
+              "IT"
+            ]
+          }
         }
       ]
     },
@@ -112,7 +143,12 @@
           "video_id": "rQaUtoggWDw",
           "title": "Calhanoglu The Nerazzurri Hero | CAGLIARI-INTER | HIGHLIGHTS | Serie A 2026/27",
           "published_at": "2026-08-30",
-          "tier_used": 2
+          "tier_used": 2,
+          "region": {
+            "blocked": [
+              "IT"
+            ]
+          }
         }
       ]
     },
@@ -126,7 +162,12 @@
           "video_id": "pd-4Lp8c6zg",
           "title": "Lecce vs. Roma: Extended Highlights | Serie A | CBS Sports Golazo",
           "published_at": "2026-08-31",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -140,7 +181,8 @@
           "video_id": "-C9ZAkwrE1I",
           "title": "Atalanta-Bologna | Our Starting XI | 2ª Serie A Enilive 2026/27",
           "published_at": "2026-08-31",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     }

@@ -14,7 +14,12 @@
           "video_id": "SfWOnljn6AY",
           "title": "Genoa vs. Como: Extended Highlights | Serie A | CBS Sports Golazo",
           "published_at": "2026-09-04",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -28,7 +33,12 @@
           "video_id": "WNE05r5SA3k",
           "title": "Crazy Comeback at the Franchi! | FIORENTINA-TORINO | HIGHLIGHTS | Serie A 2026/27",
           "published_at": "2026-09-05",
-          "tier_used": 2
+          "tier_used": 2,
+          "region": {
+            "blocked": [
+              "IT"
+            ]
+          }
         }
       ]
     },
