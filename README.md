@@ -39,7 +39,7 @@ and full-match replays were accepted until #69. This adds:
   and launch country, with optional mid-season date ranges. It is seeded for 2026 and 2027, with every entry
   `unverified` and no channels. See [Rights registry](#rights-registry).
 - **`LAUNCH_COUNTRIES = ["US", "GB", "CA", "IE", "ES"]`** in `highlights_common.py`.
-- **`scripts/source_health_scan.py`** + **`source-health-scan.yml`**: a weekly (Mon 06:00 UTC) read-only scan
+- **`scripts/source_health_scan.py`** + **`source-health-scan.yml`**: a weekly (Mon 09:00 UTC) read-only scan
   of every configured source. It checks for empty, stale, unreachable and title-drift sources, highlight
   coverage, per-country region availability, registry findings and proposals. It writes
   `reports/source-health/{season}/latest.json`, inside a 500-unit budget. It proposes only, never editing
@@ -1000,7 +1000,7 @@ Added a dedicated `fixtures/{slug}.json` artifact for all five domestic leagues 
 | `scripts/rights_registry.py` | `load_registry(season)`, `active_entries(competition, country, on_date)`, `resolve_season(competition, on_date)` |
 | `scripts/source_health_scan.py` | Weekly read-only source health scan → `reports/source-health/{season}/` |
 | `reports/source-health/{season}/` | Scan output: `latest.json` + dated copies (last 8), committed by `source-health-scan.yml` |
-| `.github/workflows/source-health-scan.yml` | Weekly scan (Mondays 06:00 UTC) + `workflow_dispatch`; commits only the report files |
+| `.github/workflows/source-health-scan.yml` | Weekly scan (Mondays 09:00 UTC) + `workflow_dispatch`; commits only the report files |
 
 ## Admin Panel
 
@@ -1176,8 +1176,8 @@ config (`sources.json`, `team-aliases.json`). Splitting by season mirrors `fixtu
 
 ## Source health scan
 
-`scripts/source_health_scan.py` runs from `.github/workflows/source-health-scan.yml`, on Mondays at 06:00 UTC
-(after the UTC-midnight YouTube quota reset) and on `workflow_dispatch` (optional `budget` input).
+`scripts/source_health_scan.py` runs from `.github/workflows/source-health-scan.yml`, on Mondays at 09:00 UTC
+(after YouTube's quota reset at midnight Pacific time) and on `workflow_dispatch` (optional `budget` input).
 - It is **read-only** towards `sources.json`, the highlights cache, fixtures and the registry. The workflow
   commits only `reports/source-health/` (`[skip ci]`, as `github-actions[bot]`) and never runs fetch or
   backfill.
@@ -1234,7 +1234,7 @@ competition also carries its own `season`, which is the edition year for tournam
 ```json
 {
   "schema_version": 1,
-  "generated_at": "2026-11-23T06:00:12Z",
+  "generated_at": "2026-11-23T09:00:12Z",
   "report_season": 2026,
   "launch_countries": ["US", "GB", "CA", "IE", "ES"],
   "partial": false, "stop_reason": null,          // scan_budget | daily_quota | youtube_403
@@ -1613,7 +1613,11 @@ Only `playlistItems.list` is used (**1 unit per page**). `search.list` (100 unit
 | Worst case per run (all tiers tried, 10 pages each) | ~700 units |
 | Complete gameweeks skipped | 0 units |
 
-YouTube Data API free quota: **10,000 units/day**.
+YouTube Data API free quota: **10,000 units/day**. The day is YouTube's: it resets at **midnight US Pacific
+time** (07:00 UTC in summer, 08:00 UTC in winter), and `QuotaTracker` uses the same day
+(`youtube_quota_day()`, `day_basis: "America/Los_Angeles"` in the tracker file). Until 2026-11 the tracker
+reset at UTC midnight, 7-8 hours early, so the fetch could spend up to twice its cap in one YouTube day and
+then hit 403 on every run until the real reset.
 
 #### Budget split
 
@@ -1628,7 +1632,7 @@ When either cap is hit the script saves state, writes any in-progress files, and
 
 | File | Purpose |
 |---|---|
-| `highlights/quota-tracker.json` | Tracks units consumed today; resets automatically at UTC midnight |
+| `highlights/quota-tracker.json` | Tracks units consumed in the current YouTube quota day; resets at midnight US Pacific (07:00/08:00 UTC) |
 | `highlights/backfill-progress.json` | Checkpoints backfill position (competition + gameweek); resets when the season changes |
 | `highlights/backfill.lock` | Created by backfill at startup, deleted in its `finally` block; signals incremental to defer |
 
