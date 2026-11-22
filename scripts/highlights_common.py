@@ -2530,10 +2530,17 @@ def resolve_videos_for_fixture(
     gw_playlist_cache: dict | None = None,
     debug_sink: "list | None" = None,
     page_cache: "dict | None" = None,
+    skip_broadcasters: bool = False,
+    accept=None,
 ) -> list[dict]:
     """
     Try each tier in priority order, stopping at the first that yields ≥1 video.
     Raises QuotaCapReached (propagated from search_playlist) if cap is hit.
+
+    Alternatives mode (scripts/highlight_alternatives.py): ``skip_broadcasters``
+    skips tier 4, and ``accept(video) -> bool`` keeps only clips that add
+    something (e.g. play in a country the match's current clips don't); a tier
+    whose clips are all refused counts as empty, so the search moves on.
 
     ``page_cache``: pass one dict per run (like ``gw_playlist_cache``) so playlist
     pages shared by several fixtures are fetched once; see search_playlist().
@@ -2721,6 +2728,15 @@ def resolve_videos_for_fixture(
         # its IFrame player. If every clip is non-embeddable, keep them (a clip
         # that still plays on youtube.com — via the app's "Watch on YouTube"
         # fallback — beats no highlight). Uses the details already fetched above.
+        if accept is not None:
+            filtered = [
+                v for v in filtered
+                if accept({**v, **({"region": compact_region(details[v["video_id"]].get("region_restriction"))}
+                                   if v["video_id"] in details else {})})
+            ]
+            if not filtered:
+                return None
+
         kept, dropped = prefer_embeddable(filtered, details)
         for v in dropped:
             if debug_sink is not None:
@@ -2841,7 +2857,7 @@ def resolve_videos_for_fixture(
     # playlists, requires_both_teams=True guards cross-fixture false positives).
     # highlight_playlist=True: these are explicitly configured broadcaster highlights
     # playlists, so the per-video title need not also contain "highlights".
-    for _broadcaster, pl_ids in comp_pl.get(comp_name, {}).items():
+    for _broadcaster, pl_ids in ({} if skip_broadcasters else comp_pl.get(comp_name, {})).items():
         for pl_id in pl_ids:
             result = _try(pl_id, tier=4, both_teams=True, date_window=_CURATED_PLAYLIST_WINDOW, highlight_playlist=True)
             if result:

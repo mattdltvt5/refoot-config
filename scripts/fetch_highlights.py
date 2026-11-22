@@ -73,6 +73,7 @@ from fixture_providers import (
 )
 from playlist_discovery import apply_discovered_overrides
 from video_regions import fill_missing_regions
+from highlight_alternatives import find_alternatives
 import build_home_index
 
 log = logging.getLogger(__name__)
@@ -537,6 +538,19 @@ def main() -> None:
             total_written += len(fill_missing_regions(yt_key, quota, INCREMENTAL_CAP))
         except QuotaCapReached as exc:
             log.info(f"Daily cap reached while recording regions: {exc}")
+
+    # Alternatives for matches whose clips don't play in some launch country
+    # (often a US-only broadcaster clip): search the competition / club sources
+    # again for one that does. Recent matches with backoff; older ones once,
+    # within a small budget. See scripts/highlight_alternatives.py.
+    if not quota.over_incremental_cap:
+        try:
+            total_written += len(find_alternatives(
+                yt_key, quota, INCREMENTAL_CAP, config,
+                gw_playlist_cache=gw_playlist_cache, page_cache=page_cache,
+            ))
+        except QuotaCapReached as exc:
+            log.info(f"Daily cap reached while finding alternatives: {exc}")
 
     log.info(
         f"Done. {total_written} file(s) updated. "
