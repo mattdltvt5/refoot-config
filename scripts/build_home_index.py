@@ -60,6 +60,7 @@ from highlights_common import (
     SOURCES_JSON,
     load_json_file,
     utc_now_iso,
+    video_options,
     write_json_atomic,
 )
 from season_utils import current_season
@@ -121,7 +122,8 @@ def _bucket_date(utc_date: str | None) -> str | None:
     return dt.astimezone(timezone.utc).date().isoformat()
 
 
-def normalize_match(raw: dict, video_id: str | None) -> dict | None:
+def normalize_match(raw: dict, video_id: str | None,
+                    options: "list[dict] | None" = None) -> dict | None:
     """Map a raw fixture (domestic or tournament) to the Home match schema.
 
     Returns None when the match lacks a stable id or a utcDate (cannot be placed on
@@ -145,19 +147,28 @@ def normalize_match(raw: dict, video_id: str | None) -> dict | None:
     vid = video_id if video_id is not None else raw.get("video_id")
     if vid:
         out["videoId"] = vid
+        # Alternatives with region availability, only when one is geo-locked
+        # (see highlights_common.video_options); the app picks one that plays
+        # in the viewer's country.
+        opts = options if video_id is not None else raw.get("video_options")
+        if opts:
+            out["videoOptions"] = [
+                {"videoId": o["video_id"], "region": o.get("region") or {}} for o in opts
+            ]
     return out
 
 
 # ── Loaders (read-only; no external calls) ──────────────────────────────────────
 
 
-def _domestic_video_map(slug: str, season: int) -> dict[int, str]:
-    """Build {match_id -> video_id} from the cached highlights artifacts for a league.
+def _domestic_video_map(slug: str, season: int) -> dict[int, tuple]:
+    """Build {match_id -> (video_id, video_options)} from a league's highlights.
 
     Reads highlights/{slug}/{season}/*.json (each has matches[] with match_id +
-    videos[]). First video wins. Missing files/dirs yield an empty map.
+    videos[]). First video wins; video_options lists every candidate's region
+    when one is geo-locked (else None). Missing files/dirs yield an empty map.
     """
-    out: dict[int, str] = {}
+    out: dict[int, tuple] = {}
     season_dir = HIGHLIGHTS_DIR / slug / str(season)
     for path in sorted(season_dir.glob("*.json")):
         data = load_json_file(path)
@@ -169,7 +180,7 @@ def _domestic_video_map(slug: str, season: int) -> dict[int, str]:
             if mid is not None and vids:
                 vid = vids[0].get("video_id")
                 if vid and mid not in out:
-                    out[mid] = vid
+                    out[mid] = (vid, video_options(vids))
     return out
 
 
@@ -193,7 +204,8 @@ def load_domestic_matches(slug: str) -> list[dict]:
             continue
         vid_map = _domestic_video_map(slug, season)
         for raw in data.get("fixtures", []):
-            m = normalize_match(raw, vid_map.get(raw.get("match_id")))
+            vid, opts = vid_map.get(raw.get("match_id"), (None, None))
+            m = normalize_match(raw, vid, opts)
             if m:
                 matches.append(m)
     return matches

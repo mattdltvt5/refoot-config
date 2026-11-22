@@ -1352,6 +1352,35 @@ def region_is_playable_in(region: "dict | None", country: str) -> bool:
     return cc not in (region.get("blocked") or [])
 
 
+def compact_region(region: "dict | None") -> dict:
+    """contentDetails.regionRestriction -> the cache's compact per-video ``region``.
+
+    ``{}`` plays everywhere; ``{"allowed": [...]}`` only there ([] = nowhere);
+    ``{"blocked": [...]}`` everywhere but there. Codes upper-case and sorted so
+    the JSON stays diff-stable. See scripts/video_regions.py.
+    """
+    if not region:
+        return {}
+    if "allowed" in region:
+        return {"allowed": sorted({c.upper() for c in (region.get("allowed") or [])})}
+    blocked = sorted({c.upper() for c in (region.get("blocked") or [])})
+    return {"blocked": blocked} if blocked else {}
+
+
+def video_options(videos: "list[dict] | None") -> "list[dict] | None":
+    """Every candidate's (video_id, region), for files that publish only one
+    video per match (home-index, tournament-groups), so the app can pick one
+    that plays in the viewer's country. None when no candidate is restricted:
+    then the first video plays everywhere and the single id is enough (keeps
+    those files small). A video without ``region`` (not checked yet) counts as
+    unrestricted.
+    """
+    vids = [v for v in (videos or []) if v.get("video_id")]
+    if not any(v.get("region") for v in vids):
+        return None
+    return [{"video_id": v["video_id"], "region": v.get("region") or {}} for v in vids]
+
+
 def region_is_restricted(region: "dict | None") -> bool:
     """True when the clip is unavailable in at least one country (any allowed
     list, including an empty one, or a non-empty blocked list)."""
@@ -2709,7 +2738,14 @@ def resolve_videos_for_fixture(
             )
         filtered = kept
 
-        return [{**v, "tier_used": tier} for v in filtered] if filtered else None
+        # Store each clip's region so the app can pick one that plays in the
+        # viewer's country (from the details fetched above; no extra quota).
+        return [
+            {**v, "tier_used": tier,
+             **({"region": compact_region(details[v["video_id"]].get("region_restriction"))}
+                if v["video_id"] in details else {})}
+            for v in filtered
+        ] if filtered else None
 
     # publishedAt in playlistItems.list = date item was added to the playlist, not
     # video publication date.  Applies to all curated playlists: tier 1c/1d team
