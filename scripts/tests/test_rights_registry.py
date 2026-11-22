@@ -46,8 +46,14 @@ def test_seed_entries_unverified_without_channels(season):
     doc = _load(season)
     assert doc["season"] == season
     for e in doc["entries"]:
-        assert e["status"] == "unverified", e
-        assert e["channels"] == [], e
+        # Seeded entries stay unverified with no channels until a person checks
+        # them; an approved entry must name its channel and say how it was checked.
+        if e["status"] == "approved":
+            assert e["channels"] and e["channels"][0]["channel_id"].startswith("UC"), e
+            assert "verified" in e.get("notes", "").lower(), e
+        else:
+            assert e["status"] == "unverified", e
+            assert e["channels"] == [], e
         assert e["competition"] in COMPETITION_SLUG_MAP.values(), e
         assert e["country"] in LAUNCH_COUNTRIES and e["country"] != "UK", e
 
@@ -108,7 +114,8 @@ def test_resolve_season_tournament_by_edition_not_august():
 # ── active_entries ────────────────────────────────────────────────────────────
 
 def _holders(entries):
-    return sorted(e["holder"] for e in entries if e["holder"])
+    # Distinct holders: one may have both a live and a highlights entry.
+    return sorted({e["holder"] for e in entries if e["holder"]})
 
 
 def test_seed_ucl_gb_switches_with_2027_season():

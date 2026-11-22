@@ -1087,6 +1087,14 @@ eyeball the channel before deciding. Human-in-the-loop is the point:
 - Empty string `""` means "not configured" — the app falls through to the next tier
 - `playlists` and `teamPlaylists` are Tier 4 fallbacks; `competitions` and `teams` are Tier 2 / Tier 1
 - `playlists` supports multiple playlist IDs per broadcaster (e.g. one per game week); the app queries them all
+- `broadcasterChannels` (optional): `{competition: [{label, channelId, requiredTerms, countries}]}`, for a
+  broadcaster whose highlights sit only in its general uploads. The matcher reads that channel's uploads
+  after the curated `playlists` (still tier 4), requiring both teams, the normal title allowlist and one of
+  `requiredTerms` (case-insensitive), so the broadcaster's other competitions stay out. `countries` is
+  documentation (the clip's own region decides where it plays). Example: TNT Sports Football's UCL
+  highlights, GB/IE only, `requiredTerms: ["Champions League Highlights"]` (its "Champions League Match
+  Highlights" playlist holds reactions, not highlights). The weekly source health scan checks these too
+  (`kind: broadcaster_channel`). admin.html keeps the key when it saves but doesn't edit it.
 - `teamLists` is auto-populated weekly by the `sync-teams.yml` GitHub Action (football-data.org) — **it fully
   rebuilds each competition's list from the API every run, so extra fields added inside a `teamLists` record do
   NOT survive.** Curated per-team data must live outside `teamLists` (see `teamPalettes`).
@@ -1377,9 +1385,10 @@ Serie A, Ligue 1 and LaLiga that first clip is often a US broadcaster's (CBS Spo
 ESPN US) that only plays in the US and its territories, while the competition and club channels publish
 clips that play almost everywhere. `scripts/highlight_alternatives.py` runs at the end of each fetch run:
 
-- **Which matches:** current-season domestic league matches whose clips leave some `LAUNCH_COUNTRIES`
-  country uncovered (a clip without `region` counts as playable). UCL and the summer tournaments have no
-  worldwide source configured, so they're out of scope until per-country sources are added.
+- **Which matches:** current-season domestic league and Champions League matches (`ALT_COMPS`; UCL fixtures
+  from `tournament-groups/ucl.json`) whose clips leave some `LAUNCH_COUNTRIES` country uncovered (a clip
+  without `region` counts as playable). UCL's GB/IE clips come from TNT Sports Football (`broadcasterChannels`).
+  The summer tournaments have no non-US source, so they stay out of scope.
 - **How:** `resolve_videos_for_fixture(..., accept=...)` keeps only new clips that play in a still-uncovered
   country; a tier whose clips are all refused counts as empty. Broadcaster playlists are searched too: a
   US-only clip is refused for a match missing GB/IE/ES but taken for one missing the US (e.g. a LaLiga

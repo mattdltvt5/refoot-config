@@ -210,6 +210,11 @@ def configured_sources(comp: str, config: dict, raw: dict) -> list[dict]:
         for pid in ids:
             out.append({"kind": "broadcaster_playlist", "tier": 4, "label": broadcaster,
                         "playlist_id": pid})
+    for bc in config.get("broadcaster_channels", {}).get(comp, []):
+        out.append({"kind": "broadcaster_channel", "tier": 4, "label": bc["label"],
+                    "channel_id": bc["channel_id"],
+                    "playlist_id": channel_to_uploads(bc["channel_id"]),
+                    "required_terms": bc["required_terms"]})
     for team, pid in config["team_playlists"].get(comp, {}).items():
         out.append({"kind": "team_playlist", "tier": 1, "label": team, "playlist_id": pid})
     team_names = [t.get("name") for t in raw.get("teamLists", {}).get(comp, []) or []
@@ -222,10 +227,14 @@ def configured_sources(comp: str, config: dict, raw: dict) -> list[dict]:
     return out
 
 
-def title_passes(source_kind: str, comp: str, title: str) -> bool:
+def title_passes(source_kind: str, comp: str, title: str,
+                 required_terms: "list[str] | tuple[str, ...]" = ()) -> bool:
     """The matcher's current title gate for this source kind (source-scoped)."""
     if not title or is_youth_reserve_title(title):
         return False
+    if source_kind == "broadcaster_channel":
+        # Multi-competition uploads: full allowlist plus the entry's phrase.
+        return is_highlight_title(title, required_terms=required_terms)
     if source_kind == "competition_channel":
         if not is_highlight_title(title, COMP_CHANNEL_TITLE_TERMS.get(comp, ()),
                                   required_terms=COMP_CHANNEL_REQUIRED_TERMS.get(comp, ())):
@@ -478,7 +487,8 @@ def run_scan(
             dated = [it for it in items if it["published"]]
             newest = max((it["published"] for it in dated), default=None)
             recent = [it for it in dated if it["published"] >= recent_start.isoformat()]
-            passing = [it for it in recent if title_passes(src["kind"], comp, it["title"])]
+            passing = [it for it in recent
+                       if title_passes(src["kind"], comp, it["title"], src.get("required_terms", ()))]
             entry.update({"checked": True, "http_status": page["http"],
                           "item_count": len(items), "has_more": page["has_more"],
                           "newest_upload": newest, "recent_uploads": len(recent),

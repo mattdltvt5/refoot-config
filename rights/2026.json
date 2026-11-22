@@ -305,6 +305,34 @@
       "status": "unverified"
     },
     {
+      "competition": "ucl",
+      "country": "GB",
+      "holder": "TNT Sports",
+      "role": "highlights",
+      "channels": [
+        {
+          "channel_id": "UC4i_9WvfPRTuRWEaWyfKuFw",
+          "playlist_ids": []
+        }
+      ],
+      "status": "approved",
+      "notes": "Verified 2026-11-22: full UCL match highlights in the channel's uploads (\"... | UEFA Champions League Highlights\"), allowed GB/IE (+GG, GI, IM, JE); 60 in the six weeks sampled. Its 'UEFA Champions League Match Highlights 2026/27' playlist holds reactions only. Configured as sources.json broadcasterChannels."
+    },
+    {
+      "competition": "ucl",
+      "country": "IE",
+      "holder": "TNT Sports",
+      "role": "highlights",
+      "channels": [
+        {
+          "channel_id": "UC4i_9WvfPRTuRWEaWyfKuFw",
+          "playlist_ids": []
+        }
+      ],
+      "status": "approved",
+      "notes": "Verified 2026-11-22: full UCL match highlights in the channel's uploads (\"... | UEFA Champions League Highlights\"), allowed GB/IE (+GG, GI, IM, JE); 60 in the six weeks sampled. Its 'UEFA Champions League Match Highlights 2026/27' playlist holds reactions only. Configured as sources.json broadcasterChannels."
+    },
+    {
       "competition": "uel",
       "country": "IE",
       "holder": null,
