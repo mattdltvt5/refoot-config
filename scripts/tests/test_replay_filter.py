@@ -205,6 +205,65 @@ def test_allowlist_has_no_term_the_live_patterns_would_block():
         assert not any(p.search(term) for p in H.TITLE_BLOCKLIST_PATTERNS), term
 
 
+# ── Live-stream markers in other languages (LIVE_STREAM_WORDS) ────────────────
+
+BETIS_LIVE = "🚨 DIRECTO | Real Betis - Real Sociedad ⚽💚 | VÍVELO CON NOSOTROS"
+
+
+@pytest.mark.parametrize("title", [
+    BETIS_LIVE,                                         # real cached title (4h21m stream)
+    "🔴 DIRECTO | Sevilla - Betis",
+    "DIRECTO 🔴 Sevilla vs Betis",
+    "DIRECTO | Sevilla - Betis",                        # bare word + separator
+    "DIRECTO: Sevilla - Betis",
+    "EN DIRECTO: Real Madrid - Barcelona",
+    "En vivo | Real Madrid vs Barcelona",
+    "🔴 EN VIVO Real Madrid vs Barcelona",
+    "EN DIRECT : PSG - OM",
+    "🔴 En direct | PSG - OM",
+    "IN DIRETTA | Inter - Milan",
+    "DIRETTA: Inter - Milan",
+    "🔴 AO VIVO | Benfica x Porto",
+])
+def test_multilingual_live_markers_blocked_on_every_source(title):
+    assert H.title_block_reason(title) is not None, title
+    assert is_highlight_title(title, require_allowlist=False) is False
+
+
+@pytest.mark.parametrize("title", [
+    # Real cached highlight titles that use 🚨 without a live word
+    "A DRAW 🚨 Valencia vs. Real Betis | LALIGA Highlights | ESPN FC",
+    "FIRST HALF DRAMA 🚨 | Crystal Palace 0-0 Leeds United | Premier League Highlights",
+    "HIEN SULLA SIRENA 🚨 | Highlights Genoa-Atalanta 0-1 | 16ª Serie A Enilive 2025/26",
+    # The words used as ordinary language, not as a live marker
+    "¡Directo a la escuadra! | Resumen Betis 2-0 Sevilla",
+    "Gol directo de córner | RESUMEN LALIGA EA SPORTS",
+    "Resumen y goles | Lo viviste en vivo: Betis 2-0 Sevilla",
+    "Résumé : le but en direct du Vélodrome | OM 2-1 PSG",
+    "Sintesi | Inter-Milan 2-1 | la rete in diretta tv",
+    "Melhores momentos | Benfica 2x1 Porto ao vivo na TV",
+])
+def test_multilingual_live_rule_spares_legitimate_titles(title):
+    assert H.title_block_reason(title) is None, title
+
+
+def test_live_words_are_config_and_cover_the_languages():
+    words = set(H.LIVE_STREAM_WORDS)
+    assert {"live", "directo", "en directo", "en vivo", "en direct", "in diretta",
+            "diretta", "ao vivo"} <= words
+
+
+def test_cached_betis_live_stream_becomes_eligible_again():
+    fixtures = [{"match_id": 564647}]
+    existing = {"competition": "LaLiga", "matches": [
+        {"match_id": 564647, "videos": [_video("W5b-NsLYzng", BETIS_LIVE, 1)]},
+    ]}
+    removed = apply_existing_record_guards(existing, fixtures)
+    assert existing["matches"][0]["videos"] == []
+    assert [(r["match_id"], r["video_id"], r["reason"]) for r in removed] == [
+        (564647, "W5b-NsLYzng", "title_gate_blocked")]
+
+
 # ── Max duration ──────────────────────────────────────────────────────────────
 
 def _details(duration):
