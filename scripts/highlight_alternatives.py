@@ -13,9 +13,12 @@ tournaments have no worldwide source configured - phase 2):
 
   * A match "needs alternatives" when some LAUNCH_COUNTRIES country can play
     none of its clips (a clip without ``region`` counts as playable).
-  * It re-runs the matcher in alternatives mode: broadcaster playlists skipped,
-    and only clips that play in a still-uncovered country (and aren't already
-    listed) accepted. Found clips are APPENDED - the existing first clip stays,
+  * It re-runs the matcher accepting only clips that play in a still-uncovered
+    country (and aren't already listed). Every source is searched, broadcaster
+    playlists included: a US broadcaster's clip is refused for a match missing
+    GB/IE/ES (it adds nothing) but taken for one missing the US - e.g. a LaLiga
+    channel clip that blocks the US, Canada and Spain, where ESPN US's covers
+    the US. Found clips are APPENDED - the existing first clip stays,
     and the app opens whichever plays where the viewer is.
   * Recent matches (fixture within ALT_RECENT_DAYS) are re-checked with
     backoff - 2, 4, 8, 16, 32, 64 hours after the previous check - because
@@ -206,7 +209,7 @@ def find_alternatives(
         extra = resolve_videos_for_fixture(
             fixture, comp, config, yt_key, quota, cap,
             gw_playlist_cache=gw_playlist_cache, page_cache=page_cache,
-            skip_broadcasters=True, accept=make_accept(vids),
+            accept=make_accept(vids),
         )
         state = match.get("alternatives") or {}
         match["alternatives"] = {"checks": int(state.get("checks", 0)) + 1, "last": stamp}
