@@ -14,7 +14,12 @@
           "video_id": "kD1tjYGgQkM",
           "title": "Galatasaray vs. Juventus: Extended Highlights | UCL Knockout Play-offs - Leg 1 | CBS Sports Golazo",
           "published_at": "2026-02-17",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -28,13 +33,15 @@
           "video_id": "UKMBwOtpNvg",
           "title": "HIGHLIGHTS | Benfica 0-1 Real Madrid | Champions League",
           "published_at": "2026-02-18",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         },
         {
           "video_id": "IEZIG5Ti8wo",
           "title": "Benfica 0-1 Real Madrid | HIGHLIGHTS | #UCL",
           "published_at": "2026-02-18",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -48,7 +55,12 @@
           "video_id": "wnrxjmSHNI0",
           "title": "Monaco vs. PSG: Extended Highlights | UCL Knockout Play-offs - Leg 1 | CBS Sports Golazo",
           "published_at": "2026-02-17",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -62,7 +74,12 @@
           "video_id": "JLt2LTfiKpM",
           "title": "Borussia Dortmund vs. Atalanta: Extended Highlights | UCL Knockout Play-offs - Leg 1 | CBS Sports",
           "published_at": "2026-02-17",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -76,7 +93,8 @@
           "video_id": "Z9Y73Pi5vEI",
           "title": "Qarabağ FK 1 Newcastle United 6 | UEFA Champions League Highlights",
           "published_at": "2026-02-20",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -90,13 +108,23 @@
           "video_id": "QBZD62x25qM",
           "title": "Atlético Madrid vs. Club Brugge: Extended Highlights | UCL Knockout Play-offs - Leg 2 | CBS Sports",
           "published_at": "2026-02-24",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "US"
+            ]
+          }
         },
         {
           "video_id": "3TKJDNcrBXQ",
           "title": "Club Brugge vs. Atlético Madrid: Extended Highlights | UCL Knockout Play-offs - Leg 1 | CBS Sports",
           "published_at": "2026-02-18",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -110,13 +138,23 @@
           "video_id": "ggk1PDZW26U",
           "title": "Bayer Leverkusen vs. Olympiacos: Extended Highlights | UCL Knockout Play-offs - Leg 2 | CBS Sports",
           "published_at": "2026-02-24",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "US"
+            ]
+          }
         },
         {
           "video_id": "3GbrjP8WPKg",
           "title": "Olympiacos vs. Leverkusen: Extended Highlights | UCL Knockout Play-offs - Leg 1 | CBS Sports Golazo",
           "published_at": "2026-02-18",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -130,13 +168,23 @@
           "video_id": "MLMYoTQ9vjM",
           "title": "Inter vs. Bodø/Glimt: Extended Highlights | UCL Knockout Play-offs - Leg 2 | CBS Sports",
           "published_at": "2026-02-24",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "US"
+            ]
+          }
         },
         {
           "video_id": "xaH0DT6bXNE",
           "title": "Bodø/Glimt vs. Inter: Extended Highlights | UCL Knockout Play-offs - Leg 1 | CBS Sports",
           "published_at": "2026-02-18",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "US"
+            ]
+          }
         }
       ]
     }

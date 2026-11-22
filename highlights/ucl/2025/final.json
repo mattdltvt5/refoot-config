@@ -14,13 +14,23 @@
           "video_id": "FxzXqNdMTuk",
           "title": "PSG vs. Arsenal: FULL PENALTY SHOOTOUT | CBS Sports Golazo",
           "published_at": "2026-05-30",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "US"
+            ]
+          }
         },
         {
           "video_id": "tRnJRQmVMTg",
           "title": "PSG vs. Arsenal: Extended Highlights | UCL Final | CBS Sports Golazo",
           "published_at": "2026-05-30",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "US"
+            ]
+          }
         }
       ]
     }

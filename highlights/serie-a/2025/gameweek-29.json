@@ -13,7 +13,8 @@
           "video_id": "prUKzj4JMzM",
           "title": "Serie A Women Athora| Parma-Genoa 1-1| Highlights",
           "published_at": "2026-03-14",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -27,7 +28,8 @@
           "video_id": "HEt_xQUDyrI",
           "title": "Un punto a testa ⚽ | Highlights Inter-Atalanta 1-1 | 29ª Serie A Enilive 2025/26",
           "published_at": "2026-03-14",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -41,7 +43,12 @@
           "video_id": "zTNqj7F3M34",
           "title": "Napoli vs. Lecce: Extended Highlights | Serie A | CBS Sports Golazo",
           "published_at": "2026-03-14",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -55,13 +62,15 @@
           "video_id": "_d7x6am8eIw",
           "title": "EXTENDED HIGHLIGHTS | Udinese 0-1 Juventus | Serie A",
           "published_at": "2026-03-14",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         },
         {
           "video_id": "CQa121E2tn8",
           "title": "Udinese 0-1 Juventus | HIGHLIGHTS Serie A",
           "published_at": "2026-03-14",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -75,7 +84,8 @@
           "video_id": "WMXvK3EjoXg",
           "title": "Highlights Serie A Enilive 2025/26 | Hellas Verona-Genoa 0-2",
           "published_at": "2026-03-15",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -89,7 +99,8 @@
           "video_id": "FWYPuYZazsw",
           "title": "Highlights | Pisa-Cagliari 3-1 | Serie A Enilive",
           "published_at": "2026-03-16",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -103,7 +114,8 @@
           "video_id": "UfdUgkn_lYE",
           "title": "Serie A Women Athora | Gli highlights di Sassuolo-Inter 0-3",
           "published_at": "2026-03-17",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -117,7 +129,12 @@
           "video_id": "WRALMeIsTdg",
           "title": "Como vs. Roma: Extended Highlights | Serie A | CBS Sports Golazo",
           "published_at": "2026-03-15",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -131,7 +148,8 @@
           "video_id": "wptNSCzssKM",
           "title": "Rossoneri sconfitti nella Capitale | Lazio 1-0 AC Milan | Highlights Serie A",
           "published_at": "2026-03-15",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -145,7 +163,12 @@
           "video_id": "pdqEnWgQhls",
           "title": "Cremonese vs. Fiorentina: Extended Highlights | Serie A | CBS Sports Golazo",
           "published_at": "2026-03-16",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "US"
+            ]
+          }
         }
       ]
     }

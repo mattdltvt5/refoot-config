@@ -13,7 +13,8 @@
           "video_id": "idxFp-mkayg",
           "title": "Highlights | Parma-Cagliari | Serie A Enilive 2025/26",
           "published_at": "2026-02-27",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -27,7 +28,12 @@
           "video_id": "mzaPfJANZiE",
           "title": "Como vs. Lecce: Extended Highlights | Serie A | CBS Sports",
           "published_at": "2026-02-28",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -41,7 +47,8 @@
           "video_id": "RAcr0teDPX0",
           "title": "Highlights Serie A Enilive 2025/26 | Hellas Verona-Napoli 1-2",
           "published_at": "2026-02-28",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -55,7 +62,8 @@
           "video_id": "OgV5PsowuJw",
           "title": "TRE PUNTI: LA PRODEZZA DI DIMARCO E IL RIGORE DI CALHANOĞLU | INTER 2-0 GENOA | EXTENDED HIGHLIGHTS",
           "published_at": "2026-03-01",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -69,7 +77,8 @@
           "video_id": "VQU0zmw2oWE",
           "title": "All’ultimo respiro: Pavlović e Leão ci regalano i 3 punti | #CremoneseMilan 0-2 | Highlights Serie A",
           "published_at": "2026-03-01",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -83,7 +92,8 @@
           "video_id": "ueXpO4KK0dU",
           "title": "Serie A Enilive | Gli highlights di Sassuolo-Atalanta 2-1",
           "published_at": "2026-03-01",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -97,7 +107,12 @@
           "video_id": "ykGv43rRQNc",
           "title": "Torino vs. Lazio: Extended Highlights | Serie A | CBS Sports Golazo",
           "published_at": "2026-03-01",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -111,7 +126,8 @@
           "video_id": "QOP5Cs-yyNY",
           "title": "ROMA 3-3 JUVENTUS | SERIE A HIGHLIGHTS 2025-26",
           "published_at": "2026-03-01",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -125,7 +141,12 @@
           "video_id": "esgW05z4IOQ",
           "title": "Pisa vs. Bologna: Extended Highlights | Serie A | CBS Sports Golazo",
           "published_at": "2026-03-02",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -139,7 +160,12 @@
           "video_id": "7vLrYzB8llM",
           "title": "Udinese vs. Fiorentina: Extended Highlights | Serie A | CBS Sports Golazo",
           "published_at": "2026-03-02",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "US"
+            ]
+          }
         }
       ]
     }

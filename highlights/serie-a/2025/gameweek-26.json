@@ -13,7 +13,8 @@
           "video_id": "VCiw7RWRGmQ",
           "title": "Serie A Women Athora | Gli highlights di Fiorentina-Sassuolo",
           "published_at": "2026-02-23",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -27,7 +28,8 @@
           "video_id": "qzWIQFaCrkk",
           "title": "Juventus 0 - 2 Como | HIGHLIGHTS Serie A",
           "published_at": "2026-02-21",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -41,13 +43,15 @@
           "video_id": "-fkwGSs7wlY",
           "title": "DUE GOL E TRE PUNTI, GRANDE VITTORIA IN TRASFERTA 🤩 | LECCE O-2 INTER | EXTENDED HIGHLIGHTS 📺",
           "published_at": "2026-02-23",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         },
         {
           "video_id": "6dTH9-CKwds",
           "title": "IL GOL DECISIVO DI PIO ESPOSITO REGALA I TRE PUNTI 📈 | INTER 1-0 LECCE | EXTENDED HIGHLIGHTS 📺",
           "published_at": "2026-02-23",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -61,7 +65,8 @@
           "video_id": "sjkC1pMXlsw",
           "title": "Highlights | Cagliari-Lazio 0-0 | Serie A Enilive",
           "published_at": "2026-02-22",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -75,7 +80,8 @@
           "video_id": "TCAHYh3ZtDA",
           "title": "GENOA-TORINO 3-0 | HIGHLIGHTS",
           "published_at": "2026-02-26",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -89,7 +95,8 @@
           "video_id": "pADh6WUxaYM",
           "title": "Rimonta nerazzurra 🤩 | Highlights Atalanta-Napoli 2-1 | 26ª Serie A Enilive 2025/26",
           "published_at": "2026-02-23",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -103,7 +110,8 @@
           "video_id": "j8rrGAO0ZdE",
           "title": "Tante occasioni, un palo di Leão, ma finisce in sconfitta | Milan 0-1 Parma | Highlights Serie A",
           "published_at": "2026-02-22",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -117,7 +125,8 @@
           "video_id": "-SN3cfAZaoE",
           "title": "ROMA 3-0 CREMONESE | SERIE A HIGHLIGHTS 2025-26",
           "published_at": "2026-02-22",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -131,7 +140,12 @@
           "video_id": "fogH1ryYvXY",
           "title": "Fiorentina vs. Pisa: Extended Highlight | Serie A | CBS Sports Golazo",
           "published_at": "2026-02-23",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -145,7 +159,12 @@
           "video_id": "L3vtR1Gxr50",
           "title": "Bologna vs. Udinese: Extended Highlights | Serie A | CBS Sports Golazo",
           "published_at": "2026-02-23",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "US"
+            ]
+          }
         }
       ]
     }

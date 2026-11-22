@@ -13,7 +13,8 @@
           "video_id": "cTcTlGuyyPw",
           "title": "NAPOLI-TORINO 2-1 | HIGHLIGHTS",
           "published_at": "2026-03-06",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -27,7 +28,8 @@
           "video_id": "sZG9QDraBRc",
           "title": "Highlights | Cagliari-Como 1-2 | Serie A Enilive",
           "published_at": "2026-03-08",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -41,7 +43,8 @@
           "video_id": "YYcDePjJbyE",
           "title": "Scamacca firma la rimonta ✍️ | Highlights Atalanta-Udinese 2-2 | 28ª Serie A Enilive 2025/26",
           "published_at": "2026-03-08",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -55,13 +58,15 @@
           "video_id": "lGL2B5wBGws",
           "title": "EXTENDED HIGHLIGHTS | Juventus 4-0 Pisa | Serie A",
           "published_at": "2026-03-08",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         },
         {
           "video_id": "g9FggZ2nv54",
           "title": "PERFECT NIGHT | Juventus 4-0 Pisa | HIGHLIGHTS Serie A",
           "published_at": "2026-03-07",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -75,7 +80,12 @@
           "video_id": "gjsgb9wa1T0",
           "title": "Lecce vs. Cremonese: Extended Highlights | Serie A | CBS Sports Golazo",
           "published_at": "2026-03-08",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -89,7 +99,8 @@
           "video_id": "5b4essHQTLM",
           "title": "Highlights Serie A Enilive 2025/26 | Bologna-Hellas Verona 1-2",
           "published_at": "2026-03-09",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -103,7 +114,8 @@
           "video_id": "UoLT7qAbsvI",
           "title": "Highlights | Fiorentina-Parma | Serie A Enilive 2025/26",
           "published_at": "2026-03-09",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -117,7 +129,12 @@
           "video_id": "hplL8VmBnss",
           "title": "Genoa vs. Roma: Extended Highlights | Serie A | CBS Sports Golazo",
           "published_at": "2026-03-08",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -131,7 +148,8 @@
           "video_id": "mqjQBwnuEB0",
           "title": "Extended Highlights | Il Derby nel segno di Estupiñán | Milan 1-0 Inter | Serie A 2025/26",
           "published_at": "2026-03-09",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -145,7 +163,8 @@
           "video_id": "pB7WrR1MI6w",
           "title": "Serie A Enilive | Gli highlights di Lazio-Sassuolo 2-1",
           "published_at": "2026-03-09",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     }

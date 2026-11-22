@@ -14,7 +14,21 @@
           "video_id": "KBD9YH7sRRw",
           "title": "Argentina vs. Canada Highlights | 2024 Copa América | Semifinals",
           "published_at": "2024-07-10",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "AS",
+              "FM",
+              "GU",
+              "MH",
+              "MP",
+              "PR",
+              "PW",
+              "UM",
+              "US",
+              "VI"
+            ]
+          }
         }
       ],
       "home_crest": "https://media.api-sports.io/football/teams/26.png",
@@ -30,7 +44,21 @@
           "video_id": "WDGW69qHHdk",
           "title": "Uruguay vs. Colombia Highlights | 2024 Copa América | Semifinals",
           "published_at": "2024-07-11",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "AS",
+              "FM",
+              "GU",
+              "MH",
+              "MP",
+              "PR",
+              "PW",
+              "UM",
+              "US",
+              "VI"
+            ]
+          }
         }
       ],
       "home_crest": "https://media.api-sports.io/football/teams/7.png",

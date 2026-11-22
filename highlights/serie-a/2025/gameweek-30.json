@@ -13,7 +13,8 @@
           "video_id": "3cLDMiI-PWE",
           "title": "Highlights | Cagliari-Napoli 0-1 | Serie A Enilive",
           "published_at": "2026-03-21",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -27,7 +28,12 @@
           "video_id": "qm8TekaosyE",
           "title": "Udinese Victorious in Tight Clash | GENOA-UDINESE | HIGHLIGHTS | Serie A 2025/26",
           "published_at": "2026-03-20",
-          "tier_used": 2
+          "tier_used": 2,
+          "region": {
+            "blocked": [
+              "IT"
+            ]
+          }
         }
       ]
     },
@@ -41,7 +47,8 @@
           "video_id": "lTAWDTeNdcw",
           "title": "Highlights | Parma-Cremonese | Serie A Enilive 2025/26",
           "published_at": "2026-03-22",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -55,7 +62,8 @@
           "video_id": "9tqKwo-vjoE",
           "title": "Pavlović-Rabiot-Fofana per tre punti prima della sosta | Milan-Torino 3-2 | Highlights Serie A",
           "published_at": "2026-03-21",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -69,13 +77,15 @@
           "video_id": "qfA9oR4m-SU",
           "title": "EXTENDED HIGHLIGHTS | Juventus 1-1 Sassuolo | Serie A",
           "published_at": "2026-03-22",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         },
         {
           "video_id": "V6yDTBnjYhM",
           "title": "Juventus 1-1 Sassuolo | HIGHLIGHTS Serie A",
           "published_at": "2026-03-21",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -89,7 +99,12 @@
           "video_id": "Ui4aT_YKGIU",
           "title": "Como Consolidate Fourth Place! | COMO-PISA | HIGHLIGHTS | Serie A 2025/26",
           "published_at": "2026-03-22",
-          "tier_used": 2
+          "tier_used": 2,
+          "region": {
+            "blocked": [
+              "IT"
+            ]
+          }
         }
       ]
     },
@@ -103,7 +118,8 @@
           "video_id": "kOaijU1c2h8",
           "title": "Zappacosta for the win ➕3️⃣ | Highlights Atalanta-Hellas Verona 1-0 | 30ª Serie A Enilive 2025/26",
           "published_at": "2026-03-23",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -117,7 +133,12 @@
           "video_id": "RhNQRbhaofE",
           "title": "Bologna vs. Lazio: Extended Highlights | Serie A | CBS Sports Golazo",
           "published_at": "2026-03-22",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -131,7 +152,8 @@
           "video_id": "xFsLsD1m1as",
           "title": "ROMA 1-0 LECCE | SERIE A HIGHLIGHTS 2025-26",
           "published_at": "2026-03-22",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -145,7 +167,12 @@
           "video_id": "AGF81zYwwz4",
           "title": "Shared Spoils at the Franchi | FIORENTINA-INTER | HIGHLIGHTS | Serie A 2025/26",
           "published_at": "2026-03-22",
-          "tier_used": 2
+          "tier_used": 2,
+          "region": {
+            "blocked": [
+              "IT"
+            ]
+          }
         }
       ]
     }

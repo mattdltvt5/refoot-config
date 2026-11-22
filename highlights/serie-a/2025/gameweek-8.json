@@ -13,7 +13,8 @@
           "video_id": "HGNhMWVkX9w",
           "title": "Athekame acciuffa il pari nel recupero | Milan 2-2 Pisa | Highlights Serie A 2025/26",
           "published_at": "2025-10-24",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -27,7 +28,8 @@
           "video_id": "d0tcO_ukHZw",
           "title": "Highlights | Parma vs Como (0–0) | Serie A Enilive 2025/26",
           "published_at": "2025-10-26",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -41,7 +43,12 @@
           "video_id": "NbBfAgVhWjc",
           "title": "Udinese vs. Lecce: Extended Highlights | Serie A | CBS Sports Golazo",
           "published_at": "2025-10-25",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -55,7 +62,8 @@
           "video_id": "uUzHtvsNWME",
           "title": "Highlights | Napoli - Inter 3-1 | Serie A - 8ª giornata",
           "published_at": "2025-10-26",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -69,7 +77,8 @@
           "video_id": "n0K5XjVBYes",
           "title": "Brescianini risponde a Vardy ⚽ | Cremonese-Atalanta 1-1 | Highlights 8ª Serie A Enilive 2025/26",
           "published_at": "2025-10-25",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -83,7 +92,12 @@
           "video_id": "wD5SxdhXT5k",
           "title": "Torino vs. Genoa: Extended Highlgihts | Serie A | CBS Sports Golazo",
           "published_at": "2025-10-26",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -97,7 +111,8 @@
           "video_id": "rAh2yI_pnE8",
           "title": "Highlights | Verona-Cagliari 2-2 | Serie A Enilive",
           "published_at": "2025-10-27",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -111,31 +126,36 @@
           "video_id": "VpfZeg4Ezx4",
           "title": "ROMA 2-1 PARMA | SERIE A HIGHLIGHTS 2025-26",
           "published_at": "2025-10-29",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         },
         {
           "video_id": "EPAbo9yp_N4",
           "title": "SASSUOLO 0-1 ROMA | SERIE A HIGHLIGHTS 2025-26",
           "published_at": "2025-10-29",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         },
         {
           "video_id": "Y-3A4peTA7s",
           "title": "ROMA 0-1 INTER | SERIE A HIGHLIGHTS 2025-26",
           "published_at": "2025-10-29",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         },
         {
           "video_id": "v31xbehdas4",
           "title": "FIORENTINA 1-2 ROMA | SERIE A HIGHLIGHTS 2025-26",
           "published_at": "2025-10-29",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         },
         {
           "video_id": "TELjqVxp1kc",
           "title": "ROMA 2-0 VERONA | SERIE A HIGHLIGHTS 2025-26",
           "published_at": "2025-10-29",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -149,7 +169,12 @@
           "video_id": "BbxZWCQf-7g",
           "title": "Fiorentina vs. Bologna: Extended Highlights | Serie A | CBS Sports Golazo",
           "published_at": "2025-10-26",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -163,7 +188,8 @@
           "video_id": "1ZgDUbwc6QQ",
           "title": "HIGHLIGHTS Serie A | Lazio 1-0 Juventus | Matchday 8",
           "published_at": "2025-10-26",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     }

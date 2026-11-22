@@ -14,7 +14,20 @@
           "video_id": "fLmBupmBqyY",
           "title": "Galatasaray vs. Liverpool: Extended Highlights | UCL Round of 16 - Leg 1 | CBS Sports Golazo",
           "published_at": "2026-03-10",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "AS",
+              "FM",
+              "GU",
+              "MH",
+              "MP",
+              "PR",
+              "UM",
+              "US",
+              "VI"
+            ]
+          }
         }
       ]
     },
@@ -28,7 +41,12 @@
           "video_id": "Oz4kEhWT9YQ",
           "title": "Atalanta vs. Bayern Munich: Extended Highlights | UCL Round of 16 - Leg 1 | CBS Sports Golazo",
           "published_at": "2026-03-10",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -42,7 +60,8 @@
           "video_id": "BQFolMkY_ZA",
           "title": "Newcastle United 1 Barcelona 1 | UEFA Champions League Highlights",
           "published_at": "2026-03-13",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -56,7 +75,8 @@
           "video_id": "1FwEzhrSiJ4",
           "title": "Atletico Madrid 5-2 Spurs | Champions League Highlights",
           "published_at": "2026-03-11",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -70,13 +90,23 @@
           "video_id": "GHu4MBYT8l0",
           "title": "Arsenal vs. Bayer Leverkusen: Extended Highlights | UCL Round of 16 - Leg 2 | CBS Sports Golazo",
           "published_at": "2026-03-17",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "US"
+            ]
+          }
         },
         {
           "video_id": "GckX0NiT7TE",
           "title": "Bayer Leverkusen vs. Arsenal: Extended Highlights | UCL Round of 16 - Leg 1 | CBS Sports Golazo",
           "published_at": "2026-03-11",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -90,13 +120,31 @@
           "video_id": "rB9xwSyVE98",
           "title": "Chelsea vs. PSG: Extended Highlights | UCL Round of 16 - Leg 2 | CBS Sports Golazo",
           "published_at": "2026-03-17",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "AS",
+              "FM",
+              "GU",
+              "MH",
+              "MP",
+              "PR",
+              "UM",
+              "US",
+              "VI"
+            ]
+          }
         },
         {
           "video_id": "1SJkDgYCA5Q",
           "title": "PSG vs. Chelsea: Extended Highlights | UCL Round of 16 - Leg 1 | CBS Sports Golazo",
           "published_at": "2026-03-11",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -110,13 +158,15 @@
           "video_id": "5ecHB8Ygo8k",
           "title": "HIGHLIGHTS | Real Madrid 3-0 Manchester City | Champions League",
           "published_at": "2026-03-12",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         },
         {
           "video_id": "m5ZH66cUbLg",
           "title": "Real Madrid 3-0 Manchester City | GOALS | #UCL",
           "published_at": "2026-03-12",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -130,13 +180,23 @@
           "video_id": "sygi3ivAd0M",
           "title": "Sporting CP vs. Bodø/Glimt : Extended Highlights | UCL Round of 16 - Leg 2 | CBS Sports Golazo",
           "published_at": "2026-03-17",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "US"
+            ]
+          }
         },
         {
           "video_id": "2DoEamwy2Gw",
           "title": "Bodø/Glimt vs. Sporting CP: Extended Highlights | UCL Round of 16 - Leg 1 | CBS Sports Golazo",
           "published_at": "2026-03-11",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "US"
+            ]
+          }
         }
       ]
     }

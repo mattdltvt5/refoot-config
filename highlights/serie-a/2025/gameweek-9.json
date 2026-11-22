@@ -13,7 +13,8 @@
           "video_id": "O6fBKMcnXgY",
           "title": "Highlights | Lecce - Napoli 0-1 | Serie A - 9ª giornata",
           "published_at": "2025-10-29",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -27,7 +28,8 @@
           "video_id": "rKBV95zlneI",
           "title": "Lookman torna al gol 👌🏿👀👌🏿 | Atalanta-Milan 1-1 | Highlights 9ª Serie A Enilive 2025/26",
           "published_at": "2025-10-30",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -41,7 +43,8 @@
           "video_id": "VpfZeg4Ezx4",
           "title": "ROMA 2-1 PARMA | SERIE A HIGHLIGHTS 2025-26",
           "published_at": "2025-10-29",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -55,7 +58,8 @@
           "video_id": "y9uNC0264_Q",
           "title": "Highlights Serie A Enilive 2025/26 | Como-Hellas Verona 3-1",
           "published_at": "2025-10-29",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -69,13 +73,15 @@
           "video_id": "bSa5FleITk8",
           "title": "EXTENDED HIGHLIGHTS | Juventus 3-1 Udinese | Matchday 9",
           "published_at": "2025-10-30",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         },
         {
           "video_id": "JuqqNx9w5e0",
           "title": "HIGHLIGHTS Serie A | Juventus 3-1 Udinese | Matchday 9",
           "published_at": "2025-10-29",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -89,7 +95,12 @@
           "video_id": "DEKaBtqC7FI",
           "title": "Genoa vs. Cremonese: Extended Highlights | Serie A | CBS Sports Golazo",
           "published_at": "2025-10-29",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -103,7 +114,8 @@
           "video_id": "yawYImzabOM",
           "title": "BOLOGNA-TORINO 0-0 | HIGHLIGHTS",
           "published_at": "2025-10-30",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -117,7 +129,12 @@
           "video_id": "iE_3HaEvTkk",
           "title": "Inter vs. Fiorentina: Extended Highlights | Serie A | CBS Sports Golazo",
           "published_at": "2025-10-29",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -131,7 +148,8 @@
           "video_id": "piDvGN1IWoM",
           "title": "Highlights | Cagliari-Sassuolo 1-2 | Serie A Enilive",
           "published_at": "2025-10-31",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -145,7 +163,12 @@
           "video_id": "98jFL1kXnQ8",
           "title": "Pisa vs. Lazio: Extended Highlights | Serie A | CBS Sports Golazo",
           "published_at": "2025-10-30",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "US"
+            ]
+          }
         }
       ]
     }

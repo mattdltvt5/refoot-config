@@ -13,7 +13,8 @@
           "video_id": "0dtw_G2Wmr0",
           "title": "Serie A Enilive | Gli highlights di Verona-Sassuolo 0-1",
           "published_at": "2025-10-03",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -27,7 +28,8 @@
           "video_id": "5ULnJpGXXqM",
           "title": "LAZIO-TORINO 3-3 | HIGHLIGHTS SERIE A ENILIVE 2025/26",
           "published_at": "2025-10-06",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -41,7 +43,8 @@
           "video_id": "c8yvg3XhUsQ",
           "title": "Highlights | Parma-Lecce | Serie A Enilive 2025/26",
           "published_at": "2025-10-05",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -55,7 +58,12 @@
           "video_id": "mlzJw8YMMeE",
           "title": "Inter vs. Cremonese: Extended Highlights | Serie A | CBS Sports Golazo",
           "published_at": "2025-10-04",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -69,7 +77,8 @@
           "video_id": "Scgkyt2Tvcg",
           "title": "Parità alla New Balance Arena ❌ | Atalanta-Como 1-1 | Highlights 6ª Serie A Enilive 2025/26",
           "published_at": "2025-10-05",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -83,7 +92,8 @@
           "video_id": "IBxDyhdYOzE",
           "title": "Highlights | Udinese-Cagliari 1-1 | Serie A Enilive",
           "published_at": "2025-10-06",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -97,7 +107,12 @@
           "video_id": "eS0JflxTyNU",
           "title": "Fiorentina vs. Roma: Extended Highlights | Serie A | CBS Sports Golazo",
           "published_at": "2025-10-05",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -111,7 +126,12 @@
           "video_id": "CTyKtfR47tg",
           "title": "Bologna vs. Pisa: Extended Highlights | Serie A | CBS Sports Golazo",
           "published_at": "2025-10-05",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -125,7 +145,12 @@
           "video_id": "PSA72NmyN2Q",
           "title": "Napoli vs. Genoa: Extended Highlights | Serie A | CBS Sports Golazo",
           "published_at": "2025-10-05",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -139,7 +164,8 @@
           "video_id": "BR9pbQ8jCxY",
           "title": "HIGHLIGHTS Serie A | Juventus 0-0 Milan | Matchday 6",
           "published_at": "2025-10-05",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     }

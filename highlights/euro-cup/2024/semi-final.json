@@ -14,7 +14,21 @@
           "video_id": "0YTf1-DEqHU",
           "title": "Spain vs. France Highlights | UEFA Euro 2024 | Semifinals",
           "published_at": "2024-07-09",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "AS",
+              "FM",
+              "GU",
+              "MH",
+              "MP",
+              "PR",
+              "PW",
+              "UM",
+              "US",
+              "VI"
+            ]
+          }
         }
       ]
     },
@@ -28,7 +42,21 @@
           "video_id": "jod3yA9KeW4",
           "title": "Netherlands vs. England Highlights | UEFA Euro 2024 | Semifinals",
           "published_at": "2024-07-10",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "AS",
+              "FM",
+              "GU",
+              "MH",
+              "MP",
+              "PR",
+              "PW",
+              "UM",
+              "US",
+              "VI"
+            ]
+          }
         }
       ]
     }

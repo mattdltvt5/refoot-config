@@ -14,7 +14,20 @@
           "video_id": "5_z3UyKkUOo",
           "title": "Real Madrid vs. Bayern: Extended Highlights | UCL Quarterfinals - Leg 1 | CBS Sports Golazo",
           "published_at": "2026-04-07",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "AS",
+              "FM",
+              "GU",
+              "MH",
+              "MP",
+              "PR",
+              "UM",
+              "US",
+              "VI"
+            ]
+          }
         }
       ]
     },
@@ -28,7 +41,20 @@
           "video_id": "ArKXCs9Ub7E",
           "title": "Sporting CP vs. Arsenal: Extended Highlights | UCL Quarterfinals - Leg 1 | CBS Sports Golazo",
           "published_at": "2026-04-07",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "AS",
+              "FM",
+              "GU",
+              "MH",
+              "MP",
+              "PR",
+              "UM",
+              "US",
+              "VI"
+            ]
+          }
         }
       ]
     },
@@ -42,13 +68,31 @@
           "video_id": "296_fFXt6pE",
           "title": "Liverpool vs. PSG: Extended Highlights | UCL Quarterfinals - Leg 2 | CBS Sports Golazo",
           "published_at": "2026-04-14",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "US"
+            ]
+          }
         },
         {
           "video_id": "SaOVbCXVHnU",
           "title": "PSG vs. Liverpool: Extended Highlights | UCL Quarterfinals - Leg 1 | CBS Sports Golazo",
           "published_at": "2026-04-08",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "AS",
+              "FM",
+              "GU",
+              "MH",
+              "MP",
+              "PR",
+              "UM",
+              "US",
+              "VI"
+            ]
+          }
         }
       ]
     },
@@ -62,7 +106,8 @@
           "video_id": "6WEWE1vNf10",
           "title": "HIGHLIGHTS | FC BARCELONA 0 vs 2 ATLETICO MADRID | UEFA CHAMPIONS LEAGUE 🔵🔴",
           "published_at": "2026-04-09",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     }

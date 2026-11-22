@@ -13,7 +13,8 @@
           "video_id": "VktZSUmmoxI",
           "title": "Highlights | Sassuolo-Cagliari 2-1 | Serie A Enilive",
           "published_at": "2026-04-05",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -27,7 +28,8 @@
           "video_id": "HwJnBwkpNCc",
           "title": "Highlights Serie A Enilive 2025/26 | Hellas Verona-Fiorentina 0-1",
           "published_at": "2026-04-04",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -41,7 +43,8 @@
           "video_id": "w-P9OFycO58",
           "title": "Highlights | Lazio-Parma | Serie A Enilive 2025/26",
           "published_at": "2026-04-04",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -55,7 +58,12 @@
           "video_id": "m-p4LXMmia4",
           "title": "Cremonese vs. Bologna: Extended Highlights | Serie A | CBS Sports Golazo",
           "published_at": "2026-04-05",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -69,7 +77,12 @@
           "video_id": "W0tby_okt98",
           "title": "Adams Shines Against Bottom-Side Pisa | PISA-TORINO | HIGHLIGHTS | Serie A 2025/26",
           "published_at": "2026-04-05",
-          "tier_used": 2
+          "tier_used": 2,
+          "region": {
+            "blocked": [
+              "IT"
+            ]
+          }
         }
       ]
     },
@@ -83,7 +96,8 @@
           "video_id": "lWw8VEK-yOw",
           "title": "VENI, VIDI, VICI MADE IN THU-LA LAND 🎡🎢  | INTER 5-2 ROMA | EXTENDED HIGHLIGHTS",
           "published_at": "2026-04-08",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -97,7 +111,12 @@
           "video_id": "AyYkN6wTyes",
           "title": "Como Halt in Udine | UDINESE-COMO | HIGHLIGHTS | Serie A 2025/26",
           "published_at": "2026-04-06",
-          "tier_used": 2
+          "tier_used": 2,
+          "region": {
+            "blocked": [
+              "IT"
+            ]
+          }
         }
       ]
     },
@@ -111,7 +130,8 @@
           "video_id": "2xsFgGvk-3w",
           "title": "Tre punti nell'uovo 🐣🗿 | Highlights Lecce-Atalanta 0-3 | 31ª Serie A Enilive 2025/26",
           "published_at": "2026-04-07",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -125,13 +145,15 @@
           "video_id": "ipl2ibfyWgg",
           "title": "EXTENDED HIGHLIGHTS | Juventus 2-0 Genoa | Serie A",
           "published_at": "2026-04-07",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         },
         {
           "video_id": "KSD-C_dd9CI",
           "title": "Juventus 2-0 Genoa | HIGHLIGHTS Serie A",
           "published_at": "2026-04-06",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -145,7 +167,8 @@
           "video_id": "CyX3ZjqV9hE",
           "title": "Highlights | Napoli v Milan 1-0 | Serie A - 31ª giornata",
           "published_at": "2026-04-07",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     }
