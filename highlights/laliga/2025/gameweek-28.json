@@ -13,7 +13,8 @@
           "video_id": "LBXai3UGGnA",
           "title": "HIGHLIGHTS | ALAVÉS 1-1 VILLARREAL | LALIGA",
           "published_at": "2026-03-13",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -27,7 +28,8 @@
           "video_id": "TD0l6iytWRE",
           "title": "HIGHLIGHTS | Girona FC 3-0 Athletic Club | LaLiga EA Sports 2025/26 MD28",
           "published_at": "2026-03-15",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -41,7 +43,8 @@
           "video_id": "BF9YxA1iMu4",
           "title": "Atlético de Madrid 1-0 Getafe | ⚽ Nahuel Molina's INSANE GOAL | HIGHLIGHTS, LaLiga - MD28",
           "published_at": "2026-03-14",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -55,7 +58,8 @@
           "video_id": "ErtCTid6ACc",
           "title": "Resumen Real Oviedo - Valencia CF I J28 LaLiga EA Sports 2025 2026",
           "published_at": "2026-03-14",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -69,7 +73,8 @@
           "video_id": "cLTM3IVK0UU",
           "title": "HIGHLIGHTS | Real Madrid 4-1 Elche | LaLiga",
           "published_at": "2026-03-14",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -83,7 +88,8 @@
           "video_id": "lugO8FMBv8o",
           "title": "Resumen J28 RCD Mallorca 2-1 RCD Espanyol | RCD Mallorca",
           "published_at": "2026-03-15",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -97,7 +103,8 @@
           "video_id": "A96IZhuy8gg",
           "title": "FC Barcelona vs Sevilla FC (5-2) LALIGA | Resumen",
           "published_at": "2026-03-15",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -111,7 +118,14 @@
           "video_id": "oZMLJtn4J3o",
           "title": "Real Betis vs. Celta Vigo | LALIGA Highlights | ESPN FC",
           "published_at": "2026-03-15",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "UM",
+              "US",
+              "VI"
+            ]
+          }
         }
       ]
     },
@@ -125,7 +139,8 @@
           "video_id": "XdTbwhss7y4",
           "title": "HIGHLIGHTS | LaLiga 25-26 | J28 | Real Sociedad 3 - 1 CA Osasuna",
           "published_at": "2026-03-16",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -139,7 +154,8 @@
           "video_id": "C0fmK7iYd7c",
           "title": "RAYO VALLECANO 1 -  1 LEVANTE UD | RESUMEN LALIGA EA SPORTS",
           "published_at": "2026-03-16",
-          "tier_used": 2
+          "tier_used": 2,
+          "region": {}
         }
       ]
     }

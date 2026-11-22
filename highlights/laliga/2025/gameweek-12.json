@@ -13,7 +13,8 @@
           "video_id": "ISnEbFsy9ao",
           "title": "HIGHLIGHTS | LaLiga 25-26 | J12 | Elche CF 1 - 1 Real Sociedad",
           "published_at": "2025-11-08",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -27,7 +28,8 @@
           "video_id": "_CO8GqQuAPc",
           "title": "GIRONA FC 1 - 0 DEPORTIVO ALAVÉS | RESUMEN LALIGA EA SPORTS",
           "published_at": "2025-11-08",
-          "tier_used": 2
+          "tier_used": 2,
+          "region": {}
         }
       ]
     },
@@ -41,7 +43,8 @@
           "video_id": "NHydD3lVMb4",
           "title": "Sevilla FC vs Osasuna (1-0) LALIGA | Resumen",
           "published_at": "2025-11-08",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -55,7 +58,8 @@
           "video_id": "4e7d1sbHsQM",
           "title": "Atlético de Madrid 3-1 Levante | ⚽ Griezmann (2) and De la Fuente (OG) | HIGHLIGHTS, LaLiga - MD12",
           "published_at": "2025-11-08",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -69,7 +73,8 @@
           "video_id": "QtBhQMWX_uo",
           "title": "HIGHLIGHTS | ESPANYOL 0-2 VILLARREAL | LALIGA",
           "published_at": "2025-11-09",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -83,7 +88,8 @@
           "video_id": "tIwtdhWF7D0",
           "title": "RESUMEN | Athletic Club 1-0 Real Oviedo | J12 LaLiga EA Sports",
           "published_at": "2025-11-09",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -97,7 +103,14 @@
           "video_id": "w7NyaRZNNXI",
           "title": "DROPPED POINTS ❗ Rayo Vallecano vs. Real Madrid | LALIGA Highlights | ESPN FC",
           "published_at": "2025-11-09",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "UM",
+              "US",
+              "VI"
+            ]
+          }
         }
       ]
     },
@@ -111,7 +124,14 @@
           "video_id": "-FeMIVAHoy8",
           "title": "A DRAW 🚨 Valencia vs. Real Betis | LALIGA Highlights | ESPN FC",
           "published_at": "2025-11-09",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "UM",
+              "US",
+              "VI"
+            ]
+          }
         }
       ]
     },
@@ -125,7 +145,8 @@
           "video_id": "X5IB5f4wmkY",
           "title": "Resumen J12 RCD Mallorca 1-0 Getafe CF | RCD Mallorca",
           "published_at": "2025-11-09",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -139,7 +160,8 @@
           "video_id": "cKAj3_J5Q6c",
           "title": "Celta vs Barcelona (2-4) | Resumen y goles | LALIGA EA SPORTS",
           "published_at": "2025-11-13",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     }

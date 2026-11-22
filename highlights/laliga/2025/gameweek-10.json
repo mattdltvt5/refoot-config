@@ -13,7 +13,8 @@
           "video_id": "CXx5_KYoNQg",
           "title": "HIGHLIGHTS | LaLiga 25-26 | J10 | Real Sociedad 2 - 1 Sevilla FC",
           "published_at": "2025-10-24",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -27,7 +28,8 @@
           "video_id": "ABpdaFDFOrw",
           "title": "Resumen Girona   Real Oviedo I Jornada 10 I 2025 2026",
           "published_at": "2025-10-25",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -41,7 +43,8 @@
           "video_id": "FF2N0RtFOLU",
           "title": "⚽ RESUM J10 | Espanyol 1-0 Elche | #LALIGAHighlights",
           "published_at": "2025-10-25",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -55,7 +58,8 @@
           "video_id": "5jcnmybE0IQ",
           "title": "RESUMEN | Athletic Club 0-1 Getafe CF | J10 LaLiga EA Sports",
           "published_at": "2025-10-27",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -69,7 +73,8 @@
           "video_id": "as1KKyhKLuY",
           "title": "HIGHLIGHTS | VALENCIA 0-2 VILLARREAL | LALIGA",
           "published_at": "2025-10-25",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -83,7 +88,8 @@
           "video_id": "qGrh18L6FuE",
           "title": "Resumen J10 RCD Mallorca 1-1 Levante UD | RCD Mallorca",
           "published_at": "2025-10-26",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -97,7 +103,14 @@
           "video_id": "q0ujyCy8O-Y",
           "title": "Real Madrid vs. Barcelona EXTENDED HIGHLIGHTS [2025 OCTOBER EL CLASICO] | ESPN FC",
           "published_at": "2025-10-28",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "UM",
+              "US",
+              "VI"
+            ]
+          }
         }
       ]
     },
@@ -111,7 +124,8 @@
           "video_id": "0GOeK2AdgaQ",
           "title": "Osasuna 2-3 Celta | Resumen | Club Atlético Osasuna",
           "published_at": "2025-10-27",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -125,7 +139,8 @@
           "video_id": "YKdyobHdJ6w",
           "title": "RESUMEN | RAYO VALLECANO 1-0 DEPORTIVO ALAVÉS",
           "published_at": "2025-10-26",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -139,7 +154,14 @@
           "video_id": "1qmMWZasB8A",
           "title": "Real Betis vs. Atletico Madrid | LALIGA Highlights | ESPN FC",
           "published_at": "2025-10-27",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "UM",
+              "US",
+              "VI"
+            ]
+          }
         }
       ]
     }

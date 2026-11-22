@@ -13,7 +13,8 @@
           "video_id": "X6-xrYcVrY0",
           "title": "Rayo Vallecano vs Elche CF (1-0) | RESUMEN | J30 | #LALIGAEASPORTS",
           "published_at": "2026-04-04",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -27,7 +28,8 @@
           "video_id": "x3Fbxm8F-Lc",
           "title": "HIGHLIGHTS | J30 | LaLiga 25-26 | Real Sociedad 2 - 0 Levante UD",
           "published_at": "2026-04-04",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -41,7 +43,8 @@
           "video_id": "_De4tct059g",
           "title": "⚽️ Resumen J30 RCD Mallorca 2-1 Real Madrid | RCD Mallorca",
           "published_at": "2026-04-04",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -55,7 +58,8 @@
           "video_id": "JJ-Q25reLfU",
           "title": "REAL BETIS 0 - 0 RCD ESPANYOL | RESUMEN LALIGA EA SPORTS",
           "published_at": "2026-04-04",
-          "tier_used": 2
+          "tier_used": 2,
+          "region": {}
         }
       ]
     },
@@ -69,13 +73,27 @@
           "video_id": "HUz-2lUGGH8",
           "title": "Atletico Madrid vs. Barcelona EXTENDED HIGHLIGHTS [April 4, 2026] | LALIGA Highlights | ESPN FC",
           "published_at": "2026-04-06",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "UM",
+              "US",
+              "VI"
+            ]
+          }
         },
         {
           "video_id": "QrGUHyHqPNQ",
           "title": "Atletico Madrid vs. Barcelona | LALIGA Highlights | ESPN FC",
           "published_at": "2026-04-04",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "UM",
+              "US",
+              "VI"
+            ]
+          }
         }
       ]
     },
@@ -89,7 +107,8 @@
           "video_id": "sh4SjBPkvIE",
           "title": "HIGHLIGHTS | Getafe CF 2-0 Athletic Club | LaLiga EA Sports 2025/26 MD30",
           "published_at": "2026-04-05",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -103,7 +122,8 @@
           "video_id": "ZFXcsRSEtjU",
           "title": "VALENCIA CF - RC CELTA | RESUMEN DEL PARTIDO - JORNADA 30 DE LALIGA EA SPORTS 2025 - 2026",
           "published_at": "2026-04-05",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -117,7 +137,8 @@
           "video_id": "oJmRbjVnySk",
           "title": "Resumen Real Oviedo   Sevilla FC J30 La Liga EA Sports 2025/2026",
           "published_at": "2026-04-05",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -131,7 +152,8 @@
           "video_id": "cK3692NSDNo",
           "title": "RESUMEN | DEPORTIVO ALAVÉS 2-2 CA OSASUNA",
           "published_at": "2026-04-05",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -145,7 +167,8 @@
           "video_id": "GQlqL_ff76Y",
           "title": "HIGHLIGHTS | GIRONA 1-0 VILLARREAL | LALIGA",
           "published_at": "2026-04-06",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     }

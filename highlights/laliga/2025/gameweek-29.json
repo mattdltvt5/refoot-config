@@ -13,7 +13,8 @@
           "video_id": "3HPyOkRV_k4",
           "title": "HIGHLIGHTS | VILLARREAL 3-1 REAL SOCIEDAD | LALIGA",
           "published_at": "2026-03-20",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -27,7 +28,8 @@
           "video_id": "Qi3lbjGk154",
           "title": "Resumen J29 Elche CF 2-1 RCD Mallorca | RCD Mallorca",
           "published_at": "2026-03-21",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -41,7 +43,8 @@
           "video_id": "CYszBzMTaUs",
           "title": "RESUM J29 | Espanyol 1-2 Getafe | #laligahighlights",
           "published_at": "2026-03-21",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -55,7 +58,8 @@
           "video_id": "7aTEMHyNMCo",
           "title": "Resumen Levante UD   Real Oviedo J29 La Liga EA Sports 2025 2026",
           "published_at": "2026-03-21",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -69,7 +73,8 @@
           "video_id": "-BkpW2NyOME",
           "title": "Osasuna 1-0 Girona | Resumen | Club Atlético Osasuna",
           "published_at": "2026-03-21",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -83,7 +88,8 @@
           "video_id": "Ucq7KaioPVQ",
           "title": "Sevilla FC vs Valencia CF (0-2) LALIGA | Resumen",
           "published_at": "2026-03-21",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -97,7 +103,14 @@
           "video_id": "Of-5RH1uWLY",
           "title": "FC Barcelona vs Rayo Vallecano | LALIGA Highlights | ESPN FC",
           "published_at": "2026-03-22",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "UM",
+              "US",
+              "VI"
+            ]
+          }
         }
       ]
     },
@@ -111,7 +124,8 @@
           "video_id": "tGgLvem9_XI",
           "title": "Celta vs Deportivo Alavés (3-4) | Resumen y goles | Highlights LALIGA EA SPORTS",
           "published_at": "2026-03-22",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -125,7 +139,8 @@
           "video_id": "4wjUA-MY2T4",
           "title": "HIGHLIGHTS | Athletic Club 2-1 Real Betis | LaLiga EA Sports 2025/26 MD29",
           "published_at": "2026-03-22",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -139,7 +154,8 @@
           "video_id": "xiTp-EoOiQE",
           "title": "HIGHLIGHTS | Real Madrid 3-2 Atlético de Madrid | LaLiga",
           "published_at": "2026-03-22",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     }

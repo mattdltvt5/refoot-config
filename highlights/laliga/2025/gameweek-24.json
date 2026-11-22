@@ -13,7 +13,8 @@
           "video_id": "7FUrLUAUjeI",
           "title": "Elche 0-0 Osasuna | Resumen | Club Atlético Osasuna",
           "published_at": "2026-02-13",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -27,7 +28,8 @@
           "video_id": "bmXEepsIWEU",
           "title": "Espanyol vs Celta (2-2) | Resumen y goles | LALIGA EA SPORTS",
           "published_at": "2026-02-14",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -41,7 +43,8 @@
           "video_id": "EAW_RKKt8IA",
           "title": "⚽ Resumen | Getafe CF 2-1 Villarreal CF | J24 LALIGA",
           "published_at": "2026-02-14",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -55,7 +58,8 @@
           "video_id": "N_YxR3dfqq4",
           "title": "Sevilla FC vs Deportivo Alavés (1-1) LALIGA | Resumen",
           "published_at": "2026-02-14",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -69,7 +73,8 @@
           "video_id": "9x2hPMGM1po",
           "title": "HIGHLIGHTS | Real Madrid 4-1 Real Sociedad | LaLiga",
           "published_at": "2026-02-14",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -83,7 +88,8 @@
           "video_id": "C6-KYk27N88",
           "title": "Resumen Real Oviedo - Athletic Club I Jornada 24 I 20252026",
           "published_at": "2026-02-15",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -97,7 +103,8 @@
           "video_id": "Xn7Br12C2bA",
           "title": "Rayo Vallecano 3-0 Atlético de Madrid | HIGHLIGHTS, LaLiga - MD24",
           "published_at": "2026-02-15",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -111,7 +118,8 @@
           "video_id": "1g7PpF0cYPQ",
           "title": "LEVANTE UD 0 - 2 VALENCIA CF | RESUMEN LALIGA EA SPORTS",
           "published_at": "2026-02-15",
-          "tier_used": 2
+          "tier_used": 2,
+          "region": {}
         }
       ]
     },
@@ -125,7 +133,8 @@
           "video_id": "Wtsd4itQgXY",
           "title": "Resumen J24 RCD Mallorca 1-2 Real Betis | RCD Mallorca",
           "published_at": "2026-02-15",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -139,7 +148,14 @@
           "video_id": "Y2Wxq9aLfCw",
           "title": "LATE-GAME DRAMA 🤯 Girona vs. Barcelona | LALIGA Highlights | ESPN FC",
           "published_at": "2026-02-16",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "UM",
+              "US",
+              "VI"
+            ]
+          }
         }
       ]
     }

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-22T15:01:45Z",
+  "generated_at": "2026-11-22T15:06:36Z",
   "month": "2026-03",
   "dates": {
     "2026-03-01": [
@@ -187,7 +187,19 @@
             "awayScore": 2,
             "status": "FINISHED",
             "utcDate": "2026-03-01T20:00:00Z",
-            "videoId": "OetuzA358cU"
+            "videoId": "OetuzA358cU",
+            "videoOptions": [
+              {
+                "videoId": "OetuzA358cU",
+                "region": {
+                  "allowed": [
+                    "UM",
+                    "US",
+                    "VI"
+                  ]
+                }
+              }
+            ]
           }
         ]
       },
@@ -1121,7 +1133,19 @@
             "awayScore": 1,
             "status": "FINISHED",
             "utcDate": "2026-03-07T15:15:00Z",
-            "videoId": "yOOJFuT6Nek"
+            "videoId": "yOOJFuT6Nek",
+            "videoOptions": [
+              {
+                "videoId": "yOOJFuT6Nek",
+                "region": {
+                  "allowed": [
+                    "UM",
+                    "US",
+                    "VI"
+                  ]
+                }
+              }
+            ]
           },
           {
             "match_id": 544472,
@@ -2857,7 +2881,19 @@
             "awayScore": 1,
             "status": "FINISHED",
             "utcDate": "2026-03-15T17:30:00Z",
-            "videoId": "oZMLJtn4J3o"
+            "videoId": "oZMLJtn4J3o",
+            "videoOptions": [
+              {
+                "videoId": "oZMLJtn4J3o",
+                "region": {
+                  "allowed": [
+                    "UM",
+                    "US",
+                    "VI"
+                  ]
+                }
+              }
+            ]
           },
           {
             "match_id": 544490,
@@ -4183,7 +4219,19 @@
             "awayScore": 0,
             "status": "FINISHED",
             "utcDate": "2026-03-22T13:00:00Z",
-            "videoId": "Of-5RH1uWLY"
+            "videoId": "Of-5RH1uWLY",
+            "videoOptions": [
+              {
+                "videoId": "Of-5RH1uWLY",
+                "region": {
+                  "allowed": [
+                    "UM",
+                    "US",
+                    "VI"
+                  ]
+                }
+              }
+            ]
           },
           {
             "match_id": 544497,

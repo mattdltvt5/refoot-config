@@ -13,7 +13,8 @@
           "video_id": "RBDJ-ryyHu0",
           "title": "LEVANTE UD 3 - 2 CA OSASUNA | RESUMEN LALIGA EA SPORTS",
           "published_at": "2026-05-08",
-          "tier_used": 2
+          "tier_used": 2,
+          "region": {}
         }
       ]
     },
@@ -27,7 +28,8 @@
           "video_id": "iXGamS8Xkv4",
           "title": "RESUMEN | ELCHE CF 1-1 DEPORTIVO ALAVÉS",
           "published_at": "2026-05-09",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -41,7 +43,8 @@
           "video_id": "8eRKE8tEmN4",
           "title": "Sevilla FC-RCD Espanyol (2-1) LALIGA | Resumen",
           "published_at": "2026-05-09",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -55,7 +58,8 @@
           "video_id": "etQfx2UkFek",
           "title": "Atlético de Madrid 0-1 Celta | HIGHLIGHTS, LaLiga - MD35",
           "published_at": "2026-05-09",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -69,7 +73,8 @@
           "video_id": "qqtOZLp5sI4",
           "title": "HIGHLIGHTS | LaLiga 25-26 | J35 | Real Sociedad 2 - 2 Real Betis",
           "published_at": "2026-05-09",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -83,7 +88,8 @@
           "video_id": "FJElYUU7p7Q",
           "title": "Resumen J35 RCD Mallorca 1-1 Villarreal CF | RCD Mallorca",
           "published_at": "2026-05-10",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -97,7 +103,8 @@
           "video_id": "mUcATZtpoOc",
           "title": "HIGHLIGHTS | Athletic Club 0-1 Valencia CF | LaLiga EA Sports 2025/26 MD35",
           "published_at": "2026-05-11",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -111,7 +118,8 @@
           "video_id": "7tdmwliGAIQ",
           "title": "Resumen Real Oviedo   Getafe CF J35 LaLiga EA Sports 2025 2026",
           "published_at": "2026-05-10",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -125,7 +133,8 @@
           "video_id": "JapzT9-KKFo",
           "title": "FC BARCELONA 2 - 0 REAL MADRID | RESUMEN LALIGA EA SPORTS",
           "published_at": "2026-05-10",
-          "tier_used": 2
+          "tier_used": 2,
+          "region": {}
         }
       ]
     },
@@ -139,7 +148,13 @@
           "video_id": "BD6gbXMU5FE",
           "title": "RAYO VALLECANO 1 - 1 GIRONA FC | RESUMEN LALIGA EA SPORTS",
           "published_at": "2026-05-11",
-          "tier_used": 2
+          "tier_used": 2,
+          "region": {
+            "blocked": [
+              "JP",
+              "KR"
+            ]
+          }
         }
       ]
     }

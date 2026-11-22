@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-22T15:01:45Z",
+  "generated_at": "2026-11-22T15:06:36Z",
   "month": "2026-04",
   "dates": {
     "2026-04-03": [
@@ -151,7 +151,29 @@
             "awayScore": 2,
             "status": "FINISHED",
             "utcDate": "2026-04-04T19:00:00Z",
-            "videoId": "HUz-2lUGGH8"
+            "videoId": "HUz-2lUGGH8",
+            "videoOptions": [
+              {
+                "videoId": "HUz-2lUGGH8",
+                "region": {
+                  "allowed": [
+                    "UM",
+                    "US",
+                    "VI"
+                  ]
+                }
+              },
+              {
+                "videoId": "QrGUHyHqPNQ",
+                "region": {
+                  "allowed": [
+                    "UM",
+                    "US",
+                    "VI"
+                  ]
+                }
+              }
+            ]
           }
         ]
       },
@@ -1201,7 +1223,21 @@
             "awayScore": 2,
             "status": "FINISHED",
             "utcDate": "2026-04-10T18:30:00Z",
-            "videoId": "77rvKxNQq4s"
+            "videoId": "77rvKxNQq4s",
+            "videoOptions": [
+              {
+                "videoId": "77rvKxNQq4s",
+                "region": {
+                  "blocked": [
+                    "AT",
+                    "CH",
+                    "DE",
+                    "LI",
+                    "LU"
+                  ]
+                }
+              }
+            ]
           }
         ]
       },
@@ -1563,7 +1599,33 @@
             "awayScore": 1,
             "status": "FINISHED",
             "utcDate": "2026-04-11T13:30:00Z",
-            "videoId": "PV8UNERBUOI"
+            "videoId": "PV8UNERBUOI",
+            "videoOptions": [
+              {
+                "videoId": "PV8UNERBUOI",
+                "region": {
+                  "blocked": [
+                    "AT",
+                    "CH",
+                    "DE",
+                    "LI",
+                    "LU"
+                  ]
+                }
+              },
+              {
+                "videoId": "_BUijVdPATY",
+                "region": {
+                  "blocked": [
+                    "AT",
+                    "CH",
+                    "DE",
+                    "LI",
+                    "LU"
+                  ]
+                }
+              }
+            ]
           },
           {
             "match_id": 540660,
@@ -1585,7 +1647,21 @@
             "awayScore": 2,
             "status": "FINISHED",
             "utcDate": "2026-04-11T13:30:00Z",
-            "videoId": "LJO2GdcRkkU"
+            "videoId": "LJO2GdcRkkU",
+            "videoOptions": [
+              {
+                "videoId": "LJO2GdcRkkU",
+                "region": {
+                  "blocked": [
+                    "AT",
+                    "CH",
+                    "DE",
+                    "LI",
+                    "LU"
+                  ]
+                }
+              }
+            ]
           },
           {
             "match_id": 540663,
@@ -1607,7 +1683,21 @@
             "awayScore": 0,
             "status": "FINISHED",
             "utcDate": "2026-04-11T13:30:00Z",
-            "videoId": "17XgdyiODzc"
+            "videoId": "17XgdyiODzc",
+            "videoOptions": [
+              {
+                "videoId": "17XgdyiODzc",
+                "region": {
+                  "blocked": [
+                    "AT",
+                    "CH",
+                    "DE",
+                    "LI",
+                    "LU"
+                  ]
+                }
+              }
+            ]
           },
           {
             "match_id": 540664,
@@ -1629,7 +1719,21 @@
             "awayScore": 1,
             "status": "FINISHED",
             "utcDate": "2026-04-11T13:30:00Z",
-            "videoId": "OvE-2y4_b84"
+            "videoId": "OvE-2y4_b84",
+            "videoOptions": [
+              {
+                "videoId": "OvE-2y4_b84",
+                "region": {
+                  "blocked": [
+                    "AT",
+                    "CH",
+                    "DE",
+                    "LI",
+                    "LU"
+                  ]
+                }
+              }
+            ]
           },
           {
             "match_id": 540658,
@@ -1651,7 +1755,33 @@
             "awayScore": 5,
             "status": "FINISHED",
             "utcDate": "2026-04-11T16:30:00Z",
-            "videoId": "ElmX0un2S3Y"
+            "videoId": "ElmX0un2S3Y",
+            "videoOptions": [
+              {
+                "videoId": "ElmX0un2S3Y",
+                "region": {
+                  "blocked": [
+                    "AT",
+                    "CH",
+                    "DE",
+                    "LI",
+                    "LU"
+                  ]
+                }
+              },
+              {
+                "videoId": "RG7eOhw_4_E",
+                "region": {
+                  "blocked": [
+                    "AT",
+                    "CH",
+                    "DE",
+                    "LI",
+                    "LU"
+                  ]
+                }
+              }
+            ]
           }
         ]
       },
@@ -2013,7 +2143,21 @@
             "awayScore": 1,
             "status": "FINISHED",
             "utcDate": "2026-04-12T13:30:00Z",
-            "videoId": "JKb0w05LmYQ"
+            "videoId": "JKb0w05LmYQ",
+            "videoOptions": [
+              {
+                "videoId": "JKb0w05LmYQ",
+                "region": {
+                  "blocked": [
+                    "AT",
+                    "CH",
+                    "DE",
+                    "LI",
+                    "LU"
+                  ]
+                }
+              }
+            ]
           },
           {
             "match_id": 540666,
@@ -2035,7 +2179,33 @@
             "awayScore": 0,
             "status": "FINISHED",
             "utcDate": "2026-04-12T15:30:00Z",
-            "videoId": "2ZmpEk46ZFo"
+            "videoId": "2ZmpEk46ZFo",
+            "videoOptions": [
+              {
+                "videoId": "2ZmpEk46ZFo",
+                "region": {
+                  "blocked": [
+                    "AT",
+                    "CH",
+                    "DE",
+                    "LI",
+                    "LU"
+                  ]
+                }
+              },
+              {
+                "videoId": "4xegLL_1JFE",
+                "region": {
+                  "blocked": [
+                    "AT",
+                    "CH",
+                    "DE",
+                    "LI",
+                    "LU"
+                  ]
+                }
+              }
+            ]
           },
           {
             "match_id": 540661,
@@ -2057,7 +2227,21 @@
             "awayScore": 1,
             "status": "FINISHED",
             "utcDate": "2026-04-12T17:30:00Z",
-            "videoId": "rSvdULca_yA"
+            "videoId": "rSvdULca_yA",
+            "videoOptions": [
+              {
+                "videoId": "rSvdULca_yA",
+                "region": {
+                  "blocked": [
+                    "AT",
+                    "CH",
+                    "DE",
+                    "LI",
+                    "LU"
+                  ]
+                }
+              }
+            ]
           }
         ]
       },
@@ -2295,7 +2479,21 @@
             "awayScore": 1,
             "status": "FINISHED",
             "utcDate": "2026-04-17T18:30:00Z",
-            "videoId": "LtwMYQZahsY"
+            "videoId": "LtwMYQZahsY",
+            "videoOptions": [
+              {
+                "videoId": "LtwMYQZahsY",
+                "region": {
+                  "blocked": [
+                    "AT",
+                    "CH",
+                    "DE",
+                    "LI",
+                    "LU"
+                  ]
+                }
+              }
+            ]
           }
         ]
       },
@@ -2541,7 +2739,33 @@
             "awayScore": 1,
             "status": "FINISHED",
             "utcDate": "2026-04-18T13:30:00Z",
-            "videoId": "bjGj7h0ZdKo"
+            "videoId": "bjGj7h0ZdKo",
+            "videoOptions": [
+              {
+                "videoId": "bjGj7h0ZdKo",
+                "region": {
+                  "blocked": [
+                    "AT",
+                    "CH",
+                    "DE",
+                    "LI",
+                    "LU"
+                  ]
+                }
+              },
+              {
+                "videoId": "2aHovbNXiW0",
+                "region": {
+                  "blocked": [
+                    "AT",
+                    "CH",
+                    "DE",
+                    "LI",
+                    "LU"
+                  ]
+                }
+              }
+            ]
           },
           {
             "match_id": 540671,
@@ -2563,7 +2787,21 @@
             "awayScore": 2,
             "status": "FINISHED",
             "utcDate": "2026-04-18T13:30:00Z",
-            "videoId": "ll_F4kkeKRk"
+            "videoId": "ll_F4kkeKRk",
+            "videoOptions": [
+              {
+                "videoId": "ll_F4kkeKRk",
+                "region": {
+                  "blocked": [
+                    "AT",
+                    "CH",
+                    "DE",
+                    "LI",
+                    "LU"
+                  ]
+                }
+              }
+            ]
           },
           {
             "match_id": 540674,
@@ -2585,7 +2823,21 @@
             "awayScore": 1,
             "status": "FINISHED",
             "utcDate": "2026-04-18T13:30:00Z",
-            "videoId": "IyP50Wc-f9U"
+            "videoId": "IyP50Wc-f9U",
+            "videoOptions": [
+              {
+                "videoId": "IyP50Wc-f9U",
+                "region": {
+                  "blocked": [
+                    "AT",
+                    "CH",
+                    "DE",
+                    "LI",
+                    "LU"
+                  ]
+                }
+              }
+            ]
           },
           {
             "match_id": 540675,
@@ -2607,7 +2859,21 @@
             "awayScore": 2,
             "status": "FINISHED",
             "utcDate": "2026-04-18T13:30:00Z",
-            "videoId": "nP65TPQsCaE"
+            "videoId": "nP65TPQsCaE",
+            "videoOptions": [
+              {
+                "videoId": "nP65TPQsCaE",
+                "region": {
+                  "blocked": [
+                    "AT",
+                    "CH",
+                    "DE",
+                    "LI",
+                    "LU"
+                  ]
+                }
+              }
+            ]
           },
           {
             "match_id": 540669,
@@ -2629,7 +2895,33 @@
             "awayScore": 3,
             "status": "FINISHED",
             "utcDate": "2026-04-18T16:30:00Z",
-            "videoId": "z6h4qY_SY7w"
+            "videoId": "z6h4qY_SY7w",
+            "videoOptions": [
+              {
+                "videoId": "z6h4qY_SY7w",
+                "region": {
+                  "blocked": [
+                    "AT",
+                    "CH",
+                    "DE",
+                    "LI",
+                    "LU"
+                  ]
+                }
+              },
+              {
+                "videoId": "IKtWgQIGv98",
+                "region": {
+                  "blocked": [
+                    "AT",
+                    "CH",
+                    "DE",
+                    "LI",
+                    "LU"
+                  ]
+                }
+              }
+            ]
           }
         ]
       },
@@ -2919,7 +3211,21 @@
             "awayScore": 1,
             "status": "FINISHED",
             "utcDate": "2026-04-19T13:30:00Z",
-            "videoId": "3QMGJvfEh2o"
+            "videoId": "3QMGJvfEh2o",
+            "videoOptions": [
+              {
+                "videoId": "3QMGJvfEh2o",
+                "region": {
+                  "blocked": [
+                    "AT",
+                    "CH",
+                    "DE",
+                    "LI",
+                    "LU"
+                  ]
+                }
+              }
+            ]
           },
           {
             "match_id": 540670,
@@ -2941,7 +3247,33 @@
             "awayScore": 2,
             "status": "FINISHED",
             "utcDate": "2026-04-19T15:30:00Z",
-            "videoId": "L9QqzxzkFXc"
+            "videoId": "L9QqzxzkFXc",
+            "videoOptions": [
+              {
+                "videoId": "L9QqzxzkFXc",
+                "region": {
+                  "blocked": [
+                    "AT",
+                    "CH",
+                    "DE",
+                    "LI",
+                    "LU"
+                  ]
+                }
+              },
+              {
+                "videoId": "yT0SezRItTA",
+                "region": {
+                  "blocked": [
+                    "AT",
+                    "CH",
+                    "DE",
+                    "LI",
+                    "LU"
+                  ]
+                }
+              }
+            ]
           },
           {
             "match_id": 540668,
@@ -2963,7 +3295,21 @@
             "awayScore": 1,
             "status": "FINISHED",
             "utcDate": "2026-04-19T17:30:00Z",
-            "videoId": "K2oiIs7VlXc"
+            "videoId": "K2oiIs7VlXc",
+            "videoOptions": [
+              {
+                "videoId": "K2oiIs7VlXc",
+                "region": {
+                  "blocked": [
+                    "AT",
+                    "CH",
+                    "DE",
+                    "LI",
+                    "LU"
+                  ]
+                }
+              }
+            ]
           }
         ]
       },
@@ -3261,7 +3607,19 @@
             "awayScore": 3,
             "status": "FINISHED",
             "utcDate": "2026-04-21T19:30:00Z",
-            "videoId": "9uJeopTazV0"
+            "videoId": "9uJeopTazV0",
+            "videoOptions": [
+              {
+                "videoId": "9uJeopTazV0",
+                "region": {
+                  "allowed": [
+                    "UM",
+                    "US",
+                    "VI"
+                  ]
+                }
+              }
+            ]
           }
         ]
       }
@@ -3601,7 +3959,33 @@
             "awayScore": 1,
             "status": "FINISHED",
             "utcDate": "2026-04-24T18:30:00Z",
-            "videoId": "G6DE38Di_bs"
+            "videoId": "G6DE38Di_bs",
+            "videoOptions": [
+              {
+                "videoId": "G6DE38Di_bs",
+                "region": {
+                  "blocked": [
+                    "AT",
+                    "CH",
+                    "DE",
+                    "LI",
+                    "LU"
+                  ]
+                }
+              },
+              {
+                "videoId": "5SshxZBn1BQ",
+                "region": {
+                  "blocked": [
+                    "AT",
+                    "CH",
+                    "DE",
+                    "LI",
+                    "LU"
+                  ]
+                }
+              }
+            ]
           }
         ]
       },
@@ -3941,7 +4325,33 @@
             "awayScore": 4,
             "status": "FINISHED",
             "utcDate": "2026-04-25T13:30:00Z",
-            "videoId": "SSeReOnmRA8"
+            "videoId": "SSeReOnmRA8",
+            "videoOptions": [
+              {
+                "videoId": "SSeReOnmRA8",
+                "region": {
+                  "blocked": [
+                    "AT",
+                    "CH",
+                    "DE",
+                    "LI",
+                    "LU"
+                  ]
+                }
+              },
+              {
+                "videoId": "aUr0Vn8Bpb0",
+                "region": {
+                  "blocked": [
+                    "AT",
+                    "CH",
+                    "DE",
+                    "LI",
+                    "LU"
+                  ]
+                }
+              }
+            ]
           },
           {
             "match_id": 540677,
@@ -3963,7 +4373,21 @@
             "awayScore": 2,
             "status": "FINISHED",
             "utcDate": "2026-04-25T13:30:00Z",
-            "videoId": "7ob0OLsC3o0"
+            "videoId": "7ob0OLsC3o0",
+            "videoOptions": [
+              {
+                "videoId": "7ob0OLsC3o0",
+                "region": {
+                  "blocked": [
+                    "AT",
+                    "CH",
+                    "DE",
+                    "LI",
+                    "LU"
+                  ]
+                }
+              }
+            ]
           },
           {
             "match_id": 540678,
@@ -3985,7 +4409,21 @@
             "awayScore": 1,
             "status": "FINISHED",
             "utcDate": "2026-04-25T13:30:00Z",
-            "videoId": "emQ5afne1rA"
+            "videoId": "emQ5afne1rA",
+            "videoOptions": [
+              {
+                "videoId": "emQ5afne1rA",
+                "region": {
+                  "blocked": [
+                    "AT",
+                    "CH",
+                    "DE",
+                    "LI",
+                    "LU"
+                  ]
+                }
+              }
+            ]
           },
           {
             "match_id": 540681,
@@ -4007,7 +4445,21 @@
             "awayScore": 0,
             "status": "FINISHED",
             "utcDate": "2026-04-25T13:30:00Z",
-            "videoId": "8m7pWTpEls8"
+            "videoId": "8m7pWTpEls8",
+            "videoOptions": [
+              {
+                "videoId": "8m7pWTpEls8",
+                "region": {
+                  "blocked": [
+                    "AT",
+                    "CH",
+                    "DE",
+                    "LI",
+                    "LU"
+                  ]
+                }
+              }
+            ]
           },
           {
             "match_id": 540683,
@@ -4029,7 +4481,21 @@
             "awayScore": 0,
             "status": "FINISHED",
             "utcDate": "2026-04-25T13:30:00Z",
-            "videoId": "MMXlLYwxaJw"
+            "videoId": "MMXlLYwxaJw",
+            "videoOptions": [
+              {
+                "videoId": "MMXlLYwxaJw",
+                "region": {
+                  "blocked": [
+                    "AT",
+                    "CH",
+                    "DE",
+                    "LI",
+                    "LU"
+                  ]
+                }
+              }
+            ]
           },
           {
             "match_id": 540684,
@@ -4051,7 +4517,21 @@
             "awayScore": 2,
             "status": "FINISHED",
             "utcDate": "2026-04-25T16:30:00Z",
-            "videoId": "lLeYPmc7iS0"
+            "videoId": "lLeYPmc7iS0",
+            "videoOptions": [
+              {
+                "videoId": "lLeYPmc7iS0",
+                "region": {
+                  "blocked": [
+                    "AT",
+                    "CH",
+                    "DE",
+                    "LI",
+                    "LU"
+                  ]
+                }
+              }
+            ]
           }
         ]
       },
@@ -4341,7 +4821,21 @@
             "awayScore": 1,
             "status": "FINISHED",
             "utcDate": "2026-04-26T13:30:00Z",
-            "videoId": "Sowtd6DTB-I"
+            "videoId": "Sowtd6DTB-I",
+            "videoOptions": [
+              {
+                "videoId": "Sowtd6DTB-I",
+                "region": {
+                  "blocked": [
+                    "AT",
+                    "CH",
+                    "DE",
+                    "LI",
+                    "LU"
+                  ]
+                }
+              }
+            ]
           },
           {
             "match_id": 540679,
@@ -4363,7 +4857,33 @@
             "awayScore": 0,
             "status": "FINISHED",
             "utcDate": "2026-04-26T15:30:00Z",
-            "videoId": "H4yL2OAtxBQ"
+            "videoId": "H4yL2OAtxBQ",
+            "videoOptions": [
+              {
+                "videoId": "H4yL2OAtxBQ",
+                "region": {
+                  "blocked": [
+                    "AT",
+                    "CH",
+                    "DE",
+                    "LI",
+                    "LU"
+                  ]
+                }
+              },
+              {
+                "videoId": "lL00_DYFNTo",
+                "region": {
+                  "blocked": [
+                    "AT",
+                    "CH",
+                    "DE",
+                    "LI",
+                    "LU"
+                  ]
+                }
+              }
+            ]
           }
         ]
       },

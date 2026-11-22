@@ -13,13 +13,15 @@
           "video_id": "CaPoe7yUSqs",
           "title": "HIGHLIGHTS | LaLiga 25-26 | J6 | Real Sociedad 1 - 0 RCD Mallorca",
           "published_at": "2025-09-24",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         },
         {
           "video_id": "qUd1zdmQnjo",
           "title": "HIGHLIGHTS | LaLiga 25-26 | J5 | Real Betis 3 - 1 Real Sociedad",
           "published_at": "2025-09-19",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -33,7 +35,8 @@
           "video_id": "IMYBPlhyFSw",
           "title": "GIRONA FC 0 - 4 LEVANTE UD | RESUMEN LALIGA EA SPORTS",
           "published_at": "2025-09-20",
-          "tier_used": 2
+          "tier_used": 2,
+          "region": {}
         }
       ]
     },
@@ -47,7 +50,14 @@
           "video_id": "zBsbOULlILE",
           "title": "KYLIAN MBAPPE GOAL 🔥 Espanyol vs. Real Madrid | LALIGA Highlights | ESPN FC",
           "published_at": "2025-09-20",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "UM",
+              "US",
+              "VI"
+            ]
+          }
         }
       ]
     },
@@ -61,7 +71,8 @@
           "video_id": "XMabab_Za14",
           "title": "HIGHLIGHTS | VILLARREAL 2-1 OSASUNA | LALIGA",
           "published_at": "2025-09-20",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -75,7 +86,8 @@
           "video_id": "skred4VnGWI",
           "title": "RESUMEN | DEPORTIVO ALAVÉS 0-1 SEVILLA FC",
           "published_at": "2025-09-20",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -89,7 +101,8 @@
           "video_id": "djL0dz8oGUI",
           "title": "RESUMEN | Valencia CF 2-0 Athletic Club | J5 LaLiga EA Sports",
           "published_at": "2025-09-20",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -103,7 +116,8 @@
           "video_id": "LC-MywvOpCY",
           "title": "RAYO VALLECANO 1 - 1 CELTA | RESUMEN LALIGA EA SPORTS",
           "published_at": "2025-09-21",
-          "tier_used": 2
+          "tier_used": 2,
+          "region": {}
         }
       ]
     },
@@ -117,7 +131,8 @@
           "video_id": "_BpuFzNcGzE",
           "title": "Resumen J5 RCD Mallorca 1-1 Atlético de Madrid | RCD Mallorca",
           "published_at": "2025-09-21",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -131,7 +146,8 @@
           "video_id": "8ynJ484nZ-c",
           "title": "Resumen Elche CF vs Real Oviedo I Jornada 5 I 2025 2026",
           "published_at": "2025-09-21",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -145,7 +161,8 @@
           "video_id": "5H5ivXZ3USk",
           "title": "⚽ Resumen | FC Barcelona 3 - 0 Getafe CF | J5 LALIGA EASPORTS",
           "published_at": "2025-09-21",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     }

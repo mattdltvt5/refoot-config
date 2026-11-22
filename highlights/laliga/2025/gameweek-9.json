@@ -111,7 +111,14 @@
           "video_id": "YdZWrN_8syk",
           "title": "STILL PERFECT 🙌 Real Madrid vs. Levante | LALIGA Highlights | ESPN FC",
           "published_at": "2025-10-22",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "UM",
+              "US",
+              "VI"
+            ]
+          }
         }
       ]
     },

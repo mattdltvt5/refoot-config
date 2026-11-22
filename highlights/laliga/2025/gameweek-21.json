@@ -13,7 +13,8 @@
           "video_id": "7W__tikQyDM",
           "title": "Levante UD vs Elche CF (3-2) | RESUMEN | J21 | #LALIGAEASPORTS",
           "published_at": "2026-01-24",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -27,7 +28,8 @@
           "video_id": "siINZnxleXk",
           "title": "Rayo 1-3 Osasuna | Resumen | Club Atlético Osasuna",
           "published_at": "2026-01-25",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -41,7 +43,8 @@
           "video_id": "bcefTWgwbbI",
           "title": "VALENCIA CF 3 - 2 RCD ESPANYOL | RESUMEN DEL PARTIDO - JORNADA 21 DE LALIGA EA SPORTS 2025 - 2026",
           "published_at": "2026-01-24",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -55,7 +58,8 @@
           "video_id": "vtMQvBkdejE",
           "title": "Sevilla FC vs Athletic Club (2-1) LALIGA | Resumen",
           "published_at": "2026-01-24",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -69,7 +73,8 @@
           "video_id": "WOuNQe65sDc",
           "title": "HIGHLIGHTS | VILLARREAL 0-2 REAL MADRID | LALIGA",
           "published_at": "2026-01-24",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -83,7 +88,8 @@
           "video_id": "OvChxi61Ahk",
           "title": "Atlético de Madrid 3-0 Mallorca | ⚽ Sørloth, David López (OG) & Almada | HIGHLIGHTS, LaLiga - MD21",
           "published_at": "2026-01-25",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -97,7 +103,14 @@
           "video_id": "y6999gc5HsI",
           "title": "Lamine Yamal, Raphinha and Dani Olmo GOALS 💥 Barcelona vs. Real Oviedo | LALIGA Highlights | ESPN FC",
           "published_at": "2026-01-25",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "UM",
+              "US",
+              "VI"
+            ]
+          }
         }
       ]
     },
@@ -111,7 +124,8 @@
           "video_id": "YMAAGp8CTDQ",
           "title": "HIGHLIGHTS | LaLiga 25-26 | J21 | Real Sociedad 3 - 1 RC Celta de Vigo",
           "published_at": "2026-01-25",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -125,7 +139,8 @@
           "video_id": "kZOcW_154ms",
           "title": "RESUMEN | Deportivo Alavés 2 - Real Betis 1",
           "published_at": "2026-01-26",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -139,7 +154,8 @@
           "video_id": "Z2rPyVQ_-2c",
           "title": "⚽ Resumen | Girona FC 1-1 Getafe CF | J21 LALIGA",
           "published_at": "2026-01-26",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     }
