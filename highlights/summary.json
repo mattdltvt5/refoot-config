@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-22T18:56:19Z",
+  "generated_at": "2026-11-22T19:01:31Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -2717,8 +2717,8 @@
         {
           "gameweek": "GW12",
           "stem": "gameweek-12",
-          "total": 7,
-          "covered": 7,
+          "total": 8,
+          "covered": 8,
           "matches": [
             {
               "match_id": 558528,
@@ -2766,6 +2766,13 @@
               "match_id": 558524,
               "home": "US Sassuolo Calcio",
               "away": "Genoa CFC",
+              "date": "2026-11-22",
+              "covered": true
+            },
+            {
+              "match_id": 558523,
+              "home": "AC Milan",
+              "away": "Frosinone Calcio",
               "date": "2026-11-22",
               "covered": true
             }
