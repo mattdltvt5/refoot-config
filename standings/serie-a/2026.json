@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-21T23:31:41.310917Z",
+  "generated_at": "2026-11-22T13:31:33.026438Z",
   "competition": "Serie A",
   "slug": "serie-a",
   "season": 2026,
@@ -102,6 +102,25 @@
     {
       "position": 6,
       "team": {
+        "id": 109,
+        "name": "Juventus FC",
+        "shortName": "Juventus",
+        "tla": "JUV",
+        "crest": "https://crests.football-data.org/109.png"
+      },
+      "playedGames": 12,
+      "form": "W,D,W,L,W",
+      "won": 6,
+      "draw": 3,
+      "lost": 3,
+      "points": 21,
+      "goalsFor": 19,
+      "goalsAgainst": 12,
+      "goalDifference": 7
+    },
+    {
+      "position": 7,
+      "team": {
         "id": 470,
         "name": "Frosinone Calcio",
         "shortName": "Frosinone",
@@ -119,7 +138,7 @@
       "goalDifference": 9
     },
     {
-      "position": 7,
+      "position": 8,
       "team": {
         "id": 113,
         "name": "SSC Napoli",
@@ -136,25 +155,6 @@
       "goalsFor": 19,
       "goalsAgainst": 14,
       "goalDifference": 5
-    },
-    {
-      "position": 8,
-      "team": {
-        "id": 109,
-        "name": "Juventus FC",
-        "shortName": "Juventus",
-        "tla": "JUV",
-        "crest": "https://crests.football-data.org/109.png"
-      },
-      "playedGames": 11,
-      "form": "D,W,L,W,L",
-      "won": 5,
-      "draw": 3,
-      "lost": 3,
-      "points": 18,
-      "goalsFor": 15,
-      "goalsAgainst": 12,
-      "goalDifference": 3
     },
     {
       "position": 9,
@@ -355,15 +355,15 @@
         "tla": "VEN",
         "crest": "https://crests.football-data.org/454.png"
       },
-      "playedGames": 11,
-      "form": "W,L,L,L,W",
+      "playedGames": 12,
+      "form": "L,W,L,L,L",
       "won": 2,
       "draw": 0,
-      "lost": 9,
+      "lost": 10,
       "points": 6,
       "goalsFor": 8,
-      "goalsAgainst": 21,
-      "goalDifference": -13
+      "goalsAgainst": 25,
+      "goalDifference": -17
     },
     {
       "position": 20,
