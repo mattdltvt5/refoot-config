@@ -2,7 +2,7 @@
   "competition": "Bundesliga",
   "gameweek": "GW10",
   "stem": "gameweek-10",
-  "generated_at": "2026-11-22T16:36:15Z",
+  "generated_at": "2026-11-22T16:46:12Z",
   "matches": [
     {
       "match_id": 565859,
@@ -106,7 +106,23 @@
       "home_team": "FC Augsburg",
       "away_team": "1. FSV Mainz 05",
       "date": "2026-11-22",
-      "videos": []
+      "videos": [
+        {
+          "video_id": "peRutfZlJmU",
+          "title": "Gregoritsch With The Brace! | FC AUGSBURG - MAINZ 05 | Highlights | Matchday 10 – Bundesliga 2026/27",
+          "published_at": "2026-11-22",
+          "tier_used": 2,
+          "region": {
+            "blocked": [
+              "AT",
+              "CH",
+              "DE",
+              "LI",
+              "LU"
+            ]
+          }
+        }
+      ]
     }
   ]
 }
