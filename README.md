@@ -1398,6 +1398,12 @@ clips that play almost everywhere. `scripts/highlight_alternatives.py` runs at t
 - **When:** recent matches (within 7 days) are re-checked 2, 4, 8, 16, 32 and 64 hours after the previous
   check; older matches get one catch-up check, newest first, within 20 units per run and only while the
   day's `units_used` is below 5,000. Each match records `alternatives: {"checks": n, "last": ISO}`.
+- **Last season too:** the catch-up also covers the previous season (`ALT_PAST_SEASONS = 1`), after the current
+  one. Matches the fixture data doesn't list (the UCL 2025 archive holds only knockouts) are searched with a
+  fixture built from the cached record (team names, date, matchday from the file name). Older matches cost
+  more, about 10-20 units each, because uploads are paged further back, and early-season ones can miss
+  when `MAX_YT_PAGES` doesn't reach their date. Measured 2026-11-22: 6 late-season matches, all fully
+  covered, for 60 units; an August Ligue 1 match found nothing within 20 units.
 - **Measured** on 2026-11-22 (a capped run on a copy of the cache): 18 matches checked for 80 units,
   11 of them then played in all five launch countries.
 

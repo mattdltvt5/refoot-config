@@ -26,7 +26,11 @@ broadcasterChannels source - the summer tournaments have no non-US source):
     club and competition channels often upload after the US broadcaster.
   * Older matches get ONE catch-up check, newest first, within
     ALT_CATCHUP_UNITS_PER_RUN and only while the day's quota is below
-    ALT_CATCHUP_CEILING, so match days keep their budget.
+    ALT_CATCHUP_CEILING, so match days keep their budget. The catch-up also
+    covers the previous ALT_PAST_SEASONS season(s), after the current one.
+  * A match missing from the fixture data (e.g. the UCL 2025 archive holds
+    only knockouts) is searched with a fixture built from its own record:
+    team names, date and the matchday from the file name.
   * Bookkeeping per match: ``alternatives: {"checks": n, "last": ISO}``.
 
 Never touches a match with full coverage, a match without clips, or anything
@@ -58,6 +62,7 @@ log = logging.getLogger(__name__)
 
 ALT_COMPS = set(DOMESTIC_LEAGUE_COMPS) | {"Champions League"}
 TOURNAMENT_GROUPS_DIR = REPO_ROOT / "tournament-groups"
+ALT_PAST_SEASONS = 1                 # catch-up also covers last season
 ALT_RECENT_DAYS = 7
 ALT_MAX_RECENT_CHECKS = 6            # 2+4+8+16+32+64 h ~= 5 days of re-checks
 ALT_CATCHUP_UNITS_PER_RUN = 20
@@ -137,13 +142,31 @@ def _raw_fixtures(slug: str, season: int, fixtures_dir: Path, groups_dir: Path) 
     data = load_json_file(fixtures_dir / slug / f"{season}.json")
     if isinstance(data, dict) and data.get("fixtures"):
         return data["fixtures"]
-    tg = load_json_file(groups_dir / f"{slug}.json")
-    if isinstance(tg, dict) and tg.get("season") == season:
-        out = []
-        for f in list(tg.get("groupMatches") or []) + list(tg.get("matches") or []):
-            out.append({**f, "match_id": f.get("match_id", f.get("id"))})
-        return out
+    for tg in (load_json_file(groups_dir / f"{slug}.json"),
+               load_json_file(groups_dir / slug / f"{season}.json")):   # season archive
+        if isinstance(tg, dict) and tg.get("season") == season:
+            out = []
+            for f in list(tg.get("groupMatches") or []) + list(tg.get("matches") or []):
+                out.append({**f, "match_id": f.get("match_id", f.get("id"))})
+            return out
     return []
+
+
+def fixture_from_record(match: dict, path: Path) -> "dict | None":
+    """A matcher fixture built from a cached match record, for matches the
+    fixture data doesn't list. No TLA, short name = full name (team_tokens adds
+    the aliases), no score (so no scoreline check)."""
+    home, away, date = match.get("home_team"), match.get("away_team"), match.get("date")
+    if not (home and away and date and match.get("match_id") is not None):
+        return None
+    stem = path.stem
+    md = int(stem.rsplit("-", 1)[1]) if stem.rsplit("-", 1)[-1].isdigit() else None
+    return {
+        "match_id": match["match_id"], "home_team": home, "home_short": home, "home_tla": "",
+        "away_team": away, "away_short": away, "away_tla": "", "date": date,
+        "matchday": md, "stage": "LEAGUE_STAGE" if stem.startswith("matchday-") else "REGULAR_SEASON",
+        "status": "FINISHED", "score": {},
+    }
 
 
 def fixture_index(slug: str, season: int, fixtures_dir: Path = FIXTURES_DIR,
@@ -181,21 +204,24 @@ def _candidates(root: Path, fixtures_dir: Path, now: datetime, groups_dir: "Path
         slug = COMPETITION_SLUG_MAP.get(comp)
         if not slug:
             continue
-        season = season_for_competition(comp, now)
-        season_dir = root / slug / str(season)
-        if not season_dir.is_dir():
-            continue
-        fx = fixture_index(slug, season, fixtures_dir, groups_dir)
-        for path in sorted(season_dir.glob("*.json")):
-            data = load_json_file(path)
-            if not isinstance(data, dict):
+        current = season_for_competition(comp, now)
+        for season in range(current, current - ALT_PAST_SEASONS - 1, -1):
+            season_dir = root / slug / str(season)
+            if not season_dir.is_dir():
                 continue
-            for match in data.get("matches", []):
-                fixture = fx.get(match.get("match_id"))
-                if fixture is None or not due(match, now):
+            fx = fixture_index(slug, season, fixtures_dir, groups_dir)
+            for path in sorted(season_dir.glob("*.json")):
+                data = load_json_file(path)
+                if not isinstance(data, dict):
                     continue
-                item = (comp, path, data, match, fixture)
-                (recent if is_recent(match, now) else catchup).append(item)
+                for match in data.get("matches", []):
+                    if not due(match, now):
+                        continue
+                    fixture = fx.get(match.get("match_id")) or fixture_from_record(match, path)
+                    if fixture is None:
+                        continue
+                    item = (comp, path, data, match, fixture)
+                    (recent if is_recent(match, now) else catchup).append(item)
     catchup.sort(key=lambda it: it[3].get("date", ""), reverse=True)
     return recent, catchup
 
