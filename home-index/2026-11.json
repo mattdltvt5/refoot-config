@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-22T18:36:05Z",
+  "generated_at": "2026-11-22T18:42:03Z",
   "month": "2026-11",
   "dates": {
     "2026-11-01": [
@@ -4038,8 +4038,23 @@
             },
             "homeScore": 4,
             "awayScore": 0,
-            "status": "IN_PLAY",
-            "utcDate": "2026-11-22T16:30:00Z"
+            "status": "FINISHED",
+            "utcDate": "2026-11-22T16:30:00Z",
+            "videoId": "AjoE-9Br7bk",
+            "videoOptions": [
+              {
+                "videoId": "AjoE-9Br7bk",
+                "region": {
+                  "blocked": [
+                    "AT",
+                    "CH",
+                    "DE",
+                    "LI",
+                    "LU"
+                  ]
+                }
+              }
+            ]
           }
         ]
       },
