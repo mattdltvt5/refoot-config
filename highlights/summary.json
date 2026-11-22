@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-22T18:11:20Z",
+  "generated_at": "2026-11-22T18:16:18Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -4191,7 +4191,7 @@
         {
           "gameweek": "GW11",
           "stem": "gameweek-11",
-          "total": 7,
+          "total": 8,
           "covered": 7,
           "matches": [
             {
@@ -4242,6 +4242,14 @@
               "away": "Angers SCO",
               "date": "2026-11-22",
               "covered": true
+            },
+            {
+              "match_id": 559626,
+              "home": "FC Lorient",
+              "away": "Stade Rennais FC 1901",
+              "date": "2026-11-22",
+              "covered": false,
+              "pending": true
             }
           ]
         }
