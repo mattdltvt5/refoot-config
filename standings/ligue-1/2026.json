@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-22T20:12:03.024615Z",
+  "generated_at": "2026-11-22T21:51:43.091548Z",
   "competition": "Ligue 1",
   "slug": "ligue-1",
   "season": 2026,
@@ -89,15 +89,15 @@
         "tla": "MAR",
         "crest": "https://crests.football-data.org/516.png"
       },
-      "playedGames": 10,
-      "form": "W,W,W,W,W",
+      "playedGames": 11,
+      "form": "L,W,W,W,W",
       "won": 6,
       "draw": 0,
-      "lost": 4,
+      "lost": 5,
       "points": 18,
-      "goalsFor": 22,
-      "goalsAgainst": 14,
-      "goalDifference": 8
+      "goalsFor": 24,
+      "goalsAgainst": 17,
+      "goalDifference": 7
     },
     {
       "position": 6,
@@ -235,6 +235,25 @@
     {
       "position": 13,
       "team": {
+        "id": 535,
+        "name": "Le Mans FC",
+        "shortName": "Le Mans",
+        "tla": "LMF",
+        "crest": "https://upload.wikimedia.org/wikipedia/en/thumb/5/57/Le_Mans_FC_logo.svg/330px-Le_Mans_FC_logo.svg.png"
+      },
+      "playedGames": 11,
+      "form": "W,D,L,D,L",
+      "won": 2,
+      "draw": 5,
+      "lost": 4,
+      "points": 11,
+      "goalsFor": 15,
+      "goalsAgainst": 21,
+      "goalDifference": -6
+    },
+    {
+      "position": 14,
+      "team": {
         "id": 531,
         "name": "ES Troyes AC",
         "shortName": "Troyes",
@@ -252,7 +271,7 @@
       "goalDifference": -8
     },
     {
-      "position": 14,
+      "position": 15,
       "team": {
         "id": 519,
         "name": "AJ Auxerre",
@@ -271,7 +290,7 @@
       "goalDifference": -11
     },
     {
-      "position": 15,
+      "position": 16,
       "team": {
         "id": 576,
         "name": "RC Strasbourg Alsace",
@@ -288,25 +307,6 @@
       "goalsFor": 18,
       "goalsAgainst": 23,
       "goalDifference": -5
-    },
-    {
-      "position": 16,
-      "team": {
-        "id": 535,
-        "name": "Le Mans FC",
-        "shortName": "Le Mans",
-        "tla": "LMF",
-        "crest": "https://upload.wikimedia.org/wikipedia/en/thumb/5/57/Le_Mans_FC_logo.svg/330px-Le_Mans_FC_logo.svg.png"
-      },
-      "playedGames": 10,
-      "form": "D,L,D,L,L",
-      "won": 1,
-      "draw": 5,
-      "lost": 4,
-      "points": 8,
-      "goalsFor": 12,
-      "goalsAgainst": 19,
-      "goalDifference": -7
     },
     {
       "position": 17,
