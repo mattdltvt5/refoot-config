@@ -219,6 +219,7 @@ def tier4_recheck_mode(comp_name: str, yt_key: str, config: dict) -> None:
 
     quota            = QuotaTracker()
     gw_playlist_cache: dict = {}
+    page_cache: dict = {}  # playlist pages fetched this run (search_playlist)
     changed_files: list[Path] = []
 
     json_files = sorted(comp_dir.glob("*.json"))
@@ -267,6 +268,7 @@ def tier4_recheck_mode(comp_name: str, yt_key: str, config: dict) -> None:
                 new_videos = resolve_videos_for_fixture(
                     fix, comp_name, config, yt_key, quota, BACKFILL_CAP,
                     gw_playlist_cache=gw_playlist_cache,
+                    page_cache=page_cache,
                 )
             except QuotaCapReached as exc:
                 log.info(f"Quota cap reached during tier-4 re-check: {exc}")
@@ -395,6 +397,7 @@ def main() -> None:
     total_written  = 0
     quota_cap_hit  = False
     gw_playlist_cache: dict = {}  # shared across the run; avoids redundant playlists.list calls per GW
+    page_cache: dict = {}  # playlist pages fetched this run (search_playlist)
     # These track the current competition's context for the post-loop commit
     written_this_comp: list[Path] = []
     current_slug                  = ""
@@ -492,6 +495,7 @@ def main() -> None:
                         videos = resolve_videos_for_fixture(
                             fix, comp_name, config, yt_key, quota, BACKFILL_CAP,
                             gw_playlist_cache=gw_playlist_cache,
+                            page_cache=page_cache,
                         )
                     except QuotaCapReached as exc:
                         # Raised for both internal cap hits AND YouTube 403 responses
