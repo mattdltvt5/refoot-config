@@ -1616,28 +1616,84 @@ load_gw_file = load_json_file  # backward-compat alias
 # ── Quota tracker ─────────────────────────────────────────────────────────────
 
 
+# YouTube Data API quota resets at midnight US Pacific time, not UTC. Keying the
+# tracker by the UTC date reset it 7-8 hours early: from 00:00 UTC the fetch had
+# a fresh INCREMENTAL_CAP while YouTube was still counting the previous Pacific
+# day, so up to ~2x the cap could be spent in one YouTube day and every run
+# until the real reset failed with 403 (seen 2026-11-22: 403 at "1940 units").
+QUOTA_DAY_BASIS = "America/Los_Angeles"
+
+
+def _nth_sunday(year: int, month: int, n: int) -> int:
+    """Day of the month of the n-th Sunday (n >= 1)."""
+    first = datetime(year, month, 1).weekday()  # Monday = 0 ... Sunday = 6
+    return 1 + (6 - first) % 7 + 7 * (n - 1)
+
+
+def pacific_utc_offset(now: datetime) -> timedelta:
+    """UTC offset of US Pacific time at the aware instant `now`.
+
+    US rule (since 2007): PDT (-7h) from the second Sunday of March 02:00 PST
+    (10:00 UTC) until the first Sunday of November 02:00 PDT (09:00 UTC);
+    PST (-8h) otherwise. Computed directly so it needs no tz database (Windows
+    Python ships none without the tzdata package).
+    """
+    now = now.astimezone(timezone.utc)
+    y = now.year
+    dst_start = datetime(y, 3, _nth_sunday(y, 3, 2), 10, tzinfo=timezone.utc)
+    dst_end = datetime(y, 11, _nth_sunday(y, 11, 1), 9, tzinfo=timezone.utc)
+    return timedelta(hours=-7) if dst_start <= now < dst_end else timedelta(hours=-8)
+
+
+def youtube_quota_day(now: datetime | None = None) -> str:
+    """The YouTube quota day (US Pacific calendar date) at `now`, YYYY-MM-DD."""
+    now = now or datetime.now(timezone.utc)
+    return (now.astimezone(timezone.utc) + pacific_utc_offset(now)).strftime("%Y-%m-%d")
+
+
 class QuotaTracker:
     """
     Persists daily YouTube API unit consumption to highlights/quota-tracker.json.
-    Automatically resets when the UTC date changes.
+    Resets when the YouTube quota day changes: midnight US Pacific time
+    (07:00 UTC in summer, 08:00 UTC in winter), when YouTube's own quota resets.
     Both scripts share the same file so the budget is enforced across both runs.
     """
 
-    def __init__(self) -> None:
-        today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+    def __init__(self, now: datetime | None = None) -> None:
+        today = youtube_quota_day(now)
         data  = load_json_file(QUOTA_TRACKER_PATH) or {}
-        if data.get("date") != today:
+        if self._stored_day(data) != today:
             self.date       = today
             self.units_used = 0
             log.info("Quota day reset — units_used = 0")
         else:
-            self.date       = data["date"]
+            self.date       = today
             self.units_used = int(data.get("units_used", 0))
         self._save()
+
+    @staticmethod
+    def _stored_day(data: dict) -> str | None:
+        """The Pacific quota day the stored count belongs to.
+
+        Files written before the switch hold a UTC date; for those, the Pacific
+        day of `last_updated` decides, so units spent since the last Pacific
+        midnight are kept (not lost to a spurious reset) and a count from the
+        previous Pacific day is not carried over.
+        """
+        if data.get("day_basis") == QUOTA_DAY_BASIS:
+            return data.get("date")
+        try:
+            last = datetime.fromisoformat(str(data["last_updated"]).replace("Z", "+00:00"))
+        except (KeyError, ValueError):
+            return None
+        if last.tzinfo is None:
+            last = last.replace(tzinfo=timezone.utc)
+        return youtube_quota_day(last)
 
     def _save(self) -> None:
         write_json_atomic(QUOTA_TRACKER_PATH, {
             "date":         self.date,
+            "day_basis":    QUOTA_DAY_BASIS,
             "units_used":   self.units_used,
             "last_updated": utc_now_iso(),
         })
