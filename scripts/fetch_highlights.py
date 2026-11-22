@@ -72,6 +72,7 @@ from fixture_providers import (
     apply_results_ledger,
 )
 from playlist_discovery import apply_discovered_overrides
+from video_regions import fill_missing_regions
 import build_home_index
 
 log = logging.getLogger(__name__)
@@ -527,6 +528,15 @@ def main() -> None:
             f"Daily cap reached: {exc} — "
             f"committing {total_written} file(s) and stopping"
         )
+
+    # Region availability for already-cached videos that lack it (country-aware
+    # selection in the app). Small fixed budget, after the matcher, never past
+    # the cap. See scripts/video_regions.py.
+    if not quota.over_incremental_cap:
+        try:
+            total_written += len(fill_missing_regions(yt_key, quota, INCREMENTAL_CAP))
+        except QuotaCapReached as exc:
+            log.info(f"Daily cap reached while recording regions: {exc}")
 
     log.info(
         f"Done. {total_written} file(s) updated. "

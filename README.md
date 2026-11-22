@@ -1349,7 +1349,8 @@ highlights/
           "video_id": "dQw4w9WgXcQ",
           "title": "Arsenal vs Chelsea | Highlights",
           "published_at": "2026-05-04",
-          "tier_used": 2
+          "tier_used": 2,
+          "region": {"blocked": ["US"]}
         }
       ]
     }
@@ -1359,6 +1360,12 @@ highlights/
 
 - `video_id` only — never a full URL; reconstruct as `https://www.youtube.com/watch?v={video_id}`
 - `tier_used` indicates which tier produced the video (1, 2, or 4)
+- `region` is where the clip plays, from YouTube's `contentDetails.regionRestriction`: `{}` = everywhere,
+  `{"allowed": [...]}` = only those countries (`[]` = nowhere, also used for a deleted or private video),
+  `{"blocked": [...]}` = everywhere except those. Absent = not checked yet. New matches get it from the
+  matcher's existing `videos.list` call (no extra quota); `scripts/video_regions.py` fills it in for cached
+  videos at up to 10 units (500 videos) per fetch run, newest season first. The app uses it to pick a clip
+  that plays in the viewer's country. It records availability when checked; uploaders can change it later.
 - `generated_at` is always UTC; updated on every write
 
 ### Tier priority order
