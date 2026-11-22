@@ -14,7 +14,12 @@
           "video_id": "G77HjRTdYsg",
           "title": "Venezia vs. Fiorentina: Extended Highlights | Serie A | CBS Sports Golazo",
           "published_at": "2026-09-11",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -28,7 +33,12 @@
           "video_id": "t5XH83qlDv8",
           "title": "Genoa vs. Frosinone: Extended Highlights | Serie A | CBS Sports Golazo",
           "published_at": "2026-09-12",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -42,7 +52,8 @@
           "video_id": "QUsZq6dUEGI",
           "title": "#LazioMilan | I gol che hanno scritto la sfida ⚽🔥",
           "published_at": "2026-09-12",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -56,7 +67,8 @@
           "video_id": "qvy7M46F9sQ",
           "title": "Maurizio Sarri: \"Mi dispiace per i ragazzi\" | Atalanta-Cagliari 1-2 | 4ª Serie A 2026/27 - ENG SUBs",
           "published_at": "2026-09-12",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -70,7 +82,12 @@
           "video_id": "qk-9ChD8QAY",
           "title": "Lecce Claim Win in Five-Goal Thriller! | LECCE-MONZA | HIGHLIGHTS | Serie A 2026/27",
           "published_at": "2026-09-13",
-          "tier_used": 2
+          "tier_used": 2,
+          "region": {
+            "blocked": [
+              "IT"
+            ]
+          }
         }
       ]
     },
@@ -84,7 +101,12 @@
           "video_id": "ouVacPrwPuk",
           "title": "Lobotka Edges Bologna | NAPOLI-BOLOGNA | HIGHLIGHTS | Serie A 2026/27",
           "published_at": "2026-09-13",
-          "tier_used": 2
+          "tier_used": 2,
+          "region": {
+            "blocked": [
+              "IT"
+            ]
+          }
         }
       ]
     },
@@ -98,7 +120,8 @@
           "video_id": "vgpunQP8iW8",
           "title": "ZHEGROVA BRACE, THEN LATE HEARTBREAK | Sassuolo-Juventus Highlights | Serie A",
           "published_at": "2026-09-13",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -112,7 +135,12 @@
           "video_id": "_k7qHJpYiUQ",
           "title": "Como vs. Parma: Extended Highlights | Serie A | CBS Sports Golazo",
           "published_at": "2026-09-14",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -126,7 +154,12 @@
           "video_id": "thsJAOwm9NU",
           "title": "Torino vs. Roma: Extended Highlights | Serie A | CBS Sports Golazo",
           "published_at": "2026-09-14",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -140,7 +173,12 @@
           "video_id": "TfHAau6L3SU",
           "title": "PAZZA INTER A SAN SIRO! 🤯  | INTER 5-3 UDINESE | HIGHLIGHTS 🖤💙",
           "published_at": "2026-09-14",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {
+            "allowed": [
+              "IT"
+            ]
+          }
         }
       ]
     }

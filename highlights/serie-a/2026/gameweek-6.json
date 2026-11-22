@@ -14,7 +14,12 @@
           "video_id": "hkyF7hYqs1U",
           "title": "Genoa vs. Fiorentina: Extended Highlights | Serie A | CBS Sports Golazo",
           "published_at": "2026-10-10",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -28,7 +33,12 @@
           "video_id": "FcLsTBOfHBw",
           "title": "Inter vs. Parma: Extended Highlights | Serie A | CBS Sports Golazo",
           "published_at": "2026-10-10",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -42,7 +52,12 @@
           "video_id": "5SKpbkJCRww",
           "title": "De Bruyne at the Double! | NAPOLI-FROSINONE | HIGHLIGHTS | Serie A 2026/27",
           "published_at": "2026-10-10",
-          "tier_used": 2
+          "tier_used": 2,
+          "region": {
+            "blocked": [
+              "IT"
+            ]
+          }
         }
       ]
     },
@@ -56,7 +71,12 @@
           "video_id": "VBoMq5Qhf5w",
           "title": "Como Halt Ten-Men Roma | COMO-ROMA | HIGHLIGHTS | Serie A 2026/27",
           "published_at": "2026-10-11",
-          "tier_used": 2
+          "tier_used": 2,
+          "region": {
+            "blocked": [
+              "IT"
+            ]
+          }
         }
       ]
     },
@@ -70,7 +90,12 @@
           "video_id": "CShAJFhPMvo",
           "title": "Lazio Still on Top! | LAZIO-MONZA | HIGHLIGHTS | Serie A 2026/27",
           "published_at": "2026-10-11",
-          "tier_used": 2
+          "tier_used": 2,
+          "region": {
+            "blocked": [
+              "IT"
+            ]
+          }
         }
       ]
     },
@@ -84,7 +109,12 @@
           "video_id": "TbZz6Rq3BPo",
           "title": "Enem Seals Palladino’s First Win | LECCE-BOLOGNA | HIGHLIGHTS | Serie A 2026/27",
           "published_at": "2026-10-11",
-          "tier_used": 2
+          "tier_used": 2,
+          "region": {
+            "blocked": [
+              "IT"
+            ]
+          }
         }
       ]
     },
@@ -98,7 +128,12 @@
           "video_id": "1nX_hmbN36g",
           "title": "Back to Back Shots at the Mapei | SASSUOLO-MILAN | HIGHLIGHTS | Serie A 2026/27",
           "published_at": "2026-10-11",
-          "tier_used": 2
+          "tier_used": 2,
+          "region": {
+            "blocked": [
+              "IT"
+            ]
+          }
         }
       ]
     },
@@ -112,7 +147,8 @@
           "video_id": "tQsLKUNVROY",
           "title": "KOLO MUANI RESCUES A POINT! 🔥 | Cagliari 1-1 Juventus Highlights | Serie A",
           "published_at": "2026-10-11",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -126,7 +162,8 @@
           "video_id": "QQ88La3om8w",
           "title": "Atalanta-Venezia | Our Starting XI | 6ª Serie A Enilive 2026/27",
           "published_at": "2026-10-12",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -140,7 +177,12 @@
           "video_id": "0p9vR9BZlAo",
           "title": "Torino vs. Udinese: Extended Highlights | Serie A | CBS Sports Golazo",
           "published_at": "2026-10-12",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "US"
+            ]
+          }
         }
       ]
     }

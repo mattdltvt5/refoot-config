@@ -52,7 +52,12 @@
           "video_id": "m1Y8Zq0xdY0",
           "title": "LAUTARO LA DECIDE AL 91’ E SAN SIRO IMPAZZISCE!  | INTER 3-2 NAPOLI | HIGHLIGHTS 🖤💙",
           "published_at": "2026-09-05",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {
+            "allowed": [
+              "IT"
+            ]
+          }
         }
       ]
     },
@@ -66,19 +71,22 @@
           "video_id": "t0vNLKu1jnw",
           "title": "Sarri: \"Rammarico per come è maturato il risultato\" | Roma-Atalanta 2-1 | 3ª Serie A 26/27 -ENG SUBs",
           "published_at": "2026-09-05",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         },
         {
           "video_id": "Oq7rV2o1qXA",
           "title": "Scalvini: \"Dobbiamo continuare a lavorare\" | Roma-Atalanta 2-1 | 3ª Serie A 2026/27 - ENG SUBs",
           "published_at": "2026-09-05",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         },
         {
           "video_id": "OvfvqVhYiDQ",
           "title": "Roma-Atalanta | Our Starting XI | 3ª Serie A Enilive 2026/27",
           "published_at": "2026-09-05",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -92,7 +100,12 @@
           "video_id": "xJqNMnis1G0",
           "title": "Robinson and Lontani Off the Mark! | PARMA-MONZA | HIGHLIGHTS | Serie A 2026/27",
           "published_at": "2026-09-06",
-          "tier_used": 2
+          "tier_used": 2,
+          "region": {
+            "blocked": [
+              "IT"
+            ]
+          }
         }
       ]
     },
@@ -106,7 +119,12 @@
           "video_id": "dOWvWWcFvjk",
           "title": "What a Game at the Stirpe! | FROSINONE-VENEZIA | HIGHLIGHTS | Serie A 2026/27",
           "published_at": "2026-09-06",
-          "tier_used": 2
+          "tier_used": 2,
+          "region": {
+            "blocked": [
+              "IT"
+            ]
+          }
         }
       ]
     },
@@ -120,7 +138,8 @@
           "video_id": "VEdRyDw1sdI",
           "title": "Serie A Enilive | Gli highlights di Bologna-Sassuolo 2-2",
           "published_at": "2026-09-06",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -134,7 +153,8 @@
           "video_id": "flRiG1pj8zE",
           "title": "GATTI AT THE DEATH | Juventus 1-1 Milan | Highlights Serie A",
           "published_at": "2026-09-06",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -148,7 +168,12 @@
           "video_id": "evb6CnWXdys",
           "title": "Maldini’s Header Seals the Win | CAGLIARI-LECCE | HIGHLIGHTS | Serie A 2026/27",
           "published_at": "2026-09-07",
-          "tier_used": 2
+          "tier_used": 2,
+          "region": {
+            "blocked": [
+              "IT"
+            ]
+          }
         }
       ]
     },
@@ -162,7 +187,12 @@
           "video_id": "2Xiy_RSXw5A",
           "title": "Lazio Extend Winning Streak | UDINESE-LAZIO | HIGHLIGHTS | Serie A 2026/27",
           "published_at": "2026-09-07",
-          "tier_used": 2
+          "tier_used": 2,
+          "region": {
+            "blocked": [
+              "IT"
+            ]
+          }
         }
       ]
     }

@@ -14,7 +14,12 @@
           "video_id": "34kRsv-D2Zs",
           "title": "Torino vs. Monza: Extended Highlights | Serie A | CBS Sports Golazo",
           "published_at": "2026-10-23",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -28,7 +33,12 @@
           "video_id": "9LpUHxD7ewY",
           "title": "Cagliari vs. Bologna: Extended Highlights | Serie A | CBS Sports Golazo",
           "published_at": "2026-10-24",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -42,7 +52,12 @@
           "video_id": "f4mGRNjBe2U",
           "title": "Como vs. Sassuolo: Extended Highlights | Serie A | CBS Sports Golazo",
           "published_at": "2026-10-24",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -56,7 +71,12 @@
           "video_id": "qioR510FnBU",
           "title": "Taylor Gets Off The Mark! | LAZIO-PARMA | HIGHLIGHTS | Serie A 2026/27",
           "published_at": "2026-10-24",
-          "tier_used": 2
+          "tier_used": 2,
+          "region": {
+            "blocked": [
+              "IT"
+            ]
+          }
         }
       ]
     },
@@ -70,7 +90,12 @@
           "video_id": "_fn3LWD4KSU",
           "title": "SIX-GOAL Blockbuster in Naples! | NAPOLI-ROMA | HIGHLIGHTS | Serie A 2026/27",
           "published_at": "2026-10-24",
-          "tier_used": 2
+          "tier_used": 2,
+          "region": {
+            "blocked": [
+              "IT"
+            ]
+          }
         }
       ]
     },
@@ -84,7 +109,12 @@
           "video_id": "2fXnDrk1oo0",
           "title": "Inter vs. Fiorentina: Extended Highlights | Serie A | CBS Sports Golazo",
           "published_at": "2026-10-25",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -98,7 +128,8 @@
           "video_id": "aqMZ_QRiSN4",
           "title": "Atalanta-Frosinone | Our Starting XI | 8ª Serie A Enilive 2026/27",
           "published_at": "2026-10-25",
-          "tier_used": 1
+          "tier_used": 1,
+          "region": {}
         }
       ]
     },
@@ -112,7 +143,12 @@
           "video_id": "Bw1grjhmZ6M",
           "title": "Genoa vs. Venezia: Extended Highlights | Serie A | CBS Sports Golazo",
           "published_at": "2026-10-25",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -126,7 +162,12 @@
           "video_id": "0QHS5S7tfVs",
           "title": "Lecce vs. Juventus: Extended Highlights | Serie A | CBS Sports Golazo",
           "published_at": "2026-10-25",
-          "tier_used": 4
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "US"
+            ]
+          }
         }
       ]
     },
@@ -140,7 +181,12 @@
           "video_id": "TovUeAQkaFc",
           "title": "Pulisic and Hutchinson Shine in Udine | UDINESE-MILAN | HIGHLIGHTS | Serie A 2026/27",
           "published_at": "2026-10-25",
-          "tier_used": 2
+          "tier_used": 2,
+          "region": {
+            "blocked": [
+              "IT"
+            ]
+          }
         }
       ]
     }
