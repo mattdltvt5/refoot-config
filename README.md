@@ -4,6 +4,30 @@ Data pipeline and remote configuration for **ReFoot**, the Flutter web app (`ref
 
 ## Recent changes
 
+### Rights registry + weekly source health scan (2026-11-21)
+
+Highlight rights change every season, and sometimes mid-season. Sources break without anyone noticing: 16 of
+18 Bundesliga team playlists are empty, the Bundesliga channel moved from "| HL |" to "| Highlights |" titles,
+and full-match replays were accepted until #69. This adds:
+
+- **`rights/{season}.json`**: a hand-edited registry of who holds live and highlight rights per competition
+  and launch country, with optional mid-season date ranges. It is seeded for 2026 and 2027, with every entry
+  `unverified` and no channels. See [Rights registry](#rights-registry).
+- **`LAUNCH_COUNTRIES = ["US", "GB", "CA", "IE", "ES"]`** in `highlights_common.py`.
+- **`scripts/source_health_scan.py`** + **`source-health-scan.yml`**: a weekly (Mon 06:00 UTC) read-only scan
+  of every configured source. It checks for empty, stale, unreachable and title-drift sources, highlight
+  coverage, per-country region availability, registry findings and proposals. It writes
+  `reports/source-health/{season}/latest.json`, inside a 500-unit budget. It proposes only, never editing
+  `sources.json`, the cache or the registry. See [Source health scan](#source-health-scan).
+- `fetch_video_details` now also returns the raw `region_restriction`, so per-country checks can use
+  `region_is_playable_in()`.
+
+Dry run (real config, YouTube mocked to return empty pages): the report is written with the expected
+structure. Registry findings for 2026 are 32 `UNVERIFIED` plus `NO_HOLDER` for the three to-confirm pairs
+(Premier League, Bundesliga and Europa League in IE). A full source pass costs 232 `playlistItems` units,
+because club channels shared between competitions are fetched once. Tests: `test_rights_registry.py`,
+`test_source_health_scan.py`. `jsonschema` was added to `requirements-dev.txt` (tests only).
+
 ### Bundesliga full-match / live replays no longer accepted as highlights (2026-11-21)
 
 An audit found 54 of 93 cached Bundesliga 2026/27 entries were the Bundesliga channel's full-match or live
@@ -946,6 +970,11 @@ Added a dedicated `fixtures/{slug}.json` artifact for all five domestic leagues 
 | `.github/workflows/backfill-copa-america.yml` | GitHub Action for the Copa America backfill (workflow_dispatch only) |
 | `.github/workflows/clean-highlights.yml` | GitHub Action for the manual false-positive cleanup (workflow_dispatch only) |
 | `.github/workflows/clean-wrong-fixture-videos.yml` | GitHub Action for the retroactive both-teams cleanup (workflow_dispatch only) |
+| `rights/{season}.json` + `rights/rights.schema.json` | Rights registry (config, hand-edited): broadcasters holding live/highlight rights per competition, country and season |
+| `scripts/rights_registry.py` | `load_registry(season)`, `active_entries(competition, country, on_date)`, `resolve_season(competition, on_date)` |
+| `scripts/source_health_scan.py` | Weekly read-only source health scan → `reports/source-health/{season}/` |
+| `reports/source-health/{season}/` | Scan output: `latest.json` + dated copies (last 8), committed by `source-health-scan.yml` |
+| `.github/workflows/source-health-scan.yml` | Weekly scan (Mondays 06:00 UTC) + `workflow_dispatch`; commits only the report files |
 
 ## Admin Panel
 
@@ -1059,6 +1088,160 @@ computes per-brightness clamping + derived on-colors — the pipeline stores onl
 - **Copa América — excluded (v1):** it has no `teamLists` entry and its `tournament-groups/copa-america.json`
   uses API-Sports ids (Argentina 26), not FD ids (Argentina 762), so it can't join by FD id until an
   API-Sports→FD reconciliation map exists. Do **not** add Copa palettes here yet.
+
+## Rights registry
+
+**Purpose.** It records which broadcasters hold **live** or **highlights** rights for each competition,
+launch country and season, so the tracked sources can follow rights changes. It also lets the weekly scan
+flag sources that are missing or out of date. It is **config**, edited by people. The pipeline only reads it
+and never adds a source automatically.
+
+**Layout.** One file per season at `rights/{season}.json`, validated against `rights/rights.schema.json`
+(enforced by `scripts/tests/test_rights_registry.py`). It sits at the repo root with the other hand-edited
+config (`sources.json`, `team-aliases.json`). Splitting by season mirrors `fixtures/{slug}/{season}.json`.
+
+```json
+{
+  "season": 2026,
+  "notes": "free text",
+  "entries": [
+    {
+      "competition": "bundesliga",          // slug from COMPETITION_SLUG_MAP
+      "country": "US",                      // ISO 3166-1 alpha-2 — GB, never UK
+      "holder": "USA Sports",               // null = pair still to confirm (no holder guessed)
+      "role": "live",                       // live | highlights — a live holder is NOT assumed to post highlights
+      "channels": [                         // empty allowed
+        {"channel_id": "UC…", "playlist_ids": ["PL…"], "note": "…"}
+      ],
+      "status": "unverified",               // unverified | approved | rejected
+      "valid_from": "2027-01-15",           // optional, inclusive (mid-season changes)
+      "valid_until": "2027-05-31",          // optional, inclusive
+      "notes": "…", "source_url": "https://…"   // optional
+    }
+  ]
+}
+```
+
+**Seasons and date ranges.**
+- `resolve_season(competition, on_date)` reuses `highlights_common.season_for_competition`; there is no
+  second season rule.
+- Leagues, UCL and UEL use the August threshold (`season_utils.current_season`, the same rule as the Dart
+  `SeasonDateCalculator.currentSeasonYear()`): 31 July 2027 resolves to 2026, and 1 August 2027 to 2027.
+- Tournaments (World Cup, Euro Cup, Copa America) use the edition year from `SUMMER_TOURNAMENT_CYCLE`. They are
+  never cut by the August window.
+- `active_entries(competition, country, on_date)` reads the governing season's file. It returns the entries
+  for that competition and country whose `[valid_from, valid_until]` range contains the date. An entry without
+  dates covers its whole season, and outside its range an entry is inactive. `rejected` entries are never
+  active. To-confirm placeholders (`holder: null`) are returned too: `holders()` filters them out, and the scan
+  reports them as `NO_HOLDER`.
+- A missing or unreadable season file returns `[]` with a warning and never fails a run. A malformed entry is
+  skipped with a warning.
+
+**Adding things** (registry or config edits only, no code):
+- **Season:** add `rights/{year}.json`. Placeholders for unknown pairs (`holder: null`, a "To confirm" note)
+  keep the gaps visible.
+- **Country:** add it to `LAUNCH_COUNTRIES` in `highlights_common.py` and add its entries.
+- **Competition:** use its `COMPETITION_SLUG_MAP` slug in entries. The scan checks every competition in
+  `sources.json`. Registry checks run only for competitions that have at least one entry in that season's
+  file.
+- **Approving a holder's channel:** fill `channels`, then set `status: approved`. The next scan lists its
+  recent passing uploads as `proposals[]` and raises `MISSING_SOURCE` until a person adds the source to
+  `sources.json`.
+
+## Source health scan
+
+`scripts/source_health_scan.py` runs from `.github/workflows/source-health-scan.yml`, on Mondays at 06:00 UTC
+(after the UTC-midnight YouTube quota reset) and on `workflow_dispatch` (optional `budget` input).
+- It is **read-only** towards `sources.json`, the highlights cache, fixtures and the registry. The workflow
+  commits only `reports/source-health/` (`[skip ci]`, as `github-actions[bot]`) and never runs fetch or
+  backfill.
+- YouTube calls are `playlistItems.list` (first page, up to 50 items) and `videos.list` only. It never calls
+  `search.list`, `playlists.list`, `channels.list` or API-Sports. A channel is read through its uploads
+  playlist (UC→UU).
+
+**What it checks**, per competition in `sources.json`, for its current season:
+
+| Flag | Where | Meaning |
+|---|---|---|
+| `EMPTY` | source | First page has no items |
+| `STALE` | source | No upload in `--stale-days` (default 14). Suppressed (`stale_suppressed`) when the competition had no finished fixtures in that window (breaks, off-season), when there is no fixture data, or for a long non-uploads playlist whose first page isn't newest-first |
+| `UNREACHABLE` | source | The API answered with an error (e.g. 404: playlist gone) |
+| `TITLE_DRIFT` | source | ≥3 recent uploads (last 14 days) but none passes the matcher's current, source-scoped title gate. Up to 5 `drift_samples` with the failing reason |
+| `LOW_COVERAGE` | coverage | Finished fixtures in the last 14 days (outside the post-full-time grace window) with a cached highlight, below `--coverage-min-ratio` (default 0.8) |
+| `MISSING_SOURCE` | registry | An `approved` registry channel or playlist that is not configured for the competition |
+| `OUTDATED_SOURCE` | registry | A configured source linked by ID to a registry holder (this or last season) that no currently active entry lists |
+| `UNVERIFIED` | registry | Active entries in a launch country are still `unverified` |
+| `NO_HOLDER` | registry | A launch country with no active entry that names a holder |
+
+The title gate is the same one the matcher uses, scoped by source. The competition channel gets
+`is_highlight_title` plus `COMP_CHANNEL_TITLE_TERMS`, `COMP_CHANNEL_REQUIRED_TERMS` and the LaLiga tier-2
+gate. Broadcaster and team playlists are curated, so they get the blocklist only. Club channels get the full
+allowlist plus `COMP_EXCLUSION_KEYWORDS`. The youth/reserve filter applies to every source.
+
+**Region.** Up to 10 recent passing items per source go to `videos.list` through `fetch_video_details`, in
+batches of 50. For each launch country the scan counts how many are playable, using the matcher's rules: a
+missing restriction means everywhere, and `allowed: []` means nowhere. It also counts how many are embeddable
+and how many exceed `max_video_duration(comp)`. The results reflect the uploader's settings at scan time, so
+read them with `generated_at`.
+
+**Quota.**
+- The scan has its own budget (`SCAN_BUDGET_UNITS = 500`, `--budget`). It also stops before the shared daily
+  tracker (`highlights/quota-tracker.json`) would reach `INCREMENTAL_CAP`.
+- Both limits are checked **before** every call. When either is too low, the scan stops, sets `partial: true`
+  and lists everything not checked in `skipped[]`.
+- A full worst-case pass (every configured source returns a full first page, plus all the `videos.list`
+  region batches) measured **283 units** with the current config: 232 first pages and 51 batches. The 500
+  default leaves room for new sources and proposal fetches. `test_full_pass_with_full_pages_completes_under_default_budget`
+  checks the pass finishes with `partial: false` and at least 100 units to spare.
+- Units are recorded in `quota_used` and, during the run, in the shared tracker
+  (`highlights/quota-tracker.json`). The workflow does **not** commit that file, because the fetch commits own
+  it. This is safe: the fetch caps itself at 8,000 units a day (`INCREMENTAL_CAP`) against YouTube's
+  10,000 daily limit, so a once-a-week scan of at most 500 units fits in the 2,000-unit margin even though
+  the fetch never sees it.
+- Without `YOUTUBE_API_KEY`, every source is skipped (`partial: true`). Coverage and registry findings are
+  still written.
+
+**Report** (`schema_version: 1`) is written to `reports/source-health/{report_season}/latest.json`, with a
+dated copy at `{YYYY-MM-DD}.json`; the last 8 dated copies are kept. `report_season` is the club season. Each
+competition also carries its own `season`, which is the edition year for tournaments.
+
+```json
+{
+  "schema_version": 1,
+  "generated_at": "2026-11-23T06:00:12Z",
+  "report_season": 2026,
+  "launch_countries": ["US", "GB", "CA", "IE", "ES"],
+  "partial": false, "stop_reason": null,          // scan_budget | daily_quota | youtube_403
+  "quota_used": 241, "quota_budget": 500,
+  "settings": {"stale_days": 14, "recent_days": 14, "coverage_min_ratio": 0.8, …},
+  "summary": {"EMPTY": 16, "STALE": 0, …, "NO_HOLDER": 3, "proposals": 0},
+  "skipped": [{"competition": "…", "source": "…", "playlist_id": "…", "reason": "scan_budget"}],
+  "competitions": {
+    "Bundesliga": {
+      "slug": "bundesliga", "season": 2026,
+      "fixtures_finished_in_stale_window": 15,
+      "sources": [{
+        "kind": "competition_channel|broadcaster_playlist|team_playlist|team_channel",
+        "tier": 2, "label": "Bundesliga", "playlist_id": "UU…", "channel_id": "UC…",
+        "checked": true, "http_status": 200, "item_count": 50, "has_more": true,
+        "newest_upload": "2026-11-22", "recent_uploads": 31, "recent_passing": 9,
+        "flags": [], "stale_suppressed": "…", "drift_samples": [{"title": "…", "reason": "…"}],
+        "region": {"checked": 9, "not_checked": 0, "embeddable": 9, "over_max_duration": 0,
+                   "playable": {"US": 9, "GB": 9, "CA": 9, "IE": 9, "ES": 9}}
+      }],
+      "coverage": {"window_days": 14, "fixtures_known": true, "finished": 15, "awaiting": 0,
+                   "eligible": 15, "with_highlight": 14, "ratio": 0.933, "min_ratio": 0.8,
+                   "flags": [], "missing_match_ids": [565860]},
+      "region": {"US": {"checked": 40, "playable": 38, "playable_and_embeddable": 37}, …},
+      "registry_findings": [{"flag": "UNVERIFIED", "country": "US",
+                             "holders": [{"holder": "USA Sports", "role": "live"}]},
+                            {"flag": "NO_HOLDER", "country": "IE", "note": "To confirm: …"}],
+      "proposals": [{"source_id": "PL…", "holder": "…", "role": "highlights", "country": "GB",
+                     "recent_passing": 4, "samples": [{"video_id": "…", "title": "…", "published": "…"}]}]
+    }
+  }
+}
+```
 
 ## Highlights Cache
 

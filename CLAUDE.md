@@ -47,12 +47,13 @@ Common icons already in use in this project:
 - `scripts/highlights_common.py` — shared utilities for both highlight scripts
 - `scripts/fetch_highlights.py` — incremental update (runs every 4 hours via Actions)
 - `scripts/backfill_highlights.py` — full-season backfill (manual `workflow_dispatch` only)
-- `.github/workflows/` — 14 workflows; check each file's `on:` for its trigger. Main ones:
+- `rights/{season}.json` — rights registry (config, hand-edited; schema `rights/rights.schema.json`); read by `scripts/rights_registry.py` and the weekly `scripts/source_health_scan.py`, which writes `reports/source-health/{season}/` and never edits config or cache
+- `.github/workflows/` — 15 workflows; check each file's `on:` for its trigger. Main ones:
   - `fetch-highlights.yml` (scheduled main run: highlights, `sync_tournaments`, `sync_standings`, `build_home_index`, `push_events` goal/result alerts, `commit_gate`)
   - `backfill-highlights.yml` / `backfill-copa-america.yml` (manual backfills)
   - `sync-standings.yml` (league tables), `sync-teams.yml` (team lists), `sync-copa-tournament.yml` (Copa América)
   - `run-tests.yml` (pytest, `scripts/tests`), `pages.yml` (admin + legal pages on GitHub Pages)
-  - diagnostics / discovery: `audit-no-highlight-buckets.yml`, `detect-alias-gaps.yml`, `discover-playlists-readonly.yml`, `discover-season-playlists.yml`, `find-channel-candidates.yml`, `verify-playlist-owners.yml`
+  - diagnostics / discovery: `audit-no-highlight-buckets.yml`, `detect-alias-gaps.yml`, `discover-playlists-readonly.yml`, `discover-season-playlists.yml`, `find-channel-candidates.yml`, `verify-playlist-owners.yml`, `source-health-scan.yml` (weekly, read-only; commits only `reports/source-health/`)
 
 ## SEO (GitHub Pages)
 
