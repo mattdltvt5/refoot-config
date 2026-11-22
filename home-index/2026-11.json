@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-22T15:41:10Z",
+  "generated_at": "2026-11-22T15:46:52Z",
   "month": "2026-11",
   "dates": {
     "2026-11-01": [
@@ -3217,6 +3217,14 @@
                     "US"
                   ]
                 }
+              },
+              {
+                "videoId": "Q6nFh3GTRdg",
+                "region": {
+                  "blocked": [
+                    "IT"
+                  ]
+                }
               }
             ]
           },
@@ -3249,6 +3257,10 @@
                     "US"
                   ]
                 }
+              },
+              {
+                "videoId": "D3IiJ4pnJ9E",
+                "region": {}
               }
             ]
           },
@@ -3943,7 +3955,7 @@
               "tla": "M05",
               "crest": "https://crests.football-data.org/15.png"
             },
-            "homeScore": 2,
+            "homeScore": 3,
             "awayScore": 0,
             "status": "IN_PLAY",
             "utcDate": "2026-11-22T14:30:00Z"
