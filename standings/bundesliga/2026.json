@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-22T15:07:40.957443Z",
+  "generated_at": "2026-11-22T16:37:06.324745Z",
   "competition": "Bundesliga",
   "slug": "bundesliga",
   "season": 2026,
@@ -178,6 +178,25 @@
     {
       "position": 10,
       "team": {
+        "id": 16,
+        "name": "FC Augsburg",
+        "shortName": "Augsburg",
+        "tla": "FCA",
+        "crest": "https://crests.football-data.org/16.png"
+      },
+      "playedGames": 10,
+      "form": "W,L,L,D,L",
+      "won": 3,
+      "draw": 3,
+      "lost": 4,
+      "points": 12,
+      "goalsFor": 23,
+      "goalsAgainst": 21,
+      "goalDifference": 2
+    },
+    {
+      "position": 11,
+      "team": {
         "id": 2,
         "name": "TSG 1899 Hoffenheim",
         "shortName": "Hoffenheim",
@@ -195,7 +214,7 @@
       "goalDifference": -2
     },
     {
-      "position": 11,
+      "position": 12,
       "team": {
         "id": 7,
         "name": "Hamburger SV",
@@ -214,7 +233,7 @@
       "goalDifference": -10
     },
     {
-      "position": 12,
+      "position": 13,
       "team": {
         "id": 15,
         "name": "1. FSV Mainz 05",
@@ -222,18 +241,18 @@
         "tla": "M05",
         "crest": "https://crests.football-data.org/15.png"
       },
-      "playedGames": 9,
-      "form": "L,L,L,W,L",
+      "playedGames": 10,
+      "form": "L,L,L,L,W",
       "won": 3,
       "draw": 1,
-      "lost": 5,
+      "lost": 6,
       "points": 10,
-      "goalsFor": 18,
-      "goalsAgainst": 19,
-      "goalDifference": -1
+      "goalsFor": 19,
+      "goalsAgainst": 22,
+      "goalDifference": -3
     },
     {
-      "position": 13,
+      "position": 14,
       "team": {
         "id": 1,
         "name": "1. FC Köln",
@@ -252,7 +271,7 @@
       "goalDifference": -4
     },
     {
-      "position": 14,
+      "position": 15,
       "team": {
         "id": 29,
         "name": "SC Paderborn 07",
@@ -269,25 +288,6 @@
       "goalsFor": 8,
       "goalsAgainst": 15,
       "goalDifference": -7
-    },
-    {
-      "position": 15,
-      "team": {
-        "id": 16,
-        "name": "FC Augsburg",
-        "shortName": "Augsburg",
-        "tla": "FCA",
-        "crest": "https://crests.football-data.org/16.png"
-      },
-      "playedGames": 9,
-      "form": "L,L,D,L,D",
-      "won": 2,
-      "draw": 3,
-      "lost": 4,
-      "points": 9,
-      "goalsFor": 20,
-      "goalsAgainst": 20,
-      "goalDifference": 0
     },
     {
       "position": 16,

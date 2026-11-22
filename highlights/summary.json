@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-22T16:31:23Z",
+  "generated_at": "2026-11-22T16:36:21Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -3406,7 +3406,7 @@
         {
           "gameweek": "GW10",
           "stem": "gameweek-10",
-          "total": 7,
+          "total": 8,
           "covered": 3,
           "matches": [
             {
@@ -3457,6 +3457,14 @@
               "away": "VfB Stuttgart",
               "date": "2026-11-21",
               "covered": true
+            },
+            {
+              "match_id": 565864,
+              "home": "FC Augsburg",
+              "away": "1. FSV Mainz 05",
+              "date": "2026-11-22",
+              "covered": false,
+              "pending": true
             }
           ]
         }
