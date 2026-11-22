@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-22T17:37:08Z",
+  "generated_at": "2026-11-22T17:41:10Z",
   "month": "2026-11",
   "dates": {
     "2026-11-01": [
@@ -3671,7 +3671,7 @@
             },
             "homeScore": 2,
             "awayScore": 0,
-            "status": "IN_PLAY",
+            "status": "PAUSED",
             "utcDate": "2026-11-22T16:30:00Z"
           }
         ]
@@ -3798,9 +3798,9 @@
               "tla": "MAL",
               "crest": "https://crests.football-data.org/84.png"
             },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "TIMED",
+            "homeScore": 0,
+            "awayScore": 0,
+            "status": "IN_PLAY",
             "utcDate": "2026-11-22T17:30:00Z"
           },
           {
