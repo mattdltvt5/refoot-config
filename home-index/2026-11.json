@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-22T19:36:16Z",
+  "generated_at": "2026-11-22T19:56:09Z",
   "month": "2026-11",
   "dates": {
     "2026-11-01": [
@@ -3974,9 +3974,9 @@
               "tla": "INT",
               "crest": "https://crests.football-data.org/108.png"
             },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "TIMED",
+            "homeScore": 0,
+            "awayScore": 0,
+            "status": "IN_PLAY",
             "utcDate": "2026-11-22T19:45:00Z"
           }
         ]
