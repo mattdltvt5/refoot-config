@@ -4,6 +4,31 @@ Data pipeline and remote configuration for **ReFoot**, the Flutter web app (`ref
 
 ## Recent changes
 
+### Live-stream replays blocked in Spanish, French, Italian and Portuguese too (2026-11-22)
+
+The post-merge check of #69 found one replay still cached: LaLiga matchday 2's
+"🚨 DIRECTO | Real Betis - Real Sociedad ⚽💚 | VÍVELO CON NOSOTROS" (W5b-NsLYzng). It is a 4h21m live stream
+from the Betis club channel. The live-replay rule only knew the English "LIVE". The 1800 s duration limit
+applies only to new candidates, and the re-check of cached entries uses titles only.
+
+- **`LIVE_STREAM_WORDS`** (config, in `highlights_common.py`) lists the live-stream word per language:
+  `live` (en/de/nl), `directo` / `en directo` / `en vivo` (es), `en direct` (fr), `diretta` / `in diretta`
+  (it), `ao vivo` (pt). `TITLE_BLOCKLIST_PATTERNS` is built from it. Adding a language is a one-word edit.
+- **Same narrow rules as before:**
+  - A live word counts when it is next to 🔴 **or** 🚨 (either order).
+  - It also counts as the title's leading word(s).
+  - The bare single words "directo" / "diretta" only count as a leading word when a separator (`|`, `:`,
+    `-`) or the end of the title follows.
+  - The 🚨 emoji alone is not a marker: cached highlights use it ("FIRST HALF DRAMA 🚨 | ... Highlights").
+  - Ordinary uses still pass: "¡Directo a la escuadra!" (straight into the top corner), "gol directo de
+    córner", "en directo" mid-title.
+- `title_gate_guard` picks the new patterns up automatically, so the next fetch drops the cached Betis entry
+  and re-searches the match.
+
+Dry run on the committed cache (no API, no writes): **1** newly dropped entry, the Betis stream. Every other
+current-season file is unchanged. The 7 2025 entries noted under #69 are unchanged, and only a 2025 backfill
+touches them. Tests: `scripts/tests/test_replay_filter.py`.
+
 ### Rights registry + weekly source health scan (2026-11-21)
 
 Highlight rights change every season, and sometimes mid-season. Sources break without anyone noticing: 16 of
@@ -47,7 +72,8 @@ cuts ("... | Highlights | Matchday 9 – Bundesliga 2026/27") play in the US. Ch
   one-line config entry. Debug reason: `title-filter:missing-required-term`.
 - **Live-replay block (every source).** `TITLE_BLOCKLIST_PATTERNS` holds regex blocklist entries, checked
   with `TITLE_BLOCKLIST` (blocklist always wins). It rejects "LIVE" next to the 🔴 emoji (either order) and
-  a leading "LIVE" token. "live" elsewhere in a title (Liverpool, "lively", "live-stark") is not affected,
+  a leading "LIVE" token. (Extended to other languages and to 🚨 on 2026-11-22: see `LIVE_STREAM_WORDS`
+  above.) "live" elsewhere in a title (Liverpool, "lively", "live-stark") is not affected,
   and no allowlist term in the 11 languages conflicts. `title_block_reason(title)` returns the matching term
   or pattern.
 - **`MAX_VIDEO_DURATION_SECONDS = 1800`**, enforced in the tier filter next to the 55 s minimum (debug

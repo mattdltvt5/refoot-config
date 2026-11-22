@@ -962,15 +962,47 @@ TITLE_BLOCKLIST: list[str] = [
 # Checked together with TITLE_BLOCKLIST (blocklist always wins), on the raw
 # lowercase title, for every source.
 #
-# Live-stream / full-match replays: competition channels stream matches live and
-# keep the VOD ("LIVE 🔴 FC Bayern München vs. 1. FC Union Berlin | Matchday 4").
-# Matched narrowly so "live" elsewhere in a title (e.g. "Liverpool", "deliver",
-# "what a lively game") never fires: only LIVE next to the red-circle emoji, or
-# LIVE as the title's leading word.
+# Live-stream / full-match replays: channels stream matches live and keep the
+# VOD ("LIVE 🔴 FC Bayern München vs. 1. FC Union Berlin | Matchday 4",
+# "🚨 DIRECTO | Real Betis - Real Sociedad ⚽💚 | VÍVELO CON NOSOTROS").
+# LIVE_STREAM_WORDS holds the live-stream word per language (English/German/
+# Dutch "live", Spanish, French, Italian, Portuguese). Matched narrowly so the
+# words elsewhere in a title never fire ("Liverpool", "what a lively game",
+# "Serie A Enilive", "¡Directo a la escuadra!" = straight into the top corner):
+#   - next to the red-circle 🔴 or siren 🚨 emoji (either order) — the emoji
+#     alone is NOT a marker ("FIRST HALF DRAMA 🚨 | ... Highlights");
+#   - as the title's leading word(s); the bare single words "directo" /
+#     "diretta" only when a separator (| : -) or the end follows.
+# Adding a language is a one-word config change to LIVE_STREAM_WORDS.
+LIVE_STREAM_WORDS: list[str] = [
+    "live",                                   # en / de / nl
+    "en directo", "en vivo", "directo",       # es
+    "en direct",                              # fr
+    "in diretta", "diretta",                  # it
+    "ao vivo",                                # pt
+]
+# Bare single words too common in ordinary titles to block as a leading word
+# unless a separator follows.
+_LIVE_WORDS_NEED_SEPARATOR: frozenset = frozenset({"directo", "diretta"})
+
+_LIVE_ALT = "|".join(re.escape(w) for w in sorted(LIVE_STREAM_WORDS, key=len, reverse=True))
+_LIVE_LEAD_ALT = "|".join(
+    re.escape(w) for w in sorted(LIVE_STREAM_WORDS, key=len, reverse=True)
+    if w not in _LIVE_WORDS_NEED_SEPARATOR
+)
+_LIVE_SEP_ALT = "|".join(re.escape(w) for w in sorted(_LIVE_WORDS_NEED_SEPARATOR))
+_LIVE_EMOJI = "[🔴🚨]"
+_LIVE_GAP = r"[\s️:|\-–—]*"   # spaces, emoji variation selector, separators
+
 TITLE_BLOCKLIST_PATTERNS: list["re.Pattern[str]"] = [
-    re.compile(r"\blive[\s️:|\-–—]*🔴"),   # "LIVE 🔴 …", "LIVE: 🔴 …"
-    re.compile(r"🔴[\s️:|\-–—]*live\b"),   # "🔴 LIVE …", "🔴LIVE …"
-    re.compile(r"^\W*live\b"),                  # leading token: "LIVE | …", "LIVE: …"
+    # word then emoji: "LIVE 🔴 …", "DIRECTO 🔴 …"
+    re.compile(rf"\b(?:{_LIVE_ALT}){_LIVE_GAP}{_LIVE_EMOJI}"),
+    # emoji then word: "🔴 LIVE …", "🚨 DIRECTO | …", "🔴EN VIVO …"
+    re.compile(rf"{_LIVE_EMOJI}{_LIVE_GAP}(?:{_LIVE_ALT})\b"),
+    # leading word(s): "LIVE | …", "EN DIRECTO: …", "AO VIVO - …"
+    re.compile(rf"^\W*(?:{_LIVE_LEAD_ALT})\b"),
+    # leading bare "DIRECTO |" / "DIRETTA:" (separator or end required)
+    re.compile(rf"^\W*(?:{_LIVE_SEP_ALT})\s*(?:[|:\-–—]|$)"),
 ]
 
 
