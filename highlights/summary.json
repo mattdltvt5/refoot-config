@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-22T00:01:48Z",
+  "generated_at": "2026-11-22T00:06:40Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -1780,8 +1780,8 @@
         {
           "gameweek": "GW13",
           "stem": "gameweek-13",
-          "total": 4,
-          "covered": 4,
+          "total": 5,
+          "covered": 5,
           "matches": [
             {
               "match_id": 564748,
@@ -1808,6 +1808,13 @@
               "match_id": 564756,
               "home": "Sevilla FC",
               "away": "Real Betis Balompié",
+              "date": "2026-11-21",
+              "covered": true
+            },
+            {
+              "match_id": 564754,
+              "home": "Real Madrid CF",
+              "away": "RC Celta de Vigo",
               "date": "2026-11-21",
               "covered": true
             }
@@ -3362,7 +3369,7 @@
           "gameweek": "GW10",
           "stem": "gameweek-10",
           "total": 7,
-          "covered": 7,
+          "covered": 3,
           "matches": [
             {
               "match_id": 565859,
@@ -3376,14 +3383,16 @@
               "home": "Bayer 04 Leverkusen",
               "away": "SC Paderborn 07",
               "date": "2026-11-21",
-              "covered": true
+              "covered": false,
+              "pending": true
             },
             {
               "match_id": 565860,
               "home": "SV 07 Elversberg",
               "away": "SC Freiburg",
               "date": "2026-11-21",
-              "covered": true
+              "covered": false,
+              "pending": true
             },
             {
               "match_id": 565862,
@@ -3397,14 +3406,16 @@
               "home": "1. FC Union Berlin",
               "away": "RB Leipzig",
               "date": "2026-11-21",
-              "covered": true
+              "covered": false,
+              "pending": true
             },
             {
               "match_id": 565865,
               "home": "Eintracht Frankfurt",
               "away": "TSG 1899 Hoffenheim",
               "date": "2026-11-21",
-              "covered": true
+              "covered": false,
+              "pending": true
             },
             {
               "match_id": 565861,
@@ -4134,8 +4145,8 @@
         {
           "gameweek": "GW11",
           "stem": "gameweek-11",
-          "total": 2,
-          "covered": 2,
+          "total": 6,
+          "covered": 6,
           "matches": [
             {
               "match_id": 559622,
@@ -4148,6 +4159,34 @@
               "match_id": 559628,
               "home": "OGC Nice",
               "away": "Paris Saint-Germain FC",
+              "date": "2026-11-21",
+              "covered": true
+            },
+            {
+              "match_id": 559621,
+              "home": "AS Monaco FC",
+              "away": "AJ Auxerre",
+              "date": "2026-11-21",
+              "covered": true
+            },
+            {
+              "match_id": 559623,
+              "home": "Racing Club de Lens",
+              "away": "Toulouse FC",
+              "date": "2026-11-21",
+              "covered": true
+            },
+            {
+              "match_id": 559624,
+              "home": "Lille OSC",
+              "away": "Olympique Lyonnais",
+              "date": "2026-11-21",
+              "covered": true
+            },
+            {
+              "match_id": 559627,
+              "home": "RC Strasbourg Alsace",
+              "away": "Stade Brestois 29",
               "date": "2026-11-21",
               "covered": true
             }
