@@ -74,6 +74,7 @@ from fixture_providers import (
 from playlist_discovery import apply_discovered_overrides
 from video_regions import fill_missing_regions
 from highlight_alternatives import find_alternatives
+from country_coverage import write_report as write_country_coverage
 import build_home_index
 
 log = logging.getLogger(__name__)
@@ -566,6 +567,12 @@ def main() -> None:
         },
     )
     generate_summary()
+    # Per-country playable share (reports/country-coverage.json) for the admin's
+    # Countries tab. Local files only; written only when the numbers change.
+    try:
+        write_country_coverage()
+    except Exception as e:  # never let a derived report block the run
+        log.warning(f"country coverage report failed (non-fatal): {e}")
 
 
 if __name__ == "__main__":

@@ -788,6 +788,24 @@
         .cand-rejected-badge { background: var(--red); color: var(--white); font-weight: 700; font-size: 10px;
             padding: 2px 8px; border-radius: var(--radius-sm); text-transform: uppercase; letter-spacing: .5px; }
         .cand-team-actions { gap: var(--space-2); }
+
+        /* ── Countries tab ───────────────────────────────────────── */
+        .ctry-wrap { overflow-x: auto; }
+        .ctry-table { width: 100%; border-collapse: collapse; font-size: 12px; }
+        .ctry-table th, .ctry-table td { padding: 6px var(--space-2); border-bottom: 1px solid var(--border); text-align: center; white-space: nowrap; }
+        .ctry-table th { color: var(--muted); font-weight: 600; font-size: 11px; text-transform: uppercase; letter-spacing: .4px; }
+        .ctry-table td.ctry-name, .ctry-table th.ctry-name { text-align: left; }
+        .ctry-table tr.ctry-live td.ctry-name { font-weight: 700; }
+        .ctry-pct { font-variant-numeric: tabular-nums; border-radius: var(--radius-sm); padding: 2px 6px; }
+        .ctry-pct.good { color: var(--green); }
+        .ctry-pct.mid  { color: #E65100; }
+        .ctry-pct.bad  { color: var(--red); }
+        .ctry-status { font: inherit; font-size: 12px; padding: 2px 4px; border: 1px solid var(--border); border-radius: var(--radius-sm); background: var(--white); }
+        .ctry-status.changed { border-color: var(--blue); }
+        .ctry-reg { color: var(--muted); }
+        .ctry-reg .fi-br-check { color: var(--green); }
+        .ctry-foot { display: flex; align-items: center; gap: var(--space-3); padding: var(--space-3) var(--space-1); }
+        .ctry-legend { color: var(--muted); font-size: 12px; line-height: 1.5; padding: 0 var(--space-1) var(--space-2); }
         .cand-flag-note { color: var(--muted); font-size: 12px; padding: var(--space-1) var(--space-1) 10px; line-height: 1.5; }
 
         /* ── Auth gate (passphrase unlock) ─────────────────────── */
@@ -1082,6 +1100,7 @@
     <button class="tab active" id="tab-coverage"   role="tab" aria-selected="true"  aria-controls="panel-coverage"   data-tab="coverage"><i class="fi-br-chart-pie-alt tab-ico" aria-hidden="true"></i><span class="tab-label">Coverage</span></button>
     <button class="tab"        id="tab-candidates" role="tab" aria-selected="false" aria-controls="panel-candidates" data-tab="candidates"><i class="fi-br-list-check tab-ico" aria-hidden="true"></i><span class="tab-label">Candidates</span></button>
     <button class="tab"        id="tab-aliasgaps"  role="tab" aria-selected="false" aria-controls="panel-aliasgaps"  data-tab="aliasgaps"><i class="fi-br-link tab-ico" aria-hidden="true"></i><span class="tab-label">Alias</span></button>
+    <button class="tab"        id="tab-countries"  role="tab" aria-selected="false" aria-controls="panel-countries"  data-tab="countries"><i class="fi-br-globe tab-ico" aria-hidden="true"></i><span class="tab-label">Countries</span></button>
     <button class="tab"        id="tab-channels"   role="tab" aria-selected="false" aria-controls="panel-channels"   data-tab="channels"><i class="fi-br-tv-music tab-ico" aria-hidden="true"></i><span class="tab-label">Channels</span></button>
 </nav>
 
@@ -1162,6 +1181,31 @@
         </div>
     </div>
     </div><!-- /panel-aliasgaps -->
+
+    <!-- Countries: where highlights play, and which countries the app offers -->
+    <div class="tab-panel" id="panel-countries" role="tabpanel" aria-labelledby="tab-countries">
+    <div id="countries-section">
+        <div class="cand-head">
+            <span class="cand-head-label"><i class="fi-br-globe"></i> Countries</span>
+            <span class="cand-head-meta" id="countries-meta"></span>
+            <button class="cand-refresh" id="countries-refresh-btn" title="Reload country coverage"><i class="fi-br-refresh"></i></button>
+        </div>
+        <div class="ctry-legend">
+            Share of each competition's latest-season matches with at least one highlight that plays in
+            that country (from <code>reports/country-coverage.json</code>, rebuilt by every fetch run).
+            <strong>Live</strong> countries are offered in the app's Highlights country list;
+            <strong>Testing</strong> ones are worked on but not offered; <strong>Hidden</strong> are measured only.
+            Registry = entries in <code>rights/&lt;season&gt;.json</code> (approved / total).
+        </div>
+        <div class="cand-body ctry-wrap" id="countries-body">
+            <div class="cand-empty">Loading country coverage…</div>
+        </div>
+        <div class="ctry-foot">
+            <button class="cand-approve-btn" id="countries-save-btn" disabled>Save statuses</button>
+            <span class="cand-head-meta" id="countries-dirty"></span>
+        </div>
+    </div>
+    </div><!-- /panel-countries -->
 
     <!-- Channels / competitions editor -->
     <div class="tab-panel" id="panel-channels" role="tabpanel" aria-labelledby="tab-channels">
@@ -2049,6 +2093,126 @@ async function approveAlias(team, alias, card, btn) {
         toast('Approve failed: ' + err.message, 'error');
         card.querySelectorAll('.cand-approve-btn, .cand-reject-btn').forEach(b => b.disabled = false);
         btn.textContent = 'Approve alias';
+    }
+}
+
+// ── Countries tab ─────────────────────────────────────────
+const COUNTRIES_FILE        = 'countries.json';
+const COUNTRY_REPORT_FILE   = 'reports/country-coverage.json';
+const COUNTRY_STATUSES      = ['live', 'testing', 'hidden'];
+let countriesDoc = null;        // countries.json as loaded
+let countryEdits = {};          // code -> new status (unsaved)
+let countryReport = null;       // reports/country-coverage.json
+let countryRights = [];         // rights/<season>.json entries
+
+function pctClass(p) { return p >= 90 ? 'good' : p >= 60 ? 'mid' : 'bad'; }
+
+async function loadCountries() {
+    const body = document.getElementById('countries-body');
+    if (!body) return;
+    try {
+        const bust = '?_=' + Date.now();
+        const base = 'https://raw.githubusercontent.com/' + GH_OWNER + '/' + GH_REPO + '/main/';
+        const season = new Date().getUTCMonth() >= 7 ? new Date().getUTCFullYear() : new Date().getUTCFullYear() - 1;
+        const [cRes, rRes, gRes] = await Promise.all([
+            fetch(base + COUNTRIES_FILE + bust),
+            fetch(base + COUNTRY_REPORT_FILE + bust),
+            fetch(base + 'rights/' + season + '.json' + bust),
+        ]);
+        countriesDoc  = cRes.ok ? await cRes.json() : null;
+        countryReport = rRes.ok ? await rRes.json() : null;
+        countryRights = gRes.ok ? ((await gRes.json()).entries || []) : [];
+        countryEdits = {};
+        renderCountries();
+    } catch (e) {
+        body.innerHTML = '<div class="cand-empty">Could not load country coverage (' + (e.message || e) + ').</div>';
+    }
+}
+
+function renderCountries() {
+    const body = document.getElementById('countries-body');
+    const meta = document.getElementById('countries-meta');
+    body.innerHTML = '';
+    const list = (countriesDoc && countriesDoc.countries) || [];
+    if (!list.length) { body.appendChild(candEmpty('No countries.json yet.')); return; }
+    const comps = (countryReport && countryReport.competitions) || {};
+    const slugs = Object.keys(comps);
+    if (meta) meta.textContent = countryReport && countryReport.generated_at
+        ? 'updated ' + countryReport.generated_at.replace('T', ' ').slice(0, 16) + ' UTC' : 'no report yet';
+
+    const table = document.createElement('table');
+    table.className = 'ctry-table';
+    const head = document.createElement('tr');
+    const th = (txt, cls) => { const c = document.createElement('th'); c.textContent = txt; if (cls) c.className = cls; head.appendChild(c); };
+    th('Country', 'ctry-name'); th('Status'); th('All');
+    slugs.forEach(s => th(comps[s].competition + ' ' + comps[s].season));
+    th('Registry');
+    table.appendChild(head);
+
+    const order = { live: 0, testing: 1, hidden: 2 };
+    [...list].sort((a, b) => (order[a.status] - order[b.status]) || a.name.localeCompare(b.name)).forEach(c => {
+        const tr = document.createElement('tr');
+        const status = countryEdits[c.code] || c.status;
+        if (status === 'live') tr.className = 'ctry-live';
+        const td = (node, cls) => { const d = document.createElement('td'); if (cls) d.className = cls; if (typeof node === 'string') d.textContent = node; else d.appendChild(node); tr.appendChild(d); return d; };
+        td(c.name + ' (' + c.code + ')', 'ctry-name');
+
+        const sel = document.createElement('select');
+        sel.className = 'ctry-status' + (countryEdits[c.code] ? ' changed' : '');
+        sel.setAttribute('aria-label', 'Status for ' + c.name);
+        COUNTRY_STATUSES.forEach(s => { const o = document.createElement('option'); o.value = s; o.textContent = s[0].toUpperCase() + s.slice(1); if (s === status) o.selected = true; sel.appendChild(o); });
+        sel.addEventListener('change', () => {
+            if (sel.value === c.status) delete countryEdits[c.code]; else countryEdits[c.code] = sel.value;
+            renderCountries();
+        });
+        td(sel);
+
+        const pct = (n, d) => { const s = document.createElement('span'); if (!d) { s.textContent = '-'; return s; } const p = Math.round(100 * n / d); s.className = 'ctry-pct ' + pctClass(p); s.textContent = p + '%'; s.title = n + ' / ' + d + ' matches'; return s; };
+        td(pct(countryReport ? (countryReport.playable || {})[c.code] || 0 : 0, countryReport ? countryReport.matches : 0));
+        slugs.forEach(s => td(pct((comps[s].playable || {})[c.code] || 0, comps[s].matches)));
+
+        const reg = countryRights.filter(e => e.country === c.code);
+        const ok = reg.filter(e => e.status === 'approved').length;
+        const r = document.createElement('span');
+        r.className = 'ctry-reg';
+        if (!reg.length) r.textContent = 'none';
+        else setIconLabel(r, ok + ' / ' + reg.length, ok ? 'fi-br-check' : null);
+        r.title = reg.map(e => e.competition + ': ' + (e.holder || 'to confirm') + ' (' + e.status + ')').join('\n');
+        td(r, 'ctry-reg');
+        table.appendChild(tr);
+    });
+    body.appendChild(table);
+
+    const n = Object.keys(countryEdits).length;
+    document.getElementById('countries-save-btn').disabled = n === 0;
+    document.getElementById('countries-dirty').textContent = n ? n + ' unsaved change' + (n > 1 ? 's' : '') : '';
+}
+
+async function saveCountryStatuses(btn) {
+    if (!ghPat) { toast('Enter your GitHub token to save', 'error'); openDrawer('credentials'); return; }
+    const edits = { ...countryEdits };
+    const summary = Object.entries(edits).map(([c, s]) => c + ' → ' + s).join(', ');
+    btn.disabled = true; btn.textContent = 'Saving…';
+    const doWrite = async () => {
+        const { json, sha } = await ghReadJson(COUNTRIES_FILE, null);
+        if (!json || !Array.isArray(json.countries)) throw new Error('countries.json missing or malformed');
+        json.countries.forEach(c => { if (edits[c.code]) c.status = edits[c.code]; });
+        await ghWriteJson(COUNTRIES_FILE, json, 'Countries: ' + summary, sha);
+        return json;
+    };
+    try {
+        let saved;
+        try { saved = await doWrite(); }
+        catch (e) { if (/sha|does not match|409|422/i.test(e.message || '')) { saved = await doWrite(); } else throw e; }
+        countriesDoc = saved; countryEdits = {};
+        renderCountries();
+        toast('Saved: ' + summary, 'success');
+        dbg('Country statuses saved (' + summary + ')', 'ok');
+    } catch (err) {
+        toast('Save failed: ' + err.message, 'error');
+    } finally {
+        btn.textContent = 'Save statuses';
+        btn.disabled = Object.keys(countryEdits).length === 0;
     }
 }
 
@@ -3044,6 +3208,7 @@ async function loadAll() {
         loadHighlightsCoverage(); // async - does not block the main UI
         loadCandidates();         // async - channel candidates review panel
         loadAliasGaps();          // async - alias-gap proposals review panel
+        loadCountries();          // async - country coverage + statuses
         loadFetchLog();           // async - does not block the main UI
         renderNextFetch();        // sync - computed from cron schedule + current time
         setInterval(renderNextFetch, 60000); // keep countdown live
@@ -3225,6 +3390,8 @@ document.getElementById('reload-btn').addEventListener('click', e => withSpin(e.
 document.getElementById('wf-refresh-btn').addEventListener('click', e => withSpin(e.currentTarget, loadWorkflowStatus));
 document.getElementById('cand-refresh-btn').addEventListener('click', e => withSpin(e.currentTarget, loadCandidates));
 document.getElementById('aliasgaps-refresh-btn').addEventListener('click', e => withSpin(e.currentTarget, loadAliasGaps));
+document.getElementById('countries-refresh-btn').addEventListener('click', e => withSpin(e.currentTarget, loadCountries));
+document.getElementById('countries-save-btn').addEventListener('click', e => saveCountryStatuses(e.currentTarget));
 document.querySelectorAll('.cand-tab').forEach(btn =>
     btn.addEventListener('click', () => setCandTab(btn.dataset.tab)));
 document.getElementById('save-btn').addEventListener('click', saveData);
