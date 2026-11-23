@@ -2,7 +2,7 @@
   "competition": "Champions League",
   "gameweek": "MD1",
   "stem": "matchday-1",
-  "generated_at": "2026-11-23T19:06:14Z",
+  "generated_at": "2026-11-23T19:11:26Z",
   "matches": [
     {
       "match_id": 575323,
@@ -418,11 +418,30 @@
               "JE"
             ]
           }
+        },
+        {
+          "video_id": "2tEEEu4xAMo",
+          "title": "Paris Saint-Germain vs Slovan Bratislava | UEFA Champions League Highlights | Matchday 1 | 2026-2027",
+          "published_at": "2026-09-09",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "NZ"
+            ]
+          }
         }
       ],
       "alternatives": {
-        "checks": 1,
-        "last": "2026-11-23T10:06:11Z"
+        "checks": 2,
+        "last": "2026-11-23T19:11:19Z",
+        "sources": "48af5e53cc",
+        "covered": [
+          "US",
+          "GB",
+          "CA",
+          "IE"
+        ]
       }
     },
     {
