@@ -2,7 +2,7 @@
   "competition": "Champions League",
   "gameweek": "MD1",
   "stem": "matchday-1",
-  "generated_at": "2026-11-23T19:16:14Z",
+  "generated_at": "2026-11-23T19:21:25Z",
   "matches": [
     {
       "match_id": 575323,
@@ -542,11 +542,26 @@
               "JE"
             ]
           }
+        },
+        {
+          "video_id": "Sgu7UdPWsO4",
+          "title": "Highlights | UEFA Champions League: Sporting CP 3-1 Galatasaray SK",
+          "published_at": "2026-09-11",
+          "tier_used": 1,
+          "region": {}
         }
       ],
       "alternatives": {
-        "checks": 1,
-        "last": "2026-11-23T10:11:09Z"
+        "checks": 2,
+        "last": "2026-11-23T19:21:19Z",
+        "sources": "48af5e53cc",
+        "covered": [
+          "US",
+          "GB",
+          "CA",
+          "IE",
+          "ES"
+        ]
       }
     },
     {
