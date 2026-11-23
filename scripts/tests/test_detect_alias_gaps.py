@@ -80,3 +80,44 @@ def test_unique_alias_accepts_unique_word():
 def test_unique_alias_rejects_shared_word():
     # 'manchester' belongs to City + United → not safe as a bare alias.
     assert not unique_alias("manchester", "Manchester United FC")
+
+
+# ── admin rejections (alias-rejections.json) ─────────────────────────────────
+
+import detect_alias_gaps as dag  # noqa: E402
+
+def test_load_rejections_normalises_and_ignores_non_lists(tmp_path):
+    p = tmp_path / "alias-rejections.json"
+    p.write_text('{"_comment": "x", "1. FC Union Berlin": ["1. FC", " 1. fc "], '
+                 '"Eintracht Frankfurt": ["eintracht"]}', encoding="utf-8")
+    rej = dag.load_rejections(p)
+    assert rej == {"1. FC Union Berlin": {"1. fc"}, "Eintracht Frankfurt": {"eintracht"}}
+    assert dag.is_rejected(rej, "1. FC Union Berlin", "1. Fc")
+    assert not dag.is_rejected(rej, "1. FC Union Berlin", "union")
+    assert not dag.is_rejected(rej, "FC Augsburg", "1. fc")
+
+
+def test_load_rejections_missing_or_broken_is_empty(tmp_path):
+    assert dag.load_rejections(tmp_path / "nope.json") == {}
+    bad = tmp_path / "bad.json"
+    bad.write_text("{not json", encoding="utf-8")
+    assert dag.load_rejections(bad) == {}
+
+
+def test_repo_rejections_file_is_valid_and_main_uses_it():
+    import json
+    from pathlib import Path
+    raw = json.loads((Path(dag.__file__).resolve().parents[1] / "alias-rejections.json").read_text(encoding="utf-8"))
+    assert "_comment" in raw
+    assert all(isinstance(v, list) for k, v in raw.items() if k != "_comment")
+    src = Path(dag.__file__).read_text(encoding="utf-8")
+    assert "rejections = load_rejections()" in src
+    assert "is_rejected(rejections, fd_name, alias)" in src
+
+
+def test_admin_has_reject_wired_to_the_rejections_file():
+    from pathlib import Path
+    admin = (Path(dag.__file__).resolve().parents[1] / "admin.html").read_text(encoding="utf-8")
+    assert "const ALIAS_REJECT_FILE   = 'alias-rejections.json';" in admin
+    assert "rejectAlias(team, row.alias, card, rej)" in admin
+    assert "if (aliasRejected(team, row.alias)) return;" in admin

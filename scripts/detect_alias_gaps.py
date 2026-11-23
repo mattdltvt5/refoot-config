@@ -69,6 +69,23 @@ from season_utils import current_season  # noqa: E402
 SEASON = int(_SEASON_ENV) if _SEASON_ENV else current_season()
 
 CANDIDATES_PATH = REPO / "highlights" / "alias-candidates.json"
+REJECTIONS_PATH = REPO / "alias-rejections.json"
+
+
+def load_rejections(path=REJECTIONS_PATH) -> dict[str, set[str]]:
+    """{FD team name: {rejected short forms, lower-case}} from the admin's
+    alias-rejections.json; {} when missing or unreadable. Non-list values
+    (the _comment) are ignored."""
+    try:
+        raw = json.loads(Path(path).read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        return {}
+    return {team: {str(a).strip().lower() for a in vals}
+            for team, vals in (raw or {}).items() if isinstance(vals, list)}
+
+
+def is_rejected(rejections: dict[str, set[str]], team: str, alias: str) -> bool:
+    return str(alias).strip().lower() in rejections.get(team, set())
 
 
 class ReadOnlyQuota(QuotaTracker):
@@ -192,6 +209,7 @@ def main():
         quota = ReadOnlyQuota()
         gw_cache: dict = {}
         config = apply_discovered_overrides(load_sources())
+        rejections = load_rejections()  # admin-rejected (team, alias) pairs: never re-proposed
         agg: dict = {}         # team -> {alias -> set(video "id | title")}
         seen_flag = set()
         try:
@@ -225,6 +243,8 @@ def main():
                     cur = set(team_tokens(fd_name, fix[f"{side}_short"], fix[f"{side}_tla"]))
                     alias, is_multi = propose_alias(fd_name, info["title"], cur)
                     ev = f"{vid} | {info['title']}"
+                    if alias is not None and is_rejected(rejections, fd_name, alias):
+                        continue  # a person rejected this in the admin
                     if alias is None:
                         # The missing team's name doesn't appear in the title at
                         # all → this video is about a different opponent, not an

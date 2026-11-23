@@ -779,6 +779,15 @@
             font-size: 12px; padding: 6px 14px; border-radius: var(--radius-md); white-space: nowrap; }
         .cand-approve-btn:hover { filter: brightness(0.95); }
         .cand-approve-btn:disabled { opacity: .5; cursor: not-allowed; }
+        /* Reject (alias proposals): outline in the danger colour, beside Approve. */
+        .cand-reject-btn { background: none; color: var(--red); border: 1px solid var(--red); cursor: pointer;
+            font-weight: 600; font-size: 12px; padding: 5px 13px; border-radius: var(--radius-md); white-space: nowrap; }
+        .cand-reject-btn:hover { background: var(--danger-soft); }
+        .cand-reject-btn:disabled { opacity: .5; cursor: not-allowed; }
+        .cand-card.rejected { opacity: .6; }
+        .cand-rejected-badge { background: var(--red); color: var(--white); font-weight: 700; font-size: 10px;
+            padding: 2px 8px; border-radius: var(--radius-sm); text-transform: uppercase; letter-spacing: .5px; }
+        .cand-team-actions { gap: var(--space-2); }
         .cand-flag-note { color: var(--muted); font-size: 12px; padding: var(--space-1) var(--space-1) 10px; line-height: 1.5; }
 
         /* ── Auth gate (passphrase unlock) ─────────────────────── */
@@ -1838,6 +1847,8 @@ async function approveCandidate(comp, team, cand, card, btn) {
 // next fetch. Nothing is auto-adopted; ambiguous flags are shown read-only.
 const ALIAS_CAND_FILE     = 'highlights/alias-candidates.json';
 const ALIAS_OVERRIDE_FILE = 'team-aliases.json';
+const ALIAS_REJECT_FILE   = 'alias-rejections.json';
+let aliasRejections = {};  // FD team name -> [rejected tokens]
 let aliasGapsData  = null;
 let aliasOverrides = {};   // FD team name -> [approved tokens]
 
@@ -1863,6 +1874,9 @@ function aliasNorm(s) { return String(s || '').trim().toLowerCase(); }
 function aliasApproved(team, alias) {
     return (aliasOverrides[team] || []).some(t => aliasNorm(t) === aliasNorm(alias));
 }
+function aliasRejected(team, alias) {
+    return (aliasRejections[team] || []).some(t => aliasNorm(t) === aliasNorm(alias));
+}
 
 async function loadAliasGaps() {
     const body = document.getElementById('aliasgaps-body');
@@ -1870,16 +1884,22 @@ async function loadAliasGaps() {
     try {
         const bust = '?_=' + Date.now();
         const base = 'https://raw.githubusercontent.com/' + GH_OWNER + '/' + GH_REPO + '/main/';
-        const [candRes, ovrRes] = await Promise.all([
+        const [candRes, ovrRes, rejRes] = await Promise.all([
             fetch(base + ALIAS_CAND_FILE + bust),
             fetch(base + ALIAS_OVERRIDE_FILE + bust),
+            fetch(base + ALIAS_REJECT_FILE + bust),
         ]);
         aliasGapsData = candRes.ok ? await candRes.json() : null;
-        aliasOverrides = {};
-        if (ovrRes.ok) {
-            const raw = await ovrRes.json();
-            Object.keys(raw || {}).forEach(k => { if (Array.isArray(raw[k])) aliasOverrides[k] = raw[k]; });
-        }
+        const lists = async res => {
+            const out = {};
+            if (res.ok) {
+                const raw = await res.json();
+                Object.keys(raw || {}).forEach(k => { if (Array.isArray(raw[k])) out[k] = raw[k]; });
+            }
+            return out;
+        };
+        aliasOverrides = await lists(ovrRes);
+        aliasRejections = await lists(rejRes);
         renderAliasGaps(aliasGapsData);
     } catch (e) {
         body.innerHTML = '<div class="cand-empty">Could not load alias proposals (' + (e.message || e) + ').</div>';
@@ -1895,10 +1915,15 @@ function renderAliasGaps(report) {
     const flags = (report && report.flags) || [];
     if (meta) meta.textContent = (report && report.generated_at) ? 'generated ' + report.generated_at.split('T')[0] : '';
 
+    // Proposals rejected earlier are hidden (the detector stops proposing them on
+    // its next run; until then the file can still list them).
     let n = 0;
     Object.keys(cands).sort().forEach(comp =>
         Object.keys(cands[comp]).sort().forEach(team =>
-            (cands[comp][team] || []).forEach(row => { n++; body.appendChild(makeAliasCard(comp, team, row)); })));
+            (cands[comp][team] || []).forEach(row => {
+                if (aliasRejected(team, row.alias)) return;
+                n++; body.appendChild(makeAliasCard(comp, team, row));
+            })));
 
     if (n === 0 && flags.length === 0) {
         body.appendChild(candEmpty((report && report.note)
@@ -1956,14 +1981,52 @@ function makeAliasCard(comp, team, row) {
         btn.textContent = 'Approve alias';
         btn.addEventListener('click', () => approveAlias(team, row.alias, card, btn));
         actions.appendChild(btn);
+        const rej = document.createElement('button');
+        rej.className = 'cand-reject-btn';
+        rej.textContent = 'Reject';
+        rej.title = 'Wrong or too broad - never propose this again';
+        rej.addEventListener('click', () => rejectAlias(team, row.alias, card, rej));
+        actions.appendChild(rej);
     }
     card.appendChild(actions);
     return card;
 }
 
+// Records a rejected proposal in alias-rejections.json (same commit path as
+// approveAlias). The detector never proposes it again; the card is marked now.
+async function rejectAlias(team, alias, card, btn) {
+    if (!ghPat) { toast('Enter your GitHub token to reject', 'error'); openDrawer('credentials'); return; }
+    card.querySelectorAll('.cand-approve-btn, .cand-reject-btn').forEach(b => b.disabled = true);
+    btn.textContent = 'Rejecting…';
+    const commitMsg = 'Reject alias: ' + team + ' → "' + alias + '"';
+    const doWrite = async () => {
+        const { json, sha } = await ghReadJson(ALIAS_REJECT_FILE, {});
+        const obj = (json && typeof json === 'object') ? json : {};
+        const list = Array.isArray(obj[team]) ? obj[team] : [];
+        if (!list.some(t => aliasNorm(t) === aliasNorm(alias))) list.push(alias);
+        obj[team] = list;
+        await ghWriteJson(ALIAS_REJECT_FILE, obj, commitMsg, sha);
+    };
+    try {
+        try { await doWrite(); }
+        catch (e) { if (/sha|does not match|409|422/i.test(e.message || '')) { await doWrite(); } else throw e; }
+        (aliasRejections[team] = aliasRejections[team] || []).push(alias);
+        card.classList.add('rejected');
+        const actions = card.querySelector('.cand-team-actions');
+        if (actions) { actions.innerHTML = ''; const b = document.createElement('span'); b.className = 'cand-rejected-badge'; setIconLabel(b, 'Rejected', 'fi-br-cross-small'); actions.appendChild(b); }
+        toast('Rejected alias for ' + team + ' → “' + alias + '”', 'success');
+        dbg('Rejected alias ' + team + ' → "' + alias + '" (committed to alias-rejections.json)', 'ok');
+    } catch (err) {
+        toast('Reject failed: ' + err.message, 'error');
+        card.querySelectorAll('.cand-approve-btn, .cand-reject-btn').forEach(b => b.disabled = false);
+        btn.textContent = 'Reject';
+    }
+}
+
 async function approveAlias(team, alias, card, btn) {
     if (!ghPat) { toast('Enter your GitHub token to approve', 'error'); openDrawer('credentials'); return; }
-    btn.disabled = true; btn.textContent = 'Approving…';
+    card.querySelectorAll('.cand-approve-btn, .cand-reject-btn').forEach(b => b.disabled = true);
+    btn.textContent = 'Approving…';
     const commitMsg = 'Approve alias: ' + team + ' → "' + alias + '"';
     const doWrite = async () => {
         const { json, sha } = await ghReadJson(ALIAS_OVERRIDE_FILE, {});
@@ -1984,7 +2047,8 @@ async function approveAlias(team, alias, card, btn) {
         dbg('Approved alias ' + team + ' → "' + alias + '" (committed to team-aliases.json)', 'ok');
     } catch (err) {
         toast('Approve failed: ' + err.message, 'error');
-        btn.disabled = false; btn.textContent = 'Approve alias';
+        card.querySelectorAll('.cand-approve-btn, .cand-reject-btn').forEach(b => b.disabled = false);
+        btn.textContent = 'Approve alias';
     }
 }
 
