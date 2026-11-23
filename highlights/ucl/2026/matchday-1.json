@@ -2,7 +2,7 @@
   "competition": "Champions League",
   "gameweek": "MD1",
   "stem": "matchday-1",
-  "generated_at": "2026-11-23T18:51:17Z",
+  "generated_at": "2026-11-23T18:56:17Z",
   "matches": [
     {
       "match_id": 575323,
@@ -710,11 +710,30 @@
               "JE"
             ]
           }
+        },
+        {
+          "video_id": "MH5NBZYZmdE",
+          "title": "Slavia Prague vs Lens | UEFA Champions League Highlights | Matchday 1 | 2026-2027",
+          "published_at": "2026-09-10",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "NZ"
+            ]
+          }
         }
       ],
       "alternatives": {
-        "checks": 1,
-        "last": "2026-11-23T10:01:21Z"
+        "checks": 2,
+        "last": "2026-11-23T18:56:08Z",
+        "sources": "48af5e53cc",
+        "covered": [
+          "US",
+          "GB",
+          "CA",
+          "IE"
+        ]
       }
     }
   ]
