@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-23T12:21:38Z",
+  "generated_at": "2026-11-23T12:46:38Z",
   "month": "2026-03",
   "dates": {
     "2026-03-01": [
@@ -3108,6 +3108,10 @@
                     "VI"
                   ]
                 }
+              },
+              {
+                "videoId": "5bmst4UBQHk",
+                "region": {}
               }
             ]
           },
@@ -3434,6 +3438,10 @@
                     "US"
                   ]
                 }
+              },
+              {
+                "videoId": "7ip7ttQKrJM",
+                "region": {}
               }
             ]
           },
@@ -3630,6 +3638,14 @@
                 "region": {
                   "allowed": [
                     "US"
+                  ]
+                }
+              },
+              {
+                "videoId": "MSx6UmQozqw",
+                "region": {
+                  "blocked": [
+                    "IT"
                   ]
                 }
               }
