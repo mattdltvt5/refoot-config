@@ -2,7 +2,7 @@
   "competition": "Champions League",
   "gameweek": "MD2",
   "stem": "matchday-2",
-  "generated_at": "2026-11-23T18:36:18Z",
+  "generated_at": "2026-11-23T18:41:14Z",
   "matches": [
     {
       "match_id": 575341,
@@ -480,11 +480,38 @@
               "JE"
             ]
           }
+        },
+        {
+          "video_id": "xKHd-iJs6PU",
+          "title": "RB Leipzig vs PSV Eindhoven | UEFA Champions League Highlights | Matchday 2 | 2026-2027",
+          "published_at": "2026-10-14",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "NZ"
+            ]
+          }
+        },
+        {
+          "video_id": "35lpkFOYQ_w",
+          "title": "Gruda magic seals the deal! | RB Leipzig - PSV Eindhoven | Highlights | UEFA Champions League",
+          "published_at": "2026-10-14",
+          "tier_used": 1,
+          "region": {}
         }
       ],
       "alternatives": {
-        "checks": 1,
-        "last": "2026-11-23T09:31:15Z"
+        "checks": 2,
+        "last": "2026-11-23T18:41:11Z",
+        "sources": "48af5e53cc",
+        "covered": [
+          "US",
+          "GB",
+          "CA",
+          "IE",
+          "ES"
+        ]
       }
     },
     {
