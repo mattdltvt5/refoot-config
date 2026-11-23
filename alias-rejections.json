@@ -2,5 +2,8 @@
   "_comment": "Admin-rejected title-alias proposals. Key = exact football-data team name; value = short forms a person rejected (wrong or too broad, e.g. '1. fc' matches every '1. FC' club). Managed by the admin 'Alias Gaps' panel's Reject button. detect_alias_gaps.py never proposes these again; the admin hides them. Keys whose value is not a list (like this _comment) are ignored.",
   "1. FC Union Berlin": [
     "1. fc"
+  ],
+  "Eintracht Frankfurt": [
+    "eintracht"
   ]
 }
