@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-23T21:56:14Z",
+  "generated_at": "2026-11-23T22:01:27Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -2730,7 +2730,7 @@
           "gameweek": "GW12",
           "stem": "gameweek-12",
           "total": 10,
-          "covered": 9,
+          "covered": 10,
           "matches": [
             {
               "match_id": 558528,
@@ -2800,8 +2800,7 @@
               "home": "AC Monza",
               "away": "ACF Fiorentina",
               "date": "2026-11-23",
-              "covered": false,
-              "pending": true
+              "covered": true
             }
           ]
         }
