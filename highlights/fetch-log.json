@@ -1,5 +1,30 @@
 {
-  "last_run": "2026-11-23T10:26:13.742875+00:00",
-  "files_updated": 4,
-  "additions": []
+  "last_run": "2026-11-23T10:31:21.086829+00:00",
+  "files_updated": 2,
+  "additions": [],
+  "rejections": [
+    {
+      "reason": "scoreline_mismatch",
+      "action": "rejected_candidate",
+      "match_id": 559711,
+      "video_id": "MCVBoukZaa0",
+      "title": "LE MANS FC - STADE BRESTOIS 29 (0-2) | Week 1 - Ligue 1 McDonald's 26/27",
+      "title_scorelines": [
+        [
+          0,
+          2
+        ]
+      ],
+      "cached_score": {
+        "home": 2,
+        "away": 2
+      },
+      "accepted_scores": [
+        [
+          2,
+          2
+        ]
+      ]
+    }
+  ]
 }

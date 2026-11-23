@@ -2,7 +2,7 @@
   "competition": "Ligue 1",
   "gameweek": "GW1",
   "stem": "gameweek-1",
-  "generated_at": "2026-11-01T15:51:14Z",
+  "generated_at": "2026-11-23T10:31:16Z",
   "matches": [
     {
       "match_id": 559715,
@@ -54,8 +54,25 @@
               "FR"
             ]
           }
+        },
+        {
+          "video_id": "RaOCVrtfIWk",
+          "title": "Le Mans vs Brest | HIGHLIGHTS Ligue 1 | 08/22/2026 | beIN SPORTS USA",
+          "published_at": "2026-08-22",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "PR",
+              "US"
+            ]
+          }
         }
-      ]
+      ],
+      "alternatives": {
+        "checks": 1,
+        "last": "2026-11-23T10:31:12Z"
+      }
     },
     {
       "match_id": 559714,
