@@ -2,7 +2,7 @@
   "competition": "Champions League",
   "gameweek": "MD2",
   "stem": "matchday-2",
-  "generated_at": "2026-11-23T18:01:25Z",
+  "generated_at": "2026-11-23T18:06:14Z",
   "matches": [
     {
       "match_id": 575341,
@@ -763,11 +763,26 @@
               "JE"
             ]
           }
+        },
+        {
+          "video_id": "GiK8cwvu9BE",
+          "title": "HIGHLIGHTS | Man City 2-4 PSG | Six goal thriller at the Etihad!",
+          "published_at": "2026-10-15",
+          "tier_used": 1,
+          "region": {}
         }
       ],
       "alternatives": {
-        "checks": 1,
-        "last": "2026-11-23T09:26:08Z"
+        "checks": 2,
+        "last": "2026-11-23T18:06:08Z",
+        "sources": "48af5e53cc",
+        "covered": [
+          "US",
+          "GB",
+          "CA",
+          "IE",
+          "ES"
+        ]
       }
     },
     {
@@ -802,11 +817,38 @@
               "JE"
             ]
           }
+        },
+        {
+          "video_id": "_myRTiKjiyk",
+          "title": "Real Betis vs FC Porto | UEFA Champions League Highlights | Matchday 2 | 2026-2027",
+          "published_at": "2026-10-14",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "NZ"
+            ]
+          }
+        },
+        {
+          "video_id": "9TjHy2qElAY",
+          "title": "Resumen del partido Real Betis - FC Porto | HIGHLIGHTS | Real BETIS Balompié",
+          "published_at": "2026-10-15",
+          "tier_used": 1,
+          "region": {}
         }
       ],
       "alternatives": {
-        "checks": 1,
-        "last": "2026-11-23T09:26:08Z"
+        "checks": 2,
+        "last": "2026-11-23T18:06:08Z",
+        "sources": "48af5e53cc",
+        "covered": [
+          "US",
+          "GB",
+          "CA",
+          "IE",
+          "ES"
+        ]
       }
     }
   ]
