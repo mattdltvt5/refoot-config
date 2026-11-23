@@ -2,7 +2,7 @@
   "competition": "Champions League",
   "gameweek": "MD2",
   "stem": "matchday-2",
-  "generated_at": "2026-11-23T18:11:20Z",
+  "generated_at": "2026-11-23T18:16:13Z",
   "matches": [
     {
       "match_id": 575341,
@@ -135,11 +135,38 @@
               "JE"
             ]
           }
+        },
+        {
+          "video_id": "IoXOJns0ZGY",
+          "title": "Arsenal vs Lille | UEFA Champions League Highlights | Matchday 2 | 2026-2027",
+          "published_at": "2026-10-13",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "NZ"
+            ]
+          }
+        },
+        {
+          "video_id": "e3WsysMfn0Q",
+          "title": "TIMBER, EZE & SAKA GOALS MAINTAIN 100% CHAMPIONS LEAGUE START | HIGHLIGHTS | Arsenal vs Lille (3-0)",
+          "published_at": "2026-10-13",
+          "tier_used": 1,
+          "region": {}
         }
       ],
       "alternatives": {
-        "checks": 1,
-        "last": "2026-11-23T09:31:15Z"
+        "checks": 2,
+        "last": "2026-11-23T18:16:09Z",
+        "sources": "48af5e53cc",
+        "covered": [
+          "US",
+          "GB",
+          "CA",
+          "IE",
+          "ES"
+        ]
       }
     },
     {
