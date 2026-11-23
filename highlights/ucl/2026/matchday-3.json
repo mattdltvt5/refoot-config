@@ -2,7 +2,7 @@
   "competition": "Champions League",
   "gameweek": "MD3",
   "stem": "matchday-3",
-  "generated_at": "2026-11-23T17:31:19Z",
+  "generated_at": "2026-11-23T17:36:22Z",
   "matches": [
     {
       "match_id": 575359,
@@ -357,11 +357,38 @@
               "JE"
             ]
           }
+        },
+        {
+          "video_id": "J9k4V9QMivc",
+          "title": "AS Roma vs Slovan Bratislava | UEFA Champions League Highlights | Matchday 3 | 2026-2027",
+          "published_at": "2026-10-20",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "NZ"
+            ]
+          }
+        },
+        {
+          "video_id": "RntaGnaHUZg",
+          "title": "ROMA 4-0 SLOVAN BRATISLAVA | UCL HIGHLIGHTS 2026-27",
+          "published_at": "2026-10-21",
+          "tier_used": 1,
+          "region": {}
         }
       ],
       "alternatives": {
-        "checks": 1,
-        "last": "2026-11-23T09:06:09Z"
+        "checks": 2,
+        "last": "2026-11-23T17:36:19Z",
+        "sources": "48af5e53cc",
+        "covered": [
+          "US",
+          "GB",
+          "CA",
+          "IE",
+          "ES"
+        ]
       }
     },
     {
@@ -396,11 +423,38 @@
               "JE"
             ]
           }
+        },
+        {
+          "video_id": "F799mzPkeiU",
+          "title": "FC Porto vs PSV | UEFA Champions League Highlights | Matchday 3 | 2026-2027",
+          "published_at": "2026-10-20",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "NZ"
+            ]
+          }
+        },
+        {
+          "video_id": "5AzJLKz2dAA",
+          "title": "HIGHLIGHTS | FC Porto O19 - PSV O19",
+          "published_at": "2026-10-22",
+          "tier_used": 1,
+          "region": {}
         }
       ],
       "alternatives": {
-        "checks": 1,
-        "last": "2026-11-23T09:06:09Z"
+        "checks": 2,
+        "last": "2026-11-23T17:36:19Z",
+        "sources": "48af5e53cc",
+        "covered": [
+          "US",
+          "GB",
+          "CA",
+          "IE",
+          "ES"
+        ]
       }
     },
     {
