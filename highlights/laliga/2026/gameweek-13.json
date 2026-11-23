@@ -2,7 +2,7 @@
   "competition": "LaLiga",
   "gameweek": "GW13",
   "stem": "gameweek-13",
-  "generated_at": "2026-11-22T17:46:19Z",
+  "generated_at": "2026-11-23T08:01:25Z",
   "matches": [
     {
       "match_id": 564748,
@@ -144,11 +144,18 @@
               "VI"
             ]
           }
+        },
+        {
+          "video_id": "2hERGxHXyJs",
+          "title": "HIGHLIGHTS | BARCELONA 3-2 VILLARREAL | LALIGA",
+          "published_at": "2026-11-23",
+          "tier_used": 1,
+          "region": {}
         }
       ],
       "alternatives": {
-        "checks": 2,
-        "last": "2026-11-22T17:46:17Z"
+        "checks": 3,
+        "last": "2026-11-23T08:01:22Z"
       }
     },
     {
@@ -169,12 +176,54 @@
               "VI"
             ]
           }
+        },
+        {
+          "video_id": "5hY6oVFxOKA",
+          "title": "Real Racing Club 3-2 Real Sociedad ı HIGHLIGHTS | Jornada 13 | Temporada 26/27 LaLiga EA Sports",
+          "published_at": "2026-11-22",
+          "tier_used": 1,
+          "region": {}
         }
       ],
       "alternatives": {
-        "checks": 1,
-        "last": "2026-11-22T17:36:18Z"
+        "checks": 2,
+        "last": "2026-11-23T08:01:22Z"
       }
+    },
+    {
+      "match_id": 564752,
+      "home_team": "CA Osasuna",
+      "away_team": "Málaga CF",
+      "date": "2026-11-22",
+      "videos": [
+        {
+          "video_id": "15YyZiloozk",
+          "title": "CA OSASUNA 1 - 0 MÁLAGA CF | RESUMEN LALIGA EA SPORTS",
+          "published_at": "2026-11-22",
+          "tier_used": 2,
+          "region": {
+            "blocked": [
+              "JP",
+              "KR"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "match_id": 564753,
+      "home_team": "Getafe CF",
+      "away_team": "Club Atlético de Madrid",
+      "date": "2026-11-22",
+      "videos": [
+        {
+          "video_id": "UexQBOWojsU",
+          "title": "Getafe 0-3 Atlético de Madrid | ⚽ Álex Baena, Johnny & Grimaldo | HIGHLIGHTS, 2026/27 LaLiga - MD13",
+          "published_at": "2026-11-22",
+          "tier_used": 1,
+          "region": {}
+        }
+      ]
     }
   ]
 }
