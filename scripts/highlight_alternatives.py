@@ -63,6 +63,10 @@ log = logging.getLogger(__name__)
 ALT_COMPS = set(DOMESTIC_LEAGUE_COMPS) | {"Champions League"}
 TOURNAMENT_GROUPS_DIR = REPO_ROOT / "tournament-groups"
 ALT_PAST_SEASONS = 1                 # catch-up also covers last season
+# Not worth a past-season check: UCL's only non-US source is TNT Sports Football's
+# uploads, which the 10-page uploads search can't reach a season back. Measured
+# 2026-11-23: 32 UCL 2025 matches checked, none gained a TNT clip.
+ALT_CURRENT_SEASON_ONLY = {"Champions League"}
 ALT_RECENT_DAYS = 7
 ALT_MAX_RECENT_CHECKS = 6            # 2+4+8+16+32+64 h ~= 5 days of re-checks
 ALT_CATCHUP_UNITS_PER_RUN = 20
@@ -205,7 +209,8 @@ def _candidates(root: Path, fixtures_dir: Path, now: datetime, groups_dir: "Path
         if not slug:
             continue
         current = season_for_competition(comp, now)
-        for season in range(current, current - ALT_PAST_SEASONS - 1, -1):
+        past = 0 if comp in ALT_CURRENT_SEASON_ONLY else ALT_PAST_SEASONS
+        for season in range(current, current - past - 1, -1):
             season_dir = root / slug / str(season)
             if not season_dir.is_dir():
                 continue

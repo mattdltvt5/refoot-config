@@ -312,6 +312,20 @@ def test_catchup_includes_last_season_after_this_one(tmp_path, monkeypatch):
     assert catchup[1][4]["home_short"] == "SS Lazio"           # built from the record
 
 
+def test_ucl_is_current_season_only(tmp_path, monkeypatch):
+    monkeypatch.setattr(ha, "ALT_COMPS", {"Champions League", "Serie A"})
+    monkeypatch.setattr(ha, "season_for_competition", lambda comp, now=None: 2026)
+    for slug, season, mid in [("ucl", 2026, 1), ("ucl", 2025, 2), ("serie-a", 2025, 3)]:
+        d = tmp_path / "highlights" / slug / str(season)
+        d.mkdir(parents=True, exist_ok=True)
+        (d / "matchday-1.json").write_text(json.dumps({"matches": [
+            {"match_id": mid, "home_team": "A", "away_team": "B", "date": f"{season}-10-01",
+             "videos": [vid(f"c{mid}")]}]}), encoding="utf-8")
+    _, catchup = ha._candidates(tmp_path / "highlights", tmp_path / "fixtures", NOW,
+                                tmp_path / "tournament-groups")
+    assert sorted(it[3]["match_id"] for it in catchup) == [1, 3]   # UCL 2025 skipped
+
+
 def test_ucl_archive_season_is_read(tmp_path):
     arch = tmp_path / "tournament-groups" / "ucl"
     arch.mkdir(parents=True)
