@@ -1,7 +1,7 @@
 {
   "competition": "Ligue 1",
   "gameweek": 14,
-  "generated_at": "2026-11-23T16:06:09Z",
+  "generated_at": "2026-11-23T22:51:14Z",
   "matches": [
     {
       "match_id": 542526,
@@ -72,8 +72,27 @@
               "US"
             ]
           }
+        },
+        {
+          "video_id": "uQY7uJ-qnyY",
+          "title": "Le résumé de Paris FC - Auxerre",
+          "published_at": "2025-12-01",
+          "tier_used": 1,
+          "region": {}
         }
-      ]
+      ],
+      "alternatives": {
+        "checks": 1,
+        "last": "2026-11-23T22:51:10Z",
+        "sources": "2aca95cb9a",
+        "covered": [
+          "US",
+          "GB",
+          "CA",
+          "IE",
+          "ES"
+        ]
+      }
     },
     {
       "match_id": 542529,
