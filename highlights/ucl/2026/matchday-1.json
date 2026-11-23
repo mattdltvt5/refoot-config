@@ -2,7 +2,7 @@
   "competition": "Champions League",
   "gameweek": "MD1",
   "stem": "matchday-1",
-  "generated_at": "2026-11-23T18:56:17Z",
+  "generated_at": "2026-11-23T19:01:27Z",
   "matches": [
     {
       "match_id": 575323,
@@ -230,11 +230,54 @@
               "US"
             ]
           }
+        },
+        {
+          "video_id": "uezOU21M5Oc",
+          "title": "FC Barcelona vs Feyenoord | UEFA Champions League Highlights | Matchday 1 | 2026-2027",
+          "published_at": "2026-09-09",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "NZ"
+            ]
+          }
+        },
+        {
+          "video_id": "TJMgdQB-bmQ",
+          "title": "Raphinha & Yamal Run The Show! 🤩 | Barcelona 5-1 Feyenoord | UEFA Champions League Highlights",
+          "published_at": "2026-09-09",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "GB",
+              "GG",
+              "GI",
+              "IE",
+              "IM",
+              "JE"
+            ]
+          }
+        },
+        {
+          "video_id": "XqSrz6MKVlk",
+          "title": "HIGHLIGHTS | FC BARCELONA 5 vs 1 FEYENOORD | UEFA CHAMPIONS LEAGUE 26/27 🔵🔴",
+          "published_at": "2026-09-10",
+          "tier_used": 1,
+          "region": {}
         }
       ],
       "alternatives": {
-        "checks": 1,
-        "last": "2026-11-23T10:01:21Z"
+        "checks": 2,
+        "last": "2026-11-23T19:01:17Z",
+        "sources": "48af5e53cc",
+        "covered": [
+          "US",
+          "GB",
+          "CA",
+          "IE",
+          "ES"
+        ]
       }
     },
     {
