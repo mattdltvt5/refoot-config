@@ -2,7 +2,7 @@
   "competition": "Champions League",
   "gameweek": "MD2",
   "stem": "matchday-2",
-  "generated_at": "2026-11-23T17:56:13Z",
+  "generated_at": "2026-11-23T18:01:25Z",
   "matches": [
     {
       "match_id": 575341,
@@ -610,8 +610,14 @@
         }
       ],
       "alternatives": {
-        "checks": 1,
-        "last": "2026-11-23T09:21:11Z"
+        "checks": 2,
+        "last": "2026-11-23T18:01:20Z",
+        "sources": "48af5e53cc",
+        "covered": [
+          "US",
+          "GB",
+          "IE"
+        ]
       }
     },
     {
@@ -649,8 +655,14 @@
         }
       ],
       "alternatives": {
-        "checks": 1,
-        "last": "2026-11-23T09:21:11Z"
+        "checks": 2,
+        "last": "2026-11-23T18:01:20Z",
+        "sources": "48af5e53cc",
+        "covered": [
+          "US",
+          "GB",
+          "IE"
+        ]
       }
     },
     {
@@ -685,11 +697,38 @@
               "JE"
             ]
           }
+        },
+        {
+          "video_id": "s44f1TunVbY",
+          "title": "AS Roma vs Real Madrid | UEFA Champions League Highlights | Matchday 2 | 2026-2027",
+          "published_at": "2026-10-14",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "NZ"
+            ]
+          }
+        },
+        {
+          "video_id": "zkgpyvjJl84",
+          "title": "HIGHLIGHTS | Roma 3-4 Real Madrid | Champions League",
+          "published_at": "2026-10-14",
+          "tier_used": 1,
+          "region": {}
         }
       ],
       "alternatives": {
-        "checks": 1,
-        "last": "2026-11-23T09:26:08Z"
+        "checks": 2,
+        "last": "2026-11-23T18:01:20Z",
+        "sources": "48af5e53cc",
+        "covered": [
+          "US",
+          "GB",
+          "CA",
+          "IE",
+          "ES"
+        ]
       }
     },
     {
