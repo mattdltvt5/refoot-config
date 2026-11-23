@@ -2,7 +2,7 @@
   "competition": "Champions League",
   "gameweek": "MD1",
   "stem": "matchday-1",
-  "generated_at": "2026-11-23T19:21:25Z",
+  "generated_at": "2026-11-23T19:26:13Z",
   "matches": [
     {
       "match_id": 575323,
@@ -36,11 +36,26 @@
               "JE"
             ]
           }
+        },
+        {
+          "video_id": "oYk-00x8NxQ",
+          "title": "CLUB BRUGGE - ASTON VILLA | HIGHLIGHTS | CHAMPIONS LEAGUE 2026-2027",
+          "published_at": "2026-09-09",
+          "tier_used": 1,
+          "region": {}
         }
       ],
       "alternatives": {
-        "checks": 1,
-        "last": "2026-11-23T10:11:09Z"
+        "checks": 2,
+        "last": "2026-11-23T19:26:06Z",
+        "sources": "48af5e53cc",
+        "covered": [
+          "US",
+          "GB",
+          "CA",
+          "IE",
+          "ES"
+        ]
       }
     },
     {
@@ -75,11 +90,30 @@
               "JE"
             ]
           }
+        },
+        {
+          "video_id": "sussv9hJcjA",
+          "title": "AEK Athens vs LASK | UEFA Champions League Highlights | Matchday 1 | 2026-2027",
+          "published_at": "2026-09-08",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "NZ"
+            ]
+          }
         }
       ],
       "alternatives": {
-        "checks": 1,
-        "last": "2026-11-23T10:11:09Z"
+        "checks": 2,
+        "last": "2026-11-23T19:26:06Z",
+        "sources": "48af5e53cc",
+        "covered": [
+          "US",
+          "GB",
+          "CA",
+          "IE"
+        ]
       }
     },
     {
