@@ -2,7 +2,7 @@
   "competition": "Bundesliga",
   "gameweek": "GW8",
   "stem": "gameweek-8",
-  "generated_at": "2026-11-22T00:01:43Z",
+  "generated_at": "2026-11-23T16:56:10Z",
   "matches": [
     {
       "match_id": 565846,
@@ -87,11 +87,34 @@
           "region": {
             "allowed": []
           }
+        },
+        {
+          "video_id": "7E3j-eF_qxI",
+          "title": "Freiburg Turn It Around Late! | FC AUGSBURG - SC FREIBURG | Highlights | Matchday 8 – Bundesliga",
+          "published_at": "2026-10-31",
+          "tier_used": 2,
+          "region": {
+            "blocked": [
+              "AT",
+              "CH",
+              "DE",
+              "LI",
+              "LU"
+            ]
+          }
         }
       ],
       "alternatives": {
-        "checks": 1,
-        "last": "2026-11-23T08:31:25Z"
+        "checks": 2,
+        "last": "2026-11-23T16:56:10Z",
+        "sources": "abfa917fd4",
+        "covered": [
+          "US",
+          "GB",
+          "CA",
+          "IE",
+          "ES"
+        ]
       }
     },
     {

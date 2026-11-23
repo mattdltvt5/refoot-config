@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-23T09:36:33Z",
+  "generated_at": "2026-11-23T16:56:35Z",
   "month": "2026-10",
   "dates": {
     "2026-10-09": [
@@ -4396,6 +4396,19 @@
                     "JE"
                   ]
                 }
+              },
+              {
+                "videoId": "KHFDR7FKXNo",
+                "region": {
+                  "allowed": [
+                    "CA",
+                    "NZ"
+                  ]
+                }
+              },
+              {
+                "videoId": "dPsTHDH5caE",
+                "region": {}
               }
             ]
           },
@@ -7460,6 +7473,18 @@
                 "videoId": "6q8iHVmLj00",
                 "region": {
                   "allowed": []
+                }
+              },
+              {
+                "videoId": "7E3j-eF_qxI",
+                "region": {
+                  "blocked": [
+                    "AT",
+                    "CH",
+                    "DE",
+                    "LI",
+                    "LU"
+                  ]
                 }
               }
             ]
