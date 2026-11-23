@@ -2,7 +2,7 @@
   "competition": "Serie A",
   "gameweek": "GW6",
   "stem": "gameweek-6",
-  "generated_at": "2026-10-12T20:51:11Z",
+  "generated_at": "2026-11-23T09:36:11Z",
   "matches": [
     {
       "match_id": 558588,
@@ -20,8 +20,23 @@
               "US"
             ]
           }
+        },
+        {
+          "video_id": "nISw5oWDk6o",
+          "title": "First Triumph for the Grifone! | GENOA-FIORENTINA | HIGHLIGHTS | Serie A 2026/27",
+          "published_at": "2026-10-10",
+          "tier_used": 2,
+          "region": {
+            "blocked": [
+              "IT"
+            ]
+          }
         }
-      ]
+      ],
+      "alternatives": {
+        "checks": 1,
+        "last": "2026-11-23T09:36:10Z"
+      }
     },
     {
       "match_id": 558582,
@@ -39,8 +54,19 @@
               "US"
             ]
           }
+        },
+        {
+          "video_id": "YXd3neNEBbA",
+          "title": "TRIS NERAZZURRO: RITORNO DALLA SOSTA CON UNA VITTORIA ✅ | INTER 3-0 PARMA | EXTENDED HIGHLIGHTS 📹🖤💙",
+          "published_at": "2026-10-12",
+          "tier_used": 1,
+          "region": {}
         }
-      ]
+      ],
+      "alternatives": {
+        "checks": 1,
+        "last": "2026-11-23T09:36:10Z"
+      }
     },
     {
       "match_id": 558586,
@@ -183,8 +209,26 @@
               "US"
             ]
           }
+        },
+        {
+          "video_id": "0vpKjUHuLk8",
+          "title": "TORINO-UDINESE 2-1 | EXTENDED HIGHLIGHTS",
+          "published_at": "2026-10-14",
+          "tier_used": 1,
+          "region": {}
+        },
+        {
+          "video_id": "wp1FFjuFXwU",
+          "title": "TORINO-UDINESE 2-1 | HIGHLIGHTS SERIE A ENILIVE 2026/27",
+          "published_at": "2026-10-12",
+          "tier_used": 1,
+          "region": {}
         }
-      ]
+      ],
+      "alternatives": {
+        "checks": 1,
+        "last": "2026-11-23T09:36:10Z"
+      }
     }
   ]
 }
