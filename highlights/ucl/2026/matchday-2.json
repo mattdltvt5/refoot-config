@@ -2,7 +2,7 @@
   "competition": "Champions League",
   "gameweek": "MD2",
   "stem": "matchday-2",
-  "generated_at": "2026-11-23T18:06:14Z",
+  "generated_at": "2026-11-23T18:11:20Z",
   "matches": [
     {
       "match_id": 575341,
@@ -36,11 +36,26 @@
               "JE"
             ]
           }
+        },
+        {
+          "video_id": "xUW-DuDF_EU",
+          "title": "Highlights | UEFA Champions League: RC Lens 0-2 Sporting CP",
+          "published_at": "2026-10-13",
+          "tier_used": 1,
+          "region": {}
         }
       ],
       "alternatives": {
-        "checks": 1,
-        "last": "2026-11-23T09:26:08Z"
+        "checks": 2,
+        "last": "2026-11-23T18:11:12Z",
+        "sources": "48af5e53cc",
+        "covered": [
+          "US",
+          "GB",
+          "CA",
+          "IE",
+          "ES"
+        ]
       }
     },
     {
@@ -78,8 +93,14 @@
         }
       ],
       "alternatives": {
-        "checks": 1,
-        "last": "2026-11-23T09:26:08Z"
+        "checks": 2,
+        "last": "2026-11-23T18:11:12Z",
+        "sources": "48af5e53cc",
+        "covered": [
+          "US",
+          "GB",
+          "IE"
+        ]
       }
     },
     {
