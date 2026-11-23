@@ -2,7 +2,7 @@
   "competition": "LaLiga",
   "gameweek": "GW13",
   "stem": "gameweek-13",
-  "generated_at": "2026-11-23T08:01:25Z",
+  "generated_at": "2026-11-23T22:11:15Z",
   "matches": [
     {
       "match_id": 564748,
@@ -224,6 +224,70 @@
           "region": {}
         }
       ]
+    },
+    {
+      "match_id": 564757,
+      "home_team": "Levante UD",
+      "away_team": "Elche CF",
+      "date": "2026-11-23",
+      "videos": [
+        {
+          "video_id": "YBi-3FM8-3U",
+          "title": "LEVANTE UD 1 - 1 ELCHE CF | RESUMEN LALIGA EA SPORTS",
+          "published_at": "2026-11-23",
+          "tier_used": 2,
+          "region": {
+            "blocked": [
+              "AG",
+              "AR",
+              "BB",
+              "BO",
+              "BR",
+              "BZ",
+              "CA",
+              "CL",
+              "CO",
+              "CR",
+              "CU",
+              "DM",
+              "DO",
+              "EC",
+              "GD",
+              "GF",
+              "GT",
+              "GY",
+              "HN",
+              "HT",
+              "JM",
+              "JP",
+              "KN",
+              "KR",
+              "LC",
+              "MX",
+              "PA",
+              "PE",
+              "PY",
+              "SR",
+              "SV",
+              "TT",
+              "US",
+              "UY",
+              "VC",
+              "VE"
+            ]
+          }
+        }
+      ],
+      "alternatives": {
+        "checks": 1,
+        "last": "2026-11-23T22:11:16Z",
+        "sources": "66c00f3ad8",
+        "covered": [
+          "GB",
+          "IE",
+          "ES"
+        ]
+      }
     }
   ]
 }

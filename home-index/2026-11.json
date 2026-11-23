@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-23T22:01:48Z",
+  "generated_at": "2026-11-23T22:11:59Z",
   "month": "2026-11",
   "dates": {
     "2026-11-01": [
@@ -4925,9 +4925,9 @@
               "tla": "EVE",
               "crest": "https://crests.football-data.org/62.png"
             },
-            "homeScore": 3,
+            "homeScore": 4,
             "awayScore": 0,
-            "status": "IN_PLAY",
+            "status": "FINISHED",
             "utcDate": "2026-11-23T20:00:00Z"
           }
         ]
@@ -4954,8 +4954,54 @@
             },
             "homeScore": 1,
             "awayScore": 1,
-            "status": "IN_PLAY",
-            "utcDate": "2026-11-23T20:00:00Z"
+            "status": "FINISHED",
+            "utcDate": "2026-11-23T20:00:00Z",
+            "videoId": "YBi-3FM8-3U",
+            "videoOptions": [
+              {
+                "videoId": "YBi-3FM8-3U",
+                "region": {
+                  "blocked": [
+                    "AG",
+                    "AR",
+                    "BB",
+                    "BO",
+                    "BR",
+                    "BZ",
+                    "CA",
+                    "CL",
+                    "CO",
+                    "CR",
+                    "CU",
+                    "DM",
+                    "DO",
+                    "EC",
+                    "GD",
+                    "GF",
+                    "GT",
+                    "GY",
+                    "HN",
+                    "HT",
+                    "JM",
+                    "JP",
+                    "KN",
+                    "KR",
+                    "LC",
+                    "MX",
+                    "PA",
+                    "PE",
+                    "PY",
+                    "SR",
+                    "SV",
+                    "TT",
+                    "US",
+                    "UY",
+                    "VC",
+                    "VE"
+                  ]
+                }
+              }
+            ]
           }
         ]
       },
