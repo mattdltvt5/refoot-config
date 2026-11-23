@@ -1914,6 +1914,39 @@ async function ghWriteJson(path, data, message, sha) {
     if (!res.ok) { const e = await res.json().catch(() => ({})); throw new Error(e.message || 'HTTP ' + res.status); }
     return (await res.json()).content.sha;
 }
+// Files people edit here (alias decisions, country statuses) are read through
+// the GitHub contents API when signed in: it reads the repository directly, so
+// a decision made a moment ago is there on reload. raw.githubusercontent.com is
+// a CDN that can serve a copy up to ~5 minutes old (a ?_= cache-buster doesn't
+// help), which made rejected aliases reappear. Without a token, or if the API
+// call fails, fall back to the CDN copy. Pipeline outputs stay on the CDN.
+async function readConfigJson(path) {
+    if (ghPat) {
+        try {
+            const { json } = await ghReadJson(path, null);
+            return json;
+        } catch (e) {
+            dbg('Fresh read of ' + path + ' failed (' + e.message + ') - using the CDN copy', 'info');
+        }
+    }
+    const res = await fetch('https://raw.githubusercontent.com/' + GH_OWNER + '/' + GH_REPO + '/main/' + path + '?_=' + Date.now());
+    return res.ok ? await res.json() : null;
+}
+
+// Decisions made in this session, merged into every reload so a stale copy
+// can never bring a decided card back. team -> [tokens].
+const aliasSessionApproved = {};
+const aliasSessionRejected = {};
+function mergeLists(base, extra) {
+    const out = { ...base };
+    Object.keys(extra).forEach(team => {
+        const list = [...(out[team] || [])];
+        extra[team].forEach(t => { if (!list.some(x => aliasNorm(x) === aliasNorm(t))) list.push(t); });
+        out[team] = list;
+    });
+    return out;
+}
+
 function aliasNorm(s) { return String(s || '').trim().toLowerCase(); }
 function aliasApproved(team, alias) {
     return (aliasOverrides[team] || []).some(t => aliasNorm(t) === aliasNorm(alias));
@@ -1928,22 +1961,21 @@ async function loadAliasGaps() {
     try {
         const bust = '?_=' + Date.now();
         const base = 'https://raw.githubusercontent.com/' + GH_OWNER + '/' + GH_REPO + '/main/';
-        const [candRes, ovrRes, rejRes] = await Promise.all([
+        // Proposals are pipeline output (CDN is fine); the decision files are
+        // read fresh (readConfigJson) and merged with this session's decisions.
+        const [candRes, ovrRaw, rejRaw] = await Promise.all([
             fetch(base + ALIAS_CAND_FILE + bust),
-            fetch(base + ALIAS_OVERRIDE_FILE + bust),
-            fetch(base + ALIAS_REJECT_FILE + bust),
+            readConfigJson(ALIAS_OVERRIDE_FILE),
+            readConfigJson(ALIAS_REJECT_FILE),
         ]);
         aliasGapsData = candRes.ok ? await candRes.json() : null;
-        const lists = async res => {
+        const lists = raw => {
             const out = {};
-            if (res.ok) {
-                const raw = await res.json();
-                Object.keys(raw || {}).forEach(k => { if (Array.isArray(raw[k])) out[k] = raw[k]; });
-            }
+            Object.keys(raw || {}).forEach(k => { if (Array.isArray(raw[k])) out[k] = raw[k]; });
             return out;
         };
-        aliasOverrides = await lists(ovrRes);
-        aliasRejections = await lists(rejRes);
+        aliasOverrides = mergeLists(lists(ovrRaw), aliasSessionApproved);
+        aliasRejections = mergeLists(lists(rejRaw), aliasSessionRejected);
         renderAliasGaps(aliasGapsData);
     } catch (e) {
         body.innerHTML = '<div class="cand-empty">Could not load alias proposals (' + (e.message || e) + ').</div>';
@@ -2055,6 +2087,7 @@ async function rejectAlias(team, alias, card, btn) {
         try { await doWrite(); }
         catch (e) { if (/sha|does not match|409|422/i.test(e.message || '')) { await doWrite(); } else throw e; }
         (aliasRejections[team] = aliasRejections[team] || []).push(alias);
+        (aliasSessionRejected[team] = aliasSessionRejected[team] || []).push(alias);
         card.classList.add('rejected');
         const actions = card.querySelector('.cand-team-actions');
         if (actions) { actions.innerHTML = ''; const b = document.createElement('span'); b.className = 'cand-rejected-badge'; setIconLabel(b, 'Rejected', 'fi-br-cross-small'); actions.appendChild(b); }
@@ -2084,6 +2117,7 @@ async function approveAlias(team, alias, card, btn) {
         try { await doWrite(); }
         catch (e) { if (/sha|does not match|409|422/i.test(e.message || '')) { await doWrite(); } else throw e; }
         (aliasOverrides[team] = aliasOverrides[team] || []).push(alias);
+        (aliasSessionApproved[team] = aliasSessionApproved[team] || []).push(alias);
         card.classList.add('approved');
         const actions = card.querySelector('.cand-team-actions');
         if (actions) { actions.innerHTML = ''; const b = document.createElement('span'); b.className = 'cand-approved-badge'; setIconLabel(b, 'Approved', 'fi-br-check'); actions.appendChild(b); }
@@ -2114,12 +2148,14 @@ async function loadCountries() {
         const bust = '?_=' + Date.now();
         const base = 'https://raw.githubusercontent.com/' + GH_OWNER + '/' + GH_REPO + '/main/';
         const season = new Date().getUTCMonth() >= 7 ? new Date().getUTCFullYear() : new Date().getUTCFullYear() - 1;
-        const [cRes, rRes, gRes] = await Promise.all([
-            fetch(base + COUNTRIES_FILE + bust),
+        // countries.json is edited here: read it fresh. The report and the
+        // registry are pipeline output / hand-edited elsewhere: CDN is fine.
+        const [cJson, rRes, gRes] = await Promise.all([
+            readConfigJson(COUNTRIES_FILE),
             fetch(base + COUNTRY_REPORT_FILE + bust),
             fetch(base + 'rights/' + season + '.json' + bust),
         ]);
-        countriesDoc  = cRes.ok ? await cRes.json() : null;
+        countriesDoc  = cJson;
         countryReport = rRes.ok ? await rRes.json() : null;
         countryRights = gRes.ok ? ((await gRes.json()).entries || []) : [];
         countryEdits = {};
