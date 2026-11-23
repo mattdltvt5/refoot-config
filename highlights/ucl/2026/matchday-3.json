@@ -2,7 +2,7 @@
   "competition": "Champions League",
   "gameweek": "MD3",
   "stem": "matchday-3",
-  "generated_at": "2026-11-23T17:36:22Z",
+  "generated_at": "2026-11-23T17:41:14Z",
   "matches": [
     {
       "match_id": 575359,
@@ -492,8 +492,14 @@
         }
       ],
       "alternatives": {
-        "checks": 1,
-        "last": "2026-11-23T09:06:09Z"
+        "checks": 2,
+        "last": "2026-11-23T17:41:09Z",
+        "sources": "48af5e53cc",
+        "covered": [
+          "US",
+          "GB",
+          "IE"
+        ]
       }
     },
     {
@@ -528,11 +534,38 @@
               "JE"
             ]
           }
+        },
+        {
+          "video_id": "JMSYIRrv9JU",
+          "title": "PSG vs FC Barcelona | UEFA Champions League Highlights | Matchday 3 | 2026-2027",
+          "published_at": "2026-10-20",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "NZ"
+            ]
+          }
+        },
+        {
+          "video_id": "_LpzkLDdR6U",
+          "title": "HIGHLIGHTS | PSG 4 vs 2 FC BARCELONA | UEFA CHAMPIONS LEAGUE 26/27 🔵🔴",
+          "published_at": "2026-10-21",
+          "tier_used": 1,
+          "region": {}
         }
       ],
       "alternatives": {
-        "checks": 1,
-        "last": "2026-11-23T09:06:09Z"
+        "checks": 2,
+        "last": "2026-11-23T17:41:09Z",
+        "sources": "48af5e53cc",
+        "covered": [
+          "US",
+          "GB",
+          "CA",
+          "IE",
+          "ES"
+        ]
       }
     },
     {
