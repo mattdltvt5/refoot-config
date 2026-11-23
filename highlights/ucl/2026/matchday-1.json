@@ -2,7 +2,7 @@
   "competition": "Champions League",
   "gameweek": "MD1",
   "stem": "matchday-1",
-  "generated_at": "2026-11-23T18:46:18Z",
+  "generated_at": "2026-11-23T18:51:17Z",
   "matches": [
     {
       "match_id": 575323,
@@ -656,11 +656,26 @@
               "JE"
             ]
           }
+        },
+        {
+          "video_id": "RfU1_7JIDso",
+          "title": "Como 1907 - RB Leipzig | Highlights | UEFA Champions League",
+          "published_at": "2026-09-10",
+          "tier_used": 1,
+          "region": {}
         }
       ],
       "alternatives": {
-        "checks": 1,
-        "last": "2026-11-23T10:01:21Z"
+        "checks": 2,
+        "last": "2026-11-23T18:51:12Z",
+        "sources": "48af5e53cc",
+        "covered": [
+          "US",
+          "GB",
+          "CA",
+          "IE",
+          "ES"
+        ]
       }
     },
     {
