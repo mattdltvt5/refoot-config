@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-11-23T14:33:03.325950Z",
+  "generated_at": "2026-11-23T20:54:42.405646Z",
   "report_season": 2026,
   "launch_countries": [
     "US",
@@ -11,7 +11,7 @@
   ],
   "partial": false,
   "stop_reason": null,
-  "quota_used": 245,
+  "quota_used": 262,
   "quota_budget": 500,
   "settings": {
     "stale_days": 14,
@@ -22,15 +22,15 @@
   },
   "summary": {
     "EMPTY": 0,
-    "STALE": 17,
+    "STALE": 18,
     "UNREACHABLE": 5,
     "TITLE_DRIFT": 44,
     "LOW_COVERAGE": 0,
-    "MISSING_SOURCE": 0,
+    "MISSING_SOURCE": 23,
     "OUTDATED_SOURCE": 0,
     "UNVERIFIED": 32,
-    "NO_HOLDER": 3,
-    "proposals": 0
+    "NO_HOLDER": 9,
+    "proposals": 14
   },
   "skipped": [],
   "competitions": {
@@ -187,12 +187,13 @@
           "checked": true,
           "http_status": 200,
           "item_count": 25,
-          "has_more": true,
+          "has_more": false,
           "newest_upload": "2026-11-08",
           "recent_uploads": 0,
           "recent_passing": 0,
-          "stale_suppressed": "first_page_not_newest_first",
-          "flags": []
+          "flags": [
+            "STALE"
+          ]
         },
         {
           "kind": "team_playlist",
@@ -298,7 +299,7 @@
           "playlist_id": "PLQ5VvmbadZas",
           "checked": true,
           "http_status": 200,
-          "item_count": 42,
+          "item_count": 43,
           "has_more": false,
           "newest_upload": "2026-11-22",
           "recent_uploads": 2,
@@ -536,10 +537,14 @@
           "http_status": 200,
           "item_count": 50,
           "has_more": true,
-          "newest_upload": "2026-11-22",
-          "recent_uploads": 8,
+          "newest_upload": "2026-11-23",
+          "recent_uploads": 9,
           "recent_passing": 0,
           "drift_samples": [
+            {
+              "title": "Rico Henry’s header sealed all three points in a 3-2 comeback win back in 2022💥⬅️",
+              "reason": "no-allowlist-match"
+            },
             {
               "title": "For beekeeping, football and everything in between. 🐝",
               "reason": "no-allowlist-match"
@@ -554,10 +559,6 @@
             },
             {
               "title": "\"You can't swear down and lie\" | The Lie Detector W/ Callum Wilson, Jaidon Anthony and Josh Da Silva",
-              "reason": "no-allowlist-match"
-            },
-            {
-              "title": "The truth is out! Callum, Jaidon and Josh face The Lie Detector 🤥",
               "reason": "no-allowlist-match"
             }
           ],
@@ -632,7 +633,7 @@
           "item_count": 50,
           "has_more": true,
           "newest_upload": "2026-11-23",
-          "recent_uploads": 16,
+          "recent_uploads": 17,
           "recent_passing": 3,
           "flags": [],
           "region": {
@@ -727,7 +728,7 @@
           "item_count": 50,
           "has_more": true,
           "newest_upload": "2026-11-23",
-          "recent_uploads": 12,
+          "recent_uploads": 13,
           "recent_passing": 3,
           "flags": [],
           "region": {
@@ -821,8 +822,8 @@
           "http_status": 200,
           "item_count": 50,
           "has_more": true,
-          "newest_upload": "2026-11-22",
-          "recent_uploads": 24,
+          "newest_upload": "2026-11-23",
+          "recent_uploads": 25,
           "recent_passing": 1,
           "flags": [],
           "region": {
@@ -851,19 +852,19 @@
           "has_more": true,
           "newest_upload": "2026-11-23",
           "recent_uploads": 50,
-          "recent_passing": 8,
+          "recent_passing": 7,
           "flags": [],
           "region": {
-            "checked": 8,
+            "checked": 7,
             "not_checked": 0,
-            "embeddable": 7,
+            "embeddable": 6,
             "over_max_duration": 0,
             "playable": {
-              "US": 8,
-              "GB": 8,
-              "CA": 8,
-              "IE": 8,
-              "ES": 8
+              "US": 7,
+              "GB": 7,
+              "CA": 7,
+              "IE": 7,
+              "ES": 7
             }
           }
         },
@@ -878,7 +879,7 @@
           "item_count": 50,
           "has_more": true,
           "newest_upload": "2026-11-23",
-          "recent_uploads": 25,
+          "recent_uploads": 27,
           "recent_passing": 3,
           "flags": [],
           "region": {
@@ -962,7 +963,7 @@
           "item_count": 50,
           "has_more": true,
           "newest_upload": "2026-11-23",
-          "recent_uploads": 26,
+          "recent_uploads": 27,
           "recent_passing": 6,
           "flags": [],
           "region": {
@@ -990,7 +991,7 @@
           "item_count": 50,
           "has_more": true,
           "newest_upload": "2026-11-23",
-          "recent_uploads": 36,
+          "recent_uploads": 37,
           "recent_passing": 5,
           "flags": [],
           "region": {
@@ -1018,7 +1019,7 @@
           "item_count": 50,
           "has_more": true,
           "newest_upload": "2026-11-23",
-          "recent_uploads": 30,
+          "recent_uploads": 31,
           "recent_passing": 2,
           "flags": [],
           "region": {
@@ -1050,29 +1051,29 @@
       },
       "region": {
         "US": {
-          "checked": 76,
-          "playable": 75,
-          "playable_and_embeddable": 47
+          "checked": 75,
+          "playable": 74,
+          "playable_and_embeddable": 46
         },
         "GB": {
-          "checked": 76,
-          "playable": 75,
-          "playable_and_embeddable": 47
+          "checked": 75,
+          "playable": 74,
+          "playable_and_embeddable": 46
         },
         "CA": {
-          "checked": 76,
-          "playable": 75,
-          "playable_and_embeddable": 47
+          "checked": 75,
+          "playable": 74,
+          "playable_and_embeddable": 46
         },
         "IE": {
-          "checked": 76,
-          "playable": 75,
-          "playable_and_embeddable": 47
+          "checked": 75,
+          "playable": 74,
+          "playable_and_embeddable": 46
         },
         "ES": {
-          "checked": 76,
-          "playable": 75,
-          "playable_and_embeddable": 47
+          "checked": 75,
+          "playable": 74,
+          "playable_and_embeddable": 46
         }
       },
       "registry_findings": [
@@ -1145,7 +1146,7 @@
           "has_more": true,
           "newest_upload": "2026-11-23",
           "recent_uploads": 50,
-          "recent_passing": 11,
+          "recent_passing": 10,
           "flags": [],
           "region": {
             "checked": 10,
@@ -1170,9 +1171,9 @@
           "http_status": 200,
           "item_count": 50,
           "has_more": true,
-          "newest_upload": "2026-11-22",
-          "recent_uploads": 25,
-          "recent_passing": 22,
+          "newest_upload": "2026-11-23",
+          "recent_uploads": 26,
+          "recent_passing": 23,
           "flags": [],
           "region": {
             "checked": 10,
@@ -1590,8 +1591,8 @@
           "http_status": 200,
           "item_count": 50,
           "has_more": true,
-          "newest_upload": "2026-11-22",
-          "recent_uploads": 37,
+          "newest_upload": "2026-11-23",
+          "recent_uploads": 40,
           "recent_passing": 7,
           "flags": [],
           "region": {
@@ -1714,7 +1715,7 @@
           "item_count": 50,
           "has_more": true,
           "newest_upload": "2026-11-23",
-          "recent_uploads": 32,
+          "recent_uploads": 34,
           "recent_passing": 3,
           "flags": [],
           "region": {
@@ -1865,7 +1866,7 @@
           "item_count": 50,
           "has_more": true,
           "newest_upload": "2026-11-23",
-          "recent_uploads": 30,
+          "recent_uploads": 31,
           "recent_passing": 7,
           "flags": [],
           "region": {
@@ -1908,7 +1909,7 @@
           "item_count": 50,
           "has_more": true,
           "newest_upload": "2026-11-23",
-          "recent_uploads": 40,
+          "recent_uploads": 42,
           "recent_passing": 3,
           "flags": [],
           "region": {
@@ -1935,8 +1936,8 @@
           "http_status": 200,
           "item_count": 50,
           "has_more": true,
-          "newest_upload": "2026-11-22",
-          "recent_uploads": 49,
+          "newest_upload": "2026-11-23",
+          "recent_uploads": 50,
           "recent_passing": 2,
           "flags": [],
           "region": {
@@ -2020,7 +2021,7 @@
           "item_count": 50,
           "has_more": true,
           "newest_upload": "2026-11-23",
-          "recent_uploads": 28,
+          "recent_uploads": 29,
           "recent_passing": 4,
           "flags": [],
           "region": {
@@ -2047,7 +2048,7 @@
           "http_status": 200,
           "item_count": 50,
           "has_more": true,
-          "newest_upload": "2026-11-22",
+          "newest_upload": "2026-11-23",
           "recent_uploads": 50,
           "recent_passing": 2,
           "flags": [],
@@ -2220,7 +2221,7 @@
           "has_more": true,
           "newest_upload": "2026-11-23",
           "recent_uploads": 50,
-          "recent_passing": 31,
+          "recent_passing": 32,
           "flags": [],
           "region": {
             "checked": 10,
@@ -2228,11 +2229,11 @@
             "embeddable": 10,
             "over_max_duration": 0,
             "playable": {
-              "US": 5,
-              "GB": 5,
-              "CA": 5,
-              "IE": 5,
-              "ES": 5
+              "US": 4,
+              "GB": 4,
+              "CA": 4,
+              "IE": 4,
+              "ES": 4
             }
           }
         },
@@ -2565,19 +2566,19 @@
           "has_more": true,
           "newest_upload": "2026-11-23",
           "recent_uploads": 50,
-          "recent_passing": 8,
+          "recent_passing": 9,
           "flags": [],
           "region": {
-            "checked": 8,
+            "checked": 9,
             "not_checked": 0,
-            "embeddable": 8,
+            "embeddable": 9,
             "over_max_duration": 0,
             "playable": {
-              "US": 8,
-              "GB": 8,
-              "CA": 8,
-              "IE": 8,
-              "ES": 8
+              "US": 9,
+              "GB": 9,
+              "CA": 9,
+              "IE": 9,
+              "ES": 9
             }
           }
         },
@@ -2648,7 +2649,7 @@
           "item_count": 50,
           "has_more": true,
           "newest_upload": "2026-11-23",
-          "recent_uploads": 19,
+          "recent_uploads": 23,
           "recent_passing": 1,
           "flags": [],
           "region": {
@@ -2760,7 +2761,7 @@
           "item_count": 50,
           "has_more": true,
           "newest_upload": "2026-11-23",
-          "recent_uploads": 28,
+          "recent_uploads": 29,
           "recent_passing": 1,
           "flags": [],
           "region": {
@@ -2871,19 +2872,19 @@
           "has_more": true,
           "newest_upload": "2026-11-23",
           "recent_uploads": 50,
-          "recent_passing": 6,
+          "recent_passing": 5,
           "flags": [],
           "region": {
-            "checked": 6,
+            "checked": 5,
             "not_checked": 0,
-            "embeddable": 6,
+            "embeddable": 5,
             "over_max_duration": 0,
             "playable": {
-              "US": 6,
-              "GB": 6,
-              "CA": 6,
-              "IE": 6,
-              "ES": 6
+              "US": 5,
+              "GB": 5,
+              "CA": 5,
+              "IE": 5,
+              "ES": 5
             }
           }
         },
@@ -3106,28 +3107,28 @@
       "region": {
         "US": {
           "checked": 88,
-          "playable": 83,
-          "playable_and_embeddable": 78
+          "playable": 82,
+          "playable_and_embeddable": 77
         },
         "GB": {
           "checked": 88,
-          "playable": 83,
-          "playable_and_embeddable": 78
+          "playable": 82,
+          "playable_and_embeddable": 77
         },
         "CA": {
           "checked": 88,
-          "playable": 83,
-          "playable_and_embeddable": 78
+          "playable": 82,
+          "playable_and_embeddable": 77
         },
         "IE": {
           "checked": 88,
-          "playable": 83,
-          "playable_and_embeddable": 78
+          "playable": 82,
+          "playable_and_embeddable": 77
         },
         "ES": {
           "checked": 88,
-          "playable": 83,
-          "playable_and_embeddable": 78
+          "playable": 82,
+          "playable_and_embeddable": 77
         }
       },
       "registry_findings": [
@@ -3340,8 +3341,8 @@
           "http_status": 200,
           "item_count": 50,
           "has_more": true,
-          "newest_upload": "2026-11-21",
-          "recent_uploads": 14,
+          "newest_upload": "2026-11-23",
+          "recent_uploads": 17,
           "recent_passing": 2,
           "flags": [],
           "region": {
@@ -3408,7 +3409,7 @@
           "item_count": 50,
           "has_more": true,
           "newest_upload": "2026-11-23",
-          "recent_uploads": 34,
+          "recent_uploads": 35,
           "recent_passing": 1,
           "flags": [],
           "region": {
@@ -3435,8 +3436,8 @@
           "http_status": 200,
           "item_count": 50,
           "has_more": true,
-          "newest_upload": "2026-11-22",
-          "recent_uploads": 15,
+          "newest_upload": "2026-11-23",
+          "recent_uploads": 17,
           "recent_passing": 2,
           "flags": [],
           "region": {
@@ -3463,8 +3464,8 @@
           "http_status": 200,
           "item_count": 50,
           "has_more": true,
-          "newest_upload": "2026-11-21",
-          "recent_uploads": 16,
+          "newest_upload": "2026-11-23",
+          "recent_uploads": 17,
           "recent_passing": 1,
           "flags": [],
           "region": {
@@ -3492,7 +3493,7 @@
           "item_count": 50,
           "has_more": true,
           "newest_upload": "2026-11-23",
-          "recent_uploads": 42,
+          "recent_uploads": 45,
           "recent_passing": 1,
           "flags": [],
           "region": {
@@ -3519,10 +3520,14 @@
           "http_status": 200,
           "item_count": 50,
           "has_more": true,
-          "newest_upload": "2026-11-22",
-          "recent_uploads": 5,
+          "newest_upload": "2026-11-23",
+          "recent_uploads": 6,
           "recent_passing": 0,
           "drift_samples": [
+            {
+              "title": "Erstes Bundesliga-Tor ist im Kasten! 💪⚽️",
+              "reason": "no-allowlist-match"
+            },
             {
               "title": "Pressekonferenz nach Mainz | Fischer & Baum",
               "reason": "blocked:pressekonferenz"
@@ -3537,10 +3542,6 @@
             },
             {
               "title": "Send Help!",
-              "reason": "no-allowlist-match"
-            },
-            {
-              "title": "Einer der wenigen Lichtblicke am Wochenende: Das 𝐞𝐫𝐬𝐭𝐞 𝐁𝐮𝐧𝐝𝐞𝐬𝐥𝐢𝐠𝐭𝐨𝐫 für Uche!  ✅🇳🇬👏",
               "reason": "no-allowlist-match"
             }
           ],
@@ -3559,7 +3560,7 @@
           "item_count": 50,
           "has_more": true,
           "newest_upload": "2026-11-23",
-          "recent_uploads": 16,
+          "recent_uploads": 17,
           "recent_passing": 1,
           "flags": [],
           "region": {
@@ -3586,10 +3587,14 @@
           "http_status": 200,
           "item_count": 50,
           "has_more": true,
-          "newest_upload": "2026-11-21",
-          "recent_uploads": 17,
+          "newest_upload": "2026-11-23",
+          "recent_uploads": 18,
           "recent_passing": 0,
           "drift_samples": [
+            {
+              "title": "Stolz, ein Schalker zu sein 💙🤍 | FC Schalke 04 | Raul im S04TV+ Interview",
+              "reason": "blocked:interview"
+            },
             {
               "title": "\"Haben viel Energie auf den Platz gebracht\" | S04-PK nach Stuttgart | FC Schalke 04",
               "reason": "no-allowlist-match"
@@ -3604,10 +3609,6 @@
             },
             {
               "title": "VITA AUF DER LINIE!!! 😯 #SkySportDE #S04VFB",
-              "reason": "no-allowlist-match"
-            },
-            {
-              "title": "⚒️🔦 GLÜCK AUF, GLÜCK AUF ⚒️🔦",
               "reason": "no-allowlist-match"
             }
           ],
@@ -3654,7 +3655,7 @@
           "item_count": 50,
           "has_more": true,
           "newest_upload": "2026-11-23",
-          "recent_uploads": 18,
+          "recent_uploads": 19,
           "recent_passing": 2,
           "flags": [],
           "region": {
@@ -3681,10 +3682,14 @@
           "http_status": 200,
           "item_count": 50,
           "has_more": true,
-          "newest_upload": "2026-11-22",
-          "recent_uploads": 8,
+          "newest_upload": "2026-11-23",
+          "recent_uploads": 9,
           "recent_passing": 0,
           "drift_samples": [
+            {
+              "title": "\"Das war sehr wertschätzend!\" | Lisa Karl im Video-Podcast",
+              "reason": "no-allowlist-match"
+            },
             {
               "title": "Lisa Karl ist neue SC-Rekordspielerin",
               "reason": "no-allowlist-match"
@@ -3699,10 +3704,6 @@
             },
             {
               "title": "PK vor Elversberg",
-              "reason": "no-allowlist-match"
-            },
-            {
-              "title": "600 Vorbilder für mehr Bewegung | Kindersport-Weiterbildung",
               "reason": "no-allowlist-match"
             }
           ],
@@ -3720,10 +3721,14 @@
           "http_status": 200,
           "item_count": 50,
           "has_more": true,
-          "newest_upload": "2026-11-22",
-          "recent_uploads": 23,
+          "newest_upload": "2026-11-23",
+          "recent_uploads": 24,
           "recent_passing": 0,
           "drift_samples": [
+            {
+              "title": "Nur Liebe an die besten Fans 💙🖤",
+              "reason": "no-allowlist-match"
+            },
             {
               "title": "\"Müssen aus dem Spiel lernen\" | Laurin Curda nach dem Spiel in Leverkusen",
               "reason": "no-allowlist-match"
@@ -3738,10 +3743,6 @@
             },
             {
               "title": "Ein Blick zurück ins Bundesliga-Debütjahr! 🔙",
-              "reason": "no-allowlist-match"
-            },
-            {
-              "title": "Es gibt nur einen Sven Michel! 💁‍♂️",
               "reason": "no-allowlist-match"
             }
           ],
@@ -3759,10 +3760,14 @@
           "http_status": 200,
           "item_count": 50,
           "has_more": true,
-          "newest_upload": "2026-11-22",
-          "recent_uploads": 6,
+          "newest_upload": "2026-11-23",
+          "recent_uploads": 7,
           "recent_passing": 0,
           "drift_samples": [
+            {
+              "title": "RECAP: Heimspiel gegen den SC Freiburg",
+              "reason": "no-allowlist-match"
+            },
             {
               "title": "\"Können viel Gutes mitnehmen\" | Nachschuss zu #ELVSCF",
               "reason": "no-allowlist-match"
@@ -3777,10 +3782,6 @@
             },
             {
               "title": "UP NEXT: Heimspiel gegen den SC Freiburg",
-              "reason": "no-allowlist-match"
-            },
-            {
-              "title": "RECAP: Auswärtsspiel bei Borussia Dortmund",
               "reason": "no-allowlist-match"
             }
           ],
@@ -3826,10 +3827,18 @@
           "http_status": 200,
           "item_count": 50,
           "has_more": true,
-          "newest_upload": "2026-11-22",
-          "recent_uploads": 22,
+          "newest_upload": "2026-11-23",
+          "recent_uploads": 24,
           "recent_passing": 0,
           "drift_samples": [
+            {
+              "title": "Starke TSG verliert knapp beim FC Bayern München",
+              "reason": "no-allowlist-match"
+            },
+            {
+              "title": "All eyes on Oliver Baumann 👀 | Frankfurt - Hoffenheim aus der anderen Perspektive 🧤🥅",
+              "reason": "no-allowlist-match"
+            },
             {
               "title": "🇯🇵🤝",
               "reason": "no-allowlist-match"
@@ -3840,14 +3849,6 @@
             },
             {
               "title": "Adam Daghim 🤝 Malik Pimpong 🤝 Oscar Höjlund",
-              "reason": "no-allowlist-match"
-            },
-            {
-              "title": "Luca Philipp 🤝 Jonathan Burkardt",
-              "reason": "no-allowlist-match"
-            },
-            {
-              "title": "\"Nach dem 1:0 haben wir Selbstvertrauen gewonnen\" | PK nach #TSGSCP",
               "reason": "no-allowlist-match"
             }
           ],
@@ -3866,9 +3867,17 @@
           "item_count": 50,
           "has_more": true,
           "newest_upload": "2026-11-23",
-          "recent_uploads": 8,
+          "recent_uploads": 11,
           "recent_passing": 0,
           "drift_samples": [
+            {
+              "title": "LOCKER ROOM #4 | VfB-Legenden Hansi Müller und Guido Buchwald im Gespräch",
+              "reason": "no-allowlist-match"
+            },
+            {
+              "title": "Highlights: SGV Heilbronn-Freiberg - VfB U19",
+              "reason": "youth-reserve"
+            },
             {
               "title": "Jeff Chabot vs. Grischa Prömel | Quiz-Duell vor Inter Mailand | Takeoff Europa",
               "reason": "no-allowlist-match"
@@ -3880,14 +3889,6 @@
             {
               "title": "LIVE | Pressekonferenz vor FC Schalke 04 – VfB Stuttgart | Bundesliga",
               "reason": "blocked:pressekonferenz"
-            },
-            {
-              "title": "VfB STR: Folge 479 | Flower In A Hurricane",
-              "reason": "no-allowlist-match"
-            },
-            {
-              "title": "Reisepass Europa #2 - Auswärts in Istanbul | VfB Stuttgart",
-              "reason": "no-allowlist-match"
             }
           ],
           "flags": [
@@ -4008,19 +4009,19 @@
           "has_more": true,
           "newest_upload": "2026-11-23",
           "recent_uploads": 50,
-          "recent_passing": 24,
+          "recent_passing": 25,
           "flags": [],
           "region": {
             "checked": 10,
             "not_checked": 0,
             "embeddable": 10,
-            "over_max_duration": 0,
+            "over_max_duration": 1,
             "playable": {
-              "US": 9,
-              "GB": 9,
-              "CA": 9,
-              "IE": 9,
-              "ES": 9
+              "US": 10,
+              "GB": 10,
+              "CA": 10,
+              "IE": 10,
+              "ES": 10
             }
           }
         },
@@ -4034,8 +4035,8 @@
           "item_count": 50,
           "has_more": true,
           "newest_upload": "2026-11-23",
-          "recent_uploads": 11,
-          "recent_passing": 10,
+          "recent_uploads": 12,
+          "recent_passing": 11,
           "flags": [],
           "region": {
             "checked": 10,
@@ -4472,7 +4473,7 @@
           "item_count": 50,
           "has_more": true,
           "newest_upload": "2026-11-23",
-          "recent_uploads": 14,
+          "recent_uploads": 15,
           "recent_passing": 4,
           "flags": [],
           "region": {
@@ -4500,7 +4501,7 @@
           "item_count": 50,
           "has_more": true,
           "newest_upload": "2026-11-23",
-          "recent_uploads": 10,
+          "recent_uploads": 11,
           "recent_passing": 2,
           "flags": [],
           "region": {
@@ -4566,10 +4567,14 @@
           "http_status": 200,
           "item_count": 50,
           "has_more": true,
-          "newest_upload": "2026-11-22",
-          "recent_uploads": 30,
+          "newest_upload": "2026-11-23",
+          "recent_uploads": 31,
           "recent_passing": 0,
           "drift_samples": [
+            {
+              "title": "Happy Birthday, Bouba Kamara 💙2️⃣7️⃣ #kamara #boubakamara #birthday",
+              "reason": "no-allowlist-match"
+            },
             {
               "title": "[REPLAY] OM LIVE MATCH | Le match #OMLMFC en direct 🎙️",
               "reason": "no-allowlist-match"
@@ -4584,10 +4589,6 @@
             },
             {
               "title": "Senegal's Got Talent 🇸🇳🔥 #om #marseille #niang #senegal #taofall #gueye #ndiaye #sarr",
-              "reason": "no-allowlist-match"
-            },
-            {
-              "title": "🔙 17 years ago Niang against Le Mans 🤯 #OMLMFC #marseille #football #ligue1 #shortvideo #niang",
               "reason": "no-allowlist-match"
             }
           ],
@@ -4634,7 +4635,7 @@
           "item_count": 50,
           "has_more": true,
           "newest_upload": "2026-11-23",
-          "recent_uploads": 21,
+          "recent_uploads": 24,
           "recent_passing": 1,
           "flags": [],
           "region": {
@@ -4690,7 +4691,7 @@
           "item_count": 50,
           "has_more": true,
           "newest_upload": "2026-11-23",
-          "recent_uploads": 10,
+          "recent_uploads": 12,
           "recent_passing": 2,
           "flags": [],
           "region": {
@@ -4779,28 +4780,28 @@
       "region": {
         "US": {
           "checked": 47,
-          "playable": 46,
-          "playable_and_embeddable": 46
+          "playable": 47,
+          "playable_and_embeddable": 47
         },
         "GB": {
           "checked": 47,
-          "playable": 36,
-          "playable_and_embeddable": 36
+          "playable": 37,
+          "playable_and_embeddable": 37
         },
         "CA": {
           "checked": 47,
-          "playable": 46,
-          "playable_and_embeddable": 46
+          "playable": 47,
+          "playable_and_embeddable": 47
         },
         "IE": {
           "checked": 47,
-          "playable": 36,
-          "playable_and_embeddable": 36
+          "playable": 37,
+          "playable_and_embeddable": 37
         },
         "ES": {
           "checked": 47,
-          "playable": 36,
-          "playable_and_embeddable": 36
+          "playable": 37,
+          "playable_and_embeddable": 37
         }
       },
       "registry_findings": [
@@ -4901,6 +4902,21 @@
           "flags": []
         },
         {
+          "kind": "broadcaster_playlist",
+          "tier": 4,
+          "label": "DAZN Football",
+          "playlist_id": "PLRnudrgaT-tc",
+          "checked": true,
+          "http_status": 200,
+          "item_count": 50,
+          "has_more": true,
+          "newest_upload": "2026-11-05",
+          "recent_uploads": 0,
+          "recent_passing": 0,
+          "stale_suppressed": "no_finished_fixtures_in_window",
+          "flags": []
+        },
+        {
           "kind": "broadcaster_channel",
           "tier": 4,
           "label": "TNT Sports Football",
@@ -4953,7 +4969,7 @@
           "item_count": 50,
           "has_more": true,
           "newest_upload": "2026-11-23",
-          "recent_uploads": 19,
+          "recent_uploads": 23,
           "recent_passing": 1,
           "flags": [],
           "region": {
@@ -5036,8 +5052,8 @@
           "http_status": 200,
           "item_count": 50,
           "has_more": true,
-          "newest_upload": "2026-11-22",
-          "recent_uploads": 15,
+          "newest_upload": "2026-11-23",
+          "recent_uploads": 17,
           "recent_passing": 2,
           "flags": [],
           "region": {
@@ -5093,7 +5109,7 @@
           "item_count": 50,
           "has_more": true,
           "newest_upload": "2026-11-23",
-          "recent_uploads": 28,
+          "recent_uploads": 29,
           "recent_passing": 1,
           "flags": [],
           "region": {
@@ -5149,7 +5165,7 @@
           "item_count": 50,
           "has_more": true,
           "newest_upload": "2026-11-23",
-          "recent_uploads": 16,
+          "recent_uploads": 17,
           "recent_passing": 1,
           "flags": [],
           "region": {
@@ -5249,7 +5265,7 @@
           "item_count": 50,
           "has_more": true,
           "newest_upload": "2026-11-23",
-          "recent_uploads": 14,
+          "recent_uploads": 15,
           "recent_passing": 4,
           "flags": [],
           "region": {
@@ -5278,19 +5294,19 @@
           "has_more": true,
           "newest_upload": "2026-11-23",
           "recent_uploads": 50,
-          "recent_passing": 8,
+          "recent_passing": 7,
           "flags": [],
           "region": {
-            "checked": 8,
+            "checked": 7,
             "not_checked": 0,
-            "embeddable": 7,
+            "embeddable": 6,
             "over_max_duration": 0,
             "playable": {
-              "US": 8,
-              "GB": 8,
-              "CA": 8,
-              "IE": 8,
-              "ES": 8
+              "US": 7,
+              "GB": 7,
+              "CA": 7,
+              "IE": 7,
+              "ES": 7
             }
           }
         },
@@ -5305,7 +5321,7 @@
           "item_count": 50,
           "has_more": true,
           "newest_upload": "2026-11-23",
-          "recent_uploads": 25,
+          "recent_uploads": 27,
           "recent_passing": 3,
           "flags": [],
           "region": {
@@ -5361,7 +5377,7 @@
           "item_count": 50,
           "has_more": true,
           "newest_upload": "2026-11-23",
-          "recent_uploads": 13,
+          "recent_uploads": 15,
           "recent_passing": 6,
           "flags": [],
           "region": {
@@ -5389,7 +5405,7 @@
           "item_count": 50,
           "has_more": true,
           "newest_upload": "2026-11-23",
-          "recent_uploads": 21,
+          "recent_uploads": 24,
           "recent_passing": 1,
           "flags": [],
           "region": {
@@ -5417,7 +5433,7 @@
           "item_count": 50,
           "has_more": true,
           "newest_upload": "2026-11-23",
-          "recent_uploads": 18,
+          "recent_uploads": 19,
           "recent_passing": 2,
           "flags": [],
           "region": {
@@ -5445,7 +5461,7 @@
           "item_count": 50,
           "has_more": true,
           "newest_upload": "2026-11-23",
-          "recent_uploads": 10,
+          "recent_uploads": 12,
           "recent_passing": 2,
           "flags": [],
           "region": {
@@ -5473,7 +5489,7 @@
           "item_count": 50,
           "has_more": true,
           "newest_upload": "2026-11-23",
-          "recent_uploads": 40,
+          "recent_uploads": 42,
           "recent_passing": 3,
           "flags": [],
           "region": {
@@ -5500,8 +5516,8 @@
           "http_status": 200,
           "item_count": 50,
           "has_more": true,
-          "newest_upload": "2026-11-22",
-          "recent_uploads": 49,
+          "newest_upload": "2026-11-23",
+          "recent_uploads": 50,
           "recent_passing": 2,
           "flags": [],
           "region": {
@@ -5601,9 +5617,17 @@
           "item_count": 50,
           "has_more": true,
           "newest_upload": "2026-11-23",
-          "recent_uploads": 8,
+          "recent_uploads": 11,
           "recent_passing": 0,
           "drift_samples": [
+            {
+              "title": "LOCKER ROOM #4 | VfB-Legenden Hansi Müller und Guido Buchwald im Gespräch",
+              "reason": "no-allowlist-match"
+            },
+            {
+              "title": "Highlights: SGV Heilbronn-Freiberg - VfB U19",
+              "reason": "youth-reserve"
+            },
             {
               "title": "Jeff Chabot vs. Grischa Prömel | Quiz-Duell vor Inter Mailand | Takeoff Europa",
               "reason": "no-allowlist-match"
@@ -5615,14 +5639,6 @@
             {
               "title": "LIVE | Pressekonferenz vor FC Schalke 04 – VfB Stuttgart | Bundesliga",
               "reason": "blocked:pressekonferenz"
-            },
-            {
-              "title": "VfB STR: Folge 479 | Flower In A Hurricane",
-              "reason": "no-allowlist-match"
-            },
-            {
-              "title": "Reisepass Europa #2 - Auswärts in Istanbul | VfB Stuttgart",
-              "reason": "no-allowlist-match"
             }
           ],
           "flags": [
@@ -5672,29 +5688,29 @@
       },
       "region": {
         "US": {
-          "checked": 65,
-          "playable": 65,
-          "playable_and_embeddable": 58
+          "checked": 64,
+          "playable": 64,
+          "playable_and_embeddable": 57
         },
         "GB": {
-          "checked": 65,
-          "playable": 65,
-          "playable_and_embeddable": 58
+          "checked": 64,
+          "playable": 64,
+          "playable_and_embeddable": 57
         },
         "CA": {
-          "checked": 65,
-          "playable": 65,
-          "playable_and_embeddable": 58
+          "checked": 64,
+          "playable": 64,
+          "playable_and_embeddable": 57
         },
         "IE": {
-          "checked": 65,
-          "playable": 65,
-          "playable_and_embeddable": 58
+          "checked": 64,
+          "playable": 64,
+          "playable_and_embeddable": 57
         },
         "ES": {
-          "checked": 65,
-          "playable": 65,
-          "playable_and_embeddable": 58
+          "checked": 64,
+          "playable": 64,
+          "playable_and_embeddable": 57
         }
       },
       "registry_findings": [
@@ -5729,6 +5745,13 @@
           ]
         },
         {
+          "flag": "MISSING_SOURCE",
+          "country": "CA",
+          "holder": "DAZN",
+          "role": "highlights",
+          "source_id": "UUSZ21xyG8w_33KriMM69IxQ"
+        },
+        {
           "flag": "UNVERIFIED",
           "country": "IE",
           "holders": [
@@ -5753,7 +5776,42 @@
           ]
         }
       ],
-      "proposals": []
+      "proposals": [
+        {
+          "source_id": "UUSZ21xyG8w_33KriMM69IxQ",
+          "holder": "DAZN",
+          "role": "highlights",
+          "country": "CA",
+          "recent_passing": 23,
+          "samples": [
+            {
+              "video_id": "78tw1zun4_Q",
+              "title": "National League HIGHLIGHTS Roundup | MATCHDAY 18",
+              "published": "2026-11-23"
+            },
+            {
+              "video_id": "jgrS1kp0RPo",
+              "title": "Como vs Cagliari | Matchday 12 | 2026-27 Serie A Highlights",
+              "published": "2026-11-23"
+            },
+            {
+              "video_id": "WjwkKRGPWjI",
+              "title": "Parma vs Roma | Matchday 12 | 2026-27 Serie A Highlights",
+              "published": "2026-11-23"
+            },
+            {
+              "video_id": "B5xz5JJeLQA",
+              "title": "Atalanta vs Inter Milan | Matchday 12 | 2026-27 Serie A Highlights",
+              "published": "2026-11-22"
+            },
+            {
+              "video_id": "TPabtxDTUnY",
+              "title": "Milan vs Frosinone | Matchday 12 | 2026-27 Serie A Highlights",
+              "published": "2026-11-22"
+            }
+          ]
+        }
+      ]
     },
     "Europa League": {
       "slug": "uel",
@@ -5887,6 +5945,51 @@
           "tier": 4,
           "label": "Fox Soccer",
           "playlist_id": "PLKHdj0BT9oN7qBYlsW9zhH4PDRfLqPR6b",
+          "checked": true,
+          "http_status": 200,
+          "item_count": 50,
+          "has_more": true,
+          "newest_upload": "2024-07-19",
+          "recent_uploads": 0,
+          "recent_passing": 0,
+          "stale_suppressed": "no_finished_fixtures_in_window",
+          "flags": []
+        },
+        {
+          "kind": "broadcaster_playlist",
+          "tier": 4,
+          "label": "ITV Sport",
+          "playlist_id": "PLRhC9EroPISkPzs7cPRoBxKxJ-wvMA3eU",
+          "checked": true,
+          "http_status": 200,
+          "item_count": 49,
+          "has_more": false,
+          "newest_upload": "2024-07-14",
+          "recent_uploads": 0,
+          "recent_passing": 0,
+          "stale_suppressed": "no_finished_fixtures_in_window",
+          "flags": []
+        },
+        {
+          "kind": "broadcaster_playlist",
+          "tier": 4,
+          "label": "RTÉ Sport",
+          "playlist_id": "PLJq_wJ4tVeXbqmPaDxlVrjpuM-hmiRSP3",
+          "checked": true,
+          "http_status": 200,
+          "item_count": 45,
+          "has_more": false,
+          "newest_upload": "2024-07-14",
+          "recent_uploads": 0,
+          "recent_passing": 0,
+          "stale_suppressed": "no_finished_fixtures_in_window",
+          "flags": []
+        },
+        {
+          "kind": "broadcaster_playlist",
+          "tier": 4,
+          "label": "TSN",
+          "playlist_id": "PL6ndzuHRRemAohdjmpboUr4oeo7UKGWki",
           "checked": true,
           "http_status": 200,
           "item_count": 50,
@@ -6168,8 +6271,8 @@
           "http_status": 200,
           "item_count": 50,
           "has_more": true,
-          "newest_upload": "2026-11-22",
-          "recent_uploads": 19,
+          "newest_upload": "2026-11-23",
+          "recent_uploads": 20,
           "recent_passing": 2,
           "flags": [],
           "region": {
@@ -6201,23 +6304,23 @@
           "recent_passing": 0,
           "drift_samples": [
             {
-              "title": "Remmel Gert értékelése a Nyíregyháza Spartacus FC – DVSC mérkőzésen",
+              "title": "Edzői értékelések a Kispest-Honvéd FC – Paksi FC mérkőzésen",
               "reason": "no-allowlist-match"
             },
             {
-              "title": "Nyíregyháza Spartacus FC – DVSC | 2-6 | (0-2) | OTP Bank Liga | 14. forduló | MLSZTV",
+              "title": "Kispest-Honvéd FC – Paksi FC | 2-1 | (1-1) | OTP Bank Liga | 14. forduló | MLSZTV",
               "reason": "no-allowlist-match"
             },
             {
-              "title": "Szendrei Ákos második gólja a Nyíregyháza Spartacus FC – DVSC mérkőzésen",
+              "title": "Szalai József gólja a Kispest-Honvéd FC – Paksi FC mérkőzésen",
               "reason": "no-allowlist-match"
             },
             {
-              "title": "Batoum Jean Florent gólja a Nyíregyháza Spartacus FC – DVSC mérkőzésen",
+              "title": "Szamosi Ádám Szabolcs gólja a Kispest-Honvéd FC – Paksi FC mérkőzésen",
               "reason": "no-allowlist-match"
             },
             {
-              "title": "Kocsis Dominik második gólja a Nyíregyháza Spartacus FC – DVSC mérkőzésen",
+              "title": "Alic Adi gólja a Kispest-Honvéd FC – Paksi FC mérkőzésen",
               "reason": "no-allowlist-match"
             }
           ],
@@ -6578,8 +6681,108 @@
           "playable_and_embeddable": 44
         }
       },
-      "registry_findings": [],
-      "proposals": []
+      "registry_findings": [
+        {
+          "flag": "NO_HOLDER",
+          "country": "US",
+          "note": "no active registry entry"
+        },
+        {
+          "flag": "MISSING_SOURCE",
+          "country": "GB",
+          "holder": "ITV",
+          "role": "highlights",
+          "source_id": "UUBzDz6beXDfMtfxQdEutD_w"
+        },
+        {
+          "flag": "MISSING_SOURCE",
+          "country": "CA",
+          "holder": "TSN",
+          "role": "highlights",
+          "source_id": "UU--i2rV5NCxiEIPefr3l-zQ"
+        },
+        {
+          "flag": "MISSING_SOURCE",
+          "country": "IE",
+          "holder": "RTÉ",
+          "role": "highlights",
+          "source_id": "UUH_7bF90ySEVfWLXtn9HlWA"
+        },
+        {
+          "flag": "NO_HOLDER",
+          "country": "ES",
+          "note": "no active registry entry"
+        }
+      ],
+      "proposals": [
+        {
+          "source_id": "UUBzDz6beXDfMtfxQdEutD_w",
+          "holder": "ITV",
+          "role": "highlights",
+          "country": "GB",
+          "recent_passing": 2,
+          "samples": [
+            {
+              "video_id": "9D5quteb4UQ",
+              "title": "HIGHLIGHTS - Spain v England | HUGE Battle in Madrid | UEFA Nations League",
+              "published": "2026-11-15"
+            },
+            {
+              "video_id": "GiNVkUpb9Nk",
+              "title": "HIGHLIGHTS - England v Croatia | Tight Affair At Wembley! | UEFA Nations League",
+              "published": "2026-11-12"
+            }
+          ]
+        },
+        {
+          "source_id": "UU--i2rV5NCxiEIPefr3l-zQ",
+          "holder": "TSN",
+          "role": "highlights",
+          "country": "CA",
+          "recent_passing": 16,
+          "samples": [
+            {
+              "video_id": "dbcCaii1pWQ",
+              "title": "Vancouver Canucks vs. Chicago Blackhawks | NHL Highlights",
+              "published": "2026-11-23"
+            },
+            {
+              "video_id": "oAfVlXqIX5Q",
+              "title": "Edmonton Oilers vs. St. Louis Blues | NHL HIGHLIGHTS",
+              "published": "2026-11-23"
+            },
+            {
+              "video_id": "PAvR4CCvbPg",
+              "title": "F1 Extended Highlights: Las Vegas Grand Prix",
+              "published": "2026-11-22"
+            },
+            {
+              "video_id": "mAuW6d0-WEk",
+              "title": "Winnipeg Jets vs. Vegas Golden Knights",
+              "published": "2026-11-22"
+            },
+            {
+              "video_id": "5K9DhiMYRS4",
+              "title": "Vancouver Canucks vs. Minnesota Wild | NHL Highlights",
+              "published": "2026-11-22"
+            }
+          ]
+        },
+        {
+          "source_id": "UUH_7bF90ySEVfWLXtn9HlWA",
+          "holder": "RTÉ",
+          "role": "highlights",
+          "country": "IE",
+          "recent_passing": 1,
+          "samples": [
+            {
+              "video_id": "9wKeqxuIkRU",
+              "title": "Brazil v Ireland | Highlights | FIFA U17 WORLD CUP 26",
+              "published": "2026-11-21"
+            }
+          ]
+        }
+      ]
     },
     "Copa America": {
       "slug": "copa-america",
@@ -6611,6 +6814,21 @@
           "item_count": 33,
           "has_more": false,
           "newest_upload": "2024-07-15",
+          "recent_uploads": 0,
+          "recent_passing": 0,
+          "stale_suppressed": "no_finished_fixtures_in_window",
+          "flags": []
+        },
+        {
+          "kind": "broadcaster_playlist",
+          "tier": 4,
+          "label": "TSN",
+          "playlist_id": "PL6ndzuHRRemDIkRVM5kUCg7wuNnHAl89a",
+          "checked": true,
+          "http_status": 200,
+          "item_count": 50,
+          "has_more": true,
+          "newest_upload": "2024-07-19",
           "recent_uploads": 0,
           "recent_passing": 0,
           "stale_suppressed": "no_finished_fixtures_in_window",
@@ -6656,8 +6874,71 @@
           "playable_and_embeddable": 0
         }
       },
-      "registry_findings": [],
-      "proposals": []
+      "registry_findings": [
+        {
+          "flag": "NO_HOLDER",
+          "country": "US",
+          "note": "no active registry entry"
+        },
+        {
+          "flag": "NO_HOLDER",
+          "country": "GB",
+          "note": "no active registry entry"
+        },
+        {
+          "flag": "MISSING_SOURCE",
+          "country": "CA",
+          "holder": "TSN",
+          "role": "highlights",
+          "source_id": "UU--i2rV5NCxiEIPefr3l-zQ"
+        },
+        {
+          "flag": "NO_HOLDER",
+          "country": "IE",
+          "note": "no active registry entry"
+        },
+        {
+          "flag": "NO_HOLDER",
+          "country": "ES",
+          "note": "no active registry entry"
+        }
+      ],
+      "proposals": [
+        {
+          "source_id": "UU--i2rV5NCxiEIPefr3l-zQ",
+          "holder": "TSN",
+          "role": "highlights",
+          "country": "CA",
+          "recent_passing": 16,
+          "samples": [
+            {
+              "video_id": "dbcCaii1pWQ",
+              "title": "Vancouver Canucks vs. Chicago Blackhawks | NHL Highlights",
+              "published": "2026-11-23"
+            },
+            {
+              "video_id": "oAfVlXqIX5Q",
+              "title": "Edmonton Oilers vs. St. Louis Blues | NHL HIGHLIGHTS",
+              "published": "2026-11-23"
+            },
+            {
+              "video_id": "PAvR4CCvbPg",
+              "title": "F1 Extended Highlights: Las Vegas Grand Prix",
+              "published": "2026-11-22"
+            },
+            {
+              "video_id": "mAuW6d0-WEk",
+              "title": "Winnipeg Jets vs. Vegas Golden Knights",
+              "published": "2026-11-22"
+            },
+            {
+              "video_id": "5K9DhiMYRS4",
+              "title": "Vancouver Canucks vs. Minnesota Wild | NHL Highlights",
+              "published": "2026-11-22"
+            }
+          ]
+        }
+      ]
     },
     "World Cup": {
       "slug": "world-cup",
@@ -6695,6 +6976,33 @@
           "flags": []
         },
         {
+          "kind": "broadcaster_playlist",
+          "tier": 4,
+          "label": "FIFA",
+          "playlist_id": "PLOE12mR9Tpp8",
+          "checked": true,
+          "http_status": 200,
+          "item_count": 40,
+          "has_more": false,
+          "newest_upload": "2026-11-23",
+          "recent_uploads": 39,
+          "recent_passing": 39,
+          "flags": [],
+          "region": {
+            "checked": 10,
+            "not_checked": 0,
+            "embeddable": 10,
+            "over_max_duration": 0,
+            "playable": {
+              "US": 10,
+              "GB": 10,
+              "CA": 10,
+              "IE": 10,
+              "ES": 10
+            }
+          }
+        },
+        {
           "kind": "team_channel",
           "tier": 1,
           "label": "Algeria",
@@ -6704,10 +7012,14 @@
           "http_status": 200,
           "item_count": 50,
           "has_more": true,
-          "newest_upload": "2026-11-20",
-          "recent_uploads": 16,
+          "newest_upload": "2026-11-23",
+          "recent_uploads": 17,
           "recent_passing": 0,
           "drift_samples": [
+            {
+              "title": "أجواء التدريبات الأخيرة للمنتخب الوطني لأقل من 17 سنة قبل مواجهة منتخب الجبل الأسود 🇩🇿💚",
+              "reason": "blocked:تدريب"
+            },
             {
               "title": "أجواء الحصة التدريبية الأخيرة لأشبال الخضر قبل مباراتهم الافتتاحية في المونديال أمام منتخب الشيلي",
               "reason": "blocked:تدريب"
@@ -6723,10 +7035,6 @@
             {
               "title": "من حفاوة الاستقبال في كانساس سيتي ولورانس إلى كرم الضيافة في الجزائر",
               "reason": "no-allowlist-match"
-            },
-            {
-              "title": "أجواء الحصة التدريبية الأخيرة للمنتخب الوطني لأقل من 17 سنة « ب » استعدادًا لمواجهة منتخب مصر",
-              "reason": "blocked:تدريب"
             }
           ],
           "flags": [
@@ -6913,9 +7221,17 @@
           "item_count": 50,
           "has_more": true,
           "newest_upload": "2026-11-23",
-          "recent_uploads": 26,
+          "recent_uploads": 28,
           "recent_passing": 0,
           "drift_samples": [
+            {
+              "title": "🇧🇷 Preparação, confiança e muita raça para buscar mais uma vitória!",
+              "reason": "no-allowlist-match"
+            },
+            {
+              "title": "🇧🇷 Duelo, intensidade e união para mais um desafio!",
+              "reason": "no-allowlist-match"
+            },
             {
               "title": "DE VOLTA À SELEÇÃO, RENATA COSTA RELEMBRA TRAJETÓRIA BEM-SUCEDIDA COMO ATLETA E TÉCNICA",
               "reason": "no-allowlist-match"
@@ -6926,14 +7242,6 @@
             },
             {
               "title": "CANARINHO FAZ NOVAS AMIZADES EM HIROSHIMA, NO JAPÃO! 🇧🇷 🇯🇵😂",
-              "reason": "no-allowlist-match"
-            },
-            {
-              "title": "AO VIVO: FRANCESCO MAURI NA COLETIVA DA SELEÇÃO BRASILEIRA",
-              "reason": "blocked:^\\W*(?:en\\ directo|in\\ diretta|en\\ direct|en\\ vivo|ao\\ vivo|live)\\b"
-            },
-            {
-              "title": "INTERNACIONAL É CAMPEÃO DA COPA DO BRASIL FEMININA 2026",
               "reason": "no-allowlist-match"
             }
           ],
@@ -6951,8 +7259,8 @@
           "http_status": 200,
           "item_count": 50,
           "has_more": true,
-          "newest_upload": "2026-11-17",
-          "recent_uploads": 4,
+          "newest_upload": "2026-11-23",
+          "recent_uploads": 5,
           "recent_passing": 2,
           "flags": [],
           "region": {
@@ -6997,7 +7305,7 @@
           "item_count": 50,
           "has_more": true,
           "newest_upload": "2026-11-23",
-          "recent_uploads": 42,
+          "recent_uploads": 43,
           "recent_passing": 1,
           "flags": [],
           "region": {
@@ -7198,8 +7506,8 @@
           "http_status": 200,
           "item_count": 50,
           "has_more": true,
-          "newest_upload": "2026-11-22",
-          "recent_uploads": 19,
+          "newest_upload": "2026-11-23",
+          "recent_uploads": 20,
           "recent_passing": 2,
           "flags": [],
           "region": {
@@ -7680,10 +7988,18 @@
           "http_status": 200,
           "item_count": 50,
           "has_more": true,
-          "newest_upload": "2026-11-22",
-          "recent_uploads": 22,
+          "newest_upload": "2026-11-23",
+          "recent_uploads": 24,
           "recent_passing": 0,
           "drift_samples": [
+            {
+              "title": "Sénégal 9-0 Cuba : Lamine Sané, coach U17 : «On a joué en équipe et avec le cœur»",
+              "reason": "no-allowlist-match"
+            },
+            {
+              "title": "Ibou Dione homme du match, Sidy Barham et Mouha Faye savourent la victoire 9-0 vs Cuba",
+              "reason": "no-allowlist-match"
+            },
             {
               "title": "À une semaine de la Can de Beach Soccer, le coach Sylla fait le point",
               "reason": "no-allowlist-match"
@@ -7694,14 +8010,6 @@
             },
             {
               "title": "Lamine Sané livre ses enseignements avant la 2e journée face au Cuba",
-              "reason": "no-allowlist-match"
-            },
-            {
-              "title": "XAM SA WAAY : Pape Demba et Mamour Ndiaye se prêtent au jeu",
-              "reason": "no-allowlist-match"
-            },
-            {
-              "title": "El Hadj Ibrahima Sow et Séga Fall Mbodj prêts pour le Mondial U17",
               "reason": "no-allowlist-match"
             }
           ],
@@ -7886,8 +8194,8 @@
           "http_status": 200,
           "item_count": 50,
           "has_more": true,
-          "newest_upload": "2026-11-21",
-          "recent_uploads": 49,
+          "newest_upload": "2026-11-23",
+          "recent_uploads": 50,
           "recent_passing": 2,
           "flags": [],
           "region": {
@@ -7916,19 +8224,19 @@
           "has_more": true,
           "newest_upload": "2026-11-23",
           "recent_uploads": 50,
-          "recent_passing": 10,
+          "recent_passing": 9,
           "flags": [],
           "region": {
-            "checked": 10,
+            "checked": 9,
             "not_checked": 0,
-            "embeddable": 10,
+            "embeddable": 9,
             "over_max_duration": 1,
             "playable": {
-              "US": 10,
-              "GB": 10,
-              "CA": 10,
-              "IE": 10,
-              "ES": 10
+              "US": 9,
+              "GB": 9,
+              "CA": 9,
+              "IE": 9,
+              "ES": 9
             }
           }
         },
@@ -7986,33 +8294,432 @@
       },
       "region": {
         "US": {
-          "checked": 83,
-          "playable": 80,
-          "playable_and_embeddable": 80
+          "checked": 92,
+          "playable": 89,
+          "playable_and_embeddable": 89
         },
         "GB": {
-          "checked": 83,
-          "playable": 80,
-          "playable_and_embeddable": 80
+          "checked": 92,
+          "playable": 89,
+          "playable_and_embeddable": 89
         },
         "CA": {
-          "checked": 83,
-          "playable": 80,
-          "playable_and_embeddable": 80
+          "checked": 92,
+          "playable": 89,
+          "playable_and_embeddable": 89
         },
         "IE": {
-          "checked": 83,
-          "playable": 80,
-          "playable_and_embeddable": 80
+          "checked": 92,
+          "playable": 89,
+          "playable_and_embeddable": 89
         },
         "ES": {
-          "checked": 83,
-          "playable": 80,
-          "playable_and_embeddable": 80
+          "checked": 92,
+          "playable": 89,
+          "playable_and_embeddable": 89
         }
       },
-      "registry_findings": [],
-      "proposals": []
+      "registry_findings": [
+        {
+          "flag": "MISSING_SOURCE",
+          "country": "US",
+          "holder": "FIFA",
+          "role": "highlights",
+          "source_id": "PLBRLtDhTHh5o"
+        },
+        {
+          "flag": "MISSING_SOURCE",
+          "country": "US",
+          "holder": "FIFA",
+          "role": "highlights",
+          "source_id": "UUpcTrCXblq78GZrTUTLWeBw"
+        },
+        {
+          "flag": "MISSING_SOURCE",
+          "country": "GB",
+          "holder": "FIFA",
+          "role": "highlights",
+          "source_id": "PLBRLtDhTHh5o"
+        },
+        {
+          "flag": "MISSING_SOURCE",
+          "country": "GB",
+          "holder": "FIFA",
+          "role": "highlights",
+          "source_id": "UUpcTrCXblq78GZrTUTLWeBw"
+        },
+        {
+          "flag": "MISSING_SOURCE",
+          "country": "GB",
+          "holder": "ITV",
+          "role": "highlights",
+          "source_id": "PLRhC9EroPISmLz78Pne2Ekjii5fz0iVeD"
+        },
+        {
+          "flag": "MISSING_SOURCE",
+          "country": "GB",
+          "holder": "ITV",
+          "role": "highlights",
+          "source_id": "UUBzDz6beXDfMtfxQdEutD_w"
+        },
+        {
+          "flag": "MISSING_SOURCE",
+          "country": "CA",
+          "holder": "FIFA",
+          "role": "highlights",
+          "source_id": "PLBRLtDhTHh5o"
+        },
+        {
+          "flag": "MISSING_SOURCE",
+          "country": "CA",
+          "holder": "FIFA",
+          "role": "highlights",
+          "source_id": "UUpcTrCXblq78GZrTUTLWeBw"
+        },
+        {
+          "flag": "MISSING_SOURCE",
+          "country": "CA",
+          "holder": "TSN",
+          "role": "highlights",
+          "source_id": "PL6ndzuHRRemBukiX6QofXpzq3QxGCtils"
+        },
+        {
+          "flag": "MISSING_SOURCE",
+          "country": "CA",
+          "holder": "TSN",
+          "role": "highlights",
+          "source_id": "UU--i2rV5NCxiEIPefr3l-zQ"
+        },
+        {
+          "flag": "MISSING_SOURCE",
+          "country": "IE",
+          "holder": "FIFA",
+          "role": "highlights",
+          "source_id": "PLBRLtDhTHh5o"
+        },
+        {
+          "flag": "MISSING_SOURCE",
+          "country": "IE",
+          "holder": "FIFA",
+          "role": "highlights",
+          "source_id": "UUpcTrCXblq78GZrTUTLWeBw"
+        },
+        {
+          "flag": "MISSING_SOURCE",
+          "country": "IE",
+          "holder": "RTÉ",
+          "role": "highlights",
+          "source_id": "PLJq_wJ4tVeXYVR4ET0FOl6IaOOUPZ8Ke8"
+        },
+        {
+          "flag": "MISSING_SOURCE",
+          "country": "IE",
+          "holder": "RTÉ",
+          "role": "highlights",
+          "source_id": "UUH_7bF90ySEVfWLXtn9HlWA"
+        },
+        {
+          "flag": "MISSING_SOURCE",
+          "country": "ES",
+          "holder": "FIFA",
+          "role": "highlights",
+          "source_id": "PLBRLtDhTHh5o"
+        },
+        {
+          "flag": "MISSING_SOURCE",
+          "country": "ES",
+          "holder": "FIFA",
+          "role": "highlights",
+          "source_id": "UUpcTrCXblq78GZrTUTLWeBw"
+        },
+        {
+          "flag": "MISSING_SOURCE",
+          "country": "ES",
+          "holder": "RTVE (Teledeporte)",
+          "role": "highlights",
+          "source_id": "PLhEMBJiEYKv5FvOHB49kE5-dCMHzZHuKa"
+        },
+        {
+          "flag": "MISSING_SOURCE",
+          "country": "ES",
+          "holder": "RTVE (Teledeporte)",
+          "role": "highlights",
+          "source_id": "UU4SBVYTpqOh-exr7BShLAPw"
+        }
+      ],
+      "proposals": [
+        {
+          "source_id": "UUpcTrCXblq78GZrTUTLWeBw",
+          "holder": "FIFA",
+          "role": "highlights",
+          "country": "US",
+          "recent_passing": 43,
+          "samples": [
+            {
+              "video_id": "fqvGB7V-7zE",
+              "title": "Mali v Belgium | HIGHLIGHTS | FIFA U-17 World Cup 2026",
+              "published": "2026-11-23"
+            },
+            {
+              "video_id": "Z7KsKAS0OsM",
+              "title": "Vietnam v New Zealand | HIGHLIGHTS | FIFA U-17 World Cup 2026",
+              "published": "2026-11-23"
+            },
+            {
+              "video_id": "5pduZHZjejI",
+              "title": "Morocco v China PR | HIGHLIGHTS | FIFA U-17 World Cup 2026",
+              "published": "2026-11-23"
+            },
+            {
+              "video_id": "7MFwvcGAzr4",
+              "title": "Italy v Côte d'Ivoire | HIGHLIGHTS | FIFA U-17 World Cup 2026",
+              "published": "2026-11-23"
+            },
+            {
+              "video_id": "iTGlNKLLo_8",
+              "title": "Senegal v Cuba | HIGHLIGHTS | FIFA U-17 World Cup 2026",
+              "published": "2026-11-23"
+            }
+          ]
+        },
+        {
+          "source_id": "UUpcTrCXblq78GZrTUTLWeBw",
+          "holder": "FIFA",
+          "role": "highlights",
+          "country": "GB",
+          "recent_passing": 43,
+          "samples": [
+            {
+              "video_id": "fqvGB7V-7zE",
+              "title": "Mali v Belgium | HIGHLIGHTS | FIFA U-17 World Cup 2026",
+              "published": "2026-11-23"
+            },
+            {
+              "video_id": "Z7KsKAS0OsM",
+              "title": "Vietnam v New Zealand | HIGHLIGHTS | FIFA U-17 World Cup 2026",
+              "published": "2026-11-23"
+            },
+            {
+              "video_id": "5pduZHZjejI",
+              "title": "Morocco v China PR | HIGHLIGHTS | FIFA U-17 World Cup 2026",
+              "published": "2026-11-23"
+            },
+            {
+              "video_id": "7MFwvcGAzr4",
+              "title": "Italy v Côte d'Ivoire | HIGHLIGHTS | FIFA U-17 World Cup 2026",
+              "published": "2026-11-23"
+            },
+            {
+              "video_id": "iTGlNKLLo_8",
+              "title": "Senegal v Cuba | HIGHLIGHTS | FIFA U-17 World Cup 2026",
+              "published": "2026-11-23"
+            }
+          ]
+        },
+        {
+          "source_id": "UUBzDz6beXDfMtfxQdEutD_w",
+          "holder": "ITV",
+          "role": "highlights",
+          "country": "GB",
+          "recent_passing": 2,
+          "samples": [
+            {
+              "video_id": "9D5quteb4UQ",
+              "title": "HIGHLIGHTS - Spain v England | HUGE Battle in Madrid | UEFA Nations League",
+              "published": "2026-11-15"
+            },
+            {
+              "video_id": "GiNVkUpb9Nk",
+              "title": "HIGHLIGHTS - England v Croatia | Tight Affair At Wembley! | UEFA Nations League",
+              "published": "2026-11-12"
+            }
+          ]
+        },
+        {
+          "source_id": "UUpcTrCXblq78GZrTUTLWeBw",
+          "holder": "FIFA",
+          "role": "highlights",
+          "country": "CA",
+          "recent_passing": 43,
+          "samples": [
+            {
+              "video_id": "fqvGB7V-7zE",
+              "title": "Mali v Belgium | HIGHLIGHTS | FIFA U-17 World Cup 2026",
+              "published": "2026-11-23"
+            },
+            {
+              "video_id": "Z7KsKAS0OsM",
+              "title": "Vietnam v New Zealand | HIGHLIGHTS | FIFA U-17 World Cup 2026",
+              "published": "2026-11-23"
+            },
+            {
+              "video_id": "5pduZHZjejI",
+              "title": "Morocco v China PR | HIGHLIGHTS | FIFA U-17 World Cup 2026",
+              "published": "2026-11-23"
+            },
+            {
+              "video_id": "7MFwvcGAzr4",
+              "title": "Italy v Côte d'Ivoire | HIGHLIGHTS | FIFA U-17 World Cup 2026",
+              "published": "2026-11-23"
+            },
+            {
+              "video_id": "iTGlNKLLo_8",
+              "title": "Senegal v Cuba | HIGHLIGHTS | FIFA U-17 World Cup 2026",
+              "published": "2026-11-23"
+            }
+          ]
+        },
+        {
+          "source_id": "UU--i2rV5NCxiEIPefr3l-zQ",
+          "holder": "TSN",
+          "role": "highlights",
+          "country": "CA",
+          "recent_passing": 16,
+          "samples": [
+            {
+              "video_id": "dbcCaii1pWQ",
+              "title": "Vancouver Canucks vs. Chicago Blackhawks | NHL Highlights",
+              "published": "2026-11-23"
+            },
+            {
+              "video_id": "oAfVlXqIX5Q",
+              "title": "Edmonton Oilers vs. St. Louis Blues | NHL HIGHLIGHTS",
+              "published": "2026-11-23"
+            },
+            {
+              "video_id": "PAvR4CCvbPg",
+              "title": "F1 Extended Highlights: Las Vegas Grand Prix",
+              "published": "2026-11-22"
+            },
+            {
+              "video_id": "mAuW6d0-WEk",
+              "title": "Winnipeg Jets vs. Vegas Golden Knights",
+              "published": "2026-11-22"
+            },
+            {
+              "video_id": "5K9DhiMYRS4",
+              "title": "Vancouver Canucks vs. Minnesota Wild | NHL Highlights",
+              "published": "2026-11-22"
+            }
+          ]
+        },
+        {
+          "source_id": "UUpcTrCXblq78GZrTUTLWeBw",
+          "holder": "FIFA",
+          "role": "highlights",
+          "country": "IE",
+          "recent_passing": 43,
+          "samples": [
+            {
+              "video_id": "fqvGB7V-7zE",
+              "title": "Mali v Belgium | HIGHLIGHTS | FIFA U-17 World Cup 2026",
+              "published": "2026-11-23"
+            },
+            {
+              "video_id": "Z7KsKAS0OsM",
+              "title": "Vietnam v New Zealand | HIGHLIGHTS | FIFA U-17 World Cup 2026",
+              "published": "2026-11-23"
+            },
+            {
+              "video_id": "5pduZHZjejI",
+              "title": "Morocco v China PR | HIGHLIGHTS | FIFA U-17 World Cup 2026",
+              "published": "2026-11-23"
+            },
+            {
+              "video_id": "7MFwvcGAzr4",
+              "title": "Italy v Côte d'Ivoire | HIGHLIGHTS | FIFA U-17 World Cup 2026",
+              "published": "2026-11-23"
+            },
+            {
+              "video_id": "iTGlNKLLo_8",
+              "title": "Senegal v Cuba | HIGHLIGHTS | FIFA U-17 World Cup 2026",
+              "published": "2026-11-23"
+            }
+          ]
+        },
+        {
+          "source_id": "UUH_7bF90ySEVfWLXtn9HlWA",
+          "holder": "RTÉ",
+          "role": "highlights",
+          "country": "IE",
+          "recent_passing": 1,
+          "samples": [
+            {
+              "video_id": "9wKeqxuIkRU",
+              "title": "Brazil v Ireland | Highlights | FIFA U17 WORLD CUP 26",
+              "published": "2026-11-21"
+            }
+          ]
+        },
+        {
+          "source_id": "UUpcTrCXblq78GZrTUTLWeBw",
+          "holder": "FIFA",
+          "role": "highlights",
+          "country": "ES",
+          "recent_passing": 43,
+          "samples": [
+            {
+              "video_id": "fqvGB7V-7zE",
+              "title": "Mali v Belgium | HIGHLIGHTS | FIFA U-17 World Cup 2026",
+              "published": "2026-11-23"
+            },
+            {
+              "video_id": "Z7KsKAS0OsM",
+              "title": "Vietnam v New Zealand | HIGHLIGHTS | FIFA U-17 World Cup 2026",
+              "published": "2026-11-23"
+            },
+            {
+              "video_id": "5pduZHZjejI",
+              "title": "Morocco v China PR | HIGHLIGHTS | FIFA U-17 World Cup 2026",
+              "published": "2026-11-23"
+            },
+            {
+              "video_id": "7MFwvcGAzr4",
+              "title": "Italy v Côte d'Ivoire | HIGHLIGHTS | FIFA U-17 World Cup 2026",
+              "published": "2026-11-23"
+            },
+            {
+              "video_id": "iTGlNKLLo_8",
+              "title": "Senegal v Cuba | HIGHLIGHTS | FIFA U-17 World Cup 2026",
+              "published": "2026-11-23"
+            }
+          ]
+        },
+        {
+          "source_id": "UU4SBVYTpqOh-exr7BShLAPw",
+          "holder": "RTVE (Teledeporte)",
+          "role": "highlights",
+          "country": "ES",
+          "recent_passing": 7,
+          "samples": [
+            {
+              "video_id": "r8_ImBt3tKU",
+              "title": "Resumen Alemania - Países Bajos (5 - 0) | UEFA Nations League 2026",
+              "published": "2026-11-17"
+            },
+            {
+              "video_id": "cITnuilXcyo",
+              "title": "La contra perfecta de Inglaterra para el gol que acabó siendo decisivo",
+              "published": "2026-11-16"
+            },
+            {
+              "video_id": "nyFni3I6mFg",
+              "title": "De un gol en todo el Mundial a haber encajado en 5 de los 6 los partidos de Nations League",
+              "published": "2026-11-15"
+            },
+            {
+              "video_id": "VxZcg-wRZak",
+              "title": "Gol de Nico Williams a pase de Lamine Yamal",
+              "published": "2026-11-15"
+            },
+            {
+              "video_id": "GKu8cBQFhdw",
+              "title": "Resumen España - Inglaterra (2 - 3) | UEFA Nations League 2026",
+              "published": "2026-11-15"
+            }
+          ]
+        }
+      ]
     }
   }
 }
