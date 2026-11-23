@@ -366,7 +366,15 @@
             ]
           }
         }
-      ]
+      ],
+      "alternatives": {
+        "checks": 1,
+        "last": "2026-11-23T20:06:10Z",
+        "sources": "3990a2e565",
+        "covered": [
+          "US"
+        ]
+      }
     },
     {
       "match_id": 537428,
@@ -394,7 +402,15 @@
             ]
           }
         }
-      ]
+      ],
+      "alternatives": {
+        "checks": 1,
+        "last": "2026-11-23T20:06:10Z",
+        "sources": "3990a2e565",
+        "covered": [
+          "US"
+        ]
+      }
     },
     {
       "match_id": 537427,
@@ -450,7 +466,15 @@
             ]
           }
         }
-      ]
+      ],
+      "alternatives": {
+        "checks": 1,
+        "last": "2026-11-23T20:06:10Z",
+        "sources": "3990a2e565",
+        "covered": [
+          "US"
+        ]
+      }
     }
   ]
 }
