@@ -2,7 +2,7 @@
   "competition": "Champions League",
   "gameweek": "MD2",
   "stem": "matchday-2",
-  "generated_at": "2026-11-23T18:16:13Z",
+  "generated_at": "2026-11-23T18:21:14Z",
   "matches": [
     {
       "match_id": 575341,
@@ -201,11 +201,38 @@
               "JE"
             ]
           }
+        },
+        {
+          "video_id": "TBVvPizXQIM",
+          "title": "Villarreal vs Napoli | UEFA Champions League Highlights | Matchday 2 | 2026-2027",
+          "published_at": "2026-10-14",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "NZ"
+            ]
+          }
+        },
+        {
+          "video_id": "0KfoMwpQkVg",
+          "title": "HIGHLIGHTS | VILLARREAL 3-1 NAPOLI | CHAMPIONS LEAGUE",
+          "published_at": "2026-10-14",
+          "tier_used": 1,
+          "region": {}
         }
       ],
       "alternatives": {
-        "checks": 1,
-        "last": "2026-11-23T09:31:15Z"
+        "checks": 2,
+        "last": "2026-11-23T18:21:11Z",
+        "sources": "48af5e53cc",
+        "covered": [
+          "US",
+          "GB",
+          "CA",
+          "IE",
+          "ES"
+        ]
       }
     },
     {
