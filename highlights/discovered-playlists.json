@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-02T14:58:12Z",
+  "generated_at": "2026-11-23T17:35:02Z",
   "current_season": 2026,
   "resolved": {
     "2026": {
@@ -39,6 +39,10 @@
         "Telemundo": {
           "format": "undetermined",
           "playlist_id": "PLXHZm5xDlEdQ"
+        },
+        "FIFA": {
+          "format": "undetermined",
+          "playlist_id": "PLOE12mR9Tpp8"
         }
       },
       "Bundesliga": {
@@ -53,6 +57,18 @@
         "Fox Soccer": {
           "format": "undetermined",
           "playlist_id": "PLKHdj0BT9oN7qBYlsW9zhH4PDRfLqPR6b"
+        },
+        "ITV Sport": {
+          "format": "undetermined",
+          "playlist_id": "PLRhC9EroPISkPzs7cPRoBxKxJ-wvMA3eU"
+        },
+        "RTÉ Sport": {
+          "format": "undetermined",
+          "playlist_id": "PLJq_wJ4tVeXbqmPaDxlVrjpuM-hmiRSP3"
+        },
+        "TSN": {
+          "format": "undetermined",
+          "playlist_id": "PL6ndzuHRRemAohdjmpboUr4oeo7UKGWki"
         }
       }
     }
@@ -293,6 +309,13 @@
       "owner_channel": "TUDN USA"
     },
     {
+      "competition": "Champions League",
+      "source": "DAZN Football",
+      "mapped_id": "PLRnudrgaT-tc",
+      "reason": "no_confident_match_kept_last_known_good",
+      "owner_channel": "DAZN Football"
+    },
+    {
       "competition": "Premier League",
       "source": "team:Fulham FC",
       "mapped_id": "PLY8T1xH7hxoqgrkF1OIxjZpum7ylgr9g_",
@@ -401,5 +424,5 @@
       "covered_via_other_tier": true
     }
   ],
-  "estimated_units": 197
+  "estimated_units": 216
 }
