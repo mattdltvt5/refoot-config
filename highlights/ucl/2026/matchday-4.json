@@ -2,7 +2,7 @@
   "competition": "Champions League",
   "gameweek": "MD4",
   "stem": "matchday-4",
-  "generated_at": "2026-11-23T16:21:26Z",
+  "generated_at": "2026-11-23T16:26:11Z",
   "matches": [
     {
       "match_id": 575377,
@@ -637,8 +637,14 @@
         }
       ],
       "alternatives": {
-        "checks": 1,
-        "last": "2026-11-23T08:16:09Z"
+        "checks": 2,
+        "last": "2026-11-23T16:26:07Z",
+        "sources": "48af5e53cc",
+        "covered": [
+          "US",
+          "GB",
+          "IE"
+        ]
       }
     },
     {
@@ -673,11 +679,38 @@
               "JE"
             ]
           }
+        },
+        {
+          "video_id": "jc8Y9dbokEo",
+          "title": "RB Leipzig vs Manchester City | UEFA Champions League Highlights | Matchday 4 | 2026-2027",
+          "published_at": "2026-11-04",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "NZ"
+            ]
+          }
+        },
+        {
+          "video_id": "sQ3_E1mCxI0",
+          "title": "RB Leipzig - Manchester City | Highlights | UEFA Champions League",
+          "published_at": "2026-11-04",
+          "tier_used": 1,
+          "region": {}
         }
       ],
       "alternatives": {
-        "checks": 1,
-        "last": "2026-11-23T08:16:09Z"
+        "checks": 2,
+        "last": "2026-11-23T16:26:07Z",
+        "sources": "48af5e53cc",
+        "covered": [
+          "US",
+          "GB",
+          "CA",
+          "IE",
+          "ES"
+        ]
       }
     },
     {
@@ -712,11 +745,26 @@
               "JE"
             ]
           }
+        },
+        {
+          "video_id": "IeHX77iHde8",
+          "title": "PSV - CLUB BRUGGE  | HIGHLIGHTS | CHAMPIONS LEAGUE 2026-2027",
+          "published_at": "2026-11-06",
+          "tier_used": 1,
+          "region": {}
         }
       ],
       "alternatives": {
-        "checks": 1,
-        "last": "2026-11-23T08:16:09Z"
+        "checks": 2,
+        "last": "2026-11-23T16:26:07Z",
+        "sources": "48af5e53cc",
+        "covered": [
+          "US",
+          "GB",
+          "CA",
+          "IE",
+          "ES"
+        ]
       }
     },
     {
