@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-23T08:06:34Z",
+  "generated_at": "2026-11-23T08:11:43Z",
   "month": "2026-11",
   "dates": {
     "2026-11-01": [
@@ -1045,6 +1045,19 @@
                     "US"
                   ]
                 }
+              },
+              {
+                "videoId": "Z81Gg4w0Ojo",
+                "region": {
+                  "allowed": [
+                    "GB",
+                    "GG",
+                    "GI",
+                    "IE",
+                    "IM",
+                    "JE"
+                  ]
+                }
               }
             ]
           },
@@ -1397,6 +1410,14 @@
                     "US"
                   ]
                 }
+              },
+              {
+                "videoId": "e0Derrl2HTk",
+                "region": {
+                  "blocked": [
+                    "IT"
+                  ]
+                }
               }
             ]
           }
@@ -1489,6 +1510,14 @@
                     "CA",
                     "PR",
                     "US"
+                  ]
+                }
+              },
+              {
+                "videoId": "kinhCXineJ0",
+                "region": {
+                  "blocked": [
+                    "FR"
                   ]
                 }
               }
@@ -1735,6 +1764,14 @@
                     "US"
                   ]
                 }
+              },
+              {
+                "videoId": "-COMOZxfY7U",
+                "region": {
+                  "blocked": [
+                    "IT"
+                  ]
+                }
               }
             ]
           },
@@ -1765,6 +1802,14 @@
                 "region": {
                   "allowed": [
                     "US"
+                  ]
+                }
+              },
+              {
+                "videoId": "obX7gV6L7Vk",
+                "region": {
+                  "blocked": [
+                    "IT"
                   ]
                 }
               }
@@ -1831,6 +1876,10 @@
                     "US"
                   ]
                 }
+              },
+              {
+                "videoId": "SmE6WDAV7eQ",
+                "region": {}
               }
             ]
           }
@@ -2065,6 +2114,14 @@
                     "US"
                   ]
                 }
+              },
+              {
+                "videoId": "jnbxlghISKs",
+                "region": {
+                  "blocked": [
+                    "FR"
+                  ]
+                }
               }
             ]
           },
@@ -2097,6 +2154,14 @@
                     "CA",
                     "PR",
                     "US"
+                  ]
+                }
+              },
+              {
+                "videoId": "R6mRSJzpZ2g",
+                "region": {
+                  "blocked": [
+                    "FR"
                   ]
                 }
               }
