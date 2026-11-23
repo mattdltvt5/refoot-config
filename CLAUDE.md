@@ -20,6 +20,14 @@ Usage:
 - Any external icon CDN (Font Awesome, Material Icons, etc.)
 - Plain text characters standing in for icons
 
+Two exceptions, both enforced by `scripts/tests/test_pages_icons.py` (it fails on any other symbol,
+emoji, icon entity, non-`fi-br-` class, class missing from the font, or inline SVG):
+- `→` in **prose** (breadcrumbs like "Settings → Pages", toast and commit messages), never as a button or icon.
+- Google's sign-in mark: an inline `<svg data-brand="google">`, which Google's branding guidelines require.
+
+Refresh buttons go through `withSpin(btn, loadFn)` in `admin.html`: the button's `fi-br-refresh` icon spins
+(reduced motion: pulses) and the button is disabled until the load finishes.
+
 **Before adding any new icon**, search the available set first:
 ```bash
 grep -o "fi-br-[a-z-]*" uicons/css/uicons-bold-rounded.css | sort -u | grep <keyword>

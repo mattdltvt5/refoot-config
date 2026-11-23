@@ -563,6 +563,16 @@
             animation: spin 0.8s linear infinite; margin: 0 auto var(--space-4);
         }
         @keyframes spin { to { transform: rotate(360deg); } }
+        /* Refresh buttons while their load runs (withSpin): the button's own
+           fi-br-refresh icon turns; reduced motion gets a gentle pulse instead. */
+        .is-refreshing { cursor: progress; }
+        .is-refreshing .fi-br-refresh { display: inline-block; animation: spin 0.8s linear infinite; }
+        @keyframes refresh-pulse { 50% { opacity: 0.35; } }
+        @media (prefers-reduced-motion: reduce) {
+            .is-refreshing .fi-br-refresh { animation: refresh-pulse 1.2s ease-in-out infinite; }
+        }
+        /* Icon + text inside badges / links / labels (UIcons glyph sits on the text baseline). */
+        .icon-inline { display: inline-flex; align-items: center; gap: 4px; }
         #loading-text { font-size: 14px; color: var(--muted); }
 
         /* ── Toast ───────────────────────────────────────── */
@@ -912,7 +922,7 @@
             <p class="gate-lede">Sign in with your Google account. Your GitHub token and YouTube key are stored
                 in your account and synced across devices - you stay signed in across refreshes.</p>
             <button class="btn-google" id="gate-google-btn">
-                <svg viewBox="0 0 48 48" aria-hidden="true"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg>
+                <svg data-brand="google" viewBox="0 0 48 48" aria-hidden="true"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg>
                 Sign in with Google
             </button>
             <div class="modal-error" id="gate-account-error"></div>
@@ -953,7 +963,7 @@
             <div class="gate-note">If you forget the passphrase there's no recovery - you'll re-enter your
                 token &amp; key. Tip: a non-expiring fine-grained GitHub token means you set it once.</div>
             <div class="modal-error" id="gate-setup-error"></div>
-            <button class="gate-link" id="gate-setup-use-account-btn">← Sign in with Google instead</button>
+            <button class="gate-link icon-inline" id="gate-setup-use-account-btn"><i class="fi-br-arrow-left"></i> Sign in with Google instead</button>
         </div>
 
         <!-- Returning: unlock existing vault -->
@@ -965,7 +975,7 @@
             <input class="form-input" id="gate-pass" name="passphrase" type="password" autocomplete="current-password" placeholder="Passphrase">
             <button class="btn-blue gate-submit" id="gate-unlock-btn">Unlock</button>
             <div class="modal-error" id="gate-unlock-error"></div>
-            <button class="gate-link" id="gate-unlock-use-account-btn">← Sign in with Google instead</button>
+            <button class="gate-link icon-inline" id="gate-unlock-use-account-btn"><i class="fi-br-arrow-left"></i> Sign in with Google instead</button>
             <button class="gate-reset" id="gate-reset-btn">Forget stored credentials &amp; start over</button>
         </div>
     </div>
@@ -1002,7 +1012,7 @@
                 <label class="form-label" for="in-pat">GitHub Personal Access Token</label>
                 <div class="input-with-reveal">
                     <input class="form-input" id="in-pat" name="github-token" type="password" placeholder="github_pat_xxxx or ghp_xxxx" autocomplete="off">
-                    <button class="btn-reveal" id="reveal-pat" title="Show / hide" tabindex="-1">&#128065;</button>
+                    <button class="btn-reveal" id="reveal-pat" title="Show / hide" aria-label="Show token" tabindex="-1"><i class="fi-br-eye"></i></button>
                 </div>
                 <div class="cred-key-actions">
                     <button class="btn-cred-save" id="save-pat-btn">Save token</button>
@@ -1017,7 +1027,7 @@
                 <label class="form-label" for="in-yt-key">YouTube API Key <span style="font-weight:400;color:var(--muted)">(optional)</span></label>
                 <div class="input-with-reveal">
                     <input class="form-input" id="in-yt-key" name="youtube-key" type="password" placeholder="AIzaSy…" autocomplete="off">
-                    <button class="btn-reveal" id="reveal-yt" title="Show / hide" tabindex="-1">&#128065;</button>
+                    <button class="btn-reveal" id="reveal-yt" title="Show / hide" aria-label="Show key" tabindex="-1"><i class="fi-br-eye"></i></button>
                 </div>
                 <div class="cred-key-actions">
                     <button class="btn-cred-save" id="save-yt-btn">Save key</button>
@@ -1069,7 +1079,7 @@
 <main>
     <!-- CORS warning (shown when opened as file://) -->
     <div id="cors-banner">
-        <strong>⚠ Tip:</strong> For teams to load, host this page on
+        <strong class="icon-inline"><i class="fi-br-triangle-warning"></i> Tip:</strong> For teams to load, host this page on
         <a href="https://github.com/mattdltvt5/refoot-config/settings/pages" target="_blank">GitHub Pages</a>
         (repo Settings → Pages → main branch → Save), then open
         <a href="https://mattdltvt5.github.io/refoot-config/admin.html" target="_blank">mattdltvt5.github.io/refoot-config/admin.html</a>.
@@ -1287,11 +1297,11 @@ function updateCredStatus() {
     const dotYt  = document.getElementById('status-dot-yt');
     if (dotPat) {
         dotPat.className = 'status-dot ' + (hasPat ? 'status-dot-set' : 'status-dot-unset');
-        document.getElementById('status-label-pat').textContent = 'GitHub token: ' + (hasPat ? 'Set ✓' : 'Not set');
+        setIconLabel(document.getElementById('status-label-pat'), 'GitHub token: ' + (hasPat ? 'Set' : 'Not set'), hasPat ? 'fi-br-check' : null);
     }
     if (dotYt) {
         dotYt.className = 'status-dot ' + (hasYt ? 'status-dot-set' : 'status-dot-unset');
-        document.getElementById('status-label-yt').textContent = 'YouTube key: ' + (hasYt ? 'Set ✓' : 'Not set');
+        setIconLabel(document.getElementById('status-label-yt'), 'YouTube key: ' + (hasYt ? 'Set' : 'Not set'), hasYt ? 'fi-br-check' : null);
     }
     const banner = document.getElementById('cred-missing-banner');
     if (banner) banner.style.display = hasPat ? 'none' : 'block';
@@ -1664,7 +1674,7 @@ function makeCandCard(comp, team, list) {
     if (assigned) {
         card.classList.add('approved');
         const badge = document.createElement('span');
-        badge.className = 'cand-approved-badge'; badge.textContent = 'Approved ✓';
+        badge.className = 'cand-approved-badge'; setIconLabel(badge, 'Approved', 'fi-br-check');
         actions.appendChild(badge);
         const map = document.createElement('span');
         map.className = 'cand-team-comp'; map.textContent = 'teams["' + team + '"] = ' + assigned;
@@ -1710,7 +1720,7 @@ function makeCandRow(comp, team, cand, index, card, assigned) {
     const t = document.createElement('span'); t.className = 'cand-ch-title'; t.textContent = cand.channelTitle || '(untitled channel)';
     titleLine.appendChild(t);
     if (cand.verified === true) {
-        const v = document.createElement('span'); v.className = 'cand-verified'; v.textContent = '✓ verified'; titleLine.appendChild(v);
+        const v = document.createElement('span'); v.className = 'cand-verified'; setIconLabel(v, 'verified', 'fi-br-check', true); titleLine.appendChild(v);
     }
     info.appendChild(titleLine);
 
@@ -1734,14 +1744,14 @@ function makeCandRow(comp, team, cand, index, card, assigned) {
     const link = document.createElement('a');
     link.className = 'cand-yt-link';
     link.href = cand.url || ('https://youtube.com/channel/' + (cand.channelId || ''));
-    link.target = '_blank'; link.rel = 'noopener'; link.textContent = 'Open on YouTube ↗';
+    link.target = '_blank'; link.rel = 'noopener'; setIconLabel(link, 'Open on YouTube', 'fi-br-arrow-up-right-from-square');
     acts.appendChild(link);
     const thisId = parseChannelId((cand.channelId || '').trim());
     if (assigned && thisId === assigned) {
         // This is the candidate that is already assigned in sources.json.
         row.classList.add('approved');
         const pill = document.createElement('span');
-        pill.className = 'cand-approved-badge'; pill.textContent = 'Approved ✓';
+        pill.className = 'cand-approved-badge'; setIconLabel(pill, 'Approved', 'fi-br-check');
         acts.appendChild(pill);
     } else {
         const btn = document.createElement('button');
@@ -1802,7 +1812,7 @@ async function approveCandidate(comp, team, cand, card, btn) {
         if (actions) {
             actions.innerHTML = '';
             const badge = document.createElement('span');
-            badge.className = 'cand-approved-badge'; badge.textContent = 'Approved ✓';
+            badge.className = 'cand-approved-badge'; setIconLabel(badge, 'Approved', 'fi-br-check');
             actions.appendChild(badge);
             const map = document.createElement('span');
             map.className = 'cand-team-comp'; map.textContent = 'teams["' + team + '"] = ' + channelId;
@@ -1904,7 +1914,8 @@ function renderAliasGaps(report) {
         flags.forEach(fl => {
             const d = document.createElement('div');
             d.className = 'cand-flag-note';
-            d.textContent = '• ' + fl.competition + ' · ' + fl.team + ' — proposed "' + (fl.proposed || '?') + '": ' + fl.reason;
+            setIconLabel(d, fl.competition + ' · ' + fl.team + ' — proposed "' + (fl.proposed || '?') + '": ' + fl.reason,
+                'fi-br-flag', true);
             body.appendChild(d);
         });
     }
@@ -1937,7 +1948,7 @@ function makeAliasCard(comp, team, row) {
     actions.className = 'cand-team-actions';
     if (aliasApproved(team, row.alias)) {
         const badge = document.createElement('span');
-        badge.className = 'cand-approved-badge'; badge.textContent = 'Approved ✓';
+        badge.className = 'cand-approved-badge'; setIconLabel(badge, 'Approved', 'fi-br-check');
         actions.appendChild(badge);
     } else {
         const btn = document.createElement('button');
@@ -1968,7 +1979,7 @@ async function approveAlias(team, alias, card, btn) {
         (aliasOverrides[team] = aliasOverrides[team] || []).push(alias);
         card.classList.add('approved');
         const actions = card.querySelector('.cand-team-actions');
-        if (actions) { actions.innerHTML = ''; const b = document.createElement('span'); b.className = 'cand-approved-badge'; b.textContent = 'Approved ✓'; actions.appendChild(b); }
+        if (actions) { actions.innerHTML = ''; const b = document.createElement('span'); b.className = 'cand-approved-badge'; setIconLabel(b, 'Approved', 'fi-br-check'); actions.appendChild(b); }
         toast('Approved alias for ' + team + ' → “' + alias + '”', 'success');
         dbg('Approved alias ' + team + ' → "' + alias + '" (committed to team-aliases.json)', 'ok');
     } catch (err) {
@@ -2283,7 +2294,7 @@ function renderCoverage(data) {
                     } else if (state === 'missing') {
                         const btn = document.createElement('button');
                         btn.className   = 'cov-goto-btn';
-                        btn.textContent = '↗ Open config';
+                        setIconLabel(btn, 'Open config', 'fi-br-arrow-up-right-from-square', true);
                         btn.addEventListener('click', e => {
                             e.stopPropagation();
                             gotoComp(compName);
@@ -2772,7 +2783,7 @@ function appendBcastRow(section, compName, bcastName, plValues) {
     // Grip handle - drag only starts from here, never from inputs
     const gripEl = document.createElement('span');
     gripEl.className = 'bcast-grip';
-    gripEl.textContent = '⠿';
+    gripEl.innerHTML = '<i class="fi-br-grip-dots-vertical"></i>';
     gripEl.title = 'Drag to reorder';
 
     row.appendChild(gripEl);
@@ -2977,7 +2988,7 @@ async function loadAll() {
     } catch(err) {
         dbg('Fatal: ' + err.message, 'err');
         document.getElementById('loading-state').innerHTML =
-            '<div style="color:var(--red);font-size:14px;margin-bottom:12px;">&#9888; '+err.message+'</div>'
+            '<div class="icon-inline" style="color:var(--red);font-size:14px;margin-bottom:12px;"><i class="fi-br-triangle-warning"></i> '+err.message+'</div>'
             +'<button class="btn-blue" onclick="loadAll()" style="margin:0 auto;display:block;">Try again</button>';
     }
 }
@@ -3090,12 +3101,48 @@ document.getElementById('clear-yt-btn').addEventListener('click', async () => {
     await saveCreds();
     toast('YouTube key cleared');
 });
-function toggleReveal(inputId) {
+// Icon + text in one element: text node plus a UIcons glyph (never a Unicode
+// symbol - see CLAUDE.md). iconFirst puts the glyph before the text.
+function setIconLabel(el, text, iconClass, iconFirst) {
+    el.textContent = '';
+    if (!iconClass) { el.textContent = text; return; }
+    el.classList.add('icon-inline');
+    const i = document.createElement('i');
+    i.className = iconClass;
+    const t = document.createTextNode(text);
+    if (iconFirst) { el.appendChild(i); el.appendChild(t); } else { el.appendChild(t); el.appendChild(i); }
+}
+
+// Runs a refresh, spinning the button's fi-br-refresh icon until it settles
+// (at least MIN_SPIN_MS so a fast load still shows it). The button is disabled
+// meanwhile, so a second tap can't start a second load.
+const MIN_SPIN_MS = 500;
+async function withSpin(btn, fn) {
+    if (btn.classList.contains('is-refreshing')) return;
+    btn.classList.add('is-refreshing');
+    btn.disabled = true;
+    btn.setAttribute('aria-busy', 'true');
+    const started = Date.now();
+    try {
+        await fn();
+    } finally {
+        const left = MIN_SPIN_MS - (Date.now() - started);
+        if (left > 0) await new Promise(r => setTimeout(r, left));
+        btn.classList.remove('is-refreshing');
+        btn.disabled = false;
+        btn.removeAttribute('aria-busy');
+    }
+}
+
+function toggleReveal(inputId, btn) {
     const inp = document.getElementById(inputId);
     inp.type = inp.type === 'password' ? 'text' : 'password';
+    // Eye = hidden (tap to show); crossed eye = shown (tap to hide).
+    const icon = btn && btn.querySelector('i');
+    if (icon) icon.className = inp.type === 'password' ? 'fi-br-eye' : 'fi-br-eye-crossed';
 }
-document.getElementById('reveal-pat').addEventListener('click', () => toggleReveal('in-pat'));
-document.getElementById('reveal-yt').addEventListener('click',  () => toggleReveal('in-yt-key'));
+document.getElementById('reveal-pat').addEventListener('click', e => toggleReveal('in-pat', e.currentTarget));
+document.getElementById('reveal-yt').addEventListener('click',  e => toggleReveal('in-yt-key', e.currentTarget));
 document.getElementById('settings-btn').addEventListener('click', () => openDrawer('credentials'));
 document.getElementById('drawer-close-btn').addEventListener('click', closeDrawer);
 document.getElementById('settings-overlay').addEventListener('click', closeDrawer);
@@ -3110,10 +3157,10 @@ document.getElementById('debug-clear-btn').addEventListener('click', () => {
     document.getElementById('debug-log').innerHTML = '';
     document.getElementById('debug-empty').style.display = 'block';
 });
-document.getElementById('reload-btn').addEventListener('click', loadAll);
-document.getElementById('wf-refresh-btn').addEventListener('click', loadWorkflowStatus);
-document.getElementById('cand-refresh-btn').addEventListener('click', loadCandidates);
-document.getElementById('aliasgaps-refresh-btn').addEventListener('click', loadAliasGaps);
+document.getElementById('reload-btn').addEventListener('click', e => withSpin(e.currentTarget, loadAll));
+document.getElementById('wf-refresh-btn').addEventListener('click', e => withSpin(e.currentTarget, loadWorkflowStatus));
+document.getElementById('cand-refresh-btn').addEventListener('click', e => withSpin(e.currentTarget, loadCandidates));
+document.getElementById('aliasgaps-refresh-btn').addEventListener('click', e => withSpin(e.currentTarget, loadAliasGaps));
 document.querySelectorAll('.cand-tab').forEach(btn =>
     btn.addEventListener('click', () => setCandTab(btn.dataset.tab)));
 document.getElementById('save-btn').addEventListener('click', saveData);
