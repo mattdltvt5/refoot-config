@@ -2,7 +2,7 @@
   "competition": "Serie A",
   "gameweek": "GW7",
   "stem": "gameweek-7",
-  "generated_at": "2026-10-19T20:56:13Z",
+  "generated_at": "2026-11-23T09:11:10Z",
   "matches": [
     {
       "match_id": 558573,
@@ -164,8 +164,23 @@
               "US"
             ]
           }
+        },
+        {
+          "video_id": "MulHLnyJGLY",
+          "title": "Dominant Monza End Cagliari’s Strong Run | MONZA-CAGLIARI | HIGHLIGHTS | Serie A 2026/27",
+          "published_at": "2026-10-19",
+          "tier_used": 2,
+          "region": {
+            "blocked": [
+              "IT"
+            ]
+          }
         }
-      ]
+      ],
+      "alternatives": {
+        "checks": 1,
+        "last": "2026-11-23T09:11:09Z"
+      }
     },
     {
       "match_id": 558578,
@@ -183,8 +198,19 @@
               "US"
             ]
           }
+        },
+        {
+          "video_id": "Sz3YNy02pbI",
+          "title": "Highlights | Parma-Torino | Serie A Enilive 2026/27",
+          "published_at": "2026-10-20",
+          "tier_used": 1,
+          "region": {}
         }
-      ]
+      ],
+      "alternatives": {
+        "checks": 1,
+        "last": "2026-11-23T09:11:09Z"
+      }
     }
   ]
 }
