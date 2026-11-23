@@ -2,7 +2,7 @@
   "competition": "Champions League",
   "gameweek": "MD1",
   "stem": "matchday-1",
-  "generated_at": "2026-11-23T19:01:27Z",
+  "generated_at": "2026-11-23T19:06:14Z",
   "matches": [
     {
       "match_id": 575323,
@@ -315,8 +315,14 @@
         }
       ],
       "alternatives": {
-        "checks": 1,
-        "last": "2026-11-23T10:06:11Z"
+        "checks": 2,
+        "last": "2026-11-23T19:06:08Z",
+        "sources": "48af5e53cc",
+        "covered": [
+          "US",
+          "GB",
+          "IE"
+        ]
       }
     },
     {
@@ -351,11 +357,33 @@
               "JE"
             ]
           }
+        },
+        {
+          "video_id": "hjtOqZuXaXs",
+          "title": "Highlights: Liverpool 2-1 Atletico Madrid 🌟",
+          "published_at": "2026-09-11",
+          "tier_used": 1,
+          "region": {}
+        },
+        {
+          "video_id": "wAUcoEMMbkA",
+          "title": "Highlights: Liverpool 2-1 Atletico Madrid | Szoboszlai & Mac Allister Goals in Champions League!",
+          "published_at": "2026-09-10",
+          "tier_used": 1,
+          "region": {}
         }
       ],
       "alternatives": {
-        "checks": 1,
-        "last": "2026-11-23T10:06:11Z"
+        "checks": 2,
+        "last": "2026-11-23T19:06:08Z",
+        "sources": "48af5e53cc",
+        "covered": [
+          "US",
+          "GB",
+          "CA",
+          "IE",
+          "ES"
+        ]
       }
     },
     {
