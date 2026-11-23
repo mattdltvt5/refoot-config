@@ -2,7 +2,7 @@
   "competition": "Champions League",
   "gameweek": "MD1",
   "stem": "matchday-1",
-  "generated_at": "2026-11-23T19:11:26Z",
+  "generated_at": "2026-11-23T19:16:14Z",
   "matches": [
     {
       "match_id": 575323,
@@ -476,11 +476,38 @@
               "JE"
             ]
           }
+        },
+        {
+          "video_id": "JOS-9AS8CCo",
+          "title": "Napoli vs Arsenal | UEFA Champions League Highlights | Matchday 1 | 2026-2027",
+          "published_at": "2026-09-09",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "NZ"
+            ]
+          }
+        },
+        {
+          "video_id": "I8wCD1DYkHU",
+          "title": "MARTIN ODEGAARD SCORES AGAIN | HIGHLIGHTS | Napoli vs Arsenal (0-1) | UCL",
+          "published_at": "2026-09-09",
+          "tier_used": 1,
+          "region": {}
         }
       ],
       "alternatives": {
-        "checks": 1,
-        "last": "2026-11-23T10:06:11Z"
+        "checks": 2,
+        "last": "2026-11-23T19:16:09Z",
+        "sources": "48af5e53cc",
+        "covered": [
+          "US",
+          "GB",
+          "CA",
+          "IE",
+          "ES"
+        ]
       }
     },
     {
