@@ -2,7 +2,7 @@
   "competition": "Champions League",
   "gameweek": "MD1",
   "stem": "matchday-1",
-  "generated_at": "2026-11-23T18:41:16Z",
+  "generated_at": "2026-11-23T18:46:18Z",
   "matches": [
     {
       "match_id": 575323,
@@ -533,8 +533,14 @@
         }
       ],
       "alternatives": {
-        "checks": 1,
-        "last": "2026-11-23T09:56:10Z"
+        "checks": 2,
+        "last": "2026-11-23T18:46:14Z",
+        "sources": "48af5e53cc",
+        "covered": [
+          "US",
+          "GB",
+          "IE"
+        ]
       }
     },
     {
@@ -584,11 +590,38 @@
               "JE"
             ]
           }
+        },
+        {
+          "video_id": "Wk-3ZeKT3Ik",
+          "title": "Bayern Munich vs Bodø/Glimt | UEFA Champions League Highlights | Matchday 1 | 2026-2027",
+          "published_at": "2026-09-10",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "NZ"
+            ]
+          }
+        },
+        {
+          "video_id": "DR_L1jx80tY",
+          "title": "Olise brace and Davies screamer! | FC Bayern vs. FK Bodø/Glimt 5-0 | Champions League Highlights",
+          "published_at": "2026-09-10",
+          "tier_used": 1,
+          "region": {}
         }
       ],
       "alternatives": {
-        "checks": 1,
-        "last": "2026-11-23T09:56:10Z"
+        "checks": 2,
+        "last": "2026-11-23T18:46:14Z",
+        "sources": "48af5e53cc",
+        "covered": [
+          "US",
+          "GB",
+          "CA",
+          "IE",
+          "ES"
+        ]
       }
     },
     {
