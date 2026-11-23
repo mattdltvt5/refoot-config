@@ -1,7 +1,7 @@
 {
   "competition": "Serie A",
   "gameweek": 13,
-  "generated_at": "2026-11-23T22:46:13Z",
+  "generated_at": "2026-11-23T22:56:10Z",
   "matches": [
     {
       "match_id": 536939,
@@ -34,8 +34,31 @@
               "US"
             ]
           }
+        },
+        {
+          "video_id": "uCK5al3eXYM",
+          "title": "GENOA-VERONA 2-1 | HIGHLIGHTS | De Rossi gets first win with Genoa | SERIE A 2025/26",
+          "published_at": "2025-11-29",
+          "tier_used": 2,
+          "region": {
+            "blocked": [
+              "IT"
+            ]
+          }
         }
-      ]
+      ],
+      "alternatives": {
+        "checks": 1,
+        "last": "2026-11-23T22:56:09Z",
+        "sources": "764689f215",
+        "covered": [
+          "US",
+          "GB",
+          "CA",
+          "IE",
+          "ES"
+        ]
+      }
     },
     {
       "match_id": 536942,

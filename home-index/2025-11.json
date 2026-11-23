@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-23T22:51:49Z",
+  "generated_at": "2026-11-23T22:56:51Z",
   "month": "2025-11",
   "dates": {
     "2025-11-01": [
@@ -4308,6 +4308,10 @@
                     "US"
                   ]
                 }
+              },
+              {
+                "videoId": "nfRA2C3w-Yk",
+                "region": {}
               }
             ]
           }
@@ -4556,6 +4560,14 @@
                 "region": {
                   "allowed": [
                     "US"
+                  ]
+                }
+              },
+              {
+                "videoId": "uCK5al3eXYM",
+                "region": {
+                  "blocked": [
+                    "IT"
                   ]
                 }
               }
