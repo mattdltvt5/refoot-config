@@ -2,7 +2,7 @@
   "competition": "Serie A",
   "gameweek": "GW5",
   "stem": "gameweek-5",
-  "generated_at": "2026-09-21T00:01:26Z",
+  "generated_at": "2026-11-23T09:41:14Z",
   "matches": [
     {
       "match_id": 558596,
@@ -134,8 +134,19 @@
               "US"
             ]
           }
+        },
+        {
+          "video_id": "g0AiFFjxNXE",
+          "title": "Highlights | Parma-Genoa | Serie A Enilive 2026/27",
+          "published_at": "2026-09-20",
+          "tier_used": 1,
+          "region": {}
         }
-      ]
+      ],
+      "alternatives": {
+        "checks": 1,
+        "last": "2026-11-23T09:41:12Z"
+      }
     },
     {
       "match_id": 558592,
@@ -153,8 +164,23 @@
               "US"
             ]
           }
+        },
+        {
+          "video_id": "8ZBuqXlZ3Ko",
+          "title": "First-Half Goals Sink Como! | FROSINONE-COMO | HIGHLIGHTS | Serie A 2026/27",
+          "published_at": "2026-09-20",
+          "tier_used": 2,
+          "region": {
+            "blocked": [
+              "IT"
+            ]
+          }
         }
-      ]
+      ],
+      "alternatives": {
+        "checks": 1,
+        "last": "2026-11-23T09:41:12Z"
+      }
     },
     {
       "match_id": 558595,
