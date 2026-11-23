@@ -121,3 +121,18 @@ def test_admin_has_reject_wired_to_the_rejections_file():
     assert "const ALIAS_REJECT_FILE   = 'alias-rejections.json';" in admin
     assert "rejectAlias(team, row.alias, card, rej)" in admin
     assert "if (aliasRejected(team, row.alias)) return;" in admin
+
+
+def test_admin_reads_decision_files_fresh_not_from_the_cdn():
+    """raw.githubusercontent.com can serve a copy up to ~5 min old, so a
+    just-rejected alias reappeared on reload. Decision files go through
+    readConfigJson (GitHub contents API when signed in), and this session's
+    decisions are merged into every reload."""
+    from pathlib import Path
+    admin = (Path(dag.__file__).resolve().parents[1] / "admin.html").read_text(encoding="utf-8")
+    assert "async function readConfigJson(path)" in admin
+    for f in ("ALIAS_OVERRIDE_FILE", "ALIAS_REJECT_FILE", "COUNTRIES_FILE"):
+        assert f"readConfigJson({f})" in admin, f
+        assert f"fetch(base + {f}" not in admin, f
+    assert "mergeLists(lists(rejRaw), aliasSessionRejected)" in admin
+    assert "mergeLists(lists(ovrRaw), aliasSessionApproved)" in admin
