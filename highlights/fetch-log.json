@@ -1,5 +1,34 @@
 {
-  "last_run": "2026-11-23T17:16:27.619923+00:00",
+  "last_run": "2026-11-23T17:21:16.194237+00:00",
   "files_updated": 1,
-  "additions": []
+  "additions": [],
+  "rejections": [
+    {
+      "reason": "scoreline_mismatch",
+      "action": "rejected_candidate",
+      "match_id": 575375,
+      "video_id": "Y-cc13RkqTE",
+      "title": "Highlights | UEFA Youth League: Sporting CP 2-1 LASK",
+      "title_scorelines": [
+        [
+          2,
+          1
+        ]
+      ],
+      "cached_score": {
+        "home": 2,
+        "away": 3
+      },
+      "accepted_scores": [
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          2
+        ]
+      ]
+    }
+  ]
 }

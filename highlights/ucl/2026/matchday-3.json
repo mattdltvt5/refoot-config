@@ -2,7 +2,7 @@
   "competition": "Champions League",
   "gameweek": "MD3",
   "stem": "matchday-3",
-  "generated_at": "2026-11-23T17:16:27Z",
+  "generated_at": "2026-11-23T17:21:16Z",
   "matches": [
     {
       "match_id": 575359,
@@ -36,11 +36,38 @@
               "JE"
             ]
           }
+        },
+        {
+          "video_id": "zdIUZQWYtXM",
+          "title": "Sabah FK vs Borussia Dortmund | UEFA Champions League Highlights | Matchday 3 | 2026-2027",
+          "published_at": "2026-10-20",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "NZ"
+            ]
+          }
+        },
+        {
+          "video_id": "vpUbdpaccEo",
+          "title": "Sabah FC v Borussia Dortmund | Highlights | UEFA Champions League",
+          "published_at": "2026-10-20",
+          "tier_used": 1,
+          "region": {}
         }
       ],
       "alternatives": {
-        "checks": 1,
-        "last": "2026-11-23T09:01:17Z"
+        "checks": 2,
+        "last": "2026-11-23T17:21:09Z",
+        "sources": "48af5e53cc",
+        "covered": [
+          "US",
+          "GB",
+          "CA",
+          "IE",
+          "ES"
+        ]
       }
     },
     {
@@ -907,11 +934,38 @@
               "JE"
             ]
           }
+        },
+        {
+          "video_id": "Kaa-RLWL8Lk",
+          "title": "Sporting CP vs LASK | UEFA Champions League Highlights | Matchday 3 | 2026-2027",
+          "published_at": "2026-10-21",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "NZ"
+            ]
+          }
+        },
+        {
+          "video_id": "l2TvkaX310Y",
+          "title": "Highlights | UEFA Champions League: Sporting CP 2-3 LASK",
+          "published_at": "2026-10-22",
+          "tier_used": 1,
+          "region": {}
         }
       ],
       "alternatives": {
-        "checks": 1,
-        "last": "2026-11-23T09:01:17Z"
+        "checks": 2,
+        "last": "2026-11-23T17:21:09Z",
+        "sources": "48af5e53cc",
+        "covered": [
+          "US",
+          "GB",
+          "CA",
+          "IE",
+          "ES"
+        ]
       }
     }
   ]
