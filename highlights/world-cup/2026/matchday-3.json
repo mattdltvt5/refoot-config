@@ -646,7 +646,15 @@
             ]
           }
         }
-      ]
+      ],
+      "alternatives": {
+        "checks": 1,
+        "last": "2026-11-23T20:26:06Z",
+        "sources": "3990a2e565",
+        "covered": [
+          "US"
+        ]
+      }
     },
     {
       "match_id": 537402,
@@ -674,7 +682,15 @@
             ]
           }
         }
-      ]
+      ],
+      "alternatives": {
+        "checks": 1,
+        "last": "2026-11-23T20:26:06Z",
+        "sources": "3990a2e565",
+        "covered": [
+          "US"
+        ]
+      }
     }
   ]
 }
