@@ -2,7 +2,7 @@
   "competition": "Champions League",
   "gameweek": "MD1",
   "stem": "matchday-1",
-  "generated_at": "2026-11-23T19:36:20Z",
+  "generated_at": "2026-11-23T19:41:16Z",
   "matches": [
     {
       "match_id": 575323,
@@ -283,11 +283,38 @@
               "JE"
             ]
           }
+        },
+        {
+          "video_id": "PA4B9vmFrj0",
+          "title": "Lille vs Real Betis | UEFA Champions League Highlights | Matchday 1 | 2026-2027",
+          "published_at": "2026-09-08",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "NZ"
+            ]
+          }
+        },
+        {
+          "video_id": "1BCuOh9OZsI",
+          "title": "Le résumé vidéo de LOSC - Real Betis en Champions League (2-3) 🎬🌟",
+          "published_at": "2026-09-09",
+          "tier_used": 1,
+          "region": {}
         }
       ],
       "alternatives": {
-        "checks": 1,
-        "last": "2026-11-23T10:16:09Z"
+        "checks": 2,
+        "last": "2026-11-23T19:41:09Z",
+        "sources": "48af5e53cc",
+        "covered": [
+          "US",
+          "GB",
+          "CA",
+          "IE",
+          "ES"
+        ]
       }
     },
     {
