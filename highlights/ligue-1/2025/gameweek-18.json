@@ -1,7 +1,7 @@
 {
   "competition": "Ligue 1",
   "gameweek": 18,
-  "generated_at": "2026-11-23T15:16:23Z",
+  "generated_at": "2026-11-23T15:21:13Z",
   "matches": [
     {
       "match_id": 542559,
@@ -90,7 +90,11 @@
             ]
           }
         }
-      ]
+      ],
+      "alternatives": {
+        "checks": 1,
+        "last": "2026-11-23T15:21:12Z"
+      }
     },
     {
       "match_id": 542561,
@@ -231,8 +235,19 @@
               "US"
             ]
           }
+        },
+        {
+          "video_id": "eN4DMrxwyrA",
+          "title": "Endrick déjà DÉCISIF, Sulc FRAPPE ENCORE, l’OL PUNIT Brest | 18e journée - Ligue 1 McDonald's 25/26",
+          "published_at": "2026-01-19",
+          "tier_used": 2,
+          "region": {}
         }
-      ]
+      ],
+      "alternatives": {
+        "checks": 1,
+        "last": "2026-11-23T15:21:12Z"
+      }
     }
   ]
 }
