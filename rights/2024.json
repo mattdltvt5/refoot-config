@@ -1,0 +1,70 @@
+{
+  "season": 2024,
+  "notes": "Seeded 2026-11-23 for the summer 2024 tournaments (Euro 2024, Copa America 2024): highlight sources found in the country gap check.",
+  "entries": [
+    {
+      "competition": "euro-cup",
+      "country": "GB",
+      "holder": "ITV",
+      "role": "highlights",
+      "channels": [
+        {
+          "channel_id": "UCBzDz6beXDfMtfxQdEutD_w",
+          "playlist_ids": [
+            "PLRhC9EroPISkPzs7cPRoBxKxJ-wvMA3eU"
+          ]
+        }
+      ],
+      "status": "approved",
+      "notes": "Verified 2026-11-23 (videos.list regionRestriction sample): 'Euro 2024 Highlights' (49), allowed GB/GG/IM/JE. Configured as sources.json playlists."
+    },
+    {
+      "competition": "euro-cup",
+      "country": "IE",
+      "holder": "RTÉ",
+      "role": "highlights",
+      "channels": [
+        {
+          "channel_id": "UCH_7bF90ySEVfWLXtn9HlWA",
+          "playlist_ids": [
+            "PLJq_wJ4tVeXbqmPaDxlVrjpuM-hmiRSP3"
+          ]
+        }
+      ],
+      "status": "approved",
+      "notes": "Verified 2026-11-23 (videos.list regionRestriction sample): 'Euro 2024 Highlights' (45), allowed IE (44/45). Configured as sources.json playlists."
+    },
+    {
+      "competition": "euro-cup",
+      "country": "CA",
+      "holder": "TSN",
+      "role": "highlights",
+      "channels": [
+        {
+          "channel_id": "UC--i2rV5NCxiEIPefr3l-zQ",
+          "playlist_ids": [
+            "PL6ndzuHRRemAohdjmpboUr4oeo7UKGWki"
+          ]
+        }
+      ],
+      "status": "approved",
+      "notes": "Verified 2026-11-23 (videos.list regionRestriction sample): 'UEFA Euro 2024' (234) incl. ~52 'Full Highlights', allowed CA. Configured as sources.json playlists."
+    },
+    {
+      "competition": "copa-america",
+      "country": "CA",
+      "holder": "TSN",
+      "role": "highlights",
+      "channels": [
+        {
+          "channel_id": "UC--i2rV5NCxiEIPefr3l-zQ",
+          "playlist_ids": [
+            "PL6ndzuHRRemDIkRVM5kUCg7wuNnHAl89a"
+          ]
+        }
+      ],
+      "status": "approved",
+      "notes": "Verified 2026-11-23 (videos.list regionRestriction sample): '2024 Copa America' (187) incl. ~35 'FULL HIGHLIGHTS', allowed CA. Configured as sources.json playlists."
+    }
+  ]
+}

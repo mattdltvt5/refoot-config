@@ -82,9 +82,10 @@ def test_config_without_key_still_works(monkeypatch):
 
 # ── alternatives pass covers UCL ──────────────────────────────────────────────
 
-def test_ucl_is_in_scope_and_tournaments_are_not():
-    assert "Champions League" in ha.ALT_COMPS
-    assert not ({"World Cup", "Euro Cup", "Copa America"} & ha.ALT_COMPS)
+def test_ucl_and_tournaments_are_in_scope_current_edition_only():
+    """Tournaments joined 2026-11-23 (FIFA / ITV / RTE / TSN sources)."""
+    assert {"Champions League", "World Cup", "Euro Cup", "Copa America"} <= ha.ALT_COMPS
+    assert {"Champions League", "World Cup", "Euro Cup", "Copa America"} <= ha.ALT_CURRENT_SEASON_ONLY
 
 
 def test_fixture_index_reads_ucl_from_tournament_groups(tmp_path):

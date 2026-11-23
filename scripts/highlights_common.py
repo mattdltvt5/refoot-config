@@ -623,6 +623,7 @@ TEAM_TITLE_ALIASES: dict[str, list[str]] = {
     "Fenerbahçe SK":               ["Fenerbahçe SK", "Fenerbahçe", "Fenerbahce"],
     "Ferencváros TC":              ["Ferencváros TC", "Ferencváros", "Ferencvaros", "Fradi"],
     "Feyenoord":                   ["Feyenoord"],
+    "Feyenoord Rotterdam":         ["Feyenoord Rotterdam", "Feyenoord"],   # UCL fixture name
     "GNK Dinamo Zagreb":           ["GNK Dinamo Zagreb", "Dinamo Zagreb"],
     "Galatasaray SK":              ["Galatasaray SK", "Galatasaray"],
     "Malmö FF":                    ["Malmö FF", "Malmo FF", "Malmö", "Malmo"],

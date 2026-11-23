@@ -395,7 +395,8 @@
       "holder": "Movistar Plus+",
       "role": "live",
       "channels": [],
-      "status": "unverified"
+      "status": "unverified",
+      "notes": "Checked 2026-11-23: Movistar Plus (UCEHD_P5browp_QPhPlbOIbQ) posts no UCL highlights on YouTube (last 200 uploads, playlists); DAZN Football's and UEFA's clips don't play in ES. No ES highlight source known."
     },
     {
       "competition": "uel",
@@ -404,6 +405,166 @@
       "role": "live",
       "channels": [],
       "status": "unverified"
+    },
+    {
+      "competition": "ucl",
+      "country": "CA",
+      "holder": "DAZN",
+      "role": "highlights",
+      "channels": [
+        {
+          "channel_id": "UCSZ21xyG8w_33KriMM69IxQ",
+          "playlist_ids": [
+            "PLRnudrgaT-tc"
+          ]
+        }
+      ],
+      "status": "approved",
+      "notes": "Verified 2026-11-23 (videos.list regionRestriction sample): DAZN Football's 'UEFA Champions League | 2026-27 Season' playlist has full match highlights, allowed CA/NZ (50/50 sampled). DAZN Canada's own channel posts only Canadian-player clips. New playlist each season; Paramount+ holds Canada from 2027/28. Configured as sources.json playlists."
+    },
+    {
+      "competition": "world-cup",
+      "country": "US",
+      "holder": "FIFA",
+      "role": "highlights",
+      "channels": [
+        {
+          "channel_id": "UCpcTrCXblq78GZrTUTLWeBw",
+          "playlist_ids": [
+            "PLBRLtDhTHh5o"
+          ]
+        }
+      ],
+      "status": "approved",
+      "notes": "Verified 2026-11-23 (videos.list regionRestriction sample): FIFA's 'Match Highlights | FIFA World Cup 2026' playlist, 102 clips, no region restriction (plays everywhere), all embeddable. Configured as sources.json playlists."
+    },
+    {
+      "competition": "world-cup",
+      "country": "GB",
+      "holder": "FIFA",
+      "role": "highlights",
+      "channels": [
+        {
+          "channel_id": "UCpcTrCXblq78GZrTUTLWeBw",
+          "playlist_ids": [
+            "PLBRLtDhTHh5o"
+          ]
+        }
+      ],
+      "status": "approved",
+      "notes": "Verified 2026-11-23 (videos.list regionRestriction sample): FIFA's 'Match Highlights | FIFA World Cup 2026' playlist, 102 clips, no region restriction (plays everywhere), all embeddable. Configured as sources.json playlists."
+    },
+    {
+      "competition": "world-cup",
+      "country": "IE",
+      "holder": "FIFA",
+      "role": "highlights",
+      "channels": [
+        {
+          "channel_id": "UCpcTrCXblq78GZrTUTLWeBw",
+          "playlist_ids": [
+            "PLBRLtDhTHh5o"
+          ]
+        }
+      ],
+      "status": "approved",
+      "notes": "Verified 2026-11-23 (videos.list regionRestriction sample): FIFA's 'Match Highlights | FIFA World Cup 2026' playlist, 102 clips, no region restriction (plays everywhere), all embeddable. Configured as sources.json playlists."
+    },
+    {
+      "competition": "world-cup",
+      "country": "CA",
+      "holder": "FIFA",
+      "role": "highlights",
+      "channels": [
+        {
+          "channel_id": "UCpcTrCXblq78GZrTUTLWeBw",
+          "playlist_ids": [
+            "PLBRLtDhTHh5o"
+          ]
+        }
+      ],
+      "status": "approved",
+      "notes": "Verified 2026-11-23 (videos.list regionRestriction sample): FIFA's 'Match Highlights | FIFA World Cup 2026' playlist, 102 clips, no region restriction (plays everywhere), all embeddable. Configured as sources.json playlists."
+    },
+    {
+      "competition": "world-cup",
+      "country": "ES",
+      "holder": "FIFA",
+      "role": "highlights",
+      "channels": [
+        {
+          "channel_id": "UCpcTrCXblq78GZrTUTLWeBw",
+          "playlist_ids": [
+            "PLBRLtDhTHh5o"
+          ]
+        }
+      ],
+      "status": "approved",
+      "notes": "Verified 2026-11-23 (videos.list regionRestriction sample): FIFA's 'Match Highlights | FIFA World Cup 2026' playlist, 102 clips, no region restriction (plays everywhere), all embeddable. Configured as sources.json playlists."
+    },
+    {
+      "competition": "world-cup",
+      "country": "GB",
+      "holder": "ITV",
+      "role": "highlights",
+      "channels": [
+        {
+          "channel_id": "UCBzDz6beXDfMtfxQdEutD_w",
+          "playlist_ids": [
+            "PLRhC9EroPISmLz78Pne2Ekjii5fz0iVeD"
+          ]
+        }
+      ],
+      "status": "approved",
+      "notes": "Verified 2026-11-23 (videos.list regionRestriction sample): '2026 FIFA World Cup Highlights' (104), allowed GB/GG/IM/JE. Backup; not configured (FIFA covers GB)."
+    },
+    {
+      "competition": "world-cup",
+      "country": "IE",
+      "holder": "RTÉ",
+      "role": "highlights",
+      "channels": [
+        {
+          "channel_id": "UCH_7bF90ySEVfWLXtn9HlWA",
+          "playlist_ids": [
+            "PLJq_wJ4tVeXYVR4ET0FOl6IaOOUPZ8Ke8"
+          ]
+        }
+      ],
+      "status": "approved",
+      "notes": "Verified 2026-11-23 (videos.list regionRestriction sample): '2026 FIFA World Cup' (160), mostly features. Not configured."
+    },
+    {
+      "competition": "world-cup",
+      "country": "CA",
+      "holder": "TSN",
+      "role": "highlights",
+      "channels": [
+        {
+          "channel_id": "UC--i2rV5NCxiEIPefr3l-zQ",
+          "playlist_ids": [
+            "PL6ndzuHRRemBukiX6QofXpzq3QxGCtils"
+          ]
+        }
+      ],
+      "status": "approved",
+      "notes": "Verified 2026-11-23 (videos.list regionRestriction sample): '2026 FIFA World Cup' (765) incl. ~110 'Full Highlights', allowed CA. Backup; not configured (FIFA covers CA)."
+    },
+    {
+      "competition": "world-cup",
+      "country": "ES",
+      "holder": "RTVE (Teledeporte)",
+      "role": "highlights",
+      "channels": [
+        {
+          "channel_id": "UC4SBVYTpqOh-exr7BShLAPw",
+          "playlist_ids": [
+            "PLhEMBJiEYKv5FvOHB49kE5-dCMHzZHuKa"
+          ]
+        }
+      ],
+      "status": "approved",
+      "notes": "Verified 2026-11-23 (videos.list regionRestriction sample): 'Copa Mundial de la FIFA 2026' (79) incl. ~35 'Resumen', allowed AD/ES. Backup; not configured (FIFA covers ES)."
     }
   ]
 }
