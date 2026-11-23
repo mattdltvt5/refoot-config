@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-23T21:41:28Z",
+  "generated_at": "2026-11-23T21:46:27Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -2729,7 +2729,7 @@
         {
           "gameweek": "GW12",
           "stem": "gameweek-12",
-          "total": 9,
+          "total": 10,
           "covered": 9,
           "matches": [
             {
@@ -2794,6 +2794,14 @@
               "away": "FC Internazionale Milano",
               "date": "2026-11-22",
               "covered": true
+            },
+            {
+              "match_id": 558519,
+              "home": "AC Monza",
+              "away": "ACF Fiorentina",
+              "date": "2026-11-23",
+              "covered": false,
+              "pending": true
             }
           ]
         }

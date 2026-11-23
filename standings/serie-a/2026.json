@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-23T19:03:22.506517Z",
+  "generated_at": "2026-11-23T21:46:49.421573Z",
   "competition": "Serie A",
   "slug": "serie-a",
   "season": 2026,
@@ -254,6 +254,25 @@
     {
       "position": 14,
       "team": {
+        "id": 5911,
+        "name": "AC Monza",
+        "shortName": "Monza",
+        "tla": "MON",
+        "crest": "https://crests.football-data.org/5911.png"
+      },
+      "playedGames": 12,
+      "form": "W,L,L,L,L",
+      "won": 3,
+      "draw": 1,
+      "lost": 8,
+      "points": 10,
+      "goalsFor": 20,
+      "goalsAgainst": 25,
+      "goalDifference": -5
+    },
+    {
+      "position": 15,
+      "team": {
         "id": 5890,
         "name": "US Lecce",
         "shortName": "Lecce",
@@ -271,7 +290,7 @@
       "goalDifference": -13
     },
     {
-      "position": 15,
+      "position": 16,
       "team": {
         "id": 99,
         "name": "ACF Fiorentina",
@@ -279,18 +298,18 @@
         "tla": "FIO",
         "crest": "https://crests.football-data.org/99.png"
       },
-      "playedGames": 11,
-      "form": "D,W,D,L,L",
+      "playedGames": 12,
+      "form": "L,D,W,D,L",
       "won": 2,
       "draw": 3,
-      "lost": 6,
+      "lost": 7,
       "points": 9,
       "goalsFor": 17,
-      "goalsAgainst": 25,
-      "goalDifference": -8
+      "goalsAgainst": 28,
+      "goalDifference": -11
     },
     {
-      "position": 16,
+      "position": 17,
       "team": {
         "id": 112,
         "name": "Parma Calcio 1913",
@@ -309,7 +328,7 @@
       "goalDifference": -12
     },
     {
-      "position": 17,
+      "position": 18,
       "team": {
         "id": 471,
         "name": "US Sassuolo Calcio",
@@ -326,25 +345,6 @@
       "goalsFor": 16,
       "goalsAgainst": 31,
       "goalDifference": -15
-    },
-    {
-      "position": 18,
-      "team": {
-        "id": 5911,
-        "name": "AC Monza",
-        "shortName": "Monza",
-        "tla": "MON",
-        "crest": "https://crests.football-data.org/5911.png"
-      },
-      "playedGames": 11,
-      "form": "L,L,L,L,W",
-      "won": 2,
-      "draw": 1,
-      "lost": 8,
-      "points": 7,
-      "goalsFor": 17,
-      "goalsAgainst": 25,
-      "goalDifference": -8
     },
     {
       "position": 19,
