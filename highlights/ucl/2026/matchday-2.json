@@ -2,7 +2,7 @@
   "competition": "Champions League",
   "gameweek": "MD2",
   "stem": "matchday-2",
-  "generated_at": "2026-11-23T18:21:14Z",
+  "generated_at": "2026-11-23T18:26:18Z",
   "matches": [
     {
       "match_id": 575341,
@@ -267,11 +267,38 @@
               "JE"
             ]
           }
+        },
+        {
+          "video_id": "OxaI2p2BgG0",
+          "title": "Inter vs Club Brugge | UEFA Champions League Highlights | Matchday 2 | 2026-2027",
+          "published_at": "2026-10-14",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "NZ"
+            ]
+          }
+        },
+        {
+          "video_id": "UQ4vzx2PeQQ",
+          "title": "INTER MILAN - CLUB BRUGGE | HIGHLIGHTS | CHAMPIONS LEAGUE 2026-2027",
+          "published_at": "2026-10-16",
+          "tier_used": 1,
+          "region": {}
         }
       ],
       "alternatives": {
-        "checks": 1,
-        "last": "2026-11-23T09:31:15Z"
+        "checks": 2,
+        "last": "2026-11-23T18:26:10Z",
+        "sources": "48af5e53cc",
+        "covered": [
+          "US",
+          "GB",
+          "CA",
+          "IE",
+          "ES"
+        ]
       }
     },
     {
