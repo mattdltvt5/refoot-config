@@ -2,7 +2,7 @@
   "competition": "Ligue 1",
   "gameweek": "GW8",
   "stem": "gameweek-8",
-  "generated_at": "2026-11-23T08:46:11Z",
+  "generated_at": "2026-11-23T08:51:12Z",
   "matches": [
     {
       "match_id": 559654,
@@ -22,8 +22,19 @@
               "US"
             ]
           }
+        },
+        {
+          "video_id": "4qR4w3mSxcc",
+          "title": "Résumé : Stade Brestois 1-2 OGC Nice I Ligue 1 McDonald's 26-27",
+          "published_at": "2026-10-25",
+          "tier_used": 1,
+          "region": {}
         }
-      ]
+      ],
+      "alternatives": {
+        "checks": 1,
+        "last": "2026-11-23T08:51:10Z"
+      }
     },
     {
       "match_id": 559652,
@@ -82,8 +93,23 @@
               "US"
             ]
           }
+        },
+        {
+          "video_id": "46RX9s4Z_Ig",
+          "title": "RC LENS - PARIS FC (2-1) | Week 8 - Ligue 1 McDonald's 26/27",
+          "published_at": "2026-10-25",
+          "tier_used": 2,
+          "region": {
+            "blocked": [
+              "FR"
+            ]
+          }
         }
-      ]
+      ],
+      "alternatives": {
+        "checks": 1,
+        "last": "2026-11-23T08:51:10Z"
+      }
     },
     {
       "match_id": 559650,
