@@ -2,7 +2,7 @@
   "competition": "Champions League",
   "gameweek": "MD2",
   "stem": "matchday-2",
-  "generated_at": "2026-11-23T17:46:16Z",
+  "generated_at": "2026-11-23T17:51:22Z",
   "matches": [
     {
       "match_id": 575341,
@@ -413,11 +413,46 @@
               "US"
             ]
           }
+        },
+        {
+          "video_id": "2NRF0H-ADrI",
+          "title": "Feyenoord vs Como | UEFA Champions League Highlights | Matchday 2 | 2026-2027",
+          "published_at": "2026-10-14",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "NZ"
+            ]
+          }
+        },
+        {
+          "video_id": "_4sx1u4A7Ao",
+          "title": "What a Comeback! 💪 | Feyenoord 3-2 Como | UEFA Champions League Highlights",
+          "published_at": "2026-10-14",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "GB",
+              "GG",
+              "GI",
+              "IE",
+              "IM",
+              "JE"
+            ]
+          }
         }
       ],
       "alternatives": {
-        "checks": 1,
-        "last": "2026-11-23T09:21:11Z"
+        "checks": 2,
+        "last": "2026-11-23T17:51:18Z",
+        "sources": "48af5e53cc",
+        "covered": [
+          "US",
+          "GB",
+          "CA",
+          "IE"
+        ]
       }
     },
     {
