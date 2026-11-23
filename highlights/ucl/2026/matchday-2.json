@@ -2,7 +2,7 @@
   "competition": "Champions League",
   "gameweek": "MD2",
   "stem": "matchday-2",
-  "generated_at": "2026-11-23T18:31:30Z",
+  "generated_at": "2026-11-23T18:36:18Z",
   "matches": [
     {
       "match_id": 575341,
@@ -414,11 +414,38 @@
               "JE"
             ]
           }
+        },
+        {
+          "video_id": "NRfFNzy9Yqk",
+          "title": "Viking vs Bayern München | UEFA Champions League Highlights | Matchday 2 | 2026-2027",
+          "published_at": "2026-10-13",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "NZ"
+            ]
+          }
+        },
+        {
+          "video_id": "JQ_aSvIc0AI",
+          "title": "Intense six goal battle | Viking Stavanger vs FC Bayern 3-3 | Champions League Highlights",
+          "published_at": "2026-10-13",
+          "tier_used": 1,
+          "region": {}
         }
       ],
       "alternatives": {
-        "checks": 1,
-        "last": "2026-11-23T09:31:15Z"
+        "checks": 2,
+        "last": "2026-11-23T18:36:14Z",
+        "sources": "48af5e53cc",
+        "covered": [
+          "US",
+          "GB",
+          "CA",
+          "IE",
+          "ES"
+        ]
       }
     },
     {
