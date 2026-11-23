@@ -2,7 +2,7 @@
   "competition": "Champions League",
   "gameweek": "MD3",
   "stem": "matchday-3",
-  "generated_at": "2026-11-23T17:26:15Z",
+  "generated_at": "2026-11-23T17:31:19Z",
   "matches": [
     {
       "match_id": 575359,
@@ -226,11 +226,30 @@
               "JE"
             ]
           }
+        },
+        {
+          "video_id": "bdXupW79iqo",
+          "title": "VfB Stuttgart vs Atletico de Madrid | UEFA Champions League Highlights | Matchday 3 | 2026-2027",
+          "published_at": "2026-10-20",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "NZ"
+            ]
+          }
         }
       ],
       "alternatives": {
-        "checks": 1,
-        "last": "2026-11-23T09:06:09Z"
+        "checks": 2,
+        "last": "2026-11-23T17:31:14Z",
+        "sources": "48af5e53cc",
+        "covered": [
+          "US",
+          "GB",
+          "CA",
+          "IE"
+        ]
       }
     },
     {
@@ -265,11 +284,45 @@
               "JE"
             ]
           }
+        },
+        {
+          "video_id": "iLUd5M1aCI8",
+          "title": "Liverpool vs Villarreal | UEFA Champions League Highlights | Matchday 3 | 2026-2027",
+          "published_at": "2026-10-20",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "NZ"
+            ]
+          }
+        },
+        {
+          "video_id": "b0J7UcbgU2s",
+          "title": "Highlights: Liverpool 4-3 Villarreal",
+          "published_at": "2026-10-21",
+          "tier_used": 1,
+          "region": {}
+        },
+        {
+          "video_id": "iSPDVKdWoJU",
+          "title": "Highlights: Liverpool 4-3 Villarreal | Champions League comeback win! Mac Allister, Araujo & Wirtz!",
+          "published_at": "2026-10-21",
+          "tier_used": 1,
+          "region": {}
         }
       ],
       "alternatives": {
-        "checks": 1,
-        "last": "2026-11-23T09:06:09Z"
+        "checks": 2,
+        "last": "2026-11-23T17:31:14Z",
+        "sources": "48af5e53cc",
+        "covered": [
+          "US",
+          "GB",
+          "CA",
+          "IE",
+          "ES"
+        ]
       }
     },
     {
