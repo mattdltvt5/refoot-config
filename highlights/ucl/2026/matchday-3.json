@@ -2,7 +2,7 @@
   "competition": "Champions League",
   "gameweek": "MD3",
   "stem": "matchday-3",
-  "generated_at": "2026-11-23T17:11:17Z",
+  "generated_at": "2026-11-23T17:16:27Z",
   "matches": [
     {
       "match_id": 575359,
@@ -775,11 +775,38 @@
               "JE"
             ]
           }
+        },
+        {
+          "video_id": "JnfFOVZIOZc",
+          "title": "Real Madrid vs RB Leipzig | UEFA Champions League Highlights | Matchday 3 | 2026-2027",
+          "published_at": "2026-10-21",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "NZ"
+            ]
+          }
+        },
+        {
+          "video_id": "SbGF1xglHh4",
+          "title": "HIGHLIGHTS | Real Madrid 4-1 RB Leipzig | Champions League",
+          "published_at": "2026-10-21",
+          "tier_used": 1,
+          "region": {}
         }
       ],
       "alternatives": {
-        "checks": 1,
-        "last": "2026-11-23T09:01:17Z"
+        "checks": 2,
+        "last": "2026-11-23T17:16:23Z",
+        "sources": "48af5e53cc",
+        "covered": [
+          "US",
+          "GB",
+          "CA",
+          "IE",
+          "ES"
+        ]
       }
     },
     {
@@ -814,11 +841,38 @@
               "JE"
             ]
           }
+        },
+        {
+          "video_id": "H4mEQS80028",
+          "title": "Aston Villa vs Viking | UEFA Champions League Highlights | Matchday 3 | 2026-2027",
+          "published_at": "2026-10-21",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "NZ"
+            ]
+          }
+        },
+        {
+          "video_id": "z3MMAqIgdjA",
+          "title": "VILLA 3-1 VIKING FK | UEFA Champions League Highlights",
+          "published_at": "2026-10-22",
+          "tier_used": 1,
+          "region": {}
         }
       ],
       "alternatives": {
-        "checks": 1,
-        "last": "2026-11-23T09:01:17Z"
+        "checks": 2,
+        "last": "2026-11-23T17:16:23Z",
+        "sources": "48af5e53cc",
+        "covered": [
+          "US",
+          "GB",
+          "CA",
+          "IE",
+          "ES"
+        ]
       }
     },
     {
