@@ -2,7 +2,7 @@
   "competition": "Champions League",
   "gameweek": "MD1",
   "stem": "matchday-1",
-  "generated_at": "2026-11-23T09:56:13Z",
+  "generated_at": "2026-11-23T10:01:24Z",
   "matches": [
     {
       "match_id": 575323,
@@ -131,7 +131,11 @@
             ]
           }
         }
-      ]
+      ],
+      "alternatives": {
+        "checks": 1,
+        "last": "2026-11-23T10:01:21Z"
+      }
     },
     {
       "match_id": 575330,
@@ -376,8 +380,28 @@
               "US"
             ]
           }
+        },
+        {
+          "video_id": "LMymNGdL_mY",
+          "title": "EMPHATIC UCL Debut! 🤯 | Como 4-1 RB Leipzig | UEFA Champions League Highlights",
+          "published_at": "2026-09-10",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "GB",
+              "GG",
+              "GI",
+              "IE",
+              "IM",
+              "JE"
+            ]
+          }
         }
-      ]
+      ],
+      "alternatives": {
+        "checks": 1,
+        "last": "2026-11-23T10:01:21Z"
+      }
     },
     {
       "match_id": 575340,
@@ -395,8 +419,28 @@
               "US"
             ]
           }
+        },
+        {
+          "video_id": "12WZEO94kqU",
+          "title": "The LATE LATE Show! 🍿 | Slavia Prague 2-3 Lens | UEFA Champions League Highlights",
+          "published_at": "2026-09-10",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "GB",
+              "GG",
+              "GI",
+              "IE",
+              "IM",
+              "JE"
+            ]
+          }
         }
-      ]
+      ],
+      "alternatives": {
+        "checks": 1,
+        "last": "2026-11-23T10:01:21Z"
+      }
     }
   ]
 }
