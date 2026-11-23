@@ -1,7 +1,7 @@
 {
   "competition": "Ligue 1",
   "gameweek": 24,
-  "generated_at": "2026-11-23T13:26:11Z",
+  "generated_at": "2026-11-23T13:31:16Z",
   "matches": [
     {
       "match_id": 542620,
@@ -43,7 +43,11 @@
             ]
           }
         }
-      ]
+      ],
+      "alternatives": {
+        "checks": 1,
+        "last": "2026-11-23T13:31:15Z"
+      }
     },
     {
       "match_id": 542614,
@@ -131,8 +135,19 @@
               "US"
             ]
           }
+        },
+        {
+          "video_id": "a0biHDoz3UQ",
+          "title": "Dieng signe un DOUBLÉ mais Lorient et l'AJA font JEU ÉGAL | 24ème journée - Ligue 1 McDonald's 25/26",
+          "published_at": "2026-03-01",
+          "tier_used": 2,
+          "region": {}
         }
-      ]
+      ],
+      "alternatives": {
+        "checks": 1,
+        "last": "2026-11-23T13:31:15Z"
+      }
     },
     {
       "match_id": 542616,
@@ -152,8 +167,19 @@
               "US"
             ]
           }
+        },
+        {
+          "video_id": "mH39-eLU_zk",
+          "title": "Ajorque LIBÈRE Brest en déplacement à Metz | 24ème journée - Ligue 1 McDonald's 25/26",
+          "published_at": "2026-03-01",
+          "tier_used": 2,
+          "region": {}
         }
-      ]
+      ],
+      "alternatives": {
+        "checks": 1,
+        "last": "2026-11-23T13:31:15Z"
+      }
     },
     {
       "match_id": 542619,
@@ -173,8 +199,19 @@
               "US"
             ]
           }
+        },
+        {
+          "video_id": "MLxnx0Dt6i0",
+          "title": "⚽ [J24] Le résumé de LOSC - FC Nantes (1-0)",
+          "published_at": "2026-03-01",
+          "tier_used": 1,
+          "region": {}
         }
-      ]
+      ],
+      "alternatives": {
+        "checks": 1,
+        "last": "2026-11-23T13:31:15Z"
+      }
     },
     {
       "match_id": 542618,
@@ -194,8 +231,19 @@
               "US"
             ]
           }
+        },
+        {
+          "video_id": "Vr3Vs6mUr28",
+          "title": "OM 3-2 Lyon | Le résumé de la victoire 🫨",
+          "published_at": "2026-03-01",
+          "tier_used": 1,
+          "region": {}
         }
-      ]
+      ],
+      "alternatives": {
+        "checks": 1,
+        "last": "2026-11-23T13:31:15Z"
+      }
     }
   ]
 }
