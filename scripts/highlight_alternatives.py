@@ -8,9 +8,12 @@ in the US, while the competition and club channels - tried earlier or never -
 publish clips that play almost everywhere. On 2026-11-22, 878 matches had no
 clip playable in GB/IE (877 in ES, 624 in CA, 13 in the US).
 
-What it does, for current-season domestic league and Champions League matches
-(ALT_COMPS; UCL gets its GB/IE clips from TNT Sports Football's uploads, a
-broadcasterChannels source - the summer tournaments have no non-US source):
+What it does, for current-season domestic league, Champions League and
+summer-tournament matches (ALT_COMPS). Country sources beyond the competition and
+club channels: UCL - TNT Sports Football's uploads (GB/IE, a broadcasterChannels
+source) and DAZN Football's season playlist (CA); World Cup - FIFA's Match
+Highlights playlist (everywhere); Euro 2024 - ITV (GB), RTE (IE), TSN (CA);
+Copa America 2024 - TSN (CA). See rights/{season}.json.
 
   * A match "needs alternatives" when some LAUNCH_COUNTRIES country can play
     none of its clips (a clip without ``region`` counts as playable).
@@ -27,17 +30,30 @@ broadcasterChannels source - the summer tournaments have no non-US source):
   * Older matches get ONE catch-up check, newest first, within
     ALT_CATCHUP_UNITS_PER_RUN and only while the day's quota is below
     ALT_CATCHUP_CEILING, so match days keep their budget. The catch-up also
-    covers the previous ALT_PAST_SEASONS season(s), after the current one.
+    covers the previous ALT_PAST_SEASONS season(s), after the current one
+    (domestic leagues only: UCL and the tournaments are current edition only).
+  * Adding a source re-opens the check: each check records a fingerprint of
+    the competition's sources (``sources``), and a match checked against other
+    sources is due once more. Records from before fingerprints count as checked
+    against today's sources, except for the competitions in
+    SOURCES_CHANGED_UNSTAMPED (their sources changed when fingerprints began).
   * A match missing from the fixture data (e.g. the UCL 2025 archive holds
     only knockouts) is searched with a fixture built from its own record:
     team names, date and the matchday from the file name.
-  * Bookkeeping per match: ``alternatives: {"checks": n, "last": ISO}``.
+  * Each check searches up to ALT_MAX_ROUNDS times while a country is still
+    uncovered (the matcher stops at the first source with a clip).
+  * A clip that stops playing (deleted, re-restricted) re-opens the check: a
+    country covered at the last check (``covered``) that no longer is.
+  * Bookkeeping per match: ``alternatives: {"checks": n, "last": ISO,
+    "sources": fingerprint, "covered": [countries]}``.
 
 Never touches a match with full coverage, a match without clips, or anything
 outside the current season's domestic league files.
 """
 from __future__ import annotations
 
+import hashlib
+import json
 import logging
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
@@ -50,6 +66,8 @@ from highlights_common import (
     REPO_ROOT,
     LAUNCH_COUNTRIES,
     QuotaCapReached,
+    SUMMER_TOURNAMENT_COMPS,
+    is_highlight_title,
     load_json_file,
     region_is_playable_in,
     resolve_videos_for_fixture,
@@ -60,16 +78,21 @@ from highlights_common import (
 
 log = logging.getLogger(__name__)
 
-ALT_COMPS = set(DOMESTIC_LEAGUE_COMPS) | {"Champions League"}
+ALT_COMPS = set(DOMESTIC_LEAGUE_COMPS) | {"Champions League"} | set(SUMMER_TOURNAMENT_COMPS)
 TOURNAMENT_GROUPS_DIR = REPO_ROOT / "tournament-groups"
 ALT_PAST_SEASONS = 1                 # catch-up also covers last season
 # Not worth a past-season check: UCL's only non-US source is TNT Sports Football's
 # uploads, which the 10-page uploads search can't reach a season back. Measured
 # 2026-11-23: 32 UCL 2025 matches checked, none gained a TNT clip.
-ALT_CURRENT_SEASON_ONLY = {"Champions League"}
+ALT_CURRENT_SEASON_ONLY = {"Champions League"} | set(SUMMER_TOURNAMENT_COMPS)
+# Unstamped records (checked before source fingerprints existed) of these
+# competitions are re-checked once: their sources changed on 2026-11-23 (UCL:
+# DAZN Football for Canada; "Feyenoord Rotterdam" titles now match).
+SOURCES_CHANGED_UNSTAMPED = {"Champions League"}
 ALT_RECENT_DAYS = 7
 ALT_MAX_RECENT_CHECKS = 6            # 2+4+8+16+32+64 h ~= 5 days of re-checks
 ALT_CATCHUP_UNITS_PER_RUN = 20
+ALT_MAX_ROUNDS = 3                   # searches per check while a country is uncovered
 ALT_CATCHUP_CEILING = 5_000          # catch-up only while units_used is below this
 
 
@@ -107,12 +130,57 @@ def is_recent(match: dict, now: datetime) -> bool:
     return now - day <= timedelta(days=ALT_RECENT_DAYS)
 
 
-def due(match: dict, now: datetime) -> bool:
+def sources_fingerprint(config: dict, comp: str) -> str:
+    """Short, stable fingerprint of a competition's sources: its channel, its
+    broadcaster playlists and broadcaster channel feeds (club sources are left
+    out - they change often and rarely add a country)."""
+    body = {
+        "channel": (config.get("competition_channels") or {}).get(comp, ""),
+        "playlists": {k: sorted(v) for k, v in
+                      sorted(((config.get("competition_playlists") or {}).get(comp) or {}).items())},
+        "broadcasters": sorted((e.get("channel_id", ""), tuple(e.get("required_terms") or ()))
+                               for e in (config.get("broadcaster_channels") or {}).get(comp, [])),
+    }
+    return hashlib.sha1(json.dumps(body, sort_keys=True).encode("utf-8")).hexdigest()[:10]
+
+
+def sources_changed(state: dict, comp: "str | None", fingerprint: "str | None") -> bool:
+    """Whether the last check used other sources than [fingerprint]."""
+    if fingerprint is None:
+        return False
+    if "sources" in state:
+        return state["sources"] != fingerprint
+    return comp in SOURCES_CHANGED_UNSTAMPED
+
+
+def covered(videos: list[dict]) -> list[str]:
+    """Launch countries where at least one of [videos] plays."""
+    gaps = set(uncovered(videos))
+    return [cc for cc in LAUNCH_COUNTRIES if cc not in gaps]
+
+
+def lost_coverage(match: dict) -> bool:
+    """A country covered at the last check isn't any more (a clip was deleted or
+    re-restricted). Records from before ``covered`` was kept: only when no clip
+    plays anywhere."""
+    state = match.get("alternatives") or {}
+    now_covered = set(covered(match.get("videos") or []))
+    if "covered" in state:
+        return bool(set(state["covered"]) - now_covered)
+    return not now_covered
+
+
+def due(match: dict, now: datetime, comp: "str | None" = None,
+        fingerprint: "str | None" = None) -> bool:
     """Whether to check this match for alternatives now (see module doc)."""
     if not needs_alternatives(match):
         return False
     state = match.get("alternatives") or {}
     checks = int(state.get("checks", 0))
+    if checks and sources_changed(state, comp, fingerprint):
+        return True                              # new sources: one more check
+    if checks and lost_coverage(match):
+        return True                              # a clip stopped playing: look again
     if not is_recent(match, now):
         return checks == 0                       # catch-up: once
     if checks >= ALT_MAX_RECENT_CHECKS:
@@ -124,10 +192,14 @@ def due(match: dict, now: datetime) -> bool:
 def make_accept(videos: list[dict]):
     """accept(video) for the matcher: a new clip that plays in a still-uncovered
     launch country (a candidate without region info is refused - it can't be
-    shown to help)."""
+    shown to help - and so is one whose title doesn't read as highlights)."""
     need = uncovered(videos)
     ids = {v.get("video_id") for v in videos}
-    titles = {(v.get("title") or "").strip().lower() for v in videos}
+    # Same-title guard against re-listing a clip, but only for clips that still
+    # play somewhere: a deleted clip (region {"allowed": []}) re-uploaded under
+    # its old title is exactly the replacement we want.
+    titles = {(v.get("title") or "").strip().lower() for v in videos
+              if any(plays(v.get("region"), cc) for cc in LAUNCH_COUNTRIES)}
 
     def accept(video: dict) -> bool:
         if video.get("video_id") in ids:
@@ -136,23 +208,35 @@ def make_accept(videos: list[dict]):
             return False
         if "region" not in video:
             return False
+        # Broadcaster playlists skip the matcher's highlight-title allowlist, and
+        # some mix in other clips (TSN's Euro 2024 playlist: "FULL EURO2024 TROPHY
+        # PRESENTATION | SPAIN VS. ENGLAND"). An added clip must read as highlights.
+        if not is_highlight_title(video.get("title") or ""):
+            return False
         return any(plays(video["region"], cc) for cc in need)
     return accept
 
 
 def _raw_fixtures(slug: str, season: int, fixtures_dir: Path, groups_dir: Path) -> list[dict]:
     """Domestic: fixtures/{slug}/{season}.json. UCL: tournament-groups/{slug}.json
-    (league phase groupMatches + knockout matches), when it is that season's."""
+    (league phase groupMatches + knockout matches), when it is that season's.
+    Summer tournaments: tournament-groups/{slug}.json has no ``season``; its
+    matches dated in [season] (the edition year) are that edition's."""
     data = load_json_file(fixtures_dir / slug / f"{season}.json")
     if isinstance(data, dict) and data.get("fixtures"):
         return data["fixtures"]
     for tg in (load_json_file(groups_dir / f"{slug}.json"),
                load_json_file(groups_dir / slug / f"{season}.json")):   # season archive
-        if isinstance(tg, dict) and tg.get("season") == season:
-            out = []
-            for f in list(tg.get("groupMatches") or []) + list(tg.get("matches") or []):
-                out.append({**f, "match_id": f.get("match_id", f.get("id"))})
-            return out
+        if not isinstance(tg, dict):
+            continue
+        rows = list(tg.get("groupMatches") or []) + list(tg.get("matches") or [])
+        if tg.get("season") is None and "season" not in tg:
+            rows = [f for f in rows if str(f.get("utcDate") or "")[:4] == str(season)]
+            if not rows:
+                continue
+        elif tg.get("season") != season:
+            continue
+        return [{**f, "match_id": f.get("match_id", f.get("id"))} for f in rows]
     return []
 
 
@@ -200,14 +284,17 @@ def fixture_index(slug: str, season: int, fixtures_dir: Path = FIXTURES_DIR,
     return out
 
 
-def _candidates(root: Path, fixtures_dir: Path, now: datetime, groups_dir: "Path | None" = None):
+def _candidates(root: Path, fixtures_dir: Path, now: datetime, groups_dir: "Path | None" = None,
+                fingerprints: "dict[str, str] | None" = None):
     """(comp, path, data, match, fixture) for every due match, recent first,
-    then catch-up newest first."""
+    then catch-up newest first. [fingerprints]: comp -> sources_fingerprint."""
     recent, catchup = [], []
+    fingerprints = fingerprints or {}
     for comp in sorted(ALT_COMPS):
         slug = COMPETITION_SLUG_MAP.get(comp)
         if not slug:
             continue
+        fp = fingerprints.get(comp)
         current = season_for_competition(comp, now)
         past = 0 if comp in ALT_CURRENT_SEASON_ONLY else ALT_PAST_SEASONS
         for season in range(current, current - past - 1, -1):
@@ -220,7 +307,7 @@ def _candidates(root: Path, fixtures_dir: Path, now: datetime, groups_dir: "Path
                 if not isinstance(data, dict):
                     continue
                 for match in data.get("matches", []):
-                    if not due(match, now):
+                    if not due(match, now, comp, fp):
                         continue
                     fixture = fx.get(match.get("match_id")) or fixture_from_record(match, path)
                     if fixture is None:
@@ -250,29 +337,43 @@ def find_alternatives(
     now = now or datetime.now(timezone.utc)
     gw_playlist_cache = {} if gw_playlist_cache is None else gw_playlist_cache
     page_cache = {} if page_cache is None else page_cache
-    recent, catchup = _candidates(root, fixtures_dir, now, groups_dir)
+    fingerprints = {comp: sources_fingerprint(config, comp) for comp in ALT_COMPS}
+    recent, catchup = _candidates(root, fixtures_dir, now, groups_dir, fingerprints)
     touched: dict[Path, dict] = {}
     found = 0
     stamp = now.strftime("%Y-%m-%dT%H:%M:%SZ")
 
     def check(comp, path, data, match, fixture):
+        """The matcher stops at the first source with an accepted clip, so search
+        again while a country is still uncovered (e.g. DAZN's CA clip first,
+        then TNT's GB/IE one): each round refuses what was already added."""
         nonlocal found
-        vids = match.get("videos") or []
-        extra = resolve_videos_for_fixture(
-            fixture, comp, config, yt_key, quota, cap,
-            gw_playlist_cache=gw_playlist_cache, page_cache=page_cache,
-            accept=make_accept(vids),
-        )
         state = match.get("alternatives") or {}
-        match["alternatives"] = {"checks": int(state.get("checks", 0)) + 1, "last": stamp}
-        if extra:
-            match["videos"] = vids + extra
-            found += len(extra)
-            data["generated_at"] = utc_now_iso()
-            log.info(f"  Alternatives: +{len(extra)} for {fixture['home_team']} vs "
-                     f"{fixture['away_team']} now plays in "
-                     f"{[cc for cc in LAUNCH_COUNTRIES if cc not in uncovered(match['videos'])]}")
         touched[path] = data
+        added = 0
+        try:
+            for _ in range(ALT_MAX_ROUNDS):
+                vids = match.get("videos") or []
+                extra = resolve_videos_for_fixture(
+                    fixture, comp, config, yt_key, quota, cap,
+                    gw_playlist_cache=gw_playlist_cache, page_cache=page_cache,
+                    accept=make_accept(vids),
+                )
+                if not extra:
+                    break
+                match["videos"] = vids + extra
+                added += len(extra)
+                if not uncovered(match["videos"]):
+                    break
+        finally:
+            match["alternatives"] = {"checks": int(state.get("checks", 0)) + 1, "last": stamp,
+                                     "sources": fingerprints.get(comp),
+                                     "covered": covered(match.get("videos") or [])}
+            if added:
+                found += added
+                data["generated_at"] = utc_now_iso()
+                log.info(f"  Alternatives: +{added} for {fixture['home_team']} vs "
+                         f"{fixture['away_team']} now plays in {covered(match['videos'])}")
 
     try:
         for item in recent:

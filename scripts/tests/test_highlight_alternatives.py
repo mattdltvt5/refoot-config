@@ -13,7 +13,7 @@ GLOBAL = {}
 
 
 def vid(i, region=US_ONLY, title=None):
-    v = {"video_id": i, "title": title or f"clip {i}", "published_at": "2026-11-21", "tier_used": 4}
+    v = {"video_id": i, "title": title or f"clip {i} | Highlights", "published_at": "2026-11-21", "tier_used": 4}
     if region is not None:
         v["region"] = region
     return v
@@ -62,12 +62,13 @@ def test_covered_or_empty_matches_never_due():
 
 
 def test_accept_only_new_clips_that_add_a_country():
-    accept = ha.make_accept([vid("a", US_ONLY, "Same Title")])
+    accept = ha.make_accept([vid("a", US_ONLY, "Same Title | Highlights")])
     assert accept(vid("g", GLOBAL))
     assert accept(vid("gb", {"allowed": ["GB"]}))
     assert not accept(vid("us2", {"allowed": ["US"]}))       # adds nothing
     assert not accept(vid("a", GLOBAL))                     # already listed
-    assert not accept(vid("x", GLOBAL, "same title"))       # duplicate title
+    assert not accept(vid("x", GLOBAL, "same title | highlights"))   # duplicate title
+    assert not accept(vid("t", GLOBAL, "FULL EURO2024 TROPHY PRESENTATION | SPAIN VS. ENGLAND"))
     assert not accept(vid("n", None))                       # can't show it helps
 
 
@@ -167,7 +168,9 @@ def test_pass_appends_found_clip_and_books_the_check(tmp_path, monkeypatch):
     assert written == [p] and calls == [(1, False)]
     m = json.loads(p.read_text())["matches"][0]
     assert [v["video_id"] for v in m["videos"]] == ["cbs", "seriea"]   # existing stays first
-    assert m["alternatives"] == {"checks": 1, "last": "2026-11-22T12:00:00Z"}
+    assert m["alternatives"] == {"checks": 1, "last": "2026-11-22T12:00:00Z",
+                                 "sources": ha.sources_fingerprint({}, "Serie A"),
+                                 "covered": hc.LAUNCH_COUNTRIES}
     assert ha.uncovered(m["videos"]) == []
     # Covered now: never checked again.
     assert ha.find_alternatives("k", _Quota(), 10**9, {}, now=NOW + timedelta(days=1),
@@ -335,3 +338,101 @@ def test_ucl_archive_season_is_read(tmp_path):
          "awayTeam": {"name": "Arsenal FC", "tla": "ARS"}}]}))
     idx = ha.fixture_index("ucl", 2025, tmp_path / "fixtures", tmp_path / "tournament-groups")
     assert idx[77]["stage"] == "FINAL" and idx[77]["home_tla"] == "PSG"
+
+
+# ── new sources re-open checked matches (2026-11-23) ──────────────────────────
+
+def _cfg(playlists=None, broadcasters=None):
+    return {"competition_channels": {"Champions League": ""},
+            "competition_playlists": {"Champions League": playlists or {"CBS": ["PLcbs0000000"]}},
+            "broadcaster_channels": {"Champions League": broadcasters or []}}
+
+
+def test_fingerprint_changes_only_with_the_competitions_sources():
+    a = ha.sources_fingerprint(_cfg(), "Champions League")
+    assert a == ha.sources_fingerprint(_cfg(), "Champions League")
+    b = ha.sources_fingerprint(_cfg({"CBS": ["PLcbs0000000"], "DAZN": ["PLRnudrgaT-tc"]}), "Champions League")
+    assert a != b
+    # Another competition's config doesn't move it.
+    other = {**_cfg(), "competition_playlists": {**_cfg()["competition_playlists"], "Serie A": {"X": ["PLx"]}}}
+    assert ha.sources_fingerprint(other, "Champions League") == a
+
+
+def test_checked_match_is_due_again_after_a_source_is_added():
+    old = ha.sources_fingerprint(_cfg(), "Champions League")
+    new = ha.sources_fingerprint(_cfg({"CBS": ["PLcbs0000000"], "DAZN": ["PLRnudrgaT-tc"]}), "Champions League")
+    m = _m("2026-10-01", checks=1, last="2026-11-01T00:00:00Z")
+    m["alternatives"]["sources"] = old
+    assert not ha.due(m, NOW, "Champions League", old)
+    assert ha.due(m, NOW, "Champions League", new)
+
+
+def test_unstamped_records_recheck_only_listed_competitions():
+    m = _m("2026-10-01", checks=1, last="2026-11-01T00:00:00Z")      # no "sources"
+    assert ha.due(m, NOW, "Champions League", "abc")                  # UCL sources changed
+    assert not ha.due(m, NOW, "Serie A", "abc")                       # unchanged: no re-check
+    assert not ha.due(m, NOW)                                         # no fingerprint: old rule
+
+
+def test_deleted_clip_title_does_not_block_its_reupload():
+    dead = vid("old", {"allowed": []}, "Freiburg Turn It Around Late! | Highlights")
+    accept = ha.make_accept([dead])
+    assert accept(vid("new", {"blocked": ["DE"]}, "Freiburg Turn It Around Late! | Highlights"))
+    live = vid("cbs", US_ONLY, "Same Title | Highlights")
+    assert not ha.make_accept([live])(vid("dup", GLOBAL, "Same Title | Highlights"))
+
+
+def test_tournament_fixtures_read_from_groups_file_without_season(tmp_path):
+    groups = tmp_path / "tournament-groups"
+    groups.mkdir()
+    (groups / "world-cup.json").write_text(json.dumps({"slug": "world-cup", "groupMatches": [
+        {"match_id": 5, "utcDate": "2026-06-11T19:00:00Z", "group": "GROUP_A", "matchday": 1,
+         "homeTeam": {"name": "Mexico", "tla": "MEX"}, "awayTeam": {"name": "South Africa", "tla": "RSA"},
+         "score": {"fullTime": {"home": 2, "away": 0}}}], "matches": []}), encoding="utf-8")
+    idx = ha.fixture_index("world-cup", 2026, tmp_path / "fixtures", groups)
+    assert idx[5]["home_tla"] == "MEX" and idx[5]["score"]["fullTime"]["home"] == 2
+    assert ha.fixture_index("world-cup", 2022, tmp_path / "fixtures", groups) == {}
+
+
+def test_feyenoord_rotterdam_matches_plain_feyenoord_titles():
+    toks = hc.team_tokens("Feyenoord Rotterdam", "Feyenoord Rotterdam", "")
+    assert "feyenoord" in toks
+
+
+def test_keeps_searching_while_a_country_is_uncovered(tmp_path, monkeypatch):
+    """The matcher stops at the first source with an accepted clip (DAZN's CA
+    clip); a second round finds TNT's GB/IE one, a third ES."""
+    _only_serie_a(monkeypatch)
+    p = _setup(tmp_path, [{"match_id": 1, "date": "2026-10-01", "home_team": "SS Lazio",
+                           "away_team": "US Lecce", "videos": [vid("cbs")]}], [_fx(1, "2026-10-01")])
+    pool = [vid("dazn", {"allowed": ["CA", "NZ"]}), vid("tnt", {"allowed": ["GB", "IE"]}),
+            vid("es", {"allowed": ["ES"]})]
+    rounds = []
+
+    def fake_resolve(fixture, comp, config, key, quota, cap, **kw):
+        rounds.append(1)
+        for c in pool:                       # first accepted source wins, like the matcher
+            if kw["accept"](c):
+                return [c]
+        return []
+
+    monkeypatch.setattr(ha, "resolve_videos_for_fixture", fake_resolve)
+    ha.find_alternatives("k", _Quota(), 10**9, {}, now=NOW,
+                         root=tmp_path / "highlights", fixtures_dir=tmp_path / "fixtures")
+    m = json.loads(p.read_text())["matches"][0]
+    assert [v["video_id"] for v in m["videos"]] == ["cbs", "dazn", "tnt", "es"]
+    assert len(rounds) == ha.ALT_MAX_ROUNDS and ha.uncovered(m["videos"]) == []
+
+
+def test_lost_coverage_reopens_the_check():
+    dead = {"match_id": 1, "date": "2026-10-01", "videos": [vid("old", {"allowed": []})],
+            "alternatives": {"checks": 1, "last": "2026-11-01T00:00:00Z"}}
+    assert ha.due(dead, NOW, "Bundesliga", "fp")                       # legacy: nothing plays
+    dead["alternatives"].update(sources="fp", covered=[])
+    assert not ha.due(dead, NOW, "Bundesliga", "fp")                   # checked as dead: done
+    m = {"match_id": 2, "date": "2026-10-01", "videos": [vid("a", {"allowed": ["CA"]})],
+         "alternatives": {"checks": 1, "last": "2026-11-01T00:00:00Z", "sources": "fp",
+                          "covered": ["US", "CA"]}}                    # US clip has gone
+    assert ha.due(m, NOW, "Serie A", "fp")
+    m["alternatives"]["covered"] = ["CA"]
+    assert not ha.due(m, NOW, "Serie A", "fp")

@@ -23,7 +23,7 @@ from highlights_common import COMPETITION_SLUG_MAP, LAUNCH_COUNTRIES, REPO_ROOT
 
 RIGHTS = REPO_ROOT / "rights"
 SCHEMA = json.loads((RIGHTS / "rights.schema.json").read_text(encoding="utf-8"))
-SEED_SEASONS = (2026, 2027)
+SEED_SEASONS = (2024, 2026, 2027)
 
 
 def _load(season):
@@ -82,7 +82,7 @@ def test_schema_rejects_uk_and_bad_role():
 def test_seed_2026_covers_every_pair_and_keeps_roles_explicit():
     entries = _load(2026)["entries"]
     comps = ["premier-league", "laliga", "serie-a", "bundesliga", "ligue-1", "ucl", "uel"]
-    pairs = {(e["competition"], e["country"]) for e in entries}
+    pairs = {(e["competition"], e["country"]) for e in entries if e["competition"] in comps}
     assert pairs == {(c, cc) for c in comps for cc in LAUNCH_COUNTRIES}
     gb_laliga = {(e["holder"], e["role"]) for e in entries
                  if e["competition"] == "laliga" and e["country"] == "GB"}
