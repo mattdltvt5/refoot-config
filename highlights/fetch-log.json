@@ -1,34 +1,5 @@
 {
-  "last_run": "2026-11-23T08:41:15.027545+00:00",
+  "last_run": "2026-11-23T08:46:12.140552+00:00",
   "files_updated": 2,
-  "additions": [],
-  "rejections": [
-    {
-      "reason": "scoreline_mismatch",
-      "action": "rejected_candidate",
-      "match_id": 558556,
-      "video_id": "DJyh2lFPUTE",
-      "title": "Primavera 1 | Gli highlights di Lazio-Sassuolo 3-1",
-      "title_scorelines": [
-        [
-          3,
-          1
-        ]
-      ],
-      "cached_score": {
-        "home": 2,
-        "away": 6
-      },
-      "accepted_scores": [
-        [
-          2,
-          6
-        ],
-        [
-          6,
-          2
-        ]
-      ]
-    }
-  ]
+  "additions": []
 }
