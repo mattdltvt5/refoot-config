@@ -2,7 +2,7 @@
   "competition": "Champions League",
   "gameweek": "MD4",
   "stem": "matchday-4",
-  "generated_at": "2026-11-23T16:16:14Z",
+  "generated_at": "2026-11-23T16:21:26Z",
   "matches": [
     {
       "match_id": 575377,
@@ -510,11 +510,38 @@
               "JE"
             ]
           }
+        },
+        {
+          "video_id": "alCZQKyqGz8",
+          "title": "Slavia Praha vs Arsenal | UEFA Champions League Highlights | Matchday 4 | 2026-2027",
+          "published_at": "2026-11-04",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "NZ"
+            ]
+          }
+        },
+        {
+          "video_id": "hFU_vO-jZfc",
+          "title": "GYOKERES & MADUEKE GOALS EARN THREE POINTS | HIGHLIGHTS | Slavia Prague vs Arsenal (1-2) l UCL",
+          "published_at": "2026-11-05",
+          "tier_used": 1,
+          "region": {}
         }
       ],
       "alternatives": {
-        "checks": 1,
-        "last": "2026-11-23T08:16:09Z"
+        "checks": 2,
+        "last": "2026-11-23T16:21:21Z",
+        "sources": "48af5e53cc",
+        "covered": [
+          "US",
+          "GB",
+          "CA",
+          "IE",
+          "ES"
+        ]
       }
     },
     {
@@ -549,11 +576,30 @@
               "JE"
             ]
           }
+        },
+        {
+          "video_id": "afHtoh8NzK8",
+          "title": "Porto vs Napoli | UEFA Champions League Highlights | Matchday 4 | 2026-2027",
+          "published_at": "2026-11-04",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "NZ"
+            ]
+          }
         }
       ],
       "alternatives": {
-        "checks": 1,
-        "last": "2026-11-23T08:16:09Z"
+        "checks": 2,
+        "last": "2026-11-23T16:21:21Z",
+        "sources": "48af5e53cc",
+        "covered": [
+          "US",
+          "GB",
+          "CA",
+          "IE"
+        ]
       }
     },
     {
