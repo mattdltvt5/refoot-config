@@ -2,7 +2,7 @@
   "competition": "Ligue 1",
   "gameweek": "GW8",
   "stem": "gameweek-8",
-  "generated_at": "2026-10-26T21:56:12Z",
+  "generated_at": "2026-11-23T08:41:15Z",
   "matches": [
     {
       "match_id": 559654,
@@ -247,8 +247,23 @@
               "US"
             ]
           }
+        },
+        {
+          "video_id": "SPMb5AgVFik",
+          "title": "PARIS SAINT-GERMAIN - OLYMPIQUE LYONNAIS (2-0) | Week 8 - Ligue 1 McDonald's 26/27",
+          "published_at": "2026-10-27",
+          "tier_used": 2,
+          "region": {
+            "blocked": [
+              "FR"
+            ]
+          }
         }
-      ]
+      ],
+      "alternatives": {
+        "checks": 1,
+        "last": "2026-11-23T08:41:12Z"
+      }
     }
   ]
 }
