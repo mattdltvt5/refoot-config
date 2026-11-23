@@ -1378,6 +1378,19 @@ highlights/
   that plays in the viewer's country. It records availability when checked; uploaders can change it later.
 - `generated_at` is always UTC; updated on every write
 
+### Countries (which countries the app offers)
+
+`countries.json` (repo root) lists the countries for country-aware highlights with a status:
+**live** = offered in the app's Highlights country list; **testing** = worked on (sources, the alternatives
+pass) but not offered yet; **hidden** = measured only. Live + testing must equal `LAUNCH_COUNTRIES`
+(`test_country_coverage.py`). Initially live: US, GB, IE; testing: CA, ES; hidden: the rest.
+
+`scripts/country_coverage.py` runs at the end of every fetch run (local files only, no API calls) and writes
+`reports/country-coverage.json`: for each competition's latest season, how many matches with highlights have
+at least one clip playable in each listed country (from the per-video `region`). It writes only when the
+numbers change. The admin's **Countries** tab shows that table next to each country's status and its
+rights-registry entries (approved / total), and saves status changes to `countries.json`.
+
 ### Alternatives pass (clips that play outside the US)
 
 The tier order stops at the first source with a clip, and a covered match is never searched again. For

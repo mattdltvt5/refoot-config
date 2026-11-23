@@ -51,6 +51,7 @@ Common icons already in use in this project:
 - `sources.json` — YouTube channel/playlist IDs, team lists and team colours (`teamPalettes`); read by the pipeline scripts, and by the ReFoot Flutter web app at runtime (teams + palettes). The old Android app is retired.
 - `admin.html` — browser-based admin panel for managing `sources.json`
 - `team-aliases.json` / `alias-rejections.json` — admin-approved and admin-rejected title-alias proposals (Alias Gaps panel); the detector never re-proposes a rejected one
+- `countries.json` — countries for country-aware highlights: `live` (offered in the app's Highlights country list), `testing` (worked on, not offered), `hidden` (measured only). Edited in the admin's Countries tab; live + testing must equal `LAUNCH_COUNTRIES` (test-enforced). Coverage per country: `reports/country-coverage.json`, rebuilt by every fetch run (`scripts/country_coverage.py`)
 - `uicons/` — Flaticon UIcons Bold Rounded webfont (local, no CDN dependency)
 - `highlights/` — pre-built video metadata written by GitHub Actions
 - `scripts/highlights_common.py` — shared utilities for both highlight scripts

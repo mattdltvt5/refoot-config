@@ -1,0 +1,90 @@
+{
+  "_comment": "Countries ReFoot offers for country-aware highlights. status: live = offered in the app's Highlights country list; testing = measured and worked on (sources, alternatives) but not offered yet; hidden = measured only. Coverage per country: reports/country-coverage.json. Edit in the Web Admin's Countries tab. GB, never UK.",
+  "countries": [
+    {
+      "code": "US",
+      "name": "United States",
+      "status": "live"
+    },
+    {
+      "code": "GB",
+      "name": "United Kingdom",
+      "status": "live"
+    },
+    {
+      "code": "IE",
+      "name": "Ireland",
+      "status": "live"
+    },
+    {
+      "code": "CA",
+      "name": "Canada",
+      "status": "testing"
+    },
+    {
+      "code": "ES",
+      "name": "Spain",
+      "status": "testing"
+    },
+    {
+      "code": "FR",
+      "name": "France",
+      "status": "hidden"
+    },
+    {
+      "code": "DE",
+      "name": "Germany",
+      "status": "hidden"
+    },
+    {
+      "code": "IT",
+      "name": "Italy",
+      "status": "hidden"
+    },
+    {
+      "code": "PT",
+      "name": "Portugal",
+      "status": "hidden"
+    },
+    {
+      "code": "NL",
+      "name": "Netherlands",
+      "status": "hidden"
+    },
+    {
+      "code": "BE",
+      "name": "Belgium",
+      "status": "hidden"
+    },
+    {
+      "code": "CH",
+      "name": "Switzerland",
+      "status": "hidden"
+    },
+    {
+      "code": "AT",
+      "name": "Austria",
+      "status": "hidden"
+    },
+    {
+      "code": "MX",
+      "name": "Mexico",
+      "status": "hidden"
+    },
+    {
+      "code": "BR",
+      "name": "Brazil",
+      "status": "hidden"
+    },
+    {
+      "code": "AR",
+      "name": "Argentina",
+      "status": "hidden"
+    },
+    {
+      "code": "AU",
+      "name": "Australia",
+      "status": "hidden"
+    }
+  ]
+}
