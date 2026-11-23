@@ -1,32 +1,113 @@
 {
-  "last_run": "2026-11-23T16:46:16.921559+00:00",
+  "last_run": "2026-11-23T16:51:32.252859+00:00",
   "files_updated": 1,
   "additions": [],
   "rejections": [
     {
       "reason": "scoreline_mismatch",
       "action": "rejected_candidate",
-      "match_id": 575382,
-      "video_id": "Qzr8G-6XvPI",
-      "title": "HIGHLIGHTS | VILLARREAL 3-0 PSG | UYL",
+      "match_id": 575379,
+      "video_id": "RkjAPH83KOE",
+      "title": "L'EUROGOL DI VUKAJ NON BASTA | FEYENOORD 3-1 INTER U20 | UEFA YOUTH LEAGUE",
       "title_scorelines": [
         [
           3,
-          0
+          1
         ]
       ],
       "cached_score": {
         "home": 0,
-        "away": 6
+        "away": 3
       },
       "accepted_scores": [
         [
           0,
-          6
+          3
         ],
         [
-          6,
+          3,
           0
+        ]
+      ]
+    },
+    {
+      "reason": "scoreline_mismatch",
+      "action": "rejected_candidate",
+      "match_id": 575383,
+      "video_id": "SqoZdeS-o9g",
+      "title": "How well do you still remember Man United's XI from the 7-1 v. Roma back in 2007? 👀#UCL",
+      "title_scorelines": [
+        [
+          7,
+          1
+        ]
+      ],
+      "cached_score": {
+        "home": 3,
+        "away": 2
+      },
+      "accepted_scores": [
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          2
+        ]
+      ]
+    },
+    {
+      "reason": "scoreline_mismatch",
+      "action": "rejected_candidate",
+      "match_id": 575383,
+      "video_id": "SqoZdeS-o9g",
+      "title": "How well do you still remember Man United's XI from the 7-1 v. Roma back in 2007? 👀#UCL",
+      "title_scorelines": [
+        [
+          7,
+          1
+        ]
+      ],
+      "cached_score": {
+        "home": 3,
+        "away": 2
+      },
+      "accepted_scores": [
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          2
+        ]
+      ]
+    },
+    {
+      "reason": "scoreline_mismatch",
+      "action": "rejected_candidate",
+      "match_id": 575383,
+      "video_id": "Edt0VgtfSlk",
+      "title": "Man Utd 1-1 AS Roma | U19s | Academy Highlights | UEFA Youth League",
+      "title_scorelines": [
+        [
+          1,
+          1
+        ]
+      ],
+      "cached_score": {
+        "home": 3,
+        "away": 2
+      },
+      "accepted_scores": [
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          2
         ]
       ]
     }
