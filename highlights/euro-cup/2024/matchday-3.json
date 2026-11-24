@@ -2,7 +2,7 @@
   "competition": "Euro Cup",
   "gameweek": "MD3",
   "stem": "matchday-3",
-  "generated_at": "2026-11-24T18:41:15Z",
+  "generated_at": "2026-11-24T18:46:14Z",
   "matches": [
     {
       "match_id": 428742,
@@ -466,8 +466,55 @@
               "VI"
             ]
           }
+        },
+        {
+          "video_id": "YiBvNCEcMwM",
+          "title": "HIGHLIGHTS - Georgia v Portugal | Euro 2024",
+          "published_at": "2024-06-26",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "GB",
+              "GG",
+              "IM",
+              "JE"
+            ]
+          }
+        },
+        {
+          "video_id": "jPhE-hYmP1k",
+          "title": "Georgia stun Portugal to advance to knockout stages | Georgia 2-0 Portugal | Euro 2024 Highlights",
+          "published_at": "2024-06-26",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "IE"
+            ]
+          }
+        },
+        {
+          "video_id": "X3Ui-9aMTtQ",
+          "title": "Georgia vs. Portugal Full Highlights | EURO2024",
+          "published_at": "2024-06-26",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA"
+            ]
+          }
         }
-      ]
+      ],
+      "alternatives": {
+        "checks": 1,
+        "last": "2026-11-24T18:46:12Z",
+        "sources": "76f335e365",
+        "covered": [
+          "US",
+          "GB",
+          "CA",
+          "IE"
+        ]
+      }
     }
   ]
 }

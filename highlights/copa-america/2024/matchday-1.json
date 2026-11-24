@@ -2,7 +2,7 @@
   "competition": "Copa America",
   "gameweek": "MD1",
   "stem": "matchday-1",
-  "generated_at": "2026-06-22T01:53:11Z",
+  "generated_at": "2026-11-24T18:46:20Z",
   "matches": [
     {
       "match_id": 1189120,
@@ -218,10 +218,30 @@
               "VI"
             ]
           }
+        },
+        {
+          "video_id": "q4RNrEp62cM",
+          "title": "Brazil vs. Costa Rica Full Highlights | Copa America",
+          "published_at": "2024-06-25",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA"
+            ]
+          }
         }
       ],
       "home_crest": "https://media.api-sports.io/football/teams/6.png",
-      "away_crest": "https://media.api-sports.io/football/teams/29.png"
+      "away_crest": "https://media.api-sports.io/football/teams/29.png",
+      "alternatives": {
+        "checks": 1,
+        "last": "2026-11-24T18:46:12Z",
+        "sources": "a92c45b5ca",
+        "covered": [
+          "US",
+          "CA"
+        ]
+      }
     }
   ]
 }
