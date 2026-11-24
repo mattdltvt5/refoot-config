@@ -2,7 +2,7 @@
   "competition": "Euro Cup",
   "gameweek": "QF",
   "stem": "quarter-final",
-  "generated_at": "2026-11-24T17:06:12Z",
+  "generated_at": "2026-11-24T17:11:19Z",
   "matches": [
     {
       "match_id": 495401,
@@ -29,8 +29,43 @@
               "VI"
             ]
           }
+        },
+        {
+          "video_id": "Iq9XR1Am120",
+          "title": "HIGHLIGHTS - Spain vs Germany | #EURO2024 | ITV Sport",
+          "published_at": "2024-07-05",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "GB",
+              "GG",
+              "IM",
+              "JE"
+            ]
+          }
+        },
+        {
+          "video_id": "Lpm9xxPtxdU",
+          "title": "Spain vs. Germany Quarter-finals Full Highlights | EURO2024",
+          "published_at": "2024-07-05",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA"
+            ]
+          }
         }
-      ]
+      ],
+      "alternatives": {
+        "checks": 1,
+        "last": "2026-11-24T17:11:12Z",
+        "sources": "76f335e365",
+        "covered": [
+          "US",
+          "GB",
+          "CA"
+        ]
+      }
     },
     {
       "match_id": 495402,

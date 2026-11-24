@@ -2,7 +2,7 @@
   "competition": "Copa America",
   "gameweek": "QF",
   "stem": "quarter-final",
-  "generated_at": "2026-11-24T17:01:25Z",
+  "generated_at": "2026-11-24T17:11:15Z",
   "matches": [
     {
       "match_id": 1219957,
@@ -29,10 +29,30 @@
               "VI"
             ]
           }
+        },
+        {
+          "video_id": "1hS7KlVFeo8",
+          "title": "Argentina vs. Ecuador FULL HIGHLIGHTS | Copa America 2024",
+          "published_at": "2024-07-05",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA"
+            ]
+          }
         }
       ],
       "home_crest": "https://media.api-sports.io/football/teams/26.png",
-      "away_crest": "https://media.api-sports.io/football/teams/2382.png"
+      "away_crest": "https://media.api-sports.io/football/teams/2382.png",
+      "alternatives": {
+        "checks": 1,
+        "last": "2026-11-24T17:11:12Z",
+        "sources": "a92c45b5ca",
+        "covered": [
+          "US",
+          "CA"
+        ]
+      }
     },
     {
       "match_id": 1219958,
