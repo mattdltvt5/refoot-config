@@ -2,7 +2,7 @@
   "competition": "Euro Cup",
   "gameweek": "MD2",
   "stem": "matchday-2",
-  "generated_at": "2026-11-24T19:26:26Z",
+  "generated_at": "2026-11-24T19:31:26Z",
   "matches": [
     {
       "match_id": 428751,
@@ -431,8 +431,43 @@
               "VI"
             ]
           }
+        },
+        {
+          "video_id": "0Oa0zFvdg_I",
+          "title": "HIGHLIGHTS - Belgium v Romania | #EURO2024 | ITV Sport",
+          "published_at": "2024-06-22",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "GB",
+              "GG",
+              "IM",
+              "JE"
+            ]
+          }
+        },
+        {
+          "video_id": "9PhDL6A7bcA",
+          "title": "Belgium vs. Romania Full Highlights | EURO2024",
+          "published_at": "2024-06-22",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA"
+            ]
+          }
         }
-      ]
+      ],
+      "alternatives": {
+        "checks": 1,
+        "last": "2026-11-24T19:31:16Z",
+        "sources": "76f335e365",
+        "covered": [
+          "US",
+          "GB",
+          "CA"
+        ]
+      }
     }
   ]
 }
