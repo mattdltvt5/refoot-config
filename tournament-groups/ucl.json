@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-24T20:16:33.497971Z",
+  "generated_at": "2026-11-24T20:21:33.668107Z",
   "slug": "ucl",
   "standings": [
     {
@@ -29,6 +29,25 @@
         {
           "position": 2,
           "team": {
+            "id": 57,
+            "name": "Arsenal FC",
+            "shortName": "Arsenal",
+            "tla": "ARS",
+            "crest": "https://crests.football-data.org/57.png"
+          },
+          "playedGames": 5,
+          "form": null,
+          "won": 4,
+          "draw": 1,
+          "lost": 0,
+          "points": 13,
+          "goalsFor": 9,
+          "goalsAgainst": 3,
+          "goalDifference": 6
+        },
+        {
+          "position": 3,
+          "team": {
             "id": 524,
             "name": "Paris Saint-Germain FC",
             "shortName": "PSG",
@@ -44,25 +63,6 @@
           "goalsFor": 20,
           "goalsAgainst": 5,
           "goalDifference": 15
-        },
-        {
-          "position": 3,
-          "team": {
-            "id": 57,
-            "name": "Arsenal FC",
-            "shortName": "Arsenal",
-            "tla": "ARS",
-            "crest": "https://crests.football-data.org/57.png"
-          },
-          "playedGames": 5,
-          "form": null,
-          "won": 3,
-          "draw": 2,
-          "lost": 0,
-          "points": 11,
-          "goalsFor": 8,
-          "goalsAgainst": 3,
-          "goalDifference": 5
         },
         {
           "position": 4,
@@ -124,25 +124,6 @@
         {
           "position": 7,
           "team": {
-            "id": 4,
-            "name": "Borussia Dortmund",
-            "shortName": "Dortmund",
-            "tla": "BVB",
-            "crest": "https://crests.football-data.org/4.png"
-          },
-          "playedGames": 5,
-          "form": null,
-          "won": 3,
-          "draw": 1,
-          "lost": 1,
-          "points": 10,
-          "goalsFor": 7,
-          "goalsAgainst": 5,
-          "goalDifference": 2
-        },
-        {
-          "position": 8,
-          "team": {
             "id": 81,
             "name": "FC Barcelona",
             "shortName": "Barça",
@@ -160,7 +141,7 @@
           "goalDifference": 8
         },
         {
-          "position": 9,
+          "position": 8,
           "team": {
             "id": 58,
             "name": "Aston Villa FC",
@@ -179,7 +160,7 @@
           "goalDifference": 5
         },
         {
-          "position": 10,
+          "position": 9,
           "team": {
             "id": 64,
             "name": "Liverpool FC",
@@ -198,7 +179,7 @@
           "goalDifference": 4
         },
         {
-          "position": 11,
+          "position": 10,
           "team": {
             "id": 851,
             "name": "Club Brugge KV",
@@ -217,7 +198,7 @@
           "goalDifference": 4
         },
         {
-          "position": 12,
+          "position": 11,
           "team": {
             "id": 498,
             "name": "Sporting Clube de Portugal",
@@ -234,6 +215,25 @@
           "goalsFor": 8,
           "goalsAgainst": 4,
           "goalDifference": 4
+        },
+        {
+          "position": 12,
+          "team": {
+            "id": 4,
+            "name": "Borussia Dortmund",
+            "shortName": "Dortmund",
+            "tla": "BVB",
+            "crest": "https://crests.football-data.org/4.png"
+          },
+          "playedGames": 5,
+          "form": null,
+          "won": 3,
+          "draw": 0,
+          "lost": 2,
+          "points": 9,
+          "goalsFor": 7,
+          "goalsAgainst": 6,
+          "goalDifference": 1
         },
         {
           "position": 13,
@@ -402,9 +402,9 @@
           "draw": 0,
           "lost": 3,
           "points": 6,
-          "goalsFor": 6,
+          "goalsFor": 7,
           "goalsAgainst": 11,
-          "goalDifference": -5
+          "goalDifference": -4
         },
         {
           "position": 22,
@@ -631,8 +631,8 @@
           "lost": 4,
           "points": 3,
           "goalsFor": 4,
-          "goalsAgainst": 17,
-          "goalDifference": -13
+          "goalsAgainst": 18,
+          "goalDifference": -14
         },
         {
           "position": 34,
@@ -5089,7 +5089,7 @@
         }
       },
       "status": "IN_PLAY",
-      "lastUpdated": "2026-11-24T20:15:39Z",
+      "lastUpdated": "2026-11-24T20:19:55Z",
       "video_id": null
     },
     {
@@ -5117,7 +5117,7 @@
         }
       },
       "status": "IN_PLAY",
-      "lastUpdated": "2026-11-24T20:15:39Z",
+      "lastUpdated": "2026-11-24T20:19:55Z",
       "video_id": null
     },
     {
@@ -5145,7 +5145,7 @@
         }
       },
       "status": "IN_PLAY",
-      "lastUpdated": "2026-11-24T20:15:39Z",
+      "lastUpdated": "2026-11-24T20:19:55Z",
       "video_id": null
     },
     {
@@ -5173,7 +5173,7 @@
         }
       },
       "status": "IN_PLAY",
-      "lastUpdated": "2026-11-24T20:16:11Z",
+      "lastUpdated": "2026-11-24T20:19:55Z",
       "video_id": null
     },
     {
@@ -5201,7 +5201,7 @@
         }
       },
       "status": "IN_PLAY",
-      "lastUpdated": "2026-11-24T20:15:39Z",
+      "lastUpdated": "2026-11-24T20:19:55Z",
       "video_id": null
     },
     {
@@ -5229,7 +5229,7 @@
         }
       },
       "status": "IN_PLAY",
-      "lastUpdated": "2026-11-24T20:15:39Z",
+      "lastUpdated": "2026-11-24T20:19:56Z",
       "video_id": null
     },
     {
@@ -5257,7 +5257,7 @@
         }
       },
       "status": "IN_PLAY",
-      "lastUpdated": "2026-11-24T20:16:11Z",
+      "lastUpdated": "2026-11-24T20:20:27Z",
       "video_id": null
     },
     {

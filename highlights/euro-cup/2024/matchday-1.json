@@ -2,7 +2,7 @@
   "competition": "Euro Cup",
   "gameweek": "MD1",
   "stem": "matchday-1",
-  "generated_at": "2026-11-24T20:16:13Z",
+  "generated_at": "2026-11-24T20:21:13Z",
   "matches": [
     {
       "match_id": 428747,
@@ -57,8 +57,55 @@
               "VI"
             ]
           }
+        },
+        {
+          "video_id": "jK6w8urWC5s",
+          "title": "HIGHLIGHTS - Hungary v Switzerland | Euro 2024",
+          "published_at": "2024-06-15",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "GB",
+              "GG",
+              "IM",
+              "JE"
+            ]
+          }
+        },
+        {
+          "video_id": "49WbUJ0nAC0",
+          "title": "Swiss too slick for Hungary | Switzerland 3-1 Hungary | Euro 2024 Highlights",
+          "published_at": "2024-06-15",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "IE"
+            ]
+          }
+        },
+        {
+          "video_id": "IQdKxMv-H2k",
+          "title": "Hungary vs. Switzerland Full Highlights | EURO2024",
+          "published_at": "2024-06-15",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA"
+            ]
+          }
         }
-      ]
+      ],
+      "alternatives": {
+        "checks": 1,
+        "last": "2026-11-24T20:21:09Z",
+        "sources": "76f335e365",
+        "covered": [
+          "US",
+          "GB",
+          "CA",
+          "IE"
+        ]
+      }
     },
     {
       "match_id": 428753,
@@ -291,8 +338,55 @@
               "VI"
             ]
           }
+        },
+        {
+          "video_id": "f8qJt9ex-pQ",
+          "title": "HIGHLIGHTS - Serbia v England | #EURO2024 | ITV Sport",
+          "published_at": "2024-06-16",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "GB",
+              "GG",
+              "IM",
+              "JE"
+            ]
+          }
+        },
+        {
+          "video_id": "81bZsGTphxc",
+          "title": "England labour to win over Serbia | Serbia 0-1 England | Euro 2024 Highlights",
+          "published_at": "2024-06-16",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "IE"
+            ]
+          }
+        },
+        {
+          "video_id": "JLyODkZeOSA",
+          "title": "Serbia vs. England Full Highlights | EURO2024",
+          "published_at": "2024-06-16",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA"
+            ]
+          }
         }
-      ]
+      ],
+      "alternatives": {
+        "checks": 1,
+        "last": "2026-11-24T20:21:09Z",
+        "sources": "76f335e365",
+        "covered": [
+          "US",
+          "GB",
+          "CA",
+          "IE"
+        ]
+      }
     },
     {
       "match_id": 428770,
