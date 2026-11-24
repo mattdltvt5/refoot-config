@@ -2,7 +2,7 @@
   "competition": "Champions League",
   "gameweek": "MD5",
   "stem": "matchday-5",
-  "generated_at": "2026-11-24T20:01:21Z",
+  "generated_at": "2026-11-24T22:01:30Z",
   "matches": [
     {
       "match_id": 575396,
@@ -25,13 +25,25 @@
               "JE"
             ]
           }
+        },
+        {
+          "video_id": "becifqHEKUw",
+          "title": "Bodø/Glimt vs. LASK: Extended Highlights | UCL League Phase MD 5 | CBS Sports Golazo",
+          "published_at": "2026-11-24",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "US"
+            ]
+          }
         }
       ],
       "alternatives": {
-        "checks": 1,
-        "last": "2026-11-24T20:01:21Z",
+        "checks": 2,
+        "last": "2026-11-24T22:01:30Z",
         "sources": "48af5e53cc",
         "covered": [
+          "US",
           "GB",
           "IE"
         ]
@@ -72,8 +84,8 @@
         }
       ],
       "alternatives": {
-        "checks": 1,
-        "last": "2026-11-24T19:56:25Z",
+        "checks": 2,
+        "last": "2026-11-24T22:01:30Z",
         "sources": "48af5e53cc",
         "covered": [
           "US",
@@ -81,6 +93,48 @@
           "IE"
         ]
       }
+    },
+    {
+      "match_id": 575397,
+      "home_team": "Real Madrid CF",
+      "away_team": "PSV",
+      "date": "2026-11-24",
+      "videos": []
+    },
+    {
+      "match_id": 575398,
+      "home_team": "Manchester City FC",
+      "away_team": "SSC Napoli",
+      "date": "2026-11-24",
+      "videos": []
+    },
+    {
+      "match_id": 575399,
+      "home_team": "Arsenal FC",
+      "away_team": "Borussia Dortmund",
+      "date": "2026-11-24",
+      "videos": []
+    },
+    {
+      "match_id": 575401,
+      "home_team": "ŠK Slovan Bratislava",
+      "away_team": "Real Betis Balompié",
+      "date": "2026-11-24",
+      "videos": []
+    },
+    {
+      "match_id": 575402,
+      "home_team": "RB Leipzig",
+      "away_team": "Racing Club de Lens",
+      "date": "2026-11-24",
+      "videos": []
+    },
+    {
+      "match_id": 575403,
+      "home_team": "Como 1907",
+      "away_team": "PAE AEK",
+      "date": "2026-11-24",
+      "videos": []
     }
   ]
 }
