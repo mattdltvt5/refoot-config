@@ -2,7 +2,7 @@
   "competition": "Euro Cup",
   "gameweek": "R16",
   "stem": "round-of-16",
-  "generated_at": "2026-11-24T17:31:26Z",
+  "generated_at": "2026-11-24T17:36:30Z",
   "matches": [
     {
       "match_id": 428791,
@@ -260,8 +260,28 @@
               "VI"
             ]
           }
+        },
+        {
+          "video_id": "vHOi_k5KLiE",
+          "title": "Austria vs. Türkiye Round of 16 Full Highlights | EURO2024",
+          "published_at": "2024-07-02",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA"
+            ]
+          }
         }
-      ]
+      ],
+      "alternatives": {
+        "checks": 1,
+        "last": "2026-11-24T17:36:22Z",
+        "sources": "76f335e365",
+        "covered": [
+          "US",
+          "CA"
+        ]
+      }
     }
   ]
 }
