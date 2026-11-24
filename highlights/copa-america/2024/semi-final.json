@@ -2,7 +2,7 @@
   "competition": "Copa America",
   "gameweek": "SF",
   "stem": "semi-final",
-  "generated_at": "2026-06-22T01:53:14Z",
+  "generated_at": "2026-11-24T16:36:17Z",
   "matches": [
     {
       "match_id": 1227537,
@@ -59,10 +59,30 @@
               "VI"
             ]
           }
+        },
+        {
+          "video_id": "bGJBok5g8p0",
+          "title": "Uruguay vs. Colombia FULL HIGHLIGHTS | Copa America 2024",
+          "published_at": "2024-07-11",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA"
+            ]
+          }
         }
       ],
       "home_crest": "https://media.api-sports.io/football/teams/7.png",
-      "away_crest": "https://media.api-sports.io/football/teams/8.png"
+      "away_crest": "https://media.api-sports.io/football/teams/8.png",
+      "alternatives": {
+        "checks": 1,
+        "last": "2026-11-24T16:36:10Z",
+        "sources": "a92c45b5ca",
+        "covered": [
+          "US",
+          "CA"
+        ]
+      }
     }
   ]
 }

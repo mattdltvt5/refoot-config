@@ -2,7 +2,7 @@
   "competition": "Euro Cup",
   "gameweek": "Final",
   "stem": "final",
-  "generated_at": "2026-06-22T03:17:48Z",
+  "generated_at": "2026-11-24T16:36:12Z",
   "matches": [
     {
       "match_id": 428778,
@@ -29,8 +29,55 @@
               "VI"
             ]
           }
+        },
+        {
+          "video_id": "IMKRLgrmP7E",
+          "title": "HIGHLIGHTS - Spain vs England | EURO 2024 Final | ITV Sport",
+          "published_at": "2024-07-14",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "GB",
+              "GG",
+              "IM",
+              "JE"
+            ]
+          }
+        },
+        {
+          "video_id": "k9C88Qcbe4I",
+          "title": "Spain strike late to become kings of Europe | Spain 2-1 England | Euro 2024 Highlights",
+          "published_at": "2024-07-14",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "IE"
+            ]
+          }
+        },
+        {
+          "video_id": "BoIf9rWoqpk",
+          "title": "Spain vs. England Final Full Highlights | EURO2024",
+          "published_at": "2024-07-14",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA"
+            ]
+          }
         }
-      ]
+      ],
+      "alternatives": {
+        "checks": 1,
+        "last": "2026-11-24T16:36:10Z",
+        "sources": "76f335e365",
+        "covered": [
+          "US",
+          "GB",
+          "CA",
+          "IE"
+        ]
+      }
     }
   ]
 }
