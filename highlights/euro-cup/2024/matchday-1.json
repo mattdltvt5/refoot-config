@@ -2,7 +2,7 @@
   "competition": "Euro Cup",
   "gameweek": "MD1",
   "stem": "matchday-1",
-  "generated_at": "2026-11-24T20:21:13Z",
+  "generated_at": "2026-11-24T20:26:13Z",
   "matches": [
     {
       "match_id": 428747,
@@ -132,8 +132,55 @@
               "VI"
             ]
           }
+        },
+        {
+          "video_id": "kbiwhblx4bE",
+          "title": "HIGHLIGHTS - Spain v Croatia | EURO 2024",
+          "published_at": "2024-06-15",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "GB",
+              "GG",
+              "IM",
+              "JE"
+            ]
+          }
+        },
+        {
+          "video_id": "62bfT0ov5us",
+          "title": "Spain send a message with three-goal salvo | Spain 3-0 Croatia | Euro 2024 highlights",
+          "published_at": "2024-06-15",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "IE"
+            ]
+          }
+        },
+        {
+          "video_id": "4VQjBYaZUMM",
+          "title": "Spain vs. Croatia Full Highlights | EURO2024",
+          "published_at": "2024-06-15",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA"
+            ]
+          }
         }
-      ]
+      ],
+      "alternatives": {
+        "checks": 1,
+        "last": "2026-11-24T20:26:10Z",
+        "sources": "76f335e365",
+        "covered": [
+          "US",
+          "GB",
+          "CA",
+          "IE"
+        ]
+      }
     },
     {
       "match_id": 428752,
@@ -160,8 +207,55 @@
               "VI"
             ]
           }
+        },
+        {
+          "video_id": "5ZxGtbKy0PM",
+          "title": "HIGHLIGHTS - Italy v Albania - EURO 2024",
+          "published_at": "2024-06-15",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "GB",
+              "GG",
+              "IM",
+              "JE"
+            ]
+          }
+        },
+        {
+          "video_id": "eO7TgY1jryU",
+          "title": "Italy survive early scare to beat Albania | Italy 2-1 Albania | Euro 2024 highlights",
+          "published_at": "2024-06-16",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "IE"
+            ]
+          }
+        },
+        {
+          "video_id": "PKunEIyfhjw",
+          "title": "Italy vs. Albania Full Highlights | EURO2024",
+          "published_at": "2024-06-15",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA"
+            ]
+          }
         }
-      ]
+      ],
+      "alternatives": {
+        "checks": 1,
+        "last": "2026-11-24T20:26:10Z",
+        "sources": "76f335e365",
+        "covered": [
+          "US",
+          "GB",
+          "CA",
+          "IE"
+        ]
+      }
     },
     {
       "match_id": 428765,
