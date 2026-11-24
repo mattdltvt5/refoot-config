@@ -2,7 +2,7 @@
   "competition": "Copa America",
   "gameweek": "MD2",
   "stem": "matchday-2",
-  "generated_at": "2026-11-24T18:11:14Z",
+  "generated_at": "2026-11-24T18:21:26Z",
   "matches": [
     {
       "match_id": 1146307,
@@ -152,7 +152,15 @@
         }
       ],
       "home_crest": "https://media.api-sports.io/football/teams/7.png",
-      "away_crest": "https://media.api-sports.io/football/teams/2381.png"
+      "away_crest": "https://media.api-sports.io/football/teams/2381.png",
+      "alternatives": {
+        "checks": 1,
+        "last": "2026-11-24T18:21:22Z",
+        "sources": "a92c45b5ca",
+        "covered": [
+          "US"
+        ]
+      }
     },
     {
       "match_id": 1146310,
@@ -179,10 +187,30 @@
               "VI"
             ]
           }
+        },
+        {
+          "video_id": "BuvCZwhtoYA",
+          "title": "Panama vs. USA FULL HIGHLIGHTS | 2024 Copa America",
+          "published_at": "2024-06-28",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA"
+            ]
+          }
         }
       ],
       "home_crest": "https://media.api-sports.io/football/teams/11.png",
-      "away_crest": "https://media.api-sports.io/football/teams/2384.png"
+      "away_crest": "https://media.api-sports.io/football/teams/2384.png",
+      "alternatives": {
+        "checks": 1,
+        "last": "2026-11-24T18:21:22Z",
+        "sources": "a92c45b5ca",
+        "covered": [
+          "US",
+          "CA"
+        ]
+      }
     },
     {
       "match_id": 1146312,
