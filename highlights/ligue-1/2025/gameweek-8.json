@@ -1,7 +1,7 @@
 {
   "competition": "Ligue 1",
   "gameweek": 8,
-  "generated_at": "2026-11-24T10:46:16Z",
+  "generated_at": "2026-11-24T10:56:11Z",
   "matches": [
     {
       "match_id": 542474,
@@ -191,8 +191,27 @@
               "US"
             ]
           }
+        },
+        {
+          "video_id": "fFxBfGTJBPM",
+          "title": "Les deux buts de l'AJA sur la pelouse de Rennes (2-2)",
+          "published_at": "2025-10-20",
+          "tier_used": 1,
+          "region": {}
         }
-      ]
+      ],
+      "alternatives": {
+        "checks": 1,
+        "last": "2026-11-24T10:56:06Z",
+        "sources": "2aca95cb9a",
+        "covered": [
+          "US",
+          "GB",
+          "CA",
+          "IE",
+          "ES"
+        ]
+      }
     },
     {
       "match_id": 542470,
