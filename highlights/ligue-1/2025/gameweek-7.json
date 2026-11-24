@@ -1,7 +1,7 @@
 {
   "competition": "Ligue 1",
   "gameweek": 7,
-  "generated_at": "2026-11-24T11:51:09Z",
+  "generated_at": "2026-11-24T12:01:19Z",
   "matches": [
     {
       "match_id": 542464,
@@ -21,8 +21,27 @@
               "US"
             ]
           }
+        },
+        {
+          "video_id": "iMOnlEpygIY",
+          "title": "Le résumé Paris FC - FC Lorient",
+          "published_at": "2025-10-06",
+          "tier_used": 1,
+          "region": {}
         }
-      ]
+      ],
+      "alternatives": {
+        "checks": 1,
+        "last": "2026-11-24T12:01:14Z",
+        "sources": "2aca95cb9a",
+        "covered": [
+          "US",
+          "GB",
+          "CA",
+          "IE",
+          "ES"
+        ]
+      }
     },
     {
       "match_id": 542463,
