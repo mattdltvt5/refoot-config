@@ -2,7 +2,7 @@
   "competition": "Copa America",
   "gameweek": "MD3",
   "stem": "matchday-3",
-  "generated_at": "2026-06-22T01:53:14Z",
+  "generated_at": "2026-11-24T17:21:29Z",
   "matches": [
     {
       "match_id": 1146313,
@@ -209,10 +209,30 @@
               "VI"
             ]
           }
+        },
+        {
+          "video_id": "CR5aCCKz9kk",
+          "title": "Brazil vs. Colombia Full Highlights | Copa America 2024",
+          "published_at": "2024-07-03",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA"
+            ]
+          }
         }
       ],
       "home_crest": "https://media.api-sports.io/football/teams/6.png",
-      "away_crest": "https://media.api-sports.io/football/teams/8.png"
+      "away_crest": "https://media.api-sports.io/football/teams/8.png",
+      "alternatives": {
+        "checks": 1,
+        "last": "2026-11-24T17:21:24Z",
+        "sources": "a92c45b5ca",
+        "covered": [
+          "US",
+          "CA"
+        ]
+      }
     },
     {
       "match_id": 1189125,
