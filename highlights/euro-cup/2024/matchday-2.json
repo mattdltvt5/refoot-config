@@ -2,7 +2,7 @@
   "competition": "Euro Cup",
   "gameweek": "MD2",
   "stem": "matchday-2",
-  "generated_at": "2026-06-22T03:17:27Z",
+  "generated_at": "2026-11-24T19:26:26Z",
   "matches": [
     {
       "match_id": 428751,
@@ -281,8 +281,55 @@
               "VI"
             ]
           }
+        },
+        {
+          "video_id": "aBXGhKKMIrc",
+          "title": "HIGHLIGHTS - Georgia v Czechia | #EURO2024 | ITV Sport",
+          "published_at": "2024-06-22",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "GB",
+              "GG",
+              "IM",
+              "JE"
+            ]
+          }
+        },
+        {
+          "video_id": "cpfr-lvi4OA",
+          "title": "Schick breaks Czechia record in Georgia draw | Georgia 1-1 Czechia | Euro 2024 Highlights",
+          "published_at": "2024-06-22",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "IE"
+            ]
+          }
+        },
+        {
+          "video_id": "AGlTWEYdph4",
+          "title": "Georgia vs. Czechia Full Highlights | EURO2024",
+          "published_at": "2024-06-22",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA"
+            ]
+          }
         }
-      ]
+      ],
+      "alternatives": {
+        "checks": 1,
+        "last": "2026-11-24T19:26:23Z",
+        "sources": "76f335e365",
+        "covered": [
+          "US",
+          "GB",
+          "CA",
+          "IE"
+        ]
+      }
     },
     {
       "match_id": 428774,
@@ -309,8 +356,55 @@
               "VI"
             ]
           }
+        },
+        {
+          "video_id": "sVZv5mR_T0c",
+          "title": "HIGHLIGHTS - Turkey v Portugal | #EURO2024 | ITV Sport",
+          "published_at": "2024-06-22",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "GB",
+              "GG",
+              "IM",
+              "JE"
+            ]
+          }
+        },
+        {
+          "video_id": "LVQDbjUAVzM",
+          "title": "Portugal power past Turkey to book last-16 spot | Turkey 0-3 Portugal | Euro 2024 Highlights",
+          "published_at": "2024-06-22",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "IE"
+            ]
+          }
+        },
+        {
+          "video_id": "DYKespAlxH0",
+          "title": "Türkiye vs. Portugal Full Highlights | EURO2024",
+          "published_at": "2024-06-22",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA"
+            ]
+          }
         }
-      ]
+      ],
+      "alternatives": {
+        "checks": 1,
+        "last": "2026-11-24T19:26:23Z",
+        "sources": "76f335e365",
+        "covered": [
+          "US",
+          "GB",
+          "CA",
+          "IE"
+        ]
+      }
     },
     {
       "match_id": 428768,
