@@ -2,7 +2,7 @@
   "competition": "Euro Cup",
   "gameweek": "R16",
   "stem": "round-of-16",
-  "generated_at": "2026-11-24T17:51:27Z",
+  "generated_at": "2026-11-24T18:01:21Z",
   "matches": [
     {
       "match_id": 428791,
@@ -85,8 +85,43 @@
               "VI"
             ]
           }
+        },
+        {
+          "video_id": "pdbeEzTwJKY",
+          "title": "HIGHLIGHTS - England v Slovakia | #EURO2024 | ITV Sport",
+          "published_at": "2024-06-30",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "GB",
+              "GG",
+              "IM",
+              "JE"
+            ]
+          }
+        },
+        {
+          "video_id": "qK2kldlnX4Q",
+          "title": "England vs. Slovakia Round of 16 Full Highlights | EURO2024",
+          "published_at": "2024-06-30",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA"
+            ]
+          }
         }
-      ]
+      ],
+      "alternatives": {
+        "checks": 1,
+        "last": "2026-11-24T18:01:17Z",
+        "sources": "76f335e365",
+        "covered": [
+          "US",
+          "GB",
+          "CA"
+        ]
+      }
     },
     {
       "match_id": 428790,
@@ -113,8 +148,55 @@
               "VI"
             ]
           }
+        },
+        {
+          "video_id": "VUd1l2Y2VJI",
+          "title": "HIGHLIGHTS - Spain vs Georgia | #EURO2024 | ITV Sport",
+          "published_at": "2024-06-30",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "GB",
+              "GG",
+              "IM",
+              "JE"
+            ]
+          }
+        },
+        {
+          "video_id": "5aGoZ2NnBmA",
+          "title": "Spain overcome battling Georgia | Spain 4-1 Georgia | Euro 2024 Highlights",
+          "published_at": "2024-06-30",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "IE"
+            ]
+          }
+        },
+        {
+          "video_id": "daFpo3nKgdg",
+          "title": "Spain vs. Georgia Round of 16 Full Highlights | EURO2024",
+          "published_at": "2024-06-30",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA"
+            ]
+          }
         }
-      ]
+      ],
+      "alternatives": {
+        "checks": 1,
+        "last": "2026-11-24T18:01:17Z",
+        "sources": "76f335e365",
+        "covered": [
+          "US",
+          "GB",
+          "CA",
+          "IE"
+        ]
+      }
     },
     {
       "match_id": 428787,
