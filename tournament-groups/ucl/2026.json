@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-24T20:46:29.773090Z",
+  "generated_at": "2026-11-24T20:51:35.730974Z",
   "slug": "ucl",
   "standings": [
     {
@@ -67,6 +67,25 @@
         {
           "position": 4,
           "team": {
+            "id": 90,
+            "name": "Real Betis Balompié",
+            "shortName": "Real Betis",
+            "tla": "BET",
+            "crest": "https://crests.football-data.org/90.png"
+          },
+          "playedGames": 5,
+          "form": null,
+          "won": 4,
+          "draw": 0,
+          "lost": 1,
+          "points": 12,
+          "goalsFor": 9,
+          "goalsAgainst": 6,
+          "goalDifference": 3
+        },
+        {
+          "position": 5,
+          "team": {
             "id": 7397,
             "name": "Como 1907",
             "shortName": "Como 1907",
@@ -84,7 +103,7 @@
           "goalDifference": 13
         },
         {
-          "position": 5,
+          "position": 6,
           "team": {
             "id": 65,
             "name": "Manchester City FC",
@@ -101,25 +120,6 @@
           "goalsFor": 12,
           "goalsAgainst": 7,
           "goalDifference": 5
-        },
-        {
-          "position": 6,
-          "team": {
-            "id": 90,
-            "name": "Real Betis Balompié",
-            "shortName": "Real Betis",
-            "tla": "BET",
-            "crest": "https://crests.football-data.org/90.png"
-          },
-          "playedGames": 5,
-          "form": null,
-          "won": 3,
-          "draw": 1,
-          "lost": 1,
-          "points": 10,
-          "goalsFor": 8,
-          "goalsAgainst": 6,
-          "goalDifference": 2
         },
         {
           "position": 7,
@@ -684,12 +684,12 @@
           "playedGames": 5,
           "form": null,
           "won": 0,
-          "draw": 1,
-          "lost": 4,
-          "points": 1,
+          "draw": 0,
+          "lost": 5,
+          "points": 0,
           "goalsFor": 1,
-          "goalsAgainst": 17,
-          "goalDifference": -16
+          "goalsAgainst": 18,
+          "goalDifference": -17
         }
       ]
     }
@@ -5089,7 +5089,7 @@
         }
       },
       "status": "IN_PLAY",
-      "lastUpdated": "2026-11-24T20:45:31Z",
+      "lastUpdated": "2026-11-24T20:50:51Z",
       "video_id": null
     },
     {
@@ -5117,7 +5117,7 @@
         }
       },
       "status": "IN_PLAY",
-      "lastUpdated": "2026-11-24T20:45:31Z",
+      "lastUpdated": "2026-11-24T20:50:51Z",
       "video_id": null
     },
     {
@@ -5145,7 +5145,7 @@
         }
       },
       "status": "IN_PLAY",
-      "lastUpdated": "2026-11-24T20:45:31Z",
+      "lastUpdated": "2026-11-24T20:50:51Z",
       "video_id": null
     },
     {
@@ -5173,7 +5173,7 @@
         }
       },
       "status": "IN_PLAY",
-      "lastUpdated": "2026-11-24T20:45:31Z",
+      "lastUpdated": "2026-11-24T20:51:23Z",
       "video_id": null
     },
     {
@@ -5197,11 +5197,11 @@
       "score": {
         "fullTime": {
           "home": 0,
-          "away": 0
+          "away": 1
         }
       },
       "status": "IN_PLAY",
-      "lastUpdated": "2026-11-24T20:46:03Z",
+      "lastUpdated": "2026-11-24T20:51:23Z",
       "video_id": null
     },
     {
@@ -5229,7 +5229,7 @@
         }
       },
       "status": "IN_PLAY",
-      "lastUpdated": "2026-11-24T20:45:31Z",
+      "lastUpdated": "2026-11-24T20:50:51Z",
       "video_id": null
     },
     {
@@ -5257,7 +5257,7 @@
         }
       },
       "status": "IN_PLAY",
-      "lastUpdated": "2026-11-24T20:44:59Z",
+      "lastUpdated": "2026-11-24T20:51:24Z",
       "video_id": null
     },
     {
