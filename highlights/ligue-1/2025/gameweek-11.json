@@ -1,7 +1,7 @@
 {
   "competition": "Ligue 1",
   "gameweek": 11,
-  "generated_at": "2026-11-24T09:01:26Z",
+  "generated_at": "2026-11-24T09:06:08Z",
   "matches": [
     {
       "match_id": 542501,
@@ -136,8 +136,27 @@
               "US"
             ]
           }
+        },
+        {
+          "video_id": "HJsHd4R3A8w",
+          "title": "⚽️ Résumé : TFC - HAC (0-0) I J11 - L1 McDonald's 2025-2026",
+          "published_at": "2025-11-03",
+          "tier_used": 1,
+          "region": {}
         }
-      ]
+      ],
+      "alternatives": {
+        "checks": 1,
+        "last": "2026-11-24T09:06:07Z",
+        "sources": "2aca95cb9a",
+        "covered": [
+          "US",
+          "GB",
+          "CA",
+          "IE",
+          "ES"
+        ]
+      }
     },
     {
       "match_id": 542500,
@@ -158,7 +177,16 @@
             ]
           }
         }
-      ]
+      ],
+      "alternatives": {
+        "checks": 1,
+        "last": "2026-11-24T09:06:07Z",
+        "sources": "2aca95cb9a",
+        "covered": [
+          "US",
+          "CA"
+        ]
+      }
     },
     {
       "match_id": 542502,
