@@ -2,7 +2,7 @@
   "competition": "Euro Cup",
   "gameweek": "MD3",
   "stem": "matchday-3",
-  "generated_at": "2026-06-22T03:17:35Z",
+  "generated_at": "2026-11-24T18:36:18Z",
   "matches": [
     {
       "match_id": 428742,
@@ -253,8 +253,43 @@
               "VI"
             ]
           }
+        },
+        {
+          "video_id": "icRZFxNeGiU",
+          "title": "HIGHLIGHTS - Ukraine v Belgium | #EURO2024 | ITV Sport",
+          "published_at": "2024-06-26",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "GB",
+              "GG",
+              "IM",
+              "JE"
+            ]
+          }
+        },
+        {
+          "video_id": "xmzaSh1aOgI",
+          "title": "Ukraine vs. Belgium Full Highlights | EURO2024",
+          "published_at": "2024-06-26",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA"
+            ]
+          }
         }
-      ]
+      ],
+      "alternatives": {
+        "checks": 1,
+        "last": "2026-11-24T18:36:10Z",
+        "sources": "76f335e365",
+        "covered": [
+          "US",
+          "GB",
+          "CA"
+        ]
+      }
     },
     {
       "match_id": 428767,
