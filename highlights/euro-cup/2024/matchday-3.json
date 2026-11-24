@@ -2,7 +2,7 @@
   "competition": "Euro Cup",
   "gameweek": "MD3",
   "stem": "matchday-3",
-  "generated_at": "2026-11-24T19:16:15Z",
+  "generated_at": "2026-11-24T19:21:13Z",
   "matches": [
     {
       "match_id": 428742,
@@ -104,8 +104,55 @@
               "VI"
             ]
           }
+        },
+        {
+          "video_id": "LWLogY6GGI0",
+          "title": "HIGHLIGHTS - Switzerland v Germany | Euro 2024",
+          "published_at": "2024-06-23",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "GB",
+              "GG",
+              "IM",
+              "JE"
+            ]
+          }
+        },
+        {
+          "video_id": "3SZ_SiZ4vC4",
+          "title": "Germany strike late to deny Switzerland top spot | Germany 1-1 Switzerland | Euro 2024 Highlights",
+          "published_at": "2024-06-24",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "IE"
+            ]
+          }
+        },
+        {
+          "video_id": "4e3a8PnQzhQ",
+          "title": "Switzerland vs. Germany Full Highlights | EURO2024",
+          "published_at": "2024-06-23",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA"
+            ]
+          }
         }
-      ]
+      ],
+      "alternatives": {
+        "checks": 1,
+        "last": "2026-11-24T19:21:10Z",
+        "sources": "76f335e365",
+        "covered": [
+          "US",
+          "GB",
+          "CA",
+          "IE"
+        ]
+      }
     },
     {
       "match_id": 428748,

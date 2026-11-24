@@ -2,7 +2,7 @@
   "competition": "Copa America",
   "gameweek": "MD1",
   "stem": "matchday-1",
-  "generated_at": "2026-11-24T19:16:13Z",
+  "generated_at": "2026-11-24T19:21:15Z",
   "matches": [
     {
       "match_id": 1189120,
@@ -59,10 +59,30 @@
               "VI"
             ]
           }
+        },
+        {
+          "video_id": "nXgV7Mi1COs",
+          "title": "Peru vs. Chile Full Highlights | Copa America 2024",
+          "published_at": "2024-06-22",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA"
+            ]
+          }
         }
       ],
       "home_crest": "https://media.api-sports.io/football/teams/30.png",
-      "away_crest": "https://media.api-sports.io/football/teams/2383.png"
+      "away_crest": "https://media.api-sports.io/football/teams/2383.png",
+      "alternatives": {
+        "checks": 1,
+        "last": "2026-11-24T19:21:10Z",
+        "sources": "a92c45b5ca",
+        "covered": [
+          "US",
+          "CA"
+        ]
+      }
     },
     {
       "match_id": 1146302,
