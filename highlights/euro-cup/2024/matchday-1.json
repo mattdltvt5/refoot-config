@@ -2,7 +2,7 @@
   "competition": "Euro Cup",
   "gameweek": "MD1",
   "stem": "matchday-1",
-  "generated_at": "2026-11-24T20:01:25Z",
+  "generated_at": "2026-11-24T20:06:14Z",
   "matches": [
     {
       "match_id": 428747,
@@ -225,8 +225,55 @@
               "VI"
             ]
           }
+        },
+        {
+          "video_id": "glvGaEUwxh0",
+          "title": "HIGHLIGHTS - Romania v Ukraine | #EURO2024 | ITV Sport",
+          "published_at": "2024-06-17",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "GB",
+              "GG",
+              "IM",
+              "JE"
+            ]
+          }
+        },
+        {
+          "video_id": "KN1DiDRg3zs",
+          "title": "Stanciu stunner sparks rout | Romania 3-0 Ukraine | Euro 2024 Highlights",
+          "published_at": "2024-06-18",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "IE"
+            ]
+          }
+        },
+        {
+          "video_id": "mHk8Rv_PIQQ",
+          "title": "Romania vs. Ukraine Full Highlights | EURO24",
+          "published_at": "2024-06-17",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA"
+            ]
+          }
         }
-      ]
+      ],
+      "alternatives": {
+        "checks": 1,
+        "last": "2026-11-24T20:06:10Z",
+        "sources": "76f335e365",
+        "covered": [
+          "US",
+          "GB",
+          "CA",
+          "IE"
+        ]
+      }
     },
     {
       "match_id": 428771,
@@ -384,8 +431,55 @@
               "VI"
             ]
           }
+        },
+        {
+          "video_id": "vn-8onpwnU4",
+          "title": "HIGHLIGHTS - Portugal v Czech Republic | #EURO2024 | ITV Sport",
+          "published_at": "2024-06-18",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "GB",
+              "GG",
+              "IM",
+              "JE"
+            ]
+          }
+        },
+        {
+          "video_id": "nKEIJJR7_Jw",
+          "title": "Conceicao grabs late winner as Portugal fight back | Portugal 2-1 Czechia | Euro 2024 Highlights",
+          "published_at": "2024-06-18",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "IE"
+            ]
+          }
+        },
+        {
+          "video_id": "U08MnyreKg4",
+          "title": "Portugal vs. Czechia Full Highlights | EURO2024",
+          "published_at": "2024-06-18",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA"
+            ]
+          }
         }
-      ]
+      ],
+      "alternatives": {
+        "checks": 1,
+        "last": "2026-11-24T20:06:10Z",
+        "sources": "76f335e365",
+        "covered": [
+          "US",
+          "GB",
+          "CA",
+          "IE"
+        ]
+      }
     }
   ]
 }
