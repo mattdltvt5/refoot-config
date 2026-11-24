@@ -2,7 +2,7 @@
   "competition": "Euro Cup",
   "gameweek": "MD3",
   "stem": "matchday-3",
-  "generated_at": "2026-11-24T18:46:14Z",
+  "generated_at": "2026-11-24T18:51:16Z",
   "matches": [
     {
       "match_id": 428742,
@@ -141,8 +141,55 @@
               "VI"
             ]
           }
+        },
+        {
+          "video_id": "CexaJUz-rV0",
+          "title": "HIGHLIGHTS - France v Poland | Euro 2024",
+          "published_at": "2024-06-25",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "GB",
+              "GG",
+              "IM",
+              "JE"
+            ]
+          }
+        },
+        {
+          "video_id": "nnZ4rM3AKKo",
+          "title": "France pay price as Lewandowski takes second chance | France 1-1 Poland | Euro 2024 Highlights",
+          "published_at": "2024-06-25",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "IE"
+            ]
+          }
+        },
+        {
+          "video_id": "4LJA1FcKW60",
+          "title": "France vs. Poland Full Highlights | EURO2024",
+          "published_at": "2024-06-25",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA"
+            ]
+          }
         }
-      ]
+      ],
+      "alternatives": {
+        "checks": 1,
+        "last": "2026-11-24T18:51:08Z",
+        "sources": "76f335e365",
+        "covered": [
+          "US",
+          "GB",
+          "CA",
+          "IE"
+        ]
+      }
     },
     {
       "match_id": 428761,
@@ -169,8 +216,43 @@
               "VI"
             ]
           }
+        },
+        {
+          "video_id": "QoOvJj463hY",
+          "title": "HIGHLIGHTS - Netherlands v Austria | Euro 2024",
+          "published_at": "2024-06-25",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "GB",
+              "GG",
+              "IM",
+              "JE"
+            ]
+          }
+        },
+        {
+          "video_id": "7OQSuBqGQh4",
+          "title": "Netherlands vs. Austria Full Highlights | EURO2024",
+          "published_at": "2024-06-25",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA"
+            ]
+          }
         }
-      ]
+      ],
+      "alternatives": {
+        "checks": 1,
+        "last": "2026-11-24T18:51:08Z",
+        "sources": "76f335e365",
+        "covered": [
+          "US",
+          "GB",
+          "CA"
+        ]
+      }
     },
     {
       "match_id": 428754,
