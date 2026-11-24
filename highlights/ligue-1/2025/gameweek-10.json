@@ -1,7 +1,7 @@
 {
   "competition": "Ligue 1",
   "gameweek": 10,
-  "generated_at": "2026-11-24T09:46:13Z",
+  "generated_at": "2026-11-24T09:51:09Z",
   "matches": [
     {
       "match_id": 542487,
@@ -201,8 +201,27 @@
               "US"
             ]
           }
+        },
+        {
+          "video_id": "JTnaxlu5WJM",
+          "title": "OM 2-2 Angers | Le résumé de la rencontre",
+          "published_at": "2025-10-29",
+          "tier_used": 1,
+          "region": {}
         }
-      ]
+      ],
+      "alternatives": {
+        "checks": 1,
+        "last": "2026-11-24T09:51:09Z",
+        "sources": "2aca95cb9a",
+        "covered": [
+          "US",
+          "GB",
+          "CA",
+          "IE",
+          "ES"
+        ]
+      }
     },
     {
       "match_id": 542495,
@@ -223,7 +242,16 @@
             ]
           }
         }
-      ]
+      ],
+      "alternatives": {
+        "checks": 1,
+        "last": "2026-11-24T09:51:09Z",
+        "sources": "2aca95cb9a",
+        "covered": [
+          "US",
+          "CA"
+        ]
+      }
     }
   ]
 }
