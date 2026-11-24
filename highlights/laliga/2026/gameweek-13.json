@@ -2,7 +2,7 @@
   "competition": "LaLiga",
   "gameweek": "GW13",
   "stem": "gameweek-13",
-  "generated_at": "2026-11-23T22:11:15Z",
+  "generated_at": "2026-11-24T00:16:17Z",
   "matches": [
     {
       "match_id": 564748,
@@ -276,14 +276,23 @@
               "VE"
             ]
           }
+        },
+        {
+          "video_id": "A2JSukeCImw",
+          "title": "HIGHLIGHTS | LEVANTE UD 1-1 ELCHE CF",
+          "published_at": "2026-11-23",
+          "tier_used": 1,
+          "region": {}
         }
       ],
       "alternatives": {
-        "checks": 1,
-        "last": "2026-11-23T22:11:16Z",
+        "checks": 2,
+        "last": "2026-11-24T00:16:11Z",
         "sources": "66c00f3ad8",
         "covered": [
+          "US",
           "GB",
+          "CA",
           "IE",
           "ES"
         ]
