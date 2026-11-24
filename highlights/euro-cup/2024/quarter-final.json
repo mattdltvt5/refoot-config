@@ -2,7 +2,7 @@
   "competition": "Euro Cup",
   "gameweek": "QF",
   "stem": "quarter-final",
-  "generated_at": "2026-06-22T03:17:47Z",
+  "generated_at": "2026-11-24T17:06:12Z",
   "matches": [
     {
       "match_id": 495401,
@@ -85,8 +85,43 @@
               "VI"
             ]
           }
+        },
+        {
+          "video_id": "1QCuCbccSiU",
+          "title": "HIGHLIGHTS - England v Switzerland | #EURO2024 | ITV Sport",
+          "published_at": "2024-07-06",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "GB",
+              "GG",
+              "IM",
+              "JE"
+            ]
+          }
+        },
+        {
+          "video_id": "ZNeilzkxPSY",
+          "title": "England hold nerve in Swiss shootout | England 1-1 Switzerland (5-3 pens) | Euro 2024 Highlights",
+          "published_at": "2024-07-06",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "IE"
+            ]
+          }
         }
-      ]
+      ],
+      "alternatives": {
+        "checks": 1,
+        "last": "2026-11-24T17:06:07Z",
+        "sources": "76f335e365",
+        "covered": [
+          "US",
+          "GB",
+          "IE"
+        ]
+      }
     },
     {
       "match_id": 495404,
@@ -113,8 +148,55 @@
               "VI"
             ]
           }
+        },
+        {
+          "video_id": "8OH12-RR1xo",
+          "title": "HIGHLIGHTS - Netherlands vs Turkey | #EURO2024 | ITV Sport",
+          "published_at": "2024-07-06",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "GB",
+              "GG",
+              "IM",
+              "JE"
+            ]
+          }
+        },
+        {
+          "video_id": "wYXRPeiGo2g",
+          "title": "Dutch set up England date after fightback | Netherlands 2-1 Turkey | Euro 2024 Highlights",
+          "published_at": "2024-07-06",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "IE"
+            ]
+          }
+        },
+        {
+          "video_id": "2Iw9zpQXWI8",
+          "title": "Netherlands vs. Türkiye Quarter-finals Full Highlights | EURO2024",
+          "published_at": "2024-07-06",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA"
+            ]
+          }
         }
-      ]
+      ],
+      "alternatives": {
+        "checks": 1,
+        "last": "2026-11-24T17:06:07Z",
+        "sources": "76f335e365",
+        "covered": [
+          "US",
+          "GB",
+          "CA",
+          "IE"
+        ]
+      }
     }
   ]
 }
