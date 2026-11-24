@@ -2,7 +2,7 @@
   "competition": "Euro Cup",
   "gameweek": "MD1",
   "stem": "matchday-1",
-  "generated_at": "2026-11-24T20:26:13Z",
+  "generated_at": "2026-11-24T20:31:28Z",
   "matches": [
     {
       "match_id": 428747,
@@ -29,8 +29,43 @@
               "VI"
             ]
           }
+        },
+        {
+          "video_id": "Sm3THZouk2I",
+          "title": "HIGHLIGHTS - Germany v Scotland | Euro 2024",
+          "published_at": "2024-06-14",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "GB",
+              "GG",
+              "IM",
+              "JE"
+            ]
+          }
+        },
+        {
+          "video_id": "gryismgCyfU",
+          "title": "Hosts Germany rout Scotland to kick-off Euro 2024 | Germany 5-1 Scotland | Euro 2024 Highlights",
+          "published_at": "2024-06-14",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "IE"
+            ]
+          }
         }
-      ]
+      ],
+      "alternatives": {
+        "checks": 1,
+        "last": "2026-11-24T20:31:15Z",
+        "sources": "76f335e365",
+        "covered": [
+          "US",
+          "GB",
+          "IE"
+        ]
+      }
     },
     {
       "match_id": 428746,
