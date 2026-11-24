@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-24T20:06:35.512323Z",
+  "generated_at": "2026-11-24T20:11:39.781847Z",
   "slug": "ucl",
   "standings": [
     {
@@ -371,6 +371,44 @@
         {
           "position": 20,
           "team": {
+            "id": 503,
+            "name": "FC Porto",
+            "shortName": "Porto",
+            "tla": "FCP",
+            "crest": "https://crests.football-data.org/503.png"
+          },
+          "playedGames": 5,
+          "form": null,
+          "won": 2,
+          "draw": 0,
+          "lost": 3,
+          "points": 6,
+          "goalsFor": 7,
+          "goalsAgainst": 7,
+          "goalDifference": 0
+        },
+        {
+          "position": 21,
+          "team": {
+            "id": 721,
+            "name": "RB Leipzig",
+            "shortName": "RB Leipzig",
+            "tla": "RBL",
+            "crest": "https://crests.football-data.org/721.png"
+          },
+          "playedGames": 5,
+          "form": null,
+          "won": 2,
+          "draw": 0,
+          "lost": 3,
+          "points": 6,
+          "goalsFor": 6,
+          "goalsAgainst": 11,
+          "goalDifference": -5
+        },
+        {
+          "position": 22,
+          "team": {
             "id": 674,
             "name": "PSV",
             "shortName": "PSV",
@@ -388,7 +426,7 @@
           "goalDifference": -1
         },
         {
-          "position": 21,
+          "position": 23,
           "team": {
             "id": 613,
             "name": "Fenerbahçe SK",
@@ -407,7 +445,7 @@
           "goalDifference": -5
         },
         {
-          "position": 22,
+          "position": 24,
           "team": {
             "id": 100,
             "name": "AS Roma",
@@ -426,7 +464,7 @@
           "goalDifference": 2
         },
         {
-          "position": 23,
+          "position": 25,
           "team": {
             "id": 1887,
             "name": "FK Shakhtar Donetsk",
@@ -445,7 +483,7 @@
           "goalDifference": 0
         },
         {
-          "position": 24,
+          "position": 26,
           "team": {
             "id": 5720,
             "name": "Viking FK",
@@ -464,26 +502,7 @@
           "goalDifference": -1
         },
         {
-          "position": 25,
-          "team": {
-            "id": 503,
-            "name": "FC Porto",
-            "shortName": "Porto",
-            "tla": "FCP",
-            "crest": "https://crests.football-data.org/503.png"
-          },
-          "playedGames": 5,
-          "form": null,
-          "won": 1,
-          "draw": 1,
-          "lost": 3,
-          "points": 4,
-          "goalsFor": 6,
-          "goalsAgainst": 7,
-          "goalDifference": -1
-        },
-        {
-          "position": 26,
+          "position": 27,
           "team": {
             "id": 78,
             "name": "Club Atlético de Madrid",
@@ -502,7 +521,7 @@
           "goalDifference": -1
         },
         {
-          "position": 27,
+          "position": 28,
           "team": {
             "id": 113,
             "name": "SSC Napoli",
@@ -521,7 +540,7 @@
           "goalDifference": -5
         },
         {
-          "position": 28,
+          "position": 29,
           "team": {
             "id": 1899,
             "name": "PAE AEK",
@@ -540,64 +559,7 @@
           "goalDifference": -6
         },
         {
-          "position": 28,
-          "team": {
-            "id": 721,
-            "name": "RB Leipzig",
-            "shortName": "RB Leipzig",
-            "tla": "RBL",
-            "crest": "https://crests.football-data.org/721.png"
-          },
-          "playedGames": 5,
-          "form": null,
-          "won": 1,
-          "draw": 1,
-          "lost": 3,
-          "points": 4,
-          "goalsFor": 5,
-          "goalsAgainst": 11,
-          "goalDifference": -6
-        },
-        {
           "position": 30,
-          "team": {
-            "id": 675,
-            "name": "Feyenoord Rotterdam",
-            "shortName": "Feyenoord",
-            "tla": "FEY",
-            "crest": "https://crests.football-data.org/675.png"
-          },
-          "playedGames": 5,
-          "form": null,
-          "won": 1,
-          "draw": 1,
-          "lost": 3,
-          "points": 4,
-          "goalsFor": 4,
-          "goalsAgainst": 11,
-          "goalDifference": -7
-        },
-        {
-          "position": 31,
-          "team": {
-            "id": 546,
-            "name": "Racing Club de Lens",
-            "shortName": "RC Lens",
-            "tla": "RCL",
-            "crest": "https://crests.football-data.org/546.png"
-          },
-          "playedGames": 5,
-          "form": null,
-          "won": 1,
-          "draw": 1,
-          "lost": 3,
-          "points": 4,
-          "goalsFor": 4,
-          "goalsAgainst": 16,
-          "goalDifference": -12
-        },
-        {
-          "position": 32,
           "team": {
             "id": 94,
             "name": "Villarreal CF",
@@ -616,7 +578,7 @@
           "goalDifference": -6
         },
         {
-          "position": 33,
+          "position": 31,
           "team": {
             "id": 10233,
             "name": "Sabah FK",
@@ -633,6 +595,44 @@
           "goalsFor": 4,
           "goalsAgainst": 10,
           "goalDifference": -6
+        },
+        {
+          "position": 32,
+          "team": {
+            "id": 675,
+            "name": "Feyenoord Rotterdam",
+            "shortName": "Feyenoord",
+            "tla": "FEY",
+            "crest": "https://crests.football-data.org/675.png"
+          },
+          "playedGames": 5,
+          "form": null,
+          "won": 1,
+          "draw": 0,
+          "lost": 4,
+          "points": 3,
+          "goalsFor": 4,
+          "goalsAgainst": 12,
+          "goalDifference": -8
+        },
+        {
+          "position": 33,
+          "team": {
+            "id": 546,
+            "name": "Racing Club de Lens",
+            "shortName": "RC Lens",
+            "tla": "RCL",
+            "crest": "https://crests.football-data.org/546.png"
+          },
+          "playedGames": 5,
+          "form": null,
+          "won": 1,
+          "draw": 0,
+          "lost": 4,
+          "points": 3,
+          "goalsFor": 4,
+          "goalsAgainst": 17,
+          "goalDifference": -13
         },
         {
           "position": 34,
@@ -5084,12 +5084,12 @@
       },
       "score": {
         "fullTime": {
-          "home": null,
-          "away": null
+          "home": 0,
+          "away": 0
         }
       },
-      "status": "TIMED",
-      "lastUpdated": "2026-11-24T00:20:26Z",
+      "status": "IN_PLAY",
+      "lastUpdated": "2026-11-24T20:10:19Z",
       "video_id": null
     },
     {
@@ -5112,12 +5112,12 @@
       },
       "score": {
         "fullTime": {
-          "home": null,
-          "away": null
+          "home": 0,
+          "away": 0
         }
       },
-      "status": "TIMED",
-      "lastUpdated": "2026-11-24T00:20:26Z",
+      "status": "IN_PLAY",
+      "lastUpdated": "2026-11-24T20:10:19Z",
       "video_id": null
     },
     {
@@ -5140,12 +5140,12 @@
       },
       "score": {
         "fullTime": {
-          "home": null,
-          "away": null
+          "home": 0,
+          "away": 0
         }
       },
-      "status": "TIMED",
-      "lastUpdated": "2026-11-24T00:20:26Z",
+      "status": "IN_PLAY",
+      "lastUpdated": "2026-11-24T20:10:19Z",
       "video_id": null
     },
     {
@@ -5169,11 +5169,11 @@
       "score": {
         "fullTime": {
           "home": 0,
-          "away": 0
+          "away": 1
         }
       },
       "status": "IN_PLAY",
-      "lastUpdated": "2026-11-24T20:05:31Z",
+      "lastUpdated": "2026-11-24T20:10:51Z",
       "video_id": null
     },
     {
@@ -5196,12 +5196,12 @@
       },
       "score": {
         "fullTime": {
-          "home": null,
-          "away": null
+          "home": 0,
+          "away": 0
         }
       },
-      "status": "TIMED",
-      "lastUpdated": "2026-11-24T00:20:26Z",
+      "status": "IN_PLAY",
+      "lastUpdated": "2026-11-24T20:10:19Z",
       "video_id": null
     },
     {
@@ -5224,12 +5224,12 @@
       },
       "score": {
         "fullTime": {
-          "home": null,
-          "away": null
+          "home": 0,
+          "away": 0
         }
       },
-      "status": "TIMED",
-      "lastUpdated": "2026-11-24T00:20:26Z",
+      "status": "IN_PLAY",
+      "lastUpdated": "2026-11-24T20:10:19Z",
       "video_id": null
     },
     {
@@ -5257,7 +5257,7 @@
         }
       },
       "status": "IN_PLAY",
-      "lastUpdated": "2026-11-24T20:05:31Z",
+      "lastUpdated": "2026-11-24T20:10:19Z",
       "video_id": null
     },
     {

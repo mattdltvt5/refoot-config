@@ -2,7 +2,7 @@
   "competition": "Euro Cup",
   "gameweek": "MD1",
   "stem": "matchday-1",
-  "generated_at": "2026-11-24T20:06:14Z",
+  "generated_at": "2026-11-24T20:11:19Z",
   "matches": [
     {
       "match_id": 428747,
@@ -300,8 +300,55 @@
               "VI"
             ]
           }
+        },
+        {
+          "video_id": "IlSSFYHJAR0",
+          "title": "HIGHLIGHTS - Belgium v Slovakia | #EURO2024 | ITV Sport",
+          "published_at": "2024-06-17",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "GB",
+              "GG",
+              "IM",
+              "JE"
+            ]
+          }
+        },
+        {
+          "video_id": "bkPtmSeqZYg",
+          "title": "Lukaku misfires as Slovakia stun Belgium | Belgium 0-1 Slovakia | Euro 2024 Highlights",
+          "published_at": "2024-06-17",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "IE"
+            ]
+          }
+        },
+        {
+          "video_id": "dllCBmgMSFc",
+          "title": "Belgium vs. Slovakia Full Highlights | EURO2024",
+          "published_at": "2024-06-17",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA"
+            ]
+          }
         }
-      ]
+      ],
+      "alternatives": {
+        "checks": 1,
+        "last": "2026-11-24T20:11:09Z",
+        "sources": "76f335e365",
+        "covered": [
+          "US",
+          "GB",
+          "CA",
+          "IE"
+        ]
+      }
     },
     {
       "match_id": 428764,
@@ -328,8 +375,43 @@
               "VI"
             ]
           }
+        },
+        {
+          "video_id": "f8t-H55X_yc",
+          "title": "HIGHLIGHTS - Austria v France | #EURO2024 | ITV Sport",
+          "published_at": "2024-06-17",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "GB",
+              "GG",
+              "IM",
+              "JE"
+            ]
+          }
+        },
+        {
+          "video_id": "f4rZspJxBQw",
+          "title": "Austria vs. France Full Highlights | EURO2024",
+          "published_at": "2024-06-17",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA"
+            ]
+          }
         }
-      ]
+      ],
+      "alternatives": {
+        "checks": 1,
+        "last": "2026-11-24T20:11:09Z",
+        "sources": "76f335e365",
+        "covered": [
+          "US",
+          "GB",
+          "CA"
+        ]
+      }
     },
     {
       "match_id": 428776,
