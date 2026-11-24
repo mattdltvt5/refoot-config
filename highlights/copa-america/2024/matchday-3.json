@@ -2,7 +2,7 @@
   "competition": "Copa America",
   "gameweek": "MD3",
   "stem": "matchday-3",
-  "generated_at": "2026-11-24T17:31:17Z",
+  "generated_at": "2026-11-24T17:41:22Z",
   "matches": [
     {
       "match_id": 1146313,
@@ -89,10 +89,30 @@
               "VI"
             ]
           }
+        },
+        {
+          "video_id": "0iZ70fQrfyM",
+          "title": "Mexico vs. Ecuador FULL HIGHLIGHTS | 2024 Copa America",
+          "published_at": "2024-07-01",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA"
+            ]
+          }
         }
       ],
       "home_crest": "https://media.api-sports.io/football/teams/16.png",
-      "away_crest": "https://media.api-sports.io/football/teams/2382.png"
+      "away_crest": "https://media.api-sports.io/football/teams/2382.png",
+      "alternatives": {
+        "checks": 1,
+        "last": "2026-11-24T17:41:17Z",
+        "sources": "a92c45b5ca",
+        "covered": [
+          "US",
+          "CA"
+        ]
+      }
     },
     {
       "match_id": 1146314,
@@ -119,10 +139,30 @@
               "VI"
             ]
           }
+        },
+        {
+          "video_id": "WknnLMxNKpw",
+          "title": "Jamaica vs. Venezuela FULL HIGHLIGHTS | 2024 Copa America",
+          "published_at": "2024-07-01",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA"
+            ]
+          }
         }
       ],
       "home_crest": "https://media.api-sports.io/football/teams/2385.png",
-      "away_crest": "https://media.api-sports.io/football/teams/2379.png"
+      "away_crest": "https://media.api-sports.io/football/teams/2379.png",
+      "alternatives": {
+        "checks": 1,
+        "last": "2026-11-24T17:41:17Z",
+        "sources": "a92c45b5ca",
+        "covered": [
+          "US",
+          "CA"
+        ]
+      }
     },
     {
       "match_id": 1146316,
