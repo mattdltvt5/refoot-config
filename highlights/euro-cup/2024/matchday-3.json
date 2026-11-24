@@ -2,7 +2,7 @@
   "competition": "Euro Cup",
   "gameweek": "MD3",
   "stem": "matchday-3",
-  "generated_at": "2026-11-24T18:51:16Z",
+  "generated_at": "2026-11-24T18:56:09Z",
   "matches": [
     {
       "match_id": 428742,
@@ -279,8 +279,55 @@
               "VI"
             ]
           }
+        },
+        {
+          "video_id": "9henGSHE4Ms",
+          "title": "HIGHLIGHTS | Denmark v Serbia | Euro 2024",
+          "published_at": "2024-06-25",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "GB",
+              "GG",
+              "IM",
+              "JE"
+            ]
+          }
+        },
+        {
+          "video_id": "M5UmJD4wnSo",
+          "title": "Denmark match Serbia to move into knock-out stages | Denmark 0-0 Serbia | Euro 2024 Highlights",
+          "published_at": "2024-06-25",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "IE"
+            ]
+          }
+        },
+        {
+          "video_id": "2WNtD9OKB3c",
+          "title": "Denmark vs. Serbia Full Highlights | EURO2024",
+          "published_at": "2024-06-25",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA"
+            ]
+          }
         }
-      ]
+      ],
+      "alternatives": {
+        "checks": 1,
+        "last": "2026-11-24T18:56:06Z",
+        "sources": "76f335e365",
+        "covered": [
+          "US",
+          "GB",
+          "CA",
+          "IE"
+        ]
+      }
     },
     {
       "match_id": 428755,
@@ -307,8 +354,55 @@
               "VI"
             ]
           }
+        },
+        {
+          "video_id": "ieliCUgYb3w",
+          "title": "HIGHLIGHTS - England v Slovenia | Euro 2024",
+          "published_at": "2024-06-25",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "GB",
+              "GG",
+              "IM",
+              "JE"
+            ]
+          }
+        },
+        {
+          "video_id": "4EgV_l4Htq0",
+          "title": "England advance despite Slovenia stalemate | England 0-0 Slovenia | Euro 2024 Highlights",
+          "published_at": "2024-06-25",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "IE"
+            ]
+          }
+        },
+        {
+          "video_id": "IwwU-D50SeA",
+          "title": "England vs. Slovenia Full Highlights | EURO2024",
+          "published_at": "2024-06-25",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA"
+            ]
+          }
         }
-      ]
+      ],
+      "alternatives": {
+        "checks": 1,
+        "last": "2026-11-24T18:56:06Z",
+        "sources": "76f335e365",
+        "covered": [
+          "US",
+          "GB",
+          "CA",
+          "IE"
+        ]
+      }
     },
     {
       "match_id": 428766,
