@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-24T21:26:29.802513Z",
+  "generated_at": "2026-11-24T21:31:34.049591Z",
   "slug": "ucl",
   "standings": [
     {
@@ -22,9 +22,9 @@
           "draw": 0,
           "lost": 0,
           "points": 15,
-          "goalsFor": 15,
+          "goalsFor": 16,
           "goalsAgainst": 8,
-          "goalDifference": 7
+          "goalDifference": 8
         },
         {
           "position": 2,
@@ -105,6 +105,25 @@
         {
           "position": 6,
           "team": {
+            "id": 65,
+            "name": "Manchester City FC",
+            "shortName": "Man City",
+            "tla": "MCI",
+            "crest": "https://crests.football-data.org/65.png"
+          },
+          "playedGames": 5,
+          "form": null,
+          "won": 3,
+          "draw": 1,
+          "lost": 1,
+          "points": 10,
+          "goalsFor": 13,
+          "goalsAgainst": 8,
+          "goalDifference": 5
+        },
+        {
+          "position": 7,
+          "team": {
             "id": 4,
             "name": "Borussia Dortmund",
             "shortName": "Dortmund",
@@ -122,7 +141,7 @@
           "goalDifference": 2
         },
         {
-          "position": 7,
+          "position": 8,
           "team": {
             "id": 81,
             "name": "FC Barcelona",
@@ -141,7 +160,7 @@
           "goalDifference": 8
         },
         {
-          "position": 8,
+          "position": 9,
           "team": {
             "id": 58,
             "name": "Aston Villa FC",
@@ -160,7 +179,7 @@
           "goalDifference": 5
         },
         {
-          "position": 9,
+          "position": 10,
           "team": {
             "id": 64,
             "name": "Liverpool FC",
@@ -176,25 +195,6 @@
           "points": 9,
           "goalsFor": 14,
           "goalsAgainst": 10,
-          "goalDifference": 4
-        },
-        {
-          "position": 10,
-          "team": {
-            "id": 65,
-            "name": "Manchester City FC",
-            "shortName": "Man City",
-            "tla": "MCI",
-            "crest": "https://crests.football-data.org/65.png"
-          },
-          "playedGames": 5,
-          "form": null,
-          "won": 3,
-          "draw": 0,
-          "lost": 2,
-          "points": 9,
-          "goalsFor": 12,
-          "goalsAgainst": 8,
           "goalDifference": 4
         },
         {
@@ -390,25 +390,6 @@
         {
           "position": 21,
           "team": {
-            "id": 113,
-            "name": "SSC Napoli",
-            "shortName": "Napoli",
-            "tla": "NAP",
-            "crest": "https://crests.football-data.org/113.png"
-          },
-          "playedGames": 5,
-          "form": null,
-          "won": 2,
-          "draw": 0,
-          "lost": 3,
-          "points": 6,
-          "goalsFor": 7,
-          "goalsAgainst": 11,
-          "goalDifference": -4
-        },
-        {
-          "position": 22,
-          "team": {
             "id": 721,
             "name": "RB Leipzig",
             "shortName": "RB Leipzig",
@@ -426,7 +407,7 @@
           "goalDifference": -5
         },
         {
-          "position": 23,
+          "position": 22,
           "team": {
             "id": 613,
             "name": "Fenerbahçe SK",
@@ -445,7 +426,7 @@
           "goalDifference": -5
         },
         {
-          "position": 24,
+          "position": 23,
           "team": {
             "id": 100,
             "name": "AS Roma",
@@ -464,7 +445,7 @@
           "goalDifference": 2
         },
         {
-          "position": 25,
+          "position": 24,
           "team": {
             "id": 1887,
             "name": "FK Shakhtar Donetsk",
@@ -483,7 +464,7 @@
           "goalDifference": 0
         },
         {
-          "position": 26,
+          "position": 25,
           "team": {
             "id": 5720,
             "name": "Viking FK",
@@ -502,7 +483,7 @@
           "goalDifference": -1
         },
         {
-          "position": 27,
+          "position": 26,
           "team": {
             "id": 78,
             "name": "Club Atlético de Madrid",
@@ -521,7 +502,7 @@
           "goalDifference": -1
         },
         {
-          "position": 28,
+          "position": 27,
           "team": {
             "id": 674,
             "name": "PSV",
@@ -536,8 +517,27 @@
           "lost": 3,
           "points": 4,
           "goalsFor": 4,
-          "goalsAgainst": 6,
-          "goalDifference": -2
+          "goalsAgainst": 7,
+          "goalDifference": -3
+        },
+        {
+          "position": 28,
+          "team": {
+            "id": 113,
+            "name": "SSC Napoli",
+            "shortName": "Napoli",
+            "tla": "NAP",
+            "crest": "https://crests.football-data.org/113.png"
+          },
+          "playedGames": 5,
+          "form": null,
+          "won": 1,
+          "draw": 1,
+          "lost": 3,
+          "points": 4,
+          "goalsFor": 7,
+          "goalsAgainst": 12,
+          "goalDifference": -5
         },
         {
           "position": 29,
@@ -5084,12 +5084,12 @@
       },
       "score": {
         "fullTime": {
-          "home": 2,
+          "home": 3,
           "away": 1
         }
       },
       "status": "IN_PLAY",
-      "lastUpdated": "2026-11-24T21:24:59Z",
+      "lastUpdated": "2026-11-24T21:30:19Z",
       "video_id": null
     },
     {
@@ -5112,12 +5112,12 @@
       },
       "score": {
         "fullTime": {
-          "home": 0,
+          "home": 1,
           "away": 1
         }
       },
       "status": "IN_PLAY",
-      "lastUpdated": "2026-11-24T21:24:59Z",
+      "lastUpdated": "2026-11-24T21:30:19Z",
       "video_id": null
     },
     {
@@ -5145,7 +5145,7 @@
         }
       },
       "status": "IN_PLAY",
-      "lastUpdated": "2026-11-24T21:24:59Z",
+      "lastUpdated": "2026-11-24T21:30:19Z",
       "video_id": null
     },
     {
@@ -5173,7 +5173,7 @@
         }
       },
       "status": "IN_PLAY",
-      "lastUpdated": "2026-11-24T21:24:27Z",
+      "lastUpdated": "2026-11-24T21:29:47Z",
       "video_id": null
     },
     {
@@ -5201,7 +5201,7 @@
         }
       },
       "status": "IN_PLAY",
-      "lastUpdated": "2026-11-24T21:24:27Z",
+      "lastUpdated": "2026-11-24T21:29:47Z",
       "video_id": null
     },
     {
@@ -5229,7 +5229,7 @@
         }
       },
       "status": "IN_PLAY",
-      "lastUpdated": "2026-11-24T21:24:59Z",
+      "lastUpdated": "2026-11-24T21:30:19Z",
       "video_id": null
     },
     {
@@ -5257,7 +5257,7 @@
         }
       },
       "status": "IN_PLAY",
-      "lastUpdated": "2026-11-24T21:23:55Z",
+      "lastUpdated": "2026-11-24T21:29:47Z",
       "video_id": null
     },
     {
