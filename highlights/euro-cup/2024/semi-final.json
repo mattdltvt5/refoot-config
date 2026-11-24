@@ -2,7 +2,7 @@
   "competition": "Euro Cup",
   "gameweek": "SF",
   "stem": "semi-final",
-  "generated_at": "2026-06-22T03:17:48Z",
+  "generated_at": "2026-11-24T16:46:16Z",
   "matches": [
     {
       "match_id": 428780,
@@ -29,8 +29,43 @@
               "VI"
             ]
           }
+        },
+        {
+          "video_id": "ezeBldAyxnQ",
+          "title": "HIGHLIGHTS - Spain vs France | #EURO2024 | ITV Sport",
+          "published_at": "2024-07-09",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "GB",
+              "GG",
+              "IM",
+              "JE"
+            ]
+          }
+        },
+        {
+          "video_id": "h415-tvLoZw",
+          "title": "Spain vs. France Semi-Finals Full Highlights | EURO2024",
+          "published_at": "2024-07-09",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA"
+            ]
+          }
         }
-      ]
+      ],
+      "alternatives": {
+        "checks": 1,
+        "last": "2026-11-24T16:46:10Z",
+        "sources": "76f335e365",
+        "covered": [
+          "US",
+          "GB",
+          "CA"
+        ]
+      }
     },
     {
       "match_id": 428779,
@@ -57,8 +92,55 @@
               "VI"
             ]
           }
+        },
+        {
+          "video_id": "qOU2xzJiXNU",
+          "title": "HIGHLIGHTS - Netherlands vs England | #EURO2024 | ITV Sport",
+          "published_at": "2024-07-10",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "GB",
+              "GG",
+              "IM",
+              "JE"
+            ]
+          }
+        },
+        {
+          "video_id": "9IUdCI_yDEo",
+          "title": "Watkins' late strike fires England into final | Netherlands 1-2 England | Euro 2024 Highlights",
+          "published_at": "2024-07-12",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "IE"
+            ]
+          }
+        },
+        {
+          "video_id": "lrbcOOYUX5Y",
+          "title": "Netherlands vs. England Semi-Finals Full Highlights | EURO2024",
+          "published_at": "2024-07-10",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA"
+            ]
+          }
         }
-      ]
+      ],
+      "alternatives": {
+        "checks": 1,
+        "last": "2026-11-24T16:46:10Z",
+        "sources": "76f335e365",
+        "covered": [
+          "US",
+          "GB",
+          "CA",
+          "IE"
+        ]
+      }
     }
   ]
 }
