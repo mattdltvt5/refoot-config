@@ -2,7 +2,7 @@
   "competition": "Champions League",
   "gameweek": "MD5",
   "stem": "matchday-5",
-  "generated_at": "2026-11-24T19:46:25Z",
+  "generated_at": "2026-11-24T19:56:28Z",
   "matches": [
     {
       "match_id": 575396,
@@ -10,6 +10,51 @@
       "away_team": "LASK Linz",
       "date": "2026-11-24",
       "videos": []
+    },
+    {
+      "match_id": 575395,
+      "home_team": "Galatasaray SK",
+      "away_team": "Aston Villa FC",
+      "date": "2026-11-24",
+      "videos": [
+        {
+          "video_id": "wWSpykREYU4",
+          "title": "Galatasaray vs. Aston Villa: Extended Highlights | UCL League Phase MD 5 | CBS Sports Golazo",
+          "published_at": "2026-11-24",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "US"
+            ]
+          }
+        },
+        {
+          "video_id": "vKhqcWrnXbk",
+          "title": "Villa Stunned in Istanbul! 😱 | Galatasaray 1-0 Aston Villa | UEFA Champions League Highlights",
+          "published_at": "2026-11-24",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "GB",
+              "GG",
+              "GI",
+              "IE",
+              "IM",
+              "JE"
+            ]
+          }
+        }
+      ],
+      "alternatives": {
+        "checks": 1,
+        "last": "2026-11-24T19:56:25Z",
+        "sources": "48af5e53cc",
+        "covered": [
+          "US",
+          "GB",
+          "IE"
+        ]
+      }
     }
   ]
 }

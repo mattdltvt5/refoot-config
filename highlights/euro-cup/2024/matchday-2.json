@@ -2,7 +2,7 @@
   "competition": "Euro Cup",
   "gameweek": "MD2",
   "stem": "matchday-2",
-  "generated_at": "2026-11-24T19:51:12Z",
+  "generated_at": "2026-11-24T19:56:31Z",
   "matches": [
     {
       "match_id": 428751,
@@ -29,8 +29,55 @@
               "VI"
             ]
           }
+        },
+        {
+          "video_id": "0AwLI4-F478",
+          "title": "HIGHLIGHTS - Croatia v Albania | #|EURO2024 | ITV Sport",
+          "published_at": "2024-06-19",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "GB",
+              "GG",
+              "IM",
+              "JE"
+            ]
+          }
+        },
+        {
+          "video_id": "QUw_rSRqw7E",
+          "title": "Albania fight back to deny Croatia at the death | Croatia 2-2 Albania | Euro 2024 Highlights",
+          "published_at": "2024-06-19",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "IE"
+            ]
+          }
+        },
+        {
+          "video_id": "2lp3VoViFVo",
+          "title": "Croatia vs. Albania Full Highlights | EURO2024",
+          "published_at": "2024-06-19",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA"
+            ]
+          }
         }
-      ]
+      ],
+      "alternatives": {
+        "checks": 1,
+        "last": "2026-11-24T19:56:25Z",
+        "sources": "76f335e365",
+        "covered": [
+          "US",
+          "GB",
+          "CA",
+          "IE"
+        ]
+      }
     },
     {
       "match_id": 428744,
@@ -57,8 +104,55 @@
               "VI"
             ]
           }
+        },
+        {
+          "video_id": "VhQPmFVETp4",
+          "title": "HIGHLIGHTS - Germany v Hungary | #EURO2024 | ITV Sport",
+          "published_at": "2024-06-19",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "GB",
+              "GG",
+              "IM",
+              "JE"
+            ]
+          }
+        },
+        {
+          "video_id": "VKW-XEY7gMg",
+          "title": "Germans breeze into last 16 | Germany 2-0 Hungary | Euro 2024 Highlights",
+          "published_at": "2024-06-19",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "IE"
+            ]
+          }
+        },
+        {
+          "video_id": "tTBtLdncLk8",
+          "title": "Germany vs. Hungary Full Highlights | EURO2024",
+          "published_at": "2024-06-19",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA"
+            ]
+          }
         }
-      ]
+      ],
+      "alternatives": {
+        "checks": 1,
+        "last": "2026-11-24T19:56:25Z",
+        "sources": "76f335e365",
+        "covered": [
+          "US",
+          "GB",
+          "CA",
+          "IE"
+        ]
+      }
     },
     {
       "match_id": 428745,
