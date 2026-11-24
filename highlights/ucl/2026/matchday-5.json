@@ -2,7 +2,7 @@
   "competition": "Champions League",
   "gameweek": "MD5",
   "stem": "matchday-5",
-  "generated_at": "2026-11-24T22:11:21Z",
+  "generated_at": "2026-11-24T22:16:13Z",
   "matches": [
     {
       "match_id": 575396,
@@ -218,7 +218,33 @@
       "home_team": "Como 1907",
       "away_team": "PAE AEK",
       "date": "2026-11-24",
-      "videos": []
+      "videos": [
+        {
+          "video_id": "94iYNT_L5f4",
+          "title": "Milla With The Winner! 🙌 | Como 1-0 AEK Athens | UEFA Champions League Highlights",
+          "published_at": "2026-11-24",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "GB",
+              "GG",
+              "GI",
+              "IE",
+              "IM",
+              "JE"
+            ]
+          }
+        }
+      ],
+      "alternatives": {
+        "checks": 1,
+        "last": "2026-11-24T22:16:13Z",
+        "sources": "48af5e53cc",
+        "covered": [
+          "GB",
+          "IE"
+        ]
+      }
     },
     {
       "match_id": 575400,

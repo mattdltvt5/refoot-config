@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-24T22:11:42Z",
+  "generated_at": "2026-11-24T22:16:34Z",
   "month": "2026-11",
   "dates": {
     "2026-11-01": [
@@ -5248,7 +5248,7 @@
               "tla": "FCP",
               "crest": "https://crests.football-data.org/503.png"
             },
-            "homeScore": 1,
+            "homeScore": 0,
             "awayScore": 1,
             "status": "FINISHED",
             "utcDate": "2026-11-24T20:00:00Z"
@@ -5330,7 +5330,23 @@
             "homeScore": 1,
             "awayScore": 0,
             "status": "FINISHED",
-            "utcDate": "2026-11-24T20:00:00Z"
+            "utcDate": "2026-11-24T20:00:00Z",
+            "videoId": "94iYNT_L5f4",
+            "videoOptions": [
+              {
+                "videoId": "94iYNT_L5f4",
+                "region": {
+                  "allowed": [
+                    "GB",
+                    "GG",
+                    "GI",
+                    "IE",
+                    "IM",
+                    "JE"
+                  ]
+                }
+              }
+            ]
           }
         ]
       }

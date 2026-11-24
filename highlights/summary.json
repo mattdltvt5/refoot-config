@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-24T22:11:21Z",
+  "generated_at": "2026-11-24T22:16:13Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -4867,7 +4867,7 @@
           "gameweek": "MD5",
           "stem": "matchday-5",
           "total": 9,
-          "covered": 5,
+          "covered": 6,
           "matches": [
             {
               "match_id": 575396,
@@ -4925,8 +4925,7 @@
               "home": "Como 1907",
               "away": "PAE AEK",
               "date": "2026-11-24",
-              "covered": false,
-              "pending": true
+              "covered": true
             },
             {
               "match_id": 575400,
