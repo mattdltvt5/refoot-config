@@ -1,7 +1,7 @@
 {
   "competition": "LaLiga",
   "gameweek": 10,
-  "generated_at": "2026-06-14T04:04:59Z",
+  "generated_at": "2026-11-24T10:06:11Z",
   "matches": [
     {
       "match_id": 544303,
@@ -112,7 +112,15 @@
             ]
           }
         }
-      ]
+      ],
+      "alternatives": {
+        "checks": 1,
+        "last": "2026-11-24T10:06:10Z",
+        "sources": "66c00f3ad8",
+        "covered": [
+          "US"
+        ]
+      }
     },
     {
       "match_id": 544308,
@@ -162,8 +170,34 @@
               "VI"
             ]
           }
+        },
+        {
+          "video_id": "dGu3-k3D5KE",
+          "title": "Resumen del partido Atlético Palma del Río - Real Betis | HIGHLIGHTS | Copa del Rey",
+          "published_at": "2025-10-30",
+          "tier_used": 1,
+          "region": {}
+        },
+        {
+          "video_id": "1dqXnz3Fzgk",
+          "title": "Resumen del partido Real Betis - Atlético de Madrid  | HIGHLIGHTS | Real BETIS Balompié",
+          "published_at": "2025-10-28",
+          "tier_used": 1,
+          "region": {}
         }
-      ]
+      ],
+      "alternatives": {
+        "checks": 1,
+        "last": "2026-11-24T10:06:10Z",
+        "sources": "66c00f3ad8",
+        "covered": [
+          "US",
+          "GB",
+          "CA",
+          "IE",
+          "ES"
+        ]
+      }
     }
   ]
 }
