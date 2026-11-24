@@ -2,7 +2,7 @@
   "competition": "Copa America",
   "gameweek": "MD1",
   "stem": "matchday-1",
-  "generated_at": "2026-11-24T19:06:20Z",
+  "generated_at": "2026-11-24T19:16:13Z",
   "matches": [
     {
       "match_id": 1189120,
@@ -98,10 +98,30 @@
               "VI"
             ]
           }
+        },
+        {
+          "video_id": "yUnFxQXrcYc",
+          "title": "Mexico vs. Jamaica Full Highlights | Copa America 2024",
+          "published_at": "2024-06-23",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA"
+            ]
+          }
         }
       ],
       "home_crest": "https://media.api-sports.io/football/teams/16.png",
-      "away_crest": "https://media.api-sports.io/football/teams/2385.png"
+      "away_crest": "https://media.api-sports.io/football/teams/2385.png",
+      "alternatives": {
+        "checks": 1,
+        "last": "2026-11-24T19:16:09Z",
+        "sources": "a92c45b5ca",
+        "covered": [
+          "US",
+          "CA"
+        ]
+      }
     },
     {
       "match_id": 1146304,
@@ -128,10 +148,30 @@
               "VI"
             ]
           }
+        },
+        {
+          "video_id": "crRX0fAkT5I",
+          "title": "USA vs. Bolivia FULL HIGHLIGHTS | Copa America 2024",
+          "published_at": "2024-06-24",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA"
+            ]
+          }
         }
       ],
       "home_crest": "https://media.api-sports.io/football/teams/2384.png",
-      "away_crest": "https://media.api-sports.io/football/teams/2381.png"
+      "away_crest": "https://media.api-sports.io/football/teams/2381.png",
+      "alternatives": {
+        "checks": 1,
+        "last": "2026-11-24T19:16:09Z",
+        "sources": "a92c45b5ca",
+        "covered": [
+          "US",
+          "CA"
+        ]
+      }
     },
     {
       "match_id": 1146305,

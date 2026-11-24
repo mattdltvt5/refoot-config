@@ -2,7 +2,7 @@
   "competition": "Euro Cup",
   "gameweek": "MD3",
   "stem": "matchday-3",
-  "generated_at": "2026-11-24T19:11:13Z",
+  "generated_at": "2026-11-24T19:16:15Z",
   "matches": [
     {
       "match_id": 428742,
@@ -29,8 +29,55 @@
               "VI"
             ]
           }
+        },
+        {
+          "video_id": "6PDCPTjMc94",
+          "title": "HIGHLIGHTS - Scotland v Hungary | #EURO2024 | ITV Sport",
+          "published_at": "2024-06-23",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "GB",
+              "GG",
+              "IM",
+              "JE"
+            ]
+          }
+        },
+        {
+          "video_id": "JIySBKeAwDE",
+          "title": "Scotland bow out after Hungary grab late, late winner | Scotland 0-1 Hungary | Euro 2024 Highlights",
+          "published_at": "2024-06-23",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "IE"
+            ]
+          }
+        },
+        {
+          "video_id": "jyYc0jpvW-M",
+          "title": "Scotland vs. Hungary Full Highlights | EURO2024",
+          "published_at": "2024-06-23",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA"
+            ]
+          }
         }
-      ]
+      ],
+      "alternatives": {
+        "checks": 1,
+        "last": "2026-11-24T19:16:09Z",
+        "sources": "76f335e365",
+        "covered": [
+          "US",
+          "GB",
+          "CA",
+          "IE"
+        ]
+      }
     },
     {
       "match_id": 428743,
