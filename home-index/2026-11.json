@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-24T22:06:33Z",
+  "generated_at": "2026-11-24T22:11:42Z",
   "month": "2026-11",
   "dates": {
     "2026-11-01": [
@@ -5174,7 +5174,18 @@
             "homeScore": 2,
             "awayScore": 2,
             "status": "FINISHED",
-            "utcDate": "2026-11-24T20:00:00Z"
+            "utcDate": "2026-11-24T20:00:00Z",
+            "videoId": "gGs3UBkOV0Q",
+            "videoOptions": [
+              {
+                "videoId": "gGs3UBkOV0Q",
+                "region": {
+                  "allowed": [
+                    "US"
+                  ]
+                }
+              }
+            ]
           },
           {
             "match_id": 575399,
@@ -5195,7 +5206,31 @@
             "homeScore": 1,
             "awayScore": 1,
             "status": "FINISHED",
-            "utcDate": "2026-11-24T20:00:00Z"
+            "utcDate": "2026-11-24T20:00:00Z",
+            "videoId": "bMZQg5aNuPA",
+            "videoOptions": [
+              {
+                "videoId": "bMZQg5aNuPA",
+                "region": {
+                  "allowed": [
+                    "US"
+                  ]
+                }
+              },
+              {
+                "videoId": "RSWwOhhA1Hc",
+                "region": {
+                  "allowed": [
+                    "GB",
+                    "GG",
+                    "GI",
+                    "IE",
+                    "IM",
+                    "JE"
+                  ]
+                }
+              }
+            ]
           },
           {
             "match_id": 575400,
@@ -5237,7 +5272,23 @@
             "homeScore": 0,
             "awayScore": 2,
             "status": "FINISHED",
-            "utcDate": "2026-11-24T20:00:00Z"
+            "utcDate": "2026-11-24T20:00:00Z",
+            "videoId": "g417CXba3aI",
+            "videoOptions": [
+              {
+                "videoId": "g417CXba3aI",
+                "region": {
+                  "allowed": [
+                    "GB",
+                    "GG",
+                    "GI",
+                    "IE",
+                    "IM",
+                    "JE"
+                  ]
+                }
+              }
+            ]
           },
           {
             "match_id": 575402,
