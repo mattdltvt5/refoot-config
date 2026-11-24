@@ -1,7 +1,7 @@
 {
   "competition": "Ligue 1",
   "gameweek": 10,
-  "generated_at": "2026-11-24T09:41:16Z",
+  "generated_at": "2026-11-24T09:46:13Z",
   "matches": [
     {
       "match_id": 542487,
@@ -146,8 +146,27 @@
               "US"
             ]
           }
+        },
+        {
+          "video_id": "5CyB5lA-T48",
+          "title": "Le résumé de Paris FC - Olympique Lyonnais",
+          "published_at": "2025-10-30",
+          "tier_used": 1,
+          "region": {}
         }
-      ]
+      ],
+      "alternatives": {
+        "checks": 1,
+        "last": "2026-11-24T09:46:08Z",
+        "sources": "2aca95cb9a",
+        "covered": [
+          "US",
+          "GB",
+          "CA",
+          "IE",
+          "ES"
+        ]
+      }
     },
     {
       "match_id": 542492,
