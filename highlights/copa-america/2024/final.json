@@ -2,7 +2,7 @@
   "competition": "Copa America",
   "gameweek": "Final",
   "stem": "final",
-  "generated_at": "2026-06-22T01:53:14Z",
+  "generated_at": "2026-11-24T16:26:15Z",
   "matches": [
     {
       "match_id": 1234030,
@@ -29,10 +29,30 @@
               "VI"
             ]
           }
+        },
+        {
+          "video_id": "aMXJpguomkI",
+          "title": "Argentina vs. Colombia Final FULL HIGHLIGHTS | Copa America",
+          "published_at": "2024-07-15",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA"
+            ]
+          }
         }
       ],
       "home_crest": "https://media.api-sports.io/football/teams/26.png",
-      "away_crest": "https://media.api-sports.io/football/teams/8.png"
+      "away_crest": "https://media.api-sports.io/football/teams/8.png",
+      "alternatives": {
+        "checks": 1,
+        "last": "2026-11-24T16:26:09Z",
+        "sources": "a92c45b5ca",
+        "covered": [
+          "US",
+          "CA"
+        ]
+      }
     }
   ]
 }
