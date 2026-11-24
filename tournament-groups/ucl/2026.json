@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-24T01:16:30.899755Z",
+  "generated_at": "2026-11-24T17:51:48.550818Z",
   "slug": "ucl",
   "standings": [
     {
@@ -48,6 +48,25 @@
         {
           "position": 3,
           "team": {
+            "id": 58,
+            "name": "Aston Villa FC",
+            "shortName": "Aston Villa",
+            "tla": "AVL",
+            "crest": "https://crests.football-data.org/58.png"
+          },
+          "playedGames": 5,
+          "form": null,
+          "won": 3,
+          "draw": 1,
+          "lost": 1,
+          "points": 10,
+          "goalsFor": 12,
+          "goalsAgainst": 6,
+          "goalDifference": 6
+        },
+        {
+          "position": 4,
+          "team": {
             "id": 57,
             "name": "Arsenal FC",
             "shortName": "Arsenal",
@@ -65,7 +84,7 @@
           "goalDifference": 5
         },
         {
-          "position": 4,
+          "position": 5,
           "team": {
             "id": 7397,
             "name": "Como 1907",
@@ -84,7 +103,7 @@
           "goalDifference": 13
         },
         {
-          "position": 5,
+          "position": 6,
           "team": {
             "id": 81,
             "name": "FC Barcelona",
@@ -101,25 +120,6 @@
           "goalsFor": 14,
           "goalsAgainst": 6,
           "goalDifference": 8
-        },
-        {
-          "position": 6,
-          "team": {
-            "id": 58,
-            "name": "Aston Villa FC",
-            "shortName": "Aston Villa",
-            "tla": "AVL",
-            "crest": "https://crests.football-data.org/58.png"
-          },
-          "playedGames": 4,
-          "form": null,
-          "won": 3,
-          "draw": 0,
-          "lost": 1,
-          "points": 9,
-          "goalsFor": 12,
-          "goalsAgainst": 6,
-          "goalDifference": 6
         },
         {
           "position": 7,
@@ -276,6 +276,44 @@
         {
           "position": 15,
           "team": {
+            "id": 2016,
+            "name": "LASK Linz",
+            "shortName": "LASK",
+            "tla": "LIN",
+            "crest": "https://crests.football-data.org/2016.png"
+          },
+          "playedGames": 5,
+          "form": null,
+          "won": 2,
+          "draw": 1,
+          "lost": 2,
+          "points": 7,
+          "goalsFor": 10,
+          "goalsAgainst": 9,
+          "goalDifference": 1
+        },
+        {
+          "position": 16,
+          "team": {
+            "id": 610,
+            "name": "Galatasaray SK",
+            "shortName": "Galatasaray",
+            "tla": "GAL",
+            "crest": "https://crests.football-data.org/610.png"
+          },
+          "playedGames": 5,
+          "form": null,
+          "won": 2,
+          "draw": 1,
+          "lost": 2,
+          "points": 7,
+          "goalsFor": 8,
+          "goalsAgainst": 9,
+          "goalDifference": -1
+        },
+        {
+          "position": 17,
+          "team": {
             "id": 108,
             "name": "FC Internazionale Milano",
             "shortName": "Inter",
@@ -293,26 +331,7 @@
           "goalDifference": 2
         },
         {
-          "position": 16,
-          "team": {
-            "id": 2016,
-            "name": "LASK Linz",
-            "shortName": "LASK",
-            "tla": "LIN",
-            "crest": "https://crests.football-data.org/2016.png"
-          },
-          "playedGames": 4,
-          "form": null,
-          "won": 2,
-          "draw": 0,
-          "lost": 2,
-          "points": 6,
-          "goalsFor": 10,
-          "goalsAgainst": 9,
-          "goalDifference": 1
-        },
-        {
-          "position": 17,
+          "position": 18,
           "team": {
             "id": 66,
             "name": "Manchester United FC",
@@ -329,25 +348,6 @@
           "goalsFor": 8,
           "goalsAgainst": 8,
           "goalDifference": 0
-        },
-        {
-          "position": 18,
-          "team": {
-            "id": 610,
-            "name": "Galatasaray SK",
-            "shortName": "Galatasaray",
-            "tla": "GAL",
-            "crest": "https://crests.football-data.org/610.png"
-          },
-          "playedGames": 4,
-          "form": null,
-          "won": 2,
-          "draw": 0,
-          "lost": 2,
-          "points": 6,
-          "goalsFor": 8,
-          "goalsAgainst": 9,
-          "goalDifference": -1
         },
         {
           "position": 19,
@@ -371,6 +371,25 @@
         {
           "position": 20,
           "team": {
+            "id": 5721,
+            "name": "FK Bodø/Glimt",
+            "shortName": "Bodø/Glimt",
+            "tla": "FK",
+            "crest": "https://crests.football-data.org/5721.png"
+          },
+          "playedGames": 5,
+          "form": null,
+          "won": 1,
+          "draw": 2,
+          "lost": 2,
+          "points": 5,
+          "goalsFor": 4,
+          "goalsAgainst": 9,
+          "goalDifference": -5
+        },
+        {
+          "position": 21,
+          "team": {
             "id": 100,
             "name": "AS Roma",
             "shortName": "Roma",
@@ -388,7 +407,7 @@
           "goalDifference": 2
         },
         {
-          "position": 21,
+          "position": 22,
           "team": {
             "id": 1887,
             "name": "FK Shakhtar Donetsk",
@@ -407,7 +426,7 @@
           "goalDifference": 0
         },
         {
-          "position": 22,
+          "position": 23,
           "team": {
             "id": 5720,
             "name": "Viking FK",
@@ -426,7 +445,7 @@
           "goalDifference": -1
         },
         {
-          "position": 23,
+          "position": 24,
           "team": {
             "id": 78,
             "name": "Club Atlético de Madrid",
@@ -445,7 +464,7 @@
           "goalDifference": -1
         },
         {
-          "position": 24,
+          "position": 25,
           "team": {
             "id": 674,
             "name": "PSV",
@@ -462,25 +481,6 @@
           "goalsFor": 3,
           "goalsAgainst": 4,
           "goalDifference": -1
-        },
-        {
-          "position": 25,
-          "team": {
-            "id": 5721,
-            "name": "FK Bodø/Glimt",
-            "shortName": "Bodø/Glimt",
-            "tla": "FK",
-            "crest": "https://crests.football-data.org/5721.png"
-          },
-          "playedGames": 4,
-          "form": null,
-          "won": 1,
-          "draw": 1,
-          "lost": 2,
-          "points": 4,
-          "goalsFor": 4,
-          "goalsAgainst": 9,
-          "goalDifference": -5
         },
         {
           "position": 26,
@@ -4990,12 +4990,12 @@
       },
       "score": {
         "fullTime": {
-          "home": null,
-          "away": null
+          "home": 0,
+          "away": 0
         }
       },
-      "status": "TIMED",
-      "lastUpdated": "2026-11-24T00:20:26Z",
+      "status": "IN_PLAY",
+      "lastUpdated": "2026-11-24T17:51:38Z",
       "video_id": null
     },
     {
@@ -5018,12 +5018,12 @@
       },
       "score": {
         "fullTime": {
-          "home": null,
-          "away": null
+          "home": 0,
+          "away": 0
         }
       },
-      "status": "TIMED",
-      "lastUpdated": "2026-11-24T00:20:26Z",
+      "status": "IN_PLAY",
+      "lastUpdated": "2026-11-24T17:51:38Z",
       "video_id": null
     },
     {
