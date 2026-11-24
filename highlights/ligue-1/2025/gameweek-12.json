@@ -1,7 +1,7 @@
 {
   "competition": "Ligue 1",
   "gameweek": 12,
-  "generated_at": "2026-11-24T08:36:16Z",
+  "generated_at": "2026-11-24T08:46:17Z",
   "matches": [
     {
       "match_id": 542509,
@@ -21,8 +21,27 @@
               "US"
             ]
           }
+        },
+        {
+          "video_id": "phxF3V5HFbo",
+          "title": "Le résumé de Paris FC - Stade Rennais FC",
+          "published_at": "2025-11-10",
+          "tier_used": 1,
+          "region": {}
         }
-      ]
+      ],
+      "alternatives": {
+        "checks": 1,
+        "last": "2026-11-24T08:46:11Z",
+        "sources": "2aca95cb9a",
+        "covered": [
+          "US",
+          "GB",
+          "CA",
+          "IE",
+          "ES"
+        ]
+      }
     },
     {
       "match_id": 542511,
