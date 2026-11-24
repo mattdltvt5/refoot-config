@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-24T19:36:40.560169Z",
+  "generated_at": "2026-11-24T19:41:37.297356Z",
   "slug": "ucl",
   "standings": [
     {
@@ -295,11 +295,11 @@
         {
           "position": 16,
           "team": {
-            "id": 2016,
-            "name": "LASK Linz",
-            "shortName": "LASK",
-            "tla": "LIN",
-            "crest": "https://crests.football-data.org/2016.png"
+            "id": 5721,
+            "name": "FK Bodø/Glimt",
+            "shortName": "Bodø/Glimt",
+            "tla": "FK",
+            "crest": "https://crests.football-data.org/5721.png"
           },
           "playedGames": 5,
           "form": null,
@@ -307,9 +307,9 @@
           "draw": 1,
           "lost": 2,
           "points": 7,
-          "goalsFor": 10,
+          "goalsFor": 5,
           "goalsAgainst": 9,
-          "goalDifference": 1
+          "goalDifference": -4
         },
         {
           "position": 17,
@@ -333,6 +333,25 @@
         {
           "position": 18,
           "team": {
+            "id": 2016,
+            "name": "LASK Linz",
+            "shortName": "LASK",
+            "tla": "LIN",
+            "crest": "https://crests.football-data.org/2016.png"
+          },
+          "playedGames": 5,
+          "form": null,
+          "won": 2,
+          "draw": 0,
+          "lost": 3,
+          "points": 6,
+          "goalsFor": 10,
+          "goalsAgainst": 10,
+          "goalDifference": 0
+        },
+        {
+          "position": 19,
+          "team": {
             "id": 66,
             "name": "Manchester United FC",
             "shortName": "Man United",
@@ -350,7 +369,7 @@
           "goalDifference": 0
         },
         {
-          "position": 19,
+          "position": 20,
           "team": {
             "id": 613,
             "name": "Fenerbahçe SK",
@@ -366,25 +385,6 @@
           "points": 5,
           "goalsFor": 6,
           "goalsAgainst": 11,
-          "goalDifference": -5
-        },
-        {
-          "position": 20,
-          "team": {
-            "id": 5721,
-            "name": "FK Bodø/Glimt",
-            "shortName": "Bodø/Glimt",
-            "tla": "FK",
-            "crest": "https://crests.football-data.org/5721.png"
-          },
-          "playedGames": 5,
-          "form": null,
-          "won": 1,
-          "draw": 2,
-          "lost": 2,
-          "points": 5,
-          "goalsFor": 4,
-          "goalsAgainst": 9,
           "goalDifference": -5
         },
         {
@@ -4995,7 +4995,7 @@
         }
       },
       "status": "IN_PLAY",
-      "lastUpdated": "2026-11-24T19:35:06Z",
+      "lastUpdated": "2026-11-24T19:40:27Z",
       "video_id": null
     },
     {
@@ -5018,12 +5018,12 @@
       },
       "score": {
         "fullTime": {
-          "home": 0,
+          "home": 1,
           "away": 0
         }
       },
       "status": "IN_PLAY",
-      "lastUpdated": "2026-11-24T19:35:06Z",
+      "lastUpdated": "2026-11-24T19:40:27Z",
       "video_id": null
     },
     {
