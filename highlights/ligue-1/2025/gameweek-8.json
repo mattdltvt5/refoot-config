@@ -1,7 +1,7 @@
 {
   "competition": "Ligue 1",
   "gameweek": 8,
-  "generated_at": "2026-11-24T10:56:11Z",
+  "generated_at": "2026-11-24T11:01:19Z",
   "matches": [
     {
       "match_id": 542474,
@@ -231,8 +231,27 @@
               "US"
             ]
           }
+        },
+        {
+          "video_id": "7jTFWzYKvEY",
+          "title": "⚽ [J08] Le résumé de FC Nantes - LOSC (0-2)",
+          "published_at": "2025-10-19",
+          "tier_used": 1,
+          "region": {}
         }
-      ]
+      ],
+      "alternatives": {
+        "checks": 1,
+        "last": "2026-11-24T11:01:19Z",
+        "sources": "2aca95cb9a",
+        "covered": [
+          "US",
+          "GB",
+          "CA",
+          "IE",
+          "ES"
+        ]
+      }
     }
   ]
 }
