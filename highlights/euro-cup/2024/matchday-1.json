@@ -2,7 +2,7 @@
   "competition": "Euro Cup",
   "gameweek": "MD1",
   "stem": "matchday-1",
-  "generated_at": "2026-06-22T03:17:16Z",
+  "generated_at": "2026-11-24T20:01:25Z",
   "matches": [
     {
       "match_id": 428747,
@@ -309,8 +309,55 @@
               "VI"
             ]
           }
+        },
+        {
+          "video_id": "9BjQEclNC6g",
+          "title": "HIGHLIGHTS - Turkey v Georgia | #EURO2024 | ITV Sport",
+          "published_at": "2024-06-18",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "GB",
+              "GG",
+              "IM",
+              "JE"
+            ]
+          }
+        },
+        {
+          "video_id": "PPfZjBm61rA",
+          "title": "Arda Guler stars as Turkey overcome Georgia in thriller | Turkey 3-1 Georgia | Euro 2024 Highlights",
+          "published_at": "2024-06-18",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "IE"
+            ]
+          }
+        },
+        {
+          "video_id": "A66NNrfsUsw",
+          "title": "Türkiye vs. Georgia Full Highlights | EURO2024",
+          "published_at": "2024-06-18",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA"
+            ]
+          }
         }
-      ]
+      ],
+      "alternatives": {
+        "checks": 1,
+        "last": "2026-11-24T20:01:21Z",
+        "sources": "76f335e365",
+        "covered": [
+          "US",
+          "GB",
+          "CA",
+          "IE"
+        ]
+      }
     },
     {
       "match_id": 428777,

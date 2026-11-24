@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-24T19:56:31Z",
+  "generated_at": "2026-11-24T20:01:25Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -4867,15 +4867,14 @@
           "gameweek": "MD5",
           "stem": "matchday-5",
           "total": 2,
-          "covered": 1,
+          "covered": 2,
           "matches": [
             {
               "match_id": 575396,
               "home": "FK Bodø/Glimt",
               "away": "LASK Linz",
               "date": "2026-11-24",
-              "covered": false,
-              "pending": true
+              "covered": true
             },
             {
               "match_id": 575395,

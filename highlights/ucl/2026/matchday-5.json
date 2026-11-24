@@ -2,14 +2,40 @@
   "competition": "Champions League",
   "gameweek": "MD5",
   "stem": "matchday-5",
-  "generated_at": "2026-11-24T19:56:28Z",
+  "generated_at": "2026-11-24T20:01:21Z",
   "matches": [
     {
       "match_id": 575396,
       "home_team": "FK Bodø/Glimt",
       "away_team": "LASK Linz",
       "date": "2026-11-24",
-      "videos": []
+      "videos": [
+        {
+          "video_id": "HRosUsqQY4g",
+          "title": "Norwegians Snatch Last Gasp Winner 🔥 | Bodo/Glimt 1-0 LASK | UEFA Champions League Highlights",
+          "published_at": "2026-11-24",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "GB",
+              "GG",
+              "GI",
+              "IE",
+              "IM",
+              "JE"
+            ]
+          }
+        }
+      ],
+      "alternatives": {
+        "checks": 1,
+        "last": "2026-11-24T20:01:21Z",
+        "sources": "48af5e53cc",
+        "covered": [
+          "GB",
+          "IE"
+        ]
+      }
     },
     {
       "match_id": 575395,

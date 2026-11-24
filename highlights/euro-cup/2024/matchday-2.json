@@ -2,7 +2,7 @@
   "competition": "Euro Cup",
   "gameweek": "MD2",
   "stem": "matchday-2",
-  "generated_at": "2026-11-24T19:56:31Z",
+  "generated_at": "2026-11-24T20:01:24Z",
   "matches": [
     {
       "match_id": 428751,
@@ -179,8 +179,55 @@
               "VI"
             ]
           }
+        },
+        {
+          "video_id": "ewgmAjA40XQ",
+          "title": "HIGHLIGHTS - Scotland v Switzerland - Euro 2024",
+          "published_at": "2024-06-19",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "GB",
+              "GG",
+              "IM",
+              "JE"
+            ]
+          }
+        },
+        {
+          "video_id": "oxLlCwgcVIE",
+          "title": "Scots keep their hopes alive | Scotland 1-1 Switzerland | Euro 2024 Highlights",
+          "published_at": "2024-06-19",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "IE"
+            ]
+          }
+        },
+        {
+          "video_id": "1iojVKxEF5k",
+          "title": "Scotland vs. Switzerland Full Highlights | EURO2024",
+          "published_at": "2024-06-19",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA"
+            ]
+          }
         }
-      ]
+      ],
+      "alternatives": {
+        "checks": 1,
+        "last": "2026-11-24T20:01:21Z",
+        "sources": "76f335e365",
+        "covered": [
+          "US",
+          "GB",
+          "CA",
+          "IE"
+        ]
+      }
     },
     {
       "match_id": 428756,
