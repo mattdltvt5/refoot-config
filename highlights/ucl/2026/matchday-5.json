@@ -2,7 +2,7 @@
   "competition": "Champions League",
   "gameweek": "MD5",
   "stem": "matchday-5",
-  "generated_at": "2026-11-24T22:21:15Z",
+  "generated_at": "2026-11-24T22:36:09Z",
   "matches": [
     {
       "match_id": 575396,
@@ -99,7 +99,27 @@
       "home_team": "Real Madrid CF",
       "away_team": "PSV",
       "date": "2026-11-24",
-      "videos": []
+      "videos": [
+        {
+          "video_id": "shSau4ZXUtU",
+          "title": "Real Madrid vs. PSV: Extended Highlights | UCL League Phase MD 5 | CBS Sports Golazo",
+          "published_at": "2026-11-24",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "US"
+            ]
+          }
+        }
+      ],
+      "alternatives": {
+        "checks": 1,
+        "last": "2026-11-24T22:36:09Z",
+        "sources": "48af5e53cc",
+        "covered": [
+          "US"
+        ]
+      }
     },
     {
       "match_id": 575398,

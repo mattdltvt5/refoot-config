@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-24T22:31:16Z",
+  "generated_at": "2026-11-24T22:36:11Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -4867,7 +4867,7 @@
           "gameweek": "MD5",
           "stem": "matchday-5",
           "total": 9,
-          "covered": 8,
+          "covered": 9,
           "matches": [
             {
               "match_id": 575396,
@@ -4888,8 +4888,7 @@
               "home": "Real Madrid CF",
               "away": "PSV",
               "date": "2026-11-24",
-              "covered": false,
-              "pending": true
+              "covered": true
             },
             {
               "match_id": 575398,
