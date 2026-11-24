@@ -2,7 +2,7 @@
   "competition": "Champions League",
   "gameweek": "MD5",
   "stem": "matchday-5",
-  "generated_at": "2026-11-24T22:16:13Z",
+  "generated_at": "2026-11-24T22:21:15Z",
   "matches": [
     {
       "match_id": 575396,
@@ -211,7 +211,33 @@
       "home_team": "RB Leipzig",
       "away_team": "Racing Club de Lens",
       "date": "2026-11-24",
-      "videos": []
+      "videos": [
+        {
+          "video_id": "nXYH36qoPdY",
+          "title": "Nusa Fires in a Brace! 🔥 | RB Leipzig 3-1 Lens | UEFA Champions League Highlights",
+          "published_at": "2026-11-24",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "GB",
+              "GG",
+              "GI",
+              "IE",
+              "IM",
+              "JE"
+            ]
+          }
+        }
+      ],
+      "alternatives": {
+        "checks": 1,
+        "last": "2026-11-24T22:21:14Z",
+        "sources": "48af5e53cc",
+        "covered": [
+          "GB",
+          "IE"
+        ]
+      }
     },
     {
       "match_id": 575403,
@@ -251,7 +277,45 @@
       "home_team": "Feyenoord Rotterdam",
       "away_team": "FC Porto",
       "date": "2026-11-24",
-      "videos": []
+      "videos": [
+        {
+          "video_id": "HKu377htIsM",
+          "title": "Feyenoord vs. Porto: Extended Highlights | UCL League Phase MD 5 | CBS Sports Golazo",
+          "published_at": "2026-11-24",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "US"
+            ]
+          }
+        },
+        {
+          "video_id": "ahJQS56yoqU",
+          "title": "Porto Silence De Kuip 🤩 | Feyenoord 0-1 Porto | UEFA Champions League Highlights",
+          "published_at": "2026-11-24",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "GB",
+              "GG",
+              "GI",
+              "IE",
+              "IM",
+              "JE"
+            ]
+          }
+        }
+      ],
+      "alternatives": {
+        "checks": 1,
+        "last": "2026-11-24T22:21:14Z",
+        "sources": "48af5e53cc",
+        "covered": [
+          "US",
+          "GB",
+          "IE"
+        ]
+      }
     }
   ]
 }

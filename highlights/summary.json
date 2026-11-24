@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-24T22:16:13Z",
+  "generated_at": "2026-11-24T22:21:15Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -4867,7 +4867,7 @@
           "gameweek": "MD5",
           "stem": "matchday-5",
           "total": 9,
-          "covered": 6,
+          "covered": 8,
           "matches": [
             {
               "match_id": 575396,
@@ -4917,8 +4917,7 @@
               "home": "RB Leipzig",
               "away": "Racing Club de Lens",
               "date": "2026-11-24",
-              "covered": false,
-              "pending": true
+              "covered": true
             },
             {
               "match_id": 575403,
@@ -4932,8 +4931,7 @@
               "home": "Feyenoord Rotterdam",
               "away": "FC Porto",
               "date": "2026-11-24",
-              "covered": false,
-              "pending": true
+              "covered": true
             }
           ]
         }
