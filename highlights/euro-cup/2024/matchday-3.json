@@ -2,7 +2,7 @@
   "competition": "Euro Cup",
   "gameweek": "MD3",
   "stem": "matchday-3",
-  "generated_at": "2026-11-24T18:36:18Z",
+  "generated_at": "2026-11-24T18:41:15Z",
   "matches": [
     {
       "match_id": 428742,
@@ -316,8 +316,55 @@
               "VI"
             ]
           }
+        },
+        {
+          "video_id": "MbegMNePiWQ",
+          "title": "HIGHLIGHTS - Slovakia v Romania | #EURO2024 | ITV Sport",
+          "published_at": "2024-06-26",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "GB",
+              "GG",
+              "IM",
+              "JE"
+            ]
+          }
+        },
+        {
+          "video_id": "inN-rqzbG7g",
+          "title": "Romania and Slovakia draw sends both into last 16 | Romania 1-1 Slovakia | Euro 2024 Highlights",
+          "published_at": "2024-06-26",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "IE"
+            ]
+          }
+        },
+        {
+          "video_id": "TtkRoHZ1QTY",
+          "title": "Slovakia vs. Romania Full Highlights | EURO2024",
+          "published_at": "2024-06-26",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA"
+            ]
+          }
         }
-      ]
+      ],
+      "alternatives": {
+        "checks": 1,
+        "last": "2026-11-24T18:41:11Z",
+        "sources": "76f335e365",
+        "covered": [
+          "US",
+          "GB",
+          "CA",
+          "IE"
+        ]
+      }
     },
     {
       "match_id": 428772,
@@ -344,8 +391,55 @@
               "VI"
             ]
           }
+        },
+        {
+          "video_id": "oEqwOYVtHa0",
+          "title": "HIGHLIGHTS - Czechia v Turkiye | #EURO2024 | ITVSport",
+          "published_at": "2024-06-26",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "GB",
+              "GG",
+              "IM",
+              "JE"
+            ]
+          }
+        },
+        {
+          "video_id": "vUMoYnwCTVo",
+          "title": "Tosun strike seals hard-fought Turkey win | Czechia 1-2 Turkey | Euro 2024 Highlights",
+          "published_at": "2024-06-26",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "IE"
+            ]
+          }
+        },
+        {
+          "video_id": "FUcny3b-3KQ",
+          "title": "Czechia vs. Türkiye Full Highlights | EURO2024",
+          "published_at": "2024-06-26",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA"
+            ]
+          }
         }
-      ]
+      ],
+      "alternatives": {
+        "checks": 1,
+        "last": "2026-11-24T18:41:11Z",
+        "sources": "76f335e365",
+        "covered": [
+          "US",
+          "GB",
+          "CA",
+          "IE"
+        ]
+      }
     },
     {
       "match_id": 428773,
