@@ -2,7 +2,7 @@
   "competition": "Copa America",
   "gameweek": "MD3",
   "stem": "matchday-3",
-  "generated_at": "2026-11-24T17:26:18Z",
+  "generated_at": "2026-11-24T17:31:17Z",
   "matches": [
     {
       "match_id": 1146313,
@@ -199,10 +199,30 @@
               "VI"
             ]
           }
+        },
+        {
+          "video_id": "ykQSTteZYb4",
+          "title": "USA vs. Uruguay FULL HIGHLIGHTS | Copa America 2024",
+          "published_at": "2024-07-02",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA"
+            ]
+          }
         }
       ],
       "home_crest": "https://media.api-sports.io/football/teams/2384.png",
-      "away_crest": "https://media.api-sports.io/football/teams/7.png"
+      "away_crest": "https://media.api-sports.io/football/teams/7.png",
+      "alternatives": {
+        "checks": 1,
+        "last": "2026-11-24T17:31:14Z",
+        "sources": "a92c45b5ca",
+        "covered": [
+          "US",
+          "CA"
+        ]
+      }
     },
     {
       "match_id": 1146318,

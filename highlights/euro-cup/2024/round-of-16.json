@@ -2,7 +2,7 @@
   "competition": "Euro Cup",
   "gameweek": "R16",
   "stem": "round-of-16",
-  "generated_at": "2026-06-22T03:17:42Z",
+  "generated_at": "2026-11-24T17:31:26Z",
   "matches": [
     {
       "match_id": 428791,
@@ -197,8 +197,43 @@
               "VI"
             ]
           }
+        },
+        {
+          "video_id": "M9mxyuNIi18",
+          "title": "HIGHLIGHTS - Romania v Netherlands | #EURO2024 | ITV Sport",
+          "published_at": "2024-07-02",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "GB",
+              "GG",
+              "IM",
+              "JE"
+            ]
+          }
+        },
+        {
+          "video_id": "6jHFkZtLvl8",
+          "title": "Romania vs. Netherlands Round of 16 Full Highlights | EURO2024",
+          "published_at": "2024-07-02",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA"
+            ]
+          }
         }
-      ]
+      ],
+      "alternatives": {
+        "checks": 1,
+        "last": "2026-11-24T17:31:14Z",
+        "sources": "76f335e365",
+        "covered": [
+          "US",
+          "GB",
+          "CA"
+        ]
+      }
     },
     {
       "match_id": 428785,
