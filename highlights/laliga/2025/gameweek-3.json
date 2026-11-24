@@ -1,7 +1,7 @@
 {
   "competition": "LaLiga",
   "gameweek": 3,
-  "generated_at": "2026-06-14T04:05:19Z",
+  "generated_at": "2026-11-24T14:06:20Z",
   "matches": [
     {
       "match_id": 544233,
@@ -170,8 +170,27 @@
               "VI"
             ]
           }
+        },
+        {
+          "video_id": "HwEOqVG59F4",
+          "title": "Vídeo resumen del Rayo Vallecano 1 - FC Barcelona 1",
+          "published_at": "2025-08-31",
+          "tier_used": 1,
+          "region": {}
         }
-      ]
+      ],
+      "alternatives": {
+        "checks": 1,
+        "last": "2026-11-24T14:06:08Z",
+        "sources": "66c00f3ad8",
+        "covered": [
+          "US",
+          "GB",
+          "CA",
+          "IE",
+          "ES"
+        ]
+      }
     }
   ]
 }
