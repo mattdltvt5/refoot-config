@@ -1,7 +1,7 @@
 {
   "competition": "Serie A",
   "gameweek": 4,
-  "generated_at": "2026-11-24T13:01:43Z",
+  "generated_at": "2026-11-24T13:11:20Z",
   "matches": [
     {
       "match_id": 536854,
@@ -178,8 +178,27 @@
               "US"
             ]
           }
+        },
+        {
+          "video_id": "TRqU0IrUJkI",
+          "title": "Serie A Enilive | Inter-Sassuolo 2-1 | Highlights",
+          "published_at": "2025-09-22",
+          "tier_used": 1,
+          "region": {}
         }
-      ]
+      ],
+      "alternatives": {
+        "checks": 1,
+        "last": "2026-11-24T13:11:10Z",
+        "sources": "764689f215",
+        "covered": [
+          "US",
+          "GB",
+          "CA",
+          "IE",
+          "ES"
+        ]
+      }
     },
     {
       "match_id": 536851,
