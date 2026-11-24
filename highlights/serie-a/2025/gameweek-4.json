@@ -1,7 +1,7 @@
 {
   "competition": "Serie A",
   "gameweek": 4,
-  "generated_at": "2026-11-24T13:11:20Z",
+  "generated_at": "2026-11-24T13:26:25Z",
   "matches": [
     {
       "match_id": 536854,
@@ -34,8 +34,27 @@
               "US"
             ]
           }
+        },
+        {
+          "video_id": "yqxaW9OVThA",
+          "title": "Bologna-Genoa | Highlights",
+          "published_at": "2025-09-21",
+          "tier_used": 1,
+          "region": {}
         }
-      ]
+      ],
+      "alternatives": {
+        "checks": 1,
+        "last": "2026-11-24T13:26:20Z",
+        "sources": "764689f215",
+        "covered": [
+          "US",
+          "GB",
+          "CA",
+          "IE",
+          "ES"
+        ]
+      }
     },
     {
       "match_id": 536848,
