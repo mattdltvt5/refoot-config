@@ -2,7 +2,7 @@
   "competition": "Copa America",
   "gameweek": "SF",
   "stem": "semi-final",
-  "generated_at": "2026-11-24T16:36:17Z",
+  "generated_at": "2026-11-24T16:41:28Z",
   "matches": [
     {
       "match_id": 1227537,
@@ -29,10 +29,30 @@
               "VI"
             ]
           }
+        },
+        {
+          "video_id": "ITPEyExW1Sk",
+          "title": "Argentina vs. Canada Semifinal FULL HIGHLIGHTS | Copa America 2024",
+          "published_at": "2024-07-10",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA"
+            ]
+          }
         }
       ],
       "home_crest": "https://media.api-sports.io/football/teams/26.png",
-      "away_crest": "https://media.api-sports.io/football/teams/5529.png"
+      "away_crest": "https://media.api-sports.io/football/teams/5529.png",
+      "alternatives": {
+        "checks": 1,
+        "last": "2026-11-24T16:41:23Z",
+        "sources": "a92c45b5ca",
+        "covered": [
+          "US",
+          "CA"
+        ]
+      }
     },
     {
       "match_id": 1227538,
