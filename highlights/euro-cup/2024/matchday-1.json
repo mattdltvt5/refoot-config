@@ -2,7 +2,7 @@
   "competition": "Euro Cup",
   "gameweek": "MD1",
   "stem": "matchday-1",
-  "generated_at": "2026-11-24T20:11:19Z",
+  "generated_at": "2026-11-24T20:16:13Z",
   "matches": [
     {
       "match_id": 428747,
@@ -141,8 +141,55 @@
               "VI"
             ]
           }
+        },
+        {
+          "video_id": "8VnYBuAkaVc",
+          "title": "HIGHLIGHTS - Poland v Netherlands | #EURO2024",
+          "published_at": "2024-06-16",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "GB",
+              "GG",
+              "IM",
+              "JE"
+            ]
+          }
+        },
+        {
+          "video_id": "52MrfPHU9wo",
+          "title": "Weghorst rises from the bench to earn Dutch victory | Poland 1-2 Netherlands | Euro 2024 highlights",
+          "published_at": "2024-06-16",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "IE"
+            ]
+          }
+        },
+        {
+          "video_id": "1StXs09Nhhg",
+          "title": "Poland vs. Netherlands Full Highlights | EURO2024",
+          "published_at": "2024-06-16",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA"
+            ]
+          }
         }
-      ]
+      ],
+      "alternatives": {
+        "checks": 1,
+        "last": "2026-11-24T20:16:09Z",
+        "sources": "76f335e365",
+        "covered": [
+          "US",
+          "GB",
+          "CA",
+          "IE"
+        ]
+      }
     },
     {
       "match_id": 428758,
@@ -169,8 +216,55 @@
               "VI"
             ]
           }
+        },
+        {
+          "video_id": "iIkEd0pJc5Y",
+          "title": "HIGHLIGHTS  - Slovenia v Denmark | ITV Sport | #EURO2024",
+          "published_at": "2024-06-16",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "GB",
+              "GG",
+              "IM",
+              "JE"
+            ]
+          }
+        },
+        {
+          "video_id": "KCNhW-0DOY4",
+          "title": "Poignant goal for Eriksen as Denmark held | Slovenia 1-1 Denmark | Euro 2024 Highlights",
+          "published_at": "2024-06-16",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "IE"
+            ]
+          }
+        },
+        {
+          "video_id": "YSt8um0bv50",
+          "title": "Slovenia vs. Denmark Full Highlights | EURO2024",
+          "published_at": "2024-06-16",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA"
+            ]
+          }
         }
-      ]
+      ],
+      "alternatives": {
+        "checks": 1,
+        "last": "2026-11-24T20:16:09Z",
+        "sources": "76f335e365",
+        "covered": [
+          "US",
+          "GB",
+          "CA",
+          "IE"
+        ]
+      }
     },
     {
       "match_id": 428759,
