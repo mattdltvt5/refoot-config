@@ -2,7 +2,7 @@
   "competition": "Copa America",
   "gameweek": "QF",
   "stem": "quarter-final",
-  "generated_at": "2026-06-22T01:53:14Z",
+  "generated_at": "2026-11-24T16:51:18Z",
   "matches": [
     {
       "match_id": 1219957,
@@ -119,10 +119,30 @@
               "VI"
             ]
           }
+        },
+        {
+          "video_id": "s4C6YBL9mQM",
+          "title": "Uruguay vs. Brazil FULL HIGHLIGHTS | Copa America 2024",
+          "published_at": "2024-07-07",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA"
+            ]
+          }
         }
       ],
       "home_crest": "https://media.api-sports.io/football/teams/7.png",
-      "away_crest": "https://media.api-sports.io/football/teams/6.png"
+      "away_crest": "https://media.api-sports.io/football/teams/6.png",
+      "alternatives": {
+        "checks": 1,
+        "last": "2026-11-24T16:51:10Z",
+        "sources": "a92c45b5ca",
+        "covered": [
+          "US",
+          "CA"
+        ]
+      }
     }
   ]
 }
