@@ -1,7 +1,7 @@
 {
   "competition": "Ligue 1",
   "gameweek": 7,
-  "generated_at": "2026-06-11T04:05:27Z",
+  "generated_at": "2026-11-24T11:31:16Z",
   "matches": [
     {
       "match_id": 542464,
@@ -159,8 +159,27 @@
               "US"
             ]
           }
+        },
+        {
+          "video_id": "Si8sTLDRLFU",
+          "title": "Ansu Fati arrache le nul dans le derby (2-2) - Résumé ASM - OGC Nice",
+          "published_at": "2025-10-06",
+          "tier_used": 1,
+          "region": {}
         }
-      ]
+      ],
+      "alternatives": {
+        "checks": 1,
+        "last": "2026-11-24T11:31:15Z",
+        "sources": "2aca95cb9a",
+        "covered": [
+          "US",
+          "GB",
+          "CA",
+          "IE",
+          "ES"
+        ]
+      }
     },
     {
       "match_id": 542466,
@@ -181,7 +200,16 @@
             ]
           }
         }
-      ]
+      ],
+      "alternatives": {
+        "checks": 1,
+        "last": "2026-11-24T11:31:15Z",
+        "sources": "2aca95cb9a",
+        "covered": [
+          "US",
+          "CA"
+        ]
+      }
     }
   ]
 }
