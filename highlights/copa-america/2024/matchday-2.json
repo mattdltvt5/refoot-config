@@ -2,7 +2,7 @@
   "competition": "Copa America",
   "gameweek": "MD2",
   "stem": "matchday-2",
-  "generated_at": "2026-11-24T18:06:13Z",
+  "generated_at": "2026-11-24T18:11:14Z",
   "matches": [
     {
       "match_id": 1146307,
@@ -259,10 +259,30 @@
               "VI"
             ]
           }
+        },
+        {
+          "video_id": "17hzuXA9jRQ",
+          "title": "Colombia v. Costa Rica FULL HIGHLIGHTS | 2024 Copa America",
+          "published_at": "2024-06-29",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA"
+            ]
+          }
         }
       ],
       "home_crest": "https://media.api-sports.io/football/teams/8.png",
-      "away_crest": "https://media.api-sports.io/football/teams/29.png"
+      "away_crest": "https://media.api-sports.io/football/teams/29.png",
+      "alternatives": {
+        "checks": 1,
+        "last": "2026-11-24T18:11:09Z",
+        "sources": "a92c45b5ca",
+        "covered": [
+          "US",
+          "CA"
+        ]
+      }
     }
   ]
 }
