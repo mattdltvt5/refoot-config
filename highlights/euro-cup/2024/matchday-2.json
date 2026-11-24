@@ -2,7 +2,7 @@
   "competition": "Euro Cup",
   "gameweek": "MD2",
   "stem": "matchday-2",
-  "generated_at": "2026-11-24T19:41:17Z",
+  "generated_at": "2026-11-24T19:46:28Z",
   "matches": [
     {
       "match_id": 428751,
@@ -113,8 +113,55 @@
               "VI"
             ]
           }
+        },
+        {
+          "video_id": "boZ7D4P41y4",
+          "title": "HIGHLIGHTS - Slovenia v Serbia | #EURO2024 | ITV Sport",
+          "published_at": "2024-06-20",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "GB",
+              "GG",
+              "IM",
+              "JE"
+            ]
+          }
+        },
+        {
+          "video_id": "T3nkaZJ1sPc",
+          "title": "Serbia grab last-gasp equaliser to deny Slovenia | Slovenia 1-1 Serbia | Euro 2024 Highlights",
+          "published_at": "2024-06-20",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "IE"
+            ]
+          }
+        },
+        {
+          "video_id": "33KlxHObt8I",
+          "title": "Slovenia vs. Serbia Full Highlights | EURO2024",
+          "published_at": "2024-06-20",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA"
+            ]
+          }
         }
-      ]
+      ],
+      "alternatives": {
+        "checks": 1,
+        "last": "2026-11-24T19:46:25Z",
+        "sources": "76f335e365",
+        "covered": [
+          "US",
+          "GB",
+          "CA",
+          "IE"
+        ]
+      }
     },
     {
       "match_id": 428757,
@@ -347,8 +394,55 @@
               "VI"
             ]
           }
+        },
+        {
+          "video_id": "rd3TuPh3tSk",
+          "title": "HIGHLIGHTS - Netherlands vs France | Euro 2024",
+          "published_at": "2024-06-21",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "GB",
+              "GG",
+              "IM",
+              "JE"
+            ]
+          }
+        },
+        {
+          "video_id": "OSdzodqbBHY",
+          "title": "Drama but no goals in tournament's first stalemate | Netherlands 0-0 France | Euro 2024 Highlights",
+          "published_at": "2024-06-21",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "IE"
+            ]
+          }
+        },
+        {
+          "video_id": "bYPEEXv3Ki8",
+          "title": "Netherlands vs. France Full Highlights | EURO2024",
+          "published_at": "2024-06-21",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA"
+            ]
+          }
         }
-      ]
+      ],
+      "alternatives": {
+        "checks": 1,
+        "last": "2026-11-24T19:46:25Z",
+        "sources": "76f335e365",
+        "covered": [
+          "US",
+          "GB",
+          "CA",
+          "IE"
+        ]
+      }
     },
     {
       "match_id": 428775,
