@@ -2,7 +2,7 @@
   "competition": "Copa America",
   "gameweek": "MD3",
   "stem": "matchday-3",
-  "generated_at": "2026-11-24T17:41:22Z",
+  "generated_at": "2026-11-24T17:56:13Z",
   "matches": [
     {
       "match_id": 1146313,
@@ -29,10 +29,30 @@
               "VI"
             ]
           }
+        },
+        {
+          "video_id": "cIWM4ANZLww",
+          "title": "Argentina v. Peru FULL HIGHLIGHTS | 2024 Copa America",
+          "published_at": "2024-06-30",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA"
+            ]
+          }
         }
       ],
       "home_crest": "https://media.api-sports.io/football/teams/26.png",
-      "away_crest": "https://media.api-sports.io/football/teams/30.png"
+      "away_crest": "https://media.api-sports.io/football/teams/30.png",
+      "alternatives": {
+        "checks": 1,
+        "last": "2026-11-24T17:56:10Z",
+        "sources": "a92c45b5ca",
+        "covered": [
+          "US",
+          "CA"
+        ]
+      }
     },
     {
       "match_id": 1189124,
@@ -62,7 +82,15 @@
         }
       ],
       "home_crest": "https://media.api-sports.io/football/teams/5529.png",
-      "away_crest": "https://media.api-sports.io/football/teams/2383.png"
+      "away_crest": "https://media.api-sports.io/football/teams/2383.png",
+      "alternatives": {
+        "checks": 1,
+        "last": "2026-11-24T17:56:10Z",
+        "sources": "a92c45b5ca",
+        "covered": [
+          "US"
+        ]
+      }
     },
     {
       "match_id": 1146315,
