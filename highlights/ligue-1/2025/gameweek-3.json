@@ -1,7 +1,7 @@
 {
   "competition": "Ligue 1",
   "gameweek": 3,
-  "generated_at": "2026-06-14T21:13:51Z",
+  "generated_at": "2026-11-24T14:26:25Z",
   "matches": [
     {
       "match_id": 542431,
@@ -42,8 +42,27 @@
               "US"
             ]
           }
+        },
+        {
+          "video_id": "UyX_3cJBOow",
+          "title": "Le résumé de la rencontre FC Lorient - LOSC (1-7) 25-26",
+          "published_at": "2025-09-01",
+          "tier_used": 1,
+          "region": {}
         }
-      ]
+      ],
+      "alternatives": {
+        "checks": 1,
+        "last": "2026-11-24T14:26:21Z",
+        "sources": "2aca95cb9a",
+        "covered": [
+          "US",
+          "GB",
+          "CA",
+          "IE",
+          "ES"
+        ]
+      }
     },
     {
       "match_id": 542427,
