@@ -2,7 +2,7 @@
   "competition": "Euro Cup",
   "gameweek": "MD2",
   "stem": "matchday-2",
-  "generated_at": "2026-11-24T19:46:28Z",
+  "generated_at": "2026-11-24T19:51:12Z",
   "matches": [
     {
       "match_id": 428751,
@@ -188,8 +188,55 @@
               "VI"
             ]
           }
+        },
+        {
+          "video_id": "lEKyt1S1Cew",
+          "title": "HIGHLIGHTS - Denmark v England | #EURO2024 | ITV Sport",
+          "published_at": "2024-06-20",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "GB",
+              "GG",
+              "IM",
+              "JE"
+            ]
+          }
+        },
+        {
+          "video_id": "npLQZaX69Us",
+          "title": "Danes fight back in Frankfurt | Denmark 1-1 England | Euro 2024 Highlights",
+          "published_at": "2024-06-20",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "IE"
+            ]
+          }
+        },
+        {
+          "video_id": "IvzdvIjpYto",
+          "title": "Denmark vs. England Full Highlights | EURO2024",
+          "published_at": "2024-06-20",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA"
+            ]
+          }
         }
-      ]
+      ],
+      "alternatives": {
+        "checks": 1,
+        "last": "2026-11-24T19:51:09Z",
+        "sources": "76f335e365",
+        "covered": [
+          "US",
+          "GB",
+          "CA",
+          "IE"
+        ]
+      }
     },
     {
       "match_id": 428750,
@@ -216,8 +263,55 @@
               "VI"
             ]
           }
+        },
+        {
+          "video_id": "VtPTxRu5ZYM",
+          "title": "HIGHLIGHTS - Spain v Italy | Euro 2024",
+          "published_at": "2024-06-20",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "GB",
+              "GG",
+              "IM",
+              "JE"
+            ]
+          }
+        },
+        {
+          "video_id": "OiT0cvdC98Q",
+          "title": "Own-goal enough to see Spain ease past outclassed Italy | Spain 1-0 Italy | Euro 2024 Highlights",
+          "published_at": "2024-06-20",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "IE"
+            ]
+          }
+        },
+        {
+          "video_id": "u5nYscbBgdU",
+          "title": "Spain vs. Italy Full Highlights | EURO2024",
+          "published_at": "2024-06-20",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA"
+            ]
+          }
         }
-      ]
+      ],
+      "alternatives": {
+        "checks": 1,
+        "last": "2026-11-24T19:51:09Z",
+        "sources": "76f335e365",
+        "covered": [
+          "US",
+          "GB",
+          "CA",
+          "IE"
+        ]
+      }
     },
     {
       "match_id": 428769,
