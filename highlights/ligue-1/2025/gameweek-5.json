@@ -1,7 +1,7 @@
 {
   "competition": "Ligue 1",
   "gameweek": 5,
-  "generated_at": "2026-11-24T12:51:18Z",
+  "generated_at": "2026-11-24T12:56:12Z",
   "matches": [
     {
       "match_id": 542448,
@@ -133,8 +133,27 @@
               "US"
             ]
           }
+        },
+        {
+          "video_id": "MnbkFzdgfcc",
+          "title": "⚽️ Résumé : HAC - FC Lorient (1-1) I J5 - L1 McDonald's 2025-2026",
+          "published_at": "2025-09-23",
+          "tier_used": 1,
+          "region": {}
         }
-      ]
+      ],
+      "alternatives": {
+        "checks": 1,
+        "last": "2026-11-24T12:56:10Z",
+        "sources": "2aca95cb9a",
+        "covered": [
+          "US",
+          "GB",
+          "CA",
+          "IE",
+          "ES"
+        ]
+      }
     },
     {
       "match_id": 542443,
@@ -155,7 +174,16 @@
             ]
           }
         }
-      ]
+      ],
+      "alternatives": {
+        "checks": 1,
+        "last": "2026-11-24T12:56:10Z",
+        "sources": "2aca95cb9a",
+        "covered": [
+          "US",
+          "CA"
+        ]
+      }
     },
     {
       "match_id": 542444,
