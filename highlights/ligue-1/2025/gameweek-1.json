@@ -1,7 +1,7 @@
 {
   "competition": "Ligue 1",
   "gameweek": 1,
-  "generated_at": "2026-06-14T17:22:09Z",
+  "generated_at": "2026-11-24T16:01:28Z",
   "matches": [
     {
       "match_id": 542414,
@@ -132,8 +132,27 @@
               "US"
             ]
           }
+        },
+        {
+          "video_id": "rZJUCKL0JvI",
+          "title": "25/26 - J1 : Metz - Strasbourg, le résumé vidéo",
+          "published_at": "2025-08-18",
+          "tier_used": 1,
+          "region": {}
         }
-      ]
+      ],
+      "alternatives": {
+        "checks": 1,
+        "last": "2026-11-24T16:01:22Z",
+        "sources": "2aca95cb9a",
+        "covered": [
+          "US",
+          "GB",
+          "CA",
+          "IE",
+          "ES"
+        ]
+      }
     },
     {
       "match_id": 542412,
