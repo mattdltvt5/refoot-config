@@ -1,7 +1,7 @@
 {
   "competition": "Ligue 1",
   "gameweek": 5,
-  "generated_at": "2026-06-11T04:05:06Z",
+  "generated_at": "2026-11-24T12:51:18Z",
   "matches": [
     {
       "match_id": 542448,
@@ -93,8 +93,27 @@
               "US"
             ]
           }
+        },
+        {
+          "video_id": "Dz0XYoyL1eI",
+          "title": "Le résumé de Paris FC - RC Strasbourg Alsace",
+          "published_at": "2025-09-22",
+          "tier_used": 1,
+          "region": {}
         }
-      ]
+      ],
+      "alternatives": {
+        "checks": 1,
+        "last": "2026-11-24T12:51:12Z",
+        "sources": "2aca95cb9a",
+        "covered": [
+          "US",
+          "GB",
+          "CA",
+          "IE",
+          "ES"
+        ]
+      }
     },
     {
       "match_id": 542442,
