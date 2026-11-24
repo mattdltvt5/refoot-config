@@ -207,7 +207,16 @@
             ]
           }
         }
-      ]
+      ],
+      "alternatives": {
+        "checks": 1,
+        "last": "2026-11-24T14:01:18Z",
+        "sources": "2aca95cb9a",
+        "covered": [
+          "US",
+          "CA"
+        ]
+      }
     }
   ]
 }
