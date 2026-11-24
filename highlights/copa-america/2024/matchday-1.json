@@ -2,7 +2,7 @@
   "competition": "Copa America",
   "gameweek": "MD1",
   "stem": "matchday-1",
-  "generated_at": "2026-11-24T19:01:25Z",
+  "generated_at": "2026-11-24T19:06:20Z",
   "matches": [
     {
       "match_id": 1189120,
@@ -208,10 +208,30 @@
               "VI"
             ]
           }
+        },
+        {
+          "video_id": "p-qzt6LxZhU",
+          "title": "Colombia vs. Paraguay Full Highlights | Copa America",
+          "published_at": "2024-06-25",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA"
+            ]
+          }
         }
       ],
       "home_crest": "https://media.api-sports.io/football/teams/8.png",
-      "away_crest": "https://media.api-sports.io/football/teams/2380.png"
+      "away_crest": "https://media.api-sports.io/football/teams/2380.png",
+      "alternatives": {
+        "checks": 1,
+        "last": "2026-11-24T19:06:11Z",
+        "sources": "a92c45b5ca",
+        "covered": [
+          "US",
+          "CA"
+        ]
+      }
     },
     {
       "match_id": 1189121,
