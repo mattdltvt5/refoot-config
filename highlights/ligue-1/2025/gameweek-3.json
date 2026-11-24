@@ -98,7 +98,16 @@
             ]
           }
         }
-      ]
+      ],
+      "alternatives": {
+        "checks": 1,
+        "last": "2026-11-24T14:31:24Z",
+        "sources": "2aca95cb9a",
+        "covered": [
+          "US",
+          "CA"
+        ]
+      }
     },
     {
       "match_id": 542432,

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-21T01:16:30Z",
+  "generated_at": "2026-11-24T14:31:24Z",
   "month": "2027-01",
   "dates": {
     "2027-01-01": [
@@ -378,27 +378,6 @@
               "shortName": "Nice",
               "tla": "NIC",
               "crest": "https://crests.football-data.org/522.png"
-            },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "TIMED",
-            "utcDate": "2027-01-02T20:00:00Z"
-          },
-          {
-            "match_id": 559591,
-            "homeTeam": {
-              "id": 1045,
-              "name": "Paris FC",
-              "shortName": "Paris FC",
-              "tla": "PFC",
-              "crest": "https://crests.football-data.org/1045.png"
-            },
-            "awayTeam": {
-              "id": 533,
-              "name": "Le Havre AC",
-              "shortName": "Le Havre",
-              "tla": "HAC",
-              "crest": "https://crests.football-data.org/533.png"
             },
             "homeScore": null,
             "awayScore": null,
@@ -829,6 +808,27 @@
             "awayScore": null,
             "status": "TIMED",
             "utcDate": "2027-01-03T14:00:00Z"
+          },
+          {
+            "match_id": 559591,
+            "homeTeam": {
+              "id": 1045,
+              "name": "Paris FC",
+              "shortName": "Paris FC",
+              "tla": "PFC",
+              "crest": "https://crests.football-data.org/1045.png"
+            },
+            "awayTeam": {
+              "id": 533,
+              "name": "Le Havre AC",
+              "shortName": "Le Havre",
+              "tla": "HAC",
+              "crest": "https://crests.football-data.org/533.png"
+            },
+            "homeScore": null,
+            "awayScore": null,
+            "status": "TIMED",
+            "utcDate": "2027-01-03T16:15:00Z"
           },
           {
             "match_id": 559593,
