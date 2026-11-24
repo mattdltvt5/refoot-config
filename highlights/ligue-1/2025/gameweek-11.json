@@ -1,7 +1,7 @@
 {
   "competition": "Ligue 1",
   "gameweek": 11,
-  "generated_at": "2026-11-24T09:06:08Z",
+  "generated_at": "2026-11-24T09:11:22Z",
   "matches": [
     {
       "match_id": 542501,
@@ -206,8 +206,27 @@
               "US"
             ]
           }
+        },
+        {
+          "video_id": "8IUQk5FjIj8",
+          "title": "Le résumé de la rencontre RC Lens - FC Lorient (3-0) 25-26",
+          "published_at": "2025-11-03",
+          "tier_used": 1,
+          "region": {}
         }
-      ]
+      ],
+      "alternatives": {
+        "checks": 1,
+        "last": "2026-11-24T09:11:16Z",
+        "sources": "2aca95cb9a",
+        "covered": [
+          "US",
+          "GB",
+          "CA",
+          "IE",
+          "ES"
+        ]
+      }
     },
     {
       "match_id": 542503,
