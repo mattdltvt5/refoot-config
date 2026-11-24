@@ -2,7 +2,7 @@
   "competition": "Copa America",
   "gameweek": "MD3",
   "stem": "matchday-3",
-  "generated_at": "2026-11-24T17:21:29Z",
+  "generated_at": "2026-11-24T17:26:18Z",
   "matches": [
     {
       "match_id": 1146313,
@@ -149,10 +149,30 @@
               "VI"
             ]
           }
+        },
+        {
+          "video_id": "aMpH1lWBAH0",
+          "title": "Bolivia vs. Panama FULL HIGHLIGHTS | Copa America 2024",
+          "published_at": "2024-07-02",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA"
+            ]
+          }
         }
       ],
       "home_crest": "https://media.api-sports.io/football/teams/2381.png",
-      "away_crest": "https://media.api-sports.io/football/teams/11.png"
+      "away_crest": "https://media.api-sports.io/football/teams/11.png",
+      "alternatives": {
+        "checks": 1,
+        "last": "2026-11-24T17:26:11Z",
+        "sources": "a92c45b5ca",
+        "covered": [
+          "US",
+          "CA"
+        ]
+      }
     },
     {
       "match_id": 1146317,
@@ -259,10 +279,30 @@
               "VI"
             ]
           }
+        },
+        {
+          "video_id": "pj4xZioA4B0",
+          "title": "Costa Rica vs. Paraguay FULL HIGHLIGHTS | Copa America 2024",
+          "published_at": "2024-07-03",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA"
+            ]
+          }
         }
       ],
       "home_crest": "https://media.api-sports.io/football/teams/29.png",
-      "away_crest": "https://media.api-sports.io/football/teams/2380.png"
+      "away_crest": "https://media.api-sports.io/football/teams/2380.png",
+      "alternatives": {
+        "checks": 1,
+        "last": "2026-11-24T17:26:11Z",
+        "sources": "a92c45b5ca",
+        "covered": [
+          "US",
+          "CA"
+        ]
+      }
     }
   ]
 }
