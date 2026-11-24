@@ -1,7 +1,7 @@
 {
   "competition": "Ligue 1",
   "gameweek": 7,
-  "generated_at": "2026-11-24T11:31:16Z",
+  "generated_at": "2026-11-24T11:51:09Z",
   "matches": [
     {
       "match_id": 542464,
@@ -42,8 +42,27 @@
               "US"
             ]
           }
+        },
+        {
+          "video_id": "jOYEVWGs7bY",
+          "title": "Metz 0-3 OM | Le résumé de la victoire 🔥",
+          "published_at": "2025-10-05",
+          "tier_used": 1,
+          "region": {}
         }
-      ]
+      ],
+      "alternatives": {
+        "checks": 1,
+        "last": "2026-11-24T11:51:09Z",
+        "sources": "2aca95cb9a",
+        "covered": [
+          "US",
+          "GB",
+          "CA",
+          "IE",
+          "ES"
+        ]
+      }
     },
     {
       "match_id": 542468,
@@ -79,7 +98,16 @@
             ]
           }
         }
-      ]
+      ],
+      "alternatives": {
+        "checks": 1,
+        "last": "2026-11-24T11:51:09Z",
+        "sources": "2aca95cb9a",
+        "covered": [
+          "US",
+          "CA"
+        ]
+      }
     },
     {
       "match_id": 542465,
