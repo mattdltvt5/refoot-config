@@ -2,7 +2,7 @@
   "competition": "Copa America",
   "gameweek": "MD2",
   "stem": "matchday-2",
-  "generated_at": "2026-06-22T01:53:12Z",
+  "generated_at": "2026-11-24T18:06:13Z",
   "matches": [
     {
       "match_id": 1146307,
@@ -209,10 +209,30 @@
               "VI"
             ]
           }
+        },
+        {
+          "video_id": "xmgpbhQsirY",
+          "title": "Paraguay v. Brazil FULL HIGHLIGHTS | 2024 Copa America",
+          "published_at": "2024-06-29",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA"
+            ]
+          }
         }
       ],
       "home_crest": "https://media.api-sports.io/football/teams/2380.png",
-      "away_crest": "https://media.api-sports.io/football/teams/6.png"
+      "away_crest": "https://media.api-sports.io/football/teams/6.png",
+      "alternatives": {
+        "checks": 1,
+        "last": "2026-11-24T18:06:06Z",
+        "sources": "a92c45b5ca",
+        "covered": [
+          "US",
+          "CA"
+        ]
+      }
     },
     {
       "match_id": 1189123,
