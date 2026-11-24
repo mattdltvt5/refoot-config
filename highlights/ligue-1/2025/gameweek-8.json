@@ -1,7 +1,7 @@
 {
   "competition": "Ligue 1",
   "gameweek": 8,
-  "generated_at": "2026-11-24T11:01:19Z",
+  "generated_at": "2026-11-24T11:06:19Z",
   "matches": [
     {
       "match_id": 542474,
@@ -70,8 +70,27 @@
               "US"
             ]
           }
+        },
+        {
+          "video_id": "2o84tUdCh7Y",
+          "title": "Résumé Angers SCO - AS Monaco - 8ème journée",
+          "published_at": "2025-10-20",
+          "tier_used": 1,
+          "region": {}
         }
-      ]
+      ],
+      "alternatives": {
+        "checks": 1,
+        "last": "2026-11-24T11:06:11Z",
+        "sources": "2aca95cb9a",
+        "covered": [
+          "US",
+          "GB",
+          "CA",
+          "IE",
+          "ES"
+        ]
+      }
     },
     {
       "match_id": 542473,
