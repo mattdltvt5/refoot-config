@@ -2,7 +2,7 @@
   "competition": "Euro Cup",
   "gameweek": "R16",
   "stem": "round-of-16",
-  "generated_at": "2026-11-24T17:36:30Z",
+  "generated_at": "2026-11-24T17:46:17Z",
   "matches": [
     {
       "match_id": 428791,
@@ -141,8 +141,28 @@
               "VI"
             ]
           }
+        },
+        {
+          "video_id": "vHBDfV9fu3g",
+          "title": "France vs. Belgium Round of 16 Full Highlights | EURO2024",
+          "published_at": "2024-07-01",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA"
+            ]
+          }
         }
-      ]
+      ],
+      "alternatives": {
+        "checks": 1,
+        "last": "2026-11-24T17:46:11Z",
+        "sources": "76f335e365",
+        "covered": [
+          "US",
+          "CA"
+        ]
+      }
     },
     {
       "match_id": 428788,
