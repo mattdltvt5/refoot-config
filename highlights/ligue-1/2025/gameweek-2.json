@@ -1,7 +1,7 @@
 {
   "competition": "Ligue 1",
   "gameweek": 2,
-  "generated_at": "2026-11-24T15:01:26Z",
+  "generated_at": "2026-11-24T15:06:11Z",
   "matches": [
     {
       "match_id": 542422,
@@ -127,8 +127,27 @@
               "US"
             ]
           }
+        },
+        {
+          "video_id": "mgUt2wfUXLo",
+          "title": "⚽️ Résumé : HAC - RC Lens (1-2) I J2 - L1 McDonald's 2025-2026",
+          "published_at": "2025-08-25",
+          "tier_used": 1,
+          "region": {}
         }
-      ]
+      ],
+      "alternatives": {
+        "checks": 1,
+        "last": "2026-11-24T15:06:09Z",
+        "sources": "2aca95cb9a",
+        "covered": [
+          "US",
+          "GB",
+          "CA",
+          "IE",
+          "ES"
+        ]
+      }
     },
     {
       "match_id": 542417,
@@ -149,7 +168,16 @@
             ]
           }
         }
-      ]
+      ],
+      "alternatives": {
+        "checks": 1,
+        "last": "2026-11-24T15:06:09Z",
+        "sources": "2aca95cb9a",
+        "covered": [
+          "US",
+          "CA"
+        ]
+      }
     },
     {
       "match_id": 542423,
