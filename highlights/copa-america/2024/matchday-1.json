@@ -32,7 +32,15 @@
         }
       ],
       "home_crest": "https://media.api-sports.io/football/teams/26.png",
-      "away_crest": "https://media.api-sports.io/football/teams/5529.png"
+      "away_crest": "https://media.api-sports.io/football/teams/5529.png",
+      "alternatives": {
+        "checks": 1,
+        "last": "2026-11-24T19:36:16Z",
+        "sources": "a92c45b5ca",
+        "covered": [
+          "US"
+        ]
+      }
     },
     {
       "match_id": 1146301,
