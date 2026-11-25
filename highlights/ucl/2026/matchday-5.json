@@ -2,7 +2,7 @@
   "competition": "Champions League",
   "gameweek": "MD5",
   "stem": "matchday-5",
-  "generated_at": "2026-11-25T00:26:10Z",
+  "generated_at": "2026-11-25T00:41:13Z",
   "matches": [
     {
       "match_id": 575396,
@@ -110,14 +110,53 @@
               "US"
             ]
           }
+        },
+        {
+          "video_id": "pRjhCwf_LLs",
+          "title": "Real Madrid vs PSV | UEFA Champions League Highlights | Matchday 5 | 2026-2027",
+          "published_at": "2026-11-24",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "NZ"
+            ]
+          }
+        },
+        {
+          "video_id": "gujxcmzeYwo",
+          "title": "Bellingham's OUTRAGEOUS Volley!  😍 | Real Madrid 5-1 PSV | UEFA Champions League Highlights",
+          "published_at": "2026-11-24",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "GB",
+              "GG",
+              "GI",
+              "IE",
+              "IM",
+              "JE"
+            ]
+          }
+        },
+        {
+          "video_id": "f6J5uTffqso",
+          "title": "HIGHLIGHTS | Real Madrid 5-1 PSV | Champions League",
+          "published_at": "2026-11-24",
+          "tier_used": 1,
+          "region": {}
         }
       ],
       "alternatives": {
-        "checks": 1,
-        "last": "2026-11-24T22:36:09Z",
+        "checks": 2,
+        "last": "2026-11-25T00:41:11Z",
         "sources": "48af5e53cc",
         "covered": [
-          "US"
+          "US",
+          "GB",
+          "CA",
+          "IE",
+          "ES"
         ]
       }
     },
