@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-25T17:46:29.682811Z",
+  "generated_at": "2026-11-25T17:51:29.527776Z",
   "slug": "ucl",
   "standings": [
     {
@@ -105,6 +105,25 @@
         {
           "position": 6,
           "team": {
+            "id": 81,
+            "name": "FC Barcelona",
+            "shortName": "Barça",
+            "tla": "FCB",
+            "crest": "https://crests.football-data.org/81.png"
+          },
+          "playedGames": 5,
+          "form": null,
+          "won": 3,
+          "draw": 1,
+          "lost": 1,
+          "points": 10,
+          "goalsFor": 14,
+          "goalsAgainst": 6,
+          "goalDifference": 8
+        },
+        {
+          "position": 7,
+          "team": {
             "id": 65,
             "name": "Manchester City FC",
             "shortName": "Man City",
@@ -122,7 +141,7 @@
           "goalDifference": 5
         },
         {
-          "position": 7,
+          "position": 8,
           "team": {
             "id": 4,
             "name": "Borussia Dortmund",
@@ -139,25 +158,6 @@
           "goalsFor": 8,
           "goalsAgainst": 6,
           "goalDifference": 2
-        },
-        {
-          "position": 8,
-          "team": {
-            "id": 81,
-            "name": "FC Barcelona",
-            "shortName": "Barça",
-            "tla": "FCB",
-            "crest": "https://crests.football-data.org/81.png"
-          },
-          "playedGames": 4,
-          "form": null,
-          "won": 3,
-          "draw": 0,
-          "lost": 1,
-          "points": 9,
-          "goalsFor": 14,
-          "goalsAgainst": 6,
-          "goalDifference": 8
         },
         {
           "position": 9,
@@ -548,12 +548,12 @@
             "tla": "VIL",
             "crest": "https://crests.football-data.org/94.png"
           },
-          "playedGames": 4,
+          "playedGames": 5,
           "form": null,
           "won": 1,
-          "draw": 0,
+          "draw": 1,
           "lost": 3,
-          "points": 3,
+          "points": 4,
           "goalsFor": 8,
           "goalsAgainst": 14,
           "goalDifference": -6
@@ -567,12 +567,12 @@
             "tla": "SAB",
             "crest": "https://crests.football-data.org/10233.png"
           },
-          "playedGames": 4,
+          "playedGames": 5,
           "form": null,
           "won": 1,
-          "draw": 0,
+          "draw": 1,
           "lost": 3,
-          "points": 3,
+          "points": 4,
           "goalsFor": 4,
           "goalsAgainst": 10,
           "goalDifference": -6
@@ -643,12 +643,12 @@
             "tla": "SLP",
             "crest": "https://crests.football-data.org/930.png"
           },
-          "playedGames": 4,
+          "playedGames": 5,
           "form": null,
           "won": 0,
-          "draw": 1,
+          "draw": 2,
           "lost": 3,
-          "points": 1,
+          "points": 2,
           "goalsFor": 5,
           "goalsAgainst": 9,
           "goalDifference": -4
@@ -5612,12 +5612,12 @@
       },
       "score": {
         "fullTime": {
-          "home": null,
-          "away": null
+          "home": 0,
+          "away": 0
         }
       },
-      "status": "TIMED",
-      "lastUpdated": "2026-11-25T01:32:00Z",
+      "status": "IN_PLAY",
+      "lastUpdated": "2026-11-25T17:50:35Z",
       "video_id": null
     },
     {
@@ -5640,12 +5640,12 @@
       },
       "score": {
         "fullTime": {
-          "home": null,
-          "away": null
+          "home": 0,
+          "away": 0
         }
       },
-      "status": "TIMED",
-      "lastUpdated": "2026-11-25T01:32:00Z",
+      "status": "IN_PLAY",
+      "lastUpdated": "2026-11-25T17:50:35Z",
       "video_id": null
     },
     {
