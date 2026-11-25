@@ -2,7 +2,7 @@
   "competition": "Champions League",
   "gameweek": "MD5",
   "stem": "matchday-5",
-  "generated_at": "2026-11-24T22:36:09Z",
+  "generated_at": "2026-11-25T00:11:26Z",
   "matches": [
     {
       "match_id": 575396,
@@ -137,14 +137,45 @@
               "US"
             ]
           }
+        },
+        {
+          "video_id": "2cevkeqlqac",
+          "title": "Manchester City vs Napoli | UEFA Champions League Highlights | Matchday 5 | 2026-2027",
+          "published_at": "2026-11-24",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "NZ"
+            ]
+          }
+        },
+        {
+          "video_id": "QbGqhnDG-cY",
+          "title": "City Stumble At Home 😬 | Man City 2-2 Napoli | UEFA Champions League Highlights",
+          "published_at": "2026-11-24",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "GB",
+              "GG",
+              "GI",
+              "IE",
+              "IM",
+              "JE"
+            ]
+          }
         }
       ],
       "alternatives": {
-        "checks": 1,
-        "last": "2026-11-24T22:11:19Z",
+        "checks": 2,
+        "last": "2026-11-25T00:11:22Z",
         "sources": "48af5e53cc",
         "covered": [
-          "US"
+          "US",
+          "GB",
+          "CA",
+          "IE"
         ]
       }
     },
@@ -180,16 +211,58 @@
               "JE"
             ]
           }
+        },
+        {
+          "video_id": "rvObzYt2dVA",
+          "title": "Arsenal vs Borussia Dortmund | UEFA Champions League Highlights | Matchday 5 | 2026-2027",
+          "published_at": "2026-11-24",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "NZ"
+            ]
+          }
+        },
+        {
+          "video_id": "1lG2hNS1msY",
+          "title": "VIKTOR GYOKERES SCORES A STUNNER | HIGHLIGHTS | Arsenal vs Borussia Dortmund (1-1) | UCL",
+          "published_at": "2026-11-24",
+          "tier_used": 1,
+          "region": {
+            "allowed": [
+              "BE",
+              "DE",
+              "DZ",
+              "EG",
+              "ES",
+              "ET",
+              "FR",
+              "GB",
+              "GH",
+              "IE",
+              "IN",
+              "IT",
+              "KE",
+              "NG",
+              "NO",
+              "PT",
+              "TZ",
+              "ZA"
+            ]
+          }
         }
       ],
       "alternatives": {
-        "checks": 1,
-        "last": "2026-11-24T22:11:19Z",
+        "checks": 2,
+        "last": "2026-11-25T00:11:22Z",
         "sources": "48af5e53cc",
         "covered": [
           "US",
           "GB",
-          "IE"
+          "CA",
+          "IE",
+          "ES"
         ]
       }
     },
@@ -214,14 +287,39 @@
               "JE"
             ]
           }
+        },
+        {
+          "video_id": "0u1o0P6mFE0",
+          "title": "Slovan Bratislava vs. Real Betis: Extended Highlights | UCL League Phase MD 5 | CBS Sports Golazo",
+          "published_at": "2026-11-24",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "US"
+            ]
+          }
+        },
+        {
+          "video_id": "BrQGdRdZrC4",
+          "title": "Slovan Bratislava vs Real Betis | UEFA Champions League Highlights | Matchday 5 | 2026-2027",
+          "published_at": "2026-11-24",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "NZ"
+            ]
+          }
         }
       ],
       "alternatives": {
-        "checks": 1,
-        "last": "2026-11-24T22:11:19Z",
+        "checks": 2,
+        "last": "2026-11-25T00:11:22Z",
         "sources": "48af5e53cc",
         "covered": [
+          "US",
           "GB",
+          "CA",
           "IE"
         ]
       }
