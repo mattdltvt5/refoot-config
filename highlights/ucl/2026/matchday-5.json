@@ -2,7 +2,7 @@
   "competition": "Champions League",
   "gameweek": "MD5",
   "stem": "matchday-5",
-  "generated_at": "2026-11-25T19:46:13Z",
+  "generated_at": "2026-11-25T19:51:12Z",
   "matches": [
     {
       "match_id": 575396,
@@ -625,7 +625,45 @@
       "home_team": "Sabah FK",
       "away_team": "FC Barcelona",
       "date": "2026-11-25",
-      "videos": []
+      "videos": [
+        {
+          "video_id": "lvclSsS88PE",
+          "title": "Sabah vs. Barcelona: Extended Highlights | UCL League Phase MD 5 | CBS Sports Golazo",
+          "published_at": "2026-11-25",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "US"
+            ]
+          }
+        },
+        {
+          "video_id": "K6cET8W_RKA",
+          "title": "Double Delight For Gordon 😮‍💨 | Sabah 1-4 Barcelona | UEFA Champions League Highlights",
+          "published_at": "2026-11-25",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "GB",
+              "GG",
+              "GI",
+              "IE",
+              "IM",
+              "JE"
+            ]
+          }
+        }
+      ],
+      "alternatives": {
+        "checks": 1,
+        "last": "2026-11-25T19:51:11Z",
+        "sources": "48af5e53cc",
+        "covered": [
+          "US",
+          "GB",
+          "IE"
+        ]
+      }
     },
     {
       "match_id": 575405,

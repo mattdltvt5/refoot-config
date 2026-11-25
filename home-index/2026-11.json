@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-25T19:46:34Z",
+  "generated_at": "2026-11-25T19:51:33Z",
   "month": "2026-11",
   "dates": {
     "2026-11-01": [
@@ -5639,7 +5639,31 @@
             "homeScore": 1,
             "awayScore": 4,
             "status": "FINISHED",
-            "utcDate": "2026-11-25T17:45:00Z"
+            "utcDate": "2026-11-25T17:45:00Z",
+            "videoId": "lvclSsS88PE",
+            "videoOptions": [
+              {
+                "videoId": "lvclSsS88PE",
+                "region": {
+                  "allowed": [
+                    "US"
+                  ]
+                }
+              },
+              {
+                "videoId": "K6cET8W_RKA",
+                "region": {
+                  "allowed": [
+                    "GB",
+                    "GG",
+                    "GI",
+                    "IE",
+                    "IM",
+                    "JE"
+                  ]
+                }
+              }
+            ]
           },
           {
             "match_id": 575405,
