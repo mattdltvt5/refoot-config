@@ -2,7 +2,7 @@
   "competition": "Champions League",
   "gameweek": "MD5",
   "stem": "matchday-5",
-  "generated_at": "2026-11-25T00:41:13Z",
+  "generated_at": "2026-11-25T02:06:11Z",
   "matches": [
     {
       "match_id": 575396,
@@ -36,15 +36,28 @@
               "US"
             ]
           }
+        },
+        {
+          "video_id": "WfsEmAqRqUY",
+          "title": "Bodø/Glimt vs LASK | UEFA Champions League Highlights | Matchday 5 | 2026-2027",
+          "published_at": "2026-11-24",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "NZ"
+            ]
+          }
         }
       ],
       "alternatives": {
-        "checks": 2,
-        "last": "2026-11-24T22:01:30Z",
+        "checks": 3,
+        "last": "2026-11-25T02:06:08Z",
         "sources": "48af5e53cc",
         "covered": [
           "US",
           "GB",
+          "CA",
           "IE"
         ]
       }
@@ -81,15 +94,28 @@
               "JE"
             ]
           }
+        },
+        {
+          "video_id": "XBwEkrobPFc",
+          "title": "Galatasaray vs Aston Villa | UEFA Champions League Highlights | Matchday 5 | 2026-2027",
+          "published_at": "2026-11-24",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "NZ"
+            ]
+          }
         }
       ],
       "alternatives": {
-        "checks": 2,
-        "last": "2026-11-24T22:01:30Z",
+        "checks": 3,
+        "last": "2026-11-25T02:06:08Z",
         "sources": "48af5e53cc",
         "covered": [
           "US",
           "GB",
+          "CA",
           "IE"
         ]
       }
