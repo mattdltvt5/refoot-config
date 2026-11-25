@@ -2,7 +2,7 @@
   "competition": "Champions League",
   "gameweek": "MD5",
   "stem": "matchday-5",
-  "generated_at": "2026-11-25T22:11:15Z",
+  "generated_at": "2026-11-25T22:16:12Z",
   "matches": [
     {
       "match_id": 575396,
@@ -755,14 +755,66 @@
       "home_team": "Lille OSC",
       "away_team": "FC Bayern München",
       "date": "2026-11-25",
-      "videos": []
+      "videos": [
+        {
+          "video_id": "43HOYotZaFA",
+          "title": "Lille Pull Off a Huge Upset! 😲 | Lille 2-1 Bayern Munich | UEFA Champions League Highlights",
+          "published_at": "2026-11-25",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "GB",
+              "GG",
+              "GI",
+              "IE",
+              "IM",
+              "JE"
+            ]
+          }
+        }
+      ],
+      "alternatives": {
+        "checks": 1,
+        "last": "2026-11-25T22:16:12Z",
+        "sources": "48af5e53cc",
+        "covered": [
+          "GB",
+          "IE"
+        ]
+      }
     },
     {
       "match_id": 575412,
       "home_team": "FK Shakhtar Donetsk",
       "away_team": "Fenerbahçe SK",
       "date": "2026-11-25",
-      "videos": []
+      "videos": [
+        {
+          "video_id": "VsUknsThnw4",
+          "title": "Shakhtar stunned at home! 😯 | Shakhtar Donetsk 0-1 Fenerbahce | UEFA Champions League Highlights",
+          "published_at": "2026-11-25",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "GB",
+              "GG",
+              "GI",
+              "IE",
+              "IM",
+              "JE"
+            ]
+          }
+        }
+      ],
+      "alternatives": {
+        "checks": 1,
+        "last": "2026-11-25T22:16:12Z",
+        "sources": "48af5e53cc",
+        "covered": [
+          "GB",
+          "IE"
+        ]
+      }
     },
     {
       "match_id": 575408,
@@ -784,7 +836,27 @@
       "home_team": "Club Brugge KV",
       "away_team": "Liverpool FC",
       "date": "2026-11-25",
-      "videos": []
+      "videos": [
+        {
+          "video_id": "dPKUyRLmsE8",
+          "title": "Club Brugge vs. Liverpool: Extended Highlights | UCL League Phase MD 5 | CBS Sports Golazo",
+          "published_at": "2026-11-25",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "US"
+            ]
+          }
+        }
+      ],
+      "alternatives": {
+        "checks": 1,
+        "last": "2026-11-25T22:16:12Z",
+        "sources": "48af5e53cc",
+        "covered": [
+          "US"
+        ]
+      }
     },
     {
       "match_id": 575411,
