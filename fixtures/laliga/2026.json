@@ -1,7 +1,7 @@
 {
   "competition": "LaLiga",
   "season": 2026,
-  "generated_at": "2026-11-25T09:06:06Z",
+  "generated_at": "2026-11-25T09:21:12Z",
   "fixtures": [
     {
       "match_id": 564634,
@@ -2315,13 +2315,13 @@
       },
       "score": {
         "fullTime": {
-          "home": 0,
-          "away": 0
+          "home": null,
+          "away": null
         }
       },
-      "status": "CANCELLED",
+      "status": "SCHEDULED",
       "utcDate": "2026-12-09T19:00:00Z",
-      "lastUpdated": "2026-11-25T00:20:29Z"
+      "lastUpdated": "2026-11-25T08:52:21Z"
     },
     {
       "match_id": 564716,
@@ -4088,9 +4088,9 @@
           "away": null
         }
       },
-      "status": "TIMED",
+      "status": "SCHEDULED",
       "utcDate": "2026-12-04T20:00:00Z",
-      "lastUpdated": "2026-11-25T00:20:29Z"
+      "lastUpdated": "2026-11-25T08:52:21Z"
     },
     {
       "match_id": 564772,
@@ -4117,9 +4117,9 @@
           "away": null
         }
       },
-      "status": "TIMED",
+      "status": "SCHEDULED",
       "utcDate": "2026-12-05T13:00:00Z",
-      "lastUpdated": "2026-11-25T00:20:29Z"
+      "lastUpdated": "2026-11-25T08:52:21Z"
     },
     {
       "match_id": 564777,
@@ -4146,9 +4146,9 @@
           "away": null
         }
       },
-      "status": "TIMED",
+      "status": "SCHEDULED",
       "utcDate": "2026-12-05T15:15:00Z",
-      "lastUpdated": "2026-11-25T00:20:29Z"
+      "lastUpdated": "2026-11-25T08:52:21Z"
     },
     {
       "match_id": 564776,
@@ -4175,9 +4175,9 @@
           "away": null
         }
       },
-      "status": "TIMED",
+      "status": "SCHEDULED",
       "utcDate": "2026-12-05T17:30:00Z",
-      "lastUpdated": "2026-11-25T00:20:29Z"
+      "lastUpdated": "2026-11-25T08:52:21Z"
     },
     {
       "match_id": 564773,
@@ -4204,9 +4204,9 @@
           "away": null
         }
       },
-      "status": "TIMED",
+      "status": "SCHEDULED",
       "utcDate": "2026-12-05T20:00:00Z",
-      "lastUpdated": "2026-11-25T00:20:29Z"
+      "lastUpdated": "2026-11-25T08:52:21Z"
     },
     {
       "match_id": 564768,
@@ -4233,9 +4233,9 @@
           "away": null
         }
       },
-      "status": "TIMED",
+      "status": "SCHEDULED",
       "utcDate": "2026-12-06T13:00:00Z",
-      "lastUpdated": "2026-11-25T00:20:29Z"
+      "lastUpdated": "2026-11-25T08:52:21Z"
     },
     {
       "match_id": 564775,
@@ -4262,9 +4262,9 @@
           "away": null
         }
       },
-      "status": "TIMED",
+      "status": "SCHEDULED",
       "utcDate": "2026-12-06T15:15:00Z",
-      "lastUpdated": "2026-11-25T00:20:29Z"
+      "lastUpdated": "2026-11-25T08:52:21Z"
     },
     {
       "match_id": 564774,
@@ -4291,9 +4291,9 @@
           "away": null
         }
       },
-      "status": "TIMED",
+      "status": "SCHEDULED",
       "utcDate": "2026-12-06T17:30:00Z",
-      "lastUpdated": "2026-11-25T00:20:29Z"
+      "lastUpdated": "2026-11-25T08:52:21Z"
     },
     {
       "match_id": 564771,
@@ -4320,9 +4320,9 @@
           "away": null
         }
       },
-      "status": "TIMED",
+      "status": "SCHEDULED",
       "utcDate": "2026-12-06T20:00:00Z",
-      "lastUpdated": "2026-11-25T00:20:29Z"
+      "lastUpdated": "2026-11-25T08:52:21Z"
     },
     {
       "match_id": 564769,
@@ -4349,9 +4349,9 @@
           "away": null
         }
       },
-      "status": "TIMED",
+      "status": "SCHEDULED",
       "utcDate": "2026-12-07T20:00:00Z",
-      "lastUpdated": "2026-11-25T00:20:29Z"
+      "lastUpdated": "2026-11-25T08:52:21Z"
     },
     {
       "match_id": 564783,
@@ -4378,9 +4378,9 @@
           "away": null
         }
       },
-      "status": "TIMED",
+      "status": "SCHEDULED",
       "utcDate": "2026-12-11T20:00:00Z",
-      "lastUpdated": "2026-11-25T00:20:29Z"
+      "lastUpdated": "2026-11-25T08:52:21Z"
     },
     {
       "match_id": 564782,
@@ -4407,9 +4407,9 @@
           "away": null
         }
       },
-      "status": "TIMED",
+      "status": "SCHEDULED",
       "utcDate": "2026-12-12T13:00:00Z",
-      "lastUpdated": "2026-11-25T00:20:29Z"
+      "lastUpdated": "2026-11-25T08:52:21Z"
     },
     {
       "match_id": 564784,
@@ -4436,9 +4436,9 @@
           "away": null
         }
       },
-      "status": "TIMED",
+      "status": "SCHEDULED",
       "utcDate": "2026-12-12T15:15:00Z",
-      "lastUpdated": "2026-11-25T00:20:29Z"
+      "lastUpdated": "2026-11-25T08:52:21Z"
     },
     {
       "match_id": 564779,
@@ -4465,9 +4465,9 @@
           "away": null
         }
       },
-      "status": "TIMED",
+      "status": "SCHEDULED",
       "utcDate": "2026-12-12T17:30:00Z",
-      "lastUpdated": "2026-11-25T00:20:29Z"
+      "lastUpdated": "2026-11-25T08:52:22Z"
     },
     {
       "match_id": 564785,
@@ -4494,9 +4494,9 @@
           "away": null
         }
       },
-      "status": "TIMED",
+      "status": "SCHEDULED",
       "utcDate": "2026-12-12T20:00:00Z",
-      "lastUpdated": "2026-11-25T00:20:29Z"
+      "lastUpdated": "2026-11-25T08:52:22Z"
     },
     {
       "match_id": 564787,
@@ -4523,9 +4523,9 @@
           "away": null
         }
       },
-      "status": "TIMED",
+      "status": "SCHEDULED",
       "utcDate": "2026-12-13T13:00:00Z",
-      "lastUpdated": "2026-11-25T00:20:29Z"
+      "lastUpdated": "2026-11-25T08:52:22Z"
     },
     {
       "match_id": 564781,
@@ -4552,9 +4552,9 @@
           "away": null
         }
       },
-      "status": "TIMED",
+      "status": "SCHEDULED",
       "utcDate": "2026-12-13T15:15:00Z",
-      "lastUpdated": "2026-11-25T00:20:29Z"
+      "lastUpdated": "2026-11-25T08:52:22Z"
     },
     {
       "match_id": 564786,
@@ -4581,9 +4581,9 @@
           "away": null
         }
       },
-      "status": "TIMED",
+      "status": "SCHEDULED",
       "utcDate": "2026-12-13T17:30:00Z",
-      "lastUpdated": "2026-11-25T00:20:29Z"
+      "lastUpdated": "2026-11-25T08:52:22Z"
     },
     {
       "match_id": 564780,
@@ -4610,9 +4610,9 @@
           "away": null
         }
       },
-      "status": "TIMED",
+      "status": "SCHEDULED",
       "utcDate": "2026-12-13T20:00:00Z",
-      "lastUpdated": "2026-11-25T00:20:29Z"
+      "lastUpdated": "2026-11-25T08:52:22Z"
     },
     {
       "match_id": 564778,
@@ -4639,9 +4639,9 @@
           "away": null
         }
       },
-      "status": "TIMED",
+      "status": "SCHEDULED",
       "utcDate": "2026-12-14T20:00:00Z",
-      "lastUpdated": "2026-11-25T00:20:29Z"
+      "lastUpdated": "2026-11-25T08:52:22Z"
     },
     {
       "match_id": 564788,
