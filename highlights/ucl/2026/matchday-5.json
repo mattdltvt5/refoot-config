@@ -2,7 +2,7 @@
   "competition": "Champions League",
   "gameweek": "MD5",
   "stem": "matchday-5",
-  "generated_at": "2026-11-25T22:16:12Z",
+  "generated_at": "2026-11-25T22:26:22Z",
   "matches": [
     {
       "match_id": 575396,
@@ -748,7 +748,27 @@
       "home_team": "Club Atlético de Madrid",
       "away_team": "Viking FK",
       "date": "2026-11-25",
-      "videos": []
+      "videos": [
+        {
+          "video_id": "fKHaVNAFF3Q",
+          "title": "Atlético Madrid vs. Viking: Extended Highlights | UCL League Phase MD 5 | CBS Sports Golazo",
+          "published_at": "2026-11-25",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "US"
+            ]
+          }
+        }
+      ],
+      "alternatives": {
+        "checks": 1,
+        "last": "2026-11-25T22:26:22Z",
+        "sources": "48af5e53cc",
+        "covered": [
+          "US"
+        ]
+      }
     },
     {
       "match_id": 575410,
@@ -863,7 +883,33 @@
       "home_team": "Sporting Clube de Portugal",
       "away_team": "Manchester United FC",
       "date": "2026-11-25",
-      "videos": []
+      "videos": [
+        {
+          "video_id": "jCPoBE0ZRgM",
+          "title": "Bruno Brace Goes To Waste! 😤 | Sporting CP 2-2 Man United | UEFA Champions League Highlights",
+          "published_at": "2026-11-25",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "GB",
+              "GG",
+              "GI",
+              "IE",
+              "IM",
+              "JE"
+            ]
+          }
+        }
+      ],
+      "alternatives": {
+        "checks": 1,
+        "last": "2026-11-25T22:26:22Z",
+        "sources": "48af5e53cc",
+        "covered": [
+          "GB",
+          "IE"
+        ]
+      }
     }
   ]
 }

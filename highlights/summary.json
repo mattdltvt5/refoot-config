@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-25T22:21:12Z",
+  "generated_at": "2026-11-25T22:26:23Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -4867,7 +4867,7 @@
           "gameweek": "MD5",
           "stem": "matchday-5",
           "total": 18,
-          "covered": 16,
+          "covered": 18,
           "matches": [
             {
               "match_id": 575396,
@@ -4958,8 +4958,7 @@
               "home": "Club Atlético de Madrid",
               "away": "Viking FK",
               "date": "2026-11-25",
-              "covered": false,
-              "pending": true
+              "covered": true
             },
             {
               "match_id": 575410,
@@ -4994,8 +4993,7 @@
               "home": "Sporting Clube de Portugal",
               "away": "Manchester United FC",
               "date": "2026-11-25",
-              "covered": false,
-              "pending": true
+              "covered": true
             }
           ]
         }

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-25T22:16:34Z",
+  "generated_at": "2026-11-25T22:26:44Z",
   "month": "2026-11",
   "dates": {
     "2026-11-01": [
@@ -5766,7 +5766,18 @@
             "homeScore": 2,
             "awayScore": 0,
             "status": "FINISHED",
-            "utcDate": "2026-11-25T20:00:00Z"
+            "utcDate": "2026-11-25T20:00:00Z",
+            "videoId": "fKHaVNAFF3Q",
+            "videoOptions": [
+              {
+                "videoId": "fKHaVNAFF3Q",
+                "region": {
+                  "allowed": [
+                    "US"
+                  ]
+                }
+              }
+            ]
           },
           {
             "match_id": 575408,
@@ -5878,7 +5889,23 @@
             "homeScore": 2,
             "awayScore": 2,
             "status": "FINISHED",
-            "utcDate": "2026-11-25T20:00:00Z"
+            "utcDate": "2026-11-25T20:00:00Z",
+            "videoId": "jCPoBE0ZRgM",
+            "videoOptions": [
+              {
+                "videoId": "jCPoBE0ZRgM",
+                "region": {
+                  "allowed": [
+                    "GB",
+                    "GG",
+                    "GI",
+                    "IE",
+                    "IM",
+                    "JE"
+                  ]
+                }
+              }
+            ]
           },
           {
             "match_id": 575412,
