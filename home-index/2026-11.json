@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-25T22:06:43Z",
+  "generated_at": "2026-11-25T22:11:38Z",
   "month": "2026-11",
   "dates": {
     "2026-11-01": [
@@ -5729,7 +5729,23 @@
             "homeScore": 2,
             "awayScore": 0,
             "status": "FINISHED",
-            "utcDate": "2026-11-25T20:00:00Z"
+            "utcDate": "2026-11-25T20:00:00Z",
+            "videoId": "6ii61Zqeb1k",
+            "videoOptions": [
+              {
+                "videoId": "6ii61Zqeb1k",
+                "region": {
+                  "allowed": [
+                    "GB",
+                    "GG",
+                    "GI",
+                    "IE",
+                    "IM",
+                    "JE"
+                  ]
+                }
+              }
+            ]
           },
           {
             "match_id": 575407,
@@ -5771,7 +5787,8 @@
             "homeScore": 2,
             "awayScore": 2,
             "status": "FINISHED",
-            "utcDate": "2026-11-25T20:00:00Z"
+            "utcDate": "2026-11-25T20:00:00Z",
+            "videoId": "tELx6y3nPLc"
           },
           {
             "match_id": 575409,
@@ -5832,7 +5849,7 @@
               "crest": "https://crests.football-data.org/66.png"
             },
             "homeScore": 2,
-            "awayScore": 3,
+            "awayScore": 2,
             "status": "FINISHED",
             "utcDate": "2026-11-25T20:00:00Z"
           },

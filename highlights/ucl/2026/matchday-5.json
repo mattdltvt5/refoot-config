@@ -2,7 +2,7 @@
   "competition": "Champions League",
   "gameweek": "MD5",
   "stem": "matchday-5",
-  "generated_at": "2026-11-25T22:01:19Z",
+  "generated_at": "2026-11-25T22:11:15Z",
   "matches": [
     {
       "match_id": 575396,
@@ -715,7 +715,33 @@
       "home_team": "FC Internazionale Milano",
       "away_team": "VfB Stuttgart",
       "date": "2026-11-25",
-      "videos": []
+      "videos": [
+        {
+          "video_id": "6ii61Zqeb1k",
+          "title": "Nerazzurri Cruise To Victory 🤩 | Inter 2-0 Stuttgart | UEFA Champions League Highlights",
+          "published_at": "2026-11-25",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "GB",
+              "GG",
+              "GI",
+              "IE",
+              "IM",
+              "JE"
+            ]
+          }
+        }
+      ],
+      "alternatives": {
+        "checks": 1,
+        "last": "2026-11-25T22:11:15Z",
+        "sources": "48af5e53cc",
+        "covered": [
+          "GB",
+          "IE"
+        ]
+      }
     },
     {
       "match_id": 575407,
@@ -735,6 +761,35 @@
       "match_id": 575412,
       "home_team": "FK Shakhtar Donetsk",
       "away_team": "Fenerbahçe SK",
+      "date": "2026-11-25",
+      "videos": []
+    },
+    {
+      "match_id": 575408,
+      "home_team": "Paris Saint-Germain FC",
+      "away_team": "AS Roma",
+      "date": "2026-11-25",
+      "videos": [
+        {
+          "video_id": "tELx6y3nPLc",
+          "title": "Who is the best player to have played for both PSG & Roma?! 👀 | #UCL",
+          "published_at": "2026-11-25",
+          "tier_used": 4,
+          "region": {}
+        }
+      ]
+    },
+    {
+      "match_id": 575409,
+      "home_team": "Club Brugge KV",
+      "away_team": "Liverpool FC",
+      "date": "2026-11-25",
+      "videos": []
+    },
+    {
+      "match_id": 575411,
+      "home_team": "Sporting Clube de Portugal",
+      "away_team": "Manchester United FC",
       "date": "2026-11-25",
       "videos": []
     }

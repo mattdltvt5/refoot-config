@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-25T22:06:22Z",
+  "generated_at": "2026-11-25T22:11:16Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -4866,8 +4866,8 @@
         {
           "gameweek": "MD5",
           "stem": "matchday-5",
-          "total": 15,
-          "covered": 11,
+          "total": 18,
+          "covered": 13,
           "matches": [
             {
               "match_id": 575396,
@@ -4951,8 +4951,7 @@
               "home": "FC Internazionale Milano",
               "away": "VfB Stuttgart",
               "date": "2026-11-25",
-              "covered": false,
-              "pending": true
+              "covered": true
             },
             {
               "match_id": 575407,
@@ -4974,6 +4973,29 @@
               "match_id": 575412,
               "home": "FK Shakhtar Donetsk",
               "away": "Fenerbahçe SK",
+              "date": "2026-11-25",
+              "covered": false,
+              "pending": true
+            },
+            {
+              "match_id": 575408,
+              "home": "Paris Saint-Germain FC",
+              "away": "AS Roma",
+              "date": "2026-11-25",
+              "covered": true
+            },
+            {
+              "match_id": 575409,
+              "home": "Club Brugge KV",
+              "away": "Liverpool FC",
+              "date": "2026-11-25",
+              "covered": false,
+              "pending": true
+            },
+            {
+              "match_id": 575411,
+              "home": "Sporting Clube de Portugal",
+              "away": "Manchester United FC",
               "date": "2026-11-25",
               "covered": false,
               "pending": true
