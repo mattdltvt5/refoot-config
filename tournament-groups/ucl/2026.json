@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-25T20:16:33.014889Z",
+  "generated_at": "2026-11-25T20:21:28.735352Z",
   "slug": "ucl",
   "standings": [
     {
@@ -86,6 +86,25 @@
         {
           "position": 5,
           "team": {
+            "id": 64,
+            "name": "Liverpool FC",
+            "shortName": "Liverpool",
+            "tla": "LIV",
+            "crest": "https://crests.football-data.org/64.png"
+          },
+          "playedGames": 5,
+          "form": null,
+          "won": 4,
+          "draw": 0,
+          "lost": 1,
+          "points": 12,
+          "goalsFor": 15,
+          "goalsAgainst": 10,
+          "goalDifference": 5
+        },
+        {
+          "position": 6,
+          "team": {
             "id": 90,
             "name": "Real Betis Balompié",
             "shortName": "Real Betis",
@@ -103,7 +122,26 @@
           "goalDifference": 4
         },
         {
-          "position": 6,
+          "position": 7,
+          "team": {
+            "id": 5,
+            "name": "FC Bayern München",
+            "shortName": "Bayern",
+            "tla": "FCB",
+            "crest": "https://crests.football-data.org/5.png"
+          },
+          "playedGames": 5,
+          "form": null,
+          "won": 3,
+          "draw": 2,
+          "lost": 0,
+          "points": 11,
+          "goalsFor": 13,
+          "goalsAgainst": 5,
+          "goalDifference": 8
+        },
+        {
+          "position": 8,
           "team": {
             "id": 57,
             "name": "Arsenal FC",
@@ -122,7 +160,7 @@
           "goalDifference": 5
         },
         {
-          "position": 7,
+          "position": 9,
           "team": {
             "id": 65,
             "name": "Manchester City FC",
@@ -139,44 +177,6 @@
           "goalsFor": 14,
           "goalsAgainst": 9,
           "goalDifference": 5
-        },
-        {
-          "position": 8,
-          "team": {
-            "id": 64,
-            "name": "Liverpool FC",
-            "shortName": "Liverpool",
-            "tla": "LIV",
-            "crest": "https://crests.football-data.org/64.png"
-          },
-          "playedGames": 5,
-          "form": null,
-          "won": 3,
-          "draw": 1,
-          "lost": 1,
-          "points": 10,
-          "goalsFor": 14,
-          "goalsAgainst": 10,
-          "goalDifference": 4
-        },
-        {
-          "position": 9,
-          "team": {
-            "id": 851,
-            "name": "Club Brugge KV",
-            "shortName": "Club Brugge",
-            "tla": "BRU",
-            "crest": "https://crests.football-data.org/851.png"
-          },
-          "playedGames": 5,
-          "form": null,
-          "won": 3,
-          "draw": 1,
-          "lost": 1,
-          "points": 10,
-          "goalsFor": 11,
-          "goalsAgainst": 7,
-          "goalDifference": 4
         },
         {
           "position": 10,
@@ -219,25 +219,6 @@
         {
           "position": 12,
           "team": {
-            "id": 5,
-            "name": "FC Bayern München",
-            "shortName": "Bayern",
-            "tla": "FCB",
-            "crest": "https://crests.football-data.org/5.png"
-          },
-          "playedGames": 5,
-          "form": null,
-          "won": 2,
-          "draw": 3,
-          "lost": 0,
-          "points": 9,
-          "goalsFor": 12,
-          "goalsAgainst": 5,
-          "goalDifference": 7
-        },
-        {
-          "position": 13,
-          "team": {
             "id": 58,
             "name": "Aston Villa FC",
             "shortName": "Aston Villa",
@@ -253,6 +234,25 @@
           "goalsFor": 12,
           "goalsAgainst": 7,
           "goalDifference": 5
+        },
+        {
+          "position": 13,
+          "team": {
+            "id": 851,
+            "name": "Club Brugge KV",
+            "shortName": "Club Brugge",
+            "tla": "BRU",
+            "crest": "https://crests.football-data.org/851.png"
+          },
+          "playedGames": 5,
+          "form": null,
+          "won": 3,
+          "draw": 0,
+          "lost": 2,
+          "points": 9,
+          "goalsFor": 11,
+          "goalsAgainst": 8,
+          "goalDifference": 3
         },
         {
           "position": 14,
@@ -295,6 +295,25 @@
         {
           "position": 16,
           "team": {
+            "id": 613,
+            "name": "Fenerbahçe SK",
+            "shortName": "Fenerbahçe",
+            "tla": "FEN",
+            "crest": "https://crests.football-data.org/613.png"
+          },
+          "playedGames": 5,
+          "form": null,
+          "won": 2,
+          "draw": 2,
+          "lost": 1,
+          "points": 8,
+          "goalsFor": 7,
+          "goalsAgainst": 11,
+          "goalDifference": -4
+        },
+        {
+          "position": 17,
+          "team": {
             "id": 100,
             "name": "AS Roma",
             "shortName": "Roma",
@@ -312,7 +331,7 @@
           "goalDifference": 3
         },
         {
-          "position": 17,
+          "position": 18,
           "team": {
             "id": 108,
             "name": "FC Internazionale Milano",
@@ -331,7 +350,7 @@
           "goalDifference": 2
         },
         {
-          "position": 18,
+          "position": 19,
           "team": {
             "id": 66,
             "name": "Manchester United FC",
@@ -350,7 +369,7 @@
           "goalDifference": 0
         },
         {
-          "position": 19,
+          "position": 20,
           "team": {
             "id": 5721,
             "name": "FK Bodø/Glimt",
@@ -369,7 +388,7 @@
           "goalDifference": -4
         },
         {
-          "position": 20,
+          "position": 21,
           "team": {
             "id": 2016,
             "name": "LASK Linz",
@@ -388,7 +407,7 @@
           "goalDifference": 0
         },
         {
-          "position": 21,
+          "position": 22,
           "team": {
             "id": 503,
             "name": "FC Porto",
@@ -407,7 +426,7 @@
           "goalDifference": 0
         },
         {
-          "position": 22,
+          "position": 23,
           "team": {
             "id": 721,
             "name": "RB Leipzig",
@@ -426,7 +445,7 @@
           "goalDifference": -4
         },
         {
-          "position": 23,
+          "position": 24,
           "team": {
             "id": 94,
             "name": "Villarreal CF",
@@ -445,45 +464,7 @@
           "goalDifference": -5
         },
         {
-          "position": 24,
-          "team": {
-            "id": 613,
-            "name": "Fenerbahçe SK",
-            "shortName": "Fenerbahçe",
-            "tla": "FEN",
-            "crest": "https://crests.football-data.org/613.png"
-          },
-          "playedGames": 5,
-          "form": null,
-          "won": 1,
-          "draw": 3,
-          "lost": 1,
-          "points": 6,
-          "goalsFor": 6,
-          "goalsAgainst": 11,
-          "goalDifference": -5
-        },
-        {
           "position": 25,
-          "team": {
-            "id": 1887,
-            "name": "FK Shakhtar Donetsk",
-            "shortName": "Shaktar",
-            "tla": "SHD",
-            "crest": "https://crests.football-data.org/1887.png"
-          },
-          "playedGames": 5,
-          "form": null,
-          "won": 1,
-          "draw": 2,
-          "lost": 2,
-          "points": 5,
-          "goalsFor": 4,
-          "goalsAgainst": 4,
-          "goalDifference": 0
-        },
-        {
-          "position": 26,
           "team": {
             "id": 5720,
             "name": "Viking FK",
@@ -502,7 +483,7 @@
           "goalDifference": -1
         },
         {
-          "position": 27,
+          "position": 26,
           "team": {
             "id": 78,
             "name": "Club Atlético de Madrid",
@@ -516,6 +497,25 @@
           "draw": 2,
           "lost": 2,
           "points": 5,
+          "goalsFor": 4,
+          "goalsAgainst": 5,
+          "goalDifference": -1
+        },
+        {
+          "position": 27,
+          "team": {
+            "id": 1887,
+            "name": "FK Shakhtar Donetsk",
+            "shortName": "Shaktar",
+            "tla": "SHD",
+            "crest": "https://crests.football-data.org/1887.png"
+          },
+          "playedGames": 5,
+          "form": null,
+          "won": 1,
+          "draw": 1,
+          "lost": 3,
+          "points": 4,
           "goalsFor": 4,
           "goalsAgainst": 5,
           "goalDifference": -1
@@ -637,25 +637,6 @@
         {
           "position": 34,
           "team": {
-            "id": 521,
-            "name": "Lille OSC",
-            "shortName": "Lille",
-            "tla": "LIL",
-            "crest": "https://crests.football-data.org/521.png"
-          },
-          "playedGames": 5,
-          "form": null,
-          "won": 0,
-          "draw": 2,
-          "lost": 3,
-          "points": 2,
-          "goalsFor": 4,
-          "goalsAgainst": 10,
-          "goalDifference": -6
-        },
-        {
-          "position": 35,
-          "team": {
             "id": 930,
             "name": "SK Slavia Praha",
             "shortName": "Slavia Praha",
@@ -671,6 +652,25 @@
           "goalsFor": 5,
           "goalsAgainst": 10,
           "goalDifference": -5
+        },
+        {
+          "position": 35,
+          "team": {
+            "id": 521,
+            "name": "Lille OSC",
+            "shortName": "Lille",
+            "tla": "LIL",
+            "crest": "https://crests.football-data.org/521.png"
+          },
+          "playedGames": 5,
+          "form": null,
+          "won": 0,
+          "draw": 1,
+          "lost": 4,
+          "points": 1,
+          "goalsFor": 4,
+          "goalsAgainst": 11,
+          "goalDifference": -7
         },
         {
           "position": 36,
@@ -5711,7 +5711,7 @@
         }
       },
       "status": "IN_PLAY",
-      "lastUpdated": "2026-11-25T20:10:19Z",
+      "lastUpdated": "2026-11-25T20:20:26Z",
       "video_id": null
     },
     {
@@ -5739,7 +5739,7 @@
         }
       },
       "status": "IN_PLAY",
-      "lastUpdated": "2026-11-25T20:09:47Z",
+      "lastUpdated": "2026-11-25T20:20:26Z",
       "video_id": null
     },
     {
@@ -5763,11 +5763,11 @@
       "score": {
         "fullTime": {
           "home": 0,
-          "away": 0
+          "away": 1
         }
       },
       "status": "IN_PLAY",
-      "lastUpdated": "2026-11-25T20:09:47Z",
+      "lastUpdated": "2026-11-25T20:20:26Z",
       "video_id": null
     },
     {
@@ -5791,11 +5791,11 @@
       "score": {
         "fullTime": {
           "home": 0,
-          "away": 0
+          "away": 1
         }
       },
       "status": "IN_PLAY",
-      "lastUpdated": "2026-11-25T20:09:47Z",
+      "lastUpdated": "2026-11-25T20:20:26Z",
       "video_id": null
     },
     {
@@ -5823,7 +5823,7 @@
         }
       },
       "status": "IN_PLAY",
-      "lastUpdated": "2026-11-25T20:09:47Z",
+      "lastUpdated": "2026-11-25T20:20:26Z",
       "video_id": null
     },
     {
@@ -5851,7 +5851,7 @@
         }
       },
       "status": "IN_PLAY",
-      "lastUpdated": "2026-11-25T20:09:47Z",
+      "lastUpdated": "2026-11-25T20:20:27Z",
       "video_id": null
     },
     {
@@ -5879,7 +5879,7 @@
         }
       },
       "status": "IN_PLAY",
-      "lastUpdated": "2026-11-25T20:09:15Z",
+      "lastUpdated": "2026-11-25T20:19:55Z",
       "video_id": null
     },
     {
