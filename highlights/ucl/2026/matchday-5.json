@@ -2,7 +2,7 @@
   "competition": "Champions League",
   "gameweek": "MD5",
   "stem": "matchday-5",
-  "generated_at": "2026-11-25T19:51:12Z",
+  "generated_at": "2026-11-25T19:56:13Z",
   "matches": [
     {
       "match_id": 575396,
@@ -670,7 +670,33 @@
       "home_team": "SK Slavia Praha",
       "away_team": "Villarreal CF",
       "date": "2026-11-25",
-      "videos": []
+      "videos": [
+        {
+          "video_id": "h3Wr_nRPI7s",
+          "title": "Buchanan Makes The Difference 🙌 | Slavia Prague 0-1 Villarreal | UEFA Champions League Highlights",
+          "published_at": "2026-11-25",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "GB",
+              "GG",
+              "GI",
+              "IE",
+              "IM",
+              "JE"
+            ]
+          }
+        }
+      ],
+      "alternatives": {
+        "checks": 1,
+        "last": "2026-11-25T19:56:13Z",
+        "sources": "48af5e53cc",
+        "covered": [
+          "GB",
+          "IE"
+        ]
+      }
     }
   ]
 }
