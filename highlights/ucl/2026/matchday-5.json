@@ -2,7 +2,7 @@
   "competition": "Champions League",
   "gameweek": "MD5",
   "stem": "matchday-5",
-  "generated_at": "2026-11-25T00:11:26Z",
+  "generated_at": "2026-11-25T00:21:16Z",
   "matches": [
     {
       "match_id": 575396,
@@ -378,14 +378,39 @@
               "JE"
             ]
           }
+        },
+        {
+          "video_id": "ck1QAIZPYu0",
+          "title": "Como vs. AEK Athens: Extended Highlights | UCL League Phase MD 5 | CBS Sports Golazo",
+          "published_at": "2026-11-24",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "US"
+            ]
+          }
+        },
+        {
+          "video_id": "54J5Uiu7I3w",
+          "title": "Como vs AEK Athens | UEFA Champions League Highlights | Matchday 5 | 2026-2027",
+          "published_at": "2026-11-24",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "NZ"
+            ]
+          }
         }
       ],
       "alternatives": {
-        "checks": 1,
-        "last": "2026-11-24T22:16:13Z",
+        "checks": 2,
+        "last": "2026-11-25T00:21:09Z",
         "sources": "48af5e53cc",
         "covered": [
+          "US",
           "GB",
+          "CA",
           "IE"
         ]
       }
