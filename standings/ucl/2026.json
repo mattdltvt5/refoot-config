@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-24T23:51:38.801283Z",
+  "generated_at": "2026-11-25T19:46:34.807140Z",
   "competition": "Champions League",
   "slug": "ucl",
   "season": 2026,
@@ -64,6 +64,25 @@
     {
       "position": 4,
       "team": {
+        "id": 81,
+        "name": "FC Barcelona",
+        "shortName": "Barça",
+        "tla": "FCB",
+        "crest": "https://crests.football-data.org/81.png"
+      },
+      "playedGames": 5,
+      "form": "W,W,L,W,W",
+      "won": 4,
+      "draw": 0,
+      "lost": 1,
+      "points": 12,
+      "goalsFor": 18,
+      "goalsAgainst": 7,
+      "goalDifference": 11
+    },
+    {
+      "position": 5,
+      "team": {
         "id": 90,
         "name": "Real Betis Balompié",
         "shortName": "Real Betis",
@@ -81,7 +100,7 @@
       "goalDifference": 4
     },
     {
-      "position": 5,
+      "position": 6,
       "team": {
         "id": 57,
         "name": "Arsenal FC",
@@ -100,7 +119,7 @@
       "goalDifference": 5
     },
     {
-      "position": 6,
+      "position": 7,
       "team": {
         "id": 65,
         "name": "Manchester City FC",
@@ -119,7 +138,7 @@
       "goalDifference": 5
     },
     {
-      "position": 7,
+      "position": 8,
       "team": {
         "id": 4,
         "name": "Borussia Dortmund",
@@ -136,25 +155,6 @@
       "goalsFor": 8,
       "goalsAgainst": 6,
       "goalDifference": 2
-    },
-    {
-      "position": 8,
-      "team": {
-        "id": 81,
-        "name": "FC Barcelona",
-        "shortName": "Barça",
-        "tla": "FCB",
-        "crest": "https://crests.football-data.org/81.png"
-      },
-      "playedGames": 4,
-      "form": "W,L,W,W",
-      "won": 3,
-      "draw": 0,
-      "lost": 1,
-      "points": 9,
-      "goalsFor": 14,
-      "goalsAgainst": 6,
-      "goalDifference": 8
     },
     {
       "position": 9,
@@ -406,6 +406,25 @@
     {
       "position": 22,
       "team": {
+        "id": 94,
+        "name": "Villarreal CF",
+        "shortName": "Villarreal",
+        "tla": "VIL",
+        "crest": "https://crests.football-data.org/94.png"
+      },
+      "playedGames": 5,
+      "form": "W,L,L,W,L",
+      "won": 2,
+      "draw": 0,
+      "lost": 3,
+      "points": 6,
+      "goalsFor": 9,
+      "goalsAgainst": 14,
+      "goalDifference": -5
+    },
+    {
+      "position": 23,
+      "team": {
         "id": 613,
         "name": "Fenerbahçe SK",
         "shortName": "Fenerbahçe",
@@ -423,7 +442,7 @@
       "goalDifference": -5
     },
     {
-      "position": 23,
+      "position": 24,
       "team": {
         "id": 100,
         "name": "AS Roma",
@@ -442,7 +461,7 @@
       "goalDifference": 2
     },
     {
-      "position": 24,
+      "position": 25,
       "team": {
         "id": 1887,
         "name": "FK Shakhtar Donetsk",
@@ -461,7 +480,7 @@
       "goalDifference": 0
     },
     {
-      "position": 25,
+      "position": 26,
       "team": {
         "id": 5720,
         "name": "Viking FK",
@@ -480,7 +499,7 @@
       "goalDifference": -1
     },
     {
-      "position": 26,
+      "position": 27,
       "team": {
         "id": 78,
         "name": "Club Atlético de Madrid",
@@ -499,7 +518,7 @@
       "goalDifference": -1
     },
     {
-      "position": 27,
+      "position": 28,
       "team": {
         "id": 113,
         "name": "SSC Napoli",
@@ -518,7 +537,7 @@
       "goalDifference": -5
     },
     {
-      "position": 28,
+      "position": 29,
       "team": {
         "id": 674,
         "name": "PSV",
@@ -537,45 +556,7 @@
       "goalDifference": -5
     },
     {
-      "position": 29,
-      "team": {
-        "id": 94,
-        "name": "Villarreal CF",
-        "shortName": "Villarreal",
-        "tla": "VIL",
-        "crest": "https://crests.football-data.org/94.png"
-      },
-      "playedGames": 4,
-      "form": "L,L,W,L",
-      "won": 1,
-      "draw": 0,
-      "lost": 3,
-      "points": 3,
-      "goalsFor": 8,
-      "goalsAgainst": 14,
-      "goalDifference": -6
-    },
-    {
       "position": 30,
-      "team": {
-        "id": 10233,
-        "name": "Sabah FK",
-        "shortName": "Sabah FK",
-        "tla": "SAB",
-        "crest": "https://crests.football-data.org/10233.png"
-      },
-      "playedGames": 4,
-      "form": "L,L,W,L",
-      "won": 1,
-      "draw": 0,
-      "lost": 3,
-      "points": 3,
-      "goalsFor": 4,
-      "goalsAgainst": 10,
-      "goalDifference": -6
-    },
-    {
-      "position": 31,
       "team": {
         "id": 1899,
         "name": "PAE AEK",
@@ -594,7 +575,7 @@
       "goalDifference": -7
     },
     {
-      "position": 32,
+      "position": 31,
       "team": {
         "id": 675,
         "name": "Feyenoord Rotterdam",
@@ -611,6 +592,25 @@
       "goalsFor": 4,
       "goalsAgainst": 12,
       "goalDifference": -8
+    },
+    {
+      "position": 32,
+      "team": {
+        "id": 10233,
+        "name": "Sabah FK",
+        "shortName": "Sabah FK",
+        "tla": "SAB",
+        "crest": "https://crests.football-data.org/10233.png"
+      },
+      "playedGames": 5,
+      "form": "L,L,L,W,L",
+      "won": 1,
+      "draw": 0,
+      "lost": 4,
+      "points": 3,
+      "goalsFor": 5,
+      "goalsAgainst": 14,
+      "goalDifference": -9
     },
     {
       "position": 33,
@@ -640,15 +640,15 @@
         "tla": "SLP",
         "crest": "https://crests.football-data.org/930.png"
       },
-      "playedGames": 4,
-      "form": "L,D,L,L",
+      "playedGames": 5,
+      "form": "L,L,D,L,L",
       "won": 0,
       "draw": 1,
-      "lost": 3,
+      "lost": 4,
       "points": 1,
       "goalsFor": 5,
-      "goalsAgainst": 9,
-      "goalDifference": -4
+      "goalsAgainst": 10,
+      "goalDifference": -5
     },
     {
       "position": 35,

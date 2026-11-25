@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-25T19:41:09Z",
+  "generated_at": "2026-11-25T19:46:13Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -4866,7 +4866,7 @@
         {
           "gameweek": "MD5",
           "stem": "matchday-5",
-          "total": 9,
+          "total": 11,
           "covered": 9,
           "matches": [
             {
@@ -4931,6 +4931,22 @@
               "away": "FC Porto",
               "date": "2026-11-24",
               "covered": true
+            },
+            {
+              "match_id": 575404,
+              "home": "Sabah FK",
+              "away": "FC Barcelona",
+              "date": "2026-11-25",
+              "covered": false,
+              "pending": true
+            },
+            {
+              "match_id": 575405,
+              "home": "SK Slavia Praha",
+              "away": "Villarreal CF",
+              "date": "2026-11-25",
+              "covered": false,
+              "pending": true
             }
           ]
         }
