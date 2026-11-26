@@ -2,7 +2,7 @@
   "competition": "Champions League",
   "gameweek": "MD5",
   "stem": "matchday-5",
-  "generated_at": "2026-11-26T01:56:07Z",
+  "generated_at": "2026-11-26T02:11:14Z",
   "matches": [
     {
       "match_id": 575396,
@@ -51,8 +51,8 @@
         }
       ],
       "alternatives": {
-        "checks": 4,
-        "last": "2026-11-25T10:11:09Z",
+        "checks": 5,
+        "last": "2026-11-26T02:11:10Z",
         "sources": "48af5e53cc",
         "covered": [
           "US",
@@ -106,17 +106,25 @@
               "NZ"
             ]
           }
+        },
+        {
+          "video_id": "garyiJqcnyQ",
+          "title": "📺 ÖZET | Galatasaray 1-0 Aston Villa (Spikersiz Doğal Ambiyans) #GSvAVL #UCL",
+          "published_at": "2026-11-25",
+          "tier_used": 1,
+          "region": {}
         }
       ],
       "alternatives": {
-        "checks": 4,
-        "last": "2026-11-25T10:11:09Z",
+        "checks": 5,
+        "last": "2026-11-26T02:11:10Z",
         "sources": "48af5e53cc",
         "covered": [
           "US",
           "GB",
           "CA",
-          "IE"
+          "IE",
+          "ES"
         ]
       }
     },
