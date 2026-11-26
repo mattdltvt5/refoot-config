@@ -2,7 +2,7 @@
   "competition": "Champions League",
   "gameweek": "MD5",
   "stem": "matchday-5",
-  "generated_at": "2026-11-26T00:21:14Z",
+  "generated_at": "2026-11-26T00:31:21Z",
   "matches": [
     {
       "match_id": 575396,
@@ -784,14 +784,45 @@
               "US"
             ]
           }
+        },
+        {
+          "video_id": "ojvT53yMdxc",
+          "title": "Atletico Madrid vs Viking | UEFA Champions League Highlights | Matchday 5 | 2026-2027",
+          "published_at": "2026-11-25",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "NZ"
+            ]
+          }
+        },
+        {
+          "video_id": "V-6DMup3D-8",
+          "title": "Sorloth & Alvarez On Target 🎯 | Atletico Madrid 2-0 Viking | UEFA Champions League Highlights",
+          "published_at": "2026-11-25",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "GB",
+              "GG",
+              "GI",
+              "IE",
+              "IM",
+              "JE"
+            ]
+          }
         }
       ],
       "alternatives": {
-        "checks": 1,
-        "last": "2026-11-25T22:26:22Z",
+        "checks": 2,
+        "last": "2026-11-26T00:31:17Z",
         "sources": "48af5e53cc",
         "covered": [
-          "US"
+          "US",
+          "GB",
+          "CA",
+          "IE"
         ]
       }
     },
@@ -1060,14 +1091,27 @@
               "JE"
             ]
           }
+        },
+        {
+          "video_id": "QzMVgevmLdc",
+          "title": "Sporting CP vs Manchester United | UEFA Champions League Highlights | Matchday 5 | 2026-2027",
+          "published_at": "2026-11-25",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "NZ"
+            ]
+          }
         }
       ],
       "alternatives": {
-        "checks": 1,
-        "last": "2026-11-25T22:26:22Z",
+        "checks": 2,
+        "last": "2026-11-26T00:31:17Z",
         "sources": "48af5e53cc",
         "covered": [
           "GB",
+          "CA",
           "IE"
         ]
       }
