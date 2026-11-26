@@ -2,7 +2,7 @@
   "competition": "Champions League",
   "gameweek": "MD5",
   "stem": "matchday-5",
-  "generated_at": "2026-11-26T00:31:21Z",
+  "generated_at": "2026-11-26T01:56:07Z",
   "matches": [
     {
       "match_id": 575396,
@@ -652,15 +652,28 @@
               "JE"
             ]
           }
+        },
+        {
+          "video_id": "-ESYZ4dIkx4",
+          "title": "Sabah FK vs Barcelona | UEFA Champions League Highlights | Matchday 5 | 2026-2027",
+          "published_at": "2026-11-25",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "NZ"
+            ]
+          }
         }
       ],
       "alternatives": {
-        "checks": 2,
-        "last": "2026-11-25T21:51:14Z",
+        "checks": 3,
+        "last": "2026-11-26T01:56:06Z",
         "sources": "48af5e53cc",
         "covered": [
           "US",
           "GB",
+          "CA",
           "IE"
         ]
       }
