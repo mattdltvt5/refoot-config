@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-27T17:17:44.600809Z",
+  "generated_at": "2026-11-27T22:01:42.952625Z",
   "competition": "Premier League",
   "slug": "premier-league",
   "season": 2026,
@@ -146,15 +146,15 @@
         "tla": "CHE",
         "crest": "https://crests.football-data.org/61.png"
       },
-      "playedGames": 11,
-      "form": "L,L,W,L,W",
+      "playedGames": 12,
+      "form": "L,L,L,W,L",
       "won": 5,
       "draw": 1,
-      "lost": 5,
+      "lost": 6,
       "points": 16,
-      "goalsFor": 20,
-      "goalsAgainst": 20,
-      "goalDifference": 0
+      "goalsFor": 22,
+      "goalsAgainst": 23,
+      "goalDifference": -1
     },
     {
       "position": 9,
@@ -254,6 +254,25 @@
     {
       "position": 14,
       "team": {
+        "id": 351,
+        "name": "Nottingham Forest FC",
+        "shortName": "Nottingham",
+        "tla": "NOT",
+        "crest": "https://crests.football-data.org/351.png"
+      },
+      "playedGames": 12,
+      "form": "W,L,W,L,D",
+      "won": 3,
+      "draw": 3,
+      "lost": 6,
+      "points": 12,
+      "goalsFor": 12,
+      "goalsAgainst": 17,
+      "goalDifference": -5
+    },
+    {
+      "position": 15,
+      "team": {
         "id": 1076,
         "name": "Coventry City FC",
         "shortName": "Coventry City",
@@ -271,7 +290,7 @@
       "goalDifference": -8
     },
     {
-      "position": 15,
+      "position": 16,
       "team": {
         "id": 63,
         "name": "Fulham FC",
@@ -290,7 +309,7 @@
       "goalDifference": -2
     },
     {
-      "position": 16,
+      "position": 17,
       "team": {
         "id": 349,
         "name": "Ipswich Town FC",
@@ -307,25 +326,6 @@
       "goalsFor": 15,
       "goalsAgainst": 22,
       "goalDifference": -7
-    },
-    {
-      "position": 17,
-      "team": {
-        "id": 351,
-        "name": "Nottingham Forest FC",
-        "shortName": "Nottingham",
-        "tla": "NOT",
-        "crest": "https://crests.football-data.org/351.png"
-      },
-      "playedGames": 11,
-      "form": "L,W,L,D,L",
-      "won": 2,
-      "draw": 3,
-      "lost": 6,
-      "points": 9,
-      "goalsFor": 9,
-      "goalsAgainst": 15,
-      "goalDifference": -6
     },
     {
       "position": 18,
