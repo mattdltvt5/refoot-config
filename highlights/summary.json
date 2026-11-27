@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-27T21:41:13Z",
+  "generated_at": "2026-11-27T21:46:17Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -2817,6 +2817,22 @@
               "covered": true
             }
           ]
+        },
+        {
+          "gameweek": "GW13",
+          "stem": "gameweek-13",
+          "total": 1,
+          "covered": 0,
+          "matches": [
+            {
+              "match_id": 558515,
+              "home": "Venezia FC",
+              "away": "Bologna FC 1909",
+              "date": "2026-11-27",
+              "covered": false,
+              "pending": true
+            }
+          ]
         }
       ]
     },
@@ -3538,15 +3554,14 @@
           "gameweek": "GW11",
           "stem": "gameweek-11",
           "total": 1,
-          "covered": 0,
+          "covered": 1,
           "matches": [
             {
               "match_id": 565869,
               "home": "SV Werder Bremen",
               "away": "Borussia Mönchengladbach",
               "date": "2026-11-27",
-              "covered": false,
-              "pending": true
+              "covered": true
             }
           ]
         }
@@ -4334,6 +4349,22 @@
               "away": "Le Mans FC",
               "date": "2026-11-22",
               "covered": true
+            }
+          ]
+        },
+        {
+          "gameweek": "GW12",
+          "stem": "gameweek-12",
+          "total": 1,
+          "covered": 0,
+          "matches": [
+            {
+              "match_id": 559616,
+              "home": "Stade Brestois 29",
+              "away": "Paris FC",
+              "date": "2026-11-27",
+              "covered": false,
+              "pending": true
             }
           ]
         }

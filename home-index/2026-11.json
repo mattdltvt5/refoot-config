@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-27T21:41:11Z",
+  "generated_at": "2026-11-27T21:46:53Z",
   "month": "2026-11",
   "dates": {
     "2026-11-01": [
@@ -6260,7 +6260,7 @@
             },
             "homeScore": 0,
             "awayScore": 0,
-            "status": "IN_PLAY",
+            "status": "FINISHED",
             "utcDate": "2026-11-27T19:45:00Z"
           }
         ]
@@ -6288,7 +6288,22 @@
             "homeScore": 3,
             "awayScore": 3,
             "status": "FINISHED",
-            "utcDate": "2026-11-27T19:30:00Z"
+            "utcDate": "2026-11-27T19:30:00Z",
+            "videoId": "hPq2fZNXbuc",
+            "videoOptions": [
+              {
+                "videoId": "hPq2fZNXbuc",
+                "region": {
+                  "blocked": [
+                    "AT",
+                    "CH",
+                    "DE",
+                    "LI",
+                    "LU"
+                  ]
+                }
+              }
+            ]
           }
         ]
       },
@@ -6314,7 +6329,7 @@
             },
             "homeScore": 1,
             "awayScore": 0,
-            "status": "IN_PLAY",
+            "status": "FINISHED",
             "utcDate": "2026-11-27T19:45:00Z"
           }
         ]

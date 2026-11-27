@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-27T17:18:15.083825Z",
+  "generated_at": "2026-11-27T21:46:52.984280Z",
   "competition": "Ligue 1",
   "slug": "ligue-1",
   "season": 2026,
@@ -32,18 +32,37 @@
         "tla": "PFC",
         "crest": "https://crests.football-data.org/1045.png"
       },
-      "playedGames": 11,
-      "form": "W,W,W,L,W",
+      "playedGames": 12,
+      "form": "L,W,W,W,L",
       "won": 7,
       "draw": 2,
-      "lost": 2,
+      "lost": 3,
       "points": 23,
       "goalsFor": 21,
-      "goalsAgainst": 10,
-      "goalDifference": 11
+      "goalsAgainst": 11,
+      "goalDifference": 10
     },
     {
       "position": 3,
+      "team": {
+        "id": 512,
+        "name": "Stade Brestois 29",
+        "shortName": "Brest",
+        "tla": "BRE",
+        "crest": "https://crests.football-data.org/512.png"
+      },
+      "playedGames": 12,
+      "form": "W,W,W,W,L",
+      "won": 6,
+      "draw": 3,
+      "lost": 3,
+      "points": 21,
+      "goalsFor": 20,
+      "goalsAgainst": 12,
+      "goalDifference": 8
+    },
+    {
+      "position": 4,
       "team": {
         "id": 521,
         "name": "Lille OSC",
@@ -62,7 +81,7 @@
       "goalDifference": 6
     },
     {
-      "position": 4,
+      "position": 5,
       "team": {
         "id": 523,
         "name": "Olympique Lyonnais",
@@ -81,7 +100,7 @@
       "goalDifference": 7
     },
     {
-      "position": 5,
+      "position": 6,
       "team": {
         "id": 516,
         "name": "Olympique de Marseille",
@@ -97,25 +116,6 @@
       "points": 18,
       "goalsFor": 24,
       "goalsAgainst": 17,
-      "goalDifference": 7
-    },
-    {
-      "position": 6,
-      "team": {
-        "id": 512,
-        "name": "Stade Brestois 29",
-        "shortName": "Brest",
-        "tla": "BRE",
-        "crest": "https://crests.football-data.org/512.png"
-      },
-      "playedGames": 11,
-      "form": "W,W,W,L,D",
-      "won": 5,
-      "draw": 3,
-      "lost": 3,
-      "points": 18,
-      "goalsFor": 19,
-      "goalsAgainst": 12,
       "goalDifference": 7
     },
     {
