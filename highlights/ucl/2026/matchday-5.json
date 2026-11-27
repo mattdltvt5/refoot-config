@@ -2,7 +2,7 @@
   "competition": "Champions League",
   "gameweek": "MD5",
   "stem": "matchday-5",
-  "generated_at": "2026-11-27T02:01:23Z",
+  "generated_at": "2026-11-27T02:11:17Z",
   "matches": [
     {
       "match_id": 575396,
@@ -734,16 +734,25 @@
               "US"
             ]
           }
+        },
+        {
+          "video_id": "WqeMYTC6W-0",
+          "title": "HIGHLIGHTS | SLAVIA PRAHA 0-1 VILLARREAL | CHAMPIONS",
+          "published_at": "2026-11-26",
+          "tier_used": 1,
+          "region": {}
         }
       ],
       "alternatives": {
-        "checks": 4,
-        "last": "2026-11-26T10:06:09Z",
+        "checks": 5,
+        "last": "2026-11-27T02:11:13Z",
         "sources": "48af5e53cc",
         "covered": [
           "US",
           "GB",
-          "IE"
+          "CA",
+          "IE",
+          "ES"
         ]
       }
     },
