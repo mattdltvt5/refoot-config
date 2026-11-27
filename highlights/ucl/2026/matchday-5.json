@@ -2,7 +2,7 @@
   "competition": "Champions League",
   "gameweek": "MD5",
   "stem": "matchday-5",
-  "generated_at": "2026-11-27T03:02:47Z",
+  "generated_at": "2026-11-27T04:31:16Z",
   "matches": [
     {
       "match_id": 575396,
@@ -1032,8 +1032,8 @@
         }
       ],
       "alternatives": {
-        "checks": 4,
-        "last": "2026-11-26T12:26:17Z",
+        "checks": 5,
+        "last": "2026-11-27T04:31:13Z",
         "sources": "48af5e53cc",
         "covered": [
           "US",
@@ -1164,17 +1164,25 @@
               "JE"
             ]
           }
+        },
+        {
+          "video_id": "0r4rxSe5DMg",
+          "title": "CLUB BRUGGE - LIVERPOOL | HIGHLIGHTS | CHAMPIONS LEAGUE 2026-2027",
+          "published_at": "2026-11-26",
+          "tier_used": 1,
+          "region": {}
         }
       ],
       "alternatives": {
-        "checks": 4,
-        "last": "2026-11-26T12:26:17Z",
+        "checks": 5,
+        "last": "2026-11-27T04:31:13Z",
         "sources": "48af5e53cc",
         "covered": [
           "US",
           "GB",
           "CA",
-          "IE"
+          "IE",
+          "ES"
         ]
       }
     },
