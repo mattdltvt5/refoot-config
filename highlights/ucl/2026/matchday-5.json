@@ -2,7 +2,7 @@
   "competition": "Champions League",
   "gameweek": "MD5",
   "stem": "matchday-5",
-  "generated_at": "2026-11-27T04:31:16Z",
+  "generated_at": "2026-11-27T04:36:12Z",
   "matches": [
     {
       "match_id": 575396,
@@ -861,8 +861,8 @@
         }
       ],
       "alternatives": {
-        "checks": 4,
-        "last": "2026-11-26T12:36:08Z",
+        "checks": 5,
+        "last": "2026-11-27T04:36:09Z",
         "sources": "48af5e53cc",
         "covered": [
           "US",
@@ -1219,16 +1219,25 @@
               "NZ"
             ]
           }
+        },
+        {
+          "video_id": "xRsUXbNtFQg",
+          "title": "Highlights | UEFA Champions League: Sporting CP 2-2 Manchester United FC",
+          "published_at": "2026-11-26",
+          "tier_used": 1,
+          "region": {}
         }
       ],
       "alternatives": {
-        "checks": 4,
-        "last": "2026-11-26T12:36:08Z",
+        "checks": 5,
+        "last": "2026-11-27T04:36:09Z",
         "sources": "48af5e53cc",
         "covered": [
+          "US",
           "GB",
           "CA",
-          "IE"
+          "IE",
+          "ES"
         ]
       }
     }
