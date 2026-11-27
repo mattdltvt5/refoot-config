@@ -2,7 +2,7 @@
   "competition": "Champions League",
   "gameweek": "MD5",
   "stem": "matchday-5",
-  "generated_at": "2026-11-27T04:36:12Z",
+  "generated_at": "2026-11-27T12:21:14Z",
   "matches": [
     {
       "match_id": 575396,
@@ -238,17 +238,25 @@
               "JE"
             ]
           }
+        },
+        {
+          "video_id": "WaN91Izyewk",
+          "title": "HIGHLIGHTS | Man City 2-2 Napoli | Late Cherki goal rescues a point!",
+          "published_at": "2026-11-26",
+          "tier_used": 1,
+          "region": {}
         }
       ],
       "alternatives": {
-        "checks": 5,
-        "last": "2026-11-26T04:16:13Z",
+        "checks": 6,
+        "last": "2026-11-27T12:21:12Z",
         "sources": "48af5e53cc",
         "covered": [
           "US",
           "GB",
           "CA",
-          "IE"
+          "IE",
+          "ES"
         ]
       }
     },
