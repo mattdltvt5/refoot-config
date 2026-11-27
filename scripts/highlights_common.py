@@ -1126,6 +1126,48 @@ def has_required_term(title: str, required_terms: "list[str] | tuple[str, ...]")
     return any(term in lower_no_tags for term in required_terms)
 
 
+# Emoji / pictographs: social-post titles ("Who is the best player to have
+# played for both PSG & Roma?! 👀 | #UCL") carry them; highlights packages that
+# use one ("⚽ HIGHLIGHTS ...") also name the package, so they pass the allowlist.
+_EMOJI_RE = re.compile("[\U0001F000-\U0001FAFF☀-➿⬀-⯿️]")
+# The fixture written out: a scoreline ("3-3", "2 : 1") or "A vs B" / "A v B".
+_FIXTURE_SHAPE_RE = re.compile(r"\b\d{1,2}\s*[-–:]\s*\d{1,2}\b|\b(?:vs?|versus)\b")
+
+
+def looks_like_social_post(title: str) -> bool:
+    """True for a social clip (quiz, reaction, hype short) rather than a
+    highlights package: the title carries emoji, has no highlights word and
+    doesn't write the fixture out (no scoreline, no "A vs B"). Broadcasters
+    mix these into their curated highlights playlists (DAZN Football's UCL
+    playlist: "Who is the best player to have played for both PSG & Roma?! 👀"),
+    so the playlist-level allowlist bypass must not cover them. Club playlist
+    titles like "VALENCIA 0 vs 5 FC BARCELONA | LALIGA 🔵🔴" are kept."""
+    if not _EMOJI_RE.search(title):
+        return False
+    lower_no_tags = re.sub(r"#\S+", "", title.lower())
+    if any(term in lower_no_tags for term in TITLE_ALLOWLIST):
+        return False
+    return not _FIXTURE_SHAPE_RE.search(lower_no_tags)
+
+
+def published_before_kickoff(published_at: str, kickoff: str) -> bool:
+    """True when the ISO [published_at] (a playlist item's time added, or a
+    video's upload time) is earlier than the ISO [kickoff]: such a clip can't
+    show the match. Unparseable or missing values are False (no guard)."""
+    if not published_at or not kickoff or len(published_at) <= 10 or len(kickoff) <= 10:
+        return False
+    try:
+        pub = datetime.fromisoformat(published_at.replace("Z", "+00:00"))
+        ko = datetime.fromisoformat(kickoff.replace("Z", "+00:00"))
+    except ValueError:
+        return False
+    if pub.tzinfo is None:
+        pub = pub.replace(tzinfo=timezone.utc)
+    if ko.tzinfo is None:
+        ko = ko.replace(tzinfo=timezone.utc)
+    return pub < ko
+
+
 def is_highlight_title(
     title: str,
     extra_allowlist: "list[str] | tuple[str, ...]" = (),
@@ -2247,7 +2289,9 @@ def title_gate_guard(video: dict, fixture: dict, comp_name: str = "") -> "str | 
     - COMP_CHANNEL_REQUIRED_TERMS applies only to competition-channel entries
       (``tier_used == 2``), exactly as at search time.
     - The allowlist is NOT re-checked: curated playlists may legitimately have
-      bypassed it, and the cached entry doesn't record whether they did.
+      bypassed it, and the cached entry doesn't record whether they did. A
+      social post (looks_like_social_post) is dropped, as the bypass no
+      longer covers it.
 
     A missing or empty stored title leaves the entry alone (None).
     """
@@ -2260,6 +2304,10 @@ def title_gate_guard(video: dict, fixture: dict, comp_name: str = "") -> "str | 
         title, COMP_CHANNEL_REQUIRED_TERMS.get(comp_name, ())
     ):
         return "title_gate_missing_required_term"
+    # A social post (emoji, no highlights word) only ever got in through a
+    # curated playlist's allowlist bypass, which no longer covers it.
+    if looks_like_social_post(title):
+        return "title_gate_social_post"
     return None
 
 
@@ -2418,6 +2466,12 @@ def search_playlist(
                 _rec(video_id, title, norm_title, f"outside-date-window ({pub_str_date})")
                 continue
 
+            # Added before kick-off: a preview / promo, never this match's
+            # highlights (same-day clips pass the date-only window above).
+            if published_before_kickoff(pub_str, fixture.get("kickoff", "")):
+                _rec(video_id, title, norm_title, f"published-before-kickoff ({pub_str})")
+                continue
+
             if requires_competition_filter and not any(
                 kw in norm_title for kw in keywords
             ):
@@ -2448,6 +2502,10 @@ def search_playlist(
             # Reject press conferences, interviews, previews, training clips, etc.
             # Blocklist always wins; allowlist is skipped when bypass_highlight_allowlist
             # is True (the playlist title already implies these are highlight videos).
+            # A curated playlist's bypass doesn't cover social posts mixed into it.
+            if bypass_highlight_allowlist and looks_like_social_post(title):
+                _rec(video_id, title, norm_title, "title-filter:social-post")
+                continue
             if not is_highlight_title(
                 title, extra_allowlist,
                 require_allowlist=not bypass_highlight_allowlist,
