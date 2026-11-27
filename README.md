@@ -4,6 +4,28 @@ Data pipeline and remote configuration for **ReFoot**, the Flutter web app (`ref
 
 ## Recent changes
 
+### Social posts and pre-kickoff clips refused (2026-11-26)
+
+PSG v Roma (UCL matchday 5) showed "Who is the best player to have played for both PSG & Roma?! 👀 | #UCL", a
+73-second DAZN Football social short, instead of highlights. DAZN's UCL highlights playlist (a tier-4 source)
+mixes social posts in with the highlights packages. Curated playlists skip the title allowlist, and the short
+named both teams. It was added at 17:11 UTC, almost three hours **before** kick-off, and passed the date-only
+window. Once a match had a clip, nothing re-searched it, so the real "PSG vs Roma | UEFA Champions League
+Highlights" (added 22:39) was never picked up.
+
+- **Pre-kickoff guard (every source):** fixtures now carry `kickoff` (the full `utcDate`; `fixture_providers`,
+  `highlight_alternatives`). `search_playlist` refuses a playlist item added before kick-off
+  (`published_before_kickoff`; debug reason `published-before-kickoff`). Fixtures without a kickoff time keep
+  the date-only window.
+- **Social posts:** `looks_like_social_post(title)` means emoji, no allowlist word, and no fixture written
+  out (no scoreline, no "A vs B"). A curated playlist's allowlist bypass no longer covers such a title
+  (`title-filter:social-post`). Club playlist titles like "VALENCIA 0 vs 5 FC BARCELONA | LALIGA 🔵🔴" are kept.
+  Across all 3,847 cached clips it matches only the PSG short and a Le Havre player clip.
+- **Cached entries:** `title_gate_guard` returns `title_gate_social_post`, so the next fetch drops the PSG
+  short and re-searches the match.
+
+Tests: `scripts/tests/test_social_post_guard.py`.
+
 ### Live-stream replays blocked in Spanish, French, Italian and Portuguese too (2026-11-22)
 
 The post-merge check of #69 found one replay still cached: LaLiga matchday 2's
