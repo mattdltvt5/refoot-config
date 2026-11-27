@@ -554,6 +554,9 @@ class FootballDataProvider(FixtureProvider):
                 "away_short": away.get("shortName") or away.get("name", ""),
                 "away_tla":   away.get("tla", ""),
                 "date":       utc_str[:10],
+                # Full kickoff time: the matcher refuses clips added to a
+                # playlist before it (see search_playlist).
+                "kickoff":    utc_str,
                 "matchday":   matchday,
                 "stage":      stage,
                 # Final result, for the highlights scoreline guard
