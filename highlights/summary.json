@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-27T21:31:14Z",
+  "generated_at": "2026-11-27T21:36:12Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -3531,6 +3531,22 @@
               "away": "Hamburger SV",
               "date": "2026-11-22",
               "covered": true
+            }
+          ]
+        },
+        {
+          "gameweek": "GW11",
+          "stem": "gameweek-11",
+          "total": 1,
+          "covered": 0,
+          "matches": [
+            {
+              "match_id": 565869,
+              "home": "SV Werder Bremen",
+              "away": "Borussia Mönchengladbach",
+              "date": "2026-11-27",
+              "covered": false,
+              "pending": true
             }
           ]
         }
