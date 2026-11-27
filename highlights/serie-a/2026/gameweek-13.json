@@ -2,14 +2,34 @@
   "competition": "Serie A",
   "gameweek": "GW13",
   "stem": "gameweek-13",
-  "generated_at": "2026-11-27T21:46:17Z",
+  "generated_at": "2026-11-27T22:21:21Z",
   "matches": [
     {
       "match_id": 558515,
       "home_team": "Venezia FC",
       "away_team": "Bologna FC 1909",
       "date": "2026-11-27",
-      "videos": []
+      "videos": [
+        {
+          "video_id": "_ExjIxjDz_k",
+          "title": "Venezia vs. Bologna: Extended Highlights | Serie A | CBS Sports Golazo",
+          "published_at": "2026-11-27",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "US"
+            ]
+          }
+        }
+      ],
+      "alternatives": {
+        "checks": 1,
+        "last": "2026-11-27T22:21:21Z",
+        "sources": "764689f215",
+        "covered": [
+          "US"
+        ]
+      }
     }
   ]
 }
