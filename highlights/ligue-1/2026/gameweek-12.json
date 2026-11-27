@@ -2,14 +2,37 @@
   "competition": "Ligue 1",
   "gameweek": "GW12",
   "stem": "gameweek-12",
-  "generated_at": "2026-11-27T21:46:14Z",
+  "generated_at": "2026-11-27T22:16:13Z",
   "matches": [
     {
       "match_id": 559616,
       "home_team": "Stade Brestois 29",
       "away_team": "Paris FC",
       "date": "2026-11-27",
-      "videos": []
+      "videos": [
+        {
+          "video_id": "eUyKCn7IjZU",
+          "title": "Stade Brest vs Paris FC | HIGHLIGHTS | Ligue 1 | 11/27/2026 | beIN SPORTS USA",
+          "published_at": "2026-11-27",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "PR",
+              "US"
+            ]
+          }
+        }
+      ],
+      "alternatives": {
+        "checks": 1,
+        "last": "2026-11-27T22:16:13Z",
+        "sources": "2aca95cb9a",
+        "covered": [
+          "US",
+          "CA"
+        ]
+      }
     }
   ]
 }
