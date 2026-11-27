@@ -2,7 +2,7 @@
   "competition": "Champions League",
   "gameweek": "MD5",
   "stem": "matchday-5",
-  "generated_at": "2026-11-27T02:11:17Z",
+  "generated_at": "2026-11-27T03:02:47Z",
   "matches": [
     {
       "match_id": 575396,
@@ -1050,13 +1050,75 @@
       "date": "2026-11-25",
       "videos": [
         {
-          "video_id": "tELx6y3nPLc",
-          "title": "Who is the best player to have played for both PSG & Roma?! 👀 | #UCL",
+          "video_id": "drhloSGnTXg",
+          "title": "PSG vs. Roma: Extended Highlights | UCL League Phase MD 5 | CBS Sports Golazo",
           "published_at": "2026-11-25",
           "tier_used": 4,
+          "region": {
+            "allowed": [
+              "US"
+            ]
+          }
+        },
+        {
+          "video_id": "MSbMFKx1kkE",
+          "title": "PSG vs. Roma | The Champions’ perfect start is OVER | UCL League Phase",
+          "published_at": "2026-11-26",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "US"
+            ]
+          }
+        },
+        {
+          "video_id": "e7ti0nKKGS8",
+          "title": "PSG vs Roma | UEFA Champions League Highlights | Matchday 5 | 2026-2027",
+          "published_at": "2026-11-25",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "CA",
+              "NZ"
+            ]
+          }
+        },
+        {
+          "video_id": "TnCSRaa-Ges",
+          "title": "Champions Held At Home 😭 | PSG 2-2 Roma | UEFA Champions League Highlights",
+          "published_at": "2026-11-25",
+          "tier_used": 4,
+          "region": {
+            "allowed": [
+              "GB",
+              "GG",
+              "GI",
+              "IE",
+              "IM",
+              "JE"
+            ]
+          }
+        },
+        {
+          "video_id": "aoBxPROXC70",
+          "title": "PSG-AS Roma: highlights! 📺 #UCL #championsleague #psg",
+          "published_at": "2026-11-26",
+          "tier_used": 1,
           "region": {}
         }
-      ]
+      ],
+      "alternatives": {
+        "checks": 1,
+        "last": "2026-11-27T03:02:45Z",
+        "sources": "48af5e53cc",
+        "covered": [
+          "US",
+          "GB",
+          "CA",
+          "IE",
+          "ES"
+        ]
+      }
     },
     {
       "match_id": 575409,

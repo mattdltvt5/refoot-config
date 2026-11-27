@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-27T02:11:37Z",
+  "generated_at": "2026-11-27T03:03:07Z",
   "month": "2026-11",
   "dates": {
     "2026-11-01": [
@@ -5863,7 +5863,51 @@
             "awayScore": 2,
             "status": "FINISHED",
             "utcDate": "2026-11-25T20:00:00Z",
-            "videoId": "tELx6y3nPLc"
+            "videoId": "drhloSGnTXg",
+            "videoOptions": [
+              {
+                "videoId": "drhloSGnTXg",
+                "region": {
+                  "allowed": [
+                    "US"
+                  ]
+                }
+              },
+              {
+                "videoId": "MSbMFKx1kkE",
+                "region": {
+                  "allowed": [
+                    "US"
+                  ]
+                }
+              },
+              {
+                "videoId": "e7ti0nKKGS8",
+                "region": {
+                  "allowed": [
+                    "CA",
+                    "NZ"
+                  ]
+                }
+              },
+              {
+                "videoId": "TnCSRaa-Ges",
+                "region": {
+                  "allowed": [
+                    "GB",
+                    "GG",
+                    "GI",
+                    "IE",
+                    "IM",
+                    "JE"
+                  ]
+                }
+              },
+              {
+                "videoId": "aoBxPROXC70",
+                "region": {}
+              }
+            ]
           },
           {
             "match_id": 575409,

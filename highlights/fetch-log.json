@@ -1,5 +1,33 @@
 {
-  "last_run": "2026-11-27T02:41:16.164467+00:00",
-  "files_updated": 0,
-  "additions": []
+  "last_run": "2026-11-27T03:02:47.426399+00:00",
+  "files_updated": 2,
+  "additions": [
+    {
+      "comp": "Champions League",
+      "home": "Paris Saint-Germain FC",
+      "away": "AS Roma",
+      "date": "2026-11-25",
+      "videos": 2
+    }
+  ],
+  "rejections": [
+    {
+      "reason": "title_gate_social_post",
+      "action": "removed_cached",
+      "match_id": 575408,
+      "video_id": "tELx6y3nPLc",
+      "title": "Who is the best player to have played for both PSG & Roma?! 👀 | #UCL",
+      "title_scorelines": [],
+      "cached_score": {
+        "home": 2,
+        "away": 2
+      },
+      "accepted_scores": [
+        [
+          2,
+          2
+        ]
+      ]
+    }
+  ]
 }
