@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-28T15:06:03Z",
+  "generated_at": "2026-11-28T15:11:02Z",
   "month": "2026-11",
   "dates": {
     "2026-11-01": [
@@ -6406,9 +6406,9 @@
               "tla": "COV",
               "crest": "https://crests.football-data.org/1076.png"
             },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "TIMED",
+            "homeScore": 0,
+            "awayScore": 0,
+            "status": "IN_PLAY",
             "utcDate": "2026-11-28T15:00:00Z"
           },
           {
@@ -6427,9 +6427,9 @@
               "tla": "BRE",
               "crest": "https://crests.football-data.org/402.png"
             },
-            "homeScore": null,
-            "awayScore": null,
-            "status": "TIMED",
+            "homeScore": 0,
+            "awayScore": 0,
+            "status": "IN_PLAY",
             "utcDate": "2026-11-28T15:00:00Z"
           },
           {
@@ -6477,7 +6477,7 @@
             },
             "homeScore": 0,
             "awayScore": 1,
-            "status": "IN_PLAY",
+            "status": "FINISHED",
             "utcDate": "2026-11-28T13:00:00Z"
           },
           {

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-28T15:06:03Z",
+  "generated_at": "2026-11-28T15:11:11Z",
   "competitions": [
     {
       "competition": "Premier League",
@@ -1894,7 +1894,7 @@
         {
           "gameweek": "GW14",
           "stem": "gameweek-14",
-          "total": 1,
+          "total": 2,
           "covered": 1,
           "matches": [
             {
@@ -1903,6 +1903,14 @@
               "away": "Real Racing Club de Santander",
               "date": "2026-11-27",
               "covered": true
+            },
+            {
+              "match_id": 564760,
+              "home": "Real Betis Balompié",
+              "away": "Rayo Vallecano de Madrid",
+              "date": "2026-11-28",
+              "covered": false,
+              "pending": true
             }
           ]
         }

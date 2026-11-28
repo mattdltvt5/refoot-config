@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-27T23:56:39.919946Z",
+  "generated_at": "2026-11-28T15:11:19.834283Z",
   "competition": "LaLiga",
   "slug": "laliga",
   "season": 2026,
@@ -70,15 +70,15 @@
         "tla": "BET",
         "crest": "https://crests.football-data.org/90.png"
       },
-      "playedGames": 13,
-      "form": "D,W,W,D,L",
+      "playedGames": 14,
+      "form": "L,D,W,W,D",
       "won": 8,
       "draw": 3,
-      "lost": 2,
+      "lost": 3,
       "points": 27,
       "goalsFor": 21,
-      "goalsAgainst": 16,
-      "goalDifference": 5
+      "goalsAgainst": 17,
+      "goalDifference": 4
     },
     {
       "position": 5,
@@ -235,6 +235,25 @@
     {
       "position": 13,
       "team": {
+        "id": 87,
+        "name": "Rayo Vallecano de Madrid",
+        "shortName": "Rayo Vallecano",
+        "tla": "RAY",
+        "crest": "https://crests.football-data.org/87.png"
+      },
+      "playedGames": 13,
+      "form": "W,L,L,W,L",
+      "won": 4,
+      "draw": 3,
+      "lost": 6,
+      "points": 15,
+      "goalsFor": 16,
+      "goalsAgainst": 22,
+      "goalDifference": -6
+    },
+    {
+      "position": 14,
+      "team": {
         "id": 79,
         "name": "CA Osasuna",
         "shortName": "Osasuna",
@@ -252,7 +271,7 @@
       "goalDifference": -10
     },
     {
-      "position": 14,
+      "position": 15,
       "team": {
         "id": 558,
         "name": "RC Celta de Vigo",
@@ -271,7 +290,7 @@
       "goalDifference": -1
     },
     {
-      "position": 15,
+      "position": 16,
       "team": {
         "id": 88,
         "name": "Levante UD",
@@ -287,25 +306,6 @@
       "points": 12,
       "goalsFor": 18,
       "goalsAgainst": 25,
-      "goalDifference": -7
-    },
-    {
-      "position": 16,
-      "team": {
-        "id": 87,
-        "name": "Rayo Vallecano de Madrid",
-        "shortName": "Rayo Vallecano",
-        "tla": "RAY",
-        "crest": "https://crests.football-data.org/87.png"
-      },
-      "playedGames": 12,
-      "form": "L,L,W,L,D",
-      "won": 3,
-      "draw": 3,
-      "lost": 6,
-      "points": 12,
-      "goalsFor": 15,
-      "goalsAgainst": 22,
       "goalDifference": -7
     },
     {
