@@ -119,6 +119,9 @@ BACKFILL_CAP      = 9_500  # max YouTube units/day for backfill runs
 #             "standings"         sync_standings.py  -> standings/{slug}/{season}.json
 #             "tournament_groups" sync_tournaments.py -> tournament-groups/{slug}.json
 #   enabled   optional, default True; False keeps the entry but skips every job.
+#   job_order optional {job: rank}: within that job, ranked entries run first in
+#             rank order, the rest after them in table order. Used where request
+#             order matters for football-data's 10 req/min limit (see below).
 #   fd_code / fd_id   football-data.org competition code (matches path in the
 #             highlights jobs) and numeric id (standings / tournament jobs).
 #             API-Sports competitions keep their provider settings in
@@ -150,9 +153,15 @@ COMPETITION_CONFIG: dict[str, dict] = {
     "Ligue 1":          {"slug": "ligue-1", "provider": PROVIDER_FOOTBALLDATA,
                          "fd_code": "FL1", "fd_id": 2015,
                          "jobs": [JOB_HIGHLIGHTS, JOB_STANDINGS]},
+    # Tournament job order Euro -> World Cup -> Champions League (job_order):
+    # sync_tournaments runs right after fetch_highlights' football-data burst, so
+    # the first tournament requests can hit HTTP 429. The UCL cache is the one
+    # that changes all season, so it goes last, after the pauses free the limit
+    # (running it first made it 429 on every run - 2026-11-28).
     "Champions League": {"slug": "ucl", "provider": PROVIDER_FOOTBALLDATA,
                          "fd_code": "CL",  "fd_id": 2001,
-                         "jobs": [JOB_HIGHLIGHTS, JOB_STANDINGS, JOB_TOURNAMENT_GROUPS]},
+                         "jobs": [JOB_HIGHLIGHTS, JOB_STANDINGS, JOB_TOURNAMENT_GROUPS],
+                         "job_order": {JOB_TOURNAMENT_GROUPS: 2}},
     # football-data's free tier answers 403 for the Europa League, so the
     # highlights jobs log the error and skip it (no fixtures -> no searches).
     "Europa League":    {"slug": "uel", "provider": PROVIDER_FOOTBALLDATA,
@@ -160,10 +169,12 @@ COMPETITION_CONFIG: dict[str, dict] = {
                          "jobs": [JOB_HIGHLIGHTS]},
     "Euro Cup":         {"slug": "euro-cup", "provider": PROVIDER_FOOTBALLDATA,
                          "fd_code": "EC",  "fd_id": 2018,
-                         "jobs": [JOB_HIGHLIGHTS, JOB_TOURNAMENT_GROUPS]},
+                         "jobs": [JOB_HIGHLIGHTS, JOB_TOURNAMENT_GROUPS],
+                         "job_order": {JOB_TOURNAMENT_GROUPS: 0}},
     "World Cup":        {"slug": "world-cup", "provider": PROVIDER_FOOTBALLDATA,
                          "fd_code": "WC",  "fd_id": 2000,
-                         "jobs": [JOB_HIGHLIGHTS, JOB_TOURNAMENT_GROUPS]},
+                         "jobs": [JOB_HIGHLIGHTS, JOB_TOURNAMENT_GROUPS],
+                         "job_order": {JOB_TOURNAMENT_GROUPS: 1}},
     # API-Sports: its fixtures/scores come from the scheduled Copa jobs
     # (sync_copa_tournament.py, backfill_copa_america.py). The highlights jobs
     # list it so the skip is explicit and logged; they never call API-Sports.
@@ -173,12 +184,20 @@ COMPETITION_CONFIG: dict[str, dict] = {
 
 
 def competitions_for_job(job: str) -> list[tuple[str, dict]]:
-    """(name, config) for every enabled competition taking part in [job], in
+    """(name, config) for every enabled competition taking part in [job]: entries
+    with a job_order rank for [job] first (by rank), then the rest in
     COMPETITION_CONFIG order."""
-    return [
-        (name, cfg) for name, cfg in COMPETITION_CONFIG.items()
+    members = [
+        (i, name, cfg) for i, (name, cfg) in enumerate(COMPETITION_CONFIG.items())
         if cfg.get("enabled", True) and job in cfg.get("jobs", ())
     ]
+
+    def key(member):
+        i, _, cfg = member
+        rank = (cfg.get("job_order") or {}).get(job)
+        return (0, rank, i) if rank is not None else (1, 0, i)
+
+    return [(name, cfg) for _, name, cfg in sorted(members, key=key)]
 
 
 # football-data.org competition code → key used in sources.json (derived from
