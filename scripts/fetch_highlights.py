@@ -35,11 +35,10 @@ from highlights_common import (
     BACKFILL_LOCK_PATH,
     EXISTING_RECORD_GUARDS,
     GUARD_REJECTIONS,
-    COMPETITION_CODE_MAP,
     COMPETITION_SLUG_MAP,
     DOMESTIC_LEAGUE_COMPS,
-    FD_BASE,
     FIXTURES_DIR,
+    JOB_HIGHLIGHTS,
     RESULTS_DIR,
     HIGHLIGHTS_DIR,
     FD_SLEEP_SECONDS,
@@ -49,7 +48,6 @@ from highlights_common import (
     QuotaTracker,
     _normalize,
     apply_existing_record_guards,
-    fd_get,
     generate_summary,
     gw_path,
     is_gameweek_complete,
@@ -64,8 +62,10 @@ from highlights_common import (
     write_json_atomic,
 )
 from fixture_providers import (
-    FootballDataProvider,
+    CAP_FIXTURES,
+    CAP_FULL_SEASON,
     LIVE_STATUSES,
+    iter_job_providers,
     merge_fixtures_preserving_finished,
     coerce_stale_live_to_finished,
     update_results_ledger,
@@ -197,35 +197,38 @@ def fetch_all_fixtures(
     fd_key: str,
 ) -> tuple[dict[str, dict[str, list[dict]]], dict[str, list[dict]]]:
     """
-    Fetch fixtures across every configured competition via FootballDataProvider.
+    Fetch fixtures for every competition in the "highlights" job of
+    COMPETITION_CONFIG, each through its configured provider (iter_job_providers).
+    A provider limited to its own scheduled jobs (API-Sports / Copa America) is
+    skipped with a log line, so this incremental run never calls it.
 
     Each competition uses its own season year via season_for_competition(): domestic
     leagues / UCL / UEL follow the August-July convention; summer tournaments (World Cup,
     Euro Cup) use the current calendar year.
 
-    Sleeps FD_SLEEP_SECONDS between requests to respect football-data.org's 10 req/min limit.
-    The raw FD response is cached inside FootballDataProvider, so get_fixtures() and
-    get_full_season() share one HTTP request per competition — no double-fetch.
+    Sleeps FD_SLEEP_SECONDS between competitions to respect football-data.org's 10 req/min
+    limit. One provider instance serves the whole run, so FootballDataProvider's raw-response
+    cache lets the fixtures and full-season calls share one HTTP request per competition.
 
     Returns a 2-tuple:
       highlights  — {comp_name: {file_stem: [fixture_dict, ...]}}  (FINISHED only)
       artifacts   — {comp_name: [GroupMatch-compatible dicts]}     (all statuses, domestic leagues only)
     """
-    provider   = FootballDataProvider(fd_key)
     highlights: dict[str, dict[str, list[dict]]] = {}
     artifacts:  dict[str, list[dict]]             = {}
 
-    for i, (code, comp_name) in enumerate(COMPETITION_CODE_MAP.items()):
+    providers = iter_job_providers(JOB_HIGHLIGHTS, CAP_FIXTURES, {"fd_key": fd_key})
+    for i, (comp_name, comp_cfg, provider) in enumerate(providers):
         if i > 0:
             time.sleep(FD_SLEEP_SECONDS)
 
         season  = season_for_competition(comp_name)
-        by_stem = provider.get_fixtures(code, comp_name, season)
+        by_stem = provider.competition_fixtures(comp_name, comp_cfg, season)
         if by_stem:
             highlights[comp_name] = by_stem
 
-        if comp_name in DOMESTIC_LEAGUE_COMPS:
-            full = provider.get_full_season(code, comp_name, season)
+        if comp_name in DOMESTIC_LEAGUE_COMPS and provider.supports(CAP_FULL_SEASON):
+            full = provider.competition_full_season(comp_name, comp_cfg, season)
             if full:
                 artifacts[comp_name] = full
 
@@ -378,7 +381,7 @@ def main() -> None:
     # ── Fetch FD data: shared by fixtures artifacts + YouTube matching ─────────
     # Runs before quota/YT-key guards so fixtures/{slug}.json artifacts are always
     # written (FD-only, no YouTube quota consumed) even when over the daily YouTube
-    # budget.  The raw FD response is cached inside FootballDataProvider so
+    # budget.  The raw FD response is cached inside the shared provider so
     # get_fixtures() and get_full_season() share one HTTP request per competition.
     all_highlights, all_artifacts = fetch_all_fixtures(fd_key)
     write_fixtures_artifacts(all_artifacts)

@@ -28,14 +28,13 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 from highlights_common import (
+    JOB_HIGHLIGHTS,
     BACKFILL_CAP,
     BACKFILL_LOCK_PATH,
     BACKFILL_PROGRESS_PATH,
-    COMPETITION_CODE_MAP,
     COMPETITION_FILE_STEMS,
     COMPETITION_SLUG_MAP,
     FILE_STEM_LABEL,
-    FD_BASE,
     FD_SLEEP_SECONDS,
     HIGHLIGHTS_DIR,
     QUOTA_TRACKER_PATH,
@@ -45,7 +44,6 @@ from highlights_common import (
     apply_existing_record_guards,
     current_season,
     season_for_competition,
-    fd_get,
     generate_summary,
     gw_path,
     load_json_file,
@@ -57,7 +55,7 @@ from highlights_common import (
     utc_now_iso,
     write_json_atomic,
 )
-from fixture_providers import FootballDataProvider
+from fixture_providers import CAP_FIXTURES, iter_job_providers
 
 log = logging.getLogger(__name__)
 
@@ -156,16 +154,17 @@ class BackfillProgress:
 
 
 def fetch_season_fixtures(
-    code: str,
+    provider,
     comp_name: str,
+    comp_cfg: dict,
     season: int,
-    fd_key: str,
 ) -> dict[str, list[dict]]:
     """
-    Fetch all FINISHED fixtures for a competition and season via FootballDataProvider.
+    Fetch all FINISHED fixtures for a competition and season via its configured
+    provider (COMPETITION_CONFIG / fixture_providers.iter_job_providers).
     Returns: {file_stem: [fixture_dict, ...]}
     """
-    return FootballDataProvider(fd_key).get_fixtures(code, comp_name, season)
+    return provider.competition_fixtures(comp_name, comp_cfg, season)
 
 
 # ── Tier-4 re-check helpers ───────────────────────────────────────────────────
@@ -403,7 +402,11 @@ def main() -> None:
     current_slug                  = ""
 
     try:
-        for code, comp_name in COMPETITION_CODE_MAP.items():
+        # Every competition in COMPETITION_CONFIG's "highlights" job, each through
+        # its configured provider; API-Sports (Copa America) is skipped with a log
+        # line - its backfill is backfill_copa_america.py.
+        for comp_name, comp_cfg, provider in iter_job_providers(
+                JOB_HIGHLIGHTS, CAP_FIXTURES, {"fd_key": fd_key}):
             if quota_cap_hit:
                 break
 
@@ -425,7 +428,7 @@ def main() -> None:
             current_slug      = slug
             time.sleep(FD_SLEEP_SECONDS)
 
-            by_stem = fetch_season_fixtures(code, comp_name, comp_season, fd_key)
+            by_stem = fetch_season_fixtures(provider, comp_name, comp_cfg, comp_season)
             if not by_stem:
                 progress.mark_competition_done(comp_name)
                 run_git_commit(

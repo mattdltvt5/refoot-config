@@ -8,7 +8,9 @@ from datetime import datetime, timezone
 from unittest.mock import patch, MagicMock
 
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
-from sync_standings import current_season, extract_total_table, fetch_standings, write_standings
+from sync_standings import current_season, extract_total_table, write_standings
+# The raw FD fetch moved into the provider layer (FootballDataProvider.get_standings).
+from fixture_providers import fd_fetch_standings as fetch_standings
 from sync_standings import had_recent_finish, main_recent
 
 
@@ -226,7 +228,7 @@ class TestSmartSkip(unittest.TestCase):
             self.assertFalse(had_recent_finish('ligue-1', 2025, d, self._now))
 
     @patch('sync_standings.current_season', return_value=2025)
-    @patch('sync_standings.fetch_standings')
+    @patch('fixture_providers.fd_fetch_standings')
     def test_main_recent_refreshes_only_eligible(self, mock_fetch, _season):
         mock_fetch.return_value = {'standings': [{'type': 'TOTAL', 'table': [{'position': 1}]}]}
         with tempfile.TemporaryDirectory() as d:
@@ -241,7 +243,7 @@ class TestSmartSkip(unittest.TestCase):
             self.assertFalse(os.path.exists(os.path.join(d, 'standings', 'laliga', '2025.json')))
 
     @patch('sync_standings.current_season', return_value=2025)
-    @patch('sync_standings.fetch_standings')
+    @patch('fixture_providers.fd_fetch_standings')
     def test_main_recent_no_eligible_makes_no_fd_calls(self, mock_fetch, _season):
         with tempfile.TemporaryDirectory() as d:
             self._write_fixtures(d, 'premier-league',
@@ -274,7 +276,7 @@ class TestSmartSkip(unittest.TestCase):
             self.assertFalse(had_recent_finish('ucl', 2025, d, self._now))
 
     @patch('sync_standings.current_season', return_value=2025)
-    @patch('sync_standings.fetch_standings')
+    @patch('fixture_providers.fd_fetch_standings')
     def test_main_recent_refreshes_ucl_after_its_games(self, mock_fetch, _season):
         mock_fetch.return_value = {'standings': [{'type': 'TOTAL', 'table': [{'position': 1}]}]}
         with tempfile.TemporaryDirectory() as d:

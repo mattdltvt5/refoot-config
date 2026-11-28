@@ -20,12 +20,15 @@ import unittest
 from unittest.mock import patch, MagicMock
 
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
+# The raw FD fetches moved into the provider layer (FootballDataProvider).
+from fixture_providers import (  # noqa: E402
+    fd_fetch_matches as fetch_matches,
+    fd_fetch_standings as fetch_standings,
+)
 from sync_tournaments import (  # noqa: E402
     archive_season,
     build_group_matches,
     build_tournament_data,
-    fetch_matches,
-    fetch_standings,
     graft_video_ids,
     normalize_national_crest,
     read_existing_video_ids,
