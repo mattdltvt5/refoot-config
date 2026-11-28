@@ -124,6 +124,8 @@ BACKFILL_CAP      = 9_500  # max YouTube units/day for backfill runs
 #             order matters for football-data's 10 req/min limit (see below).
 #   fd_code / fd_id   football-data.org competition code (matches path in the
 #             highlights jobs) and numeric id (standings / tournament jobs).
+#   tsdb_*    TheSportsDB settings (tsdb_league_id, ...; see
+#             fixture_providers.TheSportsDBProvider).
 #             API-Sports competitions keep their provider settings in
 #             fixture_providers.APISPORTS_COMPETITIONS.
 #
@@ -132,6 +134,7 @@ BACKFILL_CAP      = 9_500  # max YouTube units/day for backfill runs
 # scripts read this table and never name a competition or provider themselves.
 PROVIDER_FOOTBALLDATA = "footballdata"
 PROVIDER_APISPORTS    = "apisports"
+PROVIDER_THESPORTSDB  = "thesportsdb"
 
 JOB_HIGHLIGHTS        = "highlights"
 JOB_STANDINGS         = "standings"
@@ -162,11 +165,14 @@ COMPETITION_CONFIG: dict[str, dict] = {
                          "fd_code": "CL",  "fd_id": 2001,
                          "jobs": [JOB_HIGHLIGHTS, JOB_STANDINGS, JOB_TOURNAMENT_GROUPS],
                          "job_order": {JOB_TOURNAMENT_GROUPS: 2}},
-    # football-data's free tier answers 403 for the Europa League, so the
-    # highlights jobs log the error and skip it (no fixtures -> no searches).
-    "Europa League":    {"slug": "uel", "provider": PROVIDER_FOOTBALLDATA,
-                         "fd_code": "EL",  "fd_id": 2146,
-                         "jobs": [JOB_HIGHLIGHTS]},
+    # TheSportsDB (football-data's free tier answers 403 for the Europa League).
+    # DORMANT (enabled False) while the Europa League is hidden in the app: no job
+    # requests it or writes uel files until it is switched on together with its
+    # highlight sources and the app's Europa League screens.
+    "Europa League":    {"slug": "uel", "provider": PROVIDER_THESPORTSDB,
+                         "tsdb_league_id": 4481,
+                         "jobs": [JOB_HIGHLIGHTS, JOB_STANDINGS, JOB_TOURNAMENT_GROUPS],
+                         "enabled": False},
     "Euro Cup":         {"slug": "euro-cup", "provider": PROVIDER_FOOTBALLDATA,
                          "fd_code": "EC",  "fd_id": 2018,
                          "jobs": [JOB_HIGHLIGHTS, JOB_TOURNAMENT_GROUPS],

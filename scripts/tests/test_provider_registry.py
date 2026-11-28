@@ -4,8 +4,9 @@ The four job scripts (fetch_highlights, backfill_highlights, sync_standings,
 sync_tournaments) take their competitions from highlights_common.COMPETITION_CONFIG
 and their data through fixture_providers' registry. These tests pin that the
 refactor changed nothing observable: same competitions per script, same output
-paths and shapes, the Europa League still skipped after football-data's 403,
-API-Sports never constructed by the generic jobs, the merge guard intact.
+paths and shapes, API-Sports never constructed by the generic jobs, the merge
+guard intact. Since PR 2 the Europa League is a dormant TheSportsDB entry: no job
+requests it (it used to be requested from football-data and refused with 403).
 
 All HTTP is mocked: nothing here reaches football-data.org, API-Sports,
 TheSportsDB or YouTube.
@@ -29,11 +30,13 @@ import sync_tournaments  # noqa: E402
 
 # ── The pre-refactor hardcoded lists ("before" sets) ──────────────────────────
 
-# highlights_common.COMPETITION_CODE_MAP as it was (fetch + backfill loops).
+# highlights_common.COMPETITION_CODE_MAP as it was (fetch + backfill loops),
+# minus the Europa League: it moved to TheSportsDB (dormant) in PR 2, so
+# football-data is no longer asked for it.
 BEFORE_HIGHLIGHTS = [
     ("PL", "Premier League"), ("PD", "LaLiga"), ("SA", "Serie A"),
     ("BL1", "Bundesliga"), ("FL1", "Ligue 1"), ("CL", "Champions League"),
-    ("EL", "Europa League"), ("EC", "Euro Cup"), ("WC", "World Cup"),
+    ("EC", "Euro Cup"), ("WC", "World Cup"),
 ]
 # sync_standings.COMPETITIONS as it was: (FD id, name, slug).
 BEFORE_STANDINGS = [
@@ -106,10 +109,12 @@ def test_config_slugs_match_the_output_slug_map():
         fp.provider_class(cfg["provider"], name)  # every value is registered
 
 
-def test_copa_keeps_apisports_and_europa_stays_on_football_data():
+def test_copa_keeps_apisports_and_europa_is_a_dormant_thesportsdb_entry():
     assert hc.COMPETITION_CONFIG["Copa America"]["provider"] == hc.PROVIDER_APISPORTS
-    assert hc.COMPETITION_CONFIG["Europa League"]["provider"] == hc.PROVIDER_FOOTBALLDATA
-    assert hc.COMPETITION_CONFIG["Europa League"]["fd_code"] == "EL"
+    uel = hc.COMPETITION_CONFIG["Europa League"]
+    assert uel["provider"] == hc.PROVIDER_THESPORTSDB
+    assert uel["tsdb_league_id"] == 4481
+    assert uel["enabled"] is False
 
 
 def test_fetch_all_fixtures_calls_each_competition_and_full_season_for_leagues_only():
@@ -177,28 +182,31 @@ def test_fetch_all_fixtures_never_constructs_apisports():
         fh.fetch_all_fixtures("k")
 
 
-# ── Europa League: still skipped after football-data's 403 ────────────────────
+# ── Europa League: dormant, so no job requests it ─────────────────────────────
 
 
-def test_europa_league_403_is_skipped_and_the_rest_still_run():
+def test_dormant_europa_league_is_requested_by_no_job():
     import fetch_highlights as fh
+    for job in (hc.JOB_HIGHLIGHTS, hc.JOB_STANDINGS, hc.JOB_TOURNAMENT_GROUPS):
+        assert "Europa League" not in [n for n, _ in hc.competitions_for_job(job)]
+    urls = []
 
     def fake_fd_get(url, key, params=None):
+        urls.append(url)
         resp = MagicMock()
-        if "/competitions/EL/" in url:
-            resp.status_code, resp.ok = 403, False
-        else:
-            resp.status_code, resp.ok = 200, True
-            resp.json.return_value = {"matches": [{
-                "id": hash(url) % 10**6, "status": "FINISHED", "stage": "REGULAR_SEASON",
-                "matchday": 1, "utcDate": "2026-09-01T19:00:00Z",
-                "homeTeam": {"name": "A"}, "awayTeam": {"name": "B"}, "score": {}}]}
+        resp.status_code, resp.ok = 200, True
+        resp.json.return_value = {"matches": [{
+            "id": hash(url) % 10**6, "status": "FINISHED", "stage": "REGULAR_SEASON",
+            "matchday": 1, "utcDate": "2026-09-01T19:00:00Z",
+            "homeTeam": {"name": "A"}, "awayTeam": {"name": "B"}, "score": {}}]}
         return resp
 
-    with patch.object(fp, "fd_get", fake_fd_get):
+    with patch.object(fp, "fd_get", fake_fd_get),          patch.object(fp.TheSportsDBProvider, "__init__",
+                      side_effect=AssertionError("TheSportsDBProvider constructed")):
         highlights, _ = fh.fetch_all_fixtures("k")
     assert "Europa League" not in highlights
     assert "Premier League" in highlights
+    assert not any("/competitions/EL/" in u for u in urls)
 
 
 # ── Capability model + unknown providers ──────────────────────────────────────
@@ -304,7 +312,7 @@ def test_football_data_http_error_still_propagates():
     with patch("urllib.request.urlopen", side_effect=err):
         with pytest.raises(urllib.error.HTTPError):
             fp.FootballDataProvider("k").get_standings(
-                "Europa League", hc.COMPETITION_CONFIG["Europa League"])
+                "Champions League", hc.COMPETITION_CONFIG["Champions League"])
 
 
 def test_sync_standings_writes_the_same_paths_and_shape(tmp_path):

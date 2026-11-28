@@ -4,6 +4,45 @@ Data pipeline and remote configuration for **ReFoot**, the Flutter web app (`ref
 
 ## Recent changes
 
+### TheSportsDB provider for the Europa League, dormant (2026-11-28)
+
+`fixture_providers.TheSportsDBProvider` (registered as `thesportsdb`) supplies the Europa League,
+which football-data's free tier refuses (403). The Europa League entry in `COMPETITION_CONFIG` now
+uses it, with `enabled: false`: **no job requests it or writes `uel` files yet.** It is switched on
+together with its highlight sources and the app's Europa League screens. Until then football-data is
+no longer asked for the Europa League either (one wasted 403 request per run).
+
+- **Key:** the free public key `123`, no account. Setting a `THESPORTSDB_API_KEY` secret switches to a
+  personal premium key (the workflow passes it; empty = free key). The free key may not ship inside an
+  app-store app; the pipeline and web app are fine.
+- **Output is football-data-shaped,** so the job scripts, highlights matcher and app read it unchanged:
+  league phase = `LEAGUE_STAGE` + matchday; knockout rounds (TheSportsDB codes 32/16/125/150/200 →
+  `PLAYOFFS`, `LAST_16`, `QUARTER_FINALS`, `SEMI_FINALS`, `FINAL`) with matchday = leg, numbered by
+  kickoff order within each tie; statuses mapped to football-data's (FT/AET/PEN → FINISHED, NS → TIMED,
+  1H/2H/ET/P → IN_PLAY, HT/BT → PAUSED, …); a shootout's `fullTime` includes the penalties, as
+  football-data's does. The league table is computed from the results (TheSportsDB's table endpoint is
+  empty for UEFA club competitions).
+- **Qualifiers** reuse the league-phase round numbers, so events before the season's 1 September
+  (`tsdb_season_start`) are dropped.
+- **Team identity:** a club that is also in our football-data data (league fixtures, Champions League)
+  gets its football-data id, names and crest, so favourites and team pages carry over (2026-27: 12 of
+  36 clubs, e.g. Aston Villa, Juventus, Lyon). The others keep a TheSportsDB id moved past
+  `TSDB_ID_OFFSET` (1,000,000,000, never a football-data id) and TheSportsDB's badge; the badge host
+  sends no CORS header, so the app needs a proxy for them. Match ids use the same offset.
+- **Requests:** one `eventsround.php` request returns a whole round. Rounds are cached in
+  `highlights/thesportsdb-rounds.json` and requested again only while they can change: a round settled
+  over 3 days ago never; an active round (kickoff in the last 3 days or next 24 h) every 30 min; future
+  or undrawn rounds daily. The free key refused bursts of ~10-13 requests even at 4 s spacing, so
+  requests are 4 s apart, a 429 is retried once after 65 s, a failed retry stops TheSportsDB requests
+  for that run, and a run makes at most 8. A failed round keeps its cached events; the first fill of a
+  season (13 rounds) spreads over two runs.
+- Dry run against the live API (scratch folder only): 2025-26 = 189 matches, all finished, 144 league +
+  16 play-off + 16 R16 + 8 QF + 4 SF + the final (Freiburg 0-3 Aston Villa); 2026-27 so far = 144
+  league matches, 90 played.
+
+Tests: `scripts/tests/test_thesportsdb_provider.py` (HTTP mocked); `test_provider_registry.py`
+updated for the dormant entry.
+
 ### Finished tournament editions are no longer re-requested; one retry on HTTP 429 (2026-11-28)
 
 `sync_tournaments.py` runs right after `fetch_highlights.py`'s burst of football-data requests. Every run
@@ -1031,11 +1070,12 @@ competition the pipeline knows, in processing order. Each entry has:
 | Field | Meaning |
 |---|---|
 | `slug` | Output folder (`highlights/{slug}/…`, `standings/{slug}/…`, `tournament-groups/{slug}.json`); must match `COMPETITION_SLUG_MAP` |
-| `provider` | Data source: `footballdata` (football-data.org) or `apisports` (API-Sports) |
+| `provider` | Data source: `footballdata` (football-data.org), `apisports` (API-Sports) or `thesportsdb` (TheSportsDB) |
 | `jobs` | The jobs it takes part in: `highlights` (fetch + backfill), `standings` (sync_standings), `tournament_groups` (sync_tournaments) |
 | `enabled` | Optional, default `true`; `false` skips the competition in every job |
 | `job_order` | Optional `{job: rank}`: ranked entries run first in that job, by rank, the rest after in table order. The tournament job uses it to run Euro → World Cup → Champions League, so the UCL requests come last, after the pauses free football-data's 10 req/min limit (run first, they got HTTP 429 every run) |
 | `fd_code` / `fd_id` | football-data.org code (highlights fixtures) and numeric id (standings, tournament groups) |
+| `tsdb_league_id` | TheSportsDB league id (Europa League 4481); optional `tsdb_league_rounds` (default 8), `tsdb_knockout_rounds` (`{round code: stage}`), `tsdb_season_start` (`"MM-DD"`, default `"09-01"`) |
 
 API-Sports competitions keep their provider settings (league id, season, round maps) in
 `APISPORTS_COMPETITIONS` (`scripts/fixture_providers.py`).
@@ -1057,6 +1097,8 @@ API-Sports competitions keep their provider settings (league id, season, round m
 
 `FootballDataProvider` offers all four (the raw urllib fetches are `fd_fetch_standings` /
 `fd_fetch_matches`). `ApiSportsProvider` offers `fixtures` and is `SCHEDULED_JOBS_ONLY`.
+`TheSportsDBProvider` offers `fixtures`, `standings` (computed from results) and
+`tournament_groups`, all built from one cached set of rounds.
 
 **How a job picks its competitions.** `iter_job_providers(job, capability, config)` yields
 every enabled competition in that job, in config order, and skips with one log line (never an
@@ -1065,9 +1107,11 @@ error):
   generic jobs, including the incremental fetch-highlights run, never construct or call it;
 - a provider without the capability the job needs.
 
-Per job today: highlights = the 9 football-data competitions (Copa América is listed and
+Per job today: highlights = the 8 football-data competitions (Copa América is listed and
 skipped as API-Sports); standings = the 5 domestic leagues + Champions League; tournament
-groups = Euro, World Cup, Champions League (in that order, via `job_order`).
+groups = Euro, World Cup, Champions League (in that order, via `job_order`). The Europa League
+(TheSportsDB) is in highlights, standings and tournament groups but `enabled: false`, so no job
+runs it yet.
 
 **Adding a competition that uses a new provider:**
 1. Write a `FixtureProvider` subclass in `scripts/fixture_providers.py`: set `CAPABILITIES`,
@@ -1094,7 +1138,7 @@ groups = Euro, World Cup, Champions League (in that order, via `job_order`).
 | `standings/` | Pre-built standings cache (`{slug}/{season}.json`) — written daily by sync-standings |
 | `scripts/season_utils.py` | Canonical `current_season(now=None)` — the shared August-boundary rule used by both the standings and fixtures pipelines |
 | `scripts/highlights_common.py` | Shared utilities, title filter constants, `is_highlight_title()`, `_normalize()`, `team_tokens()`, `DOMESTIC_LEAGUE_COMPS`, `TEAM_TITLE_ALIASES`, and `season_for_competition()` |
-| `scripts/fixture_providers.py` | Pluggable fixture provider layer — `FixtureProvider` capability model, `PROVIDERS` registry + `get_provider()` / `iter_job_providers()`, `FootballDataProvider` (all-status fetch with `_raw_cache`, `get_fixtures()`, `get_full_season()`, `get_standings()`, `get_tournament_groups()`), `ApiSportsProvider`, and `APISPORTS_COMPETITIONS` config registry |
+| `scripts/fixture_providers.py` | Pluggable fixture provider layer — `FixtureProvider` capability model, `PROVIDERS` registry + `get_provider()` / `iter_job_providers()`, `FootballDataProvider` (all-status fetch with `_raw_cache`, `get_fixtures()`, `get_full_season()`, `get_standings()`, `get_tournament_groups()`), `ApiSportsProvider`, `TheSportsDBProvider` (round cache `highlights/thesportsdb-rounds.json`, `TsdbTeamIndex` football-data team matching, `compute_league_table()`), and `APISPORTS_COMPETITIONS` config registry |
 | `scripts/fetch_highlights.py` | Incremental update script (runs every 15 minutes) |
 | `scripts/backfill_highlights.py` | Full-season backfill script (manual trigger only) |
 | `scripts/backfill_copa_america.py` | Copa America 2024 backfill script — fetches fixtures from API-Sports, finds highlights on YouTube (manual trigger only) |

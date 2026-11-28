@@ -8,6 +8,9 @@ FixtureProvider         -- base class: get_fixtures() plus optional capabilities
                            (get_standings / get_tournament_groups) gated by supports()
 FootballDataProvider    -- football-data.org (all existing FD competitions)
 ApiSportsProvider       -- API-Sports free tier (Copa America 2024; EL parked)
+TheSportsDBProvider     -- TheSportsDB v1 (Europa League): football-data-shaped
+                           matches + computed league table, rounds cached in
+                           highlights/thesportsdb-rounds.json
 ApisportsQuotaTracker   -- daily call-count tracker (highlights/apisports-quota-tracker.json)
 
 PROVIDERS / get_provider()  -- registry: a COMPETITION_CONFIG "provider" value
@@ -26,6 +29,8 @@ Free-tier constraint:
 import json
 import logging
 import os
+import pathlib
+import re
 import sys
 import time
 import urllib.error
@@ -35,11 +40,17 @@ from datetime import datetime, timezone, timedelta
 import requests
 
 from highlights_common import (
+    COMPETITION_CONFIG,
     FD_BASE,
     FD_SLEEP_SECONDS,
     HIGHLIGHTS_DIR,
+    JOB_TOURNAMENT_GROUPS,
     PROVIDER_APISPORTS,
     PROVIDER_FOOTBALLDATA,
+    PROVIDER_THESPORTSDB,
+    SUMMER_TOURNAMENT_COMPS,
+    TEAM_TITLE_ALIASES,
+    _normalize,
     competitions_for_job,
     fd_get,
     load_json_file,
@@ -638,76 +649,7 @@ class FootballDataProvider(FixtureProvider):
         return self._normalize(raw, comp_name)
 
     def _normalize(self, matches: list, comp_name: str) -> dict:
-        # Only FINISHED matches contribute to highlights (SCHEDULED/IN_PLAY
-        # matches have no highlights yet; POSTPONED/CANCELLED never will).
-        # Pre-scan and main loop both skip non-FINISHED to keep is_gameweek_complete
-        # working correctly: if SCHEDULED fixtures were included, a gameweek would
-        # never be complete (SCHEDULED matches never get a video) → every run would
-        # re-search YouTube for it.
-        #
-        # FD sometimes returns the same match twice for stage-aware competitions
-        # (UCL/UEL): once with the correct knockout stage and once with
-        # LEAGUE_STAGE + leg-number as matchday.  Pre-scan to identify match IDs
-        # that have a proper knockout stem so we can skip the spurious league-stage
-        # routing for those IDs.
-        knockout_ids: set[int] = set()
-        for m in matches:
-            if m.get("status") != "FINISHED":
-                continue
-            stage    = m.get("stage", "")
-            matchday = m.get("matchday")
-            if stage not in ("LEAGUE_STAGE", "GROUP_STAGE"):
-                if stage_to_file_stem(stage, matchday, comp_name) is not None:
-                    knockout_ids.add(m["id"])
-
-        by_stem: dict = {}
-        for m in matches:
-            if m.get("status") != "FINISHED":   # highlights only for finished matches
-                continue
-            matchday = m.get("matchday")
-            stage    = m.get("stage", "")
-            utc_str  = m.get("utcDate", "")
-            if not utc_str:
-                continue
-
-            # Skip league-stage routing when a proper knockout stem exists for this ID.
-            if stage in ("LEAGUE_STAGE", "GROUP_STAGE") and m["id"] in knockout_ids:
-                log.debug(
-                    f"{comp_name}: skipping league-stage duplicate for match {m['id']}"
-                )
-                continue
-
-            stem = stage_to_file_stem(stage, matchday, comp_name)
-            if stem is None:
-                continue
-
-            home = m.get("homeTeam", {})
-            away = m.get("awayTeam", {})
-            by_stem.setdefault(stem, []).append({
-                "match_id":   m["id"],
-                "home_team":  home.get("name", ""),
-                "home_short": home.get("shortName") or home.get("name", ""),
-                "home_tla":   home.get("tla", ""),
-                "away_team":  away.get("name", ""),
-                "away_short": away.get("shortName") or away.get("name", ""),
-                "away_tla":   away.get("tla", ""),
-                "date":       utc_str[:10],
-                # Full kickoff time: the matcher refuses clips added to a
-                # playlist before it (see search_playlist).
-                "kickoff":    utc_str,
-                "matchday":   matchday,
-                "stage":      stage,
-                # Final result, for the highlights scoreline guard
-                # (acceptable_scores). Not persisted to highlights files.
-                "status":     m.get("status"),
-                "score":      m.get("score") or {},
-            })
-
-        total = sum(len(v) for v in by_stem.values())
-        log.info(
-            f"{comp_name}: {total} finished fixture(s) across {len(by_stem)} file stem(s)"
-        )
-        return by_stem
+        return finished_fixtures_by_stem(matches, comp_name)
 
     # ── Fixtures-artifact path ────────────────────────────────────────────────
 
@@ -1017,6 +959,643 @@ class ApiSportsProvider(FixtureProvider):
         return body
 
 
+# ── TheSportsDBProvider ───────────────────────────────────────────────────────
+#
+# TheSportsDB (thesportsdb.com, v1 JSON API) supplies competitions football-data's
+# free tier refuses (the Europa League answers 403). The public free key "123"
+# needs no account; set THESPORTSDB_API_KEY (a GitHub Actions secret) to use a
+# personal premium key instead. Free-tier facts this class is built around
+# (measured 2026-11-27):
+#   - documented as 30 requests a minute, but bursts of ~10-13 requests drew
+#     429s at 2.5 s and even 4 s spacing, sometimes still refused 65 s later.
+#     So: TSDB_SLEEP_SECONDS between requests, one retry after
+#     TSDB_RATE_LIMIT_BACKOFF_SECONDS, no more requests in that run once the
+#     retry fails, and at most TSDB_MAX_REQUESTS_PER_RUN per run (the first
+#     fill of a season spreads over two runs; afterwards a run needs 1-3);
+#   - eventsround.php returns a whole round (capped at 50 events); the other list
+#     endpoints stop at 1-15 events, and lookuptable is empty for UEFA club
+#     competitions, so the league table is computed from the results;
+#   - no live scores on the free key, so statuses can arrive late;
+#   - strTimestamp is UTC without a "Z";
+#   - qualifying rounds reuse the league-phase round numbers (2026-27 round 1 =
+#     July qualifiers + September matchday 1), so every round keeps only events
+#     on/after the season's tsdb_season_start (default 1 September);
+#   - knockout round codes: 32 play-off, 16 round of 16, 125 quarter-final,
+#     150 semi-final, 200 final;
+#   - terms: the free key may not ship inside an app-store app (this pipeline and
+#     the web app are fine); badges are third-party marks, used unmodified.
+#
+# Output is football-data-shaped (match and standings payloads), so the job
+# scripts, the highlights matcher and the app read it with no TheSportsDB code.
+# Rounds are cached in TSDB_ROUNDS_CACHE so the ~5-minute runs re-request only
+# rounds that can still change (see tsdb_round_due).
+
+TSDB_BASE = "https://www.thesportsdb.com/api/v1/json"
+TSDB_FREE_KEY = "123"
+TSDB_SLEEP_SECONDS = 4                 # 15 req/min (see the free-tier notes above)
+TSDB_RATE_LIMIT_BACKOFF_SECONDS = 65
+TSDB_MAX_REQUESTS_PER_RUN = 8
+TSDB_ROUNDS_CACHE = HIGHLIGHTS_DIR / "thesportsdb-rounds.json"
+
+# TheSportsDB ids are moved into their own range so a team or match can never
+# share an id with a football-data one (FD team ids are below 100k, match ids
+# around 600k). Clubs that also appear in our football-data data get their FD
+# identity instead (TsdbTeamIndex), so favourites and team pages carry over.
+TSDB_ID_OFFSET = 1_000_000_000
+
+TSDB_DEFAULT_LEAGUE_ROUNDS = 8
+TSDB_DEFAULT_KNOCKOUT_ROUNDS = {
+    32: "PLAYOFFS", 16: "LAST_16", 125: "QUARTER_FINALS", 150: "SEMI_FINALS",
+    200: "FINAL",
+}
+TSDB_DEFAULT_SEASON_START = "09-01"    # MM-DD: earlier events are qualifiers
+_SINGLE_LEG_STAGES = frozenset({"FINAL", "THIRD_PLACE"})
+
+# Round refresh policy (tsdb_round_due).
+TSDB_SETTLED_AFTER = timedelta(days=3)     # finished this long ago: never re-fetched
+TSDB_ACTIVE_BEFORE = timedelta(days=1)     # kickoff within a day: round is active
+TSDB_ACTIVE_REFRESH = timedelta(minutes=30)
+TSDB_IDLE_REFRESH = timedelta(hours=24)    # future / not yet drawn rounds
+
+# TheSportsDB strStatus -> football-data status. The app shows a match as live
+# only for IN_PLAY / PAUSED, so extra time and shootouts map to IN_PLAY.
+_TSDB_STATUS = {
+    "NS": "TIMED", "Not Started": "TIMED", "TBD": "SCHEDULED",
+    "Time to be defined": "SCHEDULED",
+    "1H": "IN_PLAY", "2H": "IN_PLAY", "ET": "IN_PLAY", "P": "IN_PLAY", "LIVE": "IN_PLAY",
+    "HT": "PAUSED", "BT": "PAUSED",
+    "FT": "FINISHED", "AET": "FINISHED", "PEN": "FINISHED", "AP": "FINISHED",
+    "Match Finished": "FINISHED",
+    "PST": "POSTPONED", "Postponed": "POSTPONED",
+    "CANC": "CANCELLED", "Cancelled": "CANCELLED",
+    "ABD": "SUSPENDED", "Abandoned": "SUSPENDED", "SUSP": "SUSPENDED", "INT": "SUSPENDED",
+    "AWD": "AWARDED", "WO": "AWARDED",
+}
+# A round whose events all have one of these statuses can no longer change.
+_TSDB_SETTLED = frozenset({"FINISHED", "CANCELLED", "AWARDED"})
+
+# Only these event fields are cached (the rest is media / betting noise).
+_TSDB_EVENT_FIELDS = (
+    "idEvent", "idLeague", "intRound", "strTimestamp", "dateEvent", "strTime",
+    "idHomeTeam", "strHomeTeam", "strHomeTeamBadge",
+    "idAwayTeam", "strAwayTeam", "strAwayTeamBadge",
+    "intHomeScore", "intAwayScore", "intHomeScoreExtra", "intAwayScoreExtra",
+    "strStatus", "strPostponed",
+)
+
+
+def _tsdb_int(value):
+    try:
+        return int(value)
+    except (TypeError, ValueError):
+        return None
+
+
+def tsdb_season(season: int) -> str:
+    """TheSportsDB's season string for a season starting in [season]."""
+    return f"{season}-{season + 1}"
+
+
+def tsdb_kickoff(event: dict) -> str | None:
+    """The event's kickoff as football-data's "YYYY-MM-DDTHH:MM:SSZ" (UTC), or None."""
+    raw = (event.get("strTimestamp") or "").strip()
+    if not raw:
+        day = (event.get("dateEvent") or "").strip()
+        if not day:
+            return None
+        raw = f"{day}T{(event.get('strTime') or '00:00:00').strip()}"
+    try:
+        dt = datetime.fromisoformat(raw.replace(" ", "T").replace("Z", "+00:00"))
+    except ValueError:
+        return None
+    if dt.tzinfo is None:
+        dt = dt.replace(tzinfo=timezone.utc)   # TheSportsDB timestamps are UTC
+    return dt.astimezone(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+
+
+def tsdb_status(event: dict) -> str:
+    """football-data status for a TheSportsDB event. Unknown values pass through
+    unchanged so sanitize_status publishes them as SCHEDULED, with a warning."""
+    if (event.get("strPostponed") or "").strip().lower() == "yes":
+        return "POSTPONED"
+    raw = (event.get("strStatus") or "").strip()
+    if not raw:
+        return "TIMED"
+    return _TSDB_STATUS.get(raw, raw)
+
+
+def tsdb_score(event: dict, status: str) -> dict:
+    """football-data-shaped score. As football-data does, a shootout's fullTime
+    includes the shootout goals (penalties holds them on their own); TheSportsDB's
+    intHome/AwayScore is the result after extra time and intHome/AwayScoreExtra the
+    shootout."""
+    home, away = _tsdb_int(event.get("intHomeScore")), _tsdb_int(event.get("intAwayScore"))
+    empty = {"home": None, "away": None}
+    score = {"winner": None, "duration": "REGULAR", "fullTime": dict(empty),
+             "halfTime": dict(empty)}
+    if status not in ("FINISHED", "IN_PLAY", "PAUSED") or home is None or away is None:
+        return score
+    raw = (event.get("strStatus") or "").strip()
+    if raw in ("PEN", "AP"):
+        score["duration"] = "PENALTY_SHOOTOUT"
+        ph = _tsdb_int(event.get("intHomeScoreExtra"))
+        pa = _tsdb_int(event.get("intAwayScoreExtra"))
+        if ph is not None and pa is not None:
+            score["penalties"] = {"home": ph, "away": pa}
+            home, away = home + ph, away + pa
+    elif raw == "AET":
+        score["duration"] = "EXTRA_TIME"
+    score["fullTime"] = {"home": home, "away": away}
+    if status == "FINISHED":
+        score["winner"] = ("HOME_TEAM" if home > away
+                           else "AWAY_TEAM" if away > home else "DRAW")
+    return score
+
+
+def tsdb_round_due(entry: dict | None, now: datetime) -> bool:
+    """Whether a cached round should be requested again.
+
+    - never fetched (or unreadable) -> yes;
+    - empty (knockout not drawn yet) -> once a day;
+    - every event finished / cancelled / awarded and the last kickoff more than
+      TSDB_SETTLED_AFTER ago -> never (a postponed game keeps the round open);
+    - a kickoff within the last TSDB_SETTLED_AFTER or the next TSDB_ACTIVE_BEFORE
+      -> every TSDB_ACTIVE_REFRESH;
+    - otherwise (future round) -> once a day.
+    """
+    if not entry:
+        return True
+    try:
+        fetched = datetime.fromisoformat((entry.get("last_updated") or "").replace("Z", "+00:00"))
+    except ValueError:
+        return True
+    if fetched.tzinfo is None:
+        fetched = fetched.replace(tzinfo=timezone.utc)
+    age = now - fetched
+    events = entry.get("events") or []
+    kickoffs = []
+    for e in events:
+        k = tsdb_kickoff(e)
+        if k:
+            kickoffs.append(datetime.fromisoformat(k.replace("Z", "+00:00")))
+    if not kickoffs:
+        return age >= TSDB_IDLE_REFRESH
+    settled = all(tsdb_status(e) in _TSDB_SETTLED for e in events)
+    if settled and max(kickoffs) < now - TSDB_SETTLED_AFTER:
+        return False
+    if any(now - TSDB_SETTLED_AFTER <= k <= now + TSDB_ACTIVE_BEFORE for k in kickoffs):
+        return age >= TSDB_ACTIVE_REFRESH
+    return age >= TSDB_IDLE_REFRESH
+
+
+# Words dropped before comparing club names ("AC Milan" ~ "Milan", "Lille OSC" ~
+# "Lille"): legal forms and generic club words, never a distinguishing name.
+_TEAM_KEY_STOPWORDS = frozenset({
+    "fc", "cf", "afc", "sc", "ac", "as", "ssc", "club", "de", "sk", "fk", "jk", "bk",
+    "if", "cp", "sv", "vfb", "vfl", "tsg", "rc", "ss", "us", "acf", "calcio", "sad",
+    "kv", "nk", "gnk", "rcd", "ud", "cd", "sl", "osc", "hsc", "losc", "1",
+})
+
+
+def tsdb_team_key(name: str) -> str:
+    """Comparable form of a club name: accents folded, punctuation and generic
+    words dropped."""
+    tokens = re.split(r"[^a-z0-9]+", _normalize(name or ""))
+    return " ".join(t for t in tokens if t and t not in _TEAM_KEY_STOPWORDS)
+
+
+def load_known_fd_teams(repo_root=None) -> list[dict]:
+    """Every club team in our football-data data: the league fixture files and the
+    football-data club tournaments' files (Champions League, with archives). The
+    newest file wins for a team's name and crest."""
+    root = pathlib.Path(repo_root) if repo_root else HIGHLIGHTS_DIR.parent
+    files = sorted((root / "fixtures").glob("*/*.json"))
+    for name, cfg in COMPETITION_CONFIG.items():
+        if (cfg.get("provider") == PROVIDER_FOOTBALLDATA
+                and JOB_TOURNAMENT_GROUPS in cfg.get("jobs", ())
+                and name not in SUMMER_TOURNAMENT_COMPS):
+            files += sorted((root / "tournament-groups" / cfg["slug"]).glob("*.json"))
+            files.append(root / "tournament-groups" / f"{cfg['slug']}.json")
+    teams: dict = {}
+    for path in files:
+        data = load_json_file(path)
+        if not isinstance(data, dict):
+            continue
+        for m in (data.get("fixtures") or []) + (data.get("matches") or []) + \
+                (data.get("groupMatches") or []):
+            for side in ("homeTeam", "awayTeam"):
+                t = m.get(side) or {}
+                tid = t.get("id")
+                if isinstance(tid, int) and 0 < tid < TSDB_ID_OFFSET and t.get("name"):
+                    teams[tid] = {**teams.get(tid, {}), **{k: v for k, v in t.items() if v}}
+    return list(teams.values())
+
+
+class TsdbTeamIndex:
+    """Matches TheSportsDB club names to football-data teams.
+
+    A name matches when its tsdb_team_key equals the key of exactly one known FD
+    team's name, short name or title alias (TEAM_TITLE_ALIASES); an ambiguous or
+    unknown name stays a TheSportsDB team (namespaced id, its own badge), named by
+    its title-alias canonical form when there is exactly one."""
+
+    def __init__(self, fd_teams):
+        self._fd: dict[str, dict] = {}
+        for t in fd_teams:
+            names = {t.get("name"), t.get("shortName"), *TEAM_TITLE_ALIASES.get(t.get("name") or "", [])}
+            for n in names:
+                k = tsdb_team_key(n or "")
+                if k:
+                    self._fd.setdefault(k, {})[t["id"]] = t
+        self._canonical: dict[str, set] = {}
+        for canon, aliases in TEAM_TITLE_ALIASES.items():
+            for n in (canon, *aliases):
+                k = tsdb_team_key(n)
+                if k:
+                    self._canonical.setdefault(k, set()).add(canon)
+
+    def fd_team(self, name: str) -> dict | None:
+        found = self._fd.get(tsdb_team_key(name))
+        return next(iter(found.values())) if found and len(found) == 1 else None
+
+    def canonical_name(self, name: str) -> str | None:
+        found = self._canonical.get(tsdb_team_key(name))
+        return next(iter(found)) if found and len(found) == 1 else None
+
+
+def finished_fixtures_by_stem(matches: list, comp_name: str) -> dict:
+    """{file_stem: [fixture]} for the FINISHED matches of a football-data-shaped
+    /matches list (the highlights path, shared by every provider whose matches
+    use that shape)."""
+    # Only FINISHED matches contribute to highlights (SCHEDULED/IN_PLAY
+    # matches have no highlights yet; POSTPONED/CANCELLED never will).
+    # Pre-scan and main loop both skip non-FINISHED to keep is_gameweek_complete
+    # working correctly: if SCHEDULED fixtures were included, a gameweek would
+    # never be complete (SCHEDULED matches never get a video) → every run would
+    # re-search YouTube for it.
+    #
+    # FD sometimes returns the same match twice for stage-aware competitions
+    # (UCL/UEL): once with the correct knockout stage and once with
+    # LEAGUE_STAGE + leg-number as matchday.  Pre-scan to identify match IDs
+    # that have a proper knockout stem so we can skip the spurious league-stage
+    # routing for those IDs.
+    knockout_ids: set[int] = set()
+    for m in matches:
+        if m.get("status") != "FINISHED":
+            continue
+        stage    = m.get("stage", "")
+        matchday = m.get("matchday")
+        if stage not in ("LEAGUE_STAGE", "GROUP_STAGE"):
+            if stage_to_file_stem(stage, matchday, comp_name) is not None:
+                knockout_ids.add(m["id"])
+
+    by_stem: dict = {}
+    for m in matches:
+        if m.get("status") != "FINISHED":   # highlights only for finished matches
+            continue
+        matchday = m.get("matchday")
+        stage    = m.get("stage", "")
+        utc_str  = m.get("utcDate", "")
+        if not utc_str:
+            continue
+
+        # Skip league-stage routing when a proper knockout stem exists for this ID.
+        if stage in ("LEAGUE_STAGE", "GROUP_STAGE") and m["id"] in knockout_ids:
+            log.debug(
+                f"{comp_name}: skipping league-stage duplicate for match {m['id']}"
+            )
+            continue
+
+        stem = stage_to_file_stem(stage, matchday, comp_name)
+        if stem is None:
+            continue
+
+        home = m.get("homeTeam", {})
+        away = m.get("awayTeam", {})
+        by_stem.setdefault(stem, []).append({
+            "match_id":   m["id"],
+            "home_team":  home.get("name", ""),
+            "home_short": home.get("shortName") or home.get("name", ""),
+            "home_tla":   home.get("tla", ""),
+            "away_team":  away.get("name", ""),
+            "away_short": away.get("shortName") or away.get("name", ""),
+            "away_tla":   away.get("tla", ""),
+            "date":       utc_str[:10],
+            # Full kickoff time: the matcher refuses clips added to a
+            # playlist before it (see search_playlist).
+            "kickoff":    utc_str,
+            "matchday":   matchday,
+            "stage":      stage,
+            # Final result, for the highlights scoreline guard
+            # (acceptable_scores). Not persisted to highlights files.
+            "status":     m.get("status"),
+            "score":      m.get("score") or {},
+        })
+
+    total = sum(len(v) for v in by_stem.values())
+    log.info(
+        f"{comp_name}: {total} finished fixture(s) across {len(by_stem)} file stem(s)"
+    )
+    return by_stem
+
+
+def compute_league_table(matches: list, stage: str = "LEAGUE_STAGE") -> list[dict]:
+    """football-data-shaped standings rows for one league phase, from its results.
+
+    Every team with a [stage] fixture is listed (0 played before its first game).
+    Order follows UEFA's league-phase criteria as far as the results allow:
+    points, goal difference, goals scored, away goals scored, wins, away wins;
+    then name, so the order is stable (UEFA's later criteria - opponents' results,
+    disciplinary points, coefficient - aren't in the data)."""
+    rows: dict = {}
+
+    def row(team):
+        r = rows.get(team["id"])
+        if r is None:
+            r = rows[team["id"]] = {
+                "team": {k: team.get(k) for k in ("id", "name", "shortName", "tla", "crest")},
+                "playedGames": 0, "form": None, "won": 0, "draw": 0, "lost": 0,
+                "points": 0, "goalsFor": 0, "goalsAgainst": 0, "goalDifference": 0,
+                "_awayGoals": 0, "_awayWins": 0,
+            }
+        return r
+
+    for m in matches:
+        if m.get("stage") != stage:
+            continue
+        home, away = m.get("homeTeam") or {}, m.get("awayTeam") or {}
+        if home.get("id") is None or away.get("id") is None:
+            continue
+        h, a = row(home), row(away)
+        ft = (m.get("score") or {}).get("fullTime") or {}
+        hg, ag = ft.get("home"), ft.get("away")
+        if m.get("status") != "FINISHED" or hg is None or ag is None:
+            continue
+        for r, gf, ga in ((h, hg, ag), (a, ag, hg)):
+            r["playedGames"] += 1
+            r["goalsFor"] += gf
+            r["goalsAgainst"] += ga
+            r["goalDifference"] = r["goalsFor"] - r["goalsAgainst"]
+            if gf > ga:
+                r["won"] += 1
+                r["points"] += 3
+            elif gf == ga:
+                r["draw"] += 1
+                r["points"] += 1
+            else:
+                r["lost"] += 1
+        a["_awayGoals"] += ag
+        if ag > hg:
+            a["_awayWins"] += 1
+
+    ordered = sorted(rows.values(), key=lambda r: (
+        -r["points"], -r["goalDifference"], -r["goalsFor"], -r["_awayGoals"],
+        -r["won"], -r["_awayWins"], (r["team"].get("name") or "").casefold()))
+    out = []
+    for i, r in enumerate(ordered, 1):
+        r = {k: v for k, v in r.items() if not k.startswith("_")}
+        out.append({"position": i, **r})
+    return out
+
+
+class TheSportsDBProvider(FixtureProvider):
+    """
+    TheSportsDB v1 for one or more competitions (COMPETITION_CONFIG entries with
+    provider "thesportsdb"). Competition settings:
+
+      tsdb_league_id        TheSportsDB league id (required; Europa League 4481)
+      tsdb_league_rounds    league-phase rounds 1..N (default 8)
+      tsdb_knockout_rounds  {round code: football-data stage} (default
+                            TSDB_DEFAULT_KNOCKOUT_ROUNDS)
+      tsdb_season_start     "MM-DD": events before it in the season's start year
+                            are qualifiers and dropped (default "09-01")
+
+    Matches are rebuilt in football-data's /matches shape: stage LEAGUE_STAGE +
+    matchday for the league phase, knockout stages with matchday = leg (1/2, by
+    kickoff order within the tie), FINAL with none. One instance per run caches
+    the converted season, so the fixtures, standings and tournament calls share
+    the same requests.
+    """
+
+    CAPABILITIES = frozenset({CAP_FIXTURES, CAP_STANDINGS, CAP_TOURNAMENT_GROUPS})
+
+    def __init__(self, api_key: str = TSDB_FREE_KEY, base_url: str = TSDB_BASE,
+                 cache_path=None, team_index: TsdbTeamIndex | None = None,
+                 now=None) -> None:
+        self._key = api_key or TSDB_FREE_KEY
+        self._base_url = base_url
+        self._cache_path = pathlib.Path(cache_path or TSDB_ROUNDS_CACHE)
+        self._team_index = team_index
+        self._now = now                      # callable -> aware datetime (tests)
+        self._seasons: dict[tuple, list] = {}
+        self._requests = 0
+        self._rate_limited = False           # a retried 429 failed: stop for this run
+
+    @classmethod
+    def from_config(cls, config: dict) -> "TheSportsDBProvider":
+        key = config.get("tsdb_key") or os.environ.get("THESPORTSDB_API_KEY") or TSDB_FREE_KEY
+        return cls(key, base_url=config.get("tsdb_base_url", TSDB_BASE))
+
+    # ── Uniform per-competition entry points ─────────────────────────────────
+
+    def competition_fixtures(self, comp_name: str, comp_cfg: dict, season: int) -> dict:
+        matches = self.season_matches(comp_name, comp_cfg, season)
+        return finished_fixtures_by_stem(matches, comp_name) if matches else {}
+
+    def get_standings(self, comp_name: str, comp_cfg: dict, season=None) -> dict:
+        season = season or season_for_competition(comp_name)
+        matches = self._require_matches(comp_name, comp_cfg, season)
+        return self._standings_payload(comp_name, season, matches)
+
+    def get_tournament_groups(self, comp_name: str, comp_cfg: dict, season=None):
+        season = season or season_for_competition(comp_name)
+        matches = self._require_matches(comp_name, comp_cfg, season)
+        return (self._standings_payload(comp_name, season, matches),
+                {"filters": {"season": str(season)}, "matches": matches})
+
+    # ── Matches ───────────────────────────────────────────────────────────────
+
+    def season_matches(self, comp_name: str, comp_cfg: dict, season: int) -> list[dict]:
+        """The competition's season as football-data-shaped match dicts, sorted by
+        kickoff; [] when TheSportsDB has nothing (nothing cached, requests failed)."""
+        league_id = comp_cfg["tsdb_league_id"]
+        key = (league_id, season)
+        if key in self._seasons:
+            return self._seasons[key]
+        league_rounds = int(comp_cfg.get("tsdb_league_rounds", TSDB_DEFAULT_LEAGUE_ROUNDS))
+        knockout = {int(k): v for k, v in
+                    (comp_cfg.get("tsdb_knockout_rounds") or TSDB_DEFAULT_KNOCKOUT_ROUNDS).items()}
+        codes = list(range(1, league_rounds + 1)) + list(knockout)
+        cutoff = f"{season}-{comp_cfg.get('tsdb_season_start', TSDB_DEFAULT_SEASON_START)}"
+        index = self._teams()
+        matches, seen, mapped, unmapped = [], set(), set(), set()
+        for code, events in self._season_rounds(league_id, season, codes, cutoff).items():
+            stage = "LEAGUE_STAGE" if code <= league_rounds else knockout[code]
+            for e in events:
+                kickoff = tsdb_kickoff(e)
+                event_id = _tsdb_int(e.get("idEvent"))
+                if not kickoff or event_id is None or kickoff[:10] < cutoff:
+                    continue                 # undated, or a qualifier
+                if event_id in seen:
+                    continue
+                seen.add(event_id)
+                status = tsdb_status(e)
+                home = self._team(index, e, "Home", mapped, unmapped)
+                away = self._team(index, e, "Away", mapped, unmapped)
+                matches.append({
+                    "id":       TSDB_ID_OFFSET + event_id,
+                    "utcDate":  kickoff,
+                    "status":   status,
+                    "matchday": code if stage == "LEAGUE_STAGE" else None,
+                    "stage":    stage,
+                    "group":    None,
+                    "lastUpdated": None,
+                    "homeTeam": home,
+                    "awayTeam": away,
+                    "score":    tsdb_score(e, status),
+                    "tsdbEventId": str(event_id),
+                })
+        _number_legs(matches)
+        matches.sort(key=lambda m: (m["utcDate"], m["id"]))
+        if matches:
+            log.info(f"{comp_name}: {len(matches)} TheSportsDB match(es) for season "
+                     f"{season}; teams matched to football-data: {len(mapped)}, "
+                     f"TheSportsDB-only: {len(unmapped)}")
+        self._seasons[key] = matches
+        return matches
+
+    def _require_matches(self, comp_name, comp_cfg, season) -> list[dict]:
+        matches = self.season_matches(comp_name, comp_cfg, season)
+        if not matches:
+            # Raised so the job keeps its previous file instead of writing an empty one.
+            raise RuntimeError(f"no TheSportsDB data for {comp_name} {tsdb_season(season)}")
+        return matches
+
+    def _teams(self) -> TsdbTeamIndex:
+        if self._team_index is None:
+            self._team_index = TsdbTeamIndex(load_known_fd_teams())
+        return self._team_index
+
+    @staticmethod
+    def _team(index, event, side, mapped, unmapped) -> dict:
+        name = (event.get(f"str{side}Team") or "").strip()
+        fd = index.fd_team(name)
+        if fd is not None:
+            mapped.add(fd["id"])
+            return {
+                "id":        fd["id"],
+                "name":      fd.get("name", ""),
+                "shortName": fd.get("shortName") or fd.get("name", ""),
+                "tla":       fd.get("tla", ""),
+                "crest":     override_crest(fd["id"], fd.get("crest", "")),
+            }
+        tsdb_id = _tsdb_int(event.get(f"id{side}Team"))
+        unmapped.add(tsdb_id)
+        return {
+            "id":        TSDB_ID_OFFSET + tsdb_id if tsdb_id is not None else None,
+            "name":      index.canonical_name(name) or name,
+            "shortName": name,
+            "tla":       "",
+            "crest":     event.get(f"str{side}TeamBadge") or "",
+        }
+
+    def _standings_payload(self, comp_name, season, matches) -> dict:
+        return {
+            "competition": {"name": comp_name},
+            "filters":     {"season": str(season)},
+            "standings":   [{"stage": "LEAGUE_STAGE", "type": "TOTAL",
+                             "group": "League phase",
+                             "table": compute_league_table(matches)}],
+        }
+
+    # ── Rounds: on-disk cache + requests ──────────────────────────────────────
+
+    def _season_rounds(self, league_id, season, codes, cutoff) -> dict[int, list]:
+        """{round code: [raw event]} with every due round re-requested
+        (tsdb_round_due) and the cache file rewritten when anything changed. A
+        failed request keeps that round's cached events. Qualifiers (kickoff
+        before [cutoff], "YYYY-MM-DD") and empty fields are not cached."""
+        now = self._now() if self._now else datetime.now(timezone.utc)
+        cache = load_json_file(self._cache_path) or {}
+        rounds = cache.setdefault(str(league_id), {}).setdefault(str(season), {})
+        changed, deferred = False, 0
+        for code in codes:
+            if not tsdb_round_due(rounds.get(str(code)), now):
+                continue
+            if self._rate_limited or self._requests >= TSDB_MAX_REQUESTS_PER_RUN:
+                deferred += 1
+                continue
+            events = self._get_round(league_id, code, season)
+            if events is None:
+                continue
+            rounds[str(code)] = {
+                "last_updated": now.strftime("%Y-%m-%dT%H:%M:%SZ"),
+                "events": [
+                    {k: e[k] for k in _TSDB_EVENT_FIELDS if e.get(k) not in (None, "")}
+                    for e in events
+                    if str(e.get("idLeague") or league_id) == str(league_id)
+                    and (tsdb_kickoff(e) or "9")[:10] >= cutoff],
+            }
+            changed = True
+        if deferred:
+            why = "rate-limited" if self._rate_limited else                 f"{TSDB_MAX_REQUESTS_PER_RUN}-request cap reached"
+            log.info(f"TheSportsDB: {why} - {deferred} due round(s) of league "
+                     f"{league_id} left for the next run")
+        if changed:
+            write_json_atomic(self._cache_path, cache)
+        return {code: (rounds.get(str(code)) or {}).get("events") or [] for code in codes}
+
+    def _get_round(self, league_id, code, season) -> list | None:
+        """One eventsround.php request; [] for an empty round, None on failure
+        (logged without the URL, which holds the key)."""
+        url = (f"{self._base_url}/{self._key}/eventsround.php"
+               f"?id={league_id}&r={code}&s={tsdb_season(season)}")
+        for attempt in (1, 2):
+            if self._requests:
+                time.sleep(TSDB_SLEEP_SECONDS)
+            self._requests += 1
+            try:
+                req = urllib.request.Request(url, headers={"User-Agent": "refoot-pipeline"})
+                with urllib.request.urlopen(req, timeout=20) as resp:
+                    body = json.loads(resp.read() or b"null")
+                return list((body or {}).get("events") or [])
+            except urllib.error.HTTPError as e:
+                if e.code == 429 and attempt == 1:
+                    print(f"TheSportsDB rate-limited (429) - retrying in "
+                          f"{TSDB_RATE_LIMIT_BACKOFF_SECONDS} s", file=sys.stderr)
+                    time.sleep(TSDB_RATE_LIMIT_BACKOFF_SECONDS)
+                    continue
+                if e.code == 429:
+                    self._rate_limited = True
+                log.warning(f"TheSportsDB HTTP {e.code} for league {league_id} round "
+                            f"{code} - keeping the cached round")
+                return None
+            except (urllib.error.URLError, TimeoutError, ValueError, OSError) as e:
+                log.warning(f"TheSportsDB request failed for league {league_id} round "
+                            f"{code} ({type(e).__name__}) - keeping the cached round")
+                return None
+        return None
+
+
+def _number_legs(matches: list) -> None:
+    """Set matchday = leg (1, 2) on two-legged knockout matches: the ties' games
+    in kickoff order. Single-leg stages (final) keep matchday None, and a tie
+    with more than two games (a data error) is left without legs."""
+    ties: dict = {}
+    for m in matches:
+        if m["stage"] == "LEAGUE_STAGE" or m["stage"] in _SINGLE_LEG_STAGES:
+            continue
+        teams = frozenset((m["homeTeam"].get("id"), m["awayTeam"].get("id")))
+        ties.setdefault((m["stage"], teams), []).append(m)
+    for games in ties.values():
+        if len(games) > 2:
+            log.warning(f"TheSportsDB: {len(games)} games in one {games[0]['stage']} "
+                        f"tie - legs not numbered")
+            continue
+        for leg, m in enumerate(sorted(games, key=lambda g: g["utcDate"]), 1):
+            m["matchday"] = leg
+
+
 # ── Provider registry ─────────────────────────────────────────────────────────
 
 # COMPETITION_CONFIG "provider" value -> provider class. A new data source is a
@@ -1024,6 +1603,7 @@ class ApiSportsProvider(FixtureProvider):
 PROVIDERS: dict[str, type] = {
     PROVIDER_FOOTBALLDATA: FootballDataProvider,
     PROVIDER_APISPORTS:    ApiSportsProvider,
+    PROVIDER_THESPORTSDB:  TheSportsDBProvider,
 }
 
 
