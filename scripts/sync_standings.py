@@ -14,13 +14,12 @@ Cadence:
 TTL in the Flutter app: 2 days (StandingsCacheService._staleDays = 2).
 """
 
-import json, os, sys, time, urllib.request, urllib.error
+import json, os, sys, time, urllib.error
 from datetime import datetime, timezone, timedelta
 
 from season_utils import current_season  # canonical August-threshold rule (shared with fixtures pipeline)
-from highlights_common import override_crest  # manual crest overrides (per FD team id)
-
-FD_BASE = "https://api.football-data.org/v4"
+from highlights_common import JOB_STANDINGS, override_crest  # crest overrides (per FD team id)
+from fixture_providers import CAP_STANDINGS, iter_job_providers
 
 # --if-recent-finish only refreshes a league whose fixtures show a match FINISHED
 # within this window. utcDate is kickoff, so ~4h covers a ~2h match + buffer and
@@ -28,30 +27,36 @@ FD_BASE = "https://api.football-data.org/v4"
 RECENT_FINISH_HOURS = 4
 
 
-# Competitions that get a standings file. Each entry is (FD id, display name, slug).
-COMPETITIONS = [
-    (2021, "Premier League",   "premier-league"),
-    (2014, "LaLiga",           "laliga"),
-    (2019, "Serie A",          "serie-a"),
-    (2002, "Bundesliga",       "bundesliga"),
-    (2015, "Ligue 1",          "ligue-1"),
-    (2001, "Champions League", "ucl"),
-]
+# Competitions that get a standings file: COMPETITION_CONFIG's "standings" job
+# (highlights_common), each fetched through its provider's get_standings().
 
 
-def fetch_standings(comp_id, api_key, base_url=FD_BASE, season=None):
-    """Fetch /standings for a competition. Returns parsed JSON dict.
+def _report_skip(line):
+    print(line, file=sys.stderr)
 
-    Raises urllib.error.HTTPError on non-200 responses.
-    base_url and season are overridable for unit tests.
-    Passing season avoids FD defaulting to a not-yet-started future season.
-    """
-    url = f"{base_url}/competitions/{comp_id}/standings"
-    if season is not None:
-        url += f"?season={season}"
-    req = urllib.request.Request(url, headers={"X-Auth-Token": api_key})
-    with urllib.request.urlopen(req, timeout=15) as resp:
-        return json.loads(resp.read())
+
+def standings_providers(api_key):
+    """(comp_name, comp_cfg, provider) for every competition in the standings job
+    whose provider can supply standings; the others are skipped with one line."""
+    return list(iter_job_providers(JOB_STANDINGS, CAP_STANDINGS, {"fd_key": api_key},
+                                   report=_report_skip))
+
+
+def _sync_one(provider, comp_name, comp_cfg, season, out_dir, suffix=""):
+    """Fetch, flatten and write one competition's standings; errors are logged
+    and skipped (the previous file stays)."""
+    slug = comp_cfg["slug"]
+    try:
+        payload = provider.get_standings(comp_name, comp_cfg, season=season)
+        rows = []
+        for group in extract_total_table(payload):
+            rows.extend(group.get("table", []))
+        path = write_standings(comp_name, slug, rows, season, out_dir)
+        print(f"✓ {comp_name}: {len(rows)} rows → {path}{suffix}")
+    except urllib.error.HTTPError as e:
+        print(f"✗ {comp_name}: HTTP {e.code} — skipping", file=sys.stderr)
+    except Exception as e:
+        print(f"✗ {comp_name}: {e} — skipping", file=sys.stderr)
 
 
 def extract_total_table(standings_payload):
@@ -96,20 +101,10 @@ def write_standings(comp_name, slug, rows, season, out_dir="."):
 
 def main(api_key, out_dir="."):
     season = current_season()
-    for i, (comp_id, comp_name, slug) in enumerate(COMPETITIONS):
+    for i, (comp_name, comp_cfg, provider) in enumerate(standings_providers(api_key)):
         if i > 0:
             time.sleep(7)  # free tier: 10 req/min
-        try:
-            payload = fetch_standings(comp_id, api_key, season=season)
-            rows = []
-            for group in extract_total_table(payload):
-                rows.extend(group.get("table", []))
-            path = write_standings(comp_name, slug, rows, season, out_dir)
-            print(f"✓ {comp_name}: {len(rows)} rows → {path}")
-        except urllib.error.HTTPError as e:
-            print(f"✗ {comp_name}: HTTP {e.code} — skipping", file=sys.stderr)
-        except Exception as e:
-            print(f"✗ {comp_name}: {e} — skipping", file=sys.stderr)
+        _sync_one(provider, comp_name, comp_cfg, season, out_dir)
 
 
 def _finished_kickoffs(slug, season, out_dir="."):
@@ -161,25 +156,15 @@ def main_recent(api_key, out_dir=".", now=None):
     """Smart-skip: refresh standings ONLY for competitions with a recent finish
     (leagues from their fixtures, UCL from its tournament file)."""
     season = current_season(now)
-    eligible = [c for c in COMPETITIONS
-                if had_recent_finish(c[2], season, out_dir, now)]
+    eligible = [c for c in standings_providers(api_key)
+                if had_recent_finish(c[1]["slug"], season, out_dir, now)]
     if not eligible:
         print("No competition had a recent finish - skipping standings (0 FD calls).")
         return
-    for i, (comp_id, comp_name, slug) in enumerate(eligible):
+    for i, (comp_name, comp_cfg, provider) in enumerate(eligible):
         if i > 0:
             time.sleep(7)  # free tier: 10 req/min
-        try:
-            payload = fetch_standings(comp_id, api_key, season=season)
-            rows = []
-            for group in extract_total_table(payload):
-                rows.extend(group.get("table", []))
-            path = write_standings(comp_name, slug, rows, season, out_dir)
-            print(f"✓ {comp_name}: {len(rows)} rows -> {path} (recent finish)")
-        except urllib.error.HTTPError as e:
-            print(f"✗ {comp_name}: HTTP {e.code} - skipping", file=sys.stderr)
-        except Exception as e:
-            print(f"✗ {comp_name}: {e} - skipping", file=sys.stderr)
+        _sync_one(provider, comp_name, comp_cfg, season, out_dir, " (recent finish)")
 
 
 if __name__ == "__main__":

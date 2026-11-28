@@ -36,28 +36,22 @@ import pathlib
 import sys
 import time
 import urllib.error
-import urllib.request
 from datetime import datetime, timezone
 
-from highlights_common import season_for_competition, video_options, COMPETITION_SLUG_MAP
+from highlights_common import (
+    FD_SLEEP_SECONDS, JOB_TOURNAMENT_GROUPS, season_for_competition, video_options,
+    COMPETITION_SLUG_MAP,
+)
 from fixture_providers import (
-    coerce_stale_live_to_finished, preserve_finished, sanitize_status,
+    CAP_TOURNAMENT_GROUPS, coerce_stale_live_to_finished, iter_job_providers,
+    preserve_finished, sanitize_status,
 )
 
-FD_BASE = "https://api.football-data.org/v4"
-FD_SLEEP_SECONDS = 6  # pause between football-data.org requests (10 req/min free tier)
-
-# FD-sourced tournaments whose full cache this script rebuilds. Each entry is
-# (FD competition id, display name, output slug).
-#
-# Copa América is deliberately absent: it is an API-Sports competition owned by
-# scripts/sync_copa_tournament.py.  Adding a future FD tournament is a one-line
-# change here (kept generic — no WC-only special-casing).
-TOURNAMENT_COMPETITIONS = [
-    (2018, "Euro Cup",         "euro-cup"),
-    (2000, "World Cup",        "world-cup"),
-    (2001, "Champions League", "ucl"),
-]
+# The tournaments whose full cache this script rebuilds are COMPETITION_CONFIG's
+# "tournament_groups" job (highlights_common), each fetched through its provider's
+# get_tournament_groups(). Copa América is not in that job: it is an API-Sports
+# competition owned by scripts/sync_copa_tournament.py. Adding a tournament is a
+# config entry (kept generic — no WC-only special-casing).
 
 # Stage values football-data.org uses for knockout rounds. LAST_32 is included
 # so Round-of-32 fixtures (48-team World Cup) flow through like any other round.
@@ -120,32 +114,16 @@ def _identity_crest(name: str, crest: str) -> str:
     return crest
 
 
-# ── football-data.org fetch (urllib; base_url/season overridable for tests) ────
+# ── Providers (the raw fetches live in fixture_providers) ───────────────────────
 
 
-def fetch_matches(comp_id, api_key, base_url=FD_BASE, season=None):
-    """Fetch /matches for a competition. Returns the parsed JSON dict.
-
-    No status filter — the tournament cache needs ALL matches (TIMED knockout
-    slots as well as FINISHED ones) so unplayed fixtures appear with null
-    scores.  Raises urllib.error.HTTPError on non-200 responses.
-    """
-    url = f"{base_url}/competitions/{comp_id}/matches"
-    if season is not None:
-        url += f"?season={season}"
-    req = urllib.request.Request(url, headers={"X-Auth-Token": api_key})
-    with urllib.request.urlopen(req, timeout=15) as resp:
-        return json.loads(resp.read())
-
-
-def fetch_standings(comp_id, api_key, base_url=FD_BASE, season=None):
-    """Fetch /standings for a competition. Returns the parsed JSON dict."""
-    url = f"{base_url}/competitions/{comp_id}/standings"
-    if season is not None:
-        url += f"?season={season}"
-    req = urllib.request.Request(url, headers={"X-Auth-Token": api_key})
-    with urllib.request.urlopen(req, timeout=15) as resp:
-        return json.loads(resp.read())
+def tournament_providers(api_key):
+    """(comp_name, comp_cfg, provider) for every competition in the
+    tournament_groups job whose provider can supply tournament groups; the others
+    are skipped with one line (never an error)."""
+    return list(iter_job_providers(
+        JOB_TOURNAMENT_GROUPS, CAP_TOURNAMENT_GROUPS, {"fd_key": api_key},
+        report=lambda line: print(line, file=sys.stderr)))
 
 
 # ── Cache construction (pure functions) ────────────────────────────────────────
@@ -544,14 +522,15 @@ def archive_season(slug, out_dir="."):
 
 
 def main(api_key, out_dir="."):
-    # 1) Rebuild the FD tournament caches (scores + status + all FD fields).
-    for i, (comp_id, comp_name, slug) in enumerate(TOURNAMENT_COMPETITIONS):
+    tournaments = tournament_providers(api_key)
+    # 1) Rebuild the tournament caches (scores + status + all provider fields).
+    for i, (comp_name, comp_cfg, provider) in enumerate(tournaments):
+        slug = comp_cfg["slug"]
         if i > 0:
             time.sleep(FD_SLEEP_SECONDS)
         try:
-            standings_payload = fetch_standings(comp_id, api_key)
-            time.sleep(FD_SLEEP_SECONDS)
-            matches_payload = fetch_matches(comp_id, api_key)
+            standings_payload, matches_payload = provider.get_tournament_groups(
+                comp_name, comp_cfg)
         except urllib.error.HTTPError as e:
             print(f"✗ {comp_name}: HTTP {e.code} — keeping existing cache",
                   file=sys.stderr)
@@ -583,10 +562,10 @@ def main(api_key, out_dir="."):
     #    the freshly-written local highlights.  No API calls.
     graft_video_ids(out_dir)
 
-    # 3) Archive each FD tournament's current season (after the graft, so the
+    # 3) Archive each tournament's current season (after the graft, so the
     #    archive carries the latest video_ids).
-    for _, comp_name, slug in TOURNAMENT_COMPETITIONS:
-        archived = archive_season(slug, out_dir)
+    for comp_name, comp_cfg, _ in tournaments:
+        archived = archive_season(comp_cfg["slug"], out_dir)
         if archived:
             print(f"✓ {comp_name}: archived {archived}")
 

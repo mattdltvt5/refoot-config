@@ -107,17 +107,85 @@ BACKFILL_CAP      = 9_500  # max YouTube units/day for backfill runs
 
 # ── Competition maps ──────────────────────────────────────────────────────────
 
-# football-data.org competition code → key used in sources.json
+# ── Competition config (single source of truth for the pipeline jobs) ────────
+#
+# Every competition the pipeline knows, keyed by its sources.json name, in the
+# order the jobs process them. Each entry names its data provider (resolved by
+# fixture_providers.get_provider) and the jobs it takes part in:
+#
+#   provider  "footballdata" (football-data.org) or "apisports" (API-Sports;
+#             scheduled jobs only - never reached from the incremental run).
+#   jobs      "highlights"        fetch_highlights.py / backfill_highlights.py
+#             "standings"         sync_standings.py  -> standings/{slug}/{season}.json
+#             "tournament_groups" sync_tournaments.py -> tournament-groups/{slug}.json
+#   enabled   optional, default True; False keeps the entry but skips every job.
+#   fd_code / fd_id   football-data.org competition code (matches path in the
+#             highlights jobs) and numeric id (standings / tournament jobs).
+#             API-Sports competitions keep their provider settings in
+#             fixture_providers.APISPORTS_COMPETITIONS.
+#
+# Adding a competition = one entry here (+ a provider class registered in
+# fixture_providers.PROVIDERS if it needs a new data source). The four job
+# scripts read this table and never name a competition or provider themselves.
+PROVIDER_FOOTBALLDATA = "footballdata"
+PROVIDER_APISPORTS    = "apisports"
+
+JOB_HIGHLIGHTS        = "highlights"
+JOB_STANDINGS         = "standings"
+JOB_TOURNAMENT_GROUPS = "tournament_groups"
+
+COMPETITION_CONFIG: dict[str, dict] = {
+    "Premier League":   {"slug": "premier-league", "provider": PROVIDER_FOOTBALLDATA,
+                         "fd_code": "PL",  "fd_id": 2021,
+                         "jobs": [JOB_HIGHLIGHTS, JOB_STANDINGS]},
+    "LaLiga":           {"slug": "laliga", "provider": PROVIDER_FOOTBALLDATA,
+                         "fd_code": "PD",  "fd_id": 2014,
+                         "jobs": [JOB_HIGHLIGHTS, JOB_STANDINGS]},
+    "Serie A":          {"slug": "serie-a", "provider": PROVIDER_FOOTBALLDATA,
+                         "fd_code": "SA",  "fd_id": 2019,
+                         "jobs": [JOB_HIGHLIGHTS, JOB_STANDINGS]},
+    "Bundesliga":       {"slug": "bundesliga", "provider": PROVIDER_FOOTBALLDATA,
+                         "fd_code": "BL1", "fd_id": 2002,
+                         "jobs": [JOB_HIGHLIGHTS, JOB_STANDINGS]},
+    "Ligue 1":          {"slug": "ligue-1", "provider": PROVIDER_FOOTBALLDATA,
+                         "fd_code": "FL1", "fd_id": 2015,
+                         "jobs": [JOB_HIGHLIGHTS, JOB_STANDINGS]},
+    "Champions League": {"slug": "ucl", "provider": PROVIDER_FOOTBALLDATA,
+                         "fd_code": "CL",  "fd_id": 2001,
+                         "jobs": [JOB_HIGHLIGHTS, JOB_STANDINGS, JOB_TOURNAMENT_GROUPS]},
+    # football-data's free tier answers 403 for the Europa League, so the
+    # highlights jobs log the error and skip it (no fixtures -> no searches).
+    "Europa League":    {"slug": "uel", "provider": PROVIDER_FOOTBALLDATA,
+                         "fd_code": "EL",  "fd_id": 2146,
+                         "jobs": [JOB_HIGHLIGHTS]},
+    "Euro Cup":         {"slug": "euro-cup", "provider": PROVIDER_FOOTBALLDATA,
+                         "fd_code": "EC",  "fd_id": 2018,
+                         "jobs": [JOB_HIGHLIGHTS, JOB_TOURNAMENT_GROUPS]},
+    "World Cup":        {"slug": "world-cup", "provider": PROVIDER_FOOTBALLDATA,
+                         "fd_code": "WC",  "fd_id": 2000,
+                         "jobs": [JOB_HIGHLIGHTS, JOB_TOURNAMENT_GROUPS]},
+    # API-Sports: its fixtures/scores come from the scheduled Copa jobs
+    # (sync_copa_tournament.py, backfill_copa_america.py). The highlights jobs
+    # list it so the skip is explicit and logged; they never call API-Sports.
+    "Copa America":     {"slug": "copa-america", "provider": PROVIDER_APISPORTS,
+                         "jobs": [JOB_HIGHLIGHTS]},
+}
+
+
+def competitions_for_job(job: str) -> list[tuple[str, dict]]:
+    """(name, config) for every enabled competition taking part in [job], in
+    COMPETITION_CONFIG order."""
+    return [
+        (name, cfg) for name, cfg in COMPETITION_CONFIG.items()
+        if cfg.get("enabled", True) and job in cfg.get("jobs", ())
+    ]
+
+
+# football-data.org competition code → key used in sources.json (derived from
+# COMPETITION_CONFIG; kept for callers outside the four job scripts).
 COMPETITION_CODE_MAP: dict[str, str] = {
-    "PL":  "Premier League",
-    "PD":  "LaLiga",
-    "SA":  "Serie A",
-    "BL1": "Bundesliga",
-    "FL1": "Ligue 1",
-    "CL":  "Champions League",
-    "EL":  "Europa League",
-    "EC":  "Euro Cup",
-    "WC":  "World Cup",
+    cfg["fd_code"]: name for name, cfg in COMPETITION_CONFIG.items()
+    if cfg["provider"] == PROVIDER_FOOTBALLDATA and "fd_code" in cfg
 }
 
 # sources.json competition name → output directory slug

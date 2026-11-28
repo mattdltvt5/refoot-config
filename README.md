@@ -4,6 +4,18 @@ Data pipeline and remote configuration for **ReFoot**, the Flutter web app (`ref
 
 ## Recent changes
 
+### Pipeline jobs read the competition config and go through a provider registry (2026-11-27)
+
+The four job scripts no longer name football-data.org or a competition list themselves.
+`fetch_highlights.py`, `backfill_highlights.py`, `sync_standings.py` and `sync_tournaments.py`
+loop over `COMPETITION_CONFIG` (`scripts/highlights_common.py`) and get each competition's data
+from its configured provider through `fixture_providers.iter_job_providers()`. Nothing the
+pipeline writes changed: the same competitions per script, the same paths and shapes, the
+Europa League still logged and skipped after football-data's 403, and API-Sports (Copa
+América) still reached only from its own scheduled jobs. See
+[Competitions and data providers](#competitions-and-data-providers). Pinned by
+`scripts/tests/test_provider_registry.py` (all HTTP mocked).
+
 ### Social posts and pre-kickoff clips refused (2026-11-26)
 
 PSG v Roma (UCL matchday 5) showed "Who is the best player to have played for both PSG & Roma?! 👀 | #UCL", a
@@ -994,6 +1006,63 @@ Added a dedicated `fixtures/{slug}.json` artifact for all five domestic leagues 
 **Tests added:** `scripts/tests/test_league_fixtures.py` — 33 tests covering artifact shape, highlights-path FINISHED filter, no-double-fetch cache, and `DOMESTIC_LEAGUE_COMPS` membership  
 **Total Python tests:** 192 passing
 
+## Competitions and data providers
+
+**Competition config.** `COMPETITION_CONFIG` in `scripts/highlights_common.py` lists every
+competition the pipeline knows, in processing order. Each entry has:
+
+| Field | Meaning |
+|---|---|
+| `slug` | Output folder (`highlights/{slug}/…`, `standings/{slug}/…`, `tournament-groups/{slug}.json`); must match `COMPETITION_SLUG_MAP` |
+| `provider` | Data source: `footballdata` (football-data.org) or `apisports` (API-Sports) |
+| `jobs` | The jobs it takes part in: `highlights` (fetch + backfill), `standings` (sync_standings), `tournament_groups` (sync_tournaments) |
+| `enabled` | Optional, default `true`; `false` skips the competition in every job |
+| `fd_code` / `fd_id` | football-data.org code (highlights fixtures) and numeric id (standings, tournament groups) |
+
+API-Sports competitions keep their provider settings (league id, season, round maps) in
+`APISPORTS_COMPETITIONS` (`scripts/fixture_providers.py`).
+
+**Provider registry.** `fixture_providers.PROVIDERS` maps each `provider` value to a
+`FixtureProvider` subclass; `get_provider(name, config)` returns the instance (one per run, so
+`FootballDataProvider` shares its raw-response cache). An unknown value raises
+`UnknownProviderError` naming the competition and the value.
+
+**Capabilities.** A provider declares what it offers in `CAPABILITIES`, checked with
+`supports(capability)` (the base class supports nothing and raises `NotImplementedError`):
+
+| Capability | Method | Used by |
+|---|---|---|
+| `fixtures` | `competition_fixtures(name, cfg, season)` → `{file_stem: [fixture]}` (finished matches) | fetch_highlights, backfill_highlights |
+| `full_season` | `competition_full_season(name, cfg, season)` → GroupMatch dicts, all statuses | fetch_highlights (`fixtures/{slug}/{season}.json`, domestic leagues) |
+| `standings` | `get_standings(name, cfg, season)` → standings payload | sync_standings |
+| `tournament_groups` | `get_tournament_groups(name, cfg, season)` → `(standings, matches)` payloads | sync_tournaments |
+
+`FootballDataProvider` offers all four (the raw urllib fetches are `fd_fetch_standings` /
+`fd_fetch_matches`). `ApiSportsProvider` offers `fixtures` and is `SCHEDULED_JOBS_ONLY`.
+
+**How a job picks its competitions.** `iter_job_providers(job, capability, config)` yields
+every enabled competition in that job, in config order, and skips with one log line (never an
+error):
+- a `SCHEDULED_JOBS_ONLY` provider (API-Sports) — checked before the provider is built, so the
+  generic jobs, including the incremental fetch-highlights run, never construct or call it;
+- a provider without the capability the job needs.
+
+Per job today: highlights = the 9 football-data competitions (Copa América is listed and
+skipped as API-Sports); standings = the 5 domestic leagues + Champions League; tournament
+groups = Champions League, Euro, World Cup.
+
+**Adding a competition that uses a new provider:**
+1. Write a `FixtureProvider` subclass in `scripts/fixture_providers.py`: set `CAPABILITIES`,
+   implement `from_config(config)` and the methods for those capabilities, returning the same
+   shapes as `FootballDataProvider` (fixture dicts with `match_id`, `home_team`, `home_short`,
+   `home_tla`, `away_*`, `date`, `kickoff`, `matchday`, `stage`, `status`, `score`, keyed by the
+   existing file stems). Set `SCHEDULED_JOBS_ONLY = True` if it must never run in the
+   incremental workflow.
+2. Register it in `PROVIDERS` under a new name.
+3. Add the competition to `COMPETITION_CONFIG` with that `provider`, its `slug` (also in
+   `COMPETITION_SLUG_MAP`) and its `jobs`, plus any provider-specific fields the class reads.
+4. Add tests with mocked HTTP. The four job scripts need no change.
+
 ## Files
 
 | File | Purpose |
@@ -1007,7 +1076,7 @@ Added a dedicated `fixtures/{slug}.json` artifact for all five domestic leagues 
 | `standings/` | Pre-built standings cache (`{slug}/{season}.json`) — written daily by sync-standings |
 | `scripts/season_utils.py` | Canonical `current_season(now=None)` — the shared August-boundary rule used by both the standings and fixtures pipelines |
 | `scripts/highlights_common.py` | Shared utilities, title filter constants, `is_highlight_title()`, `_normalize()`, `team_tokens()`, `DOMESTIC_LEAGUE_COMPS`, `TEAM_TITLE_ALIASES`, and `season_for_competition()` |
-| `scripts/fixture_providers.py` | Pluggable fixture provider layer — `FootballDataProvider` (all-status fetch with `_raw_cache`, `get_fixtures()`, `get_full_season()`, `_normalize_artifact()`), `ApiSportsProvider`, and `APISPORTS_COMPETITIONS` config registry |
+| `scripts/fixture_providers.py` | Pluggable fixture provider layer — `FixtureProvider` capability model, `PROVIDERS` registry + `get_provider()` / `iter_job_providers()`, `FootballDataProvider` (all-status fetch with `_raw_cache`, `get_fixtures()`, `get_full_season()`, `get_standings()`, `get_tournament_groups()`), `ApiSportsProvider`, and `APISPORTS_COMPETITIONS` config registry |
 | `scripts/fetch_highlights.py` | Incremental update script (runs every 15 minutes) |
 | `scripts/backfill_highlights.py` | Full-season backfill script (manual trigger only) |
 | `scripts/backfill_copa_america.py` | Copa America 2024 backfill script — fetches fixtures from API-Sports, finds highlights on YouTube (manual trigger only) |

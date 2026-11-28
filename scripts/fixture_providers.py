@@ -4,10 +4,15 @@ scripts/fixture_providers.py
 
 Pluggable fixture provider layer.
 
-FixtureProvider         -- minimal base class; subclasses implement get_fixtures()
+FixtureProvider         -- base class: get_fixtures() plus optional capabilities
+                           (get_standings / get_tournament_groups) gated by supports()
 FootballDataProvider    -- football-data.org (all existing FD competitions)
 ApiSportsProvider       -- API-Sports free tier (Copa America 2024; EL parked)
 ApisportsQuotaTracker   -- daily call-count tracker (highlights/apisports-quota-tracker.json)
+
+PROVIDERS / get_provider()  -- registry: a COMPETITION_CONFIG "provider" value
+                           (highlights_common) -> provider instance. The job scripts
+                           only ever get providers through it (iter_job_providers).
 
 APISPORTS_COMPETITIONS  -- config-driven registry; adding a competition is a one-entry
                            config change with no code modification needed.
@@ -18,9 +23,11 @@ Free-tier constraint:
     current season.  Live/current-season coverage requires a paid plan.
 """
 
+import json
 import logging
 import os
 import time
+import urllib.request
 from datetime import datetime, timezone, timedelta
 
 import requests
@@ -29,6 +36,9 @@ from highlights_common import (
     FD_BASE,
     FD_SLEEP_SECONDS,
     HIGHLIGHTS_DIR,
+    PROVIDER_APISPORTS,
+    PROVIDER_FOOTBALLDATA,
+    competitions_for_job,
     fd_get,
     load_json_file,
     override_crest,
@@ -416,9 +426,86 @@ APISPORTS_COMPETITIONS: dict = {
 # ── Base class ────────────────────────────────────────────────────────────────
 
 
+# Capabilities a provider may offer (FixtureProvider.supports).
+CAP_FIXTURES          = "fixtures"           # finished fixtures by file stem (highlights jobs)
+CAP_FULL_SEASON       = "full_season"        # all-status season list (fixtures/{slug} artifact)
+CAP_STANDINGS         = "standings"          # get_standings()
+CAP_TOURNAMENT_GROUPS = "tournament_groups"  # get_tournament_groups()
+
+
 class FixtureProvider:
+    """Base class. get_fixtures() is the provider's own (provider-specific
+    signature) fixture call; the job scripts use the uniform per-competition
+    entry points below, each gated by supports(capability)."""
+
+    #: The capabilities this provider implements; the base offers none.
+    CAPABILITIES: frozenset = frozenset()
+    #: True for a provider that may only be called from its own scheduled jobs
+    #: (API-Sports): the generic job loops skip it and log why, so it can never
+    #: be reached from the incremental workflow.
+    SCHEDULED_JOBS_ONLY: bool = False
+
+    @classmethod
+    def from_config(cls, config: dict) -> "FixtureProvider":
+        """Build an instance from the run config (credentials etc.)."""
+        return cls()
+
+    @classmethod
+    def supports(cls, capability: str) -> bool:
+        return capability in cls.CAPABILITIES
+
     def get_fixtures(self, *args, **kwargs) -> dict:
         raise NotImplementedError
+
+    # Uniform per-competition entry points (comp_cfg = a COMPETITION_CONFIG entry).
+
+    def competition_fixtures(self, comp_name: str, comp_cfg: dict, season: int) -> dict:
+        """{file_stem: [fixture]} for the competition's FINISHED matches."""
+        raise NotImplementedError
+
+    def competition_full_season(self, comp_name: str, comp_cfg: dict, season: int) -> list:
+        """GroupMatch-compatible dicts for every match status."""
+        raise NotImplementedError
+
+    def get_standings(self, comp_name: str, comp_cfg: dict, season=None) -> dict:
+        """The competition's standings payload."""
+        raise NotImplementedError
+
+    def get_tournament_groups(self, comp_name: str, comp_cfg: dict, season=None):
+        """(standings_payload, matches_payload) for the tournament cache."""
+        raise NotImplementedError
+
+
+# ── football-data.org raw fetches (urllib; base_url/season overridable for tests)
+
+
+def fd_fetch_matches(comp_id, api_key, base_url=FD_BASE, season=None):
+    """Fetch /matches for a competition. Returns the parsed JSON dict.
+
+    No status filter — the tournament cache needs ALL matches (TIMED knockout
+    slots as well as FINISHED ones) so unplayed fixtures appear with null
+    scores.  Raises urllib.error.HTTPError on non-200 responses.
+    """
+    url = f"{base_url}/competitions/{comp_id}/matches"
+    if season is not None:
+        url += f"?season={season}"
+    req = urllib.request.Request(url, headers={"X-Auth-Token": api_key})
+    with urllib.request.urlopen(req, timeout=15) as resp:
+        return json.loads(resp.read())
+
+
+def fd_fetch_standings(comp_id, api_key, base_url=FD_BASE, season=None):
+    """Fetch /standings for a competition. Returns the parsed JSON dict.
+
+    Raises urllib.error.HTTPError on non-200 responses. Passing season avoids
+    FD defaulting to a not-yet-started future season.
+    """
+    url = f"{base_url}/competitions/{comp_id}/standings"
+    if season is not None:
+        url += f"?season={season}"
+    req = urllib.request.Request(url, headers={"X-Auth-Token": api_key})
+    with urllib.request.urlopen(req, timeout=15) as resp:
+        return json.loads(resp.read())
 
 
 # ── FootballDataProvider ──────────────────────────────────────────────────────
@@ -441,9 +528,38 @@ class FootballDataProvider(FixtureProvider):
     shape used by the fixtures/{slug}.json artifact.
     """
 
-    def __init__(self, fd_key: str) -> None:
+    CAPABILITIES = frozenset({CAP_FIXTURES, CAP_FULL_SEASON, CAP_STANDINGS, CAP_TOURNAMENT_GROUPS})
+
+    def __init__(self, fd_key: str, base_url: str = FD_BASE) -> None:
         self._fd_key    = fd_key
+        self._base_url  = base_url
         self._raw_cache: dict[tuple, list] = {}  # (code, season) → raw match list
+
+    @classmethod
+    def from_config(cls, config: dict) -> "FootballDataProvider":
+        return cls(config.get("fd_key", ""), base_url=config.get("fd_base_url", FD_BASE))
+
+    # ── Uniform per-competition entry points ─────────────────────────────────
+
+    def competition_fixtures(self, comp_name: str, comp_cfg: dict, season: int) -> dict:
+        return self.get_fixtures(comp_cfg["fd_code"], comp_name, season)
+
+    def competition_full_season(self, comp_name: str, comp_cfg: dict, season: int) -> list:
+        return self.get_full_season(comp_cfg["fd_code"], comp_name, season)
+
+    def get_standings(self, comp_name: str, comp_cfg: dict, season=None) -> dict:
+        """/standings payload (verbatim). Raises urllib.error.HTTPError on non-200."""
+        return fd_fetch_standings(comp_cfg["fd_id"], self._fd_key, self._base_url, season)
+
+    def get_tournament_groups(self, comp_name: str, comp_cfg: dict, season=None):
+        """(standings_payload, matches_payload), both verbatim, with the free-tier
+        pause between the two requests. Raises urllib.error.HTTPError on non-200."""
+        standings_payload = fd_fetch_standings(
+            comp_cfg["fd_id"], self._fd_key, self._base_url, season)
+        time.sleep(FD_SLEEP_SECONDS)
+        matches_payload = fd_fetch_matches(
+            comp_cfg["fd_id"], self._fd_key, self._base_url, season)
+        return standings_payload, matches_payload
 
     # ── Internal: single FD request, cached ──────────────────────────────────
 
@@ -460,7 +576,7 @@ class FootballDataProvider(FixtureProvider):
             return self._raw_cache[key]
         try:
             resp = fd_get(
-                f"{FD_BASE}/competitions/{code}/matches",
+                f"{self._base_url}/competitions/{code}/matches",
                 self._fd_key,
                 {"season": str(season)},   # no status= filter → all statuses
             )
@@ -687,6 +803,16 @@ class ApiSportsProvider(FixtureProvider):
     tier covers 2022-2024 only.
     """
 
+    CAPABILITIES = frozenset({CAP_FIXTURES})
+    SCHEDULED_JOBS_ONLY = True
+
+    @classmethod
+    def from_config(cls, config: dict) -> "ApiSportsProvider":
+        return cls(quota_tracker=config.get("apisports_quota"))
+
+    def competition_fixtures(self, comp_name: str, comp_cfg: dict, season: int) -> dict:
+        return self.get_fixtures(comp_name, APISPORTS_COMPETITIONS[comp_name])
+
     def __init__(self, quota_tracker=None) -> None:
         api_key = os.environ.get("APISPORTS_API_KEY", "").strip()
         if not api_key:
@@ -867,6 +993,78 @@ class ApiSportsProvider(FixtureProvider):
             return None
 
         return body
+
+
+# ── Provider registry ─────────────────────────────────────────────────────────
+
+# COMPETITION_CONFIG "provider" value -> provider class. A new data source is a
+# FixtureProvider subclass registered here; the job scripts need no change.
+PROVIDERS: dict[str, type] = {
+    PROVIDER_FOOTBALLDATA: FootballDataProvider,
+    PROVIDER_APISPORTS:    ApiSportsProvider,
+}
+
+
+class UnknownProviderError(ValueError):
+    """A competition names a provider that is not in PROVIDERS."""
+
+
+def provider_class(name: str, competition: str = "?") -> type:
+    """The registered class for [name]; UnknownProviderError naming the
+    competition and the value otherwise."""
+    try:
+        return PROVIDERS[name]
+    except (KeyError, TypeError):
+        raise UnknownProviderError(
+            f"Competition {competition!r} names unknown provider {name!r} "
+            f"(known providers: {', '.join(sorted(PROVIDERS))})"
+        ) from None
+
+
+def get_provider(name: str, config: dict, *, competition: str = "?",
+                 instances: dict | None = None) -> FixtureProvider:
+    """The provider instance for a COMPETITION_CONFIG "provider" value.
+
+    [config] is the run config handed to the provider's from_config (e.g.
+    {"fd_key": ...}). Pass the same [instances] dict for a whole run to share one
+    instance per provider (FootballDataProvider caches its raw responses).
+    """
+    cls = provider_class(name, competition)
+    if instances is not None and name in instances:
+        return instances[name]
+    provider = cls.from_config(config)
+    if instances is not None:
+        instances[name] = provider
+    return provider
+
+
+def iter_job_providers(job: str, capability: str, config: dict, *,
+                       report=None, instances: dict | None = None):
+    """Yield (comp_name, comp_cfg, provider) for every enabled competition in
+    [job] (COMPETITION_CONFIG order) whose provider offers [capability].
+
+    Skipped with one [report] line (default: log.info), never an error:
+      - a SCHEDULED_JOBS_ONLY provider (API-Sports) - checked before the provider
+        is built, so the generic jobs never construct or call it;
+      - a provider without [capability].
+    An unknown provider value raises UnknownProviderError.
+    """
+    report = report or log.info
+    if instances is None:
+        instances = {}
+    for comp_name, comp_cfg in competitions_for_job(job):
+        name = comp_cfg.get("provider")
+        cls = provider_class(name, comp_name)
+        if cls.SCHEDULED_JOBS_ONLY:
+            report(f"{comp_name}: provider {name!r} is only called from its own "
+                   f"scheduled jobs - skipped by {job}")
+            continue
+        if not cls.supports(capability):
+            report(f"{comp_name}: provider {name!r} has no {capability!r} "
+                   f"capability - skipped")
+            continue
+        yield comp_name, comp_cfg, get_provider(
+            name, config, competition=comp_name, instances=instances)
 
 
 # ── ApisportsQuotaTracker ─────────────────────────────────────────────────────
