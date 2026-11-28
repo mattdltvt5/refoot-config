@@ -26,7 +26,9 @@ Free-tier constraint:
 import json
 import logging
 import os
+import sys
 import time
+import urllib.error
 import urllib.request
 from datetime import datetime, timezone, timedelta
 
@@ -478,34 +480,54 @@ class FixtureProvider:
 
 # ── football-data.org raw fetches (urllib; base_url/season overridable for tests)
 
+# football-data's free tier allows 10 requests a minute. The tournament and
+# standings jobs run right after fetch_highlights' burst of fixtures requests, so
+# their first calls can be answered 429; one retry after this pause (the same
+# back-off fd_get uses) lets them through instead of skipping the refresh.
+FD_RATE_LIMIT_BACKOFF_SECONDS = 60
+
+
+def _fd_get_json(url, api_key):
+    """GET [url] with the FD auth header and parse the JSON. On HTTP 429, wait
+    FD_RATE_LIMIT_BACKOFF_SECONDS and retry once; a second 429 (or any other
+    error) raises urllib.error.HTTPError as before, so callers keep their cache."""
+    for attempt in (1, 2):
+        req = urllib.request.Request(url, headers={"X-Auth-Token": api_key})
+        try:
+            with urllib.request.urlopen(req, timeout=15) as resp:
+                return json.loads(resp.read())
+        except urllib.error.HTTPError as e:
+            if e.code != 429 or attempt == 2:
+                raise
+            print(f"football-data.org rate-limited (429) - retrying in "
+                  f"{FD_RATE_LIMIT_BACKOFF_SECONDS} s", file=sys.stderr)
+            time.sleep(FD_RATE_LIMIT_BACKOFF_SECONDS)
+
 
 def fd_fetch_matches(comp_id, api_key, base_url=FD_BASE, season=None):
     """Fetch /matches for a competition. Returns the parsed JSON dict.
 
     No status filter — the tournament cache needs ALL matches (TIMED knockout
     slots as well as FINISHED ones) so unplayed fixtures appear with null
-    scores.  Raises urllib.error.HTTPError on non-200 responses.
+    scores.  Raises urllib.error.HTTPError on non-200 responses (after one
+    retry on 429).
     """
     url = f"{base_url}/competitions/{comp_id}/matches"
     if season is not None:
         url += f"?season={season}"
-    req = urllib.request.Request(url, headers={"X-Auth-Token": api_key})
-    with urllib.request.urlopen(req, timeout=15) as resp:
-        return json.loads(resp.read())
+    return _fd_get_json(url, api_key)
 
 
 def fd_fetch_standings(comp_id, api_key, base_url=FD_BASE, season=None):
     """Fetch /standings for a competition. Returns the parsed JSON dict.
 
-    Raises urllib.error.HTTPError on non-200 responses. Passing season avoids
-    FD defaulting to a not-yet-started future season.
+    Raises urllib.error.HTTPError on non-200 responses (after one retry on
+    429). Passing season avoids FD defaulting to a not-yet-started future season.
     """
     url = f"{base_url}/competitions/{comp_id}/standings"
     if season is not None:
         url += f"?season={season}"
-    req = urllib.request.Request(url, headers={"X-Auth-Token": api_key})
-    with urllib.request.urlopen(req, timeout=15) as resp:
-        return json.loads(resp.read())
+    return _fd_get_json(url, api_key)
 
 
 # ── FootballDataProvider ──────────────────────────────────────────────────────

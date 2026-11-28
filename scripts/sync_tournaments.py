@@ -36,11 +36,11 @@ import pathlib
 import sys
 import time
 import urllib.error
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 
 from highlights_common import (
-    FD_SLEEP_SECONDS, JOB_TOURNAMENT_GROUPS, season_for_competition, video_options,
-    COMPETITION_SLUG_MAP,
+    FD_SLEEP_SECONDS, JOB_TOURNAMENT_GROUPS, SUMMER_TOURNAMENT_COMPS,
+    season_for_competition, video_options, COMPETITION_SLUG_MAP,
 )
 from fixture_providers import (
     CAP_TOURNAMENT_GROUPS, coerce_stale_live_to_finished, iter_job_providers,
@@ -321,6 +321,45 @@ def read_existing(path):
         return {}
 
 
+# A summer tournament whose cached edition has been over this long is left
+# alone until its next edition (see edition_complete).
+EDITION_DONE_AFTER = timedelta(days=30)
+
+
+def edition_complete(comp_name, existing, now=None):
+    """The year of a summer tournament's cached edition when that edition is
+    over and is still the current one, else None.
+
+    Over = every cached match is FINISHED and the last kickoff is more than
+    EDITION_DONE_AFTER ago. Current = that kickoff's year equals
+    season_for_competition(comp_name), the edition the pipeline is on. Such a
+    file can no longer change, and football-data answers its requests 404
+    (Euro) or 429 (they arrive right after the fixtures burst), so refreshing it
+    only spends the 10 req/min budget the Champions League needs. When
+    season_for_competition moves to the next edition the years differ and the
+    refresh resumes. Season competitions (Champions League) are never skipped.
+    """
+    if comp_name not in SUMMER_TOURNAMENT_COMPS or not existing:
+        return None
+    matches = (existing.get("groupMatches") or []) + (existing.get("matches") or [])
+    if not matches or any(m.get("status") != "FINISHED" for m in matches):
+        return None
+    kickoffs = []
+    for m in matches:
+        try:
+            kickoffs.append(datetime.fromisoformat(
+                (m.get("utcDate") or "").replace("Z", "+00:00")))
+        except ValueError:
+            return None
+    last = max(kickoffs)
+    now = now or datetime.now(timezone.utc)
+    if now - last <= EDITION_DONE_AFTER:
+        return None
+    if last.year != season_for_competition(comp_name, now):
+        return None
+    return last.year
+
+
 def finalize_stale_live(data, now=None):
     """Mark FINISHED any scored match still IN_PLAY/PAUSED 4 h after kickoff.
 
@@ -524,10 +563,18 @@ def archive_season(slug, out_dir="."):
 def main(api_key, out_dir="."):
     tournaments = tournament_providers(api_key)
     # 1) Rebuild the tournament caches (scores + status + all provider fields).
-    for i, (comp_name, comp_cfg, provider) in enumerate(tournaments):
+    fetched = 0
+    for comp_name, comp_cfg, provider in tournaments:
         slug = comp_cfg["slug"]
-        if i > 0:
+        existing_path = os.path.join(out_dir, "tournament-groups", f"{slug}.json")
+        done = edition_complete(comp_name, read_existing(existing_path))
+        if done:
+            print(f"· {comp_name}: {done} edition complete - kept as is, no request "
+                  f"until the next edition")
+            continue
+        if fetched:
             time.sleep(FD_SLEEP_SECONDS)
+        fetched += 1
         try:
             standings_payload, matches_payload = provider.get_tournament_groups(
                 comp_name, comp_cfg)
@@ -539,7 +586,6 @@ def main(api_key, out_dir="."):
             print(f"✗ {comp_name}: {e} — keeping existing cache", file=sys.stderr)
             continue
 
-        existing_path = os.path.join(out_dir, "tournament-groups", f"{slug}.json")
         existing_video_ids = read_existing_video_ids(existing_path)
         data = build_tournament_data(
             slug, standings_payload, matches_payload, existing_video_ids
