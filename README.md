@@ -4,6 +4,23 @@ Data pipeline and remote configuration for **ReFoot**, the Flutter web app (`ref
 
 ## Recent changes
 
+### Finished tournament editions are no longer re-requested; one retry on HTTP 429 (2026-11-28)
+
+`sync_tournaments.py` runs right after `fetch_highlights.py`'s burst of football-data requests. Every run
+spent calls on Euro 2024 (answered 404) and World Cup 2026 (often 429), though both caches were complete
+editions that can no longer change, and both files had not refreshed since 29 Aug.
+
+- `edition_complete()`: a summer tournament (`SUMMER_TOURNAMENT_COMPS`) whose cached matches are all
+  FINISHED, whose last kickoff is over 30 days old (`EDITION_DONE_AFTER`) and whose edition year is still
+  `season_for_competition()`'s is kept as is with one log line and no request. When
+  `season_for_competition()` moves to the next edition (Euro 2028, World Cup 2030) the refresh resumes.
+  The Champions League (a season competition) is never skipped.
+- `fixture_providers._fd_get_json()`: the football-data standings/matches fetches (tournament and
+  standings jobs) retry once after `FD_RATE_LIMIT_BACKOFF_SECONDS` (60 s, as `fd_get` does) on HTTP 429.
+  A second 429 or any other error raises as before, so the cache is kept.
+
+Tests: `scripts/tests/test_tournament_rate_limits.py` (HTTP mocked).
+
 ### Pipeline jobs read the competition config and go through a provider registry (2026-11-27)
 
 The four job scripts no longer name football-data.org or a competition list themselves.
