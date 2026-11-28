@@ -82,9 +82,22 @@ def test_standings_job_processes_the_same_competitions():
     assert got == BEFORE_STANDINGS
 
 
-def test_tournament_job_processes_the_same_competitions():
-    got = {(c["fd_id"], n, c["slug"]) for n, c, _ in sync_tournaments.tournament_providers("k")}
-    assert got == set(BEFORE_TOURNAMENTS)
+def test_tournament_job_processes_the_same_competitions_in_the_same_order():
+    # Order matters here: the UCL cache must come last, after the pauses free
+    # football-data's rate limit (first, it hit HTTP 429 on every run).
+    got = [(c["fd_id"], n, c["slug"]) for n, c, _ in sync_tournaments.tournament_providers("k")]
+    assert got == BEFORE_TOURNAMENTS
+
+
+def test_job_order_ranks_first_then_table_order():
+    cfg = {
+        "A": {"slug": "a", "provider": "footballdata", "jobs": ["x"]},
+        "B": {"slug": "b", "provider": "footballdata", "jobs": ["x"], "job_order": {"x": 1}},
+        "C": {"slug": "c", "provider": "footballdata", "jobs": ["x"], "job_order": {"x": 0}},
+        "D": {"slug": "d", "provider": "footballdata", "jobs": ["x"], "job_order": {"y": 0}},
+    }
+    with patch.dict(hc.COMPETITION_CONFIG, cfg, clear=True):
+        assert [n for n, _ in hc.competitions_for_job("x")] == ["C", "B", "A", "D"]
 
 
 def test_config_slugs_match_the_output_slug_map():

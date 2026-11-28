@@ -1017,6 +1017,7 @@ competition the pipeline knows, in processing order. Each entry has:
 | `provider` | Data source: `footballdata` (football-data.org) or `apisports` (API-Sports) |
 | `jobs` | The jobs it takes part in: `highlights` (fetch + backfill), `standings` (sync_standings), `tournament_groups` (sync_tournaments) |
 | `enabled` | Optional, default `true`; `false` skips the competition in every job |
+| `job_order` | Optional `{job: rank}`: ranked entries run first in that job, by rank, the rest after in table order. The tournament job uses it to run Euro → World Cup → Champions League, so the UCL requests come last, after the pauses free football-data's 10 req/min limit (run first, they got HTTP 429 every run) |
 | `fd_code` / `fd_id` | football-data.org code (highlights fixtures) and numeric id (standings, tournament groups) |
 
 API-Sports competitions keep their provider settings (league id, season, round maps) in
@@ -1049,7 +1050,7 @@ error):
 
 Per job today: highlights = the 9 football-data competitions (Copa América is listed and
 skipped as API-Sports); standings = the 5 domestic leagues + Champions League; tournament
-groups = Champions League, Euro, World Cup.
+groups = Euro, World Cup, Champions League (in that order, via `job_order`).
 
 **Adding a competition that uses a new provider:**
 1. Write a `FixtureProvider` subclass in `scripts/fixture_providers.py`: set `CAPABILITIES`,
