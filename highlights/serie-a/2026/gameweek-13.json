@@ -2,7 +2,7 @@
   "competition": "Serie A",
   "gameweek": "GW13",
   "stem": "gameweek-13",
-  "generated_at": "2026-11-27T22:21:21Z",
+  "generated_at": "2026-11-28T00:26:07Z",
   "matches": [
     {
       "match_id": 558515,
@@ -20,14 +20,29 @@
               "US"
             ]
           }
+        },
+        {
+          "video_id": "2EyNu576Bc0",
+          "title": "The Goalies Decide It All | VENEZIA-BOLOGNA | HIGHLIGHTS | Serie A 2026/27",
+          "published_at": "2026-11-27",
+          "tier_used": 2,
+          "region": {
+            "blocked": [
+              "IT"
+            ]
+          }
         }
       ],
       "alternatives": {
-        "checks": 1,
-        "last": "2026-11-27T22:21:21Z",
+        "checks": 2,
+        "last": "2026-11-28T00:26:06Z",
         "sources": "764689f215",
         "covered": [
-          "US"
+          "US",
+          "GB",
+          "CA",
+          "IE",
+          "ES"
         ]
       }
     }
